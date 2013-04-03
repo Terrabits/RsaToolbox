@@ -1,0 +1,57 @@
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
+
+namespace RsaToolbox {
+
+	const double PI =  3.1415926535897932;
+
+	enum Sweep {
+		LINEAR_FREQUENCY_SWEEP,
+		LOG_FREQUENCY_SWEEP,
+		SEGMENTED_SWEEP,
+		POWER_SWEEP,
+		CW_MODE_SWEEP,
+		TIME_SWEEP };
+
+	enum NetworkParameters {
+		S_PARAMETERS,
+		Y_PARAMETERS,
+		Z_PARAMETERS,
+		H_PARAMETERS,
+		G_PARAMETERS };
+
+	enum ComplexDataFormat {
+		DB_DEGREES_COMPLEX_FORMAT,
+		MAGNITUDE_DEGREES_COMPLEX_FORMAT,
+		REAL_IMAGINARY_COMPLEX_FORMAT };
+
+	enum TraceFormat {
+		DB_MAGNITUDE_FORMAT,
+		PHASE_FORMAT,
+		SMITH_CHART_FORMAT,
+		POLAR_FORMAT,
+		SWR_FORMAT,
+		UNWRAP_PHASE_FORMAT,
+		LINEAR_MAGNITUDE_FORMAT,
+		INVERSE_SMITH_CHART_FORMAT,
+		REAL_FORMAT,
+		IMAGINARY_FORMAT,
+		DELAY_FORMAT };
+
+	enum ConnectionType {
+		TCPIP_CONNECTION,
+		GPIB_CONNECTION,
+		USB_CONNECTION };
+
+    enum VnaModel {
+        ZVA,
+        ZVB,
+        ZVH,
+        ZVL,
+        ZVT,
+        ZNB,
+        ZNC };
+
+}
+
+#endif
