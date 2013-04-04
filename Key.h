@@ -2,31 +2,59 @@
 #define KEY_H
 
 // C++ Standard library
+#include <QDir>
 #include <QString>
+#include <QFile>
+#include <QDataStream>
+
 
 namespace RsaToolbox {
 	class Key {
-        QString path;
+        QDir path;
 
 		// Constructor
-        Key(QString path);
+        Key(QDir path) {
+            this->path = path;
+        };
 
 		// Get
-        bool GetSetting(QString key, bool &value);
-        bool GetSetting(QString key, int &value);
-        bool GetSetting(QString key, double &value);
-        bool GetSetting(QString key, QString &value);
+        template <class T>
+        bool Get(QString key, T &value) {
+            AppendThisPath(key);
+            QFile file(key);
+            file.open(QIODevice::ReadOnly);
+            if (file.isOpen()) {
+                QDataStream keyfile(file);
+                keyfile >> value;
+                file.close();
+                return(true);
+            }
+            else {
+                return(false);
+            };
 
 		// Set
-        bool SetSetting(QString key, bool value);
-        bool SetSetting(QString key, int value);
-        bool SetSetting(QString key, double value);
-        bool SetSetting(QString key, QString value);
-        bool SetSetting(QString key, char *value);
+        template <class T>
+        bool Set(QString key, T value) {
+            AppendThisPath(key);
+            QFile file(key);
+            file.open(QIODevice::WriteOnly);
+            if (file.isOpen()) {
+                QDataStream keyfile(file);
+                keyfile << value;
+                file.close();
+                return(true);
+            }
+            else {
+                return(false);
+            }
+        };
 
 	private:
 		// Helpers
-        void AppendThisPath(QString &key);
+        void AppendThisPath(QString &key) {
+            key = path.path() + "/" + key;
+        };
 	};
 }
 

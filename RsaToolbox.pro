@@ -13,10 +13,11 @@ TEMPLATE = lib
 CONFIG += staticlib
 
 SOURCES += \
-    Key.cpp \
     IO.cpp \
     Log.cpp \
-    Network.cpp
+    Network.cpp \
+    General.cpp \
+    Touchstone.cpp
 
 HEADERS += \
     Vna.h \
@@ -25,7 +26,10 @@ HEADERS += \
     Key.h \
     IO.h \
     Definitions.h \
-    Log.h
+    Log.h \
+    General.h \
+    Touchstone.h
+
 unix:!symbian {
     maemo5 {
         target.path = /opt/usr/lib
@@ -34,3 +38,5 @@ unix:!symbian {
     }
     INSTALLS += target
 }
+
+QMAKE_CXXFLAGS += /D_CRT_SECURE_NO_WARNINGS

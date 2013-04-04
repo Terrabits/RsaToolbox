@@ -9,10 +9,7 @@
 #include "Definitions.h"
 #include "Log.h"
 #include "IO.h"
-//#include "InstrumentPropertyList.h"
-//#include "Channel.h"
-//#include "Diagram.h"
-//#include "Trace.h"
+#include "Trace.h"
 
 namespace RsaToolbox {
 	class Vna {
