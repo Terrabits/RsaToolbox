@@ -185,28 +185,28 @@ bool Touchstone::ReadFrequencyPrefix(Network &network, QString units) {
     return(false);
 }
 bool Touchstone::ReadDataType(Network &network, QString type) {
-    QRegularExpression S_REGEX(ToString(S_PARAMETERS), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression Y_REGEX(ToString(Y_PARAMETERS), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression Z_REGEX(ToString(Z_PARAMETERS), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression H_REGEX(ToString(H_PARAMETERS), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression G_REGEX(ToString(G_PARAMETERS), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression S_REGEX(ToString(S_PARAMETER), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression Y_REGEX(ToString(Y_PARAMETER), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression Z_REGEX(ToString(Z_PARAMETER), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression H_REGEX(ToString(H_PARAMETER), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression G_REGEX(ToString(G_PARAMETER), QRegularExpression::CaseInsensitiveOption);
 
     if(type.size() == 1)
 	{
         if (S_REGEX.match(type).hasMatch()) {
-            network.type = S_PARAMETERS; return(true);
+            network.type = S_PARAMETER; return(true);
         }
         if (Y_REGEX.match(type).hasMatch()) {
-            network.type = Y_PARAMETERS; return(true);
+            network.type = Y_PARAMETER; return(true);
         }
         if (Z_REGEX.match(type).hasMatch()) {
-            network.type = Z_PARAMETERS; return(true);
+            network.type = Z_PARAMETER; return(true);
         }
         if (H_REGEX.match(type).hasMatch()) {
-            network.type = H_PARAMETERS; return(true);
+            network.type = H_PARAMETER; return(true);
         }
         if (G_REGEX.match(type).hasMatch()) {
-            network.type = G_PARAMETERS; return(true);
+            network.type = G_PARAMETER; return(true);
         }
     }
 
@@ -356,20 +356,20 @@ QString Touchstone::WriteUnits(Network &network) {
 }
 QString Touchstone::WriteDataType(Network &network) {
     switch (network.type) {
-    case Y_PARAMETERS:
-        return(ToString(Y_PARAMETERS));
+    case Y_PARAMETER:
+        return(ToString(Y_PARAMETER));
 		break;
-    case Z_PARAMETERS:
-        return(ToString(Z_PARAMETERS));
+    case Z_PARAMETER:
+        return(ToString(Z_PARAMETER));
 		break;
-    case H_PARAMETERS:
-        return(ToString(H_PARAMETERS));
+    case H_PARAMETER:
+        return(ToString(H_PARAMETER));
 		break;
-    case G_PARAMETERS:
-        return(ToString(G_PARAMETERS));
+    case G_PARAMETER:
+        return(ToString(G_PARAMETER));
 		break;
 	default:
-        return(ToString(S_PARAMETERS));
+        return(ToString(S_PARAMETER));
 		break;
 	}
 }

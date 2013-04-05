@@ -5,6 +5,7 @@
 #include "Definitions.h"
 
 // Qt
+#include <QDir>
 #include <QString>
 
 // C++ std lib
@@ -19,6 +20,10 @@ QString ToString(SiPrefix prefix);
 QString ToString(Units units);
 QString ToString(ComplexFormat format);
 QString ToString(NetworkParameter parameter);
+
+// File system
+QString AppendPath(QDir path, QString filename);
+QString AppendCurrentDirectory(QString filename);
 
 // Formatting Functions
 QString FormatValue(double value, int decimalPlaces, Units units, SiPrefix prefix = NO_PREFIX);

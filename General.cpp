@@ -1,10 +1,10 @@
 
 // Rsa
-#include "Definitions.h"
 #include "General.h"
 
 // Qt
 #include <QTextStream>
+#include <QCoreApplication>
 
 // C++ std lib
 #include <complex>
@@ -126,22 +126,30 @@ QString RsaToolbox::ToString(ComplexFormat format) {
 }
 QString RsaToolbox::ToString(NetworkParameter parameter) {
     switch(parameter) {
-    case S_PARAMETERS:
+    case S_PARAMETER:
         return("S");
         break;
-    case Y_PARAMETERS:
+    case Y_PARAMETER:
         return("Y");
         break;
-    case Z_PARAMETERS:
+    case Z_PARAMETER:
         return("Z");
         break;
-    case H_PARAMETERS:
+    case H_PARAMETER:
         return("H");
         break;
-    case G_PARAMETERS:
+    case G_PARAMETER:
         return("G");
         break;
     }
+}
+
+// File system
+QString RsaToolbox::AppendPath(QDir path, QString filename) {
+    return(path.path() + "/" + filename);
+}
+QString RsaToolbox::AppendCurrentDirectory(QString filename) {
+    return(QCoreApplication::applicationDirPath() + "/" + filename);
 }
 
 // Formatting

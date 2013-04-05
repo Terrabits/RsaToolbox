@@ -13,22 +13,26 @@ TEMPLATE = lib
 CONFIG += staticlib
 
 SOURCES += \
-    IO.cpp \
     Log.cpp \
     Network.cpp \
     General.cpp \
-    Touchstone.cpp
+    Touchstone.cpp \
+    GenericBus.cpp \
+    RsibBus.cpp \
+    Vna.cpp
 
 HEADERS += \
     Vna.h \
     Trace.h \
     Network.h \
     Key.h \
-    IO.h \
     Definitions.h \
     Log.h \
     General.h \
-    Touchstone.h
+    Touchstone.h \
+    GenericBus.h \
+    RsibBus.h \
+    rsib.h
 
 unix:!symbian {
     maemo5 {

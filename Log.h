@@ -4,38 +4,49 @@
 // Qt Library:
 #include <QString>
 #include <QFile>
+#include <QDir>
 #include <QTextStream>
 
 // RsaToolbox:
 #include "Definitions.h"
 
+// Qt
+#include <QObject>
+#include <QTextStream>
+
+
 namespace RsaToolbox {
 	
-    class Log {
+    class Log : QObject {
 	public:
-
         // Properties
         QString program_name;
-        QString version;
-        QFile logfile;
-        QString path;
-        QTextStream q_text_stream;
+        QString program_version;
+        QDir path;
+        QFile file;
+        QTextStream stream;
 
 		// Constructor / Destructor
-        Log(QString directory, QString filename, QString program_name, QString version);
+        Log(QDir path, QString filename, QString program_name, QString program_version);
         ~Log();
 
 		// Actions
-        void ReOpen(QString directory, QString filename, QString program_name, QString version); // Closes current
-        void Write(QString text);
-        void WriteLine(QString text);
+        void Open();
+        void Close();
+        void PrintProgramHeader();
+        void Rename(QString filename);
 
-		// Logfile
-        void PrintLogHeader();
-        void Rename(QString directory, QString filename); // Closes, re-opens and appends to the end
+        // Operators
+        template <class T>
+        QTextStream& operator<<(T item) {
+            stream << item;
+            return(stream);
+        }
+
+    public slots:
+        void Print(QString formatted_text);
 
     private:
-
         // Action helpers
         void PrintInstrumentStatus();
 		void PrintTruncatedRead(char *buffer);
@@ -43,8 +54,8 @@ namespace RsaToolbox {
 		// Logfile helpers
 		void PrintTime(void);
         void PrintProgramInfo(QString programName, QString version);
-        static void CopyTextfile(QString sourceName, QString destinationName);
 	};
 }
+
 
 #endif

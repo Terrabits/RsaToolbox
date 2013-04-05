@@ -27,9 +27,6 @@ namespace RsaToolbox
 		// Actions
         static bool Read(Network &network, QString filename);
         static bool Write(Network &network, QString filename);
-        static QString WriteUnits(Network &network);
-        static QString WriteDataType(Network &network);
-        static QString WriteFormat(Network &network);
 
 	private:
 		// Fix 2-port arrangement anomaly
@@ -66,6 +63,9 @@ namespace RsaToolbox
 		// Write comments and options line
         static void WriteComments(Network &network, QTextStream &snpFile);
         static void WriteOptions(Network &network, QTextStream &snpFile);
+        static QString WriteUnits(Network &network);
+        static QString WriteDataType(Network &network);
+        static QString WriteFormat(Network &network);
 
 		// Write data
         static void WriteData(Network &network, QTextStream &snpFile);

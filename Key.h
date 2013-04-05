@@ -1,7 +1,7 @@
 #ifndef KEY_H
 #define KEY_H
 
-// C++ Standard library
+// Qt
 #include <QDir>
 #include <QString>
 #include <QFile>
@@ -15,7 +15,7 @@ namespace RsaToolbox {
 		// Constructor
         Key(QDir path) {
             this->path = path;
-        };
+        }
 
 		// Get
         template <class T>
@@ -31,7 +31,8 @@ namespace RsaToolbox {
             }
             else {
                 return(false);
-            };
+            }
+        }
 
 		// Set
         template <class T>
@@ -48,14 +49,14 @@ namespace RsaToolbox {
             else {
                 return(false);
             }
-        };
+        }
 
 	private:
 		// Helpers
         void AppendThisPath(QString &key) {
             key = path.path() + "/" + key;
-        };
-	};
+        }
+    };
 }
 
 

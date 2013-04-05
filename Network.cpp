@@ -30,7 +30,7 @@ void Network::Initialize(void) {
     points = 0;
 
     // Initialize rest to (Touchstone) defaults
-    type = S_PARAMETERS;
+    type = S_PARAMETER;
     format = REAL_IMAGINARY;
     impedance = 50;
     isBalanced = false;

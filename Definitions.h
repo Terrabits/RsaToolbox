@@ -5,9 +5,10 @@
 #include <complex>
 #include <vector>
 
+
 namespace RsaToolbox {
 
-    const char TOOLBOX_VERSION[] = "0.0.1";
+    const char RSA_TOOLBOX_VERSION[] = "0.0.1";
 	const double PI =  3.1415926535897932;
 
     enum SweepType {
@@ -19,11 +20,11 @@ namespace RsaToolbox {
         TIME_DOMAIN };
 
     enum NetworkParameter {
-		S_PARAMETERS,
-		Y_PARAMETERS,
-		Z_PARAMETERS,
-		H_PARAMETERS,
-		G_PARAMETERS };
+        S_PARAMETER,
+        Y_PARAMETER,
+        Z_PARAMETER,
+        H_PARAMETER,
+        G_PARAMETER };
 
     enum ComplexFormat {
         DB_DEGREES,
