@@ -1,0 +1,17 @@
+
+int GetInstrumentPorts(short instrument, std::ofstream &log, std::string logfilename);
+
+std::vector<int> GetChannels(short instrument, std::ofstream &log, std::string logfilename);
+std::vector<std::vector<double>> GetDelays(short instrument, std::vector<int> &channels, int ports, std::ofstream &log, std::string logfilename);
+std::vector<int> GetWindows(short instrument, std::ofstream &log, std::string logfilename);
+std::vector<std::string> GetTracesInWindow(short instrument, int window, std::ofstream &log, std::string logfilename);
+int GetChannelForTrace(short instrument, std::string trace, std::ofstream &log, std::string logfilename);
+std::string GetTitle(std::vector<int> channels, std::vector<bool> &isChannelUsed, int ports, std::vector<std::vector<double>> &delays);
+
+
+// Helpers
+int GetPort1(std::string line);
+int GetPort2(std::string line);
+bool ReadIndices(std::string line, std::vector<int> &indices);
+bool ReadNames(std::string line, std::vector<std::string> &names);
+? std::vector<int> GetPortsUsed(std::string line);

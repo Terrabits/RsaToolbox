@@ -39,6 +39,11 @@ RsibBus::~RsibBus() {
     }
 }
 
+// Status
+bool RsibBus::isOpen(void) {
+    return(instrument != -1);
+}
+
 // Actions
 bool RsibBus::Read(char *buffer, unsigned int bufferSize) {
     QString formatted_text;

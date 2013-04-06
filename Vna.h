@@ -42,12 +42,21 @@ namespace RsaToolbox {
 		void ClearStatus(void);
 
         // Get
+        unsigned int GetPorts(void);
         unsigned int GetSelectedChannel(void);
         QVector<unsigned int> GetChannels(void);
+        double GetDelay_s(unsigned int port);
+        double GetDelay_s(unsigned int port, unsigned int channel);
+        QVector<double> GetDelays_s(void);
         QVector<double> GetDelays_s(unsigned int channel);
-        int GetChannel(QString trace);
+        int Trace_GetChannel(QString trace);
         QVector<unsigned int> GetDiagrams(void);
-        QStringList GetTraces(unsigned int diagram);
+        QString GetTitle(unsigned int diagram);
+        QVector<unsigned int> Channel_GetDiagrams(unsigned int channel);
+        QStringList Channel_GetTraces(unsigned int channel);
+        QVector<unsigned int> Trace_GetDiagrams(QString trace);
+        QStringList GetTraces(void);
+        QStringList Diagram_GetTraces(unsigned int diagram);
         QVector<double> GetSourceAttenuation_dB(void);
         double GetSourceAttenuation_dB(unsigned int port);
         QString GetColorScheme(void);
@@ -62,7 +71,9 @@ namespace RsaToolbox {
 
         // Set
         bool SetSelectedChannel(unsigned int channel);
-        bool SetDelay(unsigned int channel, double delay_s);
+        bool SetDelay(unsigned int port, double delay_s);
+        bool SetDleay(unsigned int port, unsigned int channel, double delay_s);
+        bool Diagram_SetTitle(QString title);
         bool SetUserPreset(QString filename);
         bool SetSourceAttenuation(double attenuation_dB);
         bool SetSourceAttenuation(unsigned int port, double attenuation_dB);
@@ -92,8 +103,11 @@ namespace RsaToolbox {
         bool DisableDynamicBandwidth(bool isDisabled = true);
         bool DisableLowPowerAutoCal(bool isDisabled = true);
 
-        // Delete
-        //
+        // Create
+        bool CreateDiagram(unsigned int diagram);
+
+        // Delete/Clear
+        bool ClearUserPreset(void);
 
         // Measure
         bool MeasureTrace(Trace &trace);
@@ -103,6 +117,10 @@ namespace RsaToolbox {
 
         // Save
         bool SaveCurrentState(QDir path, QString name);
+
+    private:
+        bool ParseIndicesFromRead(QString readback, QVector<unsigned int> &indices);
+        bool ParseNamesFromRead(QString readback, QStringList &names);
 	};
 }
 

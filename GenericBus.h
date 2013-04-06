@@ -20,6 +20,9 @@ namespace RsaToolbox {
         // Constructor
         GenericBus(ConnectionType connectionType, QString address, short timeout_ms);
 
+        // Status
+        bool isOpen() = 0;
+
 		// Actions
         virtual bool Lock(void) = 0;
         virtual bool Unlock(void) = 0;
