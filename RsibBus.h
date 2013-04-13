@@ -21,6 +21,9 @@ namespace RsaToolbox {
         RsibBus(ConnectionType connectionType, QString address, short timeout_ms);
         ~RsibBus();
 
+        // Status
+        bool isOpen();
+
         // Actions
         bool Lock(void);
         bool Unlock(void);

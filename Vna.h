@@ -6,7 +6,6 @@
 #include "Definitions.h"
 #include "General.h"
 #include "GenericBus.h"
-#include "RsibBus.h"
 #include "Log.h"
 #include "Trace.h"
 #include "Network.h"
@@ -28,11 +27,11 @@ namespace RsaToolbox {
         QString firmware;
         QString options;
         unsigned int ports;
-        Log log;
+        Log *log;
         GenericBus *bus;
 
 		// Constructor / Destructor
-        Vna(ConnectionType connectionType, QString instrument_address, QString log_path, QString log_filename, QString program_name, QString program_version);
+        Vna(ConnectionType connectionType, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version);
 		~Vna();
 
     public slots:
@@ -61,7 +60,10 @@ namespace RsaToolbox {
         double GetSourceAttenuation_dB(unsigned int port);
         QString GetColorScheme(void);
         unsigned int GetFontSize_percent(void);
-        double GetSourcePowerLevel_dBm(void);
+        double GetChannelPower_dBm(void);
+        double GetChannelPower_dBm(unsigned int channel);
+        double GetPortPower_dBm(unsigned int port, ReferenceLevel &power_reference, double &power);
+        double GetPortPower_dBm(unsigned int port, unsigned int channel, ReferenceLevel &power_reference, double &power);
         double GetStartFrequency_Hz(void);
         double GetStartFrequency_Hz(unsigned int channel);
         double GetStopFrequency_Hz(void);
@@ -73,7 +75,8 @@ namespace RsaToolbox {
         bool SetSelectedChannel(unsigned int channel);
         bool SetDelay(unsigned int port, double delay_s);
         bool SetDleay(unsigned int port, unsigned int channel, double delay_s);
-        bool Diagram_SetTitle(QString title);
+        bool SetTitle(QString title);
+        bool SetTitle(QString title, unsigned int diagram);
         bool SetUserPreset(QString filename);
         bool SetSourceAttenuation(double attenuation_dB);
         bool SetSourceAttenuation(unsigned int port, double attenuation_dB);
@@ -88,20 +91,41 @@ namespace RsaToolbox {
         bool SetIfBandwidth(unsigned int if_bandwidth, SiPrefix prefix, unsigned int channel);
 
         // Enable
+        bool EnableChannel(unsigned int channel, bool isEnabled = true);
         bool EnableUserPreset(bool isEnabled = true);
-        bool EnableMapUserPresetToRst(bool isEnabled = true);
+        bool EnableUserPresetMapToRst(bool isEnabled = true);
         bool EnableSourcePowerLimits(bool isEnabled = true);
         bool EnableRfOutputPower(bool isEnabled = true);
         bool EnableDynamicBandwidth(bool isEnabled = true);
         bool EnableLowPowerAutoCal(bool isEnabled = true);
 
         // Disable
+        bool DisableChannel(unsigned int channel, bool isDisabled = true);
+        bool DisableDelay(unsigned int port);
+        bool DisableDelay(unsigned int port, unsigned int channel);
+        bool DisableDelays(void);
+        bool DisableDelays(unsigned int channel);
         bool DisableUserPreset(bool isDisabled = true);
-        bool DisableMapUserPresetToRst(bool isDisabled = true);
+        bool DisableUserPresetMapToRst(bool isDisabled = true);
         bool DisableSourcePowerLimits(bool isDisabled = true);
         bool DisableRfOutputPower(bool isDisabled = true);
         bool DisableDynamicBandwidth(bool isDisabled = true);
         bool DisableLowPowerAutoCal(bool isDisabled = true);
+
+        // Status
+        bool isChannelEnabled(unsigned int channel);
+        bool isChannelDisabled(unsigned int channel);
+        bool isPortPowerOffsetEnabled(unsigned int port);
+        bool isPortPowerOffsetDisabled(unsigned int port);
+        bool isPortPowerOffsetEnabled(unsigned int port, unsigned int channel);
+        bool isPortPowerOffsetDisabled(unsigned int port, unsigned int channel);
+        bool isUserPresetEnabled(void);
+        bool isUserPresetMappedToRst();
+        bool isSourcePowerLimitEnabled();
+        bool isRfOutputPowerEnabled();
+        bool isDynamicBandwidthEnabled();
+        bool isLowPowerAutoCalEnabled();
+
 
         // Create
         bool CreateDiagram(unsigned int diagram);
@@ -119,8 +143,14 @@ namespace RsaToolbox {
         bool SaveCurrentState(QDir path, QString name);
 
     private:
-        bool ParseIndicesFromRead(QString readback, QVector<unsigned int> &indices);
-        bool ParseNamesFromRead(QString readback, QStringList &names);
+        // For 'Int1,Name_1,Int2,Name_2...' Query formats
+        static void ParseIndicesFromRead(QString readback, QVector<unsigned int> &indices);
+        static void ParseNamesFromRead(QString readback, QStringList &names);
+
+        // For 'Value,Qualifier_String'
+        static void ParseValueFromRead(QString readback, unsigned int &value, QString &qualifier);
+        static void ParseValueFromRead(QString readback, int &value, QString &qualifier);
+        static void ParseValueFromRead(QString readback, double &value, QString &qualifier);
 	};
 }
 

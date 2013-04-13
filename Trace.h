@@ -13,7 +13,7 @@
 #include <vector>
 
 namespace RsaToolbox {
-	class Trace : public InstrumentPropertyBaseClass  {
+    class Trace  {
 	public:
         unsigned int port1;
         unsigned int port2;

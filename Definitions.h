@@ -26,6 +26,10 @@ namespace RsaToolbox {
         H_PARAMETER,
         G_PARAMETER };
 
+    enum ReferenceLevel {
+        RELATIVE,
+        ABSOLUTE };
+
     enum ComplexFormat {
         DB_DEGREES,
         MAGNITUDE_DEGREES,
