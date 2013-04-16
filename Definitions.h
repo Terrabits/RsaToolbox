@@ -86,6 +86,13 @@ namespace RsaToolbox {
         ZNC,
         UNKNOWN };
 
+    enum ColorScheme {
+        DARK_BACKGROUND,
+        LIGHT_BACKGROUND,
+        BLACK_WHITE_OUTLINE,
+        BLACK_WHITE_SOLID
+    };
+
     typedef std::vector<std::vector<std::vector<std::complex<double>>>> ComplexMatrix3D;
     typedef std::vector<std::vector<std::complex<double>>> ComplexMatrix2D;
     typedef std::vector<std::complex<double>> ComplexRowVector;

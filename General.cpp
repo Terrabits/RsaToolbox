@@ -143,6 +143,106 @@ QString RsaToolbox::ToString(NetworkParameter parameter) {
         break;
     }
 }
+const char* RsaToolbox::ToScpi(ColorScheme scheme) {
+    switch(scheme) {
+    case DARK_BACKGROUND:
+        return("DBAC");
+        break;
+    case LIGHT_BACKGROUND:
+        return("LBAC");
+        break;
+    case BLACK_WHITE_OUTLINE:
+        return("BWLS");
+        break;
+    case BLACK_WHITE_SOLID:
+        return("BWS");
+        break;
+    }
+}
+const char* RsaToolbox::ToScpi(TraceFormat format) {
+    switch(format) {
+    case DB_MAGNITUDE:
+        return("MLOG");
+        break;
+    case PHASE_DEG:
+        return("PHAS");
+        break;
+    case SMITH_CHART:
+        return("SMIT");
+        break;
+    case POLAR_CHART:
+        return("POL");
+        break;
+    case SWR:
+        return("SWR");
+        break;
+    case UNWRAP_PHASE_DEG:
+        return("UPH");
+        break;
+    case LINEAR_MAGNITUDE:
+        return("MLIN");
+        break;
+    case INVERSE_SMITH_CHART:
+        return("ISM");
+        break;
+    case REAL_PART:
+        return("REAL");
+        break;
+    case IMAGINARY_PART:
+        return("IMAG");
+        break;
+    case DELAY:
+        return("GDE");
+        break;
+    }
+}
+TraceFormat Scpi_To_TraceFormat(QString scpi) {
+    if (scpi == "MLOG")
+        return(DB_MAGNITUDE);
+    if (scpi == "PHAS")
+        return(PHASE_DEG);
+    if (scpi == "SMIT")
+        return(SMITH_CHART);
+    if (scpi == "POL")
+        return(POLAR_CHART);
+    if (scpi == "SWR")
+        return(SWR);
+    if (scpi == "UPH")
+        return(UNWRAP_PHASE_DEG);
+    if (scpi == "MLIN")
+        return(LINEAR_MAGNITUDE);
+    if (scpi == "ISM")
+        return(INVERSE_SMITH_CHART);
+    if (scpi == "REAL")
+        return(REAL_PART);
+    if (scpi == "IMAG")
+        return(IMAGINARY_PART);
+    if (scpi == "GDE")
+        return(DELAY);
+}
+
+ColorScheme RsaToolbox::Scpi_To_ColorScheme(QString scpi) {
+    if(scpi == "DBAC")
+        return(DARK_BACKGROUND);
+    if(scpi == "LBAC")
+        return(LIGHT_BACKGROUND);
+    if(scpi == "BWLS")
+        return(BLACK_WHITE_OUTLINE);
+    if(scpi == "BWS")
+        return(BLACK_WHITE_SOLID);
+}
+NetworkParameter RsaToolbox::Scpi_To_NetworkParameter(QString scpi) {
+    if (scpi == "S")
+        return(S_PARAMETER);
+    if (scpi == "Y")
+        return(Y_PARAMETER);
+    if (scpi == "Z")
+        return(Z_PARAMETER);
+    if (scpi == "H")
+        return(H_PARAMETER);
+    if (scpi == "G")
+        return(G_PARAMETER);
+}
 
 // File system
 QString RsaToolbox::AppendPath(QDir path, QString filename) {
