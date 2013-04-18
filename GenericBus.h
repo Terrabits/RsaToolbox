@@ -10,7 +10,9 @@
 
 
 namespace RsaToolbox {
-    class GenericBus : QObject {
+    class GenericBus : public QObject {
+    private: Q_OBJECT
+
 	public:
 		// Instrument connection info
 		ConnectionType connectionType;

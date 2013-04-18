@@ -38,8 +38,13 @@ void Log::Rename(QString filename) {
     file.rename(filename);
 }
 
+void Log::Print(QString formatted_text) {
+    stream << formatted_text;
+    stream.flush();
+}
+
 void Log::PrintProgramHeader() {
     stream << program_name << " Version " << program_version << endl;
-    stream << "(c) 2013 Rohde & Schwarz America" << endl << endl;
-    stream << QDateTime::currentDateTime().toString() << endl << endl;
+    stream << "(C) 2013 Rohde & Schwarz America" << endl << endl;
+    stream << QDateTime::currentDateTime().toString() << endl << endl << endl;
 }

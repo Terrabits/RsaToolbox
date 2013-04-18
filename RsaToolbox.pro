@@ -45,5 +45,4 @@ unix:!symbian {
 
 QMAKE_CXXFLAGS += /D_CRT_SECURE_NO_WARNINGS
 
-OTHER_FILES += \
-    ToKeep.txt
+OTHER_FILES +=

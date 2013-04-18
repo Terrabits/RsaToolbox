@@ -17,7 +17,9 @@
 
 namespace RsaToolbox {
 	
-    class Log : QObject {
+    class Log : public QObject {
+    private: Q_OBJECT
+
 	public:
         // Properties
         QString program_name;

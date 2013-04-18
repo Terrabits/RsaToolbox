@@ -24,9 +24,11 @@ namespace RsaToolbox {
 	class Vna {
 	public:
         VnaModel model;
-        QString firmware;
+        QString firmware_version;
+        QString serial_no;
         QString options;
         unsigned int ports;
+        double minimum_frequency_Hz, maximum_frequency_Hz;
         Log *log;
         GenericBus *bus;
 
@@ -35,7 +37,6 @@ namespace RsaToolbox {
 		~Vna();
 
     public slots:
-
         /***********************
         *** ACTIONS ************
         ***********************/
@@ -43,6 +44,7 @@ namespace RsaToolbox {
 		void Preset(void);
 		void ClearStatus(void);
 
+    public:
         /***********************
         *** STATUS *************
         ***********************/
@@ -54,37 +56,49 @@ namespace RsaToolbox {
         bool isPortPowerOffsetEnabled(unsigned int port, unsigned int channel);
         bool isPortPowerOffsetDisabled(unsigned int port, unsigned int channel);
         bool isUserPresetEnabled(void);
+        bool isUserPresetDisabled(void);
         bool isUserPresetMappedToRst();
         bool isSourcePowerLimitEnabled();
+        bool isSourcePowerLimitDisabled();
         bool isRfOutputPowerEnabled();
+        bool isRfOutputPowerDisabled();
         bool isDynamicBandwidthEnabled();
+        bool isDynamicBandwidthDisabled();
         bool isLowPowerAutoCalEnabled();
+        bool isLowPowerAutoCalDisabled();
 
+    public slots:
         /***********************
         *** SELECT *************
         ***********************/
 
-        bool SelectTrace(QString trace_name);
+        void SelectTrace(QString trace_name);
 
+    public:
         /***********************
         *** GET ****************
         ***********************/
 
         // GET:General
+        QString GetIdentificationString(void);
+        QString GetOptionsString(void);
         unsigned int GetPorts(void);
-        QString GetSelectedTrace(void);
-        QString GetSelectedTrace(unsigned int channel);
+        double GetMinimumFrequency_Hz(void);
+        double GetMaximumFrequency_Hz(void);
         double GetSourceAttenuation_dB(unsigned int port);
         double GetSourceAttenuation_dB(unsigned int port, unsigned int channel);
         double GetReceiverAttenuation_dB(unsigned int port);
         double GetReceiverAttenuation_dB(unsigned int port, unsigned int channel);
         ColorScheme GetColorScheme(void);
         unsigned int GetFontSize_percent(void);
+        QString GetUserPreset(void);
 
         // GET:Channel
         QVector<unsigned int> GetChannels(void);
         QVector<unsigned int> Channel_GetDiagrams(unsigned int channel);
         QStringList Channel_GetTraces(unsigned int channel);
+        QString Channel_GetSelectedTrace(void);
+        QString Channel_GetSelectedTrace(unsigned int channel);
         double GetDelay_s(unsigned int port);
         double GetDelay_s(unsigned int port, unsigned int channel);
         QVector<double> GetDelays_s(void);
@@ -97,6 +111,8 @@ namespace RsaToolbox {
         double GetStartFrequency_Hz(unsigned int channel);
         double GetStopFrequency_Hz(void);
         double GetStopFrequency_Hz(unsigned int channel);
+        double GetIfBandwidth(void);
+        double GetIfBandwidth(unsigned int channel);
         unsigned int GetPoints(void);
         unsigned int GetPoints(unsigned int channel);
 
@@ -114,59 +130,82 @@ namespace RsaToolbox {
         unsigned int Trace_GetDiagram(QString trace_name);
 
 
-
+    public slots:
         /***********************
         *** SET ****************
         ***********************/
 
-        bool SetSelectedChannel(unsigned int channel);
-        bool SetDelay(unsigned int port, double delay_s);
-        bool SetDelay(unsigned int port, unsigned int channel, double delay_s);
-        bool Trace_SetChannel(unsigned int channel);
-        bool Trace_SetChannel(unsigned int channel, QString trace_name);
-        bool Trace_SetDiagram(unsigned int diagram);
-        bool Trace_SetDiagram(unsigned int diagram, QString trace_name);
-        bool SetTitle(QString title);
-        bool SetTitle(QString title, unsigned int diagram);
-        bool SetUserPreset(QString filename);
-        bool SetSourceAttenuation(double attenuation_dB);
-        bool SetSourceAttenuation(unsigned int port, double attenuation_dB);
-        bool SetColorScheme(QString color_scheme);
-        bool SetFontSize(unsigned int font_size_percent);
-        bool SetSourcePowerLevel(double power_level_dBm);
-        bool SetStartFrequency(double frequency, SiPrefix prefix = NO_PREFIX);
-        bool SetStopFrequency(double frequency, SiPrefix prefix = NO_PREFIX);
-        bool SetPoints(unsigned int points);
-        bool SetPoints(unsigned int points, unsigned int channel);
-        bool SetIfBandwidth(unsigned int if_bandwidth, SiPrefix prefix = NO_PREFIX);
-        bool SetIfBandwidth(unsigned int if_bandwidth, SiPrefix prefix, unsigned int channel);
+        // SET:General
+        void SetIdentificationString(QString id_string);
+        void SetOptionsString(QString options_string);
+        void SetSourceAttenuation_dB(unsigned int port, double attenuation);
+        void SetSourceAttenuation_dB(unsigned int port, unsigned int channel, double attenuation);
+        void SetReceiverAttenuation_dB(unsigned int port, double attenuation);
+        void SetReceiverAttenuation_dB(unsigned int port, unsigned int channel, double attenuation);
+        void SetColorScheme(ColorScheme scheme);
+        void SetFontSize_percent(unsigned int size_percent);
+        void SetUserPreset(QString filename);
+        void SetUserPreset(QString filename, QDir path);
 
+        // SET:Channel
+        void Channel_SetSelectedTrace(QString trace_name);
+        void SetDelay(unsigned int port, double delay, SiPrefix prefix = NO_PREFIX);
+        void SetDelay(unsigned int port, unsigned int channel, double delay, SiPrefix prefix = NO_PREFIX);
+        void SetDelays(QVector<double> delays, SiPrefix prefix = NO_PREFIX);
+        void SetDelays(unsigned int channel, QVector<double> delays, SiPrefix prefix = NO_PREFIX);
+        void SetChannelPower_dBm(double power_dBm);
+        void SetChannelPower_dBm(unsigned int channel, double power_dBm);
+        void SetPortPower(unsigned int port, double power_dBm, ReferenceLevel power_reference = ABSOLUTE);
+        void SetPortPower(unsigned int port, unsigned int channel, double power_dBm, ReferenceLevel power_reference = ABSOLUTE);
+        void SetStartFrequency(double start_frequency, SiPrefix prefix = NO_PREFIX);
+        void SetStartFrequency(unsigned int channel, double start_frequency, SiPrefix prefix = NO_PREFIX);
+        void SetStopFrequency(double stop_frequency, SiPrefix prefix = NO_PREFIX);
+        void SetStopFrequency(unsigned int channel, double stop_frequency, SiPrefix prefix = NO_PREFIX);
+        void SetIfBandwidth(double if_bandwidth, SiPrefix prefix = NO_PREFIX);
+        void SetIfBandwidth(unsigned int channel, double if_bandwidth, SiPrefix prefix = NO_PREFIX);
+        void SetPoints(unsigned int points);
+        void SetPoints(unsigned int channel, unsigned int points);
+
+        // SET:Diagram
+        void SetTitle(unsigned int diagram, QString title);
+
+        // SET:Trace
+        // void Trace_SetChannel(QString trace_name, unsigned int channel);
+        void Trace_SetParameters(QString trace_name, NetworkParameter parameter, unsigned int port1, unsigned int port2);
+        void Trace_SetFormat(QString trace_name, TraceFormat format);
+        // void Trace_SetDiagram(QString trace_name, unsigned int diagram);
+
+    public slots:
         /***********************
         *** ENABLE *************
         ***********************/
 
-        bool EnableUserPreset(bool isEnabled = true);
-        bool EnableUserPresetMapToRst(bool isEnabled = true);
-        bool EnableSourcePowerLimits(bool isEnabled = true);
-        bool EnableRfOutputPower(bool isEnabled = true);
-        bool EnableDynamicBandwidth(bool isEnabled = true);
-        bool EnableLowPowerAutoCal(bool isEnabled = true);
+        void EnableUserPreset(bool isEnabled = true);
+        void EnableUserPresetMapToRst(bool isEnabled = true);
+        void EnableSourcePowerLimits(bool isEnabled = true);
+        void EnableRfOutputPower(bool isEnabled = true);
+        void EnableDynamicBandwidth(bool isEnabled = true);
+        void EnableLowPowerAutoCal(bool isEnabled = true);
 
+    public slots:
         /***********************
         *** DISABLE ************
         ***********************/
 
-        bool DisableDelay(unsigned int port);
-        bool DisableDelay(unsigned int port, unsigned int channel);
-        bool DisableDelays(void);
-        bool DisableDelays(unsigned int channel);
-        bool DisableUserPreset(bool isDisabled = true);
-        bool DisableUserPresetMapToRst(bool isDisabled = true);
-        bool DisableSourcePowerLimits(bool isDisabled = true);
-        bool DisableRfOutputPower(bool isDisabled = true);
-        bool DisableDynamicBandwidth(bool isDisabled = true);
-        bool DisableLowPowerAutoCal(bool isDisabled = true);
+        void DisableCustomIdString(bool isDisabled = true);
+        void DisableCustomOptionsString(bool isDisabled = true);
+        void DisableDelay(unsigned int port, bool isDisabled = true);
+        void DisableDelay(unsigned int port, unsigned int channel, bool isDisabled = true);
+        void DisableDelays(bool isDisabled = true);
+        void DisableDelays(unsigned int channel, bool isDisabled = true);
+        void DisableUserPreset(bool isDisabled = true);
+        void DisableUserPresetMapToRst(bool isDisabled = true);
+        void DisableSourcePowerLimits(bool isDisabled = true);
+        void DisableRfOutputPower(bool isDisabled = true);
+        void DisableDynamicBandwidth(bool isDisabled = true);
+        void DisableLowPowerAutoCal(bool isDisabled = true);
 
+    public slots:
         /***********************
         *** CREATE *************
         ***********************/
@@ -174,6 +213,7 @@ namespace RsaToolbox {
         bool CreateChannel(unsigned int channel);
         bool CreateDiagram(unsigned int diagram);
 
+    public slots:
         /***********************
         *** DELETE *************
         ***********************/
@@ -181,24 +221,32 @@ namespace RsaToolbox {
         bool DeleteChannel(unsigned int channel);
         bool DeleteUserPreset(void);
 
+    public slots:
         /***********************
         *** MEASURE ************
         ***********************/
+
 
         bool MeasureTrace(Trace &trace);
         bool MeasureTrace(Trace &trace, QString name);
         bool MeasureNetwork(Network &network, QVector<unsigned int> ports);
         bool MeasureNetwork(Network &network, QVector<unsigned int> ports, unsigned int channel);
 
+    public slots:
         /***********************
         *** SAVE ***************
         ***********************/
         bool SaveCurrentState(QDir path, QString name);
 
+
+    private:
         /***********************
         *** PRIVATE ************
         ***********************/
-    private:
+
+        bool isRohdeSchwarz(QString identification);
+        void GetInstrumentInfo(QString id);
+        VnaModel ParseModel(QString id_part_2);
 
         // readback format: "\'Int1,Name_1,Int2,Name_2,...\'"
         static void ParseIndicesFromRead(QString readback, QVector<unsigned int> &indices);
@@ -208,6 +256,9 @@ namespace RsaToolbox {
         static void ParseValueFromRead(QString readback, unsigned int &value, QString &qualifier);
         static void ParseValueFromRead(QString readback, int &value, QString &qualifier);
         static void ParseValueFromRead(QString readback, double &value, QString &qualifier);
+        QString ValueQualifier_to_Scpi(unsigned int value, QString qualifier);
+        QString ValueQualifier_to_Scpi(int value, QString qualifier);
+        QString ValueQualifier_to_Scpi(double value, QString qualifier);
 
         // Trace format: "\'S12\'" or "\'S1213\'"
         static void ParseTraceParameters(QString readback, NetworkParameter &parameter, unsigned int &port1, unsigned int &port2);

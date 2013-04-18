@@ -15,34 +15,34 @@ using namespace RsaToolbox;
 double RsaToolbox::ToDouble(SiPrefix prefix) {
     switch(prefix) {
     case TERA:
-        return(10E12);
+        return(1E12);
         break;
     case GIGA:
-        return(10E9);
+        return(1E9);
         break;
     case MEGA:
-        return(10E6);
+        return(1E6);
         break;
     case KILO:
-        return(10E3);
+        return(1E3);
         break;
     case NO_PREFIX:
-        return(10E0);
+        return(1E0);
         break;
     case MILLI:
-        return(10E-3);
+        return(1E-3);
         break;
     case MICRO:
-        return(10E-6);
+        return(1E-6);
         break;
     case NANO:
-        return(10E-9);
+        return(1E-9);
         break;
     case PICO:
-        return(10E-12);
+        return(1E-12);
         break;
     case FEMTO:
-        return(10E-15);
+        return(1E-15);
         break;
     }
 }
@@ -143,6 +143,32 @@ QString RsaToolbox::ToString(NetworkParameter parameter) {
         break;
     }
 }
+QString RsaToolbox::ToString(VnaModel model) {
+    switch(model) {
+    case ZVA:
+        return(QString("ZVA"));
+    case ZVB:
+        return(QString("ZVB"));
+    case ZVH:
+        return(QString("ZVH"));
+    case ZVL:
+        return(QString("ZVL"));
+    case ZVT:
+        return(QString("ZVT"));
+    case ZNB:
+        return(QString("ZNB"));
+    case ZNC:
+        return(QString("ZNC"));
+    case UNKNOWN:
+        return(QString("UNKNOWN"));
+    }
+}
+const char* RsaToolbox::ToScpi(ReferenceLevel reference_level) {
+    if (reference_level == RELATIVE)
+        return("CPAD");
+    if (reference_level == ABSOLUTE)
+        return("ONLY");
+}
 const char* RsaToolbox::ToScpi(ColorScheme scheme) {
     switch(scheme) {
     case DARK_BACKGROUND:
@@ -196,7 +222,7 @@ const char* RsaToolbox::ToScpi(TraceFormat format) {
         break;
     }
 }
-TraceFormat Scpi_To_TraceFormat(QString scpi) {
+TraceFormat RsaToolbox::Scpi_To_TraceFormat(QString scpi) {
     if (scpi == "MLOG")
         return(DB_MAGNITUDE);
     if (scpi == "PHAS")
@@ -220,7 +246,6 @@ TraceFormat Scpi_To_TraceFormat(QString scpi) {
     if (scpi == "GDE")
         return(DELAY);
 }
-
 ColorScheme RsaToolbox::Scpi_To_ColorScheme(QString scpi) {
     if(scpi == "DBAC")
         return(DARK_BACKGROUND);
@@ -242,6 +267,12 @@ NetworkParameter RsaToolbox::Scpi_To_NetworkParameter(QString scpi) {
         return(H_PARAMETER);
     if (scpi == "G")
         return(G_PARAMETER);
+}
+ReferenceLevel RsaToolbox::Scpi_To_ReferenceLevel(QString scpi) {
+    if (scpi == "CPAD")
+        return(RELATIVE);
+    if (scpi == "ONLY")
+        return(ABSOLUTE);
 }
 
 // File system

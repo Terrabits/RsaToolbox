@@ -11,7 +11,9 @@
 
 
 namespace RsaToolbox {
-    class RsibBus : GenericBus {
+    class RsibBus : public GenericBus {
+    // private: Q_OBJECT
+
     public:
         short ibsta, iberr;
         unsigned long ibcntl;
@@ -38,7 +40,6 @@ namespace RsaToolbox {
         void NullTerminateRead(char *buffer, unsigned long bufferSize);
         QString ToTruncatedString(char *buffer);
         void PrintStatus(void);
-
     };
 }
 

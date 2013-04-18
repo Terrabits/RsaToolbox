@@ -45,6 +45,8 @@ bool RsibBus::isOpen(void) {
 }
 
 // Actions
+bool RsibBus::Lock(void) {return(0);}
+bool RsibBus::Unlock(void) {return(0);}
 bool RsibBus::Read(char *buffer, unsigned int bufferSize) {
     QString formatted_text;
     QTextStream log(&formatted_text);
@@ -55,7 +57,6 @@ bool RsibBus::Read(char *buffer, unsigned int bufferSize) {
         log.flush();
         emit Print(formatted_text);
         PrintStatus();
-        formatted_text.clear();
         emit Print("\n");
         return(false);
     }
@@ -65,7 +66,6 @@ bool RsibBus::Read(char *buffer, unsigned int bufferSize) {
         log.flush();
         emit Print(formatted_text);
         PrintStatus();
-        formatted_text.clear();
         emit Print("\n");
         return(true);
 	}
@@ -77,7 +77,7 @@ bool RsibBus::Write(QString scpiCommand) {
     QByteArray c_string = scpiCommand.toLocal8Bit();
     RSDLLibwrt(instrument, c_string.data(), &ibsta, &iberr, &ibcntl);
     if (isError()) {
-		log << "Error sending \"" << scpiCommand << "\"" << endl;
+        log << "Error sending \"" << scpiCommand.trimmed() << "\"" << endl;
         log.flush();
         emit Print(formatted_text);
         PrintStatus();
@@ -85,7 +85,7 @@ bool RsibBus::Write(QString scpiCommand) {
         return(false);
     }
     else {
-		log << "Sent \"" << scpiCommand <<  "\"" << endl;
+        log << "Sent:     \"" << scpiCommand.trimmed() <<  "\"" << endl;
         log.flush();
         emit Print(formatted_text);
         PrintStatus();
@@ -109,14 +109,14 @@ void RsibBus::PrintStatus() {
     QTextStream log(&formatted_text);
 
 	// Print ibsta
-	log << "ibsta: 0x" << hex << ibsta;
+    log << "ibsta:    0x" << hex << ibsta;
 	if ((ibsta & IBSTA_ERR) != 0) log << " (IBSTA_ERR)";
 	if ((ibsta & IBSTA_TIMO) != 0) log << " (IBSTA_TIMO)";
 	if ((ibsta & IBSTA_CMPL) != 0) log << " (IBSTA_CMPL)";
 	log << endl;
 
 	// Print iberr
-	log << "iberr: " << dec << iberr;
+    log << "iberr:    " << dec << iberr;
 	if (isError()) {
 		if ((iberr & IBERR_DEVICE_REGISTER) != 0) log << " (IBERR_DEVICE_REGISTER)";
 		if ((iberr & IBERR_CONNECT) != 0) log << " (IBERR_CONNECT)";
@@ -130,7 +130,7 @@ void RsibBus::PrintStatus() {
 	log << endl;
 
 	// Print ibcntl
-	log << "ibcntl: " << ibcntl << " (bytes)" << endl;
+    log << "ibcntl:   " << ibcntl << " (bytes)" << endl;
 
     // Print
     log.flush();
@@ -147,7 +147,7 @@ QString RsibBus::ToTruncatedString(char *buffer) {
     QString formatted_text;
     QTextStream log(&formatted_text);
 
-    log << "Received \"";
+    log << "Received: \"";
     if (ibcntl <= MAX_PRINT)
         log << buffer;
     else {

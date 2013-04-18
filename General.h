@@ -20,11 +20,14 @@ QString ToString(SiPrefix prefix);
 QString ToString(Units units);
 QString ToString(ComplexFormat format);
 QString ToString(NetworkParameter parameter);
+QString ToString(VnaModel model);
+const char* ToScpi(ReferenceLevel reference_level);
 const char* ToScpi(ColorScheme scheme);
 const char* ToScpi(TraceFormat format);
 TraceFormat Scpi_To_TraceFormat(QString scpi);
 ColorScheme Scpi_To_ColorScheme(QString scpi);
 NetworkParameter Scpi_To_NetworkParameter(QString scpi);
+ReferenceLevel Scpi_To_ReferenceLevel(QString scpi);
 
 // File system
 QString AppendPath(QDir path, QString filename);
