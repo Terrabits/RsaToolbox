@@ -26,7 +26,7 @@ namespace RsaToolbox {
         VnaModel model;
         QString firmware_version;
         QString serial_no;
-        QString options;
+        QStringList options;
         unsigned int ports;
         double minimum_frequency_Hz, maximum_frequency_Hz;
         Log *log;
@@ -36,6 +36,7 @@ namespace RsaToolbox {
         Vna(ConnectionType connectionType, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version);
 		~Vna();
 
+
     public slots:
         /***********************
         *** ACTIONS ************
@@ -43,6 +44,8 @@ namespace RsaToolbox {
 
 		void Preset(void);
 		void ClearStatus(void);
+        void PrintInstrumentInfo(void);
+
 
     public:
         /***********************
@@ -51,21 +54,20 @@ namespace RsaToolbox {
 
         bool isChannelEnabled(unsigned int channel);
         bool isChannelDisabled(unsigned int channel);
-        bool isPortPowerOffsetEnabled(unsigned int port);
-        bool isPortPowerOffsetDisabled(unsigned int port);
-        bool isPortPowerOffsetEnabled(unsigned int port, unsigned int channel);
-        bool isPortPowerOffsetDisabled(unsigned int port, unsigned int channel);
         bool isUserPresetEnabled(void);
         bool isUserPresetDisabled(void);
-        bool isUserPresetMappedToRst();
-        bool isSourcePowerLimitEnabled();
-        bool isSourcePowerLimitDisabled();
-        bool isRfOutputPowerEnabled();
-        bool isRfOutputPowerDisabled();
-        bool isDynamicBandwidthEnabled();
-        bool isDynamicBandwidthDisabled();
-        bool isLowPowerAutoCalEnabled();
-        bool isLowPowerAutoCalDisabled();
+        bool isUserPresetMappedToRst(void);
+        bool isPortPowerLimitEnabled(unsigned int port);
+        bool isPortPowerLimitEnabled(void);
+        bool isPortPowerLimitDisabled(unsigned int port);
+        bool isPortPowerLimitDisabled(void);
+        bool isRfOutputPowerEnabled(void);
+        bool isRfOutputPowerDisabled(void);
+        bool isDynamicIfBandwidthEnabled(void);
+        bool isDynamicIfBandwidthDisabled(void);
+        bool isLowPowerAutoCalEnabled(void);
+        bool isLowPowerAutoCalDisabled(void);
+
 
     public slots:
         /***********************
@@ -74,6 +76,7 @@ namespace RsaToolbox {
 
         void SelectTrace(QString trace_name);
 
+
     public:
         /***********************
         *** GET ****************
@@ -81,7 +84,7 @@ namespace RsaToolbox {
 
         // GET:General
         QString GetIdentificationString(void);
-        QString GetOptionsString(void);
+        QStringList GetOptions(void);
         unsigned int GetPorts(void);
         double GetMinimumFrequency_Hz(void);
         double GetMaximumFrequency_Hz(void);
@@ -89,6 +92,8 @@ namespace RsaToolbox {
         double GetSourceAttenuation_dB(unsigned int port, unsigned int channel);
         double GetReceiverAttenuation_dB(unsigned int port);
         double GetReceiverAttenuation_dB(unsigned int port, unsigned int channel);
+        double GetPortPowerLimit(unsigned int port);
+        QVector<double> GetPortPowerLimits(void);
         ColorScheme GetColorScheme(void);
         unsigned int GetFontSize_percent(void);
         QString GetUserPreset(void);
@@ -140,12 +145,23 @@ namespace RsaToolbox {
         void SetOptionsString(QString options_string);
         void SetSourceAttenuation_dB(unsigned int port, double attenuation);
         void SetSourceAttenuation_dB(unsigned int port, unsigned int channel, double attenuation);
+        void SetSourceAttenuations_dB(double attenuation);
+        void SetSourceAttenuations_dB(QVector<double> attenuations);
+        void SetSourceAttenuations_dB(unsigned int channel, double attenuation);
+        void SetSourceAttenuations_dB(unsigned int channel, QVector<double> attenuations);
         void SetReceiverAttenuation_dB(unsigned int port, double attenuation);
         void SetReceiverAttenuation_dB(unsigned int port, unsigned int channel, double attenuation);
+        void SetReceiverAttenuations_dB(double attenuation);
+        void SetReceiverAttenuations_dB(QVector<double> attenuations);
+        void SetReceiverAttenuations_dB(unsigned int channel, double attenuation);
+        void SetReceiverAttenuations_dB(unsigned int channel, QVector<double> attenuations);
+        void SetPortPowerLimit(unsigned int port, double power_limit);
+        void SetPortPowerLimits(QVector<double> power_limits);
+        void SetPortPowerLimits(double power_limit);
         void SetColorScheme(ColorScheme scheme);
         void SetFontSize_percent(unsigned int size_percent);
         void SetUserPreset(QString filename);
-        void SetUserPreset(QString filename, QDir path);
+        void SetUserPreset(QDir path, QString filename);
 
         // SET:Channel
         void Channel_SetSelectedTrace(QString trace_name);
@@ -175,6 +191,7 @@ namespace RsaToolbox {
         void Trace_SetFormat(QString trace_name, TraceFormat format);
         // void Trace_SetDiagram(QString trace_name, unsigned int diagram);
 
+
     public slots:
         /***********************
         *** ENABLE *************
@@ -182,10 +199,12 @@ namespace RsaToolbox {
 
         void EnableUserPreset(bool isEnabled = true);
         void EnableUserPresetMapToRst(bool isEnabled = true);
-        void EnableSourcePowerLimits(bool isEnabled = true);
+        void EnablePortPowerLimit(unsigned int port, bool isEnabled = true);
+        void EnablePortPowerLimits(bool isEnabled = true);
         void EnableRfOutputPower(bool isEnabled = true);
-        void EnableDynamicBandwidth(bool isEnabled = true);
+        void EnableDynamicIfBandwidth(bool isEnabled = true);
         void EnableLowPowerAutoCal(bool isEnabled = true);
+
 
     public slots:
         /***********************
@@ -194,49 +213,59 @@ namespace RsaToolbox {
 
         void DisableCustomIdString(bool isDisabled = true);
         void DisableCustomOptionsString(bool isDisabled = true);
-        void DisableDelay(unsigned int port, bool isDisabled = true);
-        void DisableDelay(unsigned int port, unsigned int channel, bool isDisabled = true);
-        void DisableDelays(bool isDisabled = true);
-        void DisableDelays(unsigned int channel, bool isDisabled = true);
+        void DisableEmulation(void);
+        void DisableDelay(unsigned int port);
+        void DisableDelay(unsigned int port, unsigned int channel);
+        void DisableDelays(void);
+        void DisableDelays(unsigned int channel);
         void DisableUserPreset(bool isDisabled = true);
         void DisableUserPresetMapToRst(bool isDisabled = true);
-        void DisableSourcePowerLimits(bool isDisabled = true);
+        void DisablePortPowerLimit(unsigned int port, bool isDisabled = true);
+        void DisablePortPowerLimits(bool isDisabled = true);
         void DisableRfOutputPower(bool isDisabled = true);
-        void DisableDynamicBandwidth(bool isDisabled = true);
+        void DisableDynamicIfBandwidth(bool isDisabled = true);
         void DisableLowPowerAutoCal(bool isDisabled = true);
+
 
     public slots:
         /***********************
         *** CREATE *************
         ***********************/
 
-        bool CreateChannel(unsigned int channel);
-        bool CreateDiagram(unsigned int diagram);
+        void CreateChannel(unsigned int channel);
+        void CreateDiagram(unsigned int diagram);
+        void CreateTrace(QString trace_name);
+
 
     public slots:
         /***********************
         *** DELETE *************
         ***********************/
 
-        bool DeleteChannel(unsigned int channel);
-        bool DeleteUserPreset(void);
+        void DeleteChannel(unsigned int channel);
+        void DeleteDiagram(unsigned int diagram);
+        void DeleteTrace(QString trace_name);
+        void DeleteUserPreset(void);
+
 
     public slots:
         /***********************
         *** MEASURE ************
         ***********************/
 
+        void MeasureTrace(Trace &trace);
+        void MeasureTrace(Trace &trace, QString name);
+        void MeasureNetwork(Network &network, QVector<unsigned int> ports);
+        void MeasureNetwork(Network &network, QVector<unsigned int> ports, unsigned int channel);
 
-        bool MeasureTrace(Trace &trace);
-        bool MeasureTrace(Trace &trace, QString name);
-        bool MeasureNetwork(Network &network, QVector<unsigned int> ports);
-        bool MeasureNetwork(Network &network, QVector<unsigned int> ports, unsigned int channel);
 
     public slots:
         /***********************
         *** SAVE ***************
         ***********************/
-        bool SaveCurrentState(QDir path, QString name);
+
+        void SaveCurrentState(QString name);
+        void SaveCurrentState(QDir path, QString name);
 
 
     private:

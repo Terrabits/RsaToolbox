@@ -27,6 +27,11 @@ Vna::Vna(ConnectionType connectionType, QString instrument_address, unsigned int
         minimum_frequency_Hz = GetMinimumFrequency_Hz();
         maximum_frequency_Hz = GetMaximumFrequency_Hz();
         GetInstrumentInfo(id);
+        options = GetOptions();
+    }
+    else {
+        model = UNKNOWN;
+        throw("RsaToolbox Error: No instrument found");
     }
 
     // Signals and slots
@@ -48,7 +53,107 @@ void Vna::Preset(void) {
 void Vna::ClearStatus(void) {
     bus->Write("*CLS\n");
 }
+void Vna::PrintInstrumentInfo(void) {
+    QString info;
+    QTextStream stream(&info);
+    stream << "INSTRUMENT INFO" << endl;
+    if (model != UNKNOWN) {
+        stream << "Make:             Rohde & Schwarz" << endl;
+        stream << "Model:            " << ToString(model) << endl;
+        stream << "Serial No:        " << serial_no << endl;
+        stream << "Firmware Version: " << firmware_version << endl;
+        stream << "Min Frequency:    " << FormatValue(minimum_frequency_Hz, 1, HERTZ) << endl;
+        stream << "Max Frequency:    " << FormatValue(maximum_frequency_Hz, 1, HERTZ) << endl;
+        stream << "Number of Ports:  " << ports << endl;
+        stream << "Options:          ";
+        for (int i = 0; i < options.size(); i++) {
+            stream << options[i] << endl << "                  ";
+        }
+        stream << endl << endl;
+    }
+    else
+        stream << "Make: Unknown" << endl << endl << endl;
 
+    stream.flush();
+    log->Print(info);
+}
+
+
+/***********************
+*** STATUS *************
+***********************/
+
+bool Vna::isChannelEnabled(unsigned int channel) {
+    const unsigned int BUFFER_SIZE = 30;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":CONF:CHAN%d:STAT?\n", channel);
+    bus->Query(QString(buffer), buffer, BUFFER_SIZE);
+    return(QString(buffer) == "1");
+}
+bool Vna::isChannelDisabled(unsigned int channel) {
+    return(!isChannelEnabled(channel));
+}
+bool Vna::isUserPresetEnabled(void) {
+    const unsigned int BUFFER_SIZE = 30;
+    char buffer[BUFFER_SIZE];
+    bus->Query(":SYST:PRES:USER?\n", buffer, BUFFER_SIZE);
+    return(QString(buffer) == "1");
+}
+bool Vna::isUserPresetDisabled(void) {
+    return(!isUserPresetEnabled());
+}
+bool Vna::isUserPresetMappedToRst(void) {
+    const unsigned int BUFFER_SIZE = 30;
+    char buffer[BUFFER_SIZE];
+    bus->Query("SYST:PRES:REM?\n", buffer, BUFFER_SIZE);
+    return(QString(buffer) == "1");
+}
+bool Vna::isPortPowerLimitEnabled(unsigned int port) {
+    const unsigned int BUFFER_SIZE = 30;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":SOUR:POW%d:LLIM?\n", port);
+    bus->Query(QString(buffer), buffer, BUFFER_SIZE);
+    return(QString(buffer) == "1");
+}
+bool Vna::isPortPowerLimitEnabled(void) {
+    for (int i = 1; i <= ports; i++)
+        if (isPortPowerLimitEnabled(i))
+            return(true);
+    return(false);
+}
+bool Vna::isPortPowerLimitDisabled(unsigned int port) {
+    return(!isPortPowerLimitEnabled(port));
+}
+bool Vna::isPortPowerLimitDisabled(void) {
+    return(!isPortPowerLimitEnabled());
+}
+bool Vna::isRfOutputPowerEnabled(void) {
+    const unsigned int BUFFER_SIZE = 10;
+    char buffer[BUFFER_SIZE];
+    bus->Query(":OUTP?\n", buffer, BUFFER_SIZE);
+    return(QString(buffer) == "1");
+}
+bool Vna::isRfOutputPowerDisabled(void) {
+    return(!isRfOutputPowerEnabled());
+}
+bool Vna::isDynamicIfBandwidthEnabled(void) {
+    const unsigned int BUFFER_SIZE = 10;
+    char buffer[BUFFER_SIZE];
+    bus->Query(":BAND:DRED?\n", buffer, BUFFER_SIZE);
+    return(QString(buffer) == "1");
+}
+bool Vna::isDynamicIfBandwidthDisabled(void) {
+    return(!isDynamicIfBandwidthEnabled());
+}
+bool Vna::isLowPowerAutoCalEnabled(void) {
+    const unsigned int BUFFER_SIZE = 30;
+    char buffer[BUFFER_SIZE];
+    bus->Query(":SYST:COMM:RDEV:AKAL:PRED?\n", buffer, BUFFER_SIZE);
+    return(QString(buffer) == "1");
+}
+bool Vna::isLowPowerAutoCalDisabled(void) {
+    return(!isLowPowerAutoCalEnabled());
+}
 
 /***********************
 *** SELECT *************
@@ -76,11 +181,11 @@ QString Vna::GetIdentificationString(void) {
     bus->Query("*IDN?\n", buffer, BUFFER_SIZE);
     return(QString(buffer));
 }
-QString Vna::GetOptionsString(void) {
+QStringList Vna::GetOptions(void) {
     const unsigned int BUFFER_SIZE = 300;
     char buffer[BUFFER_SIZE];
     bus->Query("*OPT?\n", buffer, BUFFER_SIZE);
-    return(QString(buffer));
+    return(QString(buffer).split(','));
 }
 unsigned int Vna::GetPorts(void) {
     const unsigned int BUFFER_SIZE = 10;
@@ -131,6 +236,19 @@ double Vna::GetReceiverAttenuation_dB(unsigned int port, unsigned int channel) {
     sprintf(buffer, ":SENS%d:POW:ATT? %d\n", channel, port);
     bus->Query(QString(buffer), buffer, BUFFER_SIZE);
     return(QString(buffer).toDouble());
+}
+double Vna::GetPortPowerLimit(unsigned int port) {
+    const unsigned int BUFFER_SIZE = 30;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":SOUR:POW%d:LLIM:VAL?\n", port);
+    bus->Query(QString(buffer), buffer, BUFFER_SIZE);
+    return(QString(buffer).toDouble());
+}
+QVector<double> Vna::GetPortPowerLimits(void) {
+    QVector<double> power_limits;
+    for (int i = 1; i <= ports; i++)
+        power_limits.append(GetPortPowerLimit(i));
+    return(power_limits);
 }
 ColorScheme Vna::GetColorScheme(void) {
     const unsigned int BUFFER_SIZE = 10;
@@ -444,6 +562,26 @@ void Vna::SetSourceAttenuation_dB(unsigned int port, unsigned int channel, doubl
     sprintf(buffer, ":SOUR%d:POW%d:ATT %f\n", channel, port, attenuation);
     bus->Write(QString(buffer));
 }
+void Vna::SetSourceAttenuations_dB(double attenuation) {
+    for (int i = 1; i <= ports; i++)
+        SetSourceAttenuation_dB(i, attenuation);
+}
+void Vna::SetSourceAttenuations_dB(QVector<double> attenuations) {
+    if (attenuations.size() != ports)
+        return;
+    for (int i = 1; i <= ports; i++)
+        SetSourceAttenuation_dB(i, attenuations[i-1]);
+}
+void Vna::SetSourceAttenuations_dB(unsigned int channel, double attenuation) {
+    for (int i = 1; i <= ports; i++)
+        SetSourceAttenuation_dB(i, channel, attenuation);
+}
+void Vna::SetSourceAttenuations_dB(unsigned int channel, QVector<double> attenuations) {
+    if (attenuations.size() != ports)
+        return;
+    for (int i = 1; i <= ports; i++)
+        SetSourceAttenuation_dB(i, channel, attenuations[i-1]);
+}
 void Vna::SetReceiverAttenuation_dB(unsigned int port, double attenuation)  {
     const unsigned int BUFFER_SIZE = 50;
     char buffer[BUFFER_SIZE];
@@ -455,6 +593,42 @@ void Vna::SetReceiverAttenuation_dB(unsigned int port, unsigned int channel, dou
     char buffer[BUFFER_SIZE];
     sprintf(buffer, ":SENS%d:POW:ATT %d, %f\n", channel, port, attenuation);
     bus->Write(QString(buffer));
+}
+void Vna::SetReceiverAttenuations_dB(double attenuation) {
+    for (int i = 1; i <= ports; i++)
+        SetReceiverAttenuation_dB(i, attenuation);
+}
+void Vna::SetReceiverAttenuations_dB(QVector<double> attenuations) {
+    if (attenuations.size() != ports)
+        return;
+    for (int i = 1; i <= ports; i++)
+        SetReceiverAttenuation_dB(i, attenuations[i-1]);
+}
+void Vna::SetReceiverAttenuations_dB(unsigned int channel, double attenuation) {
+    for (int i = 1; i <= ports; i++)
+        SetReceiverAttenuation_dB(i, channel, attenuation);
+}
+void Vna::SetReceiverAttenuations_dB(unsigned int channel, QVector<double> attenuations) {
+    if (attenuations.size() != ports)
+        return;
+    for (int i = 1; i <= ports; i++)
+        SetReceiverAttenuation_dB(i, channel, attenuations[i-1]);
+}
+void Vna::SetPortPowerLimit(unsigned int port, double power_limit) {
+    const unsigned int BUFFER_SIZE = 30;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":SOUR:POW%d:LLIM:VAL %f\n", port, power_limit);
+    bus->Write(QString(buffer));
+}
+void Vna::SetPortPowerLimits(QVector<double> power_limits) {
+    if (power_limits.size() != ports)
+        return;
+    for (int i = 1; i <= ports; i++)
+        SetPortPowerLimit(i, power_limits[i-1]);
+}
+void Vna::SetPortPowerLimits(double power_limit) {
+    for (int i = 1; i <= ports; i++)
+        SetPortPowerLimit(i, power_limit);
 }
 void Vna::SetColorScheme(ColorScheme scheme)  {
     const unsigned int BUFFER_SIZE = 50;
@@ -469,13 +643,17 @@ void Vna::SetFontSize_percent(unsigned int size_percent)  {
     bus->Write(QString(buffer));
 }
 void Vna::SetUserPreset(QString filename)  {
+    if (!filename.contains(ToStateFileExtension(model)))
+        filename = filename + ToStateFileExtension(model);
     QByteArray c_string = filename.toLocal8Bit();
     const unsigned int BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
     sprintf(buffer, ":SYST:PRES:USER:NAME \'%s\'\n", c_string.constData());
     bus->Write(QString(buffer));
 }
-void Vna::SetUserPreset(QString filename, QDir path)  {
+void Vna::SetUserPreset(QDir path, QString filename)  {
+    if (!filename.contains(ToStateFileExtension(model)))
+        filename = filename + ToStateFileExtension(model);
     filename = AppendPath(path, filename);
     QByteArray c_string = filename.toLocal8Bit();
     const unsigned int BUFFER_SIZE = 500;
@@ -641,6 +819,55 @@ void Vna::Trace_SetFormat(QString trace_name, TraceFormat format)  {
 
 
 /***********************
+*** ENABLE *************
+***********************/
+
+void Vna::EnableUserPreset(bool isEnabled) {
+    if (isEnabled)
+        bus->Write(":SYST:PRES:USER 1\n");
+    else
+        bus->Write(":SYST:PRES:USER 0\n");
+}
+void Vna::EnableUserPresetMapToRst(bool isEnabled) {
+    if (isEnabled)
+        bus->Write(":SYST:PRES:REM 1\n");
+    else
+        bus->Write(":SYST:PRES:REM 0\n");
+}
+void Vna::EnablePortPowerLimit(unsigned int port, bool isEnabled) {
+    const unsigned int BUFFER_SIZE = 30;
+    char buffer[BUFFER_SIZE];
+    if (isEnabled)
+        sprintf(buffer, ":SOUR:POW%d:LLIM 1\n", port);
+    else
+        sprintf(buffer, ":SOUR:POW%d:LLIM 0\n", port);
+    bus->Write(QString(buffer));
+}
+void Vna::EnablePortPowerLimits(bool isEnabled) {
+    for (int i = 1; i <= ports; i++)
+        EnablePortPowerLimit(i, isEnabled);
+}
+void Vna::EnableRfOutputPower(bool isEnabled) {
+    if (isEnabled)
+        bus->Write(":OUTP 1\n");
+    else
+        bus->Write(":OUTP 0\n");
+}
+void Vna::EnableDynamicIfBandwidth(bool isEnabled) {
+    if (isEnabled)
+        bus->Write(":BAND:DRED 1\n");
+    else
+        bus->Write(":BAND:DRED 0\n");
+}
+void Vna::EnableLowPowerAutoCal(bool isEnabled) {
+    if (isEnabled)
+        bus->Write(":SYST:COMM:RDEV:AKAL:PRED 1\n");
+    else
+        bus->Write(":SYST:COMM:RDEV:AKAL:PRED 0\n");
+}
+
+
+/***********************
 *** DISABLE ************
 ***********************/
 
@@ -652,7 +879,102 @@ void Vna::DisableCustomOptionsString(bool isDisabled) {
     if (isDisabled)
         bus->Write(":SYST:OPT:FACT\n");
 }
+void Vna::DisableEmulation() {
+    bus->Write(":SYST:LANG \'SCPI\'\n");
+}
+void Vna::DisableDelay(unsigned int port) {
+    SetDelay(port, 0);
+}
+void Vna::DisableDelay(unsigned int port, unsigned int channel) {
+    SetDelay(port, channel, 0);
+}
+void Vna::DisableDelays(void) {
+    QVector<double> zero_delays(ports, 0);
+    SetDelays(zero_delays);
+}
+void Vna::DisableDelays(unsigned int channel) {
+    QVector<double> zero_delays(ports, 0);
+    SetDelays(channel, zero_delays);
+}
+void Vna::DisableUserPreset(bool isDisabled) {
+    EnableUserPreset(!isDisabled);
+}
+void Vna::DisableUserPresetMapToRst(bool isDisabled) {
+    EnableUserPresetMapToRst(!isDisabled);
+}
+void Vna::DisablePortPowerLimit(unsigned int port, bool isDisabled) {
+    EnablePortPowerLimit(port, !isDisabled);
+}
+void Vna::DisablePortPowerLimits(bool isDisabled) {
+    EnablePortPowerLimits(!isDisabled);
+}
+void Vna::DisableRfOutputPower(bool isDisabled) {
+    EnableRfOutputPower(!isDisabled);
+}
+void Vna::DisableDynamicIfBandwidth(bool isDisabled) {
+    EnableDynamicIfBandwidth(!isDisabled);
+}
+void Vna::DisableLowPowerAutoCal(bool isDisabled) {
+    EnableLowPowerAutoCal(!isDisabled);
+}
 
+
+/***********************
+*** CREATE *************
+***********************/
+
+void Vna::CreateChannel(unsigned int channel) {}
+void Vna::CreateDiagram(unsigned int diagram) {}
+void Vna::CreateTrace(QString trace_name) {}
+
+
+/***********************
+*** DELETE *************
+***********************/
+
+void Vna::DeleteChannel(unsigned int channel) {}
+void Vna::DeleteDiagram(unsigned int diagram) {}
+void Vna::DeleteTrace(QString trace_name) {}
+void Vna::DeleteUserPreset(void) {
+    SetUserPreset("");
+}
+
+
+/***********************
+*** MEASURE ************
+***********************/
+
+void Vna::MeasureTrace(Trace &trace) {}
+void Vna::MeasureTrace(Trace &trace, QString name) {}
+void Vna::MeasureNetwork(Network &network, QVector<unsigned int> ports) {}
+void Vna::MeasureNetwork(Network &network, QVector<unsigned int> ports, unsigned int channel) {}
+
+
+/***********************
+*** SAVE ***************
+***********************/
+
+void Vna::SaveCurrentState(QString name) {
+    const unsigned int BUFFER_SIZE = 400;
+    char buffer[BUFFER_SIZE];
+    // Fix save directory issue with firmware
+    name = "./RecallSets/" + name;
+    if (!name.contains(ToStateFileExtension(model)))
+        name = name + ToStateFileExtension(model);
+    QByteArray c_string = name.toLocal8Bit();
+    sprintf(buffer, ":MMEM:STOR:STAT 1,\'%s\'\n", c_string.constData());
+    bus->Write(QString(buffer));
+}
+void Vna::SaveCurrentState(QDir path, QString name) {
+    const unsigned int BUFFER_SIZE = 400;
+    char buffer[BUFFER_SIZE];
+    name = AppendPath(path, name);
+    if (!name.contains(ToStateFileExtension(model)))
+        name = name + ToStateFileExtension(model);
+    QByteArray c_string = name.toLocal8Bit();
+    sprintf(buffer, ":MMEM:STOR:STAT 1,\'%s\'\n", c_string.constData());
+    bus->Write(QString(buffer));
+}
 
 /***********************
 *** PRIVATE ************

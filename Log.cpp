@@ -46,5 +46,5 @@ void Log::Print(QString formatted_text) {
 void Log::PrintProgramHeader() {
     stream << program_name << " Version " << program_version << endl;
     stream << "(C) 2013 Rohde & Schwarz America" << endl << endl;
-    stream << QDateTime::currentDateTime().toString() << endl << endl << endl;
+    stream << QDateTime::currentDateTime().toString() << endl << endl;
 }

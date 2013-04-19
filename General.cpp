@@ -3,6 +3,8 @@
 #include "General.h"
 
 // Qt
+#include <QStringList>
+#include <QStandardPaths>
 #include <QTextStream>
 #include <QCoreApplication>
 
@@ -163,6 +165,26 @@ QString RsaToolbox::ToString(VnaModel model) {
         return(QString("UNKNOWN"));
     }
 }
+QString RsaToolbox::ToStateFileExtension(VnaModel model) {
+    switch(model) {
+    case ZVA:
+        return(QString(".zvx"));
+    case ZVB:
+        return(QString(".zvx"));
+    case ZVH:
+        return(QString(".zvx"));
+    case ZVL:
+        return(QString(".zvx"));
+    case ZVT:
+        return(QString(".zvx"));
+    case ZNB:
+        return(QString(".znx"));
+    case ZNC:
+        return(QString(".znx"));
+    case UNKNOWN:
+        return(QString(".rsx"));
+    }
+}
 const char* RsaToolbox::ToScpi(ReferenceLevel reference_level) {
     if (reference_level == RELATIVE)
         return("CPAD");
@@ -219,6 +241,40 @@ const char* RsaToolbox::ToScpi(TraceFormat format) {
         break;
     case DELAY:
         return("GDE");
+        break;
+    }
+}
+SiPrefix RsaToolbox::String_To_SiPrefix(QString prefix) {
+    if (prefix.length() == 0)
+        return(NO_PREFIX);
+
+    switch(prefix.at(0).digitValue()) {
+    case 'T':
+        return(TERA);
+        break;
+    case 'G':
+        return(GIGA);
+        break;
+    case 'M':
+        return(MEGA);
+        break;
+    case 'K':
+        return(KILO);
+        break;
+    case 'm':
+        return(MILLI);
+        break;
+    case 'u':
+        return(MICRO);
+        break;
+    case 'n':
+        return(NANO);
+        break;
+    case 'p':
+        return(PICO);
+        break;
+    case 'f':
+        return(FEMTO);
         break;
     }
 }
@@ -281,6 +337,29 @@ QString RsaToolbox::AppendPath(QDir path, QString filename) {
 }
 QString RsaToolbox::AppendCurrentDirectory(QString filename) {
     return(QCoreApplication::applicationDirPath() + "/" + filename);
+}
+QString RsaToolbox::GetAppDataPath(QString program_folder) {
+    QStringList dataLocations = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
+    QString path;
+    if (dataLocations.size() > 0)
+        path = dataLocations.back()
+                + "/" + QString(COMPANY_FOLDER)
+                + "/" + program_folder;
+    else
+        path = QCoreApplication::applicationDirPath();
+    return(path);
+}
+QString RsaToolbox::AppendAppDataPath(QString program_folder, QString filename) {
+    QStringList dataLocations = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
+    QString path;
+    if (dataLocations.size() > 0)
+        path = dataLocations.back()
+                + "/" + QString(COMPANY_FOLDER)
+                + "/" + program_folder;
+    else
+        path = QCoreApplication::applicationDirPath();
+    filename = path + "/" + filename;
+    return(filename);
 }
 
 // Formatting

@@ -9,6 +9,7 @@
 namespace RsaToolbox {
 
     const char RSA_TOOLBOX_VERSION[] = "0.0.1";
+    const char COMPANY_FOLDER[] = "Rohde-Schwarz";
 	const double PI =  3.1415926535897932;
 
     enum SweepType {

@@ -10,11 +10,13 @@
 
 namespace RsaToolbox {
 	class Key {
+    private:
         QDir path;
 
+    public:
 		// Constructor
-        Key(QDir path) {
-            this->path = path;
+        Key(QString path) {
+            this->path = QDir(path);
         }
 
 		// Get
@@ -24,7 +26,7 @@ namespace RsaToolbox {
             QFile file(key);
             file.open(QIODevice::ReadOnly);
             if (file.isOpen()) {
-                QDataStream keyfile(file);
+                QDataStream keyfile(&file);
                 keyfile >> value;
                 file.close();
                 return(true);
@@ -41,7 +43,7 @@ namespace RsaToolbox {
             QFile file(key);
             file.open(QIODevice::WriteOnly);
             if (file.isOpen()) {
-                QDataStream keyfile(file);
+                QDataStream keyfile(&file);
                 keyfile << value;
                 file.close();
                 return(true);
