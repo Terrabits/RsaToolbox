@@ -20,7 +20,8 @@ namespace RsaToolbox {
         static const unsigned long MAX_PRINT = 100;
 
         // Constructor, Destructor
-        RsibBus(ConnectionType connectionType, QString address, short timeout_ms);
+        RsibBus();
+        RsibBus(ConnectionType connection_type, QString address, short timeout_ms);
         ~RsibBus();
 
         // Status
@@ -35,7 +36,6 @@ namespace RsaToolbox {
 
     private:
         short instrument;
-
         bool isError();
         void NullTerminateRead(char *buffer, unsigned long bufferSize);
         QString ToTruncatedString(char *buffer);

@@ -29,8 +29,13 @@ namespace RsaToolbox {
         QTextStream stream;
 
 		// Constructor / Destructor
+        Log(void);
         Log(QDir path, QString filename, QString program_name, QString program_version);
         ~Log();
+
+        // Status
+        bool isOpen(void);
+        bool isClosed(void);
 
 		// Actions
         void Open();
@@ -48,14 +53,6 @@ namespace RsaToolbox {
     public slots:
         void Print(QString formatted_text);
 
-    private:
-        // Action helpers
-        void PrintInstrumentStatus();
-		void PrintTruncatedRead(char *buffer);
-
-		// Logfile helpers
-		void PrintTime(void);
-        void PrintProgramInfo(QString programName, QString version);
 	};
 }
 

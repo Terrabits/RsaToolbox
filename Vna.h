@@ -33,6 +33,7 @@ namespace RsaToolbox {
         GenericBus *bus;
 
 		// Constructor / Destructor
+        Vna();
         Vna(ConnectionType connectionType, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version);
 		~Vna();
 

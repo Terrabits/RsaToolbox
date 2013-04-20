@@ -17,15 +17,23 @@ using namespace RsaToolbox;
 
 
 // Constructor, Destructor
-RsibBus::RsibBus(ConnectionType connectionType, QString address, short timeout_ms)
-    :GenericBus(connectionType, address, timeout_ms) {
+RsibBus::RsibBus()
+    :GenericBus() {
+    instrument = -1;
+}
+
+RsibBus::RsibBus(ConnectionType connection_type, QString address, short timeout_ms)
+    :GenericBus(connection_type, address, timeout_ms) {
     // Only handles TCPIP
-    if (connectionType == TCPIP_CONNECTION) {
+    if (connection_type == TCPIP_CONNECTION) {
         QByteArray c_string = address.toLocal8Bit();
         instrument = RSDLLibfind(c_string.data(), &ibsta, &iberr, &ibcntl);
+        if (instrument == -1)
+            this->connection_type = NO_CONNECTION;
     }
     else {
         instrument = -1;
+        this->connection_type = NO_CONNECTION;
         return;
     }
 
@@ -41,7 +49,7 @@ RsibBus::~RsibBus() {
 
 // Status
 bool RsibBus::isOpen(void) {
-    return(instrument != -1);
+    return(connection_type != NO_CONNECTION);
 }
 
 // Actions

@@ -15,12 +15,13 @@ namespace RsaToolbox {
 
 	public:
 		// Instrument connection info
-		ConnectionType connectionType;
+        ConnectionType connection_type;
         QString address;
         short timeout_ms;
 
         // Constructor
-        GenericBus(ConnectionType connectionType, QString address, short timeout_ms);
+        GenericBus();
+        GenericBus(ConnectionType connection_type, QString address, short timeout_ms);
 
         // Status
         virtual bool isOpen() = 0;

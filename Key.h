@@ -15,8 +15,29 @@ namespace RsaToolbox {
 
     public:
 		// Constructor
+        Key() {}
         Key(QString path) {
             this->path = QDir(path);
+        }
+
+        // Boolean key functions
+        bool Exists(QString key) {
+            AppendThisPath(key);
+            QFile file(key);
+            return(file.exists());
+        }
+        bool DoesNotExist(QString key) {
+            return(!Exists(key));
+        }
+        bool isTrue(QString key) {
+            bool isTrue;
+            if (Get(key, isTrue) == false)
+                return(false);
+            else
+                return(isTrue);
+        }
+        bool isFalse(QString key) {
+            return(!isTrue(key));
         }
 
 		// Get

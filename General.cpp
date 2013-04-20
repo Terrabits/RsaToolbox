@@ -247,36 +247,24 @@ const char* RsaToolbox::ToScpi(TraceFormat format) {
 SiPrefix RsaToolbox::String_To_SiPrefix(QString prefix) {
     if (prefix.length() == 0)
         return(NO_PREFIX);
-
-    switch(prefix.at(0).digitValue()) {
-    case 'T':
+    if (prefix == "T")
         return(TERA);
-        break;
-    case 'G':
+    if (prefix == "G")
         return(GIGA);
-        break;
-    case 'M':
+    if (prefix == "M")
         return(MEGA);
-        break;
-    case 'K':
+    if (prefix == "K")
         return(KILO);
-        break;
-    case 'm':
+    if (prefix == "m")
         return(MILLI);
-        break;
-    case 'u':
+    if (prefix == "u")
         return(MICRO);
-        break;
-    case 'n':
+    if (prefix == "n")
         return(NANO);
-        break;
-    case 'p':
+    if (prefix == "p")
         return(PICO);
-        break;
-    case 'f':
+    if (prefix == "f")
         return(FEMTO);
-        break;
-    }
 }
 TraceFormat RsaToolbox::Scpi_To_TraceFormat(QString scpi) {
     if (scpi == "MLOG")

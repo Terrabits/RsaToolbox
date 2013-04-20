@@ -15,31 +15,57 @@ using namespace RsaToolbox;
 
 
 // Constructor, Destructor
-Vna::Vna(ConnectionType connectionType, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version) {
+Vna::Vna() {
+    log = new Log();
+    bus = new RsibBus();
+    model = UNKNOWN;
+    serial_no = "";
+    firmware_version = "";
+    ports = 0;
+    minimum_frequency_Hz = 0;
+    maximum_frequency_Hz = 0;
+    options = QStringList();
+}
+
+Vna::Vna(ConnectionType connection_type, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version) {
     log = new Log(log_path, log_filename, program_name, program_version);
-    if (connectionType == TCPIP_CONNECTION)
-        bus = new RsibBus(connectionType, instrument_address, timeout_ms);
+    if (connection_type == TCPIP_CONNECTION)
+        bus = new RsibBus(connection_type, instrument_address, timeout_ms);
     if (bus->isOpen()) {
         QString id = GetIdentificationString();
-        if (!isRohdeSchwarz(id))
-            throw("RsaToolbox Error: Not a Rohde & Schwarz Analyzer");
-        ports = GetPorts();
-        minimum_frequency_Hz = GetMinimumFrequency_Hz();
-        maximum_frequency_Hz = GetMaximumFrequency_Hz();
-        GetInstrumentInfo(id);
-        options = GetOptions();
+        if (isRohdeSchwarz(id)) {
+            ports = GetPorts();
+            minimum_frequency_Hz = GetMinimumFrequency_Hz();
+            maximum_frequency_Hz = GetMaximumFrequency_Hz();
+            GetInstrumentInfo(id);
+            options = GetOptions();
+        }
+        else {
+            model = UNKNOWN;
+            serial_no = "";
+            firmware_version = "";
+            ports = 0;
+            minimum_frequency_Hz = 0;
+            maximum_frequency_Hz = 0;
+            options = QStringList();
+        }
     }
     else {
         model = UNKNOWN;
-        throw("RsaToolbox Error: No instrument found");
+        serial_no = "";
+        firmware_version = "";
+        ports = 0;
+        minimum_frequency_Hz = 0;
+        maximum_frequency_Hz = 0;
+        options = QStringList();
     }
 
     // Signals and slots
     QObject::connect(bus, &GenericBus::Print, log, &Log::Print);
 }
 Vna::~Vna() {
-    delete bus;
     delete log;
+    delete bus;
 }
 
 
