@@ -75,7 +75,7 @@ namespace RsaToolbox {
 	enum ConnectionType {
 		TCPIP_CONNECTION,
 		GPIB_CONNECTION,
-        USB_CONNECTION,
+        // USB_CONNECTION,
         NO_CONNECTION };
 
     enum VnaModel {

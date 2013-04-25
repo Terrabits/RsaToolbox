@@ -14,6 +14,7 @@
 #include <QString>
 #include <QVector>
 #include <QStringList>
+#include <QScopedPointer>
 
 // C++ std lib
 #include <complex>
@@ -29,13 +30,19 @@ namespace RsaToolbox {
         QStringList options;
         unsigned int ports;
         double minimum_frequency_Hz, maximum_frequency_Hz;
-        Log *log;
-        GenericBus *bus;
+        QScopedPointer<Log> log;
+        QScopedPointer<GenericBus> bus;
 
-		// Constructor / Destructor
+        /***********************
+        *** CONNECTION *********
+        ***********************/
+
         Vna();
         Vna(ConnectionType connectionType, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version);
-		~Vna();
+        ~Vna();
+
+        void Reset(ConnectionType connection_type, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version);
+        void Reset(void);
 
 
     public slots:

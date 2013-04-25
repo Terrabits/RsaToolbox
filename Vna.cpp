@@ -2,6 +2,7 @@
 // Rsa
 #include "Definitions.h"
 #include "RsibBus.h"
+#include "VisaBus.h"
 #include "Vna.h"
 
 // Qt
@@ -14,10 +15,13 @@
 using namespace RsaToolbox;
 
 
-// Constructor, Destructor
+/***********************
+*** MANAGE *************
+***********************/
+
 Vna::Vna() {
-    log = new Log();
-    bus = new RsibBus();
+    log.reset(new Log());
+    bus.reset(new RsibBus());
     model = UNKNOWN;
     serial_no = "";
     firmware_version = "";
@@ -26,11 +30,30 @@ Vna::Vna() {
     maximum_frequency_Hz = 0;
     options = QStringList();
 }
-
 Vna::Vna(ConnectionType connection_type, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version) {
-    log = new Log(log_path, log_filename, program_name, program_version);
+    Reset(connection_type, instrument_address, timeout_ms, log_path, log_filename, program_name, program_version);
+}
+Vna::~Vna() {
+    // QScopedPointers solved this problem!
+}
+
+void Vna::Reset(void) {
+    log.reset(new Log());
+    bus.reset(new RsibBus());
+    model = UNKNOWN;
+    serial_no = "";
+    firmware_version = "";
+    ports = 0;
+    minimum_frequency_Hz = 0;
+    maximum_frequency_Hz = 0;
+    options = QStringList();
+}
+void Vna::Reset(ConnectionType connection_type, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version) {
+    log.reset(new Log(log_path, log_filename, program_name, program_version));
     if (connection_type == TCPIP_CONNECTION)
-        bus = new RsibBus(connection_type, instrument_address, timeout_ms);
+        bus.reset(new RsibBus(connection_type, instrument_address, timeout_ms));
+    else if (connection_type == GPIB_CONNECTION)
+        bus.reset(new VisaBus(connection_type, instrument_address, timeout_ms));
     if (bus->isOpen()) {
         QString id = GetIdentificationString();
         if (isRohdeSchwarz(id)) {
@@ -61,13 +84,8 @@ Vna::Vna(ConnectionType connection_type, QString instrument_address, unsigned in
     }
 
     // Signals and slots
-    QObject::connect(bus, &GenericBus::Print, log, &Log::Print);
+    QObject::connect(bus.data(), &GenericBus::Print, log.data(), &Log::Print);
 }
-Vna::~Vna() {
-    delete log;
-    delete bus;
-}
-
 
 /***********************
 *** ACTIONS ************
@@ -1008,8 +1026,8 @@ void Vna::SaveCurrentState(QDir path, QString name) {
 
 bool Vna::isRohdeSchwarz(QString id) {
     return(
-       id.contains("Rohde", Qt::CaseInsensitive)
-       && id.contains("Schwarz", Qt::CaseInsensitive));
+                id.contains("Rohde", Qt::CaseInsensitive)
+                && id.contains("Schwarz", Qt::CaseInsensitive));
 }
 void Vna::GetInstrumentInfo(QString id) {
     QStringList id_list = id.split(',');

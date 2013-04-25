@@ -25,6 +25,7 @@ namespace RsaToolbox {
 
         // Status
         virtual bool isOpen() = 0;
+        virtual void PrintStatus(void) = 0;
 
 		// Actions
         virtual bool Lock(void) = 0;
