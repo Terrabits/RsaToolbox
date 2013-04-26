@@ -9,7 +9,6 @@
 // Qt
 #include <QByteArray>
 #include <QTextStream>
-#include <QMessageBox>
 
 using namespace RsaToolbox;
 

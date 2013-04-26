@@ -5,39 +5,35 @@
 #include "General.h"
 #include "Network.h"
 
+// Qt
+#include <QTextStream>
+
+// C++ std lib
 #include <iostream>
 #include <sstream>
 #include <cmath>
 #include <iterator>
 #include <iomanip>
 #include <algorithm>
-#include <locale>
 
 using namespace RsaToolbox;
 using namespace std;
 
 // Constructor
 Network::Network() {
-    Initialize();
-}
-
-void Network::Initialize(void) {
-    // Prepare object to hold data
-    data = ComplexMatrix3D();
-    frequency_prefix = NO_PREFIX;
-    frequency = RowVector();
     ports = 0;
     points = 0;
 
-    // Initialize rest to (Touchstone) defaults
-    type = S_PARAMETER;
-    format = REAL_IMAGINARY;
+    // Touchstone defaults
+    frequency_prefix = GIGA_PREFIX;
+    network_parameter = S_PARAMETER;
+    format = REAL_IMAGINARY_COMPLEX;
     impedance = 50;
     isBalanced = false;
 }
 
 // Actions
-bool Network::IsValid(void) {
+bool Network::isValid(void) {
     bool isValid = true;
     isValid &= (frequency.size() == data.size());
     if (isValid) { points = data.size(); };
@@ -59,43 +55,64 @@ bool Network::IsValid(void) {
     }
     return(isValid);
 }
-
 void Network::GetDb(int port1, int port2, RowVector &decibels) {
     decibels.resize(points);
     for (unsigned int frequency = 0; frequency < points; frequency++) {
         decibels[frequency] = ToDb(data[frequency][port1][port2]);
     }
 }
-
-
 void Network::GetMagnitude(int port1, int port2, RowVector &magnitude) {
     magnitude.resize(points);
     for (unsigned int frequency = 0; frequency < points; frequency++) {
         magnitude[frequency] = abs(data[frequency][port1][port2]);
     }
 }
-
-void Network::GetAngle(int port1, int port2, RowVector &angle) {
-    angle.resize(points);
+void Network::GetAngle(int port1, int port2, RowVector &angle_degrees) {
+    angle_degrees.resize(points);
     for (unsigned int frequency = 0; frequency < points; frequency++) {
-        angle[frequency] = arg(data[frequency][port1][port2]) * 180 / PI;
+        angle_degrees[frequency] = arg(data[frequency][port1][port2]) * 180 / PI;
     }
 }
-
-void Network::GetFrequency(RowVector &frequency, SiPrefix &prefix) {
+void Network::GetFrequency(RowVector &frequency, SiPrefix &frequency_prefix) {
     frequency = this->frequency;
-    prefix = this->frequency_prefix;
+    frequency_prefix = this->frequency_prefix;
 }
 
 // Operators
+Network::operator QString() {
+    QString output;
+    QTextStream stream(&output);
+
+    stream << "Network:" << endl;
+    stream << "Ports:      " << ports << endl;
+    stream << "Points:     " << points << endl;
+    stream << "Format:     " << ToString(format) << endl;
+    stream << "Impedance:  " << impedance << endl;
+    stream << "Balanced?   " << QVariant(isBalanced).toString() << endl;
+    stream << "Date/Time:  " << date_time.toString() << endl;
+
+    // First Point
+    stream << "@ " << FormatValue(frequency[0], 3, HERTZ_UNITS, frequency_prefix);
+    stream << " : S11= " << "(" << QVariant(data[0][1][1].real()).toString();
+    stream << ", " << QVariant(data[0][1][1].imag()).toString() << ")" << endl;
+
+    // Last Point
+    stream << "@ " << FormatValue(frequency[points-1], 3, HERTZ_UNITS, frequency_prefix);
+    stream << " : S11= " << "(" << QVariant(data[points-1][1][1].real()).toString();
+    stream << ", " << QVariant(data[points-1][1][1].imag()).toString() << ")" << endl;
+
+    stream.flush();
+    return(output);
+}
 bool Network::operator==(Network &other) {
+    const double TOLERANCE = 0.0001;
+
     bool isEqual = true;
-    const double PRECISION = 0.0001;
     isEqual &= (this->points == other.points);
     isEqual &= (this->ports == other.ports);
     isEqual &= (this->impedance == other.impedance);
     isEqual &= (this->format == other.format);
-    isEqual &= (this->type == other.type);
+    isEqual &= (this->network_parameter == other.network_parameter);
     isEqual &= (this->frequency_prefix == other.frequency_prefix);
     isEqual &= (this->frequency.size() == other.frequency.size());
     isEqual &= (this->data.size() == other.data.size());
@@ -111,13 +128,11 @@ bool Network::operator==(Network &other) {
             isEqual &= (this->data[freq][row].size() == other.data[freq][row].size());
             for (unsigned int column = 0; column < ports; column++) {
                 double error = abs(this->data[freq][row][column] - other.data[freq][row][column]);
-                isEqual &= (error < PRECISION); }
+                isEqual &= (error < TOLERANCE); }
         }
     }
     return(isEqual);
 }
-
-
 ComplexMatrix2D& Network::operator[](int index) {
     return(data[index]);
 }

@@ -7,22 +7,30 @@
 
 // Qt
 #include <QString>
-#include <QStringList>
+#include <QDateTime>
 
 // C++ std lib
+#include <complex>
 #include <vector>
+
 
 namespace RsaToolbox {
     class Trace  {
 	public:
+        NetworkParameter network_parameter;
         unsigned int port1;
         unsigned int port2;
+        unsigned int points;
         SweepType sweep_type;
-        NetworkParameter network_parameter;
         TraceFormat format;
+        QDateTime date_time;
 
-        RowVector data();
-        RowVector x_axis();
+        ComplexRowVector complex_data;
+        RowVector data, stimulus_points;
+        Units data_units, stimulus_units;
+
+        bool isComplex(void);
+        operator QString();
 	};
 }
 

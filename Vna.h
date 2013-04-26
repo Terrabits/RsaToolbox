@@ -4,7 +4,6 @@
 
 // RsaToolbox:
 #include "Definitions.h"
-#include "General.h"
 #include "GenericBus.h"
 #include "Log.h"
 #include "Trace.h"
@@ -53,6 +52,10 @@ namespace RsaToolbox {
 		void Preset(void);
 		void ClearStatus(void);
         void PrintInstrumentInfo(void);
+        void InitiateSweep(void);
+        void InitiateSweep(unsigned int channel);
+        void FinishPreviousCommandsFirst(void);
+        void PauseUntilCommandQueueIsFinished(void);
 
 
     public:
@@ -62,6 +65,8 @@ namespace RsaToolbox {
 
         bool isChannelEnabled(unsigned int channel);
         bool isChannelDisabled(unsigned int channel);
+        bool isContinuousSweepEnabled(void);
+        bool isContinuousSweepEnabled(unsigned int channel);
         bool isUserPresetEnabled(void);
         bool isUserPresetDisabled(void);
         bool isUserPresetMappedToRst(void);
@@ -108,6 +113,10 @@ namespace RsaToolbox {
 
         // GET:Channel
         QVector<unsigned int> GetChannels(void);
+        SweepType GetSweepType(void);
+        SweepType GetSweepType(unsigned int channel);
+        void GetStimulusValues(QString trace_name, RowVector &stimulus_data);
+        void GetStimulusValues(unsigned int channel, RowVector &stimulus_data);
         QVector<unsigned int> Channel_GetDiagrams(unsigned int channel);
         QStringList Channel_GetTraces(unsigned int channel);
         QString Channel_GetSelectedTrace(void);
@@ -172,6 +181,8 @@ namespace RsaToolbox {
         void SetUserPreset(QDir path, QString filename);
 
         // SET:Channel
+        void SetSweepType(SweepType sweep_type);
+        void SetSweepType(unsigned int channel, SweepType sweep_type);
         void Channel_SetSelectedTrace(QString trace_name);
         void SetDelay(unsigned int port, double delay, SiPrefix prefix = NO_PREFIX);
         void SetDelay(unsigned int port, unsigned int channel, double delay, SiPrefix prefix = NO_PREFIX);
@@ -179,8 +190,8 @@ namespace RsaToolbox {
         void SetDelays(unsigned int channel, QVector<double> delays, SiPrefix prefix = NO_PREFIX);
         void SetChannelPower_dBm(double power_dBm);
         void SetChannelPower_dBm(unsigned int channel, double power_dBm);
-        void SetPortPower(unsigned int port, double power_dBm, ReferenceLevel power_reference = ABSOLUTE);
-        void SetPortPower(unsigned int port, unsigned int channel, double power_dBm, ReferenceLevel power_reference = ABSOLUTE);
+        void SetPortPower(unsigned int port, double power_dBm, ReferenceLevel power_reference = ABSOLUTE_REFERENCE_LEVEL);
+        void SetPortPower(unsigned int port, unsigned int channel, double power_dBm, ReferenceLevel power_reference = ABSOLUTE_REFERENCE_LEVEL);
         void SetStartFrequency(double start_frequency, SiPrefix prefix = NO_PREFIX);
         void SetStartFrequency(unsigned int channel, double start_frequency, SiPrefix prefix = NO_PREFIX);
         void SetStopFrequency(double stop_frequency, SiPrefix prefix = NO_PREFIX);
@@ -205,6 +216,10 @@ namespace RsaToolbox {
         *** ENABLE *************
         ***********************/
 
+        void EnableContinuousSweep(bool isEnabled = true);
+        void EnableContinuousSweep(int channel, bool isEnabled = true);
+        void EnableContinuousSweep(unsigned int channel, bool isEnabled = true);
+        void EnableContinuousSweep(double channel, bool isEnabled = true);
         void EnableUserPreset(bool isEnabled = true);
         void EnableUserPresetMapToRst(bool isEnabled = true);
         void EnablePortPowerLimit(unsigned int port, bool isEnabled = true);
@@ -222,6 +237,10 @@ namespace RsaToolbox {
         void DisableCustomIdString(bool isDisabled = true);
         void DisableCustomOptionsString(bool isDisabled = true);
         void DisableEmulation(void);
+        void DisableContinuousSweep(bool isDisabled = true);
+        void DisableContinuousSweep(int channel, bool isDisabled = true);
+        void DisableContinuousSweep(unsigned int channel, bool isDisabled = true);
+        void DisableContinuousSweep(double channel, bool isDisabled = true);
         void DisableDelay(unsigned int port);
         void DisableDelay(unsigned int port, unsigned int channel);
         void DisableDelays(void);
@@ -241,8 +260,9 @@ namespace RsaToolbox {
         ***********************/
 
         void CreateChannel(unsigned int channel);
+        void CreateSParameterGroup(unsigned int channel, QVector<unsigned int> ports);
         void CreateDiagram(unsigned int diagram);
-        void CreateTrace(QString trace_name);
+        void CreateTrace(QString trace_name, unsigned int channel, NetworkParameter parameter, unsigned int port1, unsigned int port2);
 
 
     public slots:
@@ -251,6 +271,7 @@ namespace RsaToolbox {
         ***********************/
 
         void DeleteChannel(unsigned int channel);
+        void DeleteSParameterGroup(unsigned int channel);
         void DeleteDiagram(unsigned int diagram);
         void DeleteTrace(QString trace_name);
         void DeleteUserPreset(void);
@@ -261,10 +282,8 @@ namespace RsaToolbox {
         *** MEASURE ************
         ***********************/
 
-        void MeasureTrace(Trace &trace);
-        void MeasureTrace(Trace &trace, QString name);
-        void MeasureNetwork(Network &network, QVector<unsigned int> ports);
-        void MeasureNetwork(Network &network, QVector<unsigned int> ports, unsigned int channel);
+        void MeasureTrace(QString trace_name, Trace &trace);
+        void MeasureNetwork(Network &network, unsigned int channel, QVector<unsigned int> ports);
 
 
     public slots:
@@ -293,13 +312,24 @@ namespace RsaToolbox {
         static void ParseValueFromRead(QString readback, unsigned int &value, QString &qualifier);
         static void ParseValueFromRead(QString readback, int &value, QString &qualifier);
         static void ParseValueFromRead(QString readback, double &value, QString &qualifier);
-        QString ValueQualifier_to_Scpi(unsigned int value, QString qualifier);
-        QString ValueQualifier_to_Scpi(int value, QString qualifier);
-        QString ValueQualifier_to_Scpi(double value, QString qualifier);
+        static QString ValueQualifier_to_Scpi(unsigned int value, QString qualifier);
+        static QString ValueQualifier_to_Scpi(int value, QString qualifier);
+        static QString ValueQualifier_to_Scpi(double value, QString qualifier);
 
         // Trace format: "\'S12\'" or "\'S1213\'"
         static void ParseTraceParameters(QString readback, NetworkParameter &parameter, unsigned int &port1, unsigned int &port2);
         static QString TraceParameters_to_Scpi(NetworkParameter parameter, unsigned int port1, unsigned int port2);
+
+        // Read Trace
+        static unsigned int TraceBufferSize(TraceFormat format, unsigned int points);
+        static unsigned int StimulusBufferSize(unsigned int points);
+        static void ParseTraceData(Trace &trace, QString data);
+        static void ParseTraceStimulus(RowVector &stimulus_data, QString readback);
+        static void GetTraceUnits(Trace &trace);
+
+        // Read Network
+        static unsigned int NetworkBufferSize(unsigned int points, unsigned int ports);
+        static void Vna::ParseNetworkData(Network &network, QString readback);
 	};
 }
 

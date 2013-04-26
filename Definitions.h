@@ -13,12 +13,12 @@ namespace RsaToolbox {
 	const double PI =  3.1415926535897932;
 
     enum SweepType {
-        LINEAR_FREQUENCY,
-        LOG_FREQUENCY,
-		SEGMENTED_SWEEP,
+        LINEAR_FREQUENCY_SWEEP,
+        LOG_FREQUENCY_SWEEP,
+        SEGMENTED_SWEEP,
         POWER_SWEEP,
-        CW_MODE,
-        TIME_DOMAIN };
+        CW_MODE_SWEEP,
+        TIME_SWEEP };
 
     enum NetworkParameter {
         S_PARAMETER,
@@ -28,49 +28,51 @@ namespace RsaToolbox {
         G_PARAMETER };
 
     enum ReferenceLevel {
-        RELATIVE,
-        ABSOLUTE };
+        RELATIVE_REFERENCE_LEVEL,
+        ABSOLUTE_REFERENCE_LEVEL };
 
     enum ComplexFormat {
-        DB_DEGREES,
-        MAGNITUDE_DEGREES,
-        REAL_IMAGINARY };
+        DB_DEGREES_COMPLEX,
+        MAGNITUDE_DEGREES_COMPLEX,
+        REAL_IMAGINARY_COMPLEX };
 
 	enum TraceFormat {
-        DB_MAGNITUDE,
-        PHASE_DEG,
-        SMITH_CHART,
-        POLAR_CHART,
-        SWR,
-        UNWRAP_PHASE_DEG,
-        LINEAR_MAGNITUDE,
-        INVERSE_SMITH_CHART,
-        REAL_PART,
-        IMAGINARY_PART,
-        DELAY };
+        DB_MAGNITUDE_TRACE,
+        PHASE_DEG_TRACE,
+        SMITH_CHART_TRACE,
+        POLAR_CHART_TRACE,
+        VSWR_TRACE,
+        UNWRAP_PHASE_DEG_TRACE,
+        LINEAR_MAGNITUDE_TRACE,
+        INVERSE_SMITH_CHART_TRACE,
+        REAL_PART_TRACE,
+        IMAGINARY_PART_TRACE,
+        DELAY_TRACE };
 
     enum Units {
-        UNITLESS,
-        SECONDS,
-        HERTZ,
-        RADIANS,
-        DEGREES,
-        WATTS,
-        DECIBELS,
-        DECIBEL_WATTS,
-        DECIBEL_MILLIWATTS };
+        NO_UNITS,
+        SECONDS_UNITS,
+        HERTZ_UNITS,
+        RADIANS_UNITS,
+        DEGREES_UNITS,
+        OHMS_UNITS,
+        SIEMENS_UNITS,
+        WATTS_UNITS,
+        DECIBELS_UNITS,
+        DECIBEL_WATTS_UNITS,
+        DECIBEL_MILLIWATTS_UNITS };
 
     enum SiPrefix {
-        TERA = 12,
-        GIGA = 9,
-        MEGA = 6,
-        KILO = 3,
+        TERA_PREFIX = 12,
+        GIGA_PREFIX = 9,
+        MEGA_PREFIX = 6,
+        KILO_PREFIX = 3,
         NO_PREFIX = 0,
-        MILLI = -3,
-        MICRO = -6,
-        NANO = -9,
-        PICO = -12,
-        FEMTO = -15 };
+        MILLI_PREFIX = -3,
+        MICRO_PREFIX = -6,
+        NANO_PREFIX = -9,
+        PICO_PREFIX = -12,
+        FEMTO_PREFIX = -15 };
 
 	enum ConnectionType {
 		TCPIP_CONNECTION,
@@ -79,21 +81,20 @@ namespace RsaToolbox {
         NO_CONNECTION };
 
     enum VnaModel {
-        ZVA,
-        ZVB,
-        ZVH,
-        ZVL,
-        ZVT,
-        ZNB,
-        ZNC,
-        UNKNOWN };
+        ZVA_MODEL,
+        ZVB_MODEL,
+        ZVH_MODEL,
+        ZVL_MODEL,
+        ZVT_MODEL,
+        ZNB_MODEL,
+        ZNC_MODEL,
+        UNKNOWN_MODEL };
 
     enum ColorScheme {
         DARK_BACKGROUND,
         LIGHT_BACKGROUND,
-        BLACK_WHITE_OUTLINE,
-        BLACK_WHITE_SOLID
-    };
+        BLACK_WHITE_OUTLINE_BACKGROUND,
+        BLACK_WHITE_SOLID_BACKGROUND };
 
     typedef std::vector<std::vector<std::vector<std::complex<double>>>> ComplexMatrix3D;
     typedef std::vector<std::vector<std::complex<double>>> ComplexMatrix2D;

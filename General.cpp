@@ -16,115 +16,127 @@ using namespace RsaToolbox;
 // Enum Conversions
 double RsaToolbox::ToDouble(SiPrefix prefix) {
     switch(prefix) {
-    case TERA:
+    case TERA_PREFIX:
         return(1E12);
         break;
-    case GIGA:
+    case GIGA_PREFIX:
         return(1E9);
         break;
-    case MEGA:
+    case MEGA_PREFIX:
         return(1E6);
         break;
-    case KILO:
+    case KILO_PREFIX:
         return(1E3);
         break;
-    case NO_PREFIX:
-        return(1E0);
-        break;
-    case MILLI:
+    case MILLI_PREFIX:
         return(1E-3);
         break;
-    case MICRO:
+    case MICRO_PREFIX:
         return(1E-6);
         break;
-    case NANO:
+    case NANO_PREFIX:
         return(1E-9);
         break;
-    case PICO:
+    case PICO_PREFIX:
         return(1E-12);
         break;
-    case FEMTO:
+    case FEMTO_PREFIX:
         return(1E-15);
+        break;
+    default:
+        // NO_PREFIX
+        return(1E0);
         break;
     }
 }
+
 QString RsaToolbox::ToString(SiPrefix prefix) {
     switch(prefix) {
-    case TERA:
+    case TERA_PREFIX:
         return("T");
         break;
-    case GIGA:
+    case GIGA_PREFIX:
         return("G");
         break;
-    case MEGA:
+    case MEGA_PREFIX:
         return("M");
         break;
-    case KILO:
+    case KILO_PREFIX:
         return("K");
         break;
-    case NO_PREFIX:
-        return("");
-        break;
-    case MILLI:
+    case MILLI_PREFIX:
         return("m");
         break;
-    case MICRO:
+    case MICRO_PREFIX:
         return("u");
         break;
-    case NANO:
+    case NANO_PREFIX:
         return("n");
         break;
-    case PICO:
+    case PICO_PREFIX:
         return("p");
         break;
-    case FEMTO:
+    case FEMTO_PREFIX:
         return("f");
+        break;
+    default:
+        // NO_PREFIX
+        return("");
         break;
     }
 }
 QString RsaToolbox::ToString(Units units) {
     switch(units) {
-    case UNITLESS:
-        return("");
+    case SECONDS_UNITS:
+        return("s");
         break;
-    case SECONDS:
-        return("S");
-        break;
-    case HERTZ:
+    case HERTZ_UNITS:
         return("Hz");
         break;
-    case RADIANS:
+    case RADIANS_UNITS:
         return("Rad");
         break;
-    case DEGREES:
+    case DEGREES_UNITS:
         return("Deg");
         break;
-    case WATTS:
+    case OHMS_UNITS:
+        return("Ω");
+        break;
+    case SIEMENS_UNITS:
+        return("S");
+        break;
+    case WATTS_UNITS:
         return("W");
         break;
-    case DECIBELS:
+    case DECIBELS_UNITS:
         return("dB");
         break;
-    case DECIBEL_WATTS:
+    case DECIBEL_WATTS_UNITS:
         return("dBW");
         break;
-    case DECIBEL_MILLIWATTS:
+    case DECIBEL_MILLIWATTS_UNITS:
         return("dBm");
+        break;
+    default:
+        // NO_UNITS
+        return("");
         break;
     }
 }
 QString RsaToolbox::ToString(ComplexFormat format) {
     switch(format) {
-    case DB_DEGREES:
+    case DB_DEGREES_COMPLEX:
         return("dB");
         break;
-    case MAGNITUDE_DEGREES:
+    case MAGNITUDE_DEGREES_COMPLEX:
         return("MA");
         break;
-    case REAL_IMAGINARY:
+    case REAL_IMAGINARY_COMPLEX:
         return("RI");
         break;
     }
+    // Default
+    return("dB");
 }
 QString RsaToolbox::ToString(NetworkParameter parameter) {
     switch(parameter) {
@@ -144,52 +156,77 @@ QString RsaToolbox::ToString(NetworkParameter parameter) {
         return("G");
         break;
     }
+    // Default
+    return("S");
 }
 QString RsaToolbox::ToString(VnaModel model) {
     switch(model) {
-    case ZVA:
+    case ZVA_MODEL:
         return(QString("ZVA"));
-    case ZVB:
+    case ZVB_MODEL:
         return(QString("ZVB"));
-    case ZVH:
+    case ZVH_MODEL:
         return(QString("ZVH"));
-    case ZVL:
+    case ZVL_MODEL:
         return(QString("ZVL"));
-    case ZVT:
+    case ZVT_MODEL:
         return(QString("ZVT"));
-    case ZNB:
+    case ZNB_MODEL:
         return(QString("ZNB"));
-    case ZNC:
+    case ZNC_MODEL:
         return(QString("ZNC"));
-    case UNKNOWN:
+    default:
+        // UNKNOWN_MODEL
         return(QString("UNKNOWN"));
     }
 }
 QString RsaToolbox::ToStateFileExtension(VnaModel model) {
     switch(model) {
-    case ZVA:
+    case ZVA_MODEL:
         return(QString(".zvx"));
-    case ZVB:
+    case ZVB_MODEL:
         return(QString(".zvx"));
-    case ZVH:
+    case ZVH_MODEL:
         return(QString(".zvx"));
-    case ZVL:
+    case ZVL_MODEL:
         return(QString(".zvx"));
-    case ZVT:
+    case ZVT_MODEL:
         return(QString(".zvx"));
-    case ZNB:
+    case ZNB_MODEL:
         return(QString(".znx"));
-    case ZNC:
+    case ZNC_MODEL:
         return(QString(".znx"));
-    case UNKNOWN:
+    default:
+        // UNKNOWN_MODEL
         return(QString(".rsx"));
     }
 }
+
+const char* RsaToolbox::ToScpi(SweepType sweep_type) {
+    switch(sweep_type) {
+    case LINEAR_FREQUENCY_SWEEP:
+        return("LIN");
+    case LOG_FREQUENCY_SWEEP:
+        return("LOG");
+    case SEGMENTED_SWEEP:
+        return("SEGM");
+    case POWER_SWEEP:
+        return("POW");
+    case CW_MODE_SWEEP:
+        return("CW");
+    case TIME_SWEEP:
+        return("POIN");
+    }
+    // Default
+    return("LIN");
+}
 const char* RsaToolbox::ToScpi(ReferenceLevel reference_level) {
-    if (reference_level == RELATIVE)
+    if (reference_level == RELATIVE_REFERENCE_LEVEL)
         return("CPAD");
-    if (reference_level == ABSOLUTE)
+    if (reference_level == ABSOLUTE_REFERENCE_LEVEL)
         return("ONLY");
+    //Default
+    return("ONLY");
 }
 const char* RsaToolbox::ToScpi(ColorScheme scheme) {
     switch(scheme) {
@@ -199,96 +236,106 @@ const char* RsaToolbox::ToScpi(ColorScheme scheme) {
     case LIGHT_BACKGROUND:
         return("LBAC");
         break;
-    case BLACK_WHITE_OUTLINE:
+    case BLACK_WHITE_OUTLINE_BACKGROUND:
         return("BWLS");
         break;
-    case BLACK_WHITE_SOLID:
+    case BLACK_WHITE_SOLID_BACKGROUND:
         return("BWS");
         break;
     }
+    // Default
+    return("DBAC");
 }
 const char* RsaToolbox::ToScpi(TraceFormat format) {
     switch(format) {
-    case DB_MAGNITUDE:
+    case DB_MAGNITUDE_TRACE:
         return("MLOG");
         break;
-    case PHASE_DEG:
+    case PHASE_DEG_TRACE:
         return("PHAS");
         break;
-    case SMITH_CHART:
+    case SMITH_CHART_TRACE:
         return("SMIT");
         break;
-    case POLAR_CHART:
+    case POLAR_CHART_TRACE:
         return("POL");
         break;
-    case SWR:
+    case VSWR_TRACE:
         return("SWR");
         break;
-    case UNWRAP_PHASE_DEG:
+    case UNWRAP_PHASE_DEG_TRACE:
         return("UPH");
         break;
-    case LINEAR_MAGNITUDE:
+    case LINEAR_MAGNITUDE_TRACE:
         return("MLIN");
         break;
-    case INVERSE_SMITH_CHART:
+    case INVERSE_SMITH_CHART_TRACE:
         return("ISM");
         break;
-    case REAL_PART:
+    case REAL_PART_TRACE:
         return("REAL");
         break;
-    case IMAGINARY_PART:
+    case IMAGINARY_PART_TRACE:
         return("IMAG");
         break;
-    case DELAY:
+    case DELAY_TRACE:
         return("GDE");
         break;
     }
+    // Default
+    return("MLOG");
 }
+
 SiPrefix RsaToolbox::String_To_SiPrefix(QString prefix) {
     if (prefix.length() == 0)
         return(NO_PREFIX);
     if (prefix == "T")
-        return(TERA);
+        return(TERA_PREFIX);
     if (prefix == "G")
-        return(GIGA);
+        return(GIGA_PREFIX);
     if (prefix == "M")
-        return(MEGA);
+        return(MEGA_PREFIX);
     if (prefix == "K")
-        return(KILO);
+        return(KILO_PREFIX);
     if (prefix == "m")
-        return(MILLI);
+        return(MILLI_PREFIX);
     if (prefix == "u")
-        return(MICRO);
+        return(MICRO_PREFIX);
     if (prefix == "n")
-        return(NANO);
+        return(NANO_PREFIX);
     if (prefix == "p")
-        return(PICO);
+        return(PICO_PREFIX);
     if (prefix == "f")
-        return(FEMTO);
+        return(FEMTO_PREFIX);
+    // Default
+    return(NO_PREFIX);
 }
+
 TraceFormat RsaToolbox::Scpi_To_TraceFormat(QString scpi) {
     if (scpi == "MLOG")
-        return(DB_MAGNITUDE);
+        return(DB_MAGNITUDE_TRACE);
     if (scpi == "PHAS")
-        return(PHASE_DEG);
+        return(PHASE_DEG_TRACE);
     if (scpi == "SMIT")
-        return(SMITH_CHART);
+        return(SMITH_CHART_TRACE);
     if (scpi == "POL")
-        return(POLAR_CHART);
+        return(POLAR_CHART_TRACE);
     if (scpi == "SWR")
-        return(SWR);
+        return(VSWR_TRACE);
     if (scpi == "UPH")
-        return(UNWRAP_PHASE_DEG);
+        return(UNWRAP_PHASE_DEG_TRACE);
     if (scpi == "MLIN")
-        return(LINEAR_MAGNITUDE);
+        return(LINEAR_MAGNITUDE_TRACE);
     if (scpi == "ISM")
-        return(INVERSE_SMITH_CHART);
+        return(INVERSE_SMITH_CHART_TRACE);
     if (scpi == "REAL")
-        return(REAL_PART);
+        return(REAL_PART_TRACE);
     if (scpi == "IMAG")
-        return(IMAGINARY_PART);
+        return(IMAGINARY_PART_TRACE);
     if (scpi == "GDE")
-        return(DELAY);
+        return(DELAY_TRACE);
+    // Default
+    return(DB_MAGNITUDE_TRACE);
 }
 ColorScheme RsaToolbox::Scpi_To_ColorScheme(QString scpi) {
     if(scpi == "DBAC")
@@ -296,9 +343,11 @@ ColorScheme RsaToolbox::Scpi_To_ColorScheme(QString scpi) {
     if(scpi == "LBAC")
         return(LIGHT_BACKGROUND);
     if(scpi == "BWLS")
-        return(BLACK_WHITE_OUTLINE);
+        return(BLACK_WHITE_OUTLINE_BACKGROUND);
     if(scpi == "BWS")
-        return(BLACK_WHITE_SOLID);
+        return(BLACK_WHITE_SOLID_BACKGROUND);
+    // Default
+    return(DARK_BACKGROUND);
 }
 NetworkParameter RsaToolbox::Scpi_To_NetworkParameter(QString scpi) {
     if (scpi == "S")
@@ -311,12 +360,32 @@ NetworkParameter RsaToolbox::Scpi_To_NetworkParameter(QString scpi) {
         return(H_PARAMETER);
     if (scpi == "G")
         return(G_PARAMETER);
+    // Default
+    return(S_PARAMETER);
 }
 ReferenceLevel RsaToolbox::Scpi_To_ReferenceLevel(QString scpi) {
     if (scpi == "CPAD")
-        return(RELATIVE);
+        return(RELATIVE_REFERENCE_LEVEL);
     if (scpi == "ONLY")
-        return(ABSOLUTE);
+        return(ABSOLUTE_REFERENCE_LEVEL);
+    // Default
+    return(ABSOLUTE_REFERENCE_LEVEL);
+}
+SweepType RsaToolbox::Scpi_To_SweepType(QString scpi) {
+    if (scpi == "LIN")
+        return(LINEAR_FREQUENCY_SWEEP);
+    if (scpi == "LOG")
+        return(LOG_FREQUENCY_SWEEP);
+    if (scpi == "SEGM")
+        return(SEGMENTED_SWEEP);
+    if (scpi == "POW")
+        return(POWER_SWEEP);
+    if (scpi == "CW")
+        return(CW_MODE_SWEEP);
+    if (scpi == "POIN")
+        return(TIME_SWEEP);
+    // Default
+    return(LINEAR_FREQUENCY_SWEEP);
 }
 
 // File system
@@ -358,7 +427,17 @@ QString RsaToolbox::FormatValue(double value, int decimalPlaces, Units units, Si
     text_stream.setRealNumberNotation(QTextStream::FixedNotation);
 
     const int count = 10;
-    SiPrefix prefixes[count] = { FEMTO, PICO, NANO, MICRO, MILLI, NO_PREFIX, KILO, MEGA, GIGA, TERA };
+    SiPrefix prefixes[count] =
+    { FEMTO_PREFIX,
+      PICO_PREFIX,
+      NANO_PREFIX,
+      MICRO_PREFIX,
+      MILLI_PREFIX,
+      NO_PREFIX,
+      KILO_PREFIX,
+      MEGA_PREFIX,
+      GIGA_PREFIX,
+      TERA_PREFIX };
 
     double magnitude = abs(value * ToDouble(prefix));
     for (int i = 0; i < count; i++) {

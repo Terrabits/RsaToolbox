@@ -153,9 +153,16 @@ void RsibBus::NullTerminateRead(char *buffer, unsigned long buffer_size) {
 }
 QString RsibBus::ToTruncatedString(char *buffer) {
     QString formatted_text(buffer);
-    formatted_text.truncate(MAX_PRINT);
-    formatted_text = QString("Received: \"")
-            + formatted_text
-            + QString("\"\n");
+    if (formatted_text.length() > MAX_PRINT) {
+        formatted_text.truncate(MAX_PRINT);
+        formatted_text = QString("Received: \"")
+                + formatted_text
+                + QString("...\"\n");
+    }
+    else {
+        formatted_text = QString("Received: \"")
+                + formatted_text
+                + QString("\"\n");
+    }
     return(formatted_text);
 }

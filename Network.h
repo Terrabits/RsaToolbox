@@ -1,21 +1,29 @@
 #ifndef NETWORK_H
 #define NETWORK_H
 
-// RsaToolbox
+// Rsa
 #include "Definitions.h"
+
+// Qt
+#include <QString>
+#include <QDateTime>
+
+// C++ std lib
+#include <complex>
+#include <vector>
 
 
 namespace RsaToolbox
 {
 	class Network {
 	public:
-        // Properties
+        NetworkParameter network_parameter;
         unsigned int ports;
         unsigned int points;
-        NetworkParameter type;
         ComplexFormat format;
         double impedance; // Ohms
 		bool isBalanced;
+        QDateTime date_time;
 
         // Data
         SiPrefix frequency_prefix;
@@ -24,17 +32,17 @@ namespace RsaToolbox
 
 		// Constructor
 		Network();
-		void Initialize(void);
 
 		// Actions
-		bool IsValid(void);
+        bool isValid(void);
         void GetDb(int port1, int port2, RowVector &decibels);
         void GetMagnitude(int port1, int port2, RowVector &magnitude);
-        void GetAngle(int port1, int port2, RowVector &angle); // degrees
-        void GetFrequency(RowVector &frequency, SiPrefix &units);
+        void GetAngle(int port1, int port2, RowVector &angle_degrees);
+        void GetFrequency(RowVector &frequency, SiPrefix &frequency_prefix);
 
 		// Operators
-		bool operator==(Network &network);
+        operator QString();
+        bool operator==(Network &network);
         ComplexMatrix2D& operator[](int index);
 	};
 }

@@ -39,7 +39,7 @@ bool Touchstone::Read(Network &network, QString filename) {
 		&& ReadData(network, snpFile));
 }
 bool Touchstone::Write(Network &network, QString filename) {
-	if (!network.IsValid()) { return(false); }
+    if (!network.isValid()) { return(false); }
 
     QFile file;
     CreateFile(file, filename, network);
@@ -155,11 +155,11 @@ bool Touchstone::ReadOptions(Network &network, QTextStream &snpFile) {
 	else { return(false); }
 }
 bool Touchstone::ReadFrequencyPrefix(Network &network, QString units) {
-    QRegularExpression THZ_REGEX(ToString(TERA) + ToString(HERTZ), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression GHZ_REGEX(ToString(GIGA) + ToString(HERTZ), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression MHZ_REGEX(ToString(MEGA) + ToString(HERTZ), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression KHZ_REGEX(ToString(KILO) + ToString(HERTZ), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression HZ_REGEX(ToString(HERTZ), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression THZ_REGEX(ToString(TERA_PREFIX) + ToString(HERTZ_UNITS), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression GHZ_REGEX(ToString(GIGA_PREFIX) + ToString(HERTZ_UNITS), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression MHZ_REGEX(ToString(MEGA_PREFIX) + ToString(HERTZ_UNITS), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression KHZ_REGEX(ToString(KILO_PREFIX) + ToString(HERTZ_UNITS), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression HZ_REGEX(ToString(HERTZ_UNITS), QRegularExpression::CaseInsensitiveOption);
 
     if (units.length() == 2 && HZ_REGEX.match(units).hasMatch()) {
         network.frequency_prefix = NO_PREFIX; return(true);
@@ -168,16 +168,16 @@ bool Touchstone::ReadFrequencyPrefix(Network &network, QString units) {
 	if(units.size() == 3)
 	{
         if (THZ_REGEX.match(units).hasMatch()) {
-            network.frequency_prefix = TERA; return(true);
+            network.frequency_prefix = TERA_PREFIX; return(true);
         }
         if (GHZ_REGEX.match(units).hasMatch()) {
-            network.frequency_prefix = GIGA; return(true);
+            network.frequency_prefix = GIGA_PREFIX; return(true);
         }
         if (MHZ_REGEX.match(units).hasMatch()) {
-            network.frequency_prefix = MEGA; return(true);
+            network.frequency_prefix = MEGA_PREFIX; return(true);
         }
         if (KHZ_REGEX.match(units).hasMatch()) {
-            network.frequency_prefix = KILO; return(true);
+            network.frequency_prefix = KILO_PREFIX; return(true);
         }
 	}
 
@@ -194,19 +194,19 @@ bool Touchstone::ReadDataType(Network &network, QString type) {
     if(type.size() == 1)
 	{
         if (S_REGEX.match(type).hasMatch()) {
-            network.type = S_PARAMETER; return(true);
+            network.network_parameter = S_PARAMETER; return(true);
         }
         if (Y_REGEX.match(type).hasMatch()) {
-            network.type = Y_PARAMETER; return(true);
+            network.network_parameter = Y_PARAMETER; return(true);
         }
         if (Z_REGEX.match(type).hasMatch()) {
-            network.type = Z_PARAMETER; return(true);
+            network.network_parameter = Z_PARAMETER; return(true);
         }
         if (H_REGEX.match(type).hasMatch()) {
-            network.type = H_PARAMETER; return(true);
+            network.network_parameter = H_PARAMETER; return(true);
         }
         if (G_REGEX.match(type).hasMatch()) {
-            network.type = G_PARAMETER; return(true);
+            network.network_parameter = G_PARAMETER; return(true);
         }
     }
 
@@ -214,23 +214,23 @@ bool Touchstone::ReadDataType(Network &network, QString type) {
 	return(false);
 }
 bool Touchstone::ReadFormat(Network &network, QString format) {
-    QRegularExpression RI_REGEX(ToString(REAL_IMAGINARY), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression MA_REGEX(ToString(MAGNITUDE_DEGREES), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression DB_REGEX(ToString(DB_DEGREES), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression RI_REGEX(ToString(REAL_IMAGINARY_COMPLEX), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression MA_REGEX(ToString(MAGNITUDE_DEGREES_COMPLEX), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression DB_REGEX(ToString(DB_DEGREES_COMPLEX), QRegularExpression::CaseInsensitiveOption);
 
     if(format.length() == 2)
 	{
         if (RI_REGEX.match(format).hasMatch()) {
-            network.format = REAL_IMAGINARY;
+            network.format = REAL_IMAGINARY_COMPLEX;
 			ReadDatum = &ReadRI;
             return(true);
         }
         if (MA_REGEX.match(format).hasMatch()) {
-            network.format = MAGNITUDE_DEGREES;
+            network.format = MAGNITUDE_DEGREES_COMPLEX;
 			ReadDatum = &ReadMA;
 			return(true); }
         if (DB_REGEX.match(format).hasMatch()) {
-            network.format = DB_DEGREES;
+            network.format = DB_DEGREES_COMPLEX;
 			ReadDatum = &ReadDB;
 			return(true); }
 	}
@@ -337,25 +337,25 @@ void Touchstone::WriteOptions(Network &network, QTextStream &snpFile) {
 }
 QString Touchstone::WriteUnits(Network &network) {
     switch (network.frequency_prefix) {
-    case TERA:
-        return(ToString(TERA) + ToString(HERTZ));
+    case TERA_PREFIX:
+        return(ToString(TERA_PREFIX) + ToString(HERTZ_UNITS));
 		break;
-    case GIGA:
-        return(ToString(GIGA) + ToString(HERTZ));
+    case GIGA_PREFIX:
+        return(ToString(GIGA_PREFIX) + ToString(HERTZ_UNITS));
 		break;
-    case MEGA:
-        return(ToString(MEGA) + ToString(HERTZ));
+    case MEGA_PREFIX:
+        return(ToString(MEGA_PREFIX) + ToString(HERTZ_UNITS));
 		break;
-    case KILO:
-        return(ToString(KILO) + ToString(HERTZ));
+    case KILO_PREFIX:
+        return(ToString(KILO_PREFIX) + ToString(HERTZ_UNITS));
 		break;
 	default:
-        return(ToString(NO_PREFIX) + ToString(HERTZ));
+        return(ToString(NO_PREFIX) + ToString(HERTZ_UNITS));
 		break;
 	}
 }
 QString Touchstone::WriteDataType(Network &network) {
-    switch (network.type) {
+    switch (network.network_parameter) {
     case Y_PARAMETER:
         return(ToString(Y_PARAMETER));
 		break;
@@ -375,14 +375,14 @@ QString Touchstone::WriteDataType(Network &network) {
 }
 QString Touchstone::WriteFormat(Network &network) {
 	switch (network.format) {
-    case DB_DEGREES:
-        return(ToString(DB_DEGREES));
+    case DB_DEGREES_COMPLEX:
+        return(ToString(DB_DEGREES_COMPLEX));
 		break;
-    case MAGNITUDE_DEGREES:
-        return(ToString(MAGNITUDE_DEGREES));
+    case MAGNITUDE_DEGREES_COMPLEX:
+        return(ToString(MAGNITUDE_DEGREES_COMPLEX));
 		break;
 	default:
-        return(ToString(REAL_IMAGINARY));
+        return(ToString(REAL_IMAGINARY_COMPLEX));
 		break;
 	}
 }
@@ -428,13 +428,13 @@ void Touchstone::WriteRow(Network &network, QTextStream &snpFile, ComplexRowVect
 }
 void Touchstone::GetWriteFormat(Network &network) {
 	switch (network.format) {
-    case REAL_IMAGINARY:
+    case REAL_IMAGINARY_COMPLEX:
 		WriteDatum = &WriteRI;
 		break;
-    case MAGNITUDE_DEGREES:
+    case MAGNITUDE_DEGREES_COMPLEX:
 		WriteDatum = &WriteMA;
 		break;
-    case DB_DEGREES:
+    case DB_DEGREES_COMPLEX:
 		WriteDatum = &WriteDB;
 		break;
 	}
