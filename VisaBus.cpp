@@ -73,8 +73,8 @@ void VisaBus::PrintStatus() {
     const unsigned int BUFFER_SIZE = 200;
     char buffer[BUFFER_SIZE];
     status = _viStatusDesc(instrument, status, buffer);
-    log << "ViStatus: 0x" << hex << status << dec << endl;
-    log << "         " << QString(buffer).trimmed() << endl;
+    log << "ViStatus: 0x" << hex << status << dec;
+    log << " " << QString(buffer).trimmed() << endl;
 
     // Print
     log.flush();

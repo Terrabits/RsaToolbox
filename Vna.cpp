@@ -11,7 +11,7 @@
 #include <QtAlgorithms>
 #include <QVariant>
 #include <QDateTime>
-#include <QDebug>
+#include <QScopedArrayPointer>
 
 // C++
 #include <cstdio>
@@ -38,6 +38,19 @@ Vna::Vna() {
 }
 Vna::Vna(ConnectionType connection_type, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version) {
     Reset(connection_type, instrument_address, timeout_ms, log_path, log_filename, program_name, program_version);
+    log->PrintProgramHeader();
+    if (this->bus->connection_type != NO_CONNECTION) {
+        PrintInstrumentInfo();
+    }
+    else {
+        QString message;
+        QTextStream stream(&message);
+        stream << "Instrument not found" << endl;
+        stream << "Connection:       " << ToString(connection_type) << endl;
+        stream << "Address:          " << instrument_address << endl << endl << endl;
+        stream.flush();
+        log->Print(message);
+    }
 }
 Vna::~Vna() {
     // QScopedPointers solved this problem!
@@ -56,37 +69,31 @@ void Vna::Reset(void) {
 }
 void Vna::Reset(ConnectionType connection_type, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version) {
     log.reset(new Log(log_path, log_filename, program_name, program_version));
-    if (connection_type == TCPIP_CONNECTION)
+    if (connection_type == TCPIP_CONNECTION) {
         bus.reset(new RsibBus(connection_type, instrument_address, timeout_ms));
-    else if (connection_type == GPIB_CONNECTION)
+        // bus.reset(new VisaBus(connection_type, instrument_address, timeout_ms));
+    }
+    else if (connection_type == GPIB_CONNECTION) {
         bus.reset(new VisaBus(connection_type, instrument_address, timeout_ms));
+    }
+
     if (bus->isOpen()) {
-        QString id = GetIdentificationString();
-        if (isRohdeSchwarz(id)) {
+        id_string = GetIdentificationString();
+        if (isRohdeSchwarz(id_string)) {
             ports = GetPorts();
             minimum_frequency_Hz = GetMinimumFrequency_Hz();
             maximum_frequency_Hz = GetMaximumFrequency_Hz();
-            GetInstrumentInfo(id);
+            GetInstrumentInfo(id_string);
             options = GetOptions();
         }
-        else {
+        else
             model = UNKNOWN_MODEL;
-            serial_no = "";
-            firmware_version = "";
-            ports = 0;
-            minimum_frequency_Hz = 0;
-            maximum_frequency_Hz = 0;
-            options = QStringList();
-        }
     }
-    else {
-        model = UNKNOWN_MODEL;
-        serial_no = "";
-        firmware_version = "";
-        ports = 0;
-        minimum_frequency_Hz = 0;
-        maximum_frequency_Hz = 0;
-        options = QStringList();
+    else { // bus is not open
+        QScopedPointer<Log> keep_log;
+        keep_log.reset(log.take());
+        Reset();
+        log.reset(keep_log.take());
     }
 
     // Signals and slots
@@ -108,6 +115,8 @@ void Vna::PrintInstrumentInfo(void) {
     QTextStream stream(&info);
     stream << "INSTRUMENT INFO" << endl;
     if (model != UNKNOWN_MODEL) {
+        stream << "Connection:       " << ToString(bus->connection_type) << endl;
+        stream << "Address:          " << bus->address << endl;
         stream << "Make:             Rohde & Schwarz" << endl;
         stream << "Model:            " << ToString(model) << endl;
         stream << "Serial No:        " << serial_no << endl;
@@ -119,10 +128,12 @@ void Vna::PrintInstrumentInfo(void) {
         for (int i = 0; i < options.size(); i++) {
             stream << options[i] << endl << "                  ";
         }
-        stream << endl << endl;
+        stream << endl << endl << endl;
     }
-    else
-        stream << "Make: Unknown" << endl << endl << endl;
+    else if (bus->connection_type != NO_CONNECTION) {
+        stream << "Make: Unknown" << endl;
+        stream << "*IDN?\n  " << id_string << endl << endl << endl;
+    }
 
     stream.flush();
     log->Print(info);
@@ -159,6 +170,25 @@ bool Vna::isChannelEnabled(unsigned int channel) {
 }
 bool Vna::isChannelDisabled(unsigned int channel) {
     return(!isChannelEnabled(channel));
+}
+bool Vna::isCalibrationEnabled(void) {
+    const unsigned int BUFFER_SIZE = 5;
+    char buffer[BUFFER_SIZE];
+    bus->Query(":CORR?\n", buffer, BUFFER_SIZE);
+    return(QString(buffer) == "1");
+}
+bool Vna::isCalibrationDisabled(void) {
+    return(!isCalibrationEnabled());
+}
+bool Vna::isCalibrationEnabled(unsigned int channel) {
+    const unsigned int BUFFER_SIZE = 25;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":SENS%d:CORR?\n", channel);
+    bus->Query(QString(buffer), buffer, BUFFER_SIZE);
+    return(QString(buffer) == "1");
+}
+bool Vna::isCalibrationDisabled(unsigned int channel) {
+    return(!isCalibrationEnabled(channel));
 }
 bool Vna::isContinuousSweepEnabled(void) {
     const unsigned int BUFFER_SIZE = 5;
@@ -259,13 +289,13 @@ QString Vna::GetIdentificationString(void) {
     const unsigned int BUFFER_SIZE = 300;
     char buffer[BUFFER_SIZE];
     bus->Query("*IDN?\n", buffer, BUFFER_SIZE);
-    return(QString(buffer));
+    return(QString(buffer).trimmed());
 }
 QStringList Vna::GetOptions(void) {
     const unsigned int BUFFER_SIZE = 300;
     char buffer[BUFFER_SIZE];
     bus->Query("*OPT?\n", buffer, BUFFER_SIZE);
-    return(QString(buffer).split(','));
+    return(QString(buffer).trimmed().split(','));
 }
 unsigned int Vna::GetPorts(void) {
     const unsigned int BUFFER_SIZE = 10;
@@ -360,6 +390,38 @@ QVector<unsigned int> Vna::GetChannels(void) {
     QVector<unsigned int> channels;
     ParseIndicesFromRead(buffer, channels);
     return(channels);
+}
+QString Vna::GetCalGroup(void) {
+    return(GetCalGroup(1));
+}
+QString Vna::GetCalGroup(unsigned int channel) {
+    const unsigned int BUFFER_SIZE = 400;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":MMEM:LOAD:CORR? %d\n", channel);
+    bus->Query(QString(buffer), buffer, BUFFER_SIZE);
+    // Remove quotes
+    QString cal_file = QString(buffer).remove(0,1);
+    cal_file.chop(1);
+    return(cal_file);
+}
+CorrectionState Vna::GetCorrectionState(void) {
+    const unsigned int BUFFER_SIZE = 15;
+    char buffer[BUFFER_SIZE];
+    bus->Query(":CORR:SST?\n", buffer, BUFFER_SIZE);
+    // Remove quotes
+    QString state_scpi = QString(buffer).remove(0,1);
+    state_scpi.chop(1);
+    return(Scpi_To_CorrectionState(state_scpi));
+}
+CorrectionState Vna::GetCorrectionState(unsigned int channel) {
+    const unsigned int BUFFER_SIZE = 40;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":SENS%d:CORR:SST?\n", channel);
+    bus->Query(QString(buffer), buffer, BUFFER_SIZE);
+    // Remove quotes
+    QString state_scpi = QString(buffer).remove(0,1);
+    state_scpi.chop(1);
+    return(Scpi_To_CorrectionState(state_scpi));
 }
 SweepType Vna::GetSweepType(void) {
     const unsigned int BUFFER_SIZE = 20;
@@ -944,6 +1006,24 @@ void Vna::Trace_SetFormat(QString trace_name, TraceFormat format)  {
 *** ENABLE *************
 ***********************/
 
+void Vna::EnableCorrection(bool isEnabled) {
+    if (isEnabled)
+        bus->Write(":CORR 1\n");
+    else
+        bus->Write(":CORR 0\n");
+}
+void Vna::EnableCorrection(int channel, bool isEnabled) {
+    EnableCorrection((unsigned int)channel, isEnabled);
+}
+void Vna::EnableCorrection(unsigned int channel, bool isEnabled) {
+    const unsigned int BUFFER_SIZE = 25;
+    char buffer[BUFFER_SIZE];
+    if (isEnabled)
+        sprintf(buffer, ":SENS%d:CORR 1\n", channel);
+    else
+        sprintf(buffer, ":SENS%d:CORR 0\n", channel);
+    bus->Write(QString(buffer));
+}
 void Vna::EnableContinuousSweep(bool isEnabled) {
     if (isEnabled)
         bus->Write(":INIT:CONT 1\n");
@@ -1031,6 +1111,24 @@ void Vna::DisableCustomOptionsString(bool isDisabled) {
 }
 void Vna::DisableEmulation() {
     bus->Write(":SYST:LANG \'SCPI\'\n");
+}
+void Vna::DisableCorrection(bool isDisabled) {
+    EnableCorrection(!isDisabled);
+}
+void Vna::DisableCorrection(int channel, bool isDisabled) {
+    DisableCorrection((unsigned int)channel, isDisabled);
+}
+void Vna::DisableCorrection(unsigned int channel, bool isDisabled) {
+    EnableCorrection(channel, !isDisabled);
+}
+void Vna::DisableCalGroup(void) {
+    DisableCalGroup(1);
+}
+void Vna::DisableCalGroup(unsigned int channel) {
+    const unsigned int BUFFER_SIZE = 40;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":MMEM:LOAD:CORR:RES %d\n", channel);
+    bus->Write(QString(buffer));
 }
 void Vna::DisableContinuousSweep(bool isDisabled) {
     EnableContinuousSweep(!isDisabled);
@@ -1131,6 +1229,22 @@ void Vna::DeleteChannel(unsigned int channel) {
     sprintf(buffer, ":CONF:CHAN%d 0\n", channel);
     bus->Write(QString(buffer));
 }
+void Vna::DeleteCorrectionData(void) {
+    bus->Write(":CORR:COLL:DEL ALL\n");
+}
+void Vna::DeleteCorrectionData(unsigned int channel) {
+    const unsigned int BUFFER_SIZE = 40;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":SENS%d:CORR:COLL:DEL ALL\n", channel);
+    bus->Write(QString(buffer));
+}
+void Vna::DeleteCalGroup(QString cal_group) {
+    const unsigned int BUFFER_SIZE = 40;
+    char buffer[BUFFER_SIZE];
+    QByteArray c_string = cal_group.toLocal8Bit();
+    sprintf(buffer, ":MMEM:DEL:CORR \'%s\'\n", c_string.constData());
+    bus->Write(QString(buffer));
+}
 void Vna::DeleteSParameterGroup(unsigned int channel) {
     const unsigned int BUFFER_SIZE = 30;
     char buffer[BUFFER_SIZE];
@@ -1166,7 +1280,7 @@ void Vna::MeasureTrace(QString trace_name, Trace &trace) {
     unsigned int points = GetPoints(channel);
     TraceFormat format = Trace_GetFormat(trace_name);
     unsigned int buffer_size = TraceBufferSize(format, points);
-    QScopedPointer<char> buffer(new char[buffer_size]);
+    QScopedArrayPointer<char> buffer(new char[buffer_size]);
     QByteArray c_trace_name = trace_name.toLocal8Bit();
 
     // Handle analyzer discrepancy
@@ -1215,7 +1329,7 @@ void Vna::MeasureNetwork(Network &network, unsigned int channel, QVector<unsigne
     network.ports = ports.size();
     network.points = GetPoints(channel);
     unsigned int buffer_size = NetworkBufferSize(network.points, network.ports);
-    QScopedPointer<char> buffer(new char[buffer_size]);
+    QScopedArrayPointer<char> buffer(new char[buffer_size]);
     sprintf(buffer.data(), ":CALC%d:DATA:SGR? MDAT\n", channel);
 
     // Measure
@@ -1246,28 +1360,73 @@ void Vna::MeasureNetwork(Network &network, unsigned int channel, QVector<unsigne
 *** SAVE ***************
 ***********************/
 
-void Vna::SaveCurrentState(QString name) {
+void Vna::SaveCalGroup(QString cal_file) {
+    SaveCalGroup(1, cal_file);
+}
+void Vna::SaveCalGroup(unsigned int channel, QString cal_file) {
+    const unsigned int BUFFER_SIZE = 400;
+    char buffer[BUFFER_SIZE];
+    if (!cal_file.contains(".cal"))
+        cal_file = cal_file + QString(".cal");
+    QByteArray c_string = cal_file.toLocal8Bit();
+    sprintf(buffer, ":MMEM:STOR:CORR %d,\'%s\'\n", channel, c_string.constData());
+    bus->Write(QString(buffer));
+}
+void Vna::SaveState(QString filename) {
     const unsigned int BUFFER_SIZE = 400;
     char buffer[BUFFER_SIZE];
     // Fix save directory issue with firmware
-    name = "./RecallSets/" + name;
-    if (!name.contains(ToStateFileExtension(model)))
-        name = name + ToStateFileExtension(model);
-    QByteArray c_string = name.toLocal8Bit();
+    filename = "./RecallSets/" + filename;
+    if (!filename.contains(ToStateFileExtension(model)))
+        filename = filename + ToStateFileExtension(model);
+    QByteArray c_string = filename.toLocal8Bit();
     sprintf(buffer, ":MMEM:STOR:STAT 1,\'%s\'\n", c_string.constData());
     bus->Write(QString(buffer));
 }
-void Vna::SaveCurrentState(QDir path, QString name) {
+void Vna::SaveState(QDir path, QString filename) {
     const unsigned int BUFFER_SIZE = 400;
     char buffer[BUFFER_SIZE];
-    name = AppendPath(path, name);
-    name = QDir::toNativeSeparators(name);
-    if (!name.contains(ToStateFileExtension(model)))
-        name = name + ToStateFileExtension(model);
-    QByteArray c_string = name.toLocal8Bit();
+    filename = AppendPath(path, filename);
+    filename = QDir::toNativeSeparators(filename);
+    if (!filename.contains(ToStateFileExtension(model)))
+        filename = filename + ToStateFileExtension(model);
+    QByteArray c_string = filename.toLocal8Bit();
     sprintf(buffer, ":MMEM:STOR:STAT 1,\'%s\'\n", c_string.constData());
     bus->Write(QString(buffer));
 }
+
+
+/***********************
+*** LOAD ***************
+***********************/
+
+void Vna::LoadCalGroup(QString cal_file) {
+    LoadCalGroup(1, cal_file);
+}
+void Vna::LoadCalGroup(unsigned int channel, QString cal_file) {
+    const unsigned int BUFFER_SIZE = 400;
+    char buffer[BUFFER_SIZE];
+    if (!cal_file.contains(".cal"))
+        cal_file = cal_file + QString(".cal");
+    QByteArray c_string = cal_file.toLocal8Bit();
+    sprintf(buffer, ":MMEM:LOAD:CORR %d,\'%s\'\n", channel, c_string.constData());
+    bus->Write(QString(buffer));
+}
+void Vna::LoadState(QString state_file) {
+    const unsigned int BUFFER_SIZE = 500;
+    char buffer[BUFFER_SIZE];
+    if (!state_file.contains(ToStateFileExtension(model)))
+        state_file = state_file + ToStateFileExtension(model);
+    QByteArray c_string = state_file.toLocal8Bit();
+    sprintf(buffer, ":MMEM:LOAD:STAT 1,\'%s\'\n", c_string.constData());
+    bus->Write(QString(buffer));
+}
+void Vna::LoadState(QDir path, QString state_file) {
+    state_file = AppendPath(path, state_file);
+    state_file = QDir::toNativeSeparators(state_file);
+    LoadState(state_file);
+}
+
 
 /***********************
 *** PRIVATE ************

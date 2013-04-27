@@ -31,11 +31,6 @@ namespace RsaToolbox {
         RELATIVE_REFERENCE_LEVEL,
         ABSOLUTE_REFERENCE_LEVEL };
 
-    enum ComplexFormat {
-        DB_DEGREES_COMPLEX,
-        MAGNITUDE_DEGREES_COMPLEX,
-        REAL_IMAGINARY_COMPLEX };
-
 	enum TraceFormat {
         DB_MAGNITUDE_TRACE,
         PHASE_DEG_TRACE,
@@ -48,6 +43,23 @@ namespace RsaToolbox {
         REAL_PART_TRACE,
         IMAGINARY_PART_TRACE,
         DELAY_TRACE };
+
+    enum CorrectionState {
+        APPLIED_CORRECTION,
+        INTERPOLATED_CORRECTION,
+        DISABLED_CORRECTION,
+        NO_CORRECTION };
+
+    enum ColorScheme {
+        DARK_BACKGROUND,
+        LIGHT_BACKGROUND,
+        BLACK_WHITE_OUTLINE_BACKGROUND,
+        BLACK_WHITE_SOLID_BACKGROUND };
+
+    enum ComplexFormat {
+        DB_DEGREES_COMPLEX,
+        MAGNITUDE_DEGREES_COMPLEX,
+        REAL_IMAGINARY_COMPLEX };
 
     enum Units {
         NO_UNITS,
@@ -90,12 +102,7 @@ namespace RsaToolbox {
         ZNC_MODEL,
         UNKNOWN_MODEL };
 
-    enum ColorScheme {
-        DARK_BACKGROUND,
-        LIGHT_BACKGROUND,
-        BLACK_WHITE_OUTLINE_BACKGROUND,
-        BLACK_WHITE_SOLID_BACKGROUND };
-
+    // Data types
     typedef std::vector<std::vector<std::vector<std::complex<double>>>> ComplexMatrix3D;
     typedef std::vector<std::vector<std::complex<double>>> ComplexMatrix2D;
     typedef std::vector<std::complex<double>> ComplexRowVector;

@@ -50,6 +50,42 @@ double RsaToolbox::ToDouble(SiPrefix prefix) {
     }
 }
 
+QString RsaToolbox::ToString(ComplexFormat format) {
+    switch(format) {
+    case DB_DEGREES_COMPLEX:
+        return("dB");
+        break;
+    case MAGNITUDE_DEGREES_COMPLEX:
+        return("MA");
+        break;
+    case REAL_IMAGINARY_COMPLEX:
+        return("RI");
+        break;
+    }
+    // Default
+    return("dB");
+}
+QString RsaToolbox::ToString(NetworkParameter parameter) {
+    switch(parameter) {
+    case S_PARAMETER:
+        return("S");
+        break;
+    case Y_PARAMETER:
+        return("Y");
+        break;
+    case Z_PARAMETER:
+        return("Z");
+        break;
+    case H_PARAMETER:
+        return("H");
+        break;
+    case G_PARAMETER:
+        return("G");
+        break;
+    }
+    // Default
+    return("S");
+}
 QString RsaToolbox::ToString(SiPrefix prefix) {
     switch(prefix) {
     case TERA_PREFIX:
@@ -123,41 +159,13 @@ QString RsaToolbox::ToString(Units units) {
         break;
     }
 }
-QString RsaToolbox::ToString(ComplexFormat format) {
-    switch(format) {
-    case DB_DEGREES_COMPLEX:
-        return("dB");
-        break;
-    case MAGNITUDE_DEGREES_COMPLEX:
-        return("MA");
-        break;
-    case REAL_IMAGINARY_COMPLEX:
-        return("RI");
-        break;
-    }
-    // Default
-    return("dB");
-}
-QString RsaToolbox::ToString(NetworkParameter parameter) {
-    switch(parameter) {
-    case S_PARAMETER:
-        return("S");
-        break;
-    case Y_PARAMETER:
-        return("Y");
-        break;
-    case Z_PARAMETER:
-        return("Z");
-        break;
-    case H_PARAMETER:
-        return("H");
-        break;
-    case G_PARAMETER:
-        return("G");
-        break;
-    }
-    // Default
-    return("S");
+QString RsaToolbox::ToString(ConnectionType connection_type) {
+    if (connection_type == TCPIP_CONNECTION)
+        return("TCPIP");
+    if (connection_type == GPIB_CONNECTION)
+        return("GPIB");
+    // Else
+    return("No Connection");
 }
 QString RsaToolbox::ToString(VnaModel model) {
     switch(model) {
@@ -386,6 +394,18 @@ SweepType RsaToolbox::Scpi_To_SweepType(QString scpi) {
         return(TIME_SWEEP);
     // Default
     return(LINEAR_FREQUENCY_SWEEP);
+}
+CorrectionState RsaToolbox::Scpi_To_CorrectionState(QString scpi) {
+    if (scpi == "CAL")
+        return(APPLIED_CORRECTION);
+    if (scpi == "CAI")
+        return(INTERPOLATED_CORRECTION);
+    if (scpi == "CAL OFF")
+        return(DISABLED_CORRECTION);
+    if (scpi.isEmpty())
+        return(NO_CORRECTION);
+    // Default
+    return(NO_CORRECTION);
 }
 
 // File system

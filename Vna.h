@@ -23,6 +23,7 @@
 namespace RsaToolbox {
 	class Vna {
 	public:
+        QString id_string;
         VnaModel model;
         QString firmware_version;
         QString serial_no;
@@ -65,6 +66,10 @@ namespace RsaToolbox {
 
         bool isChannelEnabled(unsigned int channel);
         bool isChannelDisabled(unsigned int channel);
+        bool isCalibrationEnabled(void);
+        bool isCalibrationDisabled(void);
+        bool isCalibrationEnabled(unsigned int channel);
+        bool isCalibrationDisabled(unsigned int channel);
         bool isContinuousSweepEnabled(void);
         bool isContinuousSweepEnabled(unsigned int channel);
         bool isUserPresetEnabled(void);
@@ -113,6 +118,10 @@ namespace RsaToolbox {
 
         // GET:Channel
         QVector<unsigned int> GetChannels(void);
+        QString GetCalGroup(void);
+        QString GetCalGroup(unsigned int channel);
+        CorrectionState GetCorrectionState(void);
+        CorrectionState GetCorrectionState(unsigned int channel);
         SweepType GetSweepType(void);
         SweepType GetSweepType(unsigned int channel);
         void GetStimulusValues(QString trace_name, RowVector &stimulus_data);
@@ -216,6 +225,9 @@ namespace RsaToolbox {
         *** ENABLE *************
         ***********************/
 
+        void EnableCorrection(bool isEnabled = true);
+        void EnableCorrection(int channel, bool isEnabled = true);
+        void EnableCorrection(unsigned int channel, bool isEnabled = true);
         void EnableContinuousSweep(bool isEnabled = true);
         void EnableContinuousSweep(int channel, bool isEnabled = true);
         void EnableContinuousSweep(unsigned int channel, bool isEnabled = true);
@@ -237,6 +249,11 @@ namespace RsaToolbox {
         void DisableCustomIdString(bool isDisabled = true);
         void DisableCustomOptionsString(bool isDisabled = true);
         void DisableEmulation(void);
+        void DisableCorrection(bool isDisabled = true);
+        void DisableCorrection(int channel, bool isDisabled = true);
+        void DisableCorrection(unsigned int channel, bool isDisabled = true);
+        void DisableCalGroup(void);
+        void DisableCalGroup(unsigned int channel);
         void DisableContinuousSweep(bool isDisabled = true);
         void DisableContinuousSweep(int channel, bool isDisabled = true);
         void DisableContinuousSweep(unsigned int channel, bool isDisabled = true);
@@ -271,6 +288,9 @@ namespace RsaToolbox {
         ***********************/
 
         void DeleteChannel(unsigned int channel);
+        void DeleteCorrectionData(void);
+        void DeleteCorrectionData(unsigned int channel);
+        void DeleteCalGroup(QString cal_group);
         void DeleteSParameterGroup(unsigned int channel);
         void DeleteDiagram(unsigned int diagram);
         void DeleteTrace(QString trace_name);
@@ -291,8 +311,21 @@ namespace RsaToolbox {
         *** SAVE ***************
         ***********************/
 
-        void SaveCurrentState(QString name);
-        void SaveCurrentState(QDir path, QString name);
+        void SaveCalGroup(QString cal_file);
+        void SaveCalGroup(unsigned int channel, QString cal_file);
+        void SaveState(QString filename);
+        void SaveState(QDir path, QString filename);
+
+
+    public slots:
+        /***********************
+        *** LOAD ***************
+        ***********************/
+
+        void LoadCalGroup(QString cal_file);
+        void LoadCalGroup(unsigned int channel, QString cal_file);
+        void LoadState(QString state_file);
+        void LoadState(QDir path, QString state_file);
 
 
     private:
