@@ -1,5 +1,5 @@
-#ifndef TRACE_H
-#define TRACE_H
+#ifndef TRACE_DATA_H
+#define TRACE_DATA_H
 
 
 // Rsa
@@ -15,7 +15,7 @@
 
 
 namespace RsaToolbox {
-    class Trace  {
+    class TraceData  {
 	public:
         NetworkParameter network_parameter;
         unsigned int port1;

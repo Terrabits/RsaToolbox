@@ -6,7 +6,7 @@
 #include "Definitions.h"
 #include "GenericBus.h"
 #include "Log.h"
-#include "Trace.h"
+#include "TraceData.h"
 #include "Network.h"
 
 // Qt
@@ -32,6 +32,43 @@ namespace RsaToolbox {
         double minimum_frequency_Hz, maximum_frequency_Hz;
         QScopedPointer<Log> log;
         QScopedPointer<GenericBus> bus;
+
+        ///////////////////////////////// Test
+    private:
+        class _Trace {
+        public:
+            _Trace() {};
+            _Trace(Vna *vna, QString trace_name);
+
+            // Get
+            unsigned int Channel(void);
+            void Parameters(NetworkParameter &parameter, unsigned int &port1, unsigned int &port2);
+            TraceFormat Format(void);
+            unsigned int Diagram(void);
+
+            // Set
+            void SetParameters(NetworkParameter parameter, unsigned int port1, unsigned int port2);
+            void SetFormat(TraceFormat format);
+
+            // Select
+            void Select(void);
+        private:
+            Vna *vna;
+            QString trace_name;
+            void ParseParameters(QString readback, NetworkParameter &parameter, unsigned int &port1, unsigned int &port2);
+        };
+        _Trace _trace;
+    public:
+        _Trace& Trace(QString trace_name);
+
+
+
+
+
+
+
+
+
 
         /***********************
         *** CONNECTION *********
@@ -302,7 +339,7 @@ namespace RsaToolbox {
         *** MEASURE ************
         ***********************/
 
-        void MeasureTrace(QString trace_name, Trace &trace);
+        void MeasureTrace(QString trace_name, TraceData &trace);
         void MeasureNetwork(Network &network, unsigned int channel, QVector<unsigned int> ports);
 
 
@@ -356,9 +393,9 @@ namespace RsaToolbox {
         // Read Trace
         static unsigned int TraceBufferSize(TraceFormat format, unsigned int points);
         static unsigned int StimulusBufferSize(unsigned int points);
-        static void ParseTraceData(Trace &trace, QString data);
+        static void ParseTraceData(TraceData &trace, QString data);
         static void ParseTraceStimulus(RowVector &stimulus_data, QString readback);
-        static void GetTraceUnits(Trace &trace);
+        static void GetTraceUnits(TraceData &trace);
 
         // Read Network
         static unsigned int NetworkBufferSize(unsigned int points, unsigned int ports);

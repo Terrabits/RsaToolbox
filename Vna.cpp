@@ -3,7 +3,7 @@
 #include "General.h"
 #include "RsibBus.h"
 #include "VisaBus.h"
-#include "Trace.h"
+#include "TraceData.h"
 #include "Vna.h"
 
 // Qt
@@ -19,6 +19,99 @@
 #include <vector>
 
 using namespace RsaToolbox;
+
+/////////////////////////////////////// TEST
+Vna::_Trace::_Trace(Vna *vna, QString trace_name) {
+    this->vna = vna;
+    this->trace_name = trace_name;
+}
+Vna::_Trace& Vna::Trace(QString trace_name) {
+    _trace = _Trace(this, trace_name);
+    return(_trace);
+}
+
+// Get
+unsigned int Vna::_Trace::Channel() {
+    QByteArray c_string = trace_name.toLocal8Bit();
+    const unsigned int BUFFER_SIZE = 100;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":CONF:TRAC:CHAN:NAME:ID? \'%s\'\n", c_string.constData());
+    vna->bus->Query(QString(buffer), buffer, BUFFER_SIZE);
+    return(QString(buffer).toUInt());
+}
+void Vna::_Trace::Parameters(NetworkParameter &parameter, unsigned int &port1, unsigned int &port2) {
+    QByteArray trace_byte_array = trace_name.toLocal8Bit();
+    char * trace_name_c = trace_byte_array.data();
+    unsigned int channel = Trace_GetChannel(trace_name);
+    const unsigned int BUFFER_SIZE = 100;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":CALC%d:PAR:MEAS? \'%s\'\n", channel, trace_name_c);
+    vna->bus->Query(QString(buffer), buffer, BUFFER_SIZE);
+    ParseParameters(QString(buffer), parameter, port1, port2);
+}
+TraceFormat Vna::_Trace::Format(void) {
+    QString selected_trace = Channel_GetSelectedTrace();
+    Select();
+    unsigned int channel = Trace_GetChannel(trace_name);
+    const unsigned int BUFFER_SIZE = 100;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":CALC%d:FORM?\n", channel);
+    vna->bus->Query(QString(buffer), buffer, BUFFER_SIZE);
+    if (trace_name != selected_trace)
+        vna->Trace(selected_trace).Select();
+    return(Scpi_To_TraceFormat(QString(buffer)));
+}
+unsigned int Vna::_Trace::Diagram(void) {
+    const unsigned int BUFFER_SIZE = 100;
+    char buffer[BUFFER_SIZE];
+    QByteArray byte_array = trace_name.toLocal8Bit();
+    char *trace_c_string = byte_array.data();
+    sprintf(buffer, ":CONF:TRAC:WIND:TRAC? \'%s\'\n", trace_c_string);
+    vna->bus->Query(QString(buffer), buffer, BUFFER_SIZE);
+    return(QString(buffer).toUInt());
+}
+
+// Set
+void Vna::_Trace::SetParameters(NetworkParameter parameter, unsigned int port1, unsigned int port2) {
+    QByteArray c_name = trace_name.toLocal8Bit();
+    QByteArray c_parameters = TraceParameters_to_Scpi(parameter, port1, port2).toLocal8Bit();
+    unsigned int channel = Channel();
+    const unsigned int BUFFER_SIZE = 100;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":CALC%d:PAR:MEAS \'%s\', \'%s\'\n", channel, c_name.constData(), c_parameters.constData());
+    this->bus->Write(QString(buffer));
+}
+void Vna::_Trace::SetFormat(TraceFormat format) {
+
+}
+// Private
+void Vna::_Trace::ParseParameters(QString readback, NetworkParameter &parameter, unsigned int &port1, unsigned int &port2) {
+    readback.remove(0,1);
+    readback.chop(1);
+    parameter = Scpi_To_NetworkParameter(readback.mid(0, 1));
+    if (readback.length() == 3) {
+        // "%c%1d%1d" format
+        port1 = readback.mid(1,1).toUInt();
+        port2 = readback.mid(2,1).toUInt();
+    }
+    else if (readback.length() == 5){
+        // "%c%2d%2d" format
+        port1 = readback.mid(1,2).toUInt();
+        port2 = readback.mid(3,2).toUInt();
+    }
+    else { // Assuming length == 7 (Damn!)
+        // "%c%3d%3d" format
+        port1 = readback.mid(1,3).toUInt();
+        port2 = readback.mid(4,3).toUInt();
+    }
+}
+
+
+
+
+
+
+
 
 
 /***********************
@@ -1274,7 +1367,7 @@ void Vna::DeleteUserPreset(void) {
 *** MEASURE ************
 ***********************/
 
-void Vna::MeasureTrace(QString trace_name, Trace &trace) {
+void Vna::MeasureTrace(QString trace_name, TraceData &trace) {
     // Info, buffer
     unsigned int channel = Trace_GetChannel(trace_name);
     unsigned int points = GetPoints(channel);
@@ -1560,7 +1653,7 @@ unsigned int Vna::StimulusBufferSize(unsigned int points) {
     const unsigned int SIZE_PER_POINT = 16;
     return((unsigned int)SIZE_PER_POINT * points);
 }
-void Vna::ParseTraceData(Trace &trace, QString data) {
+void Vna::ParseTraceData(TraceData &trace, QString data) {
     // Assumes Trace has enough data for isComplex() to return
     QStringList data_list = data.split(',');
     if (trace.isComplex()) {
@@ -1585,7 +1678,7 @@ void Vna::ParseTraceStimulus(RowVector &stimulus_data, QString readback) {
         stimulus_data[i] = stim_list[i].toDouble();
     }
 }
-void Vna::GetTraceUnits(Trace &trace) {
+void Vna::GetTraceUnits(TraceData &trace) {
     // Assumes Trace contains:
     //  network_parameter, port1, port2, sweep_type and format
 

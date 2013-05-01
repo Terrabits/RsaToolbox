@@ -1,7 +1,7 @@
 
 // RSToolbox includes
 #include "General.h"
-#include "Trace.h"
+#include "TraceData.h"
 
 // Qt
 #include <QTextStream>
@@ -9,7 +9,7 @@
 
 using namespace RsaToolbox;
 
-bool Trace::isComplex() {
+bool TraceData::isComplex() {
     if (format == SMITH_CHART_TRACE
             || format == POLAR_CHART_TRACE
             || format == INVERSE_SMITH_CHART_TRACE)
@@ -21,7 +21,7 @@ bool Trace::isComplex() {
         return(false);
     }
 }
-Trace::operator QString() {
+TraceData::operator QString() {
     QString output;
     QTextStream stream(&output);
 
