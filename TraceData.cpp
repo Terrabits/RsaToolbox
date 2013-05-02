@@ -28,8 +28,8 @@ TraceData::operator QString() {
     stream << "Trace:      "
            << ToString(network_parameter)
            << port1 << port2 << endl;
-    stream << "Sweep Type: " << ToScpi(sweep_type) << endl;
-    stream << "Format:     " << ToScpi(format) << endl;
+    stream << "Sweep Type: " << sweep_type << endl;
+    stream << "Format:     " << format << endl;
     stream << "Points:     " << complex_data.size() << endl;
     stream << "Date/Time:  " << date_time.toString() << endl;
 

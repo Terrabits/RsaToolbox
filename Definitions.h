@@ -5,6 +5,9 @@
 #include <complex>
 #include <vector>
 
+// Qt
+#include <QVector>
+
 
 namespace RsaToolbox {
 
@@ -102,11 +105,19 @@ namespace RsaToolbox {
         ZNC_MODEL,
         UNKNOWN_MODEL };
 
-    // Data types
-    typedef std::vector<std::vector<std::vector<std::complex<double>>>> ComplexMatrix3D;
-    typedef std::vector<std::vector<std::complex<double>>> ComplexMatrix2D;
+    // C++ std data types
     typedef std::vector<std::complex<double>> ComplexRowVector;
+    typedef std::vector<ComplexRowVector> ComplexMatrix2D;
+    typedef std::vector<ComplexMatrix2D> ComplexMatrix3D;
+
     typedef std::vector<double> RowVector;
+    typedef std::vector<RowVector> Matrix2D;
+
+    // Qt data types
+    typedef QVector<double> QRowVector;
+    typedef QVector<QRowVector> QMatrix2D;
+    typedef QVector<QMatrix2D> QMatrix3D;
+
 }
 
 #endif

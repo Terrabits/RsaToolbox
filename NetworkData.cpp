@@ -3,7 +3,7 @@
 // Rsa
 #include "Definitions.h"
 #include "General.h"
-#include "Network.h"
+#include "NetworkData.h"
 
 // Qt
 #include <QTextStream>
@@ -20,7 +20,7 @@ using namespace RsaToolbox;
 using namespace std;
 
 // Constructor
-Network::Network() {
+NetworkData::NetworkData() {
     ports = 0;
     points = 0;
 
@@ -33,7 +33,7 @@ Network::Network() {
 }
 
 // Actions
-bool Network::isValid(void) {
+bool NetworkData::isValid(void) {
     bool isValid = true;
     isValid &= (frequency.size() == data.size());
     if (isValid) { points = data.size(); };
@@ -55,31 +55,31 @@ bool Network::isValid(void) {
     }
     return(isValid);
 }
-void Network::GetDb(int port1, int port2, RowVector &decibels) {
+void NetworkData::GetDb(int port1, int port2, RowVector &decibels) {
     decibels.resize(points);
     for (unsigned int frequency = 0; frequency < points; frequency++) {
         decibels[frequency] = ToDb(data[frequency][port1][port2]);
     }
 }
-void Network::GetMagnitude(int port1, int port2, RowVector &magnitude) {
+void NetworkData::GetMagnitude(int port1, int port2, RowVector &magnitude) {
     magnitude.resize(points);
     for (unsigned int frequency = 0; frequency < points; frequency++) {
         magnitude[frequency] = abs(data[frequency][port1][port2]);
     }
 }
-void Network::GetAngle(int port1, int port2, RowVector &angle_degrees) {
+void NetworkData::GetAngle(int port1, int port2, RowVector &angle_degrees) {
     angle_degrees.resize(points);
     for (unsigned int frequency = 0; frequency < points; frequency++) {
         angle_degrees[frequency] = arg(data[frequency][port1][port2]) * 180 / PI;
     }
 }
-void Network::GetFrequency(RowVector &frequency, SiPrefix &frequency_prefix) {
+void NetworkData::GetFrequency(RowVector &frequency, SiPrefix &frequency_prefix) {
     frequency = this->frequency;
     frequency_prefix = this->frequency_prefix;
 }
 
 // Operators
-Network::operator QString() {
+NetworkData::operator QString() {
     QString output;
     QTextStream stream(&output);
 
@@ -104,7 +104,7 @@ Network::operator QString() {
     stream.flush();
     return(output);
 }
-bool Network::operator==(Network &other) {
+bool NetworkData::operator==(NetworkData &other) {
     const double TOLERANCE = 0.0001;
 
     bool isEqual = true;
@@ -133,6 +133,6 @@ bool Network::operator==(Network &other) {
     }
     return(isEqual);
 }
-ComplexMatrix2D& Network::operator[](int index) {
+ComplexMatrix2D& NetworkData::operator[](int index) {
     return(data[index]);
 }

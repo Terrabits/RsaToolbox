@@ -2,7 +2,7 @@
 #define TOUCHSTONE_H
 
 // Rsa
-#include "Network.h"
+#include "NetworkData.h"
 
 // Qt
 #include <QString>
@@ -18,64 +18,64 @@
 
 namespace RsaToolbox
 {
-    QString const TOUCHSTONE_FILE_REGEX = "^.*\\.s[0-9][0-9]*p$";
-	int const COLUMNWIDTH = 18;
-	int const PRECISION = 10;
+QString const TOUCHSTONE_FILE_REGEX = "^.*\\.s[0-9][0-9]*p$";
+int const COLUMNWIDTH = 18;
+int const PRECISION = 10;
 
-	class Touchstone {
-	public:
-		// Actions
-        static bool Read(Network &network, QString filename);
-        static bool Write(Network &network, QString filename);
+class Touchstone {
+public:
+    // Actions
+    static bool Read(NetworkData &network, QString filename);
+    static bool Write(NetworkData &network, QString filename);
 
-	private:
-		// Fix 2-port arrangement anomaly
-		static void Flip2Ports(Network &network);
+private:
+    // Fix 2-port arrangement anomaly
+    static void Flip2Ports(NetworkData &network);
 
-		/* READ HELPER FUNCTIONS */
+    /* READ HELPER FUNCTIONS */
 
-		// Read Ports and Options line
-        static bool ReadPorts(Network &network, QString filename);
-        static bool ReadOptions(Network &network, QTextStream &snpFile);
-        static bool ReadFrequencyPrefix(Network &network, QString units);
-        static bool ReadDataType(Network &network, QString dataType);
-        static bool ReadFormat(Network &network, QString format);
+    // Read Ports and Options line
+    static bool ReadPorts(NetworkData &network, QString filename);
+    static bool ReadOptions(NetworkData &network, QTextStream &snpFile);
+    static bool ReadFrequencyPrefix(NetworkData &network, QString units);
+    static bool ReadDataType(NetworkData &network, QString dataType);
+    static bool ReadFormat(NetworkData &network, QString format);
 
-		// Read data
-        static bool ReadData(Network &network, QTextStream &snpFile);
-        static bool ReadRow(Network &network, QTextStream &snpFile, ComplexMatrix2D &dataRow, double &frequencyPoint);
-		static std::complex<double> (*ReadDatum)(double, double);
-		static std::complex<double> ReadRI(double word1, double word2);
-		static std::complex<double> ReadMA(double word1, double word2);
-		static std::complex<double> ReadDB(double word1, double word2);
+    // Read data
+    static bool ReadData(NetworkData &network, QTextStream &snpFile);
+    static bool ReadRow(NetworkData &network, QTextStream &snpFile, ComplexMatrix2D &dataRow, double &frequencyPoint);
+    static std::complex<double> (*ReadDatum)(double, double);
+    static std::complex<double> ReadRI(double word1, double word2);
+    static std::complex<double> ReadMA(double word1, double word2);
+    static std::complex<double> ReadDB(double word1, double word2);
 
-		// Functions to help read a line, ignore comments and parse line into whitespace-delimited words
-        static bool ReadLine(QTextStream &snpFile, QStringList &words);
-        static bool FoundFirstChar(QString &line, int &first);
-        static bool FoundLastChar(QString &line, int &first, int &last);
-        static void RemoveComment(QString &line);
+    // Functions to help read a line, ignore comments and parse line into whitespace-delimited words
+    static bool ReadLine(QTextStream &snpFile, QStringList &words);
+    static bool FoundFirstChar(QString &line, int &first);
+    static bool FoundLastChar(QString &line, int &first, int &last);
+    static void RemoveComment(QString &line);
 
-		/* WRITE HELPER FUNCTIONS */
+    /* WRITE HELPER FUNCTIONS */
 
-		// Create file to be written
-        static void CreateFile(QFile &file, QString filename, Network &network);
+    // Create file to be written
+    static void CreateFile(QFile &file, QString filename, NetworkData &network);
 
-		// Write comments and options line
-        static void WriteComments(Network &network, QTextStream &snpFile);
-        static void WriteOptions(Network &network, QTextStream &snpFile);
-        static QString WriteUnits(Network &network);
-        static QString WriteDataType(Network &network);
-        static QString WriteFormat(Network &network);
+    // Write comments and options line
+    static void WriteComments(NetworkData &network, QTextStream &snpFile);
+    static void WriteOptions(NetworkData &network, QTextStream &snpFile);
+    static QString WriteUnits(NetworkData &network);
+    static QString WriteDataType(NetworkData &network);
+    static QString WriteFormat(NetworkData &network);
 
-		// Write data
-        static void WriteData(Network &network, QTextStream &snpFile);
-        static void WriteRow(Network &network, QTextStream &snpFile, ComplexRowVector &row);
-		static void GetWriteFormat(Network &network);
-        static void (*WriteDatum)(QTextStream &, std::complex<double> &);
-        static void WriteRI(QTextStream &snpFile, std::complex<double> &datum);
-        static void WriteMA(QTextStream &snpFile, std::complex<double> &datum);
-        static void WriteDB(QTextStream &snpFile, std::complex<double> &datum);
-	};
+    // Write data
+    static void WriteData(NetworkData &network, QTextStream &snpFile);
+    static void WriteRow(NetworkData &network, QTextStream &snpFile, ComplexRowVector &row);
+    static void GetWriteFormat(NetworkData &network);
+    static void (*WriteDatum)(QTextStream &, std::complex<double> &);
+    static void WriteRI(QTextStream &snpFile, std::complex<double> &datum);
+    static void WriteMA(QTextStream &snpFile, std::complex<double> &datum);
+    static void WriteDB(QTextStream &snpFile, std::complex<double> &datum);
+};
 }
 
 

@@ -7,7 +7,7 @@
 #include "GenericBus.h"
 #include "Log.h"
 #include "TraceData.h"
-#include "Network.h"
+#include "NetworkData.h"
 
 // Qt
 #include <QString>
@@ -21,386 +21,353 @@
 
 
 namespace RsaToolbox {
-	class Vna {
-	public:
-        QString id_string;
-        VnaModel model;
-        QString firmware_version;
-        QString serial_no;
-        QStringList options;
-        unsigned int ports;
-        double minimum_frequency_Hz, maximum_frequency_Hz;
-        QScopedPointer<Log> log;
-        QScopedPointer<GenericBus> bus;
+class Vna {
 
-        ///////////////////////////////// Test
-    private:
-        class _Trace {
-        public:
-            _Trace() {};
-            _Trace(Vna *vna, QString trace_name);
 
-            // Get
-            unsigned int Channel(void);
-            void Parameters(NetworkParameter &parameter, unsigned int &port1, unsigned int &port2);
-            TraceFormat Format(void);
-            unsigned int Diagram(void);
+    /***********************
+    *** Vna ****************
+    ***********************/
 
-            // Set
-            void SetParameters(NetworkParameter parameter, unsigned int port1, unsigned int port2);
-            void SetFormat(TraceFormat format);
+public slots:
+    Vna();
+    Vna(ConnectionType connectionType, QString instrument_address, uint timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version);
 
-            // Select
-            void Select(void);
-        private:
-            Vna *vna;
-            QString trace_name;
-            void ParseParameters(QString readback, NetworkParameter &parameter, unsigned int &port1, unsigned int &port2);
-        };
-        _Trace _trace;
+    // VNA:General
+    bool isConnected();
+    VnaModel GetModel();
+    QString GetSerialNumber();
+    QString GetFirmwareVersion();
+
+    void Print(QString formatted_text);
+    void Read(char *buffer, unsigned int buffer_size);
+    void Write(QString scpi_command);
+    void Query(QString scpi_command, char *buffer, unsigned int buffer_size);
+
+    // VNA:Actions
+    void Preset();
+    void ClearStatus();
+    void InitiateSweeps();
+    void FinishPreviousCommandsFirst();
+    void PauseUntilCommandQueueIsFinished();
+
+    // VNA:Status
+    bool isChannelEnabled(uint channel);
+    bool isChannelDisabled(uint channel);
+    bool isUserPresetEnabled();
+    bool isUserPresetDisabled();
+    bool isUserPresetMappedToRst();
+    bool isPortPowerLimitEnabled();
+    bool isPortPowerLimitEnabled(uint port);
+    bool isPortPowerLimitDisabled();
+    bool isPortPowerLimitDisabled(uint port);
+    bool isRfOutputPowerEnabled();
+    bool isRfOutputPowerDisabled();
+    bool isDynamicIfBandwidthEnabled();
+    bool isDynamicIfBandwidthDisabled();
+    bool isLowPowerAutoCalEnabled();
+    bool isLowPowerAutoCalDisabled();
+
+    // VNA:Get
+    QString GetIdentificationString();
+    QStringList GetOptions();
+    uint GetPorts();
+    double GetMinimumFrequency_Hz();
+    double GetMaximumFrequency_Hz();
+    double GetPortPowerLimit(uint port);
+    QVector<double> GetPortPowerLimits();
+    ColorScheme GetColorScheme();
+    uint GetFontSize_percent();
+    QString GetUserPreset();
+
+    QVector<uint> GetChannels();
+    QStringList GetTraces();
+    QVector<uint> GetDiagrams();
+
+    // VNA:Set
+    void SetIdentificationString(QString id_string);
+    void SetOptionsString(QString options_string);
+    void SetPortPowerLimit(uint port, double power_limit);
+    void SetPortPowerLimits(QVector<double> power_limits);
+    void SetPortPowerLimits(double power_limit);
+    void SetColorScheme(ColorScheme scheme);
+    void SetFontSize_percent(uint size_percent);
+    void SetUserPreset(QString filename);
+    void SetUserPreset(QDir path, QString filename);
+
+    // VNA:Enable
+    void EnableUserPreset(bool isEnabled = true);
+    void EnableUserPresetMapToRst(bool isEnabled = true);
+    void EnablePortPowerLimit(uint port, bool isEnabled = true);
+    void EnablePortPowerLimits(bool isEnabled = true);
+    void EnableRfOutputPower(bool isEnabled = true);
+    void EnableDynamicIfBandwidth(bool isEnabled = true);
+    void EnableLowPowerAutoCal(bool isEnabled = true);
+
+    // VNA:Disable
+    void DisableCustomIdString(bool isDisabled = true);
+    void DisableCustomOptionsString(bool isDisabled = true);
+    void DisableEmulation();
+    void DisableUserPreset(bool isDisabled = true);
+    void DisableUserPresetMapToRst(bool isDisabled = true);
+    void DisablePortPowerLimit(uint port, bool isDisabled = true);
+    void DisablePortPowerLimits(bool isDisabled = true);
+    void DisableRfOutputPower(bool isDisabled = true);
+    void DisableDynamicIfBandwidth(bool isDisabled = true);
+    void DisableLowPowerAutoCal(bool isDisabled = true);
+
+    // VNA:Create
+    void CreateChannel(uint channel);
+    void CreateTrace(QString trace_name, uint channel, NetworkParameter parameter, uint port1, uint port2);
+    void CreateDiagram(uint diagram);
+
+    // VNA:Delete
+    void DeleteUserPreset();
+    void DeleteCalGroup(QString cal_group);
+
+    void DeleteChannel(uint channel);
+    void DeleteTrace(QString trace_name);
+    void DeleteDiagram(uint diagram);
+
+    // VNA:Save
+    void SaveState(QString filename);
+
+    // VNA:Load
+    void LoadState(QString state_file);
+    void LoadState(QDir path, QString state_file);
+
+private:
+    // VNA:Private
+    QString id_string;
+    VnaModel model;
+    QString firmware_version;
+    QString serial_no;
+    QStringList options;
+    uint ports;
+    double minimum_frequency_Hz, maximum_frequency_Hz;
+    QScopedPointer<Log> log;
+    QScopedPointer<GenericBus> bus;
+
+    // VNA:Private:General
+    void Reset();
+    void Reset(ConnectionType connection_type, QString instrument_address, uint timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version);
+
+    bool isRohdeSchwarz(QString identification);
+    void GetInstrumentInfo(QString id);
+    VnaModel ParseModel(QString id_part_2);
+    static const char* ToScpi(ColorScheme scheme);
+    static ColorScheme Scpi_To_ColorScheme(QString scpi);
+    void PrintInstrumentInfo();
+
+    // VNA:Private:Readback
+    // format: "\'Int1,Name_1,Int2,Name_2,...\'"
+    static void ParseIndicesFromRead(QString readback, QVector<uint> &indices);
+    static void ParseNamesFromRead(QString readback, QStringList &names);
+
+    // format: "Value,Qualifier_String"
+    static void ParseValueFromRead(QString readback, uint &value, QString &qualifier);
+    static void ParseValueFromRead(QString readback, int &value, QString &qualifier);
+    static void ParseValueFromRead(QString readback, double &value, QString &qualifier);
+    static QString ValueQualifier_to_Scpi(uint value, QString qualifier);
+    static QString ValueQualifier_to_Scpi(int value, QString qualifier);
+    static QString ValueQualifier_to_Scpi(double value, QString qualifier);
+
+    /***********************
+    *** CHANNEL ************
+    ***********************/
+
+private:
+    class _Channel {
     public:
-        _Trace& Trace(QString trace_name);
+        _Channel() {}
+        _Channel(Vna *vna, uint channel);
+        friend class Vna;
 
+        // CHANNEL:Actions
+        void InitiateSweep();
 
+        // CHANNEL:Status
+        bool isEnabled();
+        bool isDisabled();
+        bool isCalibrationEnabled();
+        bool isCalibrationDisabled();
+        bool isContinuousSweepEnabled();
+        bool isSingleSweepEnabled();
 
+        // CHANNEL:Get
+        double GetSourceAttenuation_dB(uint port);
+        double GetReceiverAttenuation_dB(uint port);
+        QString GetCalGroup();
+        CorrectionState GetCorrectionState();
+        SweepType GetSweepType();
+        void GetStimulusValues(RowVector &stimulus_data);
+        QVector<uint> GetDiagrams();
+        QStringList GetTraces();
+        QString GetSelectedTrace();
+        double GetDelay_s(uint port);
+        QVector<double> GetDelays_s();
+        double GetChannelPower_dBm();
+        void GetPortPower_dBm(uint port, ReferenceLevel &power_reference, double &power);
+        double GetStartFrequency_Hz();
+        double GetStopFrequency_Hz();
+        double GetIfBandwidth();
+        uint GetPoints();
 
-
-
-
-
-
-
-        /***********************
-        *** CONNECTION *********
-        ***********************/
-
-        Vna();
-        Vna(ConnectionType connectionType, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version);
-        ~Vna();
-
-        void Reset(ConnectionType connection_type, QString instrument_address, unsigned int timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version);
-        void Reset(void);
-
-
-    public slots:
-        /***********************
-        *** ACTIONS ************
-        ***********************/
-
-		void Preset(void);
-		void ClearStatus(void);
-        void PrintInstrumentInfo(void);
-        void InitiateSweep(void);
-        void InitiateSweep(unsigned int channel);
-        void FinishPreviousCommandsFirst(void);
-        void PauseUntilCommandQueueIsFinished(void);
-
-
-    public:
-        /***********************
-        *** STATUS *************
-        ***********************/
-
-        bool isChannelEnabled(unsigned int channel);
-        bool isChannelDisabled(unsigned int channel);
-        bool isCalibrationEnabled(void);
-        bool isCalibrationDisabled(void);
-        bool isCalibrationEnabled(unsigned int channel);
-        bool isCalibrationDisabled(unsigned int channel);
-        bool isContinuousSweepEnabled(void);
-        bool isContinuousSweepEnabled(unsigned int channel);
-        bool isUserPresetEnabled(void);
-        bool isUserPresetDisabled(void);
-        bool isUserPresetMappedToRst(void);
-        bool isPortPowerLimitEnabled(unsigned int port);
-        bool isPortPowerLimitEnabled(void);
-        bool isPortPowerLimitDisabled(unsigned int port);
-        bool isPortPowerLimitDisabled(void);
-        bool isRfOutputPowerEnabled(void);
-        bool isRfOutputPowerDisabled(void);
-        bool isDynamicIfBandwidthEnabled(void);
-        bool isDynamicIfBandwidthDisabled(void);
-        bool isLowPowerAutoCalEnabled(void);
-        bool isLowPowerAutoCalDisabled(void);
-
-
-    public slots:
-        /***********************
-        *** SELECT *************
-        ***********************/
-
-        void SelectTrace(QString trace_name);
-
-
-    public:
-        /***********************
-        *** GET ****************
-        ***********************/
-
-        // GET:General
-        QString GetIdentificationString(void);
-        QStringList GetOptions(void);
-        unsigned int GetPorts(void);
-        double GetMinimumFrequency_Hz(void);
-        double GetMaximumFrequency_Hz(void);
-        double GetSourceAttenuation_dB(unsigned int port);
-        double GetSourceAttenuation_dB(unsigned int port, unsigned int channel);
-        double GetReceiverAttenuation_dB(unsigned int port);
-        double GetReceiverAttenuation_dB(unsigned int port, unsigned int channel);
-        double GetPortPowerLimit(unsigned int port);
-        QVector<double> GetPortPowerLimits(void);
-        ColorScheme GetColorScheme(void);
-        unsigned int GetFontSize_percent(void);
-        QString GetUserPreset(void);
-
-        // GET:Channel
-        QVector<unsigned int> GetChannels(void);
-        QString GetCalGroup(void);
-        QString GetCalGroup(unsigned int channel);
-        CorrectionState GetCorrectionState(void);
-        CorrectionState GetCorrectionState(unsigned int channel);
-        SweepType GetSweepType(void);
-        SweepType GetSweepType(unsigned int channel);
-        void GetStimulusValues(QString trace_name, RowVector &stimulus_data);
-        void GetStimulusValues(unsigned int channel, RowVector &stimulus_data);
-        QVector<unsigned int> Channel_GetDiagrams(unsigned int channel);
-        QStringList Channel_GetTraces(unsigned int channel);
-        QString Channel_GetSelectedTrace(void);
-        QString Channel_GetSelectedTrace(unsigned int channel);
-        double GetDelay_s(unsigned int port);
-        double GetDelay_s(unsigned int port, unsigned int channel);
-        QVector<double> GetDelays_s(void);
-        QVector<double> GetDelays_s(unsigned int channel);
-        double GetChannelPower_dBm(void);
-        double GetChannelPower_dBm(unsigned int channel);
-        void GetPortPower_dBm(unsigned int port, ReferenceLevel &power_reference, double &power);
-        void GetPortPower_dBm(unsigned int port, unsigned int channel, ReferenceLevel &power_reference, double &power);
-        double GetStartFrequency_Hz(void);
-        double GetStartFrequency_Hz(unsigned int channel);
-        double GetStopFrequency_Hz(void);
-        double GetStopFrequency_Hz(unsigned int channel);
-        double GetIfBandwidth(void);
-        double GetIfBandwidth(unsigned int channel);
-        unsigned int GetPoints(void);
-        unsigned int GetPoints(unsigned int channel);
-
-        // GET:Diagram
-        QVector<unsigned int> GetDiagrams(void);
-        QStringList Diagram_GetTraces(unsigned int diagram);
-        QVector<unsigned int> Diagram_GetChannels(unsigned int diagram);
-        QString GetTitle(unsigned int diagram);
-
-        // GET:Trace
-        QStringList GetTraces(void);
-        unsigned int Trace_GetChannel(QString trace_name);
-        void Trace_GetParameters(QString trace_name, NetworkParameter &parameter, unsigned int &port1, unsigned int &port2);
-        TraceFormat Trace_GetFormat(QString trace_name);
-        unsigned int Trace_GetDiagram(QString trace_name);
-
-
-    public slots:
-        /***********************
-        *** SET ****************
-        ***********************/
-
-        // SET:General
-        void SetIdentificationString(QString id_string);
-        void SetOptionsString(QString options_string);
-        void SetSourceAttenuation_dB(unsigned int port, double attenuation);
-        void SetSourceAttenuation_dB(unsigned int port, unsigned int channel, double attenuation);
-        void SetSourceAttenuations_dB(double attenuation);
-        void SetSourceAttenuations_dB(QVector<double> attenuations);
-        void SetSourceAttenuations_dB(unsigned int channel, double attenuation);
-        void SetSourceAttenuations_dB(unsigned int channel, QVector<double> attenuations);
-        void SetReceiverAttenuation_dB(unsigned int port, double attenuation);
-        void SetReceiverAttenuation_dB(unsigned int port, unsigned int channel, double attenuation);
-        void SetReceiverAttenuations_dB(double attenuation);
-        void SetReceiverAttenuations_dB(QVector<double> attenuations);
-        void SetReceiverAttenuations_dB(unsigned int channel, double attenuation);
-        void SetReceiverAttenuations_dB(unsigned int channel, QVector<double> attenuations);
-        void SetPortPowerLimit(unsigned int port, double power_limit);
-        void SetPortPowerLimits(QVector<double> power_limits);
-        void SetPortPowerLimits(double power_limit);
-        void SetColorScheme(ColorScheme scheme);
-        void SetFontSize_percent(unsigned int size_percent);
-        void SetUserPreset(QString filename);
-        void SetUserPreset(QDir path, QString filename);
-
-        // SET:Channel
+        // CHANNEL:Set
+        void SetCalGroup(QString cal_file);
+        void SetSourceAttenuation_dB(uint port, double attenuation_dB);
+        void SetSourceAttenuations_dB(double attenuation_dB);
+        void SetSourceAttenuations_dB(QVector<double> attenuations_dB);
+        void SetReceiverAttenuation_dB(uint port, double attenuation_dB);
+        void SetReceiverAttenuations_dB(double attenuation_dB);
+        void SetReceiverAttenuations_dB(QVector<double> attenuations_dB);
         void SetSweepType(SweepType sweep_type);
-        void SetSweepType(unsigned int channel, SweepType sweep_type);
-        void Channel_SetSelectedTrace(QString trace_name);
-        void SetDelay(unsigned int port, double delay, SiPrefix prefix = NO_PREFIX);
-        void SetDelay(unsigned int port, unsigned int channel, double delay, SiPrefix prefix = NO_PREFIX);
-        void SetDelays(QVector<double> delays, SiPrefix prefix = NO_PREFIX);
-        void SetDelays(unsigned int channel, QVector<double> delays, SiPrefix prefix = NO_PREFIX);
+        void SetDelay(uint port, double delay_s, SiPrefix prefix = NO_PREFIX);
+        void SetDelays(double delay_s, SiPrefix prefix = NO_PREFIX);
+        void SetDelays(QVector<double> delays_s, SiPrefix prefix = NO_PREFIX);
         void SetChannelPower_dBm(double power_dBm);
-        void SetChannelPower_dBm(unsigned int channel, double power_dBm);
-        void SetPortPower(unsigned int port, double power_dBm, ReferenceLevel power_reference = ABSOLUTE_REFERENCE_LEVEL);
-        void SetPortPower(unsigned int port, unsigned int channel, double power_dBm, ReferenceLevel power_reference = ABSOLUTE_REFERENCE_LEVEL);
-        void SetStartFrequency(double start_frequency, SiPrefix prefix = NO_PREFIX);
-        void SetStartFrequency(unsigned int channel, double start_frequency, SiPrefix prefix = NO_PREFIX);
-        void SetStopFrequency(double stop_frequency, SiPrefix prefix = NO_PREFIX);
-        void SetStopFrequency(unsigned int channel, double stop_frequency, SiPrefix prefix = NO_PREFIX);
-        void SetIfBandwidth(double if_bandwidth, SiPrefix prefix = NO_PREFIX);
-        void SetIfBandwidth(unsigned int channel, double if_bandwidth, SiPrefix prefix = NO_PREFIX);
-        void SetPoints(unsigned int points);
-        void SetPoints(unsigned int channel, unsigned int points);
+        void SetPortPower(uint port, double power_dBm, ReferenceLevel power_reference = ABSOLUTE_REFERENCE_LEVEL);
+        void SetPortPowers(double power_dBm, ReferenceLevel power_reference = ABSOLUTE_REFERENCE_LEVEL);
+        void SetPortPowers(QVector<double> powers_dBm, ReferenceLevel power_reference = ABSOLUTE_REFERENCE_LEVEL);
+        void SetStartFrequency(double start_frequency_Hz, SiPrefix prefix = NO_PREFIX);
+        void SetStopFrequency(double stop_frequency_Hz, SiPrefix prefix = NO_PREFIX);
+        void SetIfBandwidth(double if_bandwidth_Hz, SiPrefix prefix = NO_PREFIX);
+        void SetPoints(uint points);
 
-        // SET:Diagram
-        void SetTitle(unsigned int diagram, QString title);
-
-        // SET:Trace
-        // void Trace_SetChannel(QString trace_name, unsigned int channel);
-        void Trace_SetParameters(QString trace_name, NetworkParameter parameter, unsigned int port1, unsigned int port2);
-        void Trace_SetFormat(QString trace_name, TraceFormat format);
-        // void Trace_SetDiagram(QString trace_name, unsigned int diagram);
-
-
-    public slots:
-        /***********************
-        *** ENABLE *************
-        ***********************/
-
+        // CHANNEL:Enable
         void EnableCorrection(bool isEnabled = true);
-        void EnableCorrection(int channel, bool isEnabled = true);
-        void EnableCorrection(unsigned int channel, bool isEnabled = true);
         void EnableContinuousSweep(bool isEnabled = true);
-        void EnableContinuousSweep(int channel, bool isEnabled = true);
-        void EnableContinuousSweep(unsigned int channel, bool isEnabled = true);
-        void EnableContinuousSweep(double channel, bool isEnabled = true);
-        void EnableUserPreset(bool isEnabled = true);
-        void EnableUserPresetMapToRst(bool isEnabled = true);
-        void EnablePortPowerLimit(unsigned int port, bool isEnabled = true);
-        void EnablePortPowerLimits(bool isEnabled = true);
-        void EnableRfOutputPower(bool isEnabled = true);
-        void EnableDynamicIfBandwidth(bool isEnabled = true);
-        void EnableLowPowerAutoCal(bool isEnabled = true);
 
-
-    public slots:
-        /***********************
-        *** DISABLE ************
-        ***********************/
-
-        void DisableCustomIdString(bool isDisabled = true);
-        void DisableCustomOptionsString(bool isDisabled = true);
-        void DisableEmulation(void);
+        // CHANNEL:Disable
         void DisableCorrection(bool isDisabled = true);
-        void DisableCorrection(int channel, bool isDisabled = true);
-        void DisableCorrection(unsigned int channel, bool isDisabled = true);
-        void DisableCalGroup(void);
-        void DisableCalGroup(unsigned int channel);
+        void DisableCalGroup();
         void DisableContinuousSweep(bool isDisabled = true);
-        void DisableContinuousSweep(int channel, bool isDisabled = true);
-        void DisableContinuousSweep(unsigned int channel, bool isDisabled = true);
-        void DisableContinuousSweep(double channel, bool isDisabled = true);
-        void DisableDelay(unsigned int port);
-        void DisableDelay(unsigned int port, unsigned int channel);
-        void DisableDelays(void);
-        void DisableDelays(unsigned int channel);
-        void DisableUserPreset(bool isDisabled = true);
-        void DisableUserPresetMapToRst(bool isDisabled = true);
-        void DisablePortPowerLimit(unsigned int port, bool isDisabled = true);
-        void DisablePortPowerLimits(bool isDisabled = true);
-        void DisableRfOutputPower(bool isDisabled = true);
-        void DisableDynamicIfBandwidth(bool isDisabled = true);
-        void DisableLowPowerAutoCal(bool isDisabled = true);
+        void DisableDelay(uint port);
+        void DisableDelays();
 
+        // CHANNEL:Create
+        void CreateSParameterGroup(QVector<uint> ports);
 
-    public slots:
-        /***********************
-        *** CREATE *************
-        ***********************/
+        // CHANNEL:Delete
+        void DeleteCorrectionData();
+        void DeleteSParameterGroup();
 
-        void CreateChannel(unsigned int channel);
-        void CreateSParameterGroup(unsigned int channel, QVector<unsigned int> ports);
-        void CreateDiagram(unsigned int diagram);
-        void CreateTrace(QString trace_name, unsigned int channel, NetworkParameter parameter, unsigned int port1, unsigned int port2);
+        // CHANNEL:Measure
+        void MeasureNetwork(NetworkData &network, QVector<uint> ports);
 
-
-    public slots:
-        /***********************
-        *** DELETE *************
-        ***********************/
-
-        void DeleteChannel(unsigned int channel);
-        void DeleteCorrectionData(void);
-        void DeleteCorrectionData(unsigned int channel);
-        void DeleteCalGroup(QString cal_group);
-        void DeleteSParameterGroup(unsigned int channel);
-        void DeleteDiagram(unsigned int diagram);
-        void DeleteTrace(QString trace_name);
-        void DeleteUserPreset(void);
-
-
-    public slots:
-        /***********************
-        *** MEASURE ************
-        ***********************/
-
-        void MeasureTrace(QString trace_name, TraceData &trace);
-        void MeasureNetwork(Network &network, unsigned int channel, QVector<unsigned int> ports);
-
-
-    public slots:
-        /***********************
-        *** SAVE ***************
-        ***********************/
-
+        // CHANNEL:Save
         void SaveCalGroup(QString cal_file);
-        void SaveCalGroup(unsigned int channel, QString cal_file);
-        void SaveState(QString filename);
-        void SaveState(QDir path, QString filename);
 
-
-    public slots:
-        /***********************
-        *** LOAD ***************
-        ***********************/
-
-        void LoadCalGroup(QString cal_file);
-        void LoadCalGroup(unsigned int channel, QString cal_file);
-        void LoadState(QString state_file);
-        void LoadState(QDir path, QString state_file);
-
-
+        //CHANNEL:Private
     private:
-        /***********************
-        *** PRIVATE ************
-        ***********************/
+        Vna *vna;
+        uint channel;
 
-        bool isRohdeSchwarz(QString identification);
-        void GetInstrumentInfo(QString id);
-        VnaModel ParseModel(QString id_part_2);
+        // CHANNEL:Private:General
+        static const char* ToScpi(ReferenceLevel reference_level);
+        static const char* ToScpi(SweepType sweep_type);
+        static ReferenceLevel Scpi_To_ReferenceLevel(QString scpi);
+        static SweepType Scpi_To_SweepType(QString scpi);
+        static CorrectionState Scpi_To_CorrectionState(QString scpi);
 
-        // readback format: "\'Int1,Name_1,Int2,Name_2,...\'"
-        static void ParseIndicesFromRead(QString readback, QVector<unsigned int> &indices);
-        static void ParseNamesFromRead(QString readback, QStringList &names);
+        // CHANNEL:Private:Read network
+        static uint NetworkBufferSize(uint points, uint ports);
+        static uint StimulusBufferSize(uint points);
+        static void ParseStimulus(RowVector &stimulus_data, QString readback);
+        static void ParseNetworkData(NetworkData &network, QString readback);
 
-        // readback format: "Value,Qualifier_String"
-        static void ParseValueFromRead(QString readback, unsigned int &value, QString &qualifier);
-        static void ParseValueFromRead(QString readback, int &value, QString &qualifier);
-        static void ParseValueFromRead(QString readback, double &value, QString &qualifier);
-        static QString ValueQualifier_to_Scpi(unsigned int value, QString qualifier);
-        static QString ValueQualifier_to_Scpi(int value, QString qualifier);
-        static QString ValueQualifier_to_Scpi(double value, QString qualifier);
+    };
 
-        // Trace format: "\'S12\'" or "\'S1213\'"
-        static void ParseTraceParameters(QString readback, NetworkParameter &parameter, unsigned int &port1, unsigned int &port2);
-        static QString TraceParameters_to_Scpi(NetworkParameter parameter, unsigned int port1, unsigned int port2);
+private:
+    _Channel _channel;
+public:
+    _Channel& Channel(uint channel = 1);
 
-        // Read Trace
-        static unsigned int TraceBufferSize(TraceFormat format, unsigned int points);
-        static unsigned int StimulusBufferSize(unsigned int points);
-        static void ParseTraceData(TraceData &trace, QString data);
-        static void ParseTraceStimulus(RowVector &stimulus_data, QString readback);
-        static void GetTraceUnits(TraceData &trace);
 
-        // Read Network
-        static unsigned int NetworkBufferSize(unsigned int points, unsigned int ports);
-        static void Vna::ParseNetworkData(Network &network, QString readback);
-	};
+    /***********************
+    *** TRACE **************
+    ***********************/
+
+private:
+    class _Trace {
+    public:
+        _Trace() {}
+        _Trace(Vna *vna, QString trace_name);
+        friend class Vna;
+
+        // TRACE:Select
+        void Select();
+
+        // TRACE:Get
+        void GetStimulusValues(RowVector &stimulus_data);
+        uint GetChannel();
+        void GetParameters(NetworkParameter &parameter, uint &port1, uint &port2);
+        TraceFormat GetFormat();
+        uint GetDiagram();
+
+        // TRACE:Set
+        void SetParameters(NetworkParameter parameter, uint port1, uint port2);
+        void SetFormat(TraceFormat format);
+
+        // TRACE:Measure
+        void MeasureTrace(TraceData &trace);
+
+        // TRACE:Private
+    private:
+        Vna *vna;
+        QString trace_name;
+
+        // TRACE:Private:General
+        static const char* ToScpi(TraceFormat format);
+        static TraceFormat Scpi_To_TraceFormat(QString scpi);
+        static NetworkParameter Scpi_To_NetworkParameter(QString scpi);
+        static void ParseParameters(QString readback, NetworkParameter &parameter, uint &port1, uint &port2);
+        static QString Parameters_to_Scpi(NetworkParameter parameter, uint port1, uint port2);
+
+        // TRACE:Private:Read Trace
+        static uint TraceBufferSize(TraceFormat format, uint points);
+        static uint StimulusBufferSize(uint points);
+        static void ParseData(TraceData &trace, QString data);
+        static void ParseStimulus(RowVector &stimulus_data, QString readback);
+        static void GetUnits(TraceData &trace);
+    };
+
+private:
+    _Trace _trace;
+public:
+    _Trace& Trace(QString trace_name = "Trc1");
+
+
+    /***********************
+    *** DIAGRAM ************
+    ***********************/
+
+private:
+    class _Diagram {
+    public:
+        _Diagram() {}
+        _Diagram (Vna *vna, uint diagram);
+        friend class Vna;
+
+        // DIAGRAM:Get
+        QStringList GetTraces();
+        QVector<uint> GetChannels();
+        QString GetTitle();
+
+        // DIAGRAM:Set
+        void SetTitle(QString title);
+
+        // DIAGRAM:Private
+    private:
+        Vna *vna;
+        uint diagram;
+    };
+
+private:
+    _Diagram _diagram;
+public:
+    _Diagram& Diagram(uint diagram = 1);
+
+};
 }
 
 

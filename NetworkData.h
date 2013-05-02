@@ -1,5 +1,5 @@
-#ifndef NETWORK_H
-#define NETWORK_H
+#ifndef NETWORK_DATA_H
+#define NETWORK_DATA_H
 
 // Rsa
 #include "Definitions.h"
@@ -15,7 +15,7 @@
 
 namespace RsaToolbox
 {
-	class Network {
+    class NetworkData {
 	public:
         NetworkParameter network_parameter;
         unsigned int ports;
@@ -31,7 +31,7 @@ namespace RsaToolbox
         ComplexMatrix3D data;
 
 		// Constructor
-		Network();
+        NetworkData();
 
 		// Actions
         bool isValid(void);
@@ -42,7 +42,7 @@ namespace RsaToolbox
 
 		// Operators
         operator QString();
-        bool operator==(Network &network);
+        bool operator==(NetworkData &network);
         ComplexMatrix2D& operator[](int index);
 	};
 }

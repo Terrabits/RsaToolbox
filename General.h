@@ -16,7 +16,6 @@ namespace RsaToolbox {
 
 // Enum conversions
 double ToDouble(SiPrefix prefix);
-
 QString ToString(ComplexFormat format);
 QString ToString(NetworkParameter parameter);
 QString ToString(SiPrefix prefix);
@@ -24,20 +23,7 @@ QString ToString(Units units);
 QString ToString(ConnectionType connection_type);
 QString ToString(VnaModel model);
 QString ToStateFileExtension(VnaModel model);
-
-const char* ToScpi(ReferenceLevel reference_level);
-const char* ToScpi(ColorScheme scheme);
-const char* ToScpi(TraceFormat format);
-const char* ToScpi(SweepType sweep_type);
-
 SiPrefix String_To_SiPrefix(QString prefix);
-
-TraceFormat Scpi_To_TraceFormat(QString scpi);
-ColorScheme Scpi_To_ColorScheme(QString scpi);
-NetworkParameter Scpi_To_NetworkParameter(QString scpi);
-ReferenceLevel Scpi_To_ReferenceLevel(QString scpi);
-SweepType Scpi_To_SweepType(QString scpi);
-CorrectionState Scpi_To_CorrectionState(QString scpi);
 
 // File system
 QString AppendPath(QDir path, QString filename);

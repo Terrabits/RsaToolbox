@@ -30,9 +30,9 @@ namespace RsaToolbox {
 		// Actions
         virtual bool Lock(void) = 0;
         virtual bool Unlock(void) = 0;
-        virtual bool Read(char *buffer, unsigned int bufferSize) = 0;
-        virtual bool Write(QString scpiCommand) = 0;
-        virtual bool Query(QString scpiCommand, char *buffer, unsigned int bufferSize) = 0;
+        virtual bool Read(char *buffer, unsigned int buffer_size) = 0;
+        virtual bool Write(QString scpi_command) = 0;
+        virtual bool Query(QString scpi_command, char *buffer, unsigned int buffer_size) = 0;
 
     signals:
         void Print(QString formatted_text);
