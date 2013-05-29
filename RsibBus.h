@@ -18,7 +18,6 @@ namespace RsaToolbox {
         // Instrument Connection info
         short ibsta, iberr;
         unsigned long ibcntl;
-        static const unsigned long MAX_PRINT = 100;
 
         // Constructor, Destructor
         RsibBus();
@@ -32,12 +31,15 @@ namespace RsaToolbox {
         // Actions
         bool Lock(void);
         bool Unlock(void);
+        bool Local(void);
+        bool Remote(void);
         bool Read(char *buffer, unsigned int bufferSize);
         bool Write(QString scpiCommand);
         bool Query(QString scpiCommand, char *buffer, unsigned int bufferSize);
 
     private:
         short instrument;
+        static const unsigned long MAX_PRINT = 100;
 
         bool isError();
         void NullTerminateRead(char *buffer, unsigned long bufferSize);

@@ -1,4 +1,5 @@
 
+
 // RSToolbox includes
 #include "Definitions.h"
 #include "Log.h"
@@ -15,7 +16,7 @@ Log::Log(QDir path, QString filename, QString program_name, QString program_vers
     this->path = path;
     filename = path.path() + "/" + filename;
     this->file.setFileName(filename);
-    this->file.open(QFile::WriteOnly);
+    this->file.open(QIODevice::WriteOnly);
     this->stream.setDevice(&this->file);
     this->program_name = program_name;
     this->program_version = program_version;

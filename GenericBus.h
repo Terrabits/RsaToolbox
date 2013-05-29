@@ -1,6 +1,7 @@
 #ifndef GENERIC_BUS_H
 #define GENERIC_BUS_H
 
+
 // RsaToolbox:
 #include "Definitions.h"
 
@@ -30,6 +31,8 @@ namespace RsaToolbox {
 		// Actions
         virtual bool Lock(void) = 0;
         virtual bool Unlock(void) = 0;
+        virtual bool Local(void) = 0;
+        virtual bool Remote(void) = 0;
         virtual bool Read(char *buffer, unsigned int buffer_size) = 0;
         virtual bool Write(QString scpi_command) = 0;
         virtual bool Query(QString scpi_command, char *buffer, unsigned int buffer_size) = 0;

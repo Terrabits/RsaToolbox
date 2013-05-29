@@ -1,34 +1,36 @@
 #ifndef TOUCHSTONE_H
 #define TOUCHSTONE_H
 
+
 // Rsa
+#include "Definitions.h"
 #include "NetworkData.h"
 
 // Qt
-#include <QString>
 #include <QFile>
 #include <QTextStream>
+#include <QString>
+#include <QStringList>
 
 // C++ std lib
-#include <string>
 #include <complex>
 #include <vector>
-#include <iterator>
 
 
 namespace RsaToolbox
 {
-QString const TOUCHSTONE_FILE_REGEX = "^.*\\.s[0-9][0-9]*p$";
-int const COLUMNWIDTH = 18;
-int const PRECISION = 10;
-
 class Touchstone {
 public:
     // Actions
     static bool Read(NetworkData &network, QString filename);
     static bool Write(NetworkData &network, QString filename);
 
+
 private:
+    static const QString TOUCHSTONE_FILE_REGEX;
+    static const int COLUMNWIDTH;
+    static const int PRECISION;
+
     // Fix 2-port arrangement anomaly
     static void Flip2Ports(NetworkData &network);
 

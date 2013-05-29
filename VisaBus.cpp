@@ -84,11 +84,29 @@ void VisaBus::PrintStatus() {
 // Actions
 bool VisaBus::Lock() {
     status = _viLock(instrument, VI_EXCLUSIVE_LOCK, (ViUInt32)timeout_ms, VI_NULL, VI_NULL);
-    return(status >= VI_SUCCESS);
+    bool isLocked = status >= VI_SUCCESS;
+    if (isLocked)
+        emit Print("Instrument locked\n\n");
+    return(isLocked);
 }
 bool VisaBus::Unlock() {
     status = _viUnlock(instrument);
-    return(status >= VI_SUCCESS);
+    bool isUnlocked = status >= VI_SUCCESS;
+    if (isUnlocked)
+         emit Print("Instrument unlocked\n\n");
+    return(isUnlocked);
+}
+bool VisaBus::Local() {
+    bool isLocal = Write("@LOC\n");
+    if (isLocal)
+        emit Print("Instrument in local mode\n\n");
+    return(isLocal);
+}
+bool VisaBus::Remote() {
+    bool isRemote = Write("@REM\n");
+    if (isRemote)
+        emit Print("Instrument in remote mode\n\n");
+    return(isRemote);
 }
 bool VisaBus::Read(char *buffer, unsigned int buffer_size) {
     QString formatted_text;
@@ -170,15 +188,19 @@ bool VisaBus::isError() {
     return(status < VI_SUCCESS);
 }
 void VisaBus::NullTerminateRead(char *buffer, unsigned long buffer_size, ViUInt32 read_size) {
-    // Null-terminate string
-    if (read_size < buffer_size)
-        buffer[read_size] = '\0';
-    else
-        buffer[buffer_size - 1] = '\0'; // Could overwrite last byte?
+        // Null-terminate string:
+        // NI-VISA seems to terminate with '\n' by default
+        if (read_size >= buffer_size)
+            buffer[buffer_size - 1] = '\0';
+        else
+            buffer[read_size - 1] = '\0';
 }
 QString VisaBus::ToTruncatedString(char *buffer) {
     QString formatted_text(buffer);
-    formatted_text.truncate(MAX_PRINT);
+    if (formatted_text.length() > MAX_PRINT) {
+        formatted_text.truncate(MAX_PRINT);
+        formatted_text = formatted_text.trimmed() + "...";
+    }
     formatted_text = QString("Received: \"")
             + formatted_text
             + QString("\"\n");

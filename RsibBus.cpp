@@ -42,7 +42,6 @@ RsibBus::RsibBus(ConnectionType connection_type, QString instrument_address, sho
 }
 RsibBus::~RsibBus() {
     if (instrument != -1) {
-        RSDLLibloc(instrument, &ibsta, &iberr, &ibcntl);
         RSDLLibonl(instrument, 0, &ibsta, &iberr, &ibcntl);
     }
 }
@@ -85,49 +84,52 @@ void RsibBus::PrintStatus() {
 }
 
 // Actions
-bool RsibBus::Lock(void) {return(0);}
-bool RsibBus::Unlock(void) {return(0);}
+bool RsibBus::Lock(void) {
+    emit Print("Lock not available via RSIB\n\n");
+    return(false);
+}
+bool RsibBus::Unlock(void) {
+    emit Print("Unlock not available via RSIB\n\n");
+    return(false);
+}
+bool RsibBus::Local() {
+    RSDLLibsre(instrument, 0, &ibsta, &iberr, &ibcntl);
+    emit Print("Instrument in local mode\n\n");
+    return(true);
+}
+bool RsibBus::Remote() {
+    RSDLLibsre(instrument, 1, &ibsta, &iberr, &ibcntl);
+    emit Print("Instrument in remote mode\n\n");
+    return(true);
+}
 bool RsibBus::Read(char *buffer, unsigned int bufferSize) {
-    QString formatted_text;
-    QTextStream log(&formatted_text);
-
+    emit Print("Read:     ");
     RSDLLilrd(instrument, buffer, bufferSize, &ibsta, &iberr, &ibcntl);
     if (isError()) {
-        log << "Error reading from instrument." << endl;
-        log.flush();
-        emit Print(formatted_text);
+        emit Print("\n>>> READ ERROR! <<<\n");
         PrintStatus();
         emit Print("\n");
         return(false);
     }
 	else {
 		NullTerminateRead(buffer, bufferSize);
-        log << ToTruncatedString(buffer);
-        log.flush();
-        emit Print(formatted_text);
+        emit Print(ToTruncatedString(buffer) + "\n");
         PrintStatus();
         emit Print("\n");
         return(true);
 	}
 }
 bool RsibBus::Write(QString scpiCommand) {
-    QString formatted_text;
-    QTextStream log(&formatted_text);
-
+    emit Print(QString("Write:    \"") + scpiCommand.trimmed() + "\"\n");
     QByteArray c_string = scpiCommand.toLocal8Bit();
     RSDLLibwrt(instrument, c_string.data(), &ibsta, &iberr, &ibcntl);
     if (isError()) {
-        log << "Error sending \"" << scpiCommand.trimmed() << "\"" << endl;
-        log.flush();
-        emit Print(formatted_text);
+        emit Print(">>> WRITE ERROR! <<<\n");
         PrintStatus();
         emit Print("\n");
         return(false);
     }
     else {
-        log << "Sent:     \"" << scpiCommand.trimmed() <<  "\"" << endl;
-        log.flush();
-        emit Print(formatted_text);
         PrintStatus();
         emit Print("\n");
         return(true);
@@ -155,14 +157,14 @@ QString RsibBus::ToTruncatedString(char *buffer) {
     QString formatted_text(buffer);
     if (formatted_text.length() > MAX_PRINT) {
         formatted_text.truncate(MAX_PRINT);
-        formatted_text = QString("Received: \"")
+        formatted_text = QString("\"")
                 + formatted_text
-                + QString("...\"\n");
+                + QString("...\"");
     }
     else {
-        formatted_text = QString("Received: \"")
+        formatted_text = QString("\"")
                 + formatted_text
-                + QString("\"\n");
+                + QString("\"");
     }
     return(formatted_text);
 }

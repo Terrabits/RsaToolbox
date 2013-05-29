@@ -1,6 +1,7 @@
 #ifndef GENERAL_H
 #define GENERAL_H
 
+
 // Rsa
 #include "Definitions.h"
 
@@ -22,7 +23,7 @@ QString ToString(SiPrefix prefix);
 QString ToString(Units units);
 QString ToString(ConnectionType connection_type);
 QString ToString(VnaModel model);
-QString ToStateFileExtension(VnaModel model);
+QString ToSetFileExtension(VnaModel model);
 SiPrefix String_To_SiPrefix(QString prefix);
 
 // File system
@@ -40,4 +41,6 @@ double ToDb(std::complex<double> value);
 double ToMagnitude(double decibels);
 
 }
+
+
 #endif // GENERAL_H

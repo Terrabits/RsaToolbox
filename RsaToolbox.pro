@@ -14,17 +14,18 @@ CONFIG += staticlib
 
 SOURCES += \
     Log.cpp \
-    Network.cpp \
+    NetworkData.cpp \
     General.cpp \
     Touchstone.cpp \
     GenericBus.cpp \
     RsibBus.cpp \
-    Vna.cpp
+    Vna.cpp \
+    TraceData.cpp \
+    VisaBus.cpp
 
 HEADERS += \
     Vna.h \
-    Trace.h \
-    Network.h \
+    NetworkData.h \
     Key.h \
     Definitions.h \
     Log.h \
@@ -32,7 +33,11 @@ HEADERS += \
     Touchstone.h \
     GenericBus.h \
     RsibBus.h \
-    rsib.h
+    rsib.h \
+    TraceData.h \
+    visatype.h \
+    VisaBus.h \
+    visa.h
 
 unix:!symbian {
     maemo5 {

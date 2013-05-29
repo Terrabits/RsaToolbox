@@ -24,9 +24,9 @@ namespace RsaToolbox {
 class Vna {
 
 
-    /***********************
-    *** Vna ****************
-    ***********************/
+    //**********************
+    //** Vna ***************
+    //*********************/
 
 public slots:
     Vna();
@@ -39,9 +39,13 @@ public slots:
     QString GetFirmwareVersion();
 
     void Print(QString formatted_text);
-    void Read(char *buffer, unsigned int buffer_size);
-    void Write(QString scpi_command);
-    void Query(QString scpi_command, char *buffer, unsigned int buffer_size);
+    bool Lock();
+    bool Unlock();
+    bool Local();
+    bool Remote();
+    bool Read(char *buffer, unsigned int buffer_size);
+    bool Write(QString scpi_command);
+    bool Query(QString scpi_command, char *buffer, unsigned int buffer_size);
 
     // VNA:Actions
     void Preset();
@@ -55,6 +59,8 @@ public slots:
     bool isChannelDisabled(uint channel);
     bool isUserPresetEnabled();
     bool isUserPresetDisabled();
+    bool isUserCalPresetEnabled();
+    bool isUserCalPresetDisabled();
     bool isUserPresetMappedToRst();
     bool isPortPowerLimitEnabled();
     bool isPortPowerLimitEnabled(uint port);
@@ -67,17 +73,24 @@ public slots:
     bool isLowPowerAutoCalEnabled();
     bool isLowPowerAutoCalDisabled();
 
+    // VNA:Select
+    void SelectSet(QString set_name);
+
     // VNA:Get
     QString GetIdentificationString();
     QStringList GetOptions();
     uint GetPorts();
     double GetMinimumFrequency_Hz();
     double GetMaximumFrequency_Hz();
+    QString GetDirectory();
+    QString GetDefaultDirectory();
+    QStringList GetOpenSets();
     double GetPortPowerLimit(uint port);
     QVector<double> GetPortPowerLimits();
     ColorScheme GetColorScheme();
     uint GetFontSize_percent();
     QString GetUserPreset();
+    QString GetUserCalPreset();
 
     QVector<uint> GetChannels();
     QStringList GetTraces();
@@ -86,6 +99,8 @@ public slots:
     // VNA:Set
     void SetIdentificationString(QString id_string);
     void SetOptionsString(QString options_string);
+    void SetDefaultDirectory();
+    void SetDirectory(QString directory);
     void SetPortPowerLimit(uint port, double power_limit);
     void SetPortPowerLimits(QVector<double> power_limits);
     void SetPortPowerLimits(double power_limit);
@@ -93,6 +108,7 @@ public slots:
     void SetFontSize_percent(uint size_percent);
     void SetUserPreset(QString filename);
     void SetUserPreset(QDir path, QString filename);
+    void SetUserCalPreset(QString cal_name);
 
     // VNA:Enable
     void EnableUserPreset(bool isEnabled = true);
@@ -114,26 +130,34 @@ public slots:
     void DisableRfOutputPower(bool isDisabled = true);
     void DisableDynamicIfBandwidth(bool isDisabled = true);
     void DisableLowPowerAutoCal(bool isDisabled = true);
+    void DisableSwitchMatrices(void);
+    void DisableUserCalPreset(void);
 
     // VNA:Create
+    void CreateSet(QString set_name);
     void CreateChannel(uint channel);
     void CreateTrace(QString trace_name, uint channel, NetworkParameter parameter, uint port1, uint port2);
     void CreateDiagram(uint diagram);
 
     // VNA:Delete
+    void DeleteSet(QString filename);
     void DeleteUserPreset();
     void DeleteCalGroup(QString cal_group);
+    void DeleteSwitchMatrices(void);
 
     void DeleteChannel(uint channel);
     void DeleteTrace(QString trace_name);
     void DeleteDiagram(uint diagram);
 
-    // VNA:Save
-    void SaveState(QString filename);
+    // VNA:Open
+    void OpenSet(QString filename);
 
-    // VNA:Load
-    void LoadState(QString state_file);
-    void LoadState(QDir path, QString state_file);
+    // VNA:Save
+    void SaveSet(QString filename);
+
+    // VNA:Close
+    void CloseSet(QString set_name);
+    void CloseSets();
 
 private:
     // VNA:Private
@@ -144,6 +168,7 @@ private:
     QStringList options;
     uint ports;
     double minimum_frequency_Hz, maximum_frequency_Hz;
+    QDir default_directory;
     QScopedPointer<Log> log;
     QScopedPointer<GenericBus> bus;
 
@@ -171,9 +196,9 @@ private:
     static QString ValueQualifier_to_Scpi(int value, QString qualifier);
     static QString ValueQualifier_to_Scpi(double value, QString qualifier);
 
-    /***********************
-    *** CHANNEL ************
-    ***********************/
+    //**********************
+    //** CHANNEL ***********
+    //*********************/
 
 private:
     class _Channel {
@@ -283,9 +308,9 @@ public:
     _Channel& Channel(uint channel = 1);
 
 
-    /***********************
-    *** TRACE **************
-    ***********************/
+    //**********************
+    //** TRACE *************
+    //*********************/
 
 private:
     class _Trace {
@@ -337,9 +362,9 @@ public:
     _Trace& Trace(QString trace_name = "Trc1");
 
 
-    /***********************
-    *** DIAGRAM ************
-    ***********************/
+    //**********************
+    //** DIAGRAM ***********
+    //*********************/
 
 private:
     class _Diagram {

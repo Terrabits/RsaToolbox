@@ -7,35 +7,33 @@
 
 // NI-VISA
 #include "visa.h"
+#define FILENAME "visa32"
 
 // Qt
 #include <QObject>
 #include <QString>
 #include <QLibrary>
 
-#define FILENAME "visa32"
-
 
 namespace RsaToolbox {
 
     class VisaBus : public GenericBus {
 	public:
-		// Instrument connection info
-        static const unsigned long MAX_PRINT = 100;
-
         // Constructor
         VisaBus();
         VisaBus(ConnectionType connection_type, QString instrument_address, short timeout_ms);
         ~VisaBus();
 
         // Status
-        bool isVisaPresent();
+        static bool isVisaPresent();
         bool isOpen();
         void PrintStatus();
 
 		// Actions
         bool Lock();
         bool Unlock();
+        bool Local();
+        bool Remote();
         bool Read(char *buffer, unsigned int buffer_size);
         bool Write(QString scpi_command);
         bool Query(QString scpi_command, char *buffer, unsigned int buffer_size);
@@ -70,6 +68,7 @@ namespace RsaToolbox {
         ViStatus status;
         ViSession resource_manager;
         ViSession instrument;
+        static const unsigned long MAX_PRINT = 100;
 
         // VisaBus
         void UnknownDevice();

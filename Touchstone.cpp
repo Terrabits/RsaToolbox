@@ -1,28 +1,18 @@
 
+
 // Rsa
-#include "Definitions.h"
 #include "General.h"
 #include "Touchstone.h"
 
 // Qt
-#include <QString>
-#include <QStringList>
-#include <QFile>
-#include <QTextStream>
 #include <QRegularExpression>
 
-// C++ Standard Library
-#include <iostream>
-#include <ostream>
-#include <fstream>
-#include <sstream>
-#include <iomanip>
+// C++ std lib
+#include <iterator>
 #include <cmath>
-#include <locale>
-#include <regex>
-#include <algorithm>
 
 using namespace RsaToolbox;
+
 
 // Actions
 bool Touchstone::Read(NetworkData &network, QString filename) {
@@ -62,6 +52,13 @@ bool Touchstone::Write(NetworkData &network, QString filename) {
     file.close();
     return(true);
 }
+
+
+// Private
+
+const QString Touchstone::TOUCHSTONE_FILE_REGEX = "^.*\\.s[0-9][0-9]*p$";
+const int Touchstone::COLUMNWIDTH = 18;
+const int Touchstone::PRECISION = 10;
 
 // Fix 2port touchstone issue
 void Touchstone::Flip2Ports(NetworkData &network) {

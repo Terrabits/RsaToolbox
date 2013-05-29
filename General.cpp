@@ -1,4 +1,5 @@
 
+
 // Rsa
 #include "General.h"
 
@@ -188,7 +189,7 @@ QString RsaToolbox::ToString(VnaModel model) {
         return(QString("UNKNOWN"));
     }
 }
-QString RsaToolbox::ToStateFileExtension(VnaModel model) {
+QString RsaToolbox::ToSetFileExtension(VnaModel model) {
     switch(model) {
     case ZVA_MODEL:
         return(QString(".zvx"));

@@ -1,4 +1,5 @@
 
+
 // Rsa
 #include "General.h"
 #include "RsibBus.h"
@@ -10,6 +11,7 @@
 #include <QByteArray>
 #include <QtAlgorithms>
 #include <QVariant>
+#include <QFileInfo>
 #include <QDateTime>
 #include <QScopedArrayPointer>
 
@@ -21,9 +23,10 @@
 using namespace RsaToolbox;
 
 
-/***********************
-*** Vna ****************
-***********************/
+
+//**********************
+//** Vna ***************
+//*********************/
 
 Vna::Vna() {
     log.reset(new Log());
@@ -39,7 +42,7 @@ Vna::Vna() {
 Vna::Vna(ConnectionType connection_type, QString instrument_address, uint timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version) {
     Reset(connection_type, instrument_address, timeout_ms, log_path, log_filename, program_name, program_version);
     log->PrintProgramHeader();
-    if (this->bus->connection_type != NO_CONNECTION) {
+    if (isConnected()) {
         PrintInstrumentInfo();
     }
     else {
@@ -70,14 +73,26 @@ QString Vna::GetFirmwareVersion() {
 void Vna::Print(QString formatted_text) {
     log->Print(formatted_text);
 }
-void Vna::Read(char *buffer, unsigned int buffer_size) {
-    bus->Read(buffer, buffer_size);
+bool Vna::Lock() {
+    return(bus->Lock());
 }
-void Vna::Write(QString scpi_command) {
-    bus->Write(scpi_command);
+bool Vna::Unlock() {
+    return(bus->Unlock());
 }
-void Vna::Query(QString scpi_command, char *buffer, unsigned int buffer_size) {
-    bus->Query(scpi_command, buffer, buffer_size);
+bool Vna::Local() {
+    return(bus->Local());
+}
+bool Vna::Remote() {
+    return(bus->Remote());
+}
+bool Vna::Read(char *buffer, unsigned int buffer_size) {
+    return(bus->Read(buffer, buffer_size));
+}
+bool Vna::Write(QString scpi_command) {
+    return(bus->Write(scpi_command));
+}
+bool Vna::Query(QString scpi_command, char *buffer, unsigned int buffer_size) {
+    return(bus->Query(scpi_command, buffer, buffer_size));
 }
 
 // VNA:Actions
@@ -108,6 +123,15 @@ bool Vna::isUserPresetEnabled() {
 }
 bool Vna::isUserPresetDisabled() {
     return(!isUserPresetEnabled());
+}
+bool Vna::isUserCalPresetEnabled() {
+    if (model == ZNB_MODEL || model == ZNC_MODEL)
+        return(GetUserCalPreset().isEmpty() == true);
+    else
+        return(false);
+}
+bool Vna::isUserCalPresetDisabled() {
+    return(!isUserCalPresetEnabled());
 }
 bool Vna::isUserPresetMappedToRst() {
     const uint BUFFER_SIZE = 30;
@@ -162,6 +186,15 @@ bool Vna::isLowPowerAutoCalDisabled() {
     return(!isLowPowerAutoCalEnabled());
 }
 
+// VNA:Select
+void Vna::SelectSet(QString set_name) {
+    const uint BUFFER_SIZE = 500;
+    char buffer[BUFFER_SIZE];
+    QByteArray c_string = set_name.toLocal8Bit();
+    sprintf(buffer, ":MEM:SEL \'%s\'\n", c_string.constData());
+    bus->Write(QString(buffer));
+}
+
 // VNA:Get
 QString Vna::GetIdentificationString() {
     const uint BUFFER_SIZE = 300;
@@ -193,6 +226,29 @@ double Vna::GetMaximumFrequency_Hz() {
     bus->Query(":SYST:FREQ? MAX\n", buffer, BUFFER_SIZE);
     return(QString(buffer).toDouble());
 }
+QString Vna::GetDirectory() {
+    const unsigned int BUFFER_SIZE = 500;
+    char buffer[BUFFER_SIZE];
+    bus->Query(":MMEM:CDIR?\n", buffer, BUFFER_SIZE);
+    QString directory(buffer);
+    directory.remove('\'');
+    return(directory);
+}
+QString Vna::GetDefaultDirectory() {
+    QString current_dir = GetDirectory();
+    SetDefaultDirectory();
+    QString default_dir = GetDirectory();
+    SetDirectory(current_dir);
+    return(default_dir);
+}
+QStringList Vna::GetOpenSets() {
+    const unsigned int BUFFER_SIZE = 1000;
+    char buffer[BUFFER_SIZE];
+    bus->Query(":MEM:CAT?\n", buffer, BUFFER_SIZE);
+    QString readback(buffer);
+    readback.remove('\'');
+    return(readback.split(','));
+}
 double Vna::GetPortPowerLimit(uint port) {
     const uint BUFFER_SIZE = 30;
     char buffer[BUFFER_SIZE];
@@ -223,9 +279,18 @@ QString Vna::GetUserPreset() {
     char buffer[BUFFER_SIZE];
     bus->Query(":SYST:PRES:USER:NAME?\n", buffer, BUFFER_SIZE);
     QString user_preset = QString(buffer);
-    user_preset.remove(0,1); // remove 1st char: "\'"
-    user_preset.chop(1); // remove last char: "\'"
+    user_preset.remove('\'');
     return(user_preset);
+}
+QString Vna::GetUserCalPreset() {
+    if (model == ZNB_MODEL || model == ZNC_MODEL) {
+        const unsigned int BUFFER_SIZE = 500;
+        char buffer[BUFFER_SIZE];
+        bus->Query(":SYST:PRES:USER:CAL?\n", buffer, BUFFER_SIZE);
+        return(QString(buffer).remove('\''));
+    }
+    else
+        return("");
 }
 
 QVector<uint> Vna::GetChannels() {
@@ -272,6 +337,16 @@ void Vna::SetOptionsString(QString options_string)  {
     sprintf(buffer, ":SYST:OPT \'%s\'\n", c_string.constData());
     bus->Write(QString(buffer));
 }
+void Vna::SetDefaultDirectory() {
+    bus->Write(":MMEM:CDIR DEF\n");
+}
+void Vna::SetDirectory(QString directory) {
+    QByteArray c_string = directory.toLocal8Bit();
+    const uint BUFFER_SIZE = 500;
+    char buffer[BUFFER_SIZE];
+    sprintf(buffer, ":MMEM:CDIR \'%s\'\n", c_string.constData());
+    bus->Write(QString(buffer));
+}
 void Vna::SetPortPowerLimit(uint port, double power_limit) {
     const uint BUFFER_SIZE = 30;
     char buffer[BUFFER_SIZE];
@@ -301,8 +376,8 @@ void Vna::SetFontSize_percent(uint size_percent)  {
     bus->Write(QString(buffer));
 }
 void Vna::SetUserPreset(QString filename)  {
-    if (!filename.contains(ToStateFileExtension(model)))
-        filename = filename + ToStateFileExtension(model);
+    if (!filename.contains(ToSetFileExtension(model)))
+        filename = filename + ToSetFileExtension(model);
     QByteArray c_string = filename.toLocal8Bit();
     const uint BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
@@ -312,13 +387,24 @@ void Vna::SetUserPreset(QString filename)  {
 void Vna::SetUserPreset(QDir path, QString filename)  {
     const uint BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
-    if (!filename.contains(ToStateFileExtension(model)))
-        filename = filename + ToStateFileExtension(model);
+    if (!filename.contains(ToSetFileExtension(model)))
+        filename = filename + ToSetFileExtension(model);
     filename = AppendPath(path, filename);
     filename = QDir::toNativeSeparators(filename);
     QByteArray c_string = filename.toLocal8Bit();
     sprintf(buffer, ":SYST:PRES:USER:NAME \'%s\'\n", c_string.constData());
     bus->Write(QString(buffer));
+}
+void Vna::SetUserCalPreset(QString cal_name) {
+    if (model == ZNB_MODEL || model == ZNC_MODEL) {
+        const unsigned int BUFFER_SIZE = 500;
+        char buffer[BUFFER_SIZE];
+        QByteArray c_string = cal_name.toLocal8Bit();
+        sprintf(buffer, ":SYST:PRES:USER:CAL \'%s\'\n", c_string.constData());
+        bus->Write(QString(buffer));
+    }
+    else
+        return;
 }
 
 // VNA:Enable
@@ -403,8 +489,24 @@ void Vna::DisableDynamicIfBandwidth(bool isDisabled) {
 void Vna::DisableLowPowerAutoCal(bool isDisabled) {
     EnableLowPowerAutoCal(!isDisabled);
 }
+void Vna::DisableSwitchMatrices(void) {
+    bus->Write(":INST:SMAT 0\n");
+}
+void Vna::DisableUserCalPreset(void) {
+    if (model == ZNB_MODEL || model == ZNC_MODEL)
+        SetUserCalPreset("");
+    else
+        return;
+}
 
 // VNA:Create
+void Vna::CreateSet(QString set_name) {
+    const uint BUFFER_SIZE = 500;
+    char buffer[BUFFER_SIZE];
+    QByteArray c_string = set_name.toLocal8Bit();
+    sprintf(buffer, ":MEM:DEF \'%s\'\n", c_string.constData());
+    bus->Write(QString(buffer));
+}
 void Vna::CreateChannel(uint channel) {
     const uint BUFFER_SIZE = 30;
     char buffer[BUFFER_SIZE];
@@ -412,7 +514,7 @@ void Vna::CreateChannel(uint channel) {
     bus->Write(QString(buffer));
 }
 void Vna::CreateTrace(QString trace_name, uint channel, NetworkParameter parameter, uint port1, uint port2) {
-    const uint BUFFER_SIZE = 150;
+    const uint BUFFER_SIZE = 550;
     char buffer[BUFFER_SIZE];
     QByteArray c_name = trace_name.toLocal8Bit();
     QByteArray c_parameters = _Trace::Parameters_to_Scpi(parameter, port1, port2).toLocal8Bit();
@@ -427,15 +529,35 @@ void Vna::CreateDiagram(uint diagram) {
 }
 
 // VNA:Delete
+void Vna::DeleteSet(QString filename) {
+    const uint BUFFER_SIZE = 500;
+    char buffer[BUFFER_SIZE];
+    // Fix save directory issue with firmware
+    QFileInfo file_info(filename);
+    if (file_info.path() == QString(".")) {
+        filename = default_directory.path()
+                 + "/RecallSets/"
+                 + filename;
+        file_info.setFile(filename);
+    }
+    if (file_info.suffix().isEmpty())
+        filename = filename + ToSetFileExtension(model);
+    QByteArray c_string = QDir::toNativeSeparators(filename).toLocal8Bit();
+    sprintf(buffer, ":MMEM:DEL \'%s\'\n", c_string.constData());
+    bus->Write(QString(buffer));
+}
 void Vna::DeleteUserPreset() {
     bus->Write(QString(":SYST:PRES:USER:NAME \'\'\n"));
 }
 void Vna::DeleteCalGroup(QString cal_group) {
-    const unsigned int BUFFER_SIZE = 40;
+    const unsigned int BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
     QByteArray c_string = cal_group.toLocal8Bit();
     sprintf(buffer, ":MMEM:DEL:CORR \'%s\'\n", c_string.constData());
     bus->Write(QString(buffer));
+}
+void Vna::DeleteSwitchMatrices(void) {
+    bus->Write(":SYST:COMM:RDEV:SMAT:DEL\n");
 }
 
 void Vna::DeleteChannel(uint channel) {
@@ -445,7 +567,7 @@ void Vna::DeleteChannel(uint channel) {
     bus->Write(QString(buffer));
 }
 void Vna::DeleteTrace(QString trace_name) {
-    const uint BUFFER_SIZE = 30;
+    const uint BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
     uint channel = _Trace(this, trace_name).GetChannel();
     QByteArray c_string = trace_name.toLocal8Bit();
@@ -459,29 +581,55 @@ void Vna::DeleteDiagram(uint diagram) {
     bus->Write(QString(buffer));
 }
 
+// VNA:Open
+void Vna::OpenSet(QString filename) {
+    const uint BUFFER_SIZE = 500;
+    char buffer[BUFFER_SIZE];
+    QFileInfo file_info(filename);
+    if (file_info.path() == QString(".")) {
+        filename = default_directory.path()
+                 + "/RecallSets/"
+                 + filename;
+        file_info.setFile(filename);
+    }
+    if (file_info.suffix() != ToSetFileExtension(model).remove('.'))
+        filename = filename + ToSetFileExtension(model);
+    QByteArray c_string = QDir::toNativeSeparators(filename).toLocal8Bit();
+    sprintf(buffer, ":MMEM:LOAD:STAT 1,\'%s\'\n", c_string.constData());
+    bus->Write(QString(buffer));
+}
+
 // VNA:Save
-void Vna::SaveState(QString filename) {
-    const uint BUFFER_SIZE = 400;
+void Vna::SaveSet(QString filename) {
+    const uint BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
     // Fix save directory issue with firmware
-    filename = "./RecallSets/" + filename;
-    if (!filename.contains(ToStateFileExtension(model)))
-        filename = filename + ToStateFileExtension(model);
-    QByteArray c_string = filename.toLocal8Bit();
+    QFileInfo file_info(filename);
+    if (file_info.path() == QString(".")) {
+        filename = default_directory.path()
+                 + "/RecallSets/"
+                 + filename;
+        file_info.setFile(filename);
+    }
+    if (file_info.suffix() != ToSetFileExtension(model).remove('.'))
+        filename = filename + ToSetFileExtension(model);
+    QByteArray c_string = QDir::toNativeSeparators(filename).toLocal8Bit();
     sprintf(buffer, ":MMEM:STOR:STAT 1,\'%s\'\n", c_string.constData());
     bus->Write(QString(buffer));
 }
 
-// VNA:Load
-void Vna::LoadState(QString state_file) {
+// VNA:Close
+void Vna::CloseSet(QString set_name) {
     const uint BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
-    if (!state_file.contains(ToStateFileExtension(model)))
-        state_file = state_file + ToStateFileExtension(model);
-    QByteArray c_string = state_file.toLocal8Bit();
-    sprintf(buffer, ":MMEM:LOAD:STAT 1,\'%s\'\n", c_string.constData());
+    QByteArray c_string = set_name.toLocal8Bit();
+    sprintf(buffer, ":MEM:DEL \'%s\'\n", c_string.constData());
     bus->Write(QString(buffer));
 }
+void Vna::CloseSets() {
+    bus->Write(":MEM:DEL:ALL\n");
+}
+
 
 // VNA:Private:General
 void Vna::Reset() {
@@ -494,6 +642,7 @@ void Vna::Reset() {
     minimum_frequency_Hz = 0;
     maximum_frequency_Hz = 0;
     options = QStringList();
+    default_directory.setPath("");
 }
 void Vna::Reset(ConnectionType connection_type, QString instrument_address, uint timeout_ms, QString log_path, QString log_filename, QString program_name, QString program_version) {
     log.reset(new Log(log_path, log_filename, program_name, program_version));
@@ -513,6 +662,7 @@ void Vna::Reset(ConnectionType connection_type, QString instrument_address, uint
             maximum_frequency_Hz = GetMaximumFrequency_Hz();
             GetInstrumentInfo(id_string);
             options = GetOptions();
+            default_directory.setPath(GetDefaultDirectory());
         }
         else
             model = UNKNOWN_MODEL;
@@ -620,8 +770,7 @@ void Vna::PrintInstrumentInfo() {
 void Vna::ParseIndicesFromRead(QString readback, QVector<uint> &indices) {
     // Assumes readback format: '1,Name_1,2,Name_2,...'
     indices.clear();
-    readback.remove(0, 1);
-    readback.chop(1);
+    readback.remove('\'');
     QStringList words = readback.split(',');
     for (int i = 0; i < words.length(); i += 2) {
         indices.append(words[i].toUInt());
@@ -630,8 +779,7 @@ void Vna::ParseIndicesFromRead(QString readback, QVector<uint> &indices) {
 void Vna::ParseNamesFromRead(QString readback, QStringList &names) {
     // Assumes readback format: '1,Name_1,2,Name_2...'
     names.clear();
-    readback.remove(0,1);
-    readback.chop(1);
+    readback.remove('\'');
     names = readback.split(',');
     if (names.length() % 2 == 1) return;
     for (int i = names.length() - 2; i >= 0; i -= 2) {
@@ -671,9 +819,9 @@ QString Vna::ValueQualifier_to_Scpi(double value, QString qualifier) {
 
 
 
-/***********************
-*** CHANNEL ************
-***********************/
+//**********************
+//** CHANNEL ***********
+//*********************/
 
 Vna::_Channel& Vna::Channel(uint channel) {
     _channel = _Channel(this, channel);
@@ -746,9 +894,7 @@ QString Vna::_Channel::GetCalGroup() {
     char buffer[BUFFER_SIZE];
     sprintf(buffer, ":MMEM:LOAD:CORR? %d\n", channel);
     vna->bus->Query(QString(buffer), buffer, BUFFER_SIZE);
-    // Remove quotes
-    QString cal_file = QString(buffer).remove(0,1);
-    cal_file.chop(1);
+    QString cal_file = QString(buffer).remove('\'');
     return(cal_file);
 }
 CorrectionState Vna::_Channel::GetCorrectionState() {
@@ -757,8 +903,7 @@ CorrectionState Vna::_Channel::GetCorrectionState() {
     sprintf(buffer, ":SENS%d:CORR:SST?\n", channel);
     vna->bus->Query(QString(buffer), buffer, BUFFER_SIZE);
     // Remove quotes
-    QString state_scpi = QString(buffer).remove(0,1);
-    state_scpi.chop(1);
+    QString state_scpi = QString(buffer).remove('\'');
     return(Scpi_To_CorrectionState(state_scpi));
 }
 SweepType Vna::_Channel::GetSweepType() {
@@ -802,8 +947,7 @@ QString Vna::_Channel::GetSelectedTrace() {
     sprintf(buffer, ":CALC%d:PAR:SEL?\n", channel);
     vna->bus->Query(QString(buffer), buffer, BUFFER_SIZE);
     QString selected_trace = QString(buffer);
-    selected_trace.remove(0,1); // remove first char
-    selected_trace.chop(1); // remove last char
+    selected_trace.remove('\'');
     return(selected_trace);
 }
 double Vna::_Channel::GetDelay_s(uint port) {
@@ -871,7 +1015,7 @@ uint Vna::_Channel::GetPoints() {
 
 // CHANNEL:Set
 void Vna::_Channel::SetCalGroup(QString cal_file) {
-    const uint BUFFER_SIZE = 400;
+    const uint BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
     if (!cal_file.contains(".cal", Qt::CaseInsensitive))
         cal_file = cal_file + QString(".cal");
@@ -1104,10 +1248,10 @@ void Vna::_Channel::MeasureNetwork(NetworkData &network, QVector<uint> ports) {
 
 // CHANNEL:Save
 void Vna::_Channel::SaveCalGroup(QString cal_file) {
-    const uint BUFFER_SIZE = 400;
+    const uint BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
-    if (!cal_file.contains(".cal", Qt::CaseInsensitive))
-        cal_file = cal_file + QString(".cal");
+    if (cal_file.contains(".cal", Qt::CaseInsensitive) == false)
+        cal_file = cal_file + ".cal";
     QByteArray c_string = cal_file.toLocal8Bit();
     sprintf(buffer, ":MMEM:STOR:CORR %d,\'%s\'\n", channel, c_string.constData());
     vna->bus->Write(QString(buffer));
@@ -1211,9 +1355,10 @@ void Vna::_Channel::ParseNetworkData(NetworkData &network, QString readback) {
 }
 
 
-/***********************
-*** TRACE **************
-***********************/
+
+//**********************
+//** TRACE *************
+//*********************/
 
 Vna::_Trace& Vna::Trace(QString trace_name) {
     _trace = _Trace(this, trace_name);
@@ -1228,7 +1373,7 @@ Vna::_Trace::_Trace(Vna *vna, QString trace_name) {
 // TRACE:Select
 void Vna::_Trace::Select() {
     QByteArray c_string = trace_name.toLocal8Bit();
-    const uint BUFFER_SIZE = 100;
+    const uint BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
     uint channel = GetChannel();
     sprintf(buffer, ":CALC%d:PAR:SEL \'%s\'\n", channel, c_string.constData());
@@ -1247,7 +1392,7 @@ void Vna::_Trace::GetStimulusValues(RowVector &stimulus_data) {
 }
 uint Vna::_Trace::GetChannel() {
     QByteArray c_string = trace_name.toLocal8Bit();
-    const uint BUFFER_SIZE = 100;
+    const uint BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
     sprintf(buffer, ":CONF:TRAC:CHAN:NAME:ID? \'%s\'\n", c_string.constData());
     vna->bus->Query(QString(buffer), buffer, BUFFER_SIZE);
@@ -1257,7 +1402,7 @@ void Vna::_Trace::GetParameters(NetworkParameter &parameter, uint &port1, uint &
     QByteArray trace_byte_array = trace_name.toLocal8Bit();
     char * trace_name_c = trace_byte_array.data();
     uint channel = GetChannel();
-    const uint BUFFER_SIZE = 100;
+    const uint BUFFER_SIZE = 550;
     char buffer[BUFFER_SIZE];
     sprintf(buffer, ":CALC%d:PAR:MEAS? \'%s\'\n", channel, trace_name_c);
     vna->bus->Query(QString(buffer), buffer, BUFFER_SIZE);
@@ -1276,7 +1421,7 @@ TraceFormat Vna::_Trace::GetFormat() {
     return(Scpi_To_TraceFormat(QString(buffer)));
 }
 uint Vna::_Trace::GetDiagram() {
-    const uint BUFFER_SIZE = 100;
+    const uint BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
     QByteArray byte_array = trace_name.toLocal8Bit();
     char *trace_c_string = byte_array.data();
@@ -1290,7 +1435,7 @@ void Vna::_Trace::SetParameters(NetworkParameter parameter, uint port1, uint por
     QByteArray c_name = trace_name.toLocal8Bit();
     QByteArray c_parameters = Parameters_to_Scpi(parameter, port1, port2).toLocal8Bit();
     uint channel = GetChannel();
-    const uint BUFFER_SIZE = 100;
+    const uint BUFFER_SIZE = 550;
     char buffer[BUFFER_SIZE];
     sprintf(buffer, ":CALC%d:PAR:MEAS \'%s\', \'%s\'\n", channel, c_name.constData(), c_parameters.constData());
     vna->bus->Write(QString(buffer));
@@ -1434,8 +1579,7 @@ NetworkParameter Vna::_Trace::Scpi_To_NetworkParameter(QString scpi) {
     return(S_PARAMETER);
 }
 void Vna::_Trace::ParseParameters(QString readback, NetworkParameter &parameter, uint &port1, uint &port2) {
-    readback.remove(0,1);
-    readback.chop(1);
+    readback.remove('\'');
     parameter = Scpi_To_NetworkParameter(readback.mid(0, 1));
     if (readback.length() == 3) {
         // "%c%1d%1d" format
@@ -1535,9 +1679,10 @@ void Vna::_Trace::GetUnits(TraceData &trace) {
 }
 
 
-/***********************
-*** DIAGRAM ************
-***********************/
+
+//**********************
+//** DIAGRAM ***********
+//*********************/
 
 Vna::_Diagram& Vna::Diagram(uint diagram) {
     _diagram = _Diagram(this, diagram);
@@ -1572,19 +1717,18 @@ QVector<uint> Vna::_Diagram::GetChannels() {
     return(channels);
 }
 QString Vna::_Diagram::GetTitle() {
-    const uint BUFFER_SIZE = 300;
+    const uint BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
     sprintf(buffer, ":DISP:WIND%d:TITL:DATA?\n", diagram);
     vna->bus->Query(QString(buffer), buffer, BUFFER_SIZE);
     QString title(buffer);
-    title.remove(0,1);
-    title.chop(1);
+    title.remove('\'');
     return(title);
 }
 
 // DIAGRAM:Set
 void Vna::_Diagram::SetTitle(QString title) {
-    const uint BUFFER_SIZE = 300;
+    const uint BUFFER_SIZE = 500;
     char buffer[BUFFER_SIZE];
     QByteArray c_string = title.toLocal8Bit();
     sprintf(buffer, ":DISP:WIND%d:TITL:DATA \'%s\'\n", diagram, c_string.constData());

@@ -21,13 +21,6 @@ namespace RsaToolbox {
     private: Q_OBJECT
 
 	public:
-        // Properties
-        QString program_name;
-        QString program_version;
-        QDir path;
-        QFile file;
-        QTextStream stream;
-
 		// Constructor / Destructor
         Log(void);
         Log(QDir path, QString filename, QString program_name, QString program_version);
@@ -52,6 +45,14 @@ namespace RsaToolbox {
 
     public slots:
         void Print(QString formatted_text);
+
+
+    private:
+        QString program_name;
+        QString program_version;
+        QDir path;
+        QFile file;
+        QTextStream stream;
 
 	};
 }

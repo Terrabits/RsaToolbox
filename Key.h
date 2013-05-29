@@ -1,6 +1,10 @@
 #ifndef KEY_H
 #define KEY_H
 
+
+// Rsa
+#include "General.h"
+
 // Qt
 #include <QDir>
 #include <QString>
@@ -15,9 +19,14 @@ namespace RsaToolbox {
 
     public:
 		// Constructor
-        Key() {}
-        Key(QString path) {
-            this->path = QDir(path);
+        Key() {
+            path = QDir(AppendCurrentDirectory(""));
+        }
+        Key(QString program_folder) {
+            this->path = QDir(GetAppDataPath(program_folder) + "/Settings/");
+        }
+        Key(QDir path) {
+            this->path = path;
         }
 
         // Boolean key functions
