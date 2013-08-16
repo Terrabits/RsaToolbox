@@ -1,4 +1,5 @@
 
+
 // RsaToolbox includes
 #include "Definitions.h"
 #include "VisaBus.h"
@@ -30,6 +31,9 @@ VisaBus::VisaBus(ConnectionType connection_type, QString instrument_address, sho
         else if (connection_type == GPIB_CONNECTION) {
             resource_string = QString("GPIB::") + instrument_address + QString("::INSTR");
         }
+        else if (connection_type == USB_CONNECTION) {
+            resource_string = QString("USB::") + instrument_address + QString("::INSTR");
+        }
         else {
             UnknownDevice();
             return;
@@ -58,6 +62,7 @@ VisaBus::~VisaBus() {
         _viClose(instrument);
         _viClose(resource_manager);
     }
+    visa_library.unload();
 }
 
 // Status
@@ -75,7 +80,7 @@ void VisaBus::PrintStatus() {
     status = _viStatusDesc(instrument, status, buffer);
     log << "ViStatus: 0x" << hex << status << dec;
     log << " " << QString(buffer).trimmed() << endl;
-
+    
     // Print
     log.flush();
     emit Print(formatted_text);
@@ -93,7 +98,7 @@ bool VisaBus::Unlock() {
     status = _viUnlock(instrument);
     bool isUnlocked = status >= VI_SUCCESS;
     if (isUnlocked)
-         emit Print("Instrument unlocked\n\n");
+        emit Print("Instrument unlocked\n\n");
     return(isUnlocked);
 }
 bool VisaBus::Local() {
@@ -188,12 +193,12 @@ bool VisaBus::isError() {
     return(status < VI_SUCCESS);
 }
 void VisaBus::NullTerminateRead(char *buffer, unsigned long buffer_size, ViUInt32 read_size) {
-        // Null-terminate string:
-        // NI-VISA seems to terminate with '\n' by default
-        if (read_size >= buffer_size)
-            buffer[buffer_size - 1] = '\0';
-        else
-            buffer[read_size - 1] = '\0';
+    // Null-terminate string:
+    // NI-VISA seems to terminate with '\n' by default
+    if (read_size >= buffer_size)
+        buffer[buffer_size - 1] = '\0';
+    else
+        buffer[read_size - 1] = '\0';
 }
 QString VisaBus::ToTruncatedString(char *buffer) {
     QString formatted_text(buffer);
@@ -206,3 +211,4 @@ QString VisaBus::ToTruncatedString(char *buffer) {
             + QString("\"\n");
     return(formatted_text);
 }
+

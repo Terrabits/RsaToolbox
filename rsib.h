@@ -18,8 +18,6 @@
 #ifndef _RohdeAndSchwarz_RSIB_h
 #define _RohdeAndSchwarz_RSIB_h
 
-#include <Windows.h>
-
 // Force C compilation
 #ifdef __cplusplus
 extern "C"
@@ -27,6 +25,7 @@ extern "C"
 #endif
 
 /* INCLUDE FILES **************************************************************/
+#include <Windows.h>
 
 /* DEFINES ********************************************************************/
 
@@ -397,7 +396,7 @@ EXCEPTIONS:
 short WINAPI RSDLLibclr(           short  ud,
                                    short* ibsta,
                                    short* iberr,
-                           unsigned long* ibcntl);
+                                   unsigned long* ibcntl);
 /* 
 SPECIFICATION:
     Sends Selected Device Clear (SDC) message to the instrument.
@@ -476,10 +475,10 @@ void WINAPI RSDLLibonl( short  ud,
 SPECIFICATION:
     If v is zero, the device is taken offline. 
     If v is non-zero, the device is left operational, or online.
-
+    
     If a device is taken offline, the device descriptor (ud) is no longer valid. 
     You must execute an RSDLLibfind to access the board again.
-
+    
 PARAMETERS:
   ud     - Handle of instrument as returned by RSDLLibfind().
     v      - Indicates whether the device is to be taken online or offline.
@@ -501,3 +500,4 @@ EXCEPTIONS:
 #endif
 
 #endif // ifndef _RohdeAndSchwarz_RSIB_h
+

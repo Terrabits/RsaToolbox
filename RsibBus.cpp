@@ -1,4 +1,5 @@
 
+
 // RsaToolbox includes
 #include "Definitions.h"
 #include "RsibBus.h"
@@ -28,16 +29,18 @@ RsibBus::RsibBus(ConnectionType connection_type, QString instrument_address, sho
     if (connection_type == TCPIP_CONNECTION) {
         QByteArray c_string = instrument_address.toLocal8Bit();
         instrument = RSDLLibfind(c_string.data(), &ibsta, &iberr, &ibcntl);
-        if (instrument == -1)
+        if (instrument == -1) {
             this->connection_type = NO_CONNECTION;
+            return;
+        }
     }
     else {
         instrument = -1;
         this->connection_type = NO_CONNECTION;
         return;
     }
-
-	// Set timeout
+    
+    // Set timeout
     RSDLLibtmo(instrument, timeout_ms, &ibsta, &iberr, &ibcntl);
 }
 RsibBus::~RsibBus() {
@@ -53,14 +56,14 @@ bool RsibBus::isOpen(void) {
 void RsibBus::PrintStatus() {
     QString formatted_text;
     QTextStream log(&formatted_text);
-
+    
     // Print ibsta
     log << "ibsta:    0x" << hex << ibsta;
     if ((ibsta & IBSTA_ERR) != 0) log << " (IBSTA_ERR)";
     if ((ibsta & IBSTA_TIMO) != 0) log << " (IBSTA_TIMO)";
     if ((ibsta & IBSTA_CMPL) != 0) log << " (IBSTA_CMPL)";
     log << endl;
-
+    
     // Print iberr
     log << "iberr:    " << dec << iberr;
     if (isError()) {
@@ -74,10 +77,10 @@ void RsibBus::PrintStatus() {
         if ((iberr & IBERR_UNKNOWN) != 0) log << " (IBERR_UNKNOWN)";
     }
     log << endl;
-
+    
     // Print ibcntl
     log << "ibcntl:   " << ibcntl << " (bytes)" << endl;
-
+    
     // Print
     log.flush();
     emit Print(formatted_text);
@@ -111,13 +114,13 @@ bool RsibBus::Read(char *buffer, unsigned int bufferSize) {
         emit Print("\n");
         return(false);
     }
-	else {
-		NullTerminateRead(buffer, bufferSize);
+    else {
+        NullTerminateRead(buffer, bufferSize);
         emit Print(ToTruncatedString(buffer) + "\n");
         PrintStatus();
         emit Print("\n");
         return(true);
-	}
+    }
 }
 bool RsibBus::Write(QString scpiCommand) {
     emit Print(QString("Write:    \"") + scpiCommand.trimmed() + "\"\n");
@@ -147,10 +150,10 @@ bool RsibBus::isError() {
     return((ibsta & IBSTA_ERR) != 0);
 }
 void RsibBus::NullTerminateRead(char *buffer, unsigned long buffer_size) {
-	// Null-terminate string
+    // Null-terminate string
     if (ibcntl < buffer_size)
-		buffer[ibcntl] = '\0';
-	else
+        buffer[ibcntl] = '\0';
+    else
         buffer[buffer_size - 1] = '\0'; // Could overwrite last byte?
 }
 QString RsibBus::ToTruncatedString(char *buffer) {
@@ -168,3 +171,4 @@ QString RsibBus::ToTruncatedString(char *buffer) {
     }
     return(formatted_text);
 }
+

@@ -12,14 +12,14 @@ using namespace RsaToolbox;
 
 // Constructor, Destructor
 Log::Log() {} // Dangerous?
-Log::Log(QDir path, QString filename, QString program_name, QString program_version) {
+Log::Log(QString path, QString filename, QString program_name, QString program_version) {
     this->path = path;
-    filename = path.path() + "/" + filename;
+    filename = path + "/" + filename;
     this->file.setFileName(filename);
     this->file.open(QIODevice::WriteOnly);
     this->stream.setDevice(&this->file);
-    this->program_name = program_name;
-    this->program_version = program_version;
+    this->app_name = program_name;
+    this->app_version = program_version;
 }
 Log::~Log() {
     stream.flush();
@@ -47,7 +47,7 @@ void Log::Rename(QString filename) {
     file.rename(filename);
 }
 void Log::PrintProgramHeader() {
-    stream << program_name << " Version " << program_version << endl;
+    stream << app_name << " Version " << app_version << endl;
     stream << "(C) 2013 Rohde & Schwarz America" << endl << endl;
     stream << QDateTime::currentDateTime().toString() << endl << endl;
 }
@@ -57,3 +57,4 @@ void Log::Print(QString formatted_text) {
     stream << formatted_text;
     stream.flush();
 }
+

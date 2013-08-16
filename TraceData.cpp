@@ -24,15 +24,15 @@ bool TraceData::isComplex() {
 TraceData::operator QString() {
     QString output;
     QTextStream stream(&output);
-
+    
     stream << "Trace:      "
            << ToString(network_parameter)
-           << port1 << port2 << endl;
+           << output_port << input_port << endl;
     stream << "Sweep Type: " << sweep_type << endl;
     stream << "Format:     " << format << endl;
     stream << "Points:     " << complex_data.size() << endl;
     stream << "Date/Time:  " << date_time.toString() << endl;
-
+    
     // Display first point:
     int current_point = 0;
     stream << "Point " << current_point << " Y=";
@@ -46,7 +46,7 @@ TraceData::operator QString() {
         stream << " X=" << FormatValue(stimulus_points[current_point], 2, stimulus_units) << endl;
     else
         stream << endl;
-
+    
     // Middle Point
     if (points >= 3) {
         current_point = (int)(points/2);
@@ -62,7 +62,7 @@ TraceData::operator QString() {
         else
             stream << endl;
     }
-
+    
     // Last Point
     if (points >= 2) {
         // Last point
@@ -82,3 +82,4 @@ TraceData::operator QString() {
     stream.flush();
     return(output);
 }
+

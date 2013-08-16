@@ -15,24 +15,25 @@
 
 
 namespace RsaToolbox {
-    class TraceData  {
-	public:
-        NetworkParameter network_parameter;
-        unsigned int port1;
-        unsigned int port2;
-        unsigned int points;
-        SweepType sweep_type;
-        TraceFormat format;
-        QDateTime date_time;
-
-        ComplexRowVector complex_data;
-        RowVector data, stimulus_points;
-        Units data_units, stimulus_units;
-
-        bool isComplex(void);
-        operator QString();
-	};
+class TraceData  {
+public:
+    NetworkParameter network_parameter;
+    unsigned int output_port;
+    unsigned int input_port;
+    unsigned int points;
+    SweepType sweep_type;
+    TraceFormat format;
+    QDateTime date_time;
+    
+    ComplexRowVector complex_data;
+    RowVector data, stimulus_points;
+    Units data_units, stimulus_units;
+    
+    bool isComplex(void);
+    operator QString();
+};
 }
 
 
 #endif
+

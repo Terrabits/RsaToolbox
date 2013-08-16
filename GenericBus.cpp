@@ -18,3 +18,4 @@ GenericBus::GenericBus(ConnectionType connection_type, QString address, short ti
     this->address = address;
     this->timeout_ms = timeout_ms;
 }
+

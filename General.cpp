@@ -46,11 +46,28 @@ double RsaToolbox::ToDouble(SiPrefix prefix) {
         break;
     default:
         // NO_PREFIX
-        return(1E0);
+        return(1);
         break;
     }
 }
-
+QString RsaToolbox::ToString(SweepType sweep_type) {
+    switch(sweep_type) {
+    case LINEAR_FREQUENCY_SWEEP:
+        return("Linear Frequency Sweep");
+    case LOG_FREQUENCY_SWEEP:
+        return("Log Frequency Sweep");
+    case SEGMENTED_SWEEP:
+        return("Segmented Frequency Sweep");
+    case POWER_SWEEP:
+        return("Power Sweep");
+    case CW_MODE_SWEEP:
+        return("CW Mode");
+    case TIME_SWEEP:
+        return("Time Sweep");
+    default:
+        return("Unknown sweep type");
+    }
+}
 QString RsaToolbox::ToString(ComplexFormat format) {
     switch(format) {
     case DB_DEGREES_COMPLEX:
@@ -137,7 +154,7 @@ QString RsaToolbox::ToString(Units units) {
         return("Deg");
         break;
     case OHMS_UNITS:
-        return("Ω");
+        return("Î©");
         break;
     case SIEMENS_UNITS:
         return("S");
@@ -165,6 +182,8 @@ QString RsaToolbox::ToString(ConnectionType connection_type) {
         return("TCPIP");
     if (connection_type == GPIB_CONNECTION)
         return("GPIB");
+    if (connection_type == USB_CONNECTION)
+        return("USB");
     // Else
     return("No Connection");
 }
@@ -174,6 +193,8 @@ QString RsaToolbox::ToString(VnaModel model) {
         return(QString("ZVA"));
     case ZVB_MODEL:
         return(QString("ZVB"));
+    case ZNP_MODEL:
+        return(QString("ZNP"));
     case ZVH_MODEL:
         return(QString("ZVH"));
     case ZVL_MODEL:
@@ -205,10 +226,22 @@ QString RsaToolbox::ToSetFileExtension(VnaModel model) {
         return(QString(".znx"));
     case ZNC_MODEL:
         return(QString(".znx"));
+    case ZNP_MODEL:
+        return(QString(".znx"));
     default:
         // UNKNOWN_MODEL
         return(QString(".rsx"));
     }
+}
+ConnectionType RsaToolbox::String_To_ConnectionType(QString string) {
+    if (string.contains("TCPIP", Qt::CaseInsensitive))
+        return(TCPIP_CONNECTION);
+    if (string.contains("GPIB", Qt::CaseInsensitive))
+        return(GPIB_CONNECTION);
+    if (string.contains("USB", Qt::CaseInsensitive))
+        return(USB_CONNECTION);
+    //else
+    return(NO_CONNECTION);
 }
 SiPrefix RsaToolbox::String_To_SiPrefix(QString prefix) {
     if (prefix.length() == 0)
@@ -233,6 +266,22 @@ SiPrefix RsaToolbox::String_To_SiPrefix(QString prefix) {
         return(FEMTO_PREFIX);
     // Default
     return(NO_PREFIX);
+}
+SweepType RsaToolbox::String_To_SweepType(QString sweep_type) {
+    if (sweep_type == "Linear Frequency Sweep")
+        return(LINEAR_FREQUENCY_SWEEP);
+    if (sweep_type == "Log Frequency Sweep")
+        return(LOG_FREQUENCY_SWEEP);
+    if (sweep_type == "Segmented Frequency Sweep")
+        return(SEGMENTED_SWEEP);
+    if (sweep_type == "Power Sweep")
+        return(POWER_SWEEP);
+    if (sweep_type == "CW Mode")
+        return(CW_MODE_SWEEP);
+    if (sweep_type == "Time Sweep")
+        return(TIME_SWEEP);
+    // Default:
+    return(LINEAR_FREQUENCY_SWEEP);
 }
 
 // File system
@@ -267,12 +316,12 @@ QString RsaToolbox::AppendAppDataPath(QString program_folder, QString filename) 
 }
 
 // Formatting
-QString RsaToolbox::FormatValue(double value, int decimalPlaces, Units units, SiPrefix prefix) {
+QString RsaToolbox::FormatValue(double value, int decimal_places, Units units, SiPrefix prefix) {
     QString formatted_value;
     QTextStream text_stream(&formatted_value);
-    text_stream.setRealNumberPrecision(decimalPlaces);
+    text_stream.setRealNumberPrecision(decimal_places);
     text_stream.setRealNumberNotation(QTextStream::FixedNotation);
-
+    
     const int count = 10;
     SiPrefix prefixes[count] =
     { FEMTO_PREFIX,
@@ -285,10 +334,10 @@ QString RsaToolbox::FormatValue(double value, int decimalPlaces, Units units, Si
       MEGA_PREFIX,
       GIGA_PREFIX,
       TERA_PREFIX };
-
+    
     double magnitude = abs(value * ToDouble(prefix));
     for (int i = 0; i < count; i++) {
-        double bound = (1 - 0.5 * pow(10.0, (double)(-3 - decimalPlaces))) * ToDouble(prefixes[i + 1]);
+        double bound = (1 - 0.5 * pow(10.0, (double)(-3 - decimal_places))) * ToDouble(prefixes[i + 1]);
         if (magnitude < bound) {
             text_stream << (value / ToDouble(prefixes[i])) << " ";
             text_stream << ToString(prefixes[i]) << ToString(units);
@@ -296,17 +345,56 @@ QString RsaToolbox::FormatValue(double value, int decimalPlaces, Units units, Si
             return(formatted_value);
         }
     }
-
+    
     // else Tera or bigger
     text_stream << (value / (double)prefixes[count]);
     text_stream << (QString)prefixes[count] << (QString)units;
     text_stream.flush();
     return(formatted_value);
 }
+QString RsaToolbox::FormatDouble(double value, int decimal_places) {
+    QString string;
+    QTextStream stream(&string);
+    stream.setRealNumberPrecision(decimal_places);
+    stream.setRealNumberNotation(QTextStream::FixedNotation);
+    stream << value;
+    stream.flush();
+    return(string);
+}
+QString RsaToolbox::ToString(QStringList list, QString separator) {
+    return(ToString(list.toVector(), separator));
+}
+QString RsaToolbox::ToString(ComplexRowVector vector, QString list_separator, const char *complex_format) {
+    int size = vector.size();
+    if (size == 0
+            || QString(complex_format).count("%") != 2
+            || QString(complex_format).count("%f") != 2)
+        return("");
+    // else
+    QString list;
+    list.sprintf(complex_format,
+                 vector[0].real(),
+            vector[0].imag());
+    for (int i = 1; i < size; i++) {
+        list.append(list_separator);
+        list +=
+                QString().sprintf(complex_format,
+                                  vector[i].real(),
+                                  vector[i].imag());
+    }
+    return(list);
+}
 
 // Math
 double RsaToolbox::ToDb(double value) {
     return(20 * log10(value));
+}
+QRowVector RsaToolbox::ToDb(QRowVector vector) {
+    int size = vector.size();
+    QRowVector dB;
+    for (int i = 0; i < size; i++)
+        dB << ToDb(vector[i]);
+    return(dB);
 }
 double RsaToolbox::ToDb(std::complex<double> value) {
     return(ToDb(abs(value)));
@@ -314,3 +402,92 @@ double RsaToolbox::ToDb(std::complex<double> value) {
 double RsaToolbox::ToMagnitude(double decibels) {
     return(pow(10.0, decibels / 20.0));
 }
+QRowVector RsaToolbox::ToMagnitude(QRowVector vector) {
+    int size = vector.size();
+    QRowVector magnitude;
+    for (int i = 0; i < size; i++)
+        magnitude << ToMagnitude(vector[i]);
+    return(magnitude);
+}
+QVector<int> RsaToolbox::Range(int start, int stop) {
+    QVector<int> range;
+    if (start == stop) {
+        range.append(start);
+        return(range);
+    }
+    
+    if (start < stop) {
+        for (int i = start; i <= stop; i++)
+            range.append(i);
+        
+        return(range);
+    }
+    
+    if (start > stop) {
+        for (int i = start; i >= stop; i--)
+            range.append(i);
+        
+        return(range);
+    }
+    
+    // This will never happen
+    return(range);
+}
+void RsaToolbox::LinearSpacing(QRowVector &result, double start, double stop, int points) {
+    RowVector std_result;
+    LinearSpacing(std_result, start, stop, points);
+    result = QRowVector::fromStdVector(std_result);
+}
+void RsaToolbox::LinearSpacing(RowVector &result, double start, double stop, int points) {
+    result.clear();
+    result.resize(points);
+    double spacing = (stop - start)/(-1.0 + points);
+    for (int i = 0; i < points; i++) {
+        result[i] = start + spacing * i;
+    }
+}
+double RsaToolbox::LinearInterpolateX(double x1, double y1, double x2, double y2, double y_desired) {
+    double slope = (y2 - y1)/(x2 - x1);
+    return((y_desired - y1)/slope + x1);
+}
+double RsaToolbox::LinearInterpolateY(double x1, double y1, double x2, double y2, double x_desired) {
+    double slope = (y2 - y1)/(x2 - x1);
+    return(y1 + slope*(x_desired - x1));
+}
+RowVector RsaToolbox::ScalarMultiply(RowVector vector, double scalar) {
+    const int size = vector.size();
+    for (int i = 0; i < size; i++)
+        vector[i] = vector[i] * scalar;
+    return(vector);
+}
+Matrix2D RsaToolbox::ScalarMultiply(Matrix2D matrix, double scalar) {
+    const int size = matrix.size();
+    for (int i = 0; i < size; i++)
+        ScalarMultiply(matrix[i], scalar);
+    return(matrix);
+}
+Matrix3D RsaToolbox::ScalarMultiply(Matrix3D matrix, double scalar) {
+    const int size = matrix.size();
+    for (int i = 0; i < size; i++)
+        ScalarMultiply(matrix[i], scalar);
+    return(matrix);
+}
+QRowVector RsaToolbox::ScalarMultiply(QRowVector vector, double scalar) {
+    const int size = vector.size();
+    for (int i = 0; i < size; i++)
+        vector[i] = vector[i] * scalar;
+    return(vector);
+}
+QMatrix2D RsaToolbox::ScalarMultiply(QMatrix2D matrix, double scalar) {
+    const int size = matrix.size();
+    for (int i = 0; i < size; i++)
+        ScalarMultiply(matrix[i], scalar);
+    return(matrix);
+}
+QMatrix3D RsaToolbox::ScalarMultiply(QMatrix3D matrix, double scalar) {
+    const int size = matrix.size();
+    for (int i = 0; i < size; i++)
+        ScalarMultiply(matrix[i], scalar);
+    return(matrix);
+}
+
