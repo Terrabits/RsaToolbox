@@ -1,0 +1,29 @@
+Documentation to finish:
+ - Setup page
+ - Pages
+ - Classes:
+   * VnaProperties
+   * VnaSettings
+   * VnaFileSystem
+   * VnaCalKit
+     # VnaStandardModel
+   * VnaCalUnit (+code)
+   * VnaSwitchMatrix
+   * VnaChannel
+     # VnaUserDefinedPort
+     # VnaCalibrate
+     # VnaCorrections
+     # VnaPowerCalibrate
+     # VnaPowerCorrections
+     # VnaLinearSweep
+     # VnaLogSweep
+     # VnaSegmentedSweep
+     # VnaSweepSegment
+     # VnaPowerSweep
+     # VnaCwSweep
+     # VnaTimeSweep
+   * VnaTrace
+     # VnaMarker
+     # VnaReferenceMarker
+     # VnaTimeDomain
+   * VnaDiagram

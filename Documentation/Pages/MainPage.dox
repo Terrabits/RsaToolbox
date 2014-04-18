@@ -1,0 +1,72 @@
+
+/*!
+ * \mainpage RsaToolbox Welcome to RsaToolbox!
+ * %RsaToolbox is a framework for test
+ * automation with Rohde \& Schwarz
+ * instruments. %RsaToolbox
+ * provides a simple yet fully
+ * functional starting point for any
+ * test automation application. The
+ * primary objectives are ease of use
+ * and code legibility, and minimalism;
+ * these tenets allow you to concentrate on
+ * creating the best application possible.
+ *
+ * %RsaToolbox consists of five major parts:
+ * - Log
+ * - Bus
+ * - Instrument
+ * - Qt Creator Templates
+ * - Installer
+ *
+ * \ref Log "Log" <br>
+ * Log, appropriately enough, provides a
+ * logging mechanism that is compatible
+ * with %RsaToolbox bus and instrument
+ * classes. All instrument communication
+ * is automatically logged by attaching
+ * a Log class to an instrument or bus
+ * instance. The user can also print
+ * additional text to the log for clarity.
+ *
+ * \ref Bus "Bus" <br>
+ * Bus provides interchangeable interfaces
+ * for the most common instrument busses,
+ * such as VISA and RSIB. Interchangeability
+ * allows your application to work with
+ * any arbitrary connection method(s) without
+ * rewriting your code.
+ * It is also extensible:
+ * if you need a specific bus
+ * that is not provided, you can create
+ * your own. Logging activity is as
+ * easy as connecting to a Log instance.
+ *
+ * \ref Instrument <br>
+ * Instrument provides interfaces to
+ * specific Rohde \& Schwarz instruments.
+ * Appropriate enums, data
+ * types and operators are provided to
+ * help you complete your application
+ * quickly, reliably and legibly.
+ * Instruments are compatible with
+ * the Log and Bus classes mentioned
+ * above.
+ *
+ * \ref Templates "Qt Creator Templates" <br>
+ * The %RsaToolbox Qt Creator templates
+ * provide well organized starting points
+ * for common applications.
+ * You get a log file, instrument connection,
+ * and an installer framework, all of which
+ * will compile and just work, out of the box.
+ *
+ * \ref Installer "Rsa Create Installer" <br>
+ * Rsa Create Installer is a tool
+ * for creating installers from
+ * %RsaToolbox Qt Creator project
+ * templates. You provide some
+ * basic information like application
+ * name and version and it an installer
+ * with your executable and all dependencies.
+ */

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>getCalibrationDialog</class>
+ <widget class="QDialog" name="getCalibrationDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>330</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Choose Calibration...</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>30</y>
+     <width>301</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Calibrated Channels:</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="channelList">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>50</y>
+     <width>300</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>false</bool>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectItems</enum>
+   </property>
+   <item>
+    <property name="text">
+     <string>Channel 1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Channel 3</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>140</y>
+     <width>301</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Saved Calibrations:</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="calPoolList">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>160</y>
+     <width>300</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <item>
+    <property name="text">
+     <string>Cal Group 1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Cal Group 2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Cal Group 3</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Cal Group 4</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Cal Group 5</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Cal Group 5</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Cal Group 5</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>280</y>
+     <width>361</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>channelList</tabstop>
+  <tabstop>calPoolList</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
