@@ -16,6 +16,19 @@ using namespace RsaToolbox;
 
 
 // Actions
+uint Touchstone::ports(QString fileName) {
+    QRegularExpression TOUCHSTONE_REGEX(TOUCHSTONE_FILE_REGEX, QRegularExpression::CaseInsensitiveOption);
+    if (TOUCHSTONE_REGEX.match(fileName).hasMatch()) {
+        // Read number of ports
+        int dotPosition = fileName.lastIndexOf(".");
+        fileName.remove(0, dotPosition + 2);
+        fileName.chop(1);
+        return(fileName.toUInt());
+    }
+    else {
+        return(0);
+    }
+}
 bool Touchstone::Read(NetworkData &network, QString filename) {
     QFile file(filename);
     file.open(QFile::ReadOnly);

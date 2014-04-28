@@ -23,6 +23,7 @@ namespace RsaToolbox
 class Touchstone {
 public:
     // Actions
+    static uint ports(QString fileName);
     static bool Read(NetworkData &network, QTextStream &touchstone_in, int ports);
     static bool Read(NetworkData &network, QString filename);
     static bool Write(NetworkData &network, QTextStream &touchstone_out);

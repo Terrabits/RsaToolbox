@@ -1369,6 +1369,41 @@ ComplexMatrix3D RsaToolbox::toComplexMatrix3D(const ComplexRowVector &data, uint
     return(matrix);
 }
 
+ComplexMatrix2D RsaToolbox::subsection(ComplexMatrix2D matrix, QVector<uint> rows, QVector<uint> columns) {
+    ComplexMatrix2D result;
+
+    uint numberOfRows = rows.size();
+    uint numberOfColumns = columns.size();
+
+    result.resize(numberOfRows);
+    for (uint i = 0; i < numberOfRows; i++) {
+        result[i].resize(numberOfColumns);
+        for (uint j = 0; j < numberOfColumns; j++) {
+        uint row = rows[i];
+        uint col = columns[j];
+        result[i][j] = matrix[row-1][col-1];
+        }
+    }
+    return(result);
+}
+ComplexMatrix2D RsaToolbox::subsection(ComplexMatrix2D matrix, QVector<uint> indices) {
+    return(subsection(matrix, indices, indices));
+}
+void RsaToolbox::insert(ComplexMatrix2D &matrix, ComplexMatrix2D data, QVector<uint> toRows, QVector<uint> toColumns) {
+    uint numberOfRows = toRows.size();
+    uint numberOfColumns = toColumns.size();
+    for (uint i = 0; i < numberOfRows; i++) {
+        for (uint j = 0; j < numberOfColumns; j++) {
+            uint row = toRows[i];
+            uint col = toColumns[i];
+            matrix[row-1][col-1] = data[i][j];
+        }
+    }
+}
+void RsaToolbox::insert(ComplexMatrix2D &matrix, ComplexMatrix2D data, QVector<uint> indices) {
+    insert(matrix, data, indices, indices);
+}
+
 QDataStream& operator<<(QDataStream &stream, ComplexDouble value) {
     stream << value.real();
     stream << value.imag();

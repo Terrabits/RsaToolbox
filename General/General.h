@@ -205,6 +205,11 @@ ComplexRowVector serialize(ComplexMatrix2D const &matrix);
 ComplexMatrix2D toComplexMatrix2D(ComplexRowVector const &data, uint rows, uint columns);
 ComplexMatrix3D toComplexMatrix3D(ComplexRowVector const &data, uint dimension1, uint dimension2, uint dimension3);
 
+ComplexMatrix2D subsection(ComplexMatrix2D matrix, QVector<uint> rows, QVector<uint> columns);
+ComplexMatrix2D subsection(ComplexMatrix2D matrix, QVector<uint> indices);
+void insert(ComplexMatrix2D &matrix, ComplexMatrix2D data, QVector<uint> toRows, QVector<uint> toColumns);
+void insert(ComplexMatrix2D &matrix, ComplexMatrix2D data, QVector<uint> indices);
+
 template <class T>
 T max(QVector<T> vector) {
     if (vector.size() == 0)
