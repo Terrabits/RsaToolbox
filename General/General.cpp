@@ -1383,9 +1383,9 @@ ComplexMatrix2D RsaToolbox::subsection(ComplexMatrix2D matrix, QVector<uint> row
     for (uint i = 0; i < numberOfRows; i++) {
         result[i].resize(numberOfColumns);
         for (uint j = 0; j < numberOfColumns; j++) {
-        uint row = rows[i];
-        uint col = columns[j];
-        result[i][j] = matrix[row-1][col-1];
+            uint row = rows[i];
+            uint col = columns[j];
+            result[i][j] = matrix[row-1][col-1];
         }
     }
     return(result);
