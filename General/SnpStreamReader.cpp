@@ -11,16 +11,18 @@ using namespace RsaToolbox;
 #include <QDebug>
 
 
-SnpStreamReader::SnpStreamReader() {
-    _isValidFile = false;
-    _stream.setDevice(&_file);
-}
-SnpStreamReader::SnpStreamReader(QString filePathName)
+//SnpStreamReader::SnpStreamReader() {
+//    _isValidFile = false;
+//    _stream.setDevice(&_file);
+//}
+SnpStreamReader::SnpStreamReader(QString filePathName) :
+    _file(filePathName),
+    _stream(&_file)
 {
     _isValidFile = false;
-    _stream.setDevice(&_file);
+    //_stream.setDevice(&_file);
     setFilename(filePathName);
-    open();
+    //open();
 }
 
 void SnpStreamReader::setFilename(QString filePathName) {

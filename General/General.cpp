@@ -732,11 +732,15 @@ void RsaToolbox::roundAxis(RowVector values, double interval, double &axis_min, 
     roundAxis(min(values), max(values), interval, axis_min, axis_max);
 }
 double RsaToolbox::linearInterpolateX(double x1, double y1, double x2, double y2, double y_desired) {
-    double slope = (y2 - y1)/(x2 - x1);
-    return((y_desired - y1)/slope + x1);
+    double invSlope = (x2 - x1)/(y2 - y1);
+    return(x1 + invSlope*(y_desired - y1));
 }
 double RsaToolbox::linearInterpolateY(double x1, double y1, double x2, double y2, double x_desired) {
     double slope = (y2 - y1)/(x2 - x1);
+    return(y1 + slope*(x_desired - x1));
+}
+ComplexDouble RsaToolbox::linearInterpolateY(double x1, ComplexDouble y1, double x2, ComplexDouble y2, double x_desired) {
+    ComplexDouble slope = (y2 - y1)/(x2 - x1);
     return(y1 + slope*(x_desired - x1));
 }
 

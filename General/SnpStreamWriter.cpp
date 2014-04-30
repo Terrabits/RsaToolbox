@@ -10,17 +10,23 @@ using namespace RsaToolbox;
 #include <QFileInfo>
 
 
-SnpStreamWriter::SnpStreamWriter() {
-    _stream.setDevice(&_file);
-    _initialize();
-}
-SnpStreamWriter::SnpStreamWriter(QString filePathName) {
-    _stream.setDevice(&_file);
+//SnpStreamWriter::SnpStreamWriter() {
+//    _stream.setDevice(&_file);
+//    _initialize();
+//}
+SnpStreamWriter::SnpStreamWriter(QString filePathName) :
+    _file(filePathName),
+    _stream(&_file)
+{
+    //_stream.setDevice(&_file);
     _initialize();
     setFileName(filePathName);
 }
-SnpStreamWriter::SnpStreamWriter(QString filePathName, uint ports) {
-    _stream.setDevice(&_file);
+SnpStreamWriter::SnpStreamWriter(QString filePathName, uint ports) :
+    _file(filePathName),
+    _stream(&_file)
+{
+    //_stream.setDevice(&_file);
     _initialize();
     setFileName(filePathName, ports);
 }

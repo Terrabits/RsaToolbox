@@ -17,7 +17,7 @@ namespace RsaToolbox {
 class SnpStreamWriter
 {
 public:
-    SnpStreamWriter();
+//    SnpStreamWriter();
     SnpStreamWriter(QString filePathName);
     SnpStreamWriter(QString filePathName, uint ports);
     bool setFileName(QString filePathName);

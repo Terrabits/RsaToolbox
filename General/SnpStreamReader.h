@@ -16,7 +16,7 @@ namespace RsaToolbox {
 
 class SnpStreamReader {
 public:
-    SnpStreamReader();
+//    SnpStreamReader();
     SnpStreamReader(QString filePathName);
 
     void setFilename(QString filePathName);
