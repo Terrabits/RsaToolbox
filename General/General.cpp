@@ -1385,7 +1385,7 @@ ComplexMatrix2D RsaToolbox::subsection(ComplexMatrix2D matrix, QVector<uint> row
         for (uint j = 0; j < numberOfColumns; j++) {
             uint row = rows[i];
             uint col = columns[j];
-            result[i][j] = matrix[row-1][col-1];
+            result[i][j] = matrix[row][col];
         }
     }
     return(result);
@@ -1400,7 +1400,7 @@ void RsaToolbox::insert(ComplexMatrix2D &matrix, ComplexMatrix2D data, QVector<u
         for (uint j = 0; j < numberOfColumns; j++) {
             uint row = toRows[i];
             uint col = toColumns[i];
-            matrix[row-1][col-1] = data[i][j];
+            matrix[row][col] = data[i][j];
         }
     }
 }
