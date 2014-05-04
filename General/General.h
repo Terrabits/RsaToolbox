@@ -10,6 +10,8 @@
 #include <QString>
 #include <QStringList>
 #include <QVariant>
+#include <QMap>
+#include <QMapIterator>
 
 // C++ std lib
 #include <complex>
@@ -211,6 +213,18 @@ ComplexMatrix2D subsection(ComplexMatrix2D matrix, QVector<uint> rows, QVector<u
 ComplexMatrix2D subsection(ComplexMatrix2D matrix, QVector<uint> indices);
 void insert(ComplexMatrix2D &matrix, ComplexMatrix2D data, QVector<uint> toRows, QVector<uint> toColumns);
 void insert(ComplexMatrix2D &matrix, ComplexMatrix2D data, QVector<uint> indices);
+
+template <class T, class U, class V>
+QMap<T,V> cascade(QMap<T,U> a, QMap<U,V> b) {
+    QMap<T,V> result;
+    QMapIterator<T,U> i(a);
+    while (i.hasNext()) {
+        i.next();
+        if (b.contains(i.value()))
+            result[i.key()] = b.value(i.value());
+    }
+    return(result);
+}
 
 template <class T>
 T max(QVector<T> vector) {
