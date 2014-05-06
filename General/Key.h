@@ -76,6 +76,10 @@ public:
             return(false);
         }
     }
+    bool Delete(QString key) {
+        AppendThisPath(key);
+        return(QFile(key).remove());
+    }
 
 private:
     // Helpers
