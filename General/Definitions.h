@@ -116,6 +116,9 @@ Q_DECLARE_METATYPE(RsaToolbox::SiPrefix)
 
 Q_DECLARE_METATYPE(RsaToolbox::ComplexDouble)
 Q_DECLARE_METATYPE(RsaToolbox::ComplexRowVector)
+Q_DECLARE_METATYPE(RsaToolbox::ComplexMatrix2D)
+Q_DECLARE_METATYPE(RsaToolbox::ComplexMatrix3D)
+
 Q_DECLARE_METATYPE(RsaToolbox::QRowVector)
 Q_DECLARE_METATYPE(RsaToolbox::QMatrix2D)
 Q_DECLARE_METATYPE(RsaToolbox::QMatrix3D)

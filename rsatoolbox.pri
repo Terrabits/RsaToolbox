@@ -18,13 +18,11 @@ win32: LIBS += -L$$PWD/Bus/Rsib -lrsib32
 
 CONFIG(debug, release|debug) {
   LIBS += -l$$PWD/RsaToolboxd
-  win32:QCPLIB = qcustomplotd1
-  else: QCPLIB = qcustomplotd
+  LIBS += -l$$PWD/QCustomPlot/qcustomplotd
 }
 else {
   LIBS += -l$$PWD/RsaToolbox
-  win32:QCPLIB = qcustomplot1
-  else: QCPLIB = qcustomplot
+  LIBS += -l$$PWD/QCustomPlot/qcustomplot
 }
-LIBS += -l$$PWD/QCustomPlot/$$QCPLIB
+LIBS += -L$$PWD
 LIBS += -L$$PWD/QCustomPlot/

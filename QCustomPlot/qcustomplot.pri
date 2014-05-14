@@ -11,17 +11,12 @@ INCLUDEPATH += $$PWD
 SOURCES += $$PWD/Figure.cpp
 FORMS += $$PWD/Figure.ui
 
-# Tell the qcustomplot header that it will be used as library:
+# Use library
 DEFINES += QCUSTOMPLOT_USE_LIBRARY
 
-# Link with debug version of qcustomplot if compiling in debug mode, else with release library:
-CONFIG(debug, release|debug) {
-  win32:QCPLIB = qcustomplotd1
-  else: QCPLIB = qcustomplotd
-}
-else {
-  win32:QCPLIB = qcustomplot1
-  else: QCPLIB = qcustomplot
-}
+# Link debug|release version:
+QCPLIB = qcustomplot
+CONFIG(debug, debug|release): QCPLIB = $$join(QCPLIB,,,d)
+#win32: QCPLIB = $$join(QCPLIB,,,1)
 LIBS += -l$$PWD/$$QCPLIB
 LIBS += -L$$PWD/
