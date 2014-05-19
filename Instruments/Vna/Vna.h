@@ -35,6 +35,7 @@ public:
     Vna(ConnectionType type, QString address, QObject *parent = 0);
 
     void printInfo();
+    void printInfo(QTextStream &stream);
 
     QRowVector readVector(uint bufferSize_B = 5000, uint timeout_ms = 1000);
     ComplexRowVector readComplexVector(uint bufferSize_B = 5000, uint timeout_ms = 1000);

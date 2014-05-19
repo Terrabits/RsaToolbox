@@ -194,38 +194,47 @@ void Vna::printInfo() {
         return;
     }
 
-    Log *_log = log();
+    Log *tempLog = log();
     disconnectLog();
-    *_log << "VNA INSTRUMENT INFO" << endl;
+
+    QString info;
+    QTextStream stream;
+    printInfo(stream);
+    stream.flush();
+    tempLog->print(info);
+
+    useLog(tempLog);
+}
+void Vna::printInfo(QTextStream &stream) {
+    stream << "VNA INSTRUMENT INFO" << endl;
     if (isConnected()) {
         if (_properties.model() != UNKNOWN_MODEL) {
-            *_log << "Connection:       " << toString(connectionType()) << endl;
-            *_log << "Address:          " << address() << endl;
-            *_log << "Make:             Rohde & Schwarz" << endl;
-            *_log << "Model:            " << toString(_properties.model()) << endl;
-            *_log << "Serial No:        " << _properties.serialNumber() << endl;
-            *_log << "Firmware Version: " << _properties.firmwareVersion() << endl;
-            *_log << "Min Frequency:    " << formatValue(_properties.minimumFrequency_Hz(), 1, HERTZ_UNITS) << endl;
-            *_log << "Max Frequency:    " << formatValue(_properties.maximumFrequency_Hz(), 1, HERTZ_UNITS) << endl;
-            *_log << "Number of Ports:  " << _properties.physicalPorts() << endl;
+            stream << "Connection:       " << toString(connectionType()) << endl;
+            stream << "Address:          " << address() << endl;
+            stream << "Make:             Rohde & Schwarz" << endl;
+            stream << "Model:            " << toString(_properties.model()) << endl;
+            stream << "Serial No:        " << _properties.serialNumber() << endl;
+            stream << "Firmware Version: " << _properties.firmwareVersion() << endl;
+            stream << "Min Frequency:    " << formatValue(_properties.minimumFrequency_Hz(), 1, HERTZ_UNITS) << endl;
+            stream << "Max Frequency:    " << formatValue(_properties.maximumFrequency_Hz(), 1, HERTZ_UNITS) << endl;
+            stream << "Number of Ports:  " << _properties.physicalPorts() << endl;
             if (optionsString().size() > 0) {
-                *_log << "Options:          ";
-                *_log << toString(_properties.optionsList(), "\n                  ");
-                *_log << endl;
+                stream << "Options:          ";
+                stream << toString(_properties.optionsList(), "\n                  ");
+                stream << endl;
             }
         }
         else {
-            *_log << "Make: Unknown" << endl;
-            *_log << "*IDN?\n  " << idString() << endl << endl << endl;
+            stream << "Make: Unknown" << endl;
+            stream << "*IDN?\n  " << idString() << endl << endl << endl;
         }
     }
     else {
-        *_log << "Instrument not found" << endl;
-        *_log << "Connection:       " << toString(connectionType()) << endl;
-        *_log << "Address:          " << address() << endl << endl << endl;
+        stream << "Instrument not found" << endl;
+        stream << "Connection:       " << toString(connectionType()) << endl;
+        stream << "Address:          " << address() << endl << endl << endl;
     }
-    *_log << endl << endl;
-    useLog(_log);
+    stream << endl << endl;
 }
 
 /*!

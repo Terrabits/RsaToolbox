@@ -246,21 +246,32 @@ void GenericInstrument::printInfo() {
         qDebug() << "GenericInstrument: Can\'t print info.";
         return;
     }
+    Log *tempLog = _log;
+    disconnectLog();
 
-    *_log << "VNA INSTRUMENT INFO" << endl;
+    QString info;
+    QTextStream stream;
+    printInfo(stream);
+    stream.flush();
+    tempLog->print(info);
+
+    useLog(tempLog);
+}
+void GenericInstrument::printInfo(QTextStream &stream) {
+    stream << "VNA INSTRUMENT INFO" << endl;
     if (isConnected()) {
         if (isRohdeSchwarz())
-            *_log << "Make: Rohde & Schwarz" << endl;
+            stream << "Make: Rohde & Schwarz" << endl;
         else
-            *_log << "Make: Unknown" << endl;
-        *_log << "*IDN?\n  " << idString() << endl << endl << endl;
+            stream << "Make: Unknown" << endl;
+        stream << "*IDN?\n  " << idString() << endl << endl << endl;
     }
     else {
-        *_log << "Instrument not found" << endl;
-        *_log << "Connection:       " << toString(_bus->connectionType()) << endl;
-        *_log << "Address:          " << _bus->address() << endl << endl << endl;
+        stream << "Instrument not found" << endl;
+        stream << "Connection:       " << toString(_bus->connectionType()) << endl;
+        stream << "Address:          " << _bus->address() << endl << endl << endl;
     }
-    *_log << endl << endl;
+    stream << endl << endl;
 }
 
 /*!

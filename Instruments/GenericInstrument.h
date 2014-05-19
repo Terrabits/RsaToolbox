@@ -10,6 +10,7 @@
 // Qt
 #include <QObject>
 #include <QScopedPointer>
+#include <QTextStream>
 
 namespace RsaToolbox {
 
@@ -43,6 +44,7 @@ public:
     void print(QString text);
     void printLine(QString text = "");
     virtual void printInfo();
+    virtual void printInfo(QTextStream &stream);
 
     GenericBus* takeBus();
     void resetBus();
