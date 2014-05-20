@@ -12,6 +12,7 @@
 #include "VnaPowerSweep.h"
 #include "VnaCwSweep.h"
 #include "VnaTimeSweep.h"
+#include "VnaAveraging.h"
 #include "VnaCorrections.h"
 #include "VnaCalibrate.h"
 
@@ -108,6 +109,9 @@ public:
     void deleteUserDefinedPort(uint physicalPort);
     void deleteUserDefinedPorts();
 
+    // Averaging
+    VnaAveraging &averaging();
+
     // Corrections
     bool isCalibrated();
     bool isCalGroup();
@@ -139,6 +143,7 @@ private:
     QScopedPointer<VnaPowerSweep> _powerSweep;
     QScopedPointer<VnaCwSweep> _cwSweep;
     QScopedPointer<VnaTimeSweep> _timeSweep;
+    QScopedPointer<VnaAveraging> _averaging;
     QScopedPointer<VnaCorrections> _corrections;
     QScopedPointer<VnaCalibrate> _calibrate;
 

@@ -173,42 +173,42 @@ void VnaChannel::setSweepType(VnaSweepType sweepType) {
 
 VnaLinearSweep &VnaChannel::linearSweep() {
     _frequencySweep.reset(new VnaLinearSweep(_vna, this, this));
-    return(*_frequencySweep.data());
+    return(*_frequencySweep);
 }
 VnaLinearSweep *VnaChannel::takeLinearSweep() {
     return(new VnaLinearSweep(_vna, _index, this));
 }
 VnaLogSweep &VnaChannel::logSweep() {
     _logSweep.reset(new VnaLogSweep(_vna, this, this));
-    return(*_logSweep.data());
+    return(*_logSweep);
 }
 VnaLogSweep *VnaChannel::takeLogSweep() {
     return(new VnaLogSweep(_vna, _index));
 }
 VnaSegmentedSweep &VnaChannel::segmentedSweep() {
     _segmentedSweep.reset(new VnaSegmentedSweep(_vna, this, this));
-    return(*_segmentedSweep.data());
+    return(*_segmentedSweep);
 }
 VnaSegmentedSweep *VnaChannel::takeSegmentedSweep() {
     return(new VnaSegmentedSweep(_vna, _index));
 }
 VnaPowerSweep &VnaChannel::powerSweep() {
     _powerSweep.reset(new VnaPowerSweep(_vna, this, this));
-    return(*_powerSweep.data());
+    return(*_powerSweep);
 }
 VnaPowerSweep *VnaChannel::takePowerSweep() {
     return(new VnaPowerSweep(_vna, _index));
 }
 VnaCwSweep &VnaChannel::cwSweep() {
     _cwSweep.reset(new VnaCwSweep(_vna, this, this));
-    return(*_cwSweep.data());
+    return(*_cwSweep);
 }
 VnaCwSweep *VnaChannel::takeCwSweep() {
     return(new VnaCwSweep(_vna, _index));
 }
 VnaTimeSweep &VnaChannel::timeSweep() {
     _timeSweep.reset(new VnaTimeSweep(_vna, this, this));
-    return(*_timeSweep.data());
+    return(*_timeSweep);
 }
 VnaTimeSweep *VnaChannel::takeTimeSweep() {
     return(new VnaTimeSweep(_vna, _index));
@@ -340,6 +340,12 @@ void VnaChannel::deleteUserDefinedPorts() {
     _vna->write(scpi);
 }
 
+// Averaging
+VnaAveraging& VnaChannel::averaging() {
+    _averaging.reset(new VnaAveraging(_vna, this, this));
+    return(*_averaging);
+}
+
 // Corrections/Calibrate
 bool VnaChannel::isCalibrated() {
     QString scpi = ":SENS%1:CORR:DATA:PAR:COUN?\n";
@@ -387,11 +393,11 @@ void VnaChannel::dissolveCalGroup() {
 
 VnaCorrections &VnaChannel::corrections() {
     _corrections.reset(new VnaCorrections(_vna, this, this));
-    return(*_corrections.data());
+    return(*_corrections);
 }
 VnaCalibrate &VnaChannel::calibrate() {
     _calibrate.reset(new VnaCalibrate(_vna, this, this));
-    return(*_calibrate.data());
+    return(*_calibrate);
 }
 VnaCalibrate *VnaChannel::takeCalibrate() {
     return(new VnaCalibrate(_vna, _index));

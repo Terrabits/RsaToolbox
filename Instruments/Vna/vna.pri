@@ -23,6 +23,7 @@ HEADERS += $$PWD/VnaUserDefinedPort.h \
            $$PWD/VnaPowerSweep.h \
            $$PWD/VnaCwSweep.h \
            $$PWD/VnaTimeSweep.h \
+           $$PWD/VnaAveraging.h \
            $$PWD/VnaCalibrate.h \
            $$PWD/VnaCorrections.h \
            $$PWD/VnaPowerCalibrate.h \
@@ -52,6 +53,7 @@ SOURCES += $$PWD/VnaUserDefinedPort.cpp \
            $$PWD/VnaPowerSweep.cpp \
            $$PWD/VnaCwSweep.cpp \
            $$PWD/VnaTimeSweep.cpp \
+           $$PWD/VnaAveraging.cpp \
            $$PWD/VnaCalibrate.cpp \
            $$PWD/VnaCorrections.cpp \
            $$PWD/VnaPowerCalibrate.cpp \

@@ -198,7 +198,7 @@ void Vna::printInfo() {
     disconnectLog();
 
     QString info;
-    QTextStream stream;
+    QTextStream stream(&info);
     printInfo(stream);
     stream.flush();
     tempLog->print(info);
