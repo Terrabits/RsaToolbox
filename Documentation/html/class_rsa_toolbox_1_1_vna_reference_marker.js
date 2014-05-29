@@ -4,7 +4,7 @@ var class_rsa_toolbox_1_1_vna_reference_marker =
     [ "VnaReferenceMarker", "class_rsa_toolbox_1_1_vna_reference_marker.html#a99e580ef72992484fbf0998f81381e84", null ],
     [ "VnaReferenceMarker", "class_rsa_toolbox_1_1_vna_reference_marker.html#a5261ca8a942734998b7264ad42c9ba31", null ],
     [ "VnaReferenceMarker", "class_rsa_toolbox_1_1_vna_reference_marker.html#a1eb15b20ead77b96d580c72e974f8c0f", null ],
-    [ "coordinates", "class_rsa_toolbox_1_1_vna_reference_marker.html#a4619bf6c86d23a257b1598014b3cea5e", null ],
+    [ "coordinates", "class_rsa_toolbox_1_1_vna_reference_marker.html#ada220dcb18bad3f30ae11714ff06c405", null ],
     [ "isOff", "class_rsa_toolbox_1_1_vna_reference_marker.html#a45cb35cce9c006e0f1428934f6d828cb", null ],
     [ "isOn", "class_rsa_toolbox_1_1_vna_reference_marker.html#a3909f77aa50b8f46ccadc196178a07a1", null ],
     [ "name", "class_rsa_toolbox_1_1_vna_reference_marker.html#aee2dd8a62805e14b9f0b407a27159117", null ],

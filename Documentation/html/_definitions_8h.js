@@ -1,8 +1,9 @@
 var _definitions_8h =
 [
+    [ "ComplexDouble", "_definitions_8h.html#ab82a545355b9d90ede8e612bf1bcb9ed", null ],
     [ "ComplexMatrix2D", "_definitions_8h.html#aaf2b301924485eee4bed8606937522b6", null ],
     [ "ComplexMatrix3D", "_definitions_8h.html#a38e11e9315a74fce00f201a19143d587", null ],
-    [ "ComplexRowVector", "_definitions_8h.html#a7ad7d7cbd739ccedfa081c4fd8413df9", null ],
+    [ "ComplexRowVector", "_definitions_8h.html#aeff8cbc6faa565bb58d8f7467e117ae0", null ],
     [ "Matrix2D", "_definitions_8h.html#a4ac77922c110de258891e9f867b98a53", null ],
     [ "Matrix3D", "_definitions_8h.html#a9ba044817ed0459f04f0bc9e98f771c0", null ],
     [ "QMatrix2D", "_definitions_8h.html#a3579c091e3c712a5242d147bc08b1762", null ],
@@ -13,6 +14,18 @@ var _definitions_8h =
       [ "DB_DEGREES_COMPLEX", "_definitions_8h.html#a3fd1a9b25d76e60c5b6c4d86356986e9a925c3bdac31e15282640b1c5290ee62c", null ],
       [ "MAGNITUDE_DEGREES_COMPLEX", "_definitions_8h.html#a3fd1a9b25d76e60c5b6c4d86356986e9ac191a8ef9712fcb2ee164739bed9c025", null ],
       [ "REAL_IMAGINARY_COMPLEX", "_definitions_8h.html#a3fd1a9b25d76e60c5b6c4d86356986e9a9c6c267b96c0f262fb37ed5ef2b21c7d", null ]
+    ] ],
+    [ "CsvFormat", "_definitions_8h.html#afef9eb6dfe949b834d1b5b9d7e09d3ff", [
+      [ "COMPLEX_DB_DEGREES_CSV", "_definitions_8h.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa70dafe8e6d387e15403095e22242e536", null ],
+      [ "COMPLEX_DB_RADIANS_CSV", "_definitions_8h.html#afef9eb6dfe949b834d1b5b9d7e09d3ffabcbae8db0109867d90d1587e730350fd", null ],
+      [ "COMPLEX_MAGNITUDE_DEGREES_CSV", "_definitions_8h.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa7296e99e61aaec591a6defc0ae92dc4b", null ],
+      [ "COMPLEX_MAGNITUDE_RADIANS_CSV", "_definitions_8h.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa045d8c588b42f9a6d6a581df9a18d56c", null ],
+      [ "COMPLEX_REAL_IMAGINARY_CSV", "_definitions_8h.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa45f23fcf5d539cb4c309e022447acd51", null ],
+      [ "DECIBEL_MAGNITUDE_CSV", "_definitions_8h.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa444a10677d50dbc91523a3377c5d9a90", null ],
+      [ "MAGNITUDE_CSV", "_definitions_8h.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa727b130c38095cde28e2a3624f6cf228", null ],
+      [ "PHASE_DEGREES_CSV", "_definitions_8h.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa09e5e4f652e0c6406919320dc1b534b3", null ],
+      [ "PHASE_RADIANS_CSV", "_definitions_8h.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa65f4b2c5ca299bc0dcd2d722aec1b819", null ],
+      [ "VSWR_CSV", "_definitions_8h.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa27217d9450c80405548664c337e26ee4", null ]
     ] ],
     [ "NetworkParameter", "_definitions_8h.html#aa0ba4d0acd5fdf65863b14e183a9f1d8", [
       [ "S_PARAMETER", "_definitions_8h.html#aa0ba4d0acd5fdf65863b14e183a9f1d8a83bb3bbd6a83a05fdbedc08fb53899fb", null ],
@@ -68,6 +81,7 @@ var _definitions_8h =
       [ "B_WAVE", "_definitions_8h.html#ad510ffc5b80ffa73e4165154fb790ef0aa86233ccbb7f4656d9f615f2e4a83dc5", null ]
     ] ],
     [ "COMPANY_FOLDER", "_definitions_8h.html#a84bb6c89cfb4eaf1f998b7ab9a92ab02", null ],
+    [ "E", "_definitions_8h.html#ab587ba72a9c23f238cb4fd70e2fdb545", null ],
     [ "PI", "_definitions_8h.html#a952eac791b596a61bba0a133a3bb439f", null ],
     [ "RSA_TOOLBOX_VERSION", "_definitions_8h.html#a3b0288a2b3aee0dfa13b36da65e5cfa5", null ]
 ];

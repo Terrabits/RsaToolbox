@@ -1,6 +1,7 @@
 var class_rsa_toolbox_1_1_key =
 [
     [ "Key", "class_rsa_toolbox_1_1_key.html#ac37f8f06a27afe358919f282c3bd11d4", null ],
+    [ "Delete", "class_rsa_toolbox_1_1_key.html#aa28ed71e50c73c8f1cec250388fe769a", null ],
     [ "DoesNotExist", "class_rsa_toolbox_1_1_key.html#a7597608a812960da09075d96512d1191", null ],
     [ "Exists", "class_rsa_toolbox_1_1_key.html#a90fe9b5b26b0a3ab074d9115c748f0b8", null ],
     [ "Get", "class_rsa_toolbox_1_1_key.html#a7a691472644d71eb1489d9388179ab8d", null ],

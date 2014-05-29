@@ -2,6 +2,10 @@ var dir_a17bacab68dc142356e39a91cc299c32 =
 [
     [ "Vna.cpp", "_vna_8cpp.html", null ],
     [ "Vna.h", "_vna_8h.html", null ],
+    [ "VnaAveraging.cpp", "_vna_averaging_8cpp.html", null ],
+    [ "VnaAveraging.h", "_vna_averaging_8h.html", [
+      [ "VnaAveraging", "class_rsa_toolbox_1_1_vna_averaging.html", "class_rsa_toolbox_1_1_vna_averaging" ]
+    ] ],
     [ "VnaCalibrate.cpp", "_vna_calibrate_8cpp.html", null ],
     [ "VnaCalibrate.h", "_vna_calibrate_8h.html", "_vna_calibrate_8h" ],
     [ "VnaCalKit.cpp", "_vna_cal_kit_8cpp.html", null ],
@@ -46,7 +50,7 @@ var dir_a17bacab68dc142356e39a91cc299c32 =
     [ "VnaSweepSegment.h", "_vna_sweep_segment_8h.html", null ],
     [ "VnaSwitchMatrix.cpp", "_vna_switch_matrix_8cpp.html", null ],
     [ "VnaSwitchMatrix.h", "_vna_switch_matrix_8h.html", null ],
-    [ "VnaTimeDomain.cpp", "_vna_time_domain_8cpp.html", "_vna_time_domain_8cpp" ],
+    [ "VnaTimeDomain.cpp", "_vna_time_domain_8cpp.html", null ],
     [ "VnaTimeDomain.h", "_vna_time_domain_8h.html", "_vna_time_domain_8h" ],
     [ "VnaTimeSweep.cpp", "_vna_time_sweep_8cpp.html", null ],
     [ "VnaTimeSweep.h", "_vna_time_sweep_8h.html", null ],
