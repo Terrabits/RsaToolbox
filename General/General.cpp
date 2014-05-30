@@ -87,6 +87,16 @@ QString RsaToolbox::toString(NetworkParameter parameter) {
     // Default
     return("S");
 }
+QString RsaToolbox::toString(NetworkParameter parameter, uint outputPort, uint inputPort) {
+    QString outputString = QVariant(outputPort).toString();
+    QString inputString = QVariant(inputPort).toString();
+    int zeros = outputString.length() - inputString.length();
+    if (zeros > 0)
+        inputString += QString(zeros, '0');
+    else if (zeros < 0)
+        outputString += QString(-zeros, '0');
+    return(toString(parameter) + outputString + inputString);
+}
 QString RsaToolbox::toString(SiPrefix prefix) {
     switch(prefix) {
     case TERA_PREFIX:

@@ -4,6 +4,7 @@ QT += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 INCLUDEPATH += $$PWD \
+               $$PWD/GUI \
                $$PWD/General \
                $$PWD/Log \
                $$PWD/Bus \
@@ -11,6 +12,7 @@ INCLUDEPATH += $$PWD \
                $$PWD/Bus/Visa \
                $$PWD/Instruments \
                $$PWD/Instruments/Vna \
+               $$PWD/Instruments/Vna/Dialogs \
                $$PWD/QCustomPlot
 
 # Rsib:

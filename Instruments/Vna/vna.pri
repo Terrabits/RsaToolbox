@@ -33,8 +33,10 @@ HEADERS += $$PWD/VnaUserDefinedPort.h \
            $$PWD/VnaReferenceMarker.h \
            $$PWD/VnaTimeDomain.h \
            $$PWD/VnaDiagram.h \
-           $$PWD/Vna.h
-INCLUDEPATH += $$PWD
+           $$PWD/Vna.h \
+           $$PWD/Dialogs/getCalibrationDialog.h \
+           $$PWD/Dialogs/getChannelDialog.h \
+           $$PWD/Dialogs/getPortsDialog.h
 
 SOURCES += $$PWD/VnaUserDefinedPort.cpp \
            $$PWD/VnaStandardModel.cpp \
@@ -63,4 +65,14 @@ SOURCES += $$PWD/VnaUserDefinedPort.cpp \
            $$PWD/VnaReferenceMarker.cpp \
            $$PWD/VnaTimeDomain.cpp \
            $$PWD/VnaDiagram.cpp \
-           $$PWD/Vna.cpp
+           $$PWD/Vna.cpp \
+           $$PWD/Dialogs/getCalibrationDialog.cpp \
+           $$PWD/Dialogs/getChannelDialog.cpp \
+           $$PWD/Dialogs/getPortsDialog.cpp
+
+FORMS += $$PWD/Dialogs/getCalibrationDialog.ui \
+         $$PWD/Dialogs/getChannelDialog.ui \
+         $$PWD/Dialogs/getPortsDialog.ui
+
+INCLUDEPATH += $$PWD \
+               $$PWD/Dialogs

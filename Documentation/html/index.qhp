@@ -14,6 +14,74 @@
         <section title="Installer" ref="_installer.html" />
         <section title="Class List" ref="annotated.html">
           <section title="RsaToolbox" ref="namespace_rsa_toolbox.html">
+            <section title="GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html">
+              <section title="GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#a5c8dec89cd333703cf8914c235f24314" />
+              <section title="GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#ae2b3105bf30de66a056944716c3a2000" />
+              <section title="_binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#a242f67a055440463cc7b61068793dabc" />
+              <section title="_binaryWrite" ref="class_rsa_toolbox_1_1_generic_bus.html#a98c33a8d19eff1cee007c98b5d63a73d" />
+              <section title="_read" ref="class_rsa_toolbox_1_1_generic_bus.html#a9b42ece7656e081a99b2712c0f722c4e" />
+              <section title="_write" ref="class_rsa_toolbox_1_1_generic_bus.html#a2b3454e0d08ee05ea4cba44c83222c3e" />
+              <section title="address" ref="class_rsa_toolbox_1_1_generic_bus.html#a45ed6612500c0973f68b103afb02e9b5" />
+              <section title="binaryQuery" ref="class_rsa_toolbox_1_1_generic_bus.html#a4fd7dc0b8f616f16632ef15fd9cfd986" />
+              <section title="binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#a0c5e75f5a0c689d0fbb8c41623e90d91" />
+              <section title="binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#ae13a211dade1f3df58ed6e5f00a7be1a" />
+              <section title="binaryWrite" ref="class_rsa_toolbox_1_1_generic_bus.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
+              <section title="bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#a47e59c061aa54605deba2afffb9a1509" />
+              <section title="connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#aff14cbd4ea9a7272a2965f735773c21f" />
+              <section title="error" ref="class_rsa_toolbox_1_1_generic_bus.html#a11ed5d61ec9f8745ef23bf7a4bab4136" />
+              <section title="isClosed" ref="class_rsa_toolbox_1_1_generic_bus.html#aede4b7e16e8732d29bb13b8fe77573b7" />
+              <section title="isOpen" ref="class_rsa_toolbox_1_1_generic_bus.html#ac11fde026ec3cc0fdaaeaa880774ec1a" />
+              <section title="local" ref="class_rsa_toolbox_1_1_generic_bus.html#a7a439487a63a07cb287eb8a8ba65f477" />
+              <section title="lock" ref="class_rsa_toolbox_1_1_generic_bus.html#a51cc700e46d567a32975bd705b311264" />
+              <section title="print" ref="class_rsa_toolbox_1_1_generic_bus.html#a2ab94e7fed40714949685d516bc50ff5" />
+              <section title="printStatus" ref="class_rsa_toolbox_1_1_generic_bus.html#adab371fea88c2e8b4d14514fcbb137e3" />
+              <section title="query" ref="class_rsa_toolbox_1_1_generic_bus.html#ad4a1fd0b3aed02610fe755ab99368d7f" />
+              <section title="read" ref="class_rsa_toolbox_1_1_generic_bus.html#a71e5fd121c106817d7b2572ed71d321b" />
+              <section title="read" ref="class_rsa_toolbox_1_1_generic_bus.html#a5e5005e2f7a438e19865ebc36ceaf6d5" />
+              <section title="remote" ref="class_rsa_toolbox_1_1_generic_bus.html#ad3ffbe90d43b7616140ef0e965f92c4c" />
+              <section title="setBufferSize" ref="class_rsa_toolbox_1_1_generic_bus.html#a94a8164de71f998b98da536ece6f6c39" />
+              <section title="setTimeout" ref="class_rsa_toolbox_1_1_generic_bus.html#a64f8674ed2fc1bf521b82b2c0523d310" />
+              <section title="timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a65900048d44bd8e765de52ea5b22b074" />
+              <section title="unlock" ref="class_rsa_toolbox_1_1_generic_bus.html#acee63855a5fae0b11df91151e9aa768b" />
+              <section title="write" ref="class_rsa_toolbox_1_1_generic_bus.html#a5201888c1fe2bad80795fa04db2b59e4" />
+              <section title="_address" ref="class_rsa_toolbox_1_1_generic_bus.html#a93022a36d845ee4a72d1c4c73ecc33f6" />
+              <section title="_buffer" ref="class_rsa_toolbox_1_1_generic_bus.html#afd8a599827f7ef3e2c61f4d709361578" />
+              <section title="_bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#ab4247e4664aad376a5eacffcd3250c81" />
+              <section title="_connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#ab56073dcf5f6af1685778e06d64bc893" />
+              <section title="_timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a86a1e0018232f5b4b499e070813333ec" />
+            </section>
+            <section title="RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html">
+              <section title="RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a00496bd19d2d08358d65eb4a08c25004" />
+              <section title="RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a0d573a040d981a0c3c95d20b96c6d2dd" />
+              <section title="~RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a7f9a1530ba625fd1de2d5c5da50f3663" />
+              <section title="_binaryRead" ref="class_rsa_toolbox_1_1_rsib_bus.html#af1ea84c6920ca23eadf907885511d3aa" />
+              <section title="_binaryWrite" ref="class_rsa_toolbox_1_1_rsib_bus.html#a59cb83b7cd82a8afe1dbdedf26bfdd89" />
+              <section title="_read" ref="class_rsa_toolbox_1_1_rsib_bus.html#ac91a11aa027b98dbb294a7450a41998b" />
+              <section title="_write" ref="class_rsa_toolbox_1_1_rsib_bus.html#a2dbf98a161012f4de9bd4f5ac988bb68" />
+              <section title="isOpen" ref="class_rsa_toolbox_1_1_rsib_bus.html#a3c7351cec1380d07f9e4b3ec96b2b1ff" />
+              <section title="local" ref="class_rsa_toolbox_1_1_rsib_bus.html#ae4642a972205ef378bb3a1550a8418d8" />
+              <section title="lock" ref="class_rsa_toolbox_1_1_rsib_bus.html#abde223cb8968835b7f8f060e505facc2" />
+              <section title="printStatus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a30d7b394b3d6932f045f69a7980fa888" />
+              <section title="remote" ref="class_rsa_toolbox_1_1_rsib_bus.html#a6f0890ff36c5a5fb58cdaca77e3f15f9" />
+              <section title="setTimeout" ref="class_rsa_toolbox_1_1_rsib_bus.html#a64f8674ed2fc1bf521b82b2c0523d310" />
+              <section title="unlock" ref="class_rsa_toolbox_1_1_rsib_bus.html#ae399421ee39cae4df5ea44bd21e31254" />
+            </section>
+            <section title="VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html">
+              <section title="VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html#ae8408f4c9e12945eb7e3c257d9f1c3af" />
+              <section title="VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html#ad5deae57f1e8ab91bf43fe9fc8705f80" />
+              <section title="~VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html#af118a288752ad112061fac28c1d029cd" />
+              <section title="_binaryRead" ref="class_rsa_toolbox_1_1_visa_bus.html#af1ea84c6920ca23eadf907885511d3aa" />
+              <section title="_binaryWrite" ref="class_rsa_toolbox_1_1_visa_bus.html#a59cb83b7cd82a8afe1dbdedf26bfdd89" />
+              <section title="_read" ref="class_rsa_toolbox_1_1_visa_bus.html#ac91a11aa027b98dbb294a7450a41998b" />
+              <section title="_write" ref="class_rsa_toolbox_1_1_visa_bus.html#a2dbf98a161012f4de9bd4f5ac988bb68" />
+              <section title="isOpen" ref="class_rsa_toolbox_1_1_visa_bus.html#a3c7351cec1380d07f9e4b3ec96b2b1ff" />
+              <section title="local" ref="class_rsa_toolbox_1_1_visa_bus.html#ae4642a972205ef378bb3a1550a8418d8" />
+              <section title="lock" ref="class_rsa_toolbox_1_1_visa_bus.html#abde223cb8968835b7f8f060e505facc2" />
+              <section title="printStatus" ref="class_rsa_toolbox_1_1_visa_bus.html#a30d7b394b3d6932f045f69a7980fa888" />
+              <section title="remote" ref="class_rsa_toolbox_1_1_visa_bus.html#a6f0890ff36c5a5fb58cdaca77e3f15f9" />
+              <section title="setTimeout" ref="class_rsa_toolbox_1_1_visa_bus.html#a64f8674ed2fc1bf521b82b2c0523d310" />
+              <section title="unlock" ref="class_rsa_toolbox_1_1_visa_bus.html#ae399421ee39cae4df5ea44bd21e31254" />
+            </section>
             <section title="BalancedPort" ref="class_rsa_toolbox_1_1_balanced_port.html">
               <section title="BalancedPort" ref="class_rsa_toolbox_1_1_balanced_port.html#a3a47c5546649bcd01ec5859e5cb1a041" />
               <section title="BalancedPort" ref="class_rsa_toolbox_1_1_balanced_port.html#af56577a1d17cd310c888b4a8bc51eba7" />
@@ -70,89 +138,6 @@
               <section title="toVnaScpi" ref="class_rsa_toolbox_1_1_connector.html#a577d45acb66cd3cbe8cb6d51fdce3411" />
               <section title="toVnaScpi" ref="class_rsa_toolbox_1_1_connector.html#aa2570272aec9074125ef0a8f3d4a0687" />
             </section>
-            <section title="GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html">
-              <section title="GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#a5c8dec89cd333703cf8914c235f24314" />
-              <section title="GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#ae2b3105bf30de66a056944716c3a2000" />
-              <section title="_binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#a242f67a055440463cc7b61068793dabc" />
-              <section title="_binaryWrite" ref="class_rsa_toolbox_1_1_generic_bus.html#a98c33a8d19eff1cee007c98b5d63a73d" />
-              <section title="_read" ref="class_rsa_toolbox_1_1_generic_bus.html#a9b42ece7656e081a99b2712c0f722c4e" />
-              <section title="_write" ref="class_rsa_toolbox_1_1_generic_bus.html#a2b3454e0d08ee05ea4cba44c83222c3e" />
-              <section title="address" ref="class_rsa_toolbox_1_1_generic_bus.html#a45ed6612500c0973f68b103afb02e9b5" />
-              <section title="binaryQuery" ref="class_rsa_toolbox_1_1_generic_bus.html#a4fd7dc0b8f616f16632ef15fd9cfd986" />
-              <section title="binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#a0c5e75f5a0c689d0fbb8c41623e90d91" />
-              <section title="binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#ae13a211dade1f3df58ed6e5f00a7be1a" />
-              <section title="binaryWrite" ref="class_rsa_toolbox_1_1_generic_bus.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
-              <section title="bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#a47e59c061aa54605deba2afffb9a1509" />
-              <section title="connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#aff14cbd4ea9a7272a2965f735773c21f" />
-              <section title="error" ref="class_rsa_toolbox_1_1_generic_bus.html#a11ed5d61ec9f8745ef23bf7a4bab4136" />
-              <section title="isClosed" ref="class_rsa_toolbox_1_1_generic_bus.html#aede4b7e16e8732d29bb13b8fe77573b7" />
-              <section title="isOpen" ref="class_rsa_toolbox_1_1_generic_bus.html#ac11fde026ec3cc0fdaaeaa880774ec1a" />
-              <section title="local" ref="class_rsa_toolbox_1_1_generic_bus.html#a7a439487a63a07cb287eb8a8ba65f477" />
-              <section title="lock" ref="class_rsa_toolbox_1_1_generic_bus.html#a51cc700e46d567a32975bd705b311264" />
-              <section title="print" ref="class_rsa_toolbox_1_1_generic_bus.html#a2ab94e7fed40714949685d516bc50ff5" />
-              <section title="printStatus" ref="class_rsa_toolbox_1_1_generic_bus.html#adab371fea88c2e8b4d14514fcbb137e3" />
-              <section title="query" ref="class_rsa_toolbox_1_1_generic_bus.html#ad4a1fd0b3aed02610fe755ab99368d7f" />
-              <section title="read" ref="class_rsa_toolbox_1_1_generic_bus.html#a71e5fd121c106817d7b2572ed71d321b" />
-              <section title="read" ref="class_rsa_toolbox_1_1_generic_bus.html#a5e5005e2f7a438e19865ebc36ceaf6d5" />
-              <section title="remote" ref="class_rsa_toolbox_1_1_generic_bus.html#ad3ffbe90d43b7616140ef0e965f92c4c" />
-              <section title="setBufferSize" ref="class_rsa_toolbox_1_1_generic_bus.html#a94a8164de71f998b98da536ece6f6c39" />
-              <section title="setTimeout" ref="class_rsa_toolbox_1_1_generic_bus.html#a64f8674ed2fc1bf521b82b2c0523d310" />
-              <section title="timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a65900048d44bd8e765de52ea5b22b074" />
-              <section title="unlock" ref="class_rsa_toolbox_1_1_generic_bus.html#acee63855a5fae0b11df91151e9aa768b" />
-              <section title="write" ref="class_rsa_toolbox_1_1_generic_bus.html#a5201888c1fe2bad80795fa04db2b59e4" />
-              <section title="_address" ref="class_rsa_toolbox_1_1_generic_bus.html#a93022a36d845ee4a72d1c4c73ecc33f6" />
-              <section title="_buffer" ref="class_rsa_toolbox_1_1_generic_bus.html#afd8a599827f7ef3e2c61f4d709361578" />
-              <section title="_bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#ab4247e4664aad376a5eacffcd3250c81" />
-              <section title="_connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#ab56073dcf5f6af1685778e06d64bc893" />
-              <section title="_timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a86a1e0018232f5b4b499e070813333ec" />
-            </section>
-            <section title="GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html">
-              <section title="GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html#a83b74205cd1cba0e321f9a4c00e4ef08" />
-              <section title="GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html#a34a5ed84dc044bc5e33a330e033d1cd1" />
-              <section title="GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html#aa20f4d8867c2994c1d682c0fec13042c" />
-              <section title="address" ref="class_rsa_toolbox_1_1_generic_instrument.html#a45ed6612500c0973f68b103afb02e9b5" />
-              <section title="binaryQuery" ref="class_rsa_toolbox_1_1_generic_instrument.html#a8bd7dd60c803759cf0ad29894f46bb68" />
-              <section title="binaryRead" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2a401286ede0b89d0119398fd5569619" />
-              <section title="binaryRead" ref="class_rsa_toolbox_1_1_generic_instrument.html#aeb8915dfcd848eef04a69cef41ebcb43" />
-              <section title="binaryWrite" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
-              <section title="busError" ref="class_rsa_toolbox_1_1_generic_instrument.html#a542c3f4d09b418e2a9bccd73d00e1ba3" />
-              <section title="clearStatus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a904a80a9a54910609e8c76caa913159e" />
-              <section title="connected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5311a75dc2e16ac36238d0abcc02e7b4" />
-              <section title="connectionType" ref="class_rsa_toolbox_1_1_generic_instrument.html#aff14cbd4ea9a7272a2965f735773c21f" />
-              <section title="disconnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2f1c33b2c7f009b786fa5799313c59ec" />
-              <section title="disconnectLog" ref="class_rsa_toolbox_1_1_generic_instrument.html#a20c5b46b1404c1aa9d431080a55bdf70" />
-              <section title="idString" ref="class_rsa_toolbox_1_1_generic_instrument.html#a9d5cd7c546877d3571965055fe5135ab" />
-              <section title="initializePolling" ref="class_rsa_toolbox_1_1_generic_instrument.html#a694167390c3e8d1acb16c86d026fabb9" />
-              <section title="isConnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a180fa55a4bf36580963bed9e3e09c227" />
-              <section title="isDisconnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a370be337417c7101d85ca7a67ef21fbb" />
-              <section title="isLogConnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5245f03cb1a20a6d8e4f597548ba39da" />
-              <section title="isLogDisconnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a814dd83a4d865ad04d7e8d9290830e11" />
-              <section title="isLogOpen" ref="class_rsa_toolbox_1_1_generic_instrument.html#a4f303390e6468b0d372148aeb633ee60" />
-              <section title="isOperationComplete" ref="class_rsa_toolbox_1_1_generic_instrument.html#acb2283a6cb20418383f3f512caf30550" />
-              <section title="isRohdeSchwarz" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5208c42f7becd9a076b17c288c0700f9" />
-              <section title="local" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae4642a972205ef378bb3a1550a8418d8" />
-              <section title="lock" ref="class_rsa_toolbox_1_1_generic_instrument.html#abde223cb8968835b7f8f060e505facc2" />
-              <section title="log" ref="class_rsa_toolbox_1_1_generic_instrument.html#a771abc4a471f6d3dc48ba2e3e9905c33" />
-              <section title="optionsString" ref="class_rsa_toolbox_1_1_generic_instrument.html#abd432a2a6aed6d74b9563d965d9e5a01" />
-              <section title="pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7167f5c196fc5e167bfabde1a730e81d" />
-              <section title="preset" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae1f5fa51408b7ea44b4a8cc980693b1b" />
-              <section title="print" ref="class_rsa_toolbox_1_1_generic_instrument.html#a9fcecd48b86862430fa0a6f25c9ba139" />
-              <section title="printInfo" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2dbaf5580b5305d54cff6848ae7deb30" />
-              <section title="printInfo" ref="class_rsa_toolbox_1_1_generic_instrument.html#ada409285acc32db14ccc3e8e99beb740" />
-              <section title="printLine" ref="class_rsa_toolbox_1_1_generic_instrument.html#a84aed46379d2dc33df360025cb2d15b4" />
-              <section title="query" ref="class_rsa_toolbox_1_1_generic_instrument.html#afbbe93ca7111ba0a8382ad95c49247bd" />
-              <section title="read" ref="class_rsa_toolbox_1_1_generic_instrument.html#a4cac74fe8f5d8ba90799cc152760b866" />
-              <section title="read" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2e4527a118e4231171c58bf72811b159" />
-              <section title="remote" ref="class_rsa_toolbox_1_1_generic_instrument.html#a6f0890ff36c5a5fb58cdaca77e3f15f9" />
-              <section title="resetBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a6978c084f6d48b500720cac6116a3838" />
-              <section title="resetBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae02f700c85df5209413c4ce67ac32960" />
-              <section title="resetBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a1f62a637904b8ef7e00750be9b58229a" />
-              <section title="takeBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a6dedb1983f0f3bdafb0b0550cdb13371" />
-              <section title="unlock" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae399421ee39cae4df5ea44bd21e31254" />
-              <section title="useLog" ref="class_rsa_toolbox_1_1_generic_instrument.html#ab3a9f1bec710e3bdc3e65e4e555b6a70" />
-              <section title="wait" ref="class_rsa_toolbox_1_1_generic_instrument.html#aa3b21853f890838c88d047d6c2786917" />
-              <section title="write" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5201888c1fe2bad80795fa04db2b59e4" />
-            </section>
             <section title="IndexName" ref="class_rsa_toolbox_1_1_index_name.html">
               <section title="IndexName" ref="class_rsa_toolbox_1_1_index_name.html#abf42394f2a7c06fde9ae389eb56387fe" />
               <section title="IndexName" ref="class_rsa_toolbox_1_1_index_name.html#a341a7f514961330f90a86768216ab534" />
@@ -171,24 +156,6 @@
               <section title="isFalse" ref="class_rsa_toolbox_1_1_key.html#ae21ed17914585f5b3ab84dd3ebeb7cb2" />
               <section title="isTrue" ref="class_rsa_toolbox_1_1_key.html#ad1d6d06e7b8419d1f7eb99f1ab79339d" />
               <section title="Set" ref="class_rsa_toolbox_1_1_key.html#a65ce1c838291764e0bd796a549ce13e6" />
-            </section>
-            <section title="Log" ref="class_rsa_toolbox_1_1_log.html">
-              <section title="Log" ref="class_rsa_toolbox_1_1_log.html#aadbf333826e76693b3326fa60bc803ad" />
-              <section title="Log" ref="class_rsa_toolbox_1_1_log.html#ae5cf0e7d024b0b070fb3bd386f526018" />
-              <section title="~Log" ref="class_rsa_toolbox_1_1_log.html#a4fc4fd3dcde9bf8ba8195c0983fbe21b" />
-              <section title="close" ref="class_rsa_toolbox_1_1_log.html#a5ae591df94fc66ccb85cbb6565368bca" />
-              <section title="closed" ref="class_rsa_toolbox_1_1_log.html#accc6ef63b2d443dadba71ae080397c0c" />
-              <section title="isClosed" ref="class_rsa_toolbox_1_1_log.html#a995cd45aacf946ca210491d12ed4a0c0" />
-              <section title="isOpen" ref="class_rsa_toolbox_1_1_log.html#a7a8f153459b77aaa1c4486a9f378927b" />
-              <section title="open" ref="class_rsa_toolbox_1_1_log.html#a9e8555112049fc2b4945120b3c45f8ab" />
-              <section title="opened" ref="class_rsa_toolbox_1_1_log.html#a0fb61747d3f8a3fdc9e593cdc23b0f85" />
-              <section title="operator&lt;&lt;" ref="class_rsa_toolbox_1_1_log.html#a84e5e02749f37aa0f05ef64ea3b8bb93" />
-              <section title="print" ref="class_rsa_toolbox_1_1_log.html#a9fcecd48b86862430fa0a6f25c9ba139" />
-              <section title="printApplicationHeader" ref="class_rsa_toolbox_1_1_log.html#a78c1c1b3c18cc6f666d4d791cfe9a4cf" />
-              <section title="printLine" ref="class_rsa_toolbox_1_1_log.html#a52970f561919ea7fec0235179a1f11f9" />
-              <section title="rename" ref="class_rsa_toolbox_1_1_log.html#ad43c27ec3647ad13f65cbc0f9b04f868" />
-              <section title="renamed" ref="class_rsa_toolbox_1_1_log.html#a71cf13198ebe06945acd7f2073d5880e" />
-              <section title="reset" ref="class_rsa_toolbox_1_1_log.html#a1de8621bff09767dbcf4a08b4f13b590" />
             </section>
             <section title="NameLabel" ref="class_rsa_toolbox_1_1_name_label.html">
               <section title="NameLabel" ref="class_rsa_toolbox_1_1_name_label.html#a32b9e57d90bb3f52ab2e72411fd80b8d" />
@@ -279,56 +246,6 @@
               <section title="y_real" ref="class_rsa_toolbox_1_1_network_trace_data.html#a55d05afa91bb87fa9b67ff4e528bb079" />
               <section title="y_vswr" ref="class_rsa_toolbox_1_1_network_trace_data.html#a060d038e5d1a58d01b117b583209d7d3" />
             </section>
-            <section title="Rsc" ref="class_rsa_toolbox_1_1_rsc.html">
-              <section title="Rsc" ref="class_rsa_toolbox_1_1_rsc.html#abfadd8abef686f79c61f9390bbaefe46" />
-              <section title="Rsc" ref="class_rsa_toolbox_1_1_rsc.html#afbbbc232d8d0db0c238a2ceaca171dc3" />
-              <section title="~Rsc" ref="class_rsa_toolbox_1_1_rsc.html#ad508f97dd7bfc25e55964449ff0698ba" />
-              <section title="ClearErrors" ref="class_rsa_toolbox_1_1_rsc.html#a9973f377b3ae387fc9c0ca2f127938ba" />
-              <section title="ConnectLog" ref="class_rsa_toolbox_1_1_rsc.html#a3eacd52cdda57615f4f697485641c1c8" />
-              <section title="DisableCorrection" ref="class_rsa_toolbox_1_1_rsc.html#ad7d59a14cf618433b96e9d54f9b968e5" />
-              <section title="DisconnectLog" ref="class_rsa_toolbox_1_1_rsc.html#aef11d5075fbd15c59f62aa5e61f3ba3e" />
-              <section title="EnableCorrection" ref="class_rsa_toolbox_1_1_rsc.html#a32b541b19cb3f614a39716408c6abdaa" />
-              <section title="GetAttenuation_dB" ref="class_rsa_toolbox_1_1_rsc.html#a10d8e37f144f84eab670388ea8a71459" />
-              <section title="GetAvailableUnits" ref="class_rsa_toolbox_1_1_rsc.html#a6b92e6eb7a4e48ce7c631bbe92fcd303" />
-              <section title="GetFirmwareVersion" ref="class_rsa_toolbox_1_1_rsc.html#a017e6af5b01236c4e455d09a364294e9" />
-              <section title="GetIdString" ref="class_rsa_toolbox_1_1_rsc.html#aeb31884dad38db6d2055ac78afd8a739" />
-              <section title="GetMaximumAttenuation_dB" ref="class_rsa_toolbox_1_1_rsc.html#ae7318a20db7284abee0a07efc81a08b0" />
-              <section title="GetMaximumFrequency_Hz" ref="class_rsa_toolbox_1_1_rsc.html#af09115e81c275a8419c68b8f49c89397" />
-              <section title="GetMaximumPower_dBm" ref="class_rsa_toolbox_1_1_rsc.html#a036579d578d7ee0021c6fdfcfd19fee7" />
-              <section title="GetMinimumFrequency_Hz" ref="class_rsa_toolbox_1_1_rsc.html#a63398b5425d20dc765340bba434866b9" />
-              <section title="GetModel" ref="class_rsa_toolbox_1_1_rsc.html#a76919e9866cadf6d780c0f1496f6f5ad" />
-              <section title="GetSerialNumber" ref="class_rsa_toolbox_1_1_rsc.html#ae8f336ac286184151e80cc069d78a3c4" />
-              <section title="GetStepSize_dB" ref="class_rsa_toolbox_1_1_rsc.html#a20067873c59c1a63ffeca7ac73299f54" />
-              <section title="GetUnitIndex" ref="class_rsa_toolbox_1_1_rsc.html#a9ff6095343efe46bb555aab8c8a8aeed" />
-              <section title="GetUserCalibrationState" ref="class_rsa_toolbox_1_1_rsc.html#ab0b2b75852c981f0508240748075aaa2" />
-              <section title="isBaseUnit" ref="class_rsa_toolbox_1_1_rsc.html#a2b41ec391f85fa5a43924b8404228b9e" />
-              <section title="isConnected" ref="class_rsa_toolbox_1_1_rsc.html#a772f8f0487e0d3804e9da7585e23a29a" />
-              <section title="isCorrectionDisabled" ref="class_rsa_toolbox_1_1_rsc.html#a86ac23c66979e541a1b063aad51f6fd9" />
-              <section title="isCorrectionEnabled" ref="class_rsa_toolbox_1_1_rsc.html#aeedf29c86fcf70a77c868424be2069dd" />
-              <section title="isError" ref="class_rsa_toolbox_1_1_rsc.html#af0c21ff963e9cdf07e3f0412f38de4e4" />
-              <section title="isOperationComplete" ref="class_rsa_toolbox_1_1_rsc.html#acb2283a6cb20418383f3f512caf30550" />
-              <section title="LoadUserCalibrationFile" ref="class_rsa_toolbox_1_1_rsc.html#a5ddb10856cdae9f7f6e51b4baf2054aa" />
-              <section title="Print" ref="class_rsa_toolbox_1_1_rsc.html#ad31850e998eb495e68b827080280bded" />
-              <section title="SetAttenuation" ref="class_rsa_toolbox_1_1_rsc.html#a035c88101795af6b66181163ed348679" />
-              <section title="SetUnitIndex" ref="class_rsa_toolbox_1_1_rsc.html#a811b808c21f34c8c3e86e3d8487885a2" />
-              <section title="SetUserCalibrationState" ref="class_rsa_toolbox_1_1_rsc.html#a6512a6ccaad4b28dbb3603c6b0078b84" />
-            </section>
-            <section title="RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html">
-              <section title="RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a00496bd19d2d08358d65eb4a08c25004" />
-              <section title="RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a0d573a040d981a0c3c95d20b96c6d2dd" />
-              <section title="~RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a7f9a1530ba625fd1de2d5c5da50f3663" />
-              <section title="_binaryRead" ref="class_rsa_toolbox_1_1_rsib_bus.html#af1ea84c6920ca23eadf907885511d3aa" />
-              <section title="_binaryWrite" ref="class_rsa_toolbox_1_1_rsib_bus.html#a59cb83b7cd82a8afe1dbdedf26bfdd89" />
-              <section title="_read" ref="class_rsa_toolbox_1_1_rsib_bus.html#ac91a11aa027b98dbb294a7450a41998b" />
-              <section title="_write" ref="class_rsa_toolbox_1_1_rsib_bus.html#a2dbf98a161012f4de9bd4f5ac988bb68" />
-              <section title="isOpen" ref="class_rsa_toolbox_1_1_rsib_bus.html#a3c7351cec1380d07f9e4b3ec96b2b1ff" />
-              <section title="local" ref="class_rsa_toolbox_1_1_rsib_bus.html#ae4642a972205ef378bb3a1550a8418d8" />
-              <section title="lock" ref="class_rsa_toolbox_1_1_rsib_bus.html#abde223cb8968835b7f8f060e505facc2" />
-              <section title="printStatus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a30d7b394b3d6932f045f69a7980fa888" />
-              <section title="remote" ref="class_rsa_toolbox_1_1_rsib_bus.html#a6f0890ff36c5a5fb58cdaca77e3f15f9" />
-              <section title="setTimeout" ref="class_rsa_toolbox_1_1_rsib_bus.html#a64f8674ed2fc1bf521b82b2c0523d310" />
-              <section title="unlock" ref="class_rsa_toolbox_1_1_rsib_bus.html#ae399421ee39cae4df5ea44bd21e31254" />
-            </section>
             <section title="SnpStreamReader" ref="class_rsa_toolbox_1_1_snp_stream_reader.html">
               <section title="SnpStreamReader" ref="class_rsa_toolbox_1_1_snp_stream_reader.html#a574e28260ad4f43b62ea759151d59c30" />
               <section title="close" ref="class_rsa_toolbox_1_1_snp_stream_reader.html#a5ae591df94fc66ccb85cbb6565368bca" />
@@ -365,21 +282,86 @@
               <section title="writePoint" ref="class_rsa_toolbox_1_1_snp_stream_writer.html#a740fb15b501d1bfd2ac8975e75438a44" />
             </section>
             <section title="Touchstone" ref="class_rsa_toolbox_1_1_touchstone.html" />
-            <section title="VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html">
-              <section title="VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html#ae8408f4c9e12945eb7e3c257d9f1c3af" />
-              <section title="VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html#ad5deae57f1e8ab91bf43fe9fc8705f80" />
-              <section title="~VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html#af118a288752ad112061fac28c1d029cd" />
-              <section title="_binaryRead" ref="class_rsa_toolbox_1_1_visa_bus.html#af1ea84c6920ca23eadf907885511d3aa" />
-              <section title="_binaryWrite" ref="class_rsa_toolbox_1_1_visa_bus.html#a59cb83b7cd82a8afe1dbdedf26bfdd89" />
-              <section title="_read" ref="class_rsa_toolbox_1_1_visa_bus.html#ac91a11aa027b98dbb294a7450a41998b" />
-              <section title="_write" ref="class_rsa_toolbox_1_1_visa_bus.html#a2dbf98a161012f4de9bd4f5ac988bb68" />
-              <section title="isOpen" ref="class_rsa_toolbox_1_1_visa_bus.html#a3c7351cec1380d07f9e4b3ec96b2b1ff" />
-              <section title="local" ref="class_rsa_toolbox_1_1_visa_bus.html#ae4642a972205ef378bb3a1550a8418d8" />
-              <section title="lock" ref="class_rsa_toolbox_1_1_visa_bus.html#abde223cb8968835b7f8f060e505facc2" />
-              <section title="printStatus" ref="class_rsa_toolbox_1_1_visa_bus.html#a30d7b394b3d6932f045f69a7980fa888" />
-              <section title="remote" ref="class_rsa_toolbox_1_1_visa_bus.html#a6f0890ff36c5a5fb58cdaca77e3f15f9" />
-              <section title="setTimeout" ref="class_rsa_toolbox_1_1_visa_bus.html#a64f8674ed2fc1bf521b82b2c0523d310" />
-              <section title="unlock" ref="class_rsa_toolbox_1_1_visa_bus.html#ae399421ee39cae4df5ea44bd21e31254" />
+            <section title="GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html">
+              <section title="GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html#a83b74205cd1cba0e321f9a4c00e4ef08" />
+              <section title="GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html#a34a5ed84dc044bc5e33a330e033d1cd1" />
+              <section title="GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html#aa20f4d8867c2994c1d682c0fec13042c" />
+              <section title="address" ref="class_rsa_toolbox_1_1_generic_instrument.html#a45ed6612500c0973f68b103afb02e9b5" />
+              <section title="binaryQuery" ref="class_rsa_toolbox_1_1_generic_instrument.html#a8bd7dd60c803759cf0ad29894f46bb68" />
+              <section title="binaryRead" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2a401286ede0b89d0119398fd5569619" />
+              <section title="binaryRead" ref="class_rsa_toolbox_1_1_generic_instrument.html#aeb8915dfcd848eef04a69cef41ebcb43" />
+              <section title="binaryWrite" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
+              <section title="busError" ref="class_rsa_toolbox_1_1_generic_instrument.html#a542c3f4d09b418e2a9bccd73d00e1ba3" />
+              <section title="clearStatus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a904a80a9a54910609e8c76caa913159e" />
+              <section title="connected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5311a75dc2e16ac36238d0abcc02e7b4" />
+              <section title="connectionType" ref="class_rsa_toolbox_1_1_generic_instrument.html#aff14cbd4ea9a7272a2965f735773c21f" />
+              <section title="disconnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2f1c33b2c7f009b786fa5799313c59ec" />
+              <section title="disconnectLog" ref="class_rsa_toolbox_1_1_generic_instrument.html#a20c5b46b1404c1aa9d431080a55bdf70" />
+              <section title="idString" ref="class_rsa_toolbox_1_1_generic_instrument.html#a9d5cd7c546877d3571965055fe5135ab" />
+              <section title="initializePolling" ref="class_rsa_toolbox_1_1_generic_instrument.html#a694167390c3e8d1acb16c86d026fabb9" />
+              <section title="isConnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a180fa55a4bf36580963bed9e3e09c227" />
+              <section title="isDisconnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a370be337417c7101d85ca7a67ef21fbb" />
+              <section title="isLogConnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5245f03cb1a20a6d8e4f597548ba39da" />
+              <section title="isLogDisconnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a814dd83a4d865ad04d7e8d9290830e11" />
+              <section title="isLogOpen" ref="class_rsa_toolbox_1_1_generic_instrument.html#a4f303390e6468b0d372148aeb633ee60" />
+              <section title="isOperationComplete" ref="class_rsa_toolbox_1_1_generic_instrument.html#acb2283a6cb20418383f3f512caf30550" />
+              <section title="isRohdeSchwarz" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5208c42f7becd9a076b17c288c0700f9" />
+              <section title="local" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae4642a972205ef378bb3a1550a8418d8" />
+              <section title="lock" ref="class_rsa_toolbox_1_1_generic_instrument.html#abde223cb8968835b7f8f060e505facc2" />
+              <section title="log" ref="class_rsa_toolbox_1_1_generic_instrument.html#a771abc4a471f6d3dc48ba2e3e9905c33" />
+              <section title="optionsString" ref="class_rsa_toolbox_1_1_generic_instrument.html#abd432a2a6aed6d74b9563d965d9e5a01" />
+              <section title="pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7167f5c196fc5e167bfabde1a730e81d" />
+              <section title="preset" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae1f5fa51408b7ea44b4a8cc980693b1b" />
+              <section title="print" ref="class_rsa_toolbox_1_1_generic_instrument.html#a9fcecd48b86862430fa0a6f25c9ba139" />
+              <section title="printInfo" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2dbaf5580b5305d54cff6848ae7deb30" />
+              <section title="printInfo" ref="class_rsa_toolbox_1_1_generic_instrument.html#ada409285acc32db14ccc3e8e99beb740" />
+              <section title="printLine" ref="class_rsa_toolbox_1_1_generic_instrument.html#a84aed46379d2dc33df360025cb2d15b4" />
+              <section title="query" ref="class_rsa_toolbox_1_1_generic_instrument.html#afbbe93ca7111ba0a8382ad95c49247bd" />
+              <section title="read" ref="class_rsa_toolbox_1_1_generic_instrument.html#a4cac74fe8f5d8ba90799cc152760b866" />
+              <section title="read" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2e4527a118e4231171c58bf72811b159" />
+              <section title="remote" ref="class_rsa_toolbox_1_1_generic_instrument.html#a6f0890ff36c5a5fb58cdaca77e3f15f9" />
+              <section title="resetBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a6978c084f6d48b500720cac6116a3838" />
+              <section title="resetBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae02f700c85df5209413c4ce67ac32960" />
+              <section title="resetBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a1f62a637904b8ef7e00750be9b58229a" />
+              <section title="takeBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a6dedb1983f0f3bdafb0b0550cdb13371" />
+              <section title="unlock" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae399421ee39cae4df5ea44bd21e31254" />
+              <section title="useLog" ref="class_rsa_toolbox_1_1_generic_instrument.html#ab3a9f1bec710e3bdc3e65e4e555b6a70" />
+              <section title="wait" ref="class_rsa_toolbox_1_1_generic_instrument.html#aa3b21853f890838c88d047d6c2786917" />
+              <section title="write" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5201888c1fe2bad80795fa04db2b59e4" />
+            </section>
+            <section title="Rsc" ref="class_rsa_toolbox_1_1_rsc.html">
+              <section title="Rsc" ref="class_rsa_toolbox_1_1_rsc.html#abfadd8abef686f79c61f9390bbaefe46" />
+              <section title="Rsc" ref="class_rsa_toolbox_1_1_rsc.html#afbbbc232d8d0db0c238a2ceaca171dc3" />
+              <section title="~Rsc" ref="class_rsa_toolbox_1_1_rsc.html#ad508f97dd7bfc25e55964449ff0698ba" />
+              <section title="ClearErrors" ref="class_rsa_toolbox_1_1_rsc.html#a9973f377b3ae387fc9c0ca2f127938ba" />
+              <section title="ConnectLog" ref="class_rsa_toolbox_1_1_rsc.html#a3eacd52cdda57615f4f697485641c1c8" />
+              <section title="DisableCorrection" ref="class_rsa_toolbox_1_1_rsc.html#ad7d59a14cf618433b96e9d54f9b968e5" />
+              <section title="DisconnectLog" ref="class_rsa_toolbox_1_1_rsc.html#aef11d5075fbd15c59f62aa5e61f3ba3e" />
+              <section title="EnableCorrection" ref="class_rsa_toolbox_1_1_rsc.html#a32b541b19cb3f614a39716408c6abdaa" />
+              <section title="GetAttenuation_dB" ref="class_rsa_toolbox_1_1_rsc.html#a10d8e37f144f84eab670388ea8a71459" />
+              <section title="GetAvailableUnits" ref="class_rsa_toolbox_1_1_rsc.html#a6b92e6eb7a4e48ce7c631bbe92fcd303" />
+              <section title="GetFirmwareVersion" ref="class_rsa_toolbox_1_1_rsc.html#a017e6af5b01236c4e455d09a364294e9" />
+              <section title="GetIdString" ref="class_rsa_toolbox_1_1_rsc.html#aeb31884dad38db6d2055ac78afd8a739" />
+              <section title="GetMaximumAttenuation_dB" ref="class_rsa_toolbox_1_1_rsc.html#ae7318a20db7284abee0a07efc81a08b0" />
+              <section title="GetMaximumFrequency_Hz" ref="class_rsa_toolbox_1_1_rsc.html#af09115e81c275a8419c68b8f49c89397" />
+              <section title="GetMaximumPower_dBm" ref="class_rsa_toolbox_1_1_rsc.html#a036579d578d7ee0021c6fdfcfd19fee7" />
+              <section title="GetMinimumFrequency_Hz" ref="class_rsa_toolbox_1_1_rsc.html#a63398b5425d20dc765340bba434866b9" />
+              <section title="GetModel" ref="class_rsa_toolbox_1_1_rsc.html#a76919e9866cadf6d780c0f1496f6f5ad" />
+              <section title="GetSerialNumber" ref="class_rsa_toolbox_1_1_rsc.html#ae8f336ac286184151e80cc069d78a3c4" />
+              <section title="GetStepSize_dB" ref="class_rsa_toolbox_1_1_rsc.html#a20067873c59c1a63ffeca7ac73299f54" />
+              <section title="GetUnitIndex" ref="class_rsa_toolbox_1_1_rsc.html#a9ff6095343efe46bb555aab8c8a8aeed" />
+              <section title="GetUserCalibrationState" ref="class_rsa_toolbox_1_1_rsc.html#ab0b2b75852c981f0508240748075aaa2" />
+              <section title="isBaseUnit" ref="class_rsa_toolbox_1_1_rsc.html#a2b41ec391f85fa5a43924b8404228b9e" />
+              <section title="isConnected" ref="class_rsa_toolbox_1_1_rsc.html#a772f8f0487e0d3804e9da7585e23a29a" />
+              <section title="isCorrectionDisabled" ref="class_rsa_toolbox_1_1_rsc.html#a86ac23c66979e541a1b063aad51f6fd9" />
+              <section title="isCorrectionEnabled" ref="class_rsa_toolbox_1_1_rsc.html#aeedf29c86fcf70a77c868424be2069dd" />
+              <section title="isError" ref="class_rsa_toolbox_1_1_rsc.html#af0c21ff963e9cdf07e3f0412f38de4e4" />
+              <section title="isOperationComplete" ref="class_rsa_toolbox_1_1_rsc.html#acb2283a6cb20418383f3f512caf30550" />
+              <section title="LoadUserCalibrationFile" ref="class_rsa_toolbox_1_1_rsc.html#a5ddb10856cdae9f7f6e51b4baf2054aa" />
+              <section title="Print" ref="class_rsa_toolbox_1_1_rsc.html#ad31850e998eb495e68b827080280bded" />
+              <section title="SetAttenuation" ref="class_rsa_toolbox_1_1_rsc.html#a035c88101795af6b66181163ed348679" />
+              <section title="SetUnitIndex" ref="class_rsa_toolbox_1_1_rsc.html#a811b808c21f34c8c3e86e3d8487885a2" />
+              <section title="SetUserCalibrationState" ref="class_rsa_toolbox_1_1_rsc.html#a6512a6ccaad4b28dbb3603c6b0078b84" />
             </section>
             <section title="Vna" ref="class_rsa_toolbox_1_1_vna.html">
               <section title="Vna" ref="class_rsa_toolbox_1_1_vna.html#ae35ba6409591fefaa4bd01724d592a33" />
@@ -1304,6 +1286,24 @@
               <section title="setReference" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#abd418c324fe9848925ee1aca83bf082f" />
               <section title="setSource" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#aadf6be860f75ef7a66ea1ce57019a45e" />
               <section title="sourcePort" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a66b4f22690650de1a5515262ba7aadb6" />
+            </section>
+            <section title="Log" ref="class_rsa_toolbox_1_1_log.html">
+              <section title="Log" ref="class_rsa_toolbox_1_1_log.html#aadbf333826e76693b3326fa60bc803ad" />
+              <section title="Log" ref="class_rsa_toolbox_1_1_log.html#ae5cf0e7d024b0b070fb3bd386f526018" />
+              <section title="~Log" ref="class_rsa_toolbox_1_1_log.html#a4fc4fd3dcde9bf8ba8195c0983fbe21b" />
+              <section title="close" ref="class_rsa_toolbox_1_1_log.html#a5ae591df94fc66ccb85cbb6565368bca" />
+              <section title="closed" ref="class_rsa_toolbox_1_1_log.html#accc6ef63b2d443dadba71ae080397c0c" />
+              <section title="isClosed" ref="class_rsa_toolbox_1_1_log.html#a995cd45aacf946ca210491d12ed4a0c0" />
+              <section title="isOpen" ref="class_rsa_toolbox_1_1_log.html#a7a8f153459b77aaa1c4486a9f378927b" />
+              <section title="open" ref="class_rsa_toolbox_1_1_log.html#a9e8555112049fc2b4945120b3c45f8ab" />
+              <section title="opened" ref="class_rsa_toolbox_1_1_log.html#a0fb61747d3f8a3fdc9e593cdc23b0f85" />
+              <section title="operator&lt;&lt;" ref="class_rsa_toolbox_1_1_log.html#a84e5e02749f37aa0f05ef64ea3b8bb93" />
+              <section title="print" ref="class_rsa_toolbox_1_1_log.html#a9fcecd48b86862430fa0a6f25c9ba139" />
+              <section title="printApplicationHeader" ref="class_rsa_toolbox_1_1_log.html#a78c1c1b3c18cc6f666d4d791cfe9a4cf" />
+              <section title="printLine" ref="class_rsa_toolbox_1_1_log.html#a52970f561919ea7fec0235179a1f11f9" />
+              <section title="rename" ref="class_rsa_toolbox_1_1_log.html#ad43c27ec3647ad13f65cbc0f9b04f868" />
+              <section title="renamed" ref="class_rsa_toolbox_1_1_log.html#a71cf13198ebe06945acd7f2073d5880e" />
+              <section title="reset" ref="class_rsa_toolbox_1_1_log.html#a1de8621bff09767dbcf4a08b4f13b590" />
             </section>
           </section>
         </section>
@@ -4109,6 +4109,128 @@
       <keyword name="DOLPH_CHEBYCHEV_WINDOW_FUNCTION" id="RsaToolbox::DOLPH_CHEBYCHEV_WINDOW_FUNCTION" ref="namespace_rsa_toolbox.html#ade955acccb31f71d24b4e5458b7b742ea747deaadb3f99845690e7e8b8ce0e8c6" />
       <keyword name="A_WAVE" id="RsaToolbox::A_WAVE" ref="namespace_rsa_toolbox.html#ad510ffc5b80ffa73e4165154fb790ef0a3782fc4390ea544b078c2e11f8223f2c" />
       <keyword name="B_WAVE" id="RsaToolbox::B_WAVE" ref="namespace_rsa_toolbox.html#ad510ffc5b80ffa73e4165154fb790ef0aa86233ccbb7f4656d9f615f2e4a83dc5" />
+      <keyword name="RsaToolbox::GenericBus" id="RsaToolbox::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html" />
+      <keyword name="lock" id="RsaToolbox::GenericBus::lock" ref="class_rsa_toolbox_1_1_generic_bus.html#a51cc700e46d567a32975bd705b311264" />
+      <keyword name="unlock" id="RsaToolbox::GenericBus::unlock" ref="class_rsa_toolbox_1_1_generic_bus.html#acee63855a5fae0b11df91151e9aa768b" />
+      <keyword name="local" id="RsaToolbox::GenericBus::local" ref="class_rsa_toolbox_1_1_generic_bus.html#a7a439487a63a07cb287eb8a8ba65f477" />
+      <keyword name="remote" id="RsaToolbox::GenericBus::remote" ref="class_rsa_toolbox_1_1_generic_bus.html#ad3ffbe90d43b7616140ef0e965f92c4c" />
+      <keyword name="printStatus" id="RsaToolbox::GenericBus::printStatus" ref="class_rsa_toolbox_1_1_generic_bus.html#adab371fea88c2e8b4d14514fcbb137e3" />
+      <keyword name="error" id="RsaToolbox::GenericBus::error" ref="class_rsa_toolbox_1_1_generic_bus.html#a11ed5d61ec9f8745ef23bf7a4bab4136" />
+      <keyword name="print" id="RsaToolbox::GenericBus::print" ref="class_rsa_toolbox_1_1_generic_bus.html#a2ab94e7fed40714949685d516bc50ff5" />
+      <keyword name="GenericBus" id="RsaToolbox::GenericBus::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#a5c8dec89cd333703cf8914c235f24314" />
+      <keyword name="GenericBus" id="RsaToolbox::GenericBus::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#ae2b3105bf30de66a056944716c3a2000" />
+      <keyword name="isOpen" id="RsaToolbox::GenericBus::isOpen" ref="class_rsa_toolbox_1_1_generic_bus.html#ac11fde026ec3cc0fdaaeaa880774ec1a" />
+      <keyword name="isClosed" id="RsaToolbox::GenericBus::isClosed" ref="class_rsa_toolbox_1_1_generic_bus.html#aede4b7e16e8732d29bb13b8fe77573b7" />
+      <keyword name="connectionType" id="RsaToolbox::GenericBus::connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#aff14cbd4ea9a7272a2965f735773c21f" />
+      <keyword name="address" id="RsaToolbox::GenericBus::address" ref="class_rsa_toolbox_1_1_generic_bus.html#a45ed6612500c0973f68b103afb02e9b5" />
+      <keyword name="bufferSize_B" id="RsaToolbox::GenericBus::bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#a47e59c061aa54605deba2afffb9a1509" />
+      <keyword name="setBufferSize" id="RsaToolbox::GenericBus::setBufferSize" ref="class_rsa_toolbox_1_1_generic_bus.html#a94a8164de71f998b98da536ece6f6c39" />
+      <keyword name="timeout_ms" id="RsaToolbox::GenericBus::timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a65900048d44bd8e765de52ea5b22b074" />
+      <keyword name="setTimeout" id="RsaToolbox::GenericBus::setTimeout" ref="class_rsa_toolbox_1_1_generic_bus.html#a64f8674ed2fc1bf521b82b2c0523d310" />
+      <keyword name="read" id="RsaToolbox::GenericBus::read" ref="class_rsa_toolbox_1_1_generic_bus.html#a71e5fd121c106817d7b2572ed71d321b" />
+      <keyword name="read" id="RsaToolbox::GenericBus::read" ref="class_rsa_toolbox_1_1_generic_bus.html#a5e5005e2f7a438e19865ebc36ceaf6d5" />
+      <keyword name="write" id="RsaToolbox::GenericBus::write" ref="class_rsa_toolbox_1_1_generic_bus.html#a5201888c1fe2bad80795fa04db2b59e4" />
+      <keyword name="query" id="RsaToolbox::GenericBus::query" ref="class_rsa_toolbox_1_1_generic_bus.html#ad4a1fd0b3aed02610fe755ab99368d7f" />
+      <keyword name="binaryRead" id="RsaToolbox::GenericBus::binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#a0c5e75f5a0c689d0fbb8c41623e90d91" />
+      <keyword name="binaryRead" id="RsaToolbox::GenericBus::binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#ae13a211dade1f3df58ed6e5f00a7be1a" />
+      <keyword name="binaryWrite" id="RsaToolbox::GenericBus::binaryWrite" ref="class_rsa_toolbox_1_1_generic_bus.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
+      <keyword name="binaryQuery" id="RsaToolbox::GenericBus::binaryQuery" ref="class_rsa_toolbox_1_1_generic_bus.html#a4fd7dc0b8f616f16632ef15fd9cfd986" />
+      <keyword name="_read" id="RsaToolbox::GenericBus::_read" ref="class_rsa_toolbox_1_1_generic_bus.html#a9b42ece7656e081a99b2712c0f722c4e" />
+      <keyword name="_write" id="RsaToolbox::GenericBus::_write" ref="class_rsa_toolbox_1_1_generic_bus.html#a2b3454e0d08ee05ea4cba44c83222c3e" />
+      <keyword name="_binaryRead" id="RsaToolbox::GenericBus::_binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#a242f67a055440463cc7b61068793dabc" />
+      <keyword name="_binaryWrite" id="RsaToolbox::GenericBus::_binaryWrite" ref="class_rsa_toolbox_1_1_generic_bus.html#a98c33a8d19eff1cee007c98b5d63a73d" />
+      <keyword name="_connectionType" id="RsaToolbox::GenericBus::_connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#ab56073dcf5f6af1685778e06d64bc893" />
+      <keyword name="_address" id="RsaToolbox::GenericBus::_address" ref="class_rsa_toolbox_1_1_generic_bus.html#a93022a36d845ee4a72d1c4c73ecc33f6" />
+      <keyword name="_bufferSize_B" id="RsaToolbox::GenericBus::_bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#ab4247e4664aad376a5eacffcd3250c81" />
+      <keyword name="_timeout_ms" id="RsaToolbox::GenericBus::_timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a86a1e0018232f5b4b499e070813333ec" />
+      <keyword name="_buffer" id="RsaToolbox::GenericBus::_buffer" ref="class_rsa_toolbox_1_1_generic_bus.html#afd8a599827f7ef3e2c61f4d709361578" />
+      <keyword name="RsaToolbox::RsibBus" id="RsaToolbox::RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html" />
+      <keyword name="lock" id="RsaToolbox::RsibBus::lock" ref="class_rsa_toolbox_1_1_rsib_bus.html#abde223cb8968835b7f8f060e505facc2" />
+      <keyword name="unlock" id="RsaToolbox::RsibBus::unlock" ref="class_rsa_toolbox_1_1_rsib_bus.html#ae399421ee39cae4df5ea44bd21e31254" />
+      <keyword name="local" id="RsaToolbox::RsibBus::local" ref="class_rsa_toolbox_1_1_rsib_bus.html#ae4642a972205ef378bb3a1550a8418d8" />
+      <keyword name="remote" id="RsaToolbox::RsibBus::remote" ref="class_rsa_toolbox_1_1_rsib_bus.html#a6f0890ff36c5a5fb58cdaca77e3f15f9" />
+      <keyword name="printStatus" id="RsaToolbox::RsibBus::printStatus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a30d7b394b3d6932f045f69a7980fa888" />
+      <keyword name="lock" id="RsaToolbox::GenericBus::lock" ref="class_rsa_toolbox_1_1_generic_bus.html#a51cc700e46d567a32975bd705b311264" />
+      <keyword name="unlock" id="RsaToolbox::GenericBus::unlock" ref="class_rsa_toolbox_1_1_generic_bus.html#acee63855a5fae0b11df91151e9aa768b" />
+      <keyword name="local" id="RsaToolbox::GenericBus::local" ref="class_rsa_toolbox_1_1_generic_bus.html#a7a439487a63a07cb287eb8a8ba65f477" />
+      <keyword name="remote" id="RsaToolbox::GenericBus::remote" ref="class_rsa_toolbox_1_1_generic_bus.html#ad3ffbe90d43b7616140ef0e965f92c4c" />
+      <keyword name="printStatus" id="RsaToolbox::GenericBus::printStatus" ref="class_rsa_toolbox_1_1_generic_bus.html#adab371fea88c2e8b4d14514fcbb137e3" />
+      <keyword name="RsibBus" id="RsaToolbox::RsibBus::RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a00496bd19d2d08358d65eb4a08c25004" />
+      <keyword name="RsibBus" id="RsaToolbox::RsibBus::RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a0d573a040d981a0c3c95d20b96c6d2dd" />
+      <keyword name="~RsibBus" id="RsaToolbox::RsibBus::~RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a7f9a1530ba625fd1de2d5c5da50f3663" />
+      <keyword name="isOpen" id="RsaToolbox::RsibBus::isOpen" ref="class_rsa_toolbox_1_1_rsib_bus.html#a3c7351cec1380d07f9e4b3ec96b2b1ff" />
+      <keyword name="setTimeout" id="RsaToolbox::RsibBus::setTimeout" ref="class_rsa_toolbox_1_1_rsib_bus.html#a64f8674ed2fc1bf521b82b2c0523d310" />
+      <keyword name="GenericBus" id="RsaToolbox::GenericBus::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#a5c8dec89cd333703cf8914c235f24314" />
+      <keyword name="GenericBus" id="RsaToolbox::GenericBus::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#ae2b3105bf30de66a056944716c3a2000" />
+      <keyword name="isClosed" id="RsaToolbox::GenericBus::isClosed" ref="class_rsa_toolbox_1_1_generic_bus.html#aede4b7e16e8732d29bb13b8fe77573b7" />
+      <keyword name="connectionType" id="RsaToolbox::GenericBus::connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#aff14cbd4ea9a7272a2965f735773c21f" />
+      <keyword name="address" id="RsaToolbox::GenericBus::address" ref="class_rsa_toolbox_1_1_generic_bus.html#a45ed6612500c0973f68b103afb02e9b5" />
+      <keyword name="bufferSize_B" id="RsaToolbox::GenericBus::bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#a47e59c061aa54605deba2afffb9a1509" />
+      <keyword name="setBufferSize" id="RsaToolbox::GenericBus::setBufferSize" ref="class_rsa_toolbox_1_1_generic_bus.html#a94a8164de71f998b98da536ece6f6c39" />
+      <keyword name="timeout_ms" id="RsaToolbox::GenericBus::timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a65900048d44bd8e765de52ea5b22b074" />
+      <keyword name="read" id="RsaToolbox::GenericBus::read" ref="class_rsa_toolbox_1_1_generic_bus.html#a71e5fd121c106817d7b2572ed71d321b" />
+      <keyword name="read" id="RsaToolbox::GenericBus::read" ref="class_rsa_toolbox_1_1_generic_bus.html#a5e5005e2f7a438e19865ebc36ceaf6d5" />
+      <keyword name="write" id="RsaToolbox::GenericBus::write" ref="class_rsa_toolbox_1_1_generic_bus.html#a5201888c1fe2bad80795fa04db2b59e4" />
+      <keyword name="query" id="RsaToolbox::GenericBus::query" ref="class_rsa_toolbox_1_1_generic_bus.html#ad4a1fd0b3aed02610fe755ab99368d7f" />
+      <keyword name="binaryRead" id="RsaToolbox::GenericBus::binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#a0c5e75f5a0c689d0fbb8c41623e90d91" />
+      <keyword name="binaryRead" id="RsaToolbox::GenericBus::binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#ae13a211dade1f3df58ed6e5f00a7be1a" />
+      <keyword name="binaryWrite" id="RsaToolbox::GenericBus::binaryWrite" ref="class_rsa_toolbox_1_1_generic_bus.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
+      <keyword name="binaryQuery" id="RsaToolbox::GenericBus::binaryQuery" ref="class_rsa_toolbox_1_1_generic_bus.html#a4fd7dc0b8f616f16632ef15fd9cfd986" />
+      <keyword name="_read" id="RsaToolbox::RsibBus::_read" ref="class_rsa_toolbox_1_1_rsib_bus.html#ac91a11aa027b98dbb294a7450a41998b" />
+      <keyword name="_write" id="RsaToolbox::RsibBus::_write" ref="class_rsa_toolbox_1_1_rsib_bus.html#a2dbf98a161012f4de9bd4f5ac988bb68" />
+      <keyword name="_binaryRead" id="RsaToolbox::RsibBus::_binaryRead" ref="class_rsa_toolbox_1_1_rsib_bus.html#af1ea84c6920ca23eadf907885511d3aa" />
+      <keyword name="_binaryWrite" id="RsaToolbox::RsibBus::_binaryWrite" ref="class_rsa_toolbox_1_1_rsib_bus.html#a59cb83b7cd82a8afe1dbdedf26bfdd89" />
+      <keyword name="error" id="RsaToolbox::GenericBus::error" ref="class_rsa_toolbox_1_1_generic_bus.html#a11ed5d61ec9f8745ef23bf7a4bab4136" />
+      <keyword name="print" id="RsaToolbox::GenericBus::print" ref="class_rsa_toolbox_1_1_generic_bus.html#a2ab94e7fed40714949685d516bc50ff5" />
+      <keyword name="_connectionType" id="RsaToolbox::GenericBus::_connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#ab56073dcf5f6af1685778e06d64bc893" />
+      <keyword name="_address" id="RsaToolbox::GenericBus::_address" ref="class_rsa_toolbox_1_1_generic_bus.html#a93022a36d845ee4a72d1c4c73ecc33f6" />
+      <keyword name="_bufferSize_B" id="RsaToolbox::GenericBus::_bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#ab4247e4664aad376a5eacffcd3250c81" />
+      <keyword name="_timeout_ms" id="RsaToolbox::GenericBus::_timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a86a1e0018232f5b4b499e070813333ec" />
+      <keyword name="_buffer" id="RsaToolbox::GenericBus::_buffer" ref="class_rsa_toolbox_1_1_generic_bus.html#afd8a599827f7ef3e2c61f4d709361578" />
+      <keyword name="RsaToolbox::VisaBus" id="RsaToolbox::VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html" />
+      <keyword name="lock" id="RsaToolbox::VisaBus::lock" ref="class_rsa_toolbox_1_1_visa_bus.html#abde223cb8968835b7f8f060e505facc2" />
+      <keyword name="unlock" id="RsaToolbox::VisaBus::unlock" ref="class_rsa_toolbox_1_1_visa_bus.html#ae399421ee39cae4df5ea44bd21e31254" />
+      <keyword name="local" id="RsaToolbox::VisaBus::local" ref="class_rsa_toolbox_1_1_visa_bus.html#ae4642a972205ef378bb3a1550a8418d8" />
+      <keyword name="remote" id="RsaToolbox::VisaBus::remote" ref="class_rsa_toolbox_1_1_visa_bus.html#a6f0890ff36c5a5fb58cdaca77e3f15f9" />
+      <keyword name="printStatus" id="RsaToolbox::VisaBus::printStatus" ref="class_rsa_toolbox_1_1_visa_bus.html#a30d7b394b3d6932f045f69a7980fa888" />
+      <keyword name="lock" id="RsaToolbox::GenericBus::lock" ref="class_rsa_toolbox_1_1_generic_bus.html#a51cc700e46d567a32975bd705b311264" />
+      <keyword name="unlock" id="RsaToolbox::GenericBus::unlock" ref="class_rsa_toolbox_1_1_generic_bus.html#acee63855a5fae0b11df91151e9aa768b" />
+      <keyword name="local" id="RsaToolbox::GenericBus::local" ref="class_rsa_toolbox_1_1_generic_bus.html#a7a439487a63a07cb287eb8a8ba65f477" />
+      <keyword name="remote" id="RsaToolbox::GenericBus::remote" ref="class_rsa_toolbox_1_1_generic_bus.html#ad3ffbe90d43b7616140ef0e965f92c4c" />
+      <keyword name="printStatus" id="RsaToolbox::GenericBus::printStatus" ref="class_rsa_toolbox_1_1_generic_bus.html#adab371fea88c2e8b4d14514fcbb137e3" />
+      <keyword name="VisaBus" id="RsaToolbox::VisaBus::VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html#ae8408f4c9e12945eb7e3c257d9f1c3af" />
+      <keyword name="VisaBus" id="RsaToolbox::VisaBus::VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html#ad5deae57f1e8ab91bf43fe9fc8705f80" />
+      <keyword name="~VisaBus" id="RsaToolbox::VisaBus::~VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html#af118a288752ad112061fac28c1d029cd" />
+      <keyword name="isOpen" id="RsaToolbox::VisaBus::isOpen" ref="class_rsa_toolbox_1_1_visa_bus.html#a3c7351cec1380d07f9e4b3ec96b2b1ff" />
+      <keyword name="setTimeout" id="RsaToolbox::VisaBus::setTimeout" ref="class_rsa_toolbox_1_1_visa_bus.html#a64f8674ed2fc1bf521b82b2c0523d310" />
+      <keyword name="GenericBus" id="RsaToolbox::GenericBus::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#a5c8dec89cd333703cf8914c235f24314" />
+      <keyword name="GenericBus" id="RsaToolbox::GenericBus::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#ae2b3105bf30de66a056944716c3a2000" />
+      <keyword name="isClosed" id="RsaToolbox::GenericBus::isClosed" ref="class_rsa_toolbox_1_1_generic_bus.html#aede4b7e16e8732d29bb13b8fe77573b7" />
+      <keyword name="connectionType" id="RsaToolbox::GenericBus::connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#aff14cbd4ea9a7272a2965f735773c21f" />
+      <keyword name="address" id="RsaToolbox::GenericBus::address" ref="class_rsa_toolbox_1_1_generic_bus.html#a45ed6612500c0973f68b103afb02e9b5" />
+      <keyword name="bufferSize_B" id="RsaToolbox::GenericBus::bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#a47e59c061aa54605deba2afffb9a1509" />
+      <keyword name="setBufferSize" id="RsaToolbox::GenericBus::setBufferSize" ref="class_rsa_toolbox_1_1_generic_bus.html#a94a8164de71f998b98da536ece6f6c39" />
+      <keyword name="timeout_ms" id="RsaToolbox::GenericBus::timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a65900048d44bd8e765de52ea5b22b074" />
+      <keyword name="read" id="RsaToolbox::GenericBus::read" ref="class_rsa_toolbox_1_1_generic_bus.html#a71e5fd121c106817d7b2572ed71d321b" />
+      <keyword name="read" id="RsaToolbox::GenericBus::read" ref="class_rsa_toolbox_1_1_generic_bus.html#a5e5005e2f7a438e19865ebc36ceaf6d5" />
+      <keyword name="write" id="RsaToolbox::GenericBus::write" ref="class_rsa_toolbox_1_1_generic_bus.html#a5201888c1fe2bad80795fa04db2b59e4" />
+      <keyword name="query" id="RsaToolbox::GenericBus::query" ref="class_rsa_toolbox_1_1_generic_bus.html#ad4a1fd0b3aed02610fe755ab99368d7f" />
+      <keyword name="binaryRead" id="RsaToolbox::GenericBus::binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#a0c5e75f5a0c689d0fbb8c41623e90d91" />
+      <keyword name="binaryRead" id="RsaToolbox::GenericBus::binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#ae13a211dade1f3df58ed6e5f00a7be1a" />
+      <keyword name="binaryWrite" id="RsaToolbox::GenericBus::binaryWrite" ref="class_rsa_toolbox_1_1_generic_bus.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
+      <keyword name="binaryQuery" id="RsaToolbox::GenericBus::binaryQuery" ref="class_rsa_toolbox_1_1_generic_bus.html#a4fd7dc0b8f616f16632ef15fd9cfd986" />
+      <keyword name="isVisaPresent" id="RsaToolbox::VisaBus::isVisaPresent" ref="class_rsa_toolbox_1_1_visa_bus.html#aa1016fa7162d3893d90f4e6d03ee622f" />
+      <keyword name="_read" id="RsaToolbox::VisaBus::_read" ref="class_rsa_toolbox_1_1_visa_bus.html#ac91a11aa027b98dbb294a7450a41998b" />
+      <keyword name="_write" id="RsaToolbox::VisaBus::_write" ref="class_rsa_toolbox_1_1_visa_bus.html#a2dbf98a161012f4de9bd4f5ac988bb68" />
+      <keyword name="_binaryRead" id="RsaToolbox::VisaBus::_binaryRead" ref="class_rsa_toolbox_1_1_visa_bus.html#af1ea84c6920ca23eadf907885511d3aa" />
+      <keyword name="_binaryWrite" id="RsaToolbox::VisaBus::_binaryWrite" ref="class_rsa_toolbox_1_1_visa_bus.html#a59cb83b7cd82a8afe1dbdedf26bfdd89" />
+      <keyword name="error" id="RsaToolbox::GenericBus::error" ref="class_rsa_toolbox_1_1_generic_bus.html#a11ed5d61ec9f8745ef23bf7a4bab4136" />
+      <keyword name="print" id="RsaToolbox::GenericBus::print" ref="class_rsa_toolbox_1_1_generic_bus.html#a2ab94e7fed40714949685d516bc50ff5" />
+      <keyword name="_connectionType" id="RsaToolbox::GenericBus::_connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#ab56073dcf5f6af1685778e06d64bc893" />
+      <keyword name="_address" id="RsaToolbox::GenericBus::_address" ref="class_rsa_toolbox_1_1_generic_bus.html#a93022a36d845ee4a72d1c4c73ecc33f6" />
+      <keyword name="_bufferSize_B" id="RsaToolbox::GenericBus::_bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#ab4247e4664aad376a5eacffcd3250c81" />
+      <keyword name="_timeout_ms" id="RsaToolbox::GenericBus::_timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a86a1e0018232f5b4b499e070813333ec" />
+      <keyword name="_buffer" id="RsaToolbox::GenericBus::_buffer" ref="class_rsa_toolbox_1_1_generic_bus.html#afd8a599827f7ef3e2c61f4d709361578" />
       <keyword name="RsaToolbox::BalancedPort" id="RsaToolbox::BalancedPort" ref="class_rsa_toolbox_1_1_balanced_port.html" />
       <keyword name="BalancedPort" id="RsaToolbox::BalancedPort::BalancedPort" ref="class_rsa_toolbox_1_1_balanced_port.html#a3a47c5546649bcd01ec5859e5cb1a041" />
       <keyword name="BalancedPort" id="RsaToolbox::BalancedPort::BalancedPort" ref="class_rsa_toolbox_1_1_balanced_port.html#af56577a1d17cd310c888b4a8bc51eba7" />
@@ -4168,87 +4290,6 @@
       <keyword name="toConnectorGenderVnaScpi" id="RsaToolbox::Connector::toConnectorGenderVnaScpi" ref="class_rsa_toolbox_1_1_connector.html#a070da66083caf1fe8b467b8e17dedf51" />
       <keyword name="operator==" id="RsaToolbox::Connector::operator==" ref="class_rsa_toolbox_1_1_connector.html#a75aebc1f06692c300a43366c89526e8b" />
       <keyword name="operator!=" id="RsaToolbox::Connector::operator!=" ref="class_rsa_toolbox_1_1_connector.html#a6d675583a247f0145128be6990b4e2de" />
-      <keyword name="RsaToolbox::GenericBus" id="RsaToolbox::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html" />
-      <keyword name="lock" id="RsaToolbox::GenericBus::lock" ref="class_rsa_toolbox_1_1_generic_bus.html#a51cc700e46d567a32975bd705b311264" />
-      <keyword name="unlock" id="RsaToolbox::GenericBus::unlock" ref="class_rsa_toolbox_1_1_generic_bus.html#acee63855a5fae0b11df91151e9aa768b" />
-      <keyword name="local" id="RsaToolbox::GenericBus::local" ref="class_rsa_toolbox_1_1_generic_bus.html#a7a439487a63a07cb287eb8a8ba65f477" />
-      <keyword name="remote" id="RsaToolbox::GenericBus::remote" ref="class_rsa_toolbox_1_1_generic_bus.html#ad3ffbe90d43b7616140ef0e965f92c4c" />
-      <keyword name="printStatus" id="RsaToolbox::GenericBus::printStatus" ref="class_rsa_toolbox_1_1_generic_bus.html#adab371fea88c2e8b4d14514fcbb137e3" />
-      <keyword name="error" id="RsaToolbox::GenericBus::error" ref="class_rsa_toolbox_1_1_generic_bus.html#a11ed5d61ec9f8745ef23bf7a4bab4136" />
-      <keyword name="print" id="RsaToolbox::GenericBus::print" ref="class_rsa_toolbox_1_1_generic_bus.html#a2ab94e7fed40714949685d516bc50ff5" />
-      <keyword name="GenericBus" id="RsaToolbox::GenericBus::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#a5c8dec89cd333703cf8914c235f24314" />
-      <keyword name="GenericBus" id="RsaToolbox::GenericBus::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#ae2b3105bf30de66a056944716c3a2000" />
-      <keyword name="isOpen" id="RsaToolbox::GenericBus::isOpen" ref="class_rsa_toolbox_1_1_generic_bus.html#ac11fde026ec3cc0fdaaeaa880774ec1a" />
-      <keyword name="isClosed" id="RsaToolbox::GenericBus::isClosed" ref="class_rsa_toolbox_1_1_generic_bus.html#aede4b7e16e8732d29bb13b8fe77573b7" />
-      <keyword name="connectionType" id="RsaToolbox::GenericBus::connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#aff14cbd4ea9a7272a2965f735773c21f" />
-      <keyword name="address" id="RsaToolbox::GenericBus::address" ref="class_rsa_toolbox_1_1_generic_bus.html#a45ed6612500c0973f68b103afb02e9b5" />
-      <keyword name="bufferSize_B" id="RsaToolbox::GenericBus::bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#a47e59c061aa54605deba2afffb9a1509" />
-      <keyword name="setBufferSize" id="RsaToolbox::GenericBus::setBufferSize" ref="class_rsa_toolbox_1_1_generic_bus.html#a94a8164de71f998b98da536ece6f6c39" />
-      <keyword name="timeout_ms" id="RsaToolbox::GenericBus::timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a65900048d44bd8e765de52ea5b22b074" />
-      <keyword name="setTimeout" id="RsaToolbox::GenericBus::setTimeout" ref="class_rsa_toolbox_1_1_generic_bus.html#a64f8674ed2fc1bf521b82b2c0523d310" />
-      <keyword name="read" id="RsaToolbox::GenericBus::read" ref="class_rsa_toolbox_1_1_generic_bus.html#a71e5fd121c106817d7b2572ed71d321b" />
-      <keyword name="read" id="RsaToolbox::GenericBus::read" ref="class_rsa_toolbox_1_1_generic_bus.html#a5e5005e2f7a438e19865ebc36ceaf6d5" />
-      <keyword name="write" id="RsaToolbox::GenericBus::write" ref="class_rsa_toolbox_1_1_generic_bus.html#a5201888c1fe2bad80795fa04db2b59e4" />
-      <keyword name="query" id="RsaToolbox::GenericBus::query" ref="class_rsa_toolbox_1_1_generic_bus.html#ad4a1fd0b3aed02610fe755ab99368d7f" />
-      <keyword name="binaryRead" id="RsaToolbox::GenericBus::binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#a0c5e75f5a0c689d0fbb8c41623e90d91" />
-      <keyword name="binaryRead" id="RsaToolbox::GenericBus::binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#ae13a211dade1f3df58ed6e5f00a7be1a" />
-      <keyword name="binaryWrite" id="RsaToolbox::GenericBus::binaryWrite" ref="class_rsa_toolbox_1_1_generic_bus.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
-      <keyword name="binaryQuery" id="RsaToolbox::GenericBus::binaryQuery" ref="class_rsa_toolbox_1_1_generic_bus.html#a4fd7dc0b8f616f16632ef15fd9cfd986" />
-      <keyword name="_read" id="RsaToolbox::GenericBus::_read" ref="class_rsa_toolbox_1_1_generic_bus.html#a9b42ece7656e081a99b2712c0f722c4e" />
-      <keyword name="_write" id="RsaToolbox::GenericBus::_write" ref="class_rsa_toolbox_1_1_generic_bus.html#a2b3454e0d08ee05ea4cba44c83222c3e" />
-      <keyword name="_binaryRead" id="RsaToolbox::GenericBus::_binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#a242f67a055440463cc7b61068793dabc" />
-      <keyword name="_binaryWrite" id="RsaToolbox::GenericBus::_binaryWrite" ref="class_rsa_toolbox_1_1_generic_bus.html#a98c33a8d19eff1cee007c98b5d63a73d" />
-      <keyword name="_connectionType" id="RsaToolbox::GenericBus::_connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#ab56073dcf5f6af1685778e06d64bc893" />
-      <keyword name="_address" id="RsaToolbox::GenericBus::_address" ref="class_rsa_toolbox_1_1_generic_bus.html#a93022a36d845ee4a72d1c4c73ecc33f6" />
-      <keyword name="_bufferSize_B" id="RsaToolbox::GenericBus::_bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#ab4247e4664aad376a5eacffcd3250c81" />
-      <keyword name="_timeout_ms" id="RsaToolbox::GenericBus::_timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a86a1e0018232f5b4b499e070813333ec" />
-      <keyword name="_buffer" id="RsaToolbox::GenericBus::_buffer" ref="class_rsa_toolbox_1_1_generic_bus.html#afd8a599827f7ef3e2c61f4d709361578" />
-      <keyword name="RsaToolbox::GenericInstrument" id="RsaToolbox::GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html" />
-      <keyword name="lock" id="RsaToolbox::GenericInstrument::lock" ref="class_rsa_toolbox_1_1_generic_instrument.html#abde223cb8968835b7f8f060e505facc2" />
-      <keyword name="unlock" id="RsaToolbox::GenericInstrument::unlock" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae399421ee39cae4df5ea44bd21e31254" />
-      <keyword name="local" id="RsaToolbox::GenericInstrument::local" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae4642a972205ef378bb3a1550a8418d8" />
-      <keyword name="remote" id="RsaToolbox::GenericInstrument::remote" ref="class_rsa_toolbox_1_1_generic_instrument.html#a6f0890ff36c5a5fb58cdaca77e3f15f9" />
-      <keyword name="preset" id="RsaToolbox::GenericInstrument::preset" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae1f5fa51408b7ea44b4a8cc980693b1b" />
-      <keyword name="clearStatus" id="RsaToolbox::GenericInstrument::clearStatus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a904a80a9a54910609e8c76caa913159e" />
-      <keyword name="busError" id="RsaToolbox::GenericInstrument::busError" ref="class_rsa_toolbox_1_1_generic_instrument.html#a542c3f4d09b418e2a9bccd73d00e1ba3" />
-      <keyword name="connected" id="RsaToolbox::GenericInstrument::connected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5311a75dc2e16ac36238d0abcc02e7b4" />
-      <keyword name="disconnected" id="RsaToolbox::GenericInstrument::disconnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2f1c33b2c7f009b786fa5799313c59ec" />
-      <keyword name="GenericInstrument" id="RsaToolbox::GenericInstrument::GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html#a83b74205cd1cba0e321f9a4c00e4ef08" />
-      <keyword name="GenericInstrument" id="RsaToolbox::GenericInstrument::GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html#a34a5ed84dc044bc5e33a330e033d1cd1" />
-      <keyword name="GenericInstrument" id="RsaToolbox::GenericInstrument::GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html#aa20f4d8867c2994c1d682c0fec13042c" />
-      <keyword name="connectionType" id="RsaToolbox::GenericInstrument::connectionType" ref="class_rsa_toolbox_1_1_generic_instrument.html#aff14cbd4ea9a7272a2965f735773c21f" />
-      <keyword name="address" id="RsaToolbox::GenericInstrument::address" ref="class_rsa_toolbox_1_1_generic_instrument.html#a45ed6612500c0973f68b103afb02e9b5" />
-      <keyword name="isConnected" id="RsaToolbox::GenericInstrument::isConnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a180fa55a4bf36580963bed9e3e09c227" />
-      <keyword name="isDisconnected" id="RsaToolbox::GenericInstrument::isDisconnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a370be337417c7101d85ca7a67ef21fbb" />
-      <keyword name="isLogOpen" id="RsaToolbox::GenericInstrument::isLogOpen" ref="class_rsa_toolbox_1_1_generic_instrument.html#a4f303390e6468b0d372148aeb633ee60" />
-      <keyword name="isLogConnected" id="RsaToolbox::GenericInstrument::isLogConnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5245f03cb1a20a6d8e4f597548ba39da" />
-      <keyword name="isLogDisconnected" id="RsaToolbox::GenericInstrument::isLogDisconnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a814dd83a4d865ad04d7e8d9290830e11" />
-      <keyword name="isRohdeSchwarz" id="RsaToolbox::GenericInstrument::isRohdeSchwarz" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5208c42f7becd9a076b17c288c0700f9" />
-      <keyword name="idString" id="RsaToolbox::GenericInstrument::idString" ref="class_rsa_toolbox_1_1_generic_instrument.html#a9d5cd7c546877d3571965055fe5135ab" />
-      <keyword name="optionsString" id="RsaToolbox::GenericInstrument::optionsString" ref="class_rsa_toolbox_1_1_generic_instrument.html#abd432a2a6aed6d74b9563d965d9e5a01" />
-      <keyword name="log" id="RsaToolbox::GenericInstrument::log" ref="class_rsa_toolbox_1_1_generic_instrument.html#a771abc4a471f6d3dc48ba2e3e9905c33" />
-      <keyword name="useLog" id="RsaToolbox::GenericInstrument::useLog" ref="class_rsa_toolbox_1_1_generic_instrument.html#ab3a9f1bec710e3bdc3e65e4e555b6a70" />
-      <keyword name="disconnectLog" id="RsaToolbox::GenericInstrument::disconnectLog" ref="class_rsa_toolbox_1_1_generic_instrument.html#a20c5b46b1404c1aa9d431080a55bdf70" />
-      <keyword name="print" id="RsaToolbox::GenericInstrument::print" ref="class_rsa_toolbox_1_1_generic_instrument.html#a9fcecd48b86862430fa0a6f25c9ba139" />
-      <keyword name="printLine" id="RsaToolbox::GenericInstrument::printLine" ref="class_rsa_toolbox_1_1_generic_instrument.html#a84aed46379d2dc33df360025cb2d15b4" />
-      <keyword name="printInfo" id="RsaToolbox::GenericInstrument::printInfo" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2dbaf5580b5305d54cff6848ae7deb30" />
-      <keyword name="printInfo" id="RsaToolbox::GenericInstrument::printInfo" ref="class_rsa_toolbox_1_1_generic_instrument.html#ada409285acc32db14ccc3e8e99beb740" />
-      <keyword name="takeBus" id="RsaToolbox::GenericInstrument::takeBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a6dedb1983f0f3bdafb0b0550cdb13371" />
-      <keyword name="resetBus" id="RsaToolbox::GenericInstrument::resetBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a6978c084f6d48b500720cac6116a3838" />
-      <keyword name="resetBus" id="RsaToolbox::GenericInstrument::resetBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae02f700c85df5209413c4ce67ac32960" />
-      <keyword name="resetBus" id="RsaToolbox::GenericInstrument::resetBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a1f62a637904b8ef7e00750be9b58229a" />
-      <keyword name="read" id="RsaToolbox::GenericInstrument::read" ref="class_rsa_toolbox_1_1_generic_instrument.html#a4cac74fe8f5d8ba90799cc152760b866" />
-      <keyword name="read" id="RsaToolbox::GenericInstrument::read" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2e4527a118e4231171c58bf72811b159" />
-      <keyword name="write" id="RsaToolbox::GenericInstrument::write" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5201888c1fe2bad80795fa04db2b59e4" />
-      <keyword name="query" id="RsaToolbox::GenericInstrument::query" ref="class_rsa_toolbox_1_1_generic_instrument.html#afbbe93ca7111ba0a8382ad95c49247bd" />
-      <keyword name="binaryRead" id="RsaToolbox::GenericInstrument::binaryRead" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2a401286ede0b89d0119398fd5569619" />
-      <keyword name="binaryRead" id="RsaToolbox::GenericInstrument::binaryRead" ref="class_rsa_toolbox_1_1_generic_instrument.html#aeb8915dfcd848eef04a69cef41ebcb43" />
-      <keyword name="binaryWrite" id="RsaToolbox::GenericInstrument::binaryWrite" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
-      <keyword name="binaryQuery" id="RsaToolbox::GenericInstrument::binaryQuery" ref="class_rsa_toolbox_1_1_generic_instrument.html#a8bd7dd60c803759cf0ad29894f46bb68" />
-      <keyword name="wait" id="RsaToolbox::GenericInstrument::wait" ref="class_rsa_toolbox_1_1_generic_instrument.html#aa3b21853f890838c88d047d6c2786917" />
-      <keyword name="pause" id="RsaToolbox::GenericInstrument::pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7167f5c196fc5e167bfabde1a730e81d" />
-      <keyword name="initializePolling" id="RsaToolbox::GenericInstrument::initializePolling" ref="class_rsa_toolbox_1_1_generic_instrument.html#a694167390c3e8d1acb16c86d026fabb9" />
-      <keyword name="isOperationComplete" id="RsaToolbox::GenericInstrument::isOperationComplete" ref="class_rsa_toolbox_1_1_generic_instrument.html#acb2283a6cb20418383f3f512caf30550" />
       <keyword name="RsaToolbox::IndexName" id="RsaToolbox::IndexName" ref="class_rsa_toolbox_1_1_index_name.html" />
       <keyword name="IndexName" id="RsaToolbox::IndexName::IndexName" ref="class_rsa_toolbox_1_1_index_name.html#abf42394f2a7c06fde9ae389eb56387fe" />
       <keyword name="IndexName" id="RsaToolbox::IndexName::IndexName" ref="class_rsa_toolbox_1_1_index_name.html#a341a7f514961330f90a86768216ab534" />
@@ -4271,23 +4312,6 @@
       <keyword name="Get" id="RsaToolbox::Key::Get" ref="class_rsa_toolbox_1_1_key.html#a7a691472644d71eb1489d9388179ab8d" />
       <keyword name="Set" id="RsaToolbox::Key::Set" ref="class_rsa_toolbox_1_1_key.html#a65ce1c838291764e0bd796a549ce13e6" />
       <keyword name="Delete" id="RsaToolbox::Key::Delete" ref="class_rsa_toolbox_1_1_key.html#aa28ed71e50c73c8f1cec250388fe769a" />
-      <keyword name="RsaToolbox::Log" id="RsaToolbox::Log" ref="class_rsa_toolbox_1_1_log.html" />
-      <keyword name="open" id="RsaToolbox::Log::open" ref="class_rsa_toolbox_1_1_log.html#a9e8555112049fc2b4945120b3c45f8ab" />
-      <keyword name="close" id="RsaToolbox::Log::close" ref="class_rsa_toolbox_1_1_log.html#a5ae591df94fc66ccb85cbb6565368bca" />
-      <keyword name="rename" id="RsaToolbox::Log::rename" ref="class_rsa_toolbox_1_1_log.html#ad43c27ec3647ad13f65cbc0f9b04f868" />
-      <keyword name="printApplicationHeader" id="RsaToolbox::Log::printApplicationHeader" ref="class_rsa_toolbox_1_1_log.html#a78c1c1b3c18cc6f666d4d791cfe9a4cf" />
-      <keyword name="print" id="RsaToolbox::Log::print" ref="class_rsa_toolbox_1_1_log.html#a9fcecd48b86862430fa0a6f25c9ba139" />
-      <keyword name="printLine" id="RsaToolbox::Log::printLine" ref="class_rsa_toolbox_1_1_log.html#a52970f561919ea7fec0235179a1f11f9" />
-      <keyword name="closed" id="RsaToolbox::Log::closed" ref="class_rsa_toolbox_1_1_log.html#accc6ef63b2d443dadba71ae080397c0c" />
-      <keyword name="opened" id="RsaToolbox::Log::opened" ref="class_rsa_toolbox_1_1_log.html#a0fb61747d3f8a3fdc9e593cdc23b0f85" />
-      <keyword name="renamed" id="RsaToolbox::Log::renamed" ref="class_rsa_toolbox_1_1_log.html#a71cf13198ebe06945acd7f2073d5880e" />
-      <keyword name="Log" id="RsaToolbox::Log::Log" ref="class_rsa_toolbox_1_1_log.html#aadbf333826e76693b3326fa60bc803ad" />
-      <keyword name="Log" id="RsaToolbox::Log::Log" ref="class_rsa_toolbox_1_1_log.html#ae5cf0e7d024b0b070fb3bd386f526018" />
-      <keyword name="~Log" id="RsaToolbox::Log::~Log" ref="class_rsa_toolbox_1_1_log.html#a4fc4fd3dcde9bf8ba8195c0983fbe21b" />
-      <keyword name="isOpen" id="RsaToolbox::Log::isOpen" ref="class_rsa_toolbox_1_1_log.html#a7a8f153459b77aaa1c4486a9f378927b" />
-      <keyword name="isClosed" id="RsaToolbox::Log::isClosed" ref="class_rsa_toolbox_1_1_log.html#a995cd45aacf946ca210491d12ed4a0c0" />
-      <keyword name="reset" id="RsaToolbox::Log::reset" ref="class_rsa_toolbox_1_1_log.html#a1de8621bff09767dbcf4a08b4f13b590" />
-      <keyword name="operator&lt;&lt;" id="RsaToolbox::Log::operator&lt;&lt;" ref="class_rsa_toolbox_1_1_log.html#a84e5e02749f37aa0f05ef64ea3b8bb93" />
       <keyword name="RsaToolbox::NameLabel" id="RsaToolbox::NameLabel" ref="class_rsa_toolbox_1_1_name_label.html" />
       <keyword name="NameLabel" id="RsaToolbox::NameLabel::NameLabel" ref="class_rsa_toolbox_1_1_name_label.html#a32b9e57d90bb3f52ab2e72411fd80b8d" />
       <keyword name="NameLabel" id="RsaToolbox::NameLabel::NameLabel" ref="class_rsa_toolbox_1_1_name_label.html#a05b2e59d5f1b335276613700c67ecfa8" />
@@ -4380,82 +4404,6 @@
       <keyword name="y_imaginary" id="RsaToolbox::NetworkTraceData::y_imaginary" ref="class_rsa_toolbox_1_1_network_trace_data.html#a320a2b31d61d9d662dcb8697195826c1" />
       <keyword name="setData" id="RsaToolbox::NetworkTraceData::setData" ref="class_rsa_toolbox_1_1_network_trace_data.html#a2169be2db19084ec5ec837a9e0ea136a" />
       <keyword name="operator=" id="RsaToolbox::NetworkTraceData::operator=" ref="class_rsa_toolbox_1_1_network_trace_data.html#aa7e50a1cae50dfd5feafc3c0ed00a76e" />
-      <keyword name="RsaToolbox::Rsc" id="RsaToolbox::Rsc" ref="class_rsa_toolbox_1_1_rsc.html" />
-      <keyword name="EnableCorrection" id="RsaToolbox::Rsc::EnableCorrection" ref="class_rsa_toolbox_1_1_rsc.html#a32b541b19cb3f614a39716408c6abdaa" />
-      <keyword name="DisableCorrection" id="RsaToolbox::Rsc::DisableCorrection" ref="class_rsa_toolbox_1_1_rsc.html#ad7d59a14cf618433b96e9d54f9b968e5" />
-      <keyword name="SetUnitIndex" id="RsaToolbox::Rsc::SetUnitIndex" ref="class_rsa_toolbox_1_1_rsc.html#a811b808c21f34c8c3e86e3d8487885a2" />
-      <keyword name="SetAttenuation" id="RsaToolbox::Rsc::SetAttenuation" ref="class_rsa_toolbox_1_1_rsc.html#a035c88101795af6b66181163ed348679" />
-      <keyword name="SetUserCalibrationState" id="RsaToolbox::Rsc::SetUserCalibrationState" ref="class_rsa_toolbox_1_1_rsc.html#a6512a6ccaad4b28dbb3603c6b0078b84" />
-      <keyword name="LoadUserCalibrationFile" id="RsaToolbox::Rsc::LoadUserCalibrationFile" ref="class_rsa_toolbox_1_1_rsc.html#a5ddb10856cdae9f7f6e51b4baf2054aa" />
-      <keyword name="Print" id="RsaToolbox::Rsc::Print" ref="class_rsa_toolbox_1_1_rsc.html#ad31850e998eb495e68b827080280bded" />
-      <keyword name="Rsc" id="RsaToolbox::Rsc::Rsc" ref="class_rsa_toolbox_1_1_rsc.html#abfadd8abef686f79c61f9390bbaefe46" />
-      <keyword name="Rsc" id="RsaToolbox::Rsc::Rsc" ref="class_rsa_toolbox_1_1_rsc.html#afbbbc232d8d0db0c238a2ceaca171dc3" />
-      <keyword name="~Rsc" id="RsaToolbox::Rsc::~Rsc" ref="class_rsa_toolbox_1_1_rsc.html#ad508f97dd7bfc25e55964449ff0698ba" />
-      <keyword name="ConnectLog" id="RsaToolbox::Rsc::ConnectLog" ref="class_rsa_toolbox_1_1_rsc.html#a3eacd52cdda57615f4f697485641c1c8" />
-      <keyword name="DisconnectLog" id="RsaToolbox::Rsc::DisconnectLog" ref="class_rsa_toolbox_1_1_rsc.html#aef11d5075fbd15c59f62aa5e61f3ba3e" />
-      <keyword name="GetIdString" id="RsaToolbox::Rsc::GetIdString" ref="class_rsa_toolbox_1_1_rsc.html#aeb31884dad38db6d2055ac78afd8a739" />
-      <keyword name="GetModel" id="RsaToolbox::Rsc::GetModel" ref="class_rsa_toolbox_1_1_rsc.html#a76919e9866cadf6d780c0f1496f6f5ad" />
-      <keyword name="GetSerialNumber" id="RsaToolbox::Rsc::GetSerialNumber" ref="class_rsa_toolbox_1_1_rsc.html#ae8f336ac286184151e80cc069d78a3c4" />
-      <keyword name="GetFirmwareVersion" id="RsaToolbox::Rsc::GetFirmwareVersion" ref="class_rsa_toolbox_1_1_rsc.html#a017e6af5b01236c4e455d09a364294e9" />
-      <keyword name="isConnected" id="RsaToolbox::Rsc::isConnected" ref="class_rsa_toolbox_1_1_rsc.html#a772f8f0487e0d3804e9da7585e23a29a" />
-      <keyword name="isOperationComplete" id="RsaToolbox::Rsc::isOperationComplete" ref="class_rsa_toolbox_1_1_rsc.html#acb2283a6cb20418383f3f512caf30550" />
-      <keyword name="isError" id="RsaToolbox::Rsc::isError" ref="class_rsa_toolbox_1_1_rsc.html#af0c21ff963e9cdf07e3f0412f38de4e4" />
-      <keyword name="isCorrectionEnabled" id="RsaToolbox::Rsc::isCorrectionEnabled" ref="class_rsa_toolbox_1_1_rsc.html#aeedf29c86fcf70a77c868424be2069dd" />
-      <keyword name="isCorrectionDisabled" id="RsaToolbox::Rsc::isCorrectionDisabled" ref="class_rsa_toolbox_1_1_rsc.html#a86ac23c66979e541a1b063aad51f6fd9" />
-      <keyword name="isBaseUnit" id="RsaToolbox::Rsc::isBaseUnit" ref="class_rsa_toolbox_1_1_rsc.html#a2b41ec391f85fa5a43924b8404228b9e" />
-      <keyword name="ClearErrors" id="RsaToolbox::Rsc::ClearErrors" ref="class_rsa_toolbox_1_1_rsc.html#a9973f377b3ae387fc9c0ca2f127938ba" />
-      <keyword name="GetAvailableUnits" id="RsaToolbox::Rsc::GetAvailableUnits" ref="class_rsa_toolbox_1_1_rsc.html#a6b92e6eb7a4e48ce7c631bbe92fcd303" />
-      <keyword name="GetUnitIndex" id="RsaToolbox::Rsc::GetUnitIndex" ref="class_rsa_toolbox_1_1_rsc.html#a9ff6095343efe46bb555aab8c8a8aeed" />
-      <keyword name="GetAttenuation_dB" id="RsaToolbox::Rsc::GetAttenuation_dB" ref="class_rsa_toolbox_1_1_rsc.html#a10d8e37f144f84eab670388ea8a71459" />
-      <keyword name="GetUserCalibrationState" id="RsaToolbox::Rsc::GetUserCalibrationState" ref="class_rsa_toolbox_1_1_rsc.html#ab0b2b75852c981f0508240748075aaa2" />
-      <keyword name="GetMinimumFrequency_Hz" id="RsaToolbox::Rsc::GetMinimumFrequency_Hz" ref="class_rsa_toolbox_1_1_rsc.html#a63398b5425d20dc765340bba434866b9" />
-      <keyword name="GetMaximumFrequency_Hz" id="RsaToolbox::Rsc::GetMaximumFrequency_Hz" ref="class_rsa_toolbox_1_1_rsc.html#af09115e81c275a8419c68b8f49c89397" />
-      <keyword name="GetMaximumPower_dBm" id="RsaToolbox::Rsc::GetMaximumPower_dBm" ref="class_rsa_toolbox_1_1_rsc.html#a036579d578d7ee0021c6fdfcfd19fee7" />
-      <keyword name="GetMaximumAttenuation_dB" id="RsaToolbox::Rsc::GetMaximumAttenuation_dB" ref="class_rsa_toolbox_1_1_rsc.html#ae7318a20db7284abee0a07efc81a08b0" />
-      <keyword name="GetStepSize_dB" id="RsaToolbox::Rsc::GetStepSize_dB" ref="class_rsa_toolbox_1_1_rsc.html#a20067873c59c1a63ffeca7ac73299f54" />
-      <keyword name="RsaToolbox::RsibBus" id="RsaToolbox::RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html" />
-      <keyword name="lock" id="RsaToolbox::RsibBus::lock" ref="class_rsa_toolbox_1_1_rsib_bus.html#abde223cb8968835b7f8f060e505facc2" />
-      <keyword name="unlock" id="RsaToolbox::RsibBus::unlock" ref="class_rsa_toolbox_1_1_rsib_bus.html#ae399421ee39cae4df5ea44bd21e31254" />
-      <keyword name="local" id="RsaToolbox::RsibBus::local" ref="class_rsa_toolbox_1_1_rsib_bus.html#ae4642a972205ef378bb3a1550a8418d8" />
-      <keyword name="remote" id="RsaToolbox::RsibBus::remote" ref="class_rsa_toolbox_1_1_rsib_bus.html#a6f0890ff36c5a5fb58cdaca77e3f15f9" />
-      <keyword name="printStatus" id="RsaToolbox::RsibBus::printStatus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a30d7b394b3d6932f045f69a7980fa888" />
-      <keyword name="lock" id="RsaToolbox::GenericBus::lock" ref="class_rsa_toolbox_1_1_generic_bus.html#a51cc700e46d567a32975bd705b311264" />
-      <keyword name="unlock" id="RsaToolbox::GenericBus::unlock" ref="class_rsa_toolbox_1_1_generic_bus.html#acee63855a5fae0b11df91151e9aa768b" />
-      <keyword name="local" id="RsaToolbox::GenericBus::local" ref="class_rsa_toolbox_1_1_generic_bus.html#a7a439487a63a07cb287eb8a8ba65f477" />
-      <keyword name="remote" id="RsaToolbox::GenericBus::remote" ref="class_rsa_toolbox_1_1_generic_bus.html#ad3ffbe90d43b7616140ef0e965f92c4c" />
-      <keyword name="printStatus" id="RsaToolbox::GenericBus::printStatus" ref="class_rsa_toolbox_1_1_generic_bus.html#adab371fea88c2e8b4d14514fcbb137e3" />
-      <keyword name="RsibBus" id="RsaToolbox::RsibBus::RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a00496bd19d2d08358d65eb4a08c25004" />
-      <keyword name="RsibBus" id="RsaToolbox::RsibBus::RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a0d573a040d981a0c3c95d20b96c6d2dd" />
-      <keyword name="~RsibBus" id="RsaToolbox::RsibBus::~RsibBus" ref="class_rsa_toolbox_1_1_rsib_bus.html#a7f9a1530ba625fd1de2d5c5da50f3663" />
-      <keyword name="isOpen" id="RsaToolbox::RsibBus::isOpen" ref="class_rsa_toolbox_1_1_rsib_bus.html#a3c7351cec1380d07f9e4b3ec96b2b1ff" />
-      <keyword name="setTimeout" id="RsaToolbox::RsibBus::setTimeout" ref="class_rsa_toolbox_1_1_rsib_bus.html#a64f8674ed2fc1bf521b82b2c0523d310" />
-      <keyword name="GenericBus" id="RsaToolbox::GenericBus::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#a5c8dec89cd333703cf8914c235f24314" />
-      <keyword name="GenericBus" id="RsaToolbox::GenericBus::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#ae2b3105bf30de66a056944716c3a2000" />
-      <keyword name="isClosed" id="RsaToolbox::GenericBus::isClosed" ref="class_rsa_toolbox_1_1_generic_bus.html#aede4b7e16e8732d29bb13b8fe77573b7" />
-      <keyword name="connectionType" id="RsaToolbox::GenericBus::connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#aff14cbd4ea9a7272a2965f735773c21f" />
-      <keyword name="address" id="RsaToolbox::GenericBus::address" ref="class_rsa_toolbox_1_1_generic_bus.html#a45ed6612500c0973f68b103afb02e9b5" />
-      <keyword name="bufferSize_B" id="RsaToolbox::GenericBus::bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#a47e59c061aa54605deba2afffb9a1509" />
-      <keyword name="setBufferSize" id="RsaToolbox::GenericBus::setBufferSize" ref="class_rsa_toolbox_1_1_generic_bus.html#a94a8164de71f998b98da536ece6f6c39" />
-      <keyword name="timeout_ms" id="RsaToolbox::GenericBus::timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a65900048d44bd8e765de52ea5b22b074" />
-      <keyword name="read" id="RsaToolbox::GenericBus::read" ref="class_rsa_toolbox_1_1_generic_bus.html#a71e5fd121c106817d7b2572ed71d321b" />
-      <keyword name="read" id="RsaToolbox::GenericBus::read" ref="class_rsa_toolbox_1_1_generic_bus.html#a5e5005e2f7a438e19865ebc36ceaf6d5" />
-      <keyword name="write" id="RsaToolbox::GenericBus::write" ref="class_rsa_toolbox_1_1_generic_bus.html#a5201888c1fe2bad80795fa04db2b59e4" />
-      <keyword name="query" id="RsaToolbox::GenericBus::query" ref="class_rsa_toolbox_1_1_generic_bus.html#ad4a1fd0b3aed02610fe755ab99368d7f" />
-      <keyword name="binaryRead" id="RsaToolbox::GenericBus::binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#a0c5e75f5a0c689d0fbb8c41623e90d91" />
-      <keyword name="binaryRead" id="RsaToolbox::GenericBus::binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#ae13a211dade1f3df58ed6e5f00a7be1a" />
-      <keyword name="binaryWrite" id="RsaToolbox::GenericBus::binaryWrite" ref="class_rsa_toolbox_1_1_generic_bus.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
-      <keyword name="binaryQuery" id="RsaToolbox::GenericBus::binaryQuery" ref="class_rsa_toolbox_1_1_generic_bus.html#a4fd7dc0b8f616f16632ef15fd9cfd986" />
-      <keyword name="_read" id="RsaToolbox::RsibBus::_read" ref="class_rsa_toolbox_1_1_rsib_bus.html#ac91a11aa027b98dbb294a7450a41998b" />
-      <keyword name="_write" id="RsaToolbox::RsibBus::_write" ref="class_rsa_toolbox_1_1_rsib_bus.html#a2dbf98a161012f4de9bd4f5ac988bb68" />
-      <keyword name="_binaryRead" id="RsaToolbox::RsibBus::_binaryRead" ref="class_rsa_toolbox_1_1_rsib_bus.html#af1ea84c6920ca23eadf907885511d3aa" />
-      <keyword name="_binaryWrite" id="RsaToolbox::RsibBus::_binaryWrite" ref="class_rsa_toolbox_1_1_rsib_bus.html#a59cb83b7cd82a8afe1dbdedf26bfdd89" />
-      <keyword name="error" id="RsaToolbox::GenericBus::error" ref="class_rsa_toolbox_1_1_generic_bus.html#a11ed5d61ec9f8745ef23bf7a4bab4136" />
-      <keyword name="print" id="RsaToolbox::GenericBus::print" ref="class_rsa_toolbox_1_1_generic_bus.html#a2ab94e7fed40714949685d516bc50ff5" />
-      <keyword name="_connectionType" id="RsaToolbox::GenericBus::_connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#ab56073dcf5f6af1685778e06d64bc893" />
-      <keyword name="_address" id="RsaToolbox::GenericBus::_address" ref="class_rsa_toolbox_1_1_generic_bus.html#a93022a36d845ee4a72d1c4c73ecc33f6" />
-      <keyword name="_bufferSize_B" id="RsaToolbox::GenericBus::_bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#ab4247e4664aad376a5eacffcd3250c81" />
-      <keyword name="_timeout_ms" id="RsaToolbox::GenericBus::_timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a86a1e0018232f5b4b499e070813333ec" />
-      <keyword name="_buffer" id="RsaToolbox::GenericBus::_buffer" ref="class_rsa_toolbox_1_1_generic_bus.html#afd8a599827f7ef3e2c61f4d709361578" />
       <keyword name="RsaToolbox::SnpStreamReader" id="RsaToolbox::SnpStreamReader" ref="class_rsa_toolbox_1_1_snp_stream_reader.html" />
       <keyword name="SnpStreamReader" id="RsaToolbox::SnpStreamReader::SnpStreamReader" ref="class_rsa_toolbox_1_1_snp_stream_reader.html#a574e28260ad4f43b62ea759151d59c30" />
       <keyword name="setFilename" id="RsaToolbox::SnpStreamReader::setFilename" ref="class_rsa_toolbox_1_1_snp_stream_reader.html#ac1427daa2c0b008e34996baf542e3ef4" />
@@ -4495,50 +4443,85 @@
       <keyword name="Read" id="RsaToolbox::Touchstone::Read" ref="class_rsa_toolbox_1_1_touchstone.html#a99e50d32edc83325828f93466a731e32" />
       <keyword name="Write" id="RsaToolbox::Touchstone::Write" ref="class_rsa_toolbox_1_1_touchstone.html#a6143cc2562bf17edc99f4f5a3be8d4d4" />
       <keyword name="Write" id="RsaToolbox::Touchstone::Write" ref="class_rsa_toolbox_1_1_touchstone.html#a75ea7e0ce229b6317a1970a0de3e83ef" />
-      <keyword name="RsaToolbox::VisaBus" id="RsaToolbox::VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html" />
-      <keyword name="lock" id="RsaToolbox::VisaBus::lock" ref="class_rsa_toolbox_1_1_visa_bus.html#abde223cb8968835b7f8f060e505facc2" />
-      <keyword name="unlock" id="RsaToolbox::VisaBus::unlock" ref="class_rsa_toolbox_1_1_visa_bus.html#ae399421ee39cae4df5ea44bd21e31254" />
-      <keyword name="local" id="RsaToolbox::VisaBus::local" ref="class_rsa_toolbox_1_1_visa_bus.html#ae4642a972205ef378bb3a1550a8418d8" />
-      <keyword name="remote" id="RsaToolbox::VisaBus::remote" ref="class_rsa_toolbox_1_1_visa_bus.html#a6f0890ff36c5a5fb58cdaca77e3f15f9" />
-      <keyword name="printStatus" id="RsaToolbox::VisaBus::printStatus" ref="class_rsa_toolbox_1_1_visa_bus.html#a30d7b394b3d6932f045f69a7980fa888" />
-      <keyword name="lock" id="RsaToolbox::GenericBus::lock" ref="class_rsa_toolbox_1_1_generic_bus.html#a51cc700e46d567a32975bd705b311264" />
-      <keyword name="unlock" id="RsaToolbox::GenericBus::unlock" ref="class_rsa_toolbox_1_1_generic_bus.html#acee63855a5fae0b11df91151e9aa768b" />
-      <keyword name="local" id="RsaToolbox::GenericBus::local" ref="class_rsa_toolbox_1_1_generic_bus.html#a7a439487a63a07cb287eb8a8ba65f477" />
-      <keyword name="remote" id="RsaToolbox::GenericBus::remote" ref="class_rsa_toolbox_1_1_generic_bus.html#ad3ffbe90d43b7616140ef0e965f92c4c" />
-      <keyword name="printStatus" id="RsaToolbox::GenericBus::printStatus" ref="class_rsa_toolbox_1_1_generic_bus.html#adab371fea88c2e8b4d14514fcbb137e3" />
-      <keyword name="VisaBus" id="RsaToolbox::VisaBus::VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html#ae8408f4c9e12945eb7e3c257d9f1c3af" />
-      <keyword name="VisaBus" id="RsaToolbox::VisaBus::VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html#ad5deae57f1e8ab91bf43fe9fc8705f80" />
-      <keyword name="~VisaBus" id="RsaToolbox::VisaBus::~VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html#af118a288752ad112061fac28c1d029cd" />
-      <keyword name="isOpen" id="RsaToolbox::VisaBus::isOpen" ref="class_rsa_toolbox_1_1_visa_bus.html#a3c7351cec1380d07f9e4b3ec96b2b1ff" />
-      <keyword name="setTimeout" id="RsaToolbox::VisaBus::setTimeout" ref="class_rsa_toolbox_1_1_visa_bus.html#a64f8674ed2fc1bf521b82b2c0523d310" />
-      <keyword name="GenericBus" id="RsaToolbox::GenericBus::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#a5c8dec89cd333703cf8914c235f24314" />
-      <keyword name="GenericBus" id="RsaToolbox::GenericBus::GenericBus" ref="class_rsa_toolbox_1_1_generic_bus.html#ae2b3105bf30de66a056944716c3a2000" />
-      <keyword name="isClosed" id="RsaToolbox::GenericBus::isClosed" ref="class_rsa_toolbox_1_1_generic_bus.html#aede4b7e16e8732d29bb13b8fe77573b7" />
-      <keyword name="connectionType" id="RsaToolbox::GenericBus::connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#aff14cbd4ea9a7272a2965f735773c21f" />
-      <keyword name="address" id="RsaToolbox::GenericBus::address" ref="class_rsa_toolbox_1_1_generic_bus.html#a45ed6612500c0973f68b103afb02e9b5" />
-      <keyword name="bufferSize_B" id="RsaToolbox::GenericBus::bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#a47e59c061aa54605deba2afffb9a1509" />
-      <keyword name="setBufferSize" id="RsaToolbox::GenericBus::setBufferSize" ref="class_rsa_toolbox_1_1_generic_bus.html#a94a8164de71f998b98da536ece6f6c39" />
-      <keyword name="timeout_ms" id="RsaToolbox::GenericBus::timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a65900048d44bd8e765de52ea5b22b074" />
-      <keyword name="read" id="RsaToolbox::GenericBus::read" ref="class_rsa_toolbox_1_1_generic_bus.html#a71e5fd121c106817d7b2572ed71d321b" />
-      <keyword name="read" id="RsaToolbox::GenericBus::read" ref="class_rsa_toolbox_1_1_generic_bus.html#a5e5005e2f7a438e19865ebc36ceaf6d5" />
-      <keyword name="write" id="RsaToolbox::GenericBus::write" ref="class_rsa_toolbox_1_1_generic_bus.html#a5201888c1fe2bad80795fa04db2b59e4" />
-      <keyword name="query" id="RsaToolbox::GenericBus::query" ref="class_rsa_toolbox_1_1_generic_bus.html#ad4a1fd0b3aed02610fe755ab99368d7f" />
-      <keyword name="binaryRead" id="RsaToolbox::GenericBus::binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#a0c5e75f5a0c689d0fbb8c41623e90d91" />
-      <keyword name="binaryRead" id="RsaToolbox::GenericBus::binaryRead" ref="class_rsa_toolbox_1_1_generic_bus.html#ae13a211dade1f3df58ed6e5f00a7be1a" />
-      <keyword name="binaryWrite" id="RsaToolbox::GenericBus::binaryWrite" ref="class_rsa_toolbox_1_1_generic_bus.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
-      <keyword name="binaryQuery" id="RsaToolbox::GenericBus::binaryQuery" ref="class_rsa_toolbox_1_1_generic_bus.html#a4fd7dc0b8f616f16632ef15fd9cfd986" />
-      <keyword name="isVisaPresent" id="RsaToolbox::VisaBus::isVisaPresent" ref="class_rsa_toolbox_1_1_visa_bus.html#aa1016fa7162d3893d90f4e6d03ee622f" />
-      <keyword name="_read" id="RsaToolbox::VisaBus::_read" ref="class_rsa_toolbox_1_1_visa_bus.html#ac91a11aa027b98dbb294a7450a41998b" />
-      <keyword name="_write" id="RsaToolbox::VisaBus::_write" ref="class_rsa_toolbox_1_1_visa_bus.html#a2dbf98a161012f4de9bd4f5ac988bb68" />
-      <keyword name="_binaryRead" id="RsaToolbox::VisaBus::_binaryRead" ref="class_rsa_toolbox_1_1_visa_bus.html#af1ea84c6920ca23eadf907885511d3aa" />
-      <keyword name="_binaryWrite" id="RsaToolbox::VisaBus::_binaryWrite" ref="class_rsa_toolbox_1_1_visa_bus.html#a59cb83b7cd82a8afe1dbdedf26bfdd89" />
-      <keyword name="error" id="RsaToolbox::GenericBus::error" ref="class_rsa_toolbox_1_1_generic_bus.html#a11ed5d61ec9f8745ef23bf7a4bab4136" />
-      <keyword name="print" id="RsaToolbox::GenericBus::print" ref="class_rsa_toolbox_1_1_generic_bus.html#a2ab94e7fed40714949685d516bc50ff5" />
-      <keyword name="_connectionType" id="RsaToolbox::GenericBus::_connectionType" ref="class_rsa_toolbox_1_1_generic_bus.html#ab56073dcf5f6af1685778e06d64bc893" />
-      <keyword name="_address" id="RsaToolbox::GenericBus::_address" ref="class_rsa_toolbox_1_1_generic_bus.html#a93022a36d845ee4a72d1c4c73ecc33f6" />
-      <keyword name="_bufferSize_B" id="RsaToolbox::GenericBus::_bufferSize_B" ref="class_rsa_toolbox_1_1_generic_bus.html#ab4247e4664aad376a5eacffcd3250c81" />
-      <keyword name="_timeout_ms" id="RsaToolbox::GenericBus::_timeout_ms" ref="class_rsa_toolbox_1_1_generic_bus.html#a86a1e0018232f5b4b499e070813333ec" />
-      <keyword name="_buffer" id="RsaToolbox::GenericBus::_buffer" ref="class_rsa_toolbox_1_1_generic_bus.html#afd8a599827f7ef3e2c61f4d709361578" />
+      <keyword name="RsaToolbox::GenericInstrument" id="RsaToolbox::GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html" />
+      <keyword name="lock" id="RsaToolbox::GenericInstrument::lock" ref="class_rsa_toolbox_1_1_generic_instrument.html#abde223cb8968835b7f8f060e505facc2" />
+      <keyword name="unlock" id="RsaToolbox::GenericInstrument::unlock" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae399421ee39cae4df5ea44bd21e31254" />
+      <keyword name="local" id="RsaToolbox::GenericInstrument::local" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae4642a972205ef378bb3a1550a8418d8" />
+      <keyword name="remote" id="RsaToolbox::GenericInstrument::remote" ref="class_rsa_toolbox_1_1_generic_instrument.html#a6f0890ff36c5a5fb58cdaca77e3f15f9" />
+      <keyword name="preset" id="RsaToolbox::GenericInstrument::preset" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae1f5fa51408b7ea44b4a8cc980693b1b" />
+      <keyword name="clearStatus" id="RsaToolbox::GenericInstrument::clearStatus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a904a80a9a54910609e8c76caa913159e" />
+      <keyword name="busError" id="RsaToolbox::GenericInstrument::busError" ref="class_rsa_toolbox_1_1_generic_instrument.html#a542c3f4d09b418e2a9bccd73d00e1ba3" />
+      <keyword name="connected" id="RsaToolbox::GenericInstrument::connected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5311a75dc2e16ac36238d0abcc02e7b4" />
+      <keyword name="disconnected" id="RsaToolbox::GenericInstrument::disconnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2f1c33b2c7f009b786fa5799313c59ec" />
+      <keyword name="GenericInstrument" id="RsaToolbox::GenericInstrument::GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html#a83b74205cd1cba0e321f9a4c00e4ef08" />
+      <keyword name="GenericInstrument" id="RsaToolbox::GenericInstrument::GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html#a34a5ed84dc044bc5e33a330e033d1cd1" />
+      <keyword name="GenericInstrument" id="RsaToolbox::GenericInstrument::GenericInstrument" ref="class_rsa_toolbox_1_1_generic_instrument.html#aa20f4d8867c2994c1d682c0fec13042c" />
+      <keyword name="connectionType" id="RsaToolbox::GenericInstrument::connectionType" ref="class_rsa_toolbox_1_1_generic_instrument.html#aff14cbd4ea9a7272a2965f735773c21f" />
+      <keyword name="address" id="RsaToolbox::GenericInstrument::address" ref="class_rsa_toolbox_1_1_generic_instrument.html#a45ed6612500c0973f68b103afb02e9b5" />
+      <keyword name="isConnected" id="RsaToolbox::GenericInstrument::isConnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a180fa55a4bf36580963bed9e3e09c227" />
+      <keyword name="isDisconnected" id="RsaToolbox::GenericInstrument::isDisconnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a370be337417c7101d85ca7a67ef21fbb" />
+      <keyword name="isLogOpen" id="RsaToolbox::GenericInstrument::isLogOpen" ref="class_rsa_toolbox_1_1_generic_instrument.html#a4f303390e6468b0d372148aeb633ee60" />
+      <keyword name="isLogConnected" id="RsaToolbox::GenericInstrument::isLogConnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5245f03cb1a20a6d8e4f597548ba39da" />
+      <keyword name="isLogDisconnected" id="RsaToolbox::GenericInstrument::isLogDisconnected" ref="class_rsa_toolbox_1_1_generic_instrument.html#a814dd83a4d865ad04d7e8d9290830e11" />
+      <keyword name="isRohdeSchwarz" id="RsaToolbox::GenericInstrument::isRohdeSchwarz" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5208c42f7becd9a076b17c288c0700f9" />
+      <keyword name="idString" id="RsaToolbox::GenericInstrument::idString" ref="class_rsa_toolbox_1_1_generic_instrument.html#a9d5cd7c546877d3571965055fe5135ab" />
+      <keyword name="optionsString" id="RsaToolbox::GenericInstrument::optionsString" ref="class_rsa_toolbox_1_1_generic_instrument.html#abd432a2a6aed6d74b9563d965d9e5a01" />
+      <keyword name="log" id="RsaToolbox::GenericInstrument::log" ref="class_rsa_toolbox_1_1_generic_instrument.html#a771abc4a471f6d3dc48ba2e3e9905c33" />
+      <keyword name="useLog" id="RsaToolbox::GenericInstrument::useLog" ref="class_rsa_toolbox_1_1_generic_instrument.html#ab3a9f1bec710e3bdc3e65e4e555b6a70" />
+      <keyword name="disconnectLog" id="RsaToolbox::GenericInstrument::disconnectLog" ref="class_rsa_toolbox_1_1_generic_instrument.html#a20c5b46b1404c1aa9d431080a55bdf70" />
+      <keyword name="print" id="RsaToolbox::GenericInstrument::print" ref="class_rsa_toolbox_1_1_generic_instrument.html#a9fcecd48b86862430fa0a6f25c9ba139" />
+      <keyword name="printLine" id="RsaToolbox::GenericInstrument::printLine" ref="class_rsa_toolbox_1_1_generic_instrument.html#a84aed46379d2dc33df360025cb2d15b4" />
+      <keyword name="printInfo" id="RsaToolbox::GenericInstrument::printInfo" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2dbaf5580b5305d54cff6848ae7deb30" />
+      <keyword name="printInfo" id="RsaToolbox::GenericInstrument::printInfo" ref="class_rsa_toolbox_1_1_generic_instrument.html#ada409285acc32db14ccc3e8e99beb740" />
+      <keyword name="takeBus" id="RsaToolbox::GenericInstrument::takeBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a6dedb1983f0f3bdafb0b0550cdb13371" />
+      <keyword name="resetBus" id="RsaToolbox::GenericInstrument::resetBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a6978c084f6d48b500720cac6116a3838" />
+      <keyword name="resetBus" id="RsaToolbox::GenericInstrument::resetBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae02f700c85df5209413c4ce67ac32960" />
+      <keyword name="resetBus" id="RsaToolbox::GenericInstrument::resetBus" ref="class_rsa_toolbox_1_1_generic_instrument.html#a1f62a637904b8ef7e00750be9b58229a" />
+      <keyword name="read" id="RsaToolbox::GenericInstrument::read" ref="class_rsa_toolbox_1_1_generic_instrument.html#a4cac74fe8f5d8ba90799cc152760b866" />
+      <keyword name="read" id="RsaToolbox::GenericInstrument::read" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2e4527a118e4231171c58bf72811b159" />
+      <keyword name="write" id="RsaToolbox::GenericInstrument::write" ref="class_rsa_toolbox_1_1_generic_instrument.html#a5201888c1fe2bad80795fa04db2b59e4" />
+      <keyword name="query" id="RsaToolbox::GenericInstrument::query" ref="class_rsa_toolbox_1_1_generic_instrument.html#afbbe93ca7111ba0a8382ad95c49247bd" />
+      <keyword name="binaryRead" id="RsaToolbox::GenericInstrument::binaryRead" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2a401286ede0b89d0119398fd5569619" />
+      <keyword name="binaryRead" id="RsaToolbox::GenericInstrument::binaryRead" ref="class_rsa_toolbox_1_1_generic_instrument.html#aeb8915dfcd848eef04a69cef41ebcb43" />
+      <keyword name="binaryWrite" id="RsaToolbox::GenericInstrument::binaryWrite" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
+      <keyword name="binaryQuery" id="RsaToolbox::GenericInstrument::binaryQuery" ref="class_rsa_toolbox_1_1_generic_instrument.html#a8bd7dd60c803759cf0ad29894f46bb68" />
+      <keyword name="wait" id="RsaToolbox::GenericInstrument::wait" ref="class_rsa_toolbox_1_1_generic_instrument.html#aa3b21853f890838c88d047d6c2786917" />
+      <keyword name="pause" id="RsaToolbox::GenericInstrument::pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7167f5c196fc5e167bfabde1a730e81d" />
+      <keyword name="initializePolling" id="RsaToolbox::GenericInstrument::initializePolling" ref="class_rsa_toolbox_1_1_generic_instrument.html#a694167390c3e8d1acb16c86d026fabb9" />
+      <keyword name="isOperationComplete" id="RsaToolbox::GenericInstrument::isOperationComplete" ref="class_rsa_toolbox_1_1_generic_instrument.html#acb2283a6cb20418383f3f512caf30550" />
+      <keyword name="RsaToolbox::Rsc" id="RsaToolbox::Rsc" ref="class_rsa_toolbox_1_1_rsc.html" />
+      <keyword name="EnableCorrection" id="RsaToolbox::Rsc::EnableCorrection" ref="class_rsa_toolbox_1_1_rsc.html#a32b541b19cb3f614a39716408c6abdaa" />
+      <keyword name="DisableCorrection" id="RsaToolbox::Rsc::DisableCorrection" ref="class_rsa_toolbox_1_1_rsc.html#ad7d59a14cf618433b96e9d54f9b968e5" />
+      <keyword name="SetUnitIndex" id="RsaToolbox::Rsc::SetUnitIndex" ref="class_rsa_toolbox_1_1_rsc.html#a811b808c21f34c8c3e86e3d8487885a2" />
+      <keyword name="SetAttenuation" id="RsaToolbox::Rsc::SetAttenuation" ref="class_rsa_toolbox_1_1_rsc.html#a035c88101795af6b66181163ed348679" />
+      <keyword name="SetUserCalibrationState" id="RsaToolbox::Rsc::SetUserCalibrationState" ref="class_rsa_toolbox_1_1_rsc.html#a6512a6ccaad4b28dbb3603c6b0078b84" />
+      <keyword name="LoadUserCalibrationFile" id="RsaToolbox::Rsc::LoadUserCalibrationFile" ref="class_rsa_toolbox_1_1_rsc.html#a5ddb10856cdae9f7f6e51b4baf2054aa" />
+      <keyword name="Print" id="RsaToolbox::Rsc::Print" ref="class_rsa_toolbox_1_1_rsc.html#ad31850e998eb495e68b827080280bded" />
+      <keyword name="Rsc" id="RsaToolbox::Rsc::Rsc" ref="class_rsa_toolbox_1_1_rsc.html#abfadd8abef686f79c61f9390bbaefe46" />
+      <keyword name="Rsc" id="RsaToolbox::Rsc::Rsc" ref="class_rsa_toolbox_1_1_rsc.html#afbbbc232d8d0db0c238a2ceaca171dc3" />
+      <keyword name="~Rsc" id="RsaToolbox::Rsc::~Rsc" ref="class_rsa_toolbox_1_1_rsc.html#ad508f97dd7bfc25e55964449ff0698ba" />
+      <keyword name="ConnectLog" id="RsaToolbox::Rsc::ConnectLog" ref="class_rsa_toolbox_1_1_rsc.html#a3eacd52cdda57615f4f697485641c1c8" />
+      <keyword name="DisconnectLog" id="RsaToolbox::Rsc::DisconnectLog" ref="class_rsa_toolbox_1_1_rsc.html#aef11d5075fbd15c59f62aa5e61f3ba3e" />
+      <keyword name="GetIdString" id="RsaToolbox::Rsc::GetIdString" ref="class_rsa_toolbox_1_1_rsc.html#aeb31884dad38db6d2055ac78afd8a739" />
+      <keyword name="GetModel" id="RsaToolbox::Rsc::GetModel" ref="class_rsa_toolbox_1_1_rsc.html#a76919e9866cadf6d780c0f1496f6f5ad" />
+      <keyword name="GetSerialNumber" id="RsaToolbox::Rsc::GetSerialNumber" ref="class_rsa_toolbox_1_1_rsc.html#ae8f336ac286184151e80cc069d78a3c4" />
+      <keyword name="GetFirmwareVersion" id="RsaToolbox::Rsc::GetFirmwareVersion" ref="class_rsa_toolbox_1_1_rsc.html#a017e6af5b01236c4e455d09a364294e9" />
+      <keyword name="isConnected" id="RsaToolbox::Rsc::isConnected" ref="class_rsa_toolbox_1_1_rsc.html#a772f8f0487e0d3804e9da7585e23a29a" />
+      <keyword name="isOperationComplete" id="RsaToolbox::Rsc::isOperationComplete" ref="class_rsa_toolbox_1_1_rsc.html#acb2283a6cb20418383f3f512caf30550" />
+      <keyword name="isError" id="RsaToolbox::Rsc::isError" ref="class_rsa_toolbox_1_1_rsc.html#af0c21ff963e9cdf07e3f0412f38de4e4" />
+      <keyword name="isCorrectionEnabled" id="RsaToolbox::Rsc::isCorrectionEnabled" ref="class_rsa_toolbox_1_1_rsc.html#aeedf29c86fcf70a77c868424be2069dd" />
+      <keyword name="isCorrectionDisabled" id="RsaToolbox::Rsc::isCorrectionDisabled" ref="class_rsa_toolbox_1_1_rsc.html#a86ac23c66979e541a1b063aad51f6fd9" />
+      <keyword name="isBaseUnit" id="RsaToolbox::Rsc::isBaseUnit" ref="class_rsa_toolbox_1_1_rsc.html#a2b41ec391f85fa5a43924b8404228b9e" />
+      <keyword name="ClearErrors" id="RsaToolbox::Rsc::ClearErrors" ref="class_rsa_toolbox_1_1_rsc.html#a9973f377b3ae387fc9c0ca2f127938ba" />
+      <keyword name="GetAvailableUnits" id="RsaToolbox::Rsc::GetAvailableUnits" ref="class_rsa_toolbox_1_1_rsc.html#a6b92e6eb7a4e48ce7c631bbe92fcd303" />
+      <keyword name="GetUnitIndex" id="RsaToolbox::Rsc::GetUnitIndex" ref="class_rsa_toolbox_1_1_rsc.html#a9ff6095343efe46bb555aab8c8a8aeed" />
+      <keyword name="GetAttenuation_dB" id="RsaToolbox::Rsc::GetAttenuation_dB" ref="class_rsa_toolbox_1_1_rsc.html#a10d8e37f144f84eab670388ea8a71459" />
+      <keyword name="GetUserCalibrationState" id="RsaToolbox::Rsc::GetUserCalibrationState" ref="class_rsa_toolbox_1_1_rsc.html#ab0b2b75852c981f0508240748075aaa2" />
+      <keyword name="GetMinimumFrequency_Hz" id="RsaToolbox::Rsc::GetMinimumFrequency_Hz" ref="class_rsa_toolbox_1_1_rsc.html#a63398b5425d20dc765340bba434866b9" />
+      <keyword name="GetMaximumFrequency_Hz" id="RsaToolbox::Rsc::GetMaximumFrequency_Hz" ref="class_rsa_toolbox_1_1_rsc.html#af09115e81c275a8419c68b8f49c89397" />
+      <keyword name="GetMaximumPower_dBm" id="RsaToolbox::Rsc::GetMaximumPower_dBm" ref="class_rsa_toolbox_1_1_rsc.html#a036579d578d7ee0021c6fdfcfd19fee7" />
+      <keyword name="GetMaximumAttenuation_dB" id="RsaToolbox::Rsc::GetMaximumAttenuation_dB" ref="class_rsa_toolbox_1_1_rsc.html#ae7318a20db7284abee0a07efc81a08b0" />
+      <keyword name="GetStepSize_dB" id="RsaToolbox::Rsc::GetStepSize_dB" ref="class_rsa_toolbox_1_1_rsc.html#a20067873c59c1a63ffeca7ac73299f54" />
       <keyword name="RsaToolbox::Vna" id="RsaToolbox::Vna" ref="class_rsa_toolbox_1_1_vna.html" />
       <keyword name="Vna" id="RsaToolbox::Vna::Vna" ref="class_rsa_toolbox_1_1_vna.html#ae35ba6409591fefaa4bd01724d592a33" />
       <keyword name="Vna" id="RsaToolbox::Vna::Vna" ref="class_rsa_toolbox_1_1_vna.html#abf2c50ec714bcf258b2cc7ca680de035" />
@@ -5479,6 +5462,23 @@
       <keyword name="measure" id="RsaToolbox::VnaUserDefinedPort::measure" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a07e465653e698b92a9de11d4b49d3124" />
       <keyword name="setMeasure" id="RsaToolbox::VnaUserDefinedPort::setMeasure" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a8bb22d858c307df950af6e5233e01944" />
       <keyword name="operator=" id="RsaToolbox::VnaUserDefinedPort::operator=" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#adf0669f39b18585724caa794a289af5e" />
+      <keyword name="RsaToolbox::Log" id="RsaToolbox::Log" ref="class_rsa_toolbox_1_1_log.html" />
+      <keyword name="open" id="RsaToolbox::Log::open" ref="class_rsa_toolbox_1_1_log.html#a9e8555112049fc2b4945120b3c45f8ab" />
+      <keyword name="close" id="RsaToolbox::Log::close" ref="class_rsa_toolbox_1_1_log.html#a5ae591df94fc66ccb85cbb6565368bca" />
+      <keyword name="rename" id="RsaToolbox::Log::rename" ref="class_rsa_toolbox_1_1_log.html#ad43c27ec3647ad13f65cbc0f9b04f868" />
+      <keyword name="printApplicationHeader" id="RsaToolbox::Log::printApplicationHeader" ref="class_rsa_toolbox_1_1_log.html#a78c1c1b3c18cc6f666d4d791cfe9a4cf" />
+      <keyword name="print" id="RsaToolbox::Log::print" ref="class_rsa_toolbox_1_1_log.html#a9fcecd48b86862430fa0a6f25c9ba139" />
+      <keyword name="printLine" id="RsaToolbox::Log::printLine" ref="class_rsa_toolbox_1_1_log.html#a52970f561919ea7fec0235179a1f11f9" />
+      <keyword name="closed" id="RsaToolbox::Log::closed" ref="class_rsa_toolbox_1_1_log.html#accc6ef63b2d443dadba71ae080397c0c" />
+      <keyword name="opened" id="RsaToolbox::Log::opened" ref="class_rsa_toolbox_1_1_log.html#a0fb61747d3f8a3fdc9e593cdc23b0f85" />
+      <keyword name="renamed" id="RsaToolbox::Log::renamed" ref="class_rsa_toolbox_1_1_log.html#a71cf13198ebe06945acd7f2073d5880e" />
+      <keyword name="Log" id="RsaToolbox::Log::Log" ref="class_rsa_toolbox_1_1_log.html#aadbf333826e76693b3326fa60bc803ad" />
+      <keyword name="Log" id="RsaToolbox::Log::Log" ref="class_rsa_toolbox_1_1_log.html#ae5cf0e7d024b0b070fb3bd386f526018" />
+      <keyword name="~Log" id="RsaToolbox::Log::~Log" ref="class_rsa_toolbox_1_1_log.html#a4fc4fd3dcde9bf8ba8195c0983fbe21b" />
+      <keyword name="isOpen" id="RsaToolbox::Log::isOpen" ref="class_rsa_toolbox_1_1_log.html#a7a8f153459b77aaa1c4486a9f378927b" />
+      <keyword name="isClosed" id="RsaToolbox::Log::isClosed" ref="class_rsa_toolbox_1_1_log.html#a995cd45aacf946ca210491d12ed4a0c0" />
+      <keyword name="reset" id="RsaToolbox::Log::reset" ref="class_rsa_toolbox_1_1_log.html#a1de8621bff09767dbcf4a08b4f13b590" />
+      <keyword name="operator&lt;&lt;" id="RsaToolbox::Log::operator&lt;&lt;" ref="class_rsa_toolbox_1_1_log.html#a84e5e02749f37aa0f05ef64ea3b8bb93" />
     </keywords>
     <files>
       <file>tabs.css</file>
@@ -5500,6 +5500,9 @@
       <file>ftv2doc.png</file>
       <file>ftv2folderclosed.png</file>
       <file>ftv2folderopen.png</file>
+      <file>ftv2ns.png</file>
+      <file>ftv2mo.png</file>
+      <file>ftv2cl.png</file>
       <file>ftv2lastnode.png</file>
       <file>ftv2link.png</file>
       <file>ftv2mlastnode.png</file>
@@ -5671,44 +5674,41 @@
       <file>group___vna_group.html</file>
       <file>group___log_group.html</file>
       <file>namespace_rsa_toolbox.html</file>
+      <file>class_rsa_toolbox_1_1_generic_bus.html</file>
+      <file>class_rsa_toolbox_1_1_generic_bus.png</file>
+      <file>class_rsa_toolbox_1_1_generic_bus-members.html</file>
+      <file>class_rsa_toolbox_1_1_rsib_bus.html</file>
+      <file>class_rsa_toolbox_1_1_rsib_bus.png</file>
+      <file>class_rsa_toolbox_1_1_rsib_bus-members.html</file>
+      <file>class_rsa_toolbox_1_1_visa_bus.html</file>
+      <file>class_rsa_toolbox_1_1_visa_bus.png</file>
+      <file>class_rsa_toolbox_1_1_visa_bus-members.html</file>
       <file>class_rsa_toolbox_1_1_balanced_port.html</file>
       <file>class_rsa_toolbox_1_1_balanced_port-members.html</file>
       <file>class_rsa_toolbox_1_1_connector.html</file>
       <file>class_rsa_toolbox_1_1_connector-members.html</file>
-      <file>class_rsa_toolbox_1_1_generic_bus.html</file>
-      <file>class_rsa_toolbox_1_1_generic_bus.png</file>
-      <file>class_rsa_toolbox_1_1_generic_bus-members.html</file>
-      <file>class_rsa_toolbox_1_1_generic_instrument.html</file>
-      <file>class_rsa_toolbox_1_1_generic_instrument.png</file>
-      <file>class_rsa_toolbox_1_1_generic_instrument-members.html</file>
       <file>class_rsa_toolbox_1_1_index_name.html</file>
       <file>class_rsa_toolbox_1_1_index_name-members.html</file>
       <file>class_rsa_toolbox_1_1_key.html</file>
       <file>class_rsa_toolbox_1_1_key-members.html</file>
-      <file>class_rsa_toolbox_1_1_log.html</file>
-      <file>class_rsa_toolbox_1_1_log.png</file>
-      <file>class_rsa_toolbox_1_1_log-members.html</file>
       <file>class_rsa_toolbox_1_1_name_label.html</file>
       <file>class_rsa_toolbox_1_1_name_label-members.html</file>
       <file>class_rsa_toolbox_1_1_network_data.html</file>
       <file>class_rsa_toolbox_1_1_network_data-members.html</file>
       <file>class_rsa_toolbox_1_1_network_trace_data.html</file>
       <file>class_rsa_toolbox_1_1_network_trace_data-members.html</file>
-      <file>class_rsa_toolbox_1_1_rsc.html</file>
-      <file>class_rsa_toolbox_1_1_rsc.png</file>
-      <file>class_rsa_toolbox_1_1_rsc-members.html</file>
-      <file>class_rsa_toolbox_1_1_rsib_bus.html</file>
-      <file>class_rsa_toolbox_1_1_rsib_bus.png</file>
-      <file>class_rsa_toolbox_1_1_rsib_bus-members.html</file>
       <file>class_rsa_toolbox_1_1_snp_stream_reader.html</file>
       <file>class_rsa_toolbox_1_1_snp_stream_reader-members.html</file>
       <file>class_rsa_toolbox_1_1_snp_stream_writer.html</file>
       <file>class_rsa_toolbox_1_1_snp_stream_writer-members.html</file>
       <file>class_rsa_toolbox_1_1_touchstone.html</file>
       <file>class_rsa_toolbox_1_1_touchstone-members.html</file>
-      <file>class_rsa_toolbox_1_1_visa_bus.html</file>
-      <file>class_rsa_toolbox_1_1_visa_bus.png</file>
-      <file>class_rsa_toolbox_1_1_visa_bus-members.html</file>
+      <file>class_rsa_toolbox_1_1_generic_instrument.html</file>
+      <file>class_rsa_toolbox_1_1_generic_instrument.png</file>
+      <file>class_rsa_toolbox_1_1_generic_instrument-members.html</file>
+      <file>class_rsa_toolbox_1_1_rsc.html</file>
+      <file>class_rsa_toolbox_1_1_rsc.png</file>
+      <file>class_rsa_toolbox_1_1_rsc-members.html</file>
       <file>class_rsa_toolbox_1_1_vna.html</file>
       <file>class_rsa_toolbox_1_1_vna.png</file>
       <file>class_rsa_toolbox_1_1_vna-members.html</file>
@@ -5790,6 +5790,9 @@
       <file>class_rsa_toolbox_1_1_vna_trace-members.html</file>
       <file>class_rsa_toolbox_1_1_vna_user_defined_port.html</file>
       <file>class_rsa_toolbox_1_1_vna_user_defined_port-members.html</file>
+      <file>class_rsa_toolbox_1_1_log.html</file>
+      <file>class_rsa_toolbox_1_1_log.png</file>
+      <file>class_rsa_toolbox_1_1_log-members.html</file>
       <file>dir_aea23620b9d20c80320ef66f596f33e0.html</file>
       <file>dir_31c2500c25d0b570f9d116670e5783cb.html</file>
       <file>dir_b32872ef41c5ac3dcd463f1fa6a32513.html</file>
@@ -5827,145 +5830,83 @@
       <file>namespacemembers.html</file>
       <file>namespacemembers.html</file>
       <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_func.html</file>
-      <file>namespacemembers_vars.html</file>
-      <file>namespacemembers_vars.html</file>
-      <file>namespacemembers_vars.html</file>
       <file>namespacemembers_vars.html</file>
       <file>namespacemembers_type.html</file>
-      <file>namespacemembers_type.html</file>
-      <file>namespacemembers_type.html</file>
-      <file>namespacemembers_type.html</file>
       <file>namespacemembers_enum.html</file>
-      <file>namespacemembers_enum.html</file>
-      <file>namespacemembers_enum.html</file>
-      <file>namespacemembers_enum.html</file>
-      <file>namespacemembers_enum.html</file>
-      <file>namespacemembers_enum.html</file>
-      <file>namespacemembers_enum.html</file>
-      <file>namespacemembers_enum.html</file>
-      <file>namespacemembers_enum.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
-      <file>namespacemembers_eval.html</file>
       <file>namespacemembers_eval.html</file>
       <file>annotated.html</file>
       <file>classes.html</file>
       <file>hierarchy.html</file>
       <file>functions.html</file>
-      <file>functions_a.html</file>
-      <file>functions_b.html</file>
-      <file>functions_c.html</file>
-      <file>functions_d.html</file>
-      <file>functions_e.html</file>
-      <file>functions_f.html</file>
-      <file>functions_g.html</file>
-      <file>functions_h.html</file>
-      <file>functions_i.html</file>
-      <file>functions_k.html</file>
-      <file>functions_l.html</file>
-      <file>functions_m.html</file>
-      <file>functions_n.html</file>
-      <file>functions_o.html</file>
-      <file>functions_p.html</file>
-      <file>functions_q.html</file>
-      <file>functions_r.html</file>
-      <file>functions_s.html</file>
-      <file>functions_t.html</file>
-      <file>functions_u.html</file>
-      <file>functions_v.html</file>
-      <file>functions_w.html</file>
-      <file>functions_x.html</file>
-      <file>functions_y.html</file>
-      <file>functions_z.html</file>
-      <file>functions_~.html</file>
+      <file>functions_0x61.html</file>
+      <file>functions_0x62.html</file>
+      <file>functions_0x63.html</file>
+      <file>functions_0x64.html</file>
+      <file>functions_0x65.html</file>
+      <file>functions_0x66.html</file>
+      <file>functions_0x67.html</file>
+      <file>functions_0x68.html</file>
+      <file>functions_0x69.html</file>
+      <file>functions_0x6b.html</file>
+      <file>functions_0x6c.html</file>
+      <file>functions_0x6d.html</file>
+      <file>functions_0x6e.html</file>
+      <file>functions_0x6f.html</file>
+      <file>functions_0x70.html</file>
+      <file>functions_0x71.html</file>
+      <file>functions_0x72.html</file>
+      <file>functions_0x73.html</file>
+      <file>functions_0x74.html</file>
+      <file>functions_0x75.html</file>
+      <file>functions_0x76.html</file>
+      <file>functions_0x77.html</file>
+      <file>functions_0x78.html</file>
+      <file>functions_0x79.html</file>
+      <file>functions_0x7a.html</file>
+      <file>functions_0x7e.html</file>
       <file>functions_func.html</file>
-      <file>functions_func_a.html</file>
-      <file>functions_func_b.html</file>
-      <file>functions_func_c.html</file>
-      <file>functions_func_d.html</file>
-      <file>functions_func_e.html</file>
-      <file>functions_func_f.html</file>
-      <file>functions_func_g.html</file>
-      <file>functions_func_h.html</file>
-      <file>functions_func_i.html</file>
-      <file>functions_func_k.html</file>
-      <file>functions_func_l.html</file>
-      <file>functions_func_m.html</file>
-      <file>functions_func_n.html</file>
-      <file>functions_func_o.html</file>
-      <file>functions_func_p.html</file>
-      <file>functions_func_q.html</file>
-      <file>functions_func_r.html</file>
-      <file>functions_func_s.html</file>
-      <file>functions_func_t.html</file>
-      <file>functions_func_u.html</file>
-      <file>functions_func_v.html</file>
-      <file>functions_func_w.html</file>
-      <file>functions_func_x.html</file>
-      <file>functions_func_y.html</file>
-      <file>functions_func_~.html</file>
-      <file>functions_vars.html</file>
-      <file>functions_vars.html</file>
-      <file>functions_vars.html</file>
-      <file>functions_vars.html</file>
-      <file>functions_vars.html</file>
+      <file>functions_func_0x61.html</file>
+      <file>functions_func_0x62.html</file>
+      <file>functions_func_0x63.html</file>
+      <file>functions_func_0x64.html</file>
+      <file>functions_func_0x65.html</file>
+      <file>functions_func_0x66.html</file>
+      <file>functions_func_0x67.html</file>
+      <file>functions_func_0x68.html</file>
+      <file>functions_func_0x69.html</file>
+      <file>functions_func_0x6b.html</file>
+      <file>functions_func_0x6c.html</file>
+      <file>functions_func_0x6d.html</file>
+      <file>functions_func_0x6e.html</file>
+      <file>functions_func_0x6f.html</file>
+      <file>functions_func_0x70.html</file>
+      <file>functions_func_0x71.html</file>
+      <file>functions_func_0x72.html</file>
+      <file>functions_func_0x73.html</file>
+      <file>functions_func_0x74.html</file>
+      <file>functions_func_0x75.html</file>
+      <file>functions_func_0x76.html</file>
+      <file>functions_func_0x77.html</file>
+      <file>functions_func_0x78.html</file>
+      <file>functions_func_0x79.html</file>
+      <file>functions_func_0x7e.html</file>
       <file>functions_vars.html</file>
       <file>files.html</file>
       <file>globals.html</file>
-      <file>globals_e.html</file>
-      <file>globals_f.html</file>
-      <file>globals_i.html</file>
-      <file>globals_m.html</file>
-      <file>globals_o.html</file>
-      <file>globals_r.html</file>
-      <file>globals_u.html</file>
-      <file>globals_v.html</file>
+      <file>globals_0x65.html</file>
+      <file>globals_0x66.html</file>
+      <file>globals_0x69.html</file>
+      <file>globals_0x6d.html</file>
+      <file>globals_0x6f.html</file>
+      <file>globals_0x72.html</file>
+      <file>globals_0x75.html</file>
+      <file>globals_0x76.html</file>
       <file>globals_func.html</file>
-      <file>globals_func.html</file>
-      <file>globals_func.html</file>
-      <file>globals_func.html</file>
-      <file>globals_type.html</file>
-      <file>globals_type.html</file>
       <file>globals_type.html</file>
       <file>globals_defs.html</file>
-      <file>globals_defs_f.html</file>
-      <file>globals_defs_i.html</file>
-      <file>globals_defs_v.html</file>
+      <file>globals_defs_0x66.html</file>
+      <file>globals_defs_0x69.html</file>
+      <file>globals_defs_0x76.html</file>
     </files>
   </filterSection>
 </QtHelpProject>

@@ -23,6 +23,7 @@ namespace RsaToolbox {
 double toDouble(SiPrefix prefix);
 QString toString(ComplexFormat format);
 QString toString(NetworkParameter parameter);
+QString toString(NetworkParameter parameter, uint outputPort, uint inputPort);
 QString toString(SiPrefix prefix);
 QString toString(Units units);
 QString toString(SiPrefix prefix, Units units);

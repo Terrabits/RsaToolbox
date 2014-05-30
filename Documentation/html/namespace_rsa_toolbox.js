@@ -1,21 +1,20 @@
 var namespace_rsa_toolbox =
 [
+    [ "GenericBus", "class_rsa_toolbox_1_1_generic_bus.html", "class_rsa_toolbox_1_1_generic_bus" ],
+    [ "RsibBus", "class_rsa_toolbox_1_1_rsib_bus.html", "class_rsa_toolbox_1_1_rsib_bus" ],
+    [ "VisaBus", "class_rsa_toolbox_1_1_visa_bus.html", "class_rsa_toolbox_1_1_visa_bus" ],
     [ "BalancedPort", "class_rsa_toolbox_1_1_balanced_port.html", "class_rsa_toolbox_1_1_balanced_port" ],
     [ "Connector", "class_rsa_toolbox_1_1_connector.html", "class_rsa_toolbox_1_1_connector" ],
-    [ "GenericBus", "class_rsa_toolbox_1_1_generic_bus.html", "class_rsa_toolbox_1_1_generic_bus" ],
-    [ "GenericInstrument", "class_rsa_toolbox_1_1_generic_instrument.html", "class_rsa_toolbox_1_1_generic_instrument" ],
     [ "IndexName", "class_rsa_toolbox_1_1_index_name.html", "class_rsa_toolbox_1_1_index_name" ],
     [ "Key", "class_rsa_toolbox_1_1_key.html", "class_rsa_toolbox_1_1_key" ],
-    [ "Log", "class_rsa_toolbox_1_1_log.html", "class_rsa_toolbox_1_1_log" ],
     [ "NameLabel", "class_rsa_toolbox_1_1_name_label.html", "class_rsa_toolbox_1_1_name_label" ],
     [ "NetworkData", "class_rsa_toolbox_1_1_network_data.html", "class_rsa_toolbox_1_1_network_data" ],
     [ "NetworkTraceData", "class_rsa_toolbox_1_1_network_trace_data.html", "class_rsa_toolbox_1_1_network_trace_data" ],
-    [ "Rsc", "class_rsa_toolbox_1_1_rsc.html", "class_rsa_toolbox_1_1_rsc" ],
-    [ "RsibBus", "class_rsa_toolbox_1_1_rsib_bus.html", "class_rsa_toolbox_1_1_rsib_bus" ],
     [ "SnpStreamReader", "class_rsa_toolbox_1_1_snp_stream_reader.html", "class_rsa_toolbox_1_1_snp_stream_reader" ],
     [ "SnpStreamWriter", "class_rsa_toolbox_1_1_snp_stream_writer.html", "class_rsa_toolbox_1_1_snp_stream_writer" ],
     [ "Touchstone", "class_rsa_toolbox_1_1_touchstone.html", null ],
-    [ "VisaBus", "class_rsa_toolbox_1_1_visa_bus.html", "class_rsa_toolbox_1_1_visa_bus" ],
+    [ "GenericInstrument", "class_rsa_toolbox_1_1_generic_instrument.html", "class_rsa_toolbox_1_1_generic_instrument" ],
+    [ "Rsc", "class_rsa_toolbox_1_1_rsc.html", "class_rsa_toolbox_1_1_rsc" ],
     [ "Vna", "class_rsa_toolbox_1_1_vna.html", "class_rsa_toolbox_1_1_vna" ],
     [ "VnaAveraging", "class_rsa_toolbox_1_1_vna_averaging.html", "class_rsa_toolbox_1_1_vna_averaging" ],
     [ "VnaCalibrate", "class_rsa_toolbox_1_1_vna_calibrate.html", "class_rsa_toolbox_1_1_vna_calibrate" ],
@@ -43,5 +42,6 @@ var namespace_rsa_toolbox =
     [ "VnaTimeDomain", "class_rsa_toolbox_1_1_vna_time_domain.html", "class_rsa_toolbox_1_1_vna_time_domain" ],
     [ "VnaTimeSweep", "class_rsa_toolbox_1_1_vna_time_sweep.html", "class_rsa_toolbox_1_1_vna_time_sweep" ],
     [ "VnaTrace", "class_rsa_toolbox_1_1_vna_trace.html", "class_rsa_toolbox_1_1_vna_trace" ],
-    [ "VnaUserDefinedPort", "class_rsa_toolbox_1_1_vna_user_defined_port.html", "class_rsa_toolbox_1_1_vna_user_defined_port" ]
+    [ "VnaUserDefinedPort", "class_rsa_toolbox_1_1_vna_user_defined_port.html", "class_rsa_toolbox_1_1_vna_user_defined_port" ],
+    [ "Log", "class_rsa_toolbox_1_1_log.html", "class_rsa_toolbox_1_1_log" ]
 ];

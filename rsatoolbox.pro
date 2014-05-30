@@ -15,6 +15,7 @@ CONFIG(debug, release|debug):TARGET = RsaToolboxd
 else:TARGET = RsaToolbox
 
 include(base.pri)
+include(GUI/gui.pri)
 include(Bus/Rsib/rsib.pri)
 include(Bus/Visa/visa.pri)
 include(Instruments/Vna/vna.pri)
