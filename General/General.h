@@ -115,14 +115,19 @@ ComplexDouble fromRealImag(double real, double imag);
 ComplexDouble fromMagDegrees(double magnitude, double angle_deg);
 ComplexDouble fromDbDegrees(double dB, double angle_deg);
 
-
-QVector<int> range(int start, int stop);
-QVector<uint> range(uint start, uint stop);
+QVector<int> range(int start, int stop, int stepSize = 1);
+QVector<uint> range(uint start, uint stop, uint stepSize = 1);
 QRowVector linearSpacing(double start, double stop, int points);
 void linearSpacing(QRowVector &result, double start, double stop, int points);
 void linearSpacing(RowVector &result, double start, double stop, int points);
 void logSpacing(QRowVector &result, double start, double stop, int points);
 
+bool isInfinity(double value);
+bool isNotInfinity(double value);
+bool isNaN(double value);
+bool isNotNaN(double value);
+double roundInf(double value, double toValue = DBL_MAX);
+QRowVector roundInf(QRowVector values, double toValue = DBL_MAX);
 double round(double value);
 double round(double value, uint decimal_places);
 double floor(double value, double interval);

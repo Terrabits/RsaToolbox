@@ -5,6 +5,8 @@
 // C++ std lib
 #include <complex>
 #include <vector>
+#include <limits>
+#include <climits>
 
 // Qt
 #include <QMetaType>
@@ -17,7 +19,9 @@ const char RSA_TOOLBOX_VERSION[] = "0.1.0";
 const char COMPANY_FOLDER[] = "Rohde-Schwarz";
 const double PI = 3.14159265358979323846264338327950288419716939937510;
 const double  E = 2.71828182845904523536028747135266249775724709369995;
-
+const double DBL_INF = std::numeric_limits<double>::infinity();
+const double DBL_NEG_INF = -DBL_INF;
+const double DBL_NAN = std::numeric_limits<double>::quiet_NaN();
 
 enum NetworkParameter {
     S_PARAMETER = 0,
