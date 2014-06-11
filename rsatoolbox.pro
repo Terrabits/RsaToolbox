@@ -11,8 +11,9 @@ CONFIG += staticlib
 CONFIG += debug_and_release build_all
 
 DESTDIR = $$PWD
-CONFIG(debug, release|debug):TARGET = RsaToolboxd
+CONFIG(debug, debug|release):TARGET = RsaToolboxd
 else:TARGET = RsaToolbox
+CONFIG(release, debug|release):DEFINES+=QT_NO_DEBUG_OUTPUT
 
 include(base.pri)
 include(GUI/gui.pri)

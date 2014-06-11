@@ -11,18 +11,12 @@ using namespace RsaToolbox;
 #include <QDebug>
 
 
-//SnpStreamReader::SnpStreamReader() {
-//    _isValidFile = false;
-//    _stream.setDevice(&_file);
-//}
 SnpStreamReader::SnpStreamReader(QString filePathName) :
     _file(filePathName),
     _stream(&_file)
 {
     _isValidFile = false;
-    //_stream.setDevice(&_file);
     setFilename(filePathName);
-    //open();
 }
 
 void SnpStreamReader::setFilename(QString filePathName) {
@@ -42,6 +36,7 @@ bool SnpStreamReader::open() {
     _parsePorts();
     _stream.setDevice(&_file);
     _readOptions();
+    _point = 0;
     next();
     _point = 0;
     if (_isValidFile) {
@@ -82,16 +77,19 @@ uint SnpStreamReader::point() {
 }
 bool SnpStreamReader::seekForward(double frequency, SiPrefix prefix) {
     frequency = frequency*toDouble(prefix);
-    if (frequency < _frequency_Hz)
+    if (frequency < _frequency_Hz) {
         return(false);
-    if (frequency == _frequency_Hz)
+    }
+    if (frequency == _frequency_Hz) {
         return(true);
+    }
 
     // else
     double oldFreq;
     ComplexMatrix2D oldData;
     qint64 oldPos = 0;
-    while (_frequency_Hz < frequency && _next(oldFreq, oldData, oldPos));
+    while (_next(oldFreq, oldData, oldPos) && (_frequency_Hz < frequency));
+
     if (_frequency_Hz > frequency) {
         _rewind(oldFreq, oldData, oldPos);
         return(true);
@@ -135,6 +133,7 @@ bool SnpStreamReader::next() {
     _parseFrequency(values.takeFirst());
     _parseData(values);
     (this->*_flip2Port)();
+    _stream.pos(); // I don't know why or how, but this is fixing a bug where the stream loses it's position... it seems to just jump forward some huge amount randomly unless I query the pos...
     return(true);
 }
 
@@ -152,24 +151,10 @@ bool SnpStreamReader::_next(double &oldFreq, ComplexMatrix2D &oldData, qint64 &o
     if (_isValidFile == false)
         return(false);
 
-    oldPos = _stream.pos();
     oldFreq = _frequency_Hz;
     oldData = _data;
-
-    _point++;
-    QStringList values = _readValues();
-    if (values.size() != _valuesToRead) {
-        _frequency_Hz = 0;
-        _data.clear();
-        _resizeData();
-        _isValidFile = false;
-        return(false);
-    }
-    // Else
-    _parseFrequency(values.takeFirst());
-    _parseData(values);
-    (this->*_flip2Port)();
-    return(true);
+    oldPos = _stream.pos();
+    return(next());
 }
 void SnpStreamReader::_rewind(double const &oldFreq, ComplexMatrix2D const &oldData, qint64 const &oldPos) {
     _point--;
