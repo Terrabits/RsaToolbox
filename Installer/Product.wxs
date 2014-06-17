@@ -87,7 +87,7 @@
       <RemoveFolder Id="RemoveInstallFolder" Directory="INSTALLFOLDER" On="uninstall" />
     </Component>
     <Component Id="RSIB" Guid="%GUID%" Directory="INSTALLFOLDER">
-      <File Id="rsib32.dll" Name="rsib32.dll" Source="..\rsib32.dll" KeyPath="yes"/>
+      <File Id="rsib32.dll" Name="rsib32.dll" Source="..\RsaToolbox\Bus\Rsib\rsib32.dll" KeyPath="yes"/>
     </Component>
     <Component Id="QCustomPlots" Guid="%GUID%" Directory="INSTALLFOLDER">
     	<File Id="qcustomplot.dll" Name="qcustomplot.dll" Source="..\RsaToolbox\QCustomPlot\qcustomplot.dll" KeyPath="yes" />

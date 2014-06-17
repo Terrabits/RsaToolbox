@@ -48,6 +48,8 @@ VnaModel VnaProperties::model() {
         return(ZVL_MODEL);
     if (_model.contains("ZVT"))
         return(ZVT_MODEL);
+    if (_model.contains("ZNBT"))
+        return(ZNBT_MODEL);
     if (_model.contains("ZNB"))
         return(ZNB_MODEL);
     if (_model.contains("ZNC"))
@@ -93,6 +95,7 @@ bool VnaProperties::isNotZvaFamily() {
 bool VnaProperties::isZnbFamily() {
     switch(model()) {
     case ZNB_MODEL:
+    case ZNBT_MODEL:
     case ZNC_MODEL:
     case ZNP_MODEL:
         return(true);
@@ -214,34 +217,20 @@ QVector<double> VnaProperties::ifBandwidthMantissa_MHz() {
 }
 
 double VnaProperties::minimumPower_dBm() {
-    switch(model()) {
-    case ZVA_MODEL:
-    case ZVT_MODEL:
-    case ZVH_MODEL:
-    case ZVL_MODEL:
+    if (isZvaFamily())
         return(-150);
-    case ZNB_MODEL:
-    case ZNC_MODEL:
-    case ZNP_MODEL:
+    else if (isZnbFamily())
         return(-40);
-    default:
-        return(-40);
-    }
+    // Default:
+    return(-40);
 }
 double VnaProperties::maximumPower_dBm() {
-    switch(model()) {
-    case ZVA_MODEL:
-    case ZVT_MODEL:
-    case ZVH_MODEL:
-    case ZVL_MODEL:
+    if (isZvaFamily())
         return(100);
-    case ZNB_MODEL:
-    case ZNC_MODEL:
-    case ZNP_MODEL:
+    else if (isZnbFamily())
         return(10);
-    default:
-        return(10);
-    }
+    // Default:
+    return(10);
 }
 
 bool VnaProperties::hasSourceAttenuators() {
@@ -356,8 +345,6 @@ QString RsaToolbox::toString(VnaModel model) {
         return(QString("ZVA"));
     case ZVB_MODEL:
         return(QString("ZVB"));
-    case ZNP_MODEL:
-        return(QString("ZNP"));
     case ZVH_MODEL:
         return(QString("ZVH"));
     case ZVL_MODEL:
@@ -366,8 +353,12 @@ QString RsaToolbox::toString(VnaModel model) {
         return(QString("ZVT"));
     case ZNB_MODEL:
         return(QString("ZNB"));
+    case ZNBT_MODEL:
+        return(QString("ZNBT"));
     case ZNC_MODEL:
         return(QString("ZNC"));
+    case ZNP_MODEL:
+        return(QString("ZNP"));
     default:
         // UNKNOWN_MODEL
         return(QString("UNKNOWN"));
@@ -376,19 +367,14 @@ QString RsaToolbox::toString(VnaModel model) {
 QString RsaToolbox::toSetFileExtension(VnaModel model) {
     switch(model) {
     case ZVA_MODEL:
-        return(QString(".zvx"));
     case ZVB_MODEL:
-        return(QString(".zvx"));
     case ZVH_MODEL:
-        return(QString(".zvx"));
     case ZVL_MODEL:
-        return(QString(".zvx"));
     case ZVT_MODEL:
         return(QString(".zvx"));
     case ZNB_MODEL:
-        return(QString(".znx"));
+    case ZNBT_MODEL:
     case ZNC_MODEL:
-        return(QString(".znx"));
     case ZNP_MODEL:
         return(QString(".znx"));
     default:

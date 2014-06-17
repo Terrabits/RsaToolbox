@@ -230,7 +230,7 @@ Fri Dec 6 20:20:55 2013
  */
 void Log::printApplicationHeader() {
         _stream << _applicationName << " Version " << _applicationVersion << endl;
-        _stream << "(C) 2013 Rohde & Schwarz America" << endl << endl;
+        _stream << "(C) 2014 Rohde & Schwarz America" << endl << endl;
         _stream << QDateTime::currentDateTime().toString() << endl << endl;
 }
 

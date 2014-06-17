@@ -417,6 +417,22 @@ void VnaSettings::lowPowerAutoCalOff(bool isOff) {
     lowPowerAutoCalOn(!isOff);
 }
 
+bool VnaSettings::isRemoteLogOn() {
+    return(_vna->query(":SYST:LOGG:REM?\n").trimmed() == "1");
+}
+bool VnaSettings::isRemoteLogOff() {
+    return(!isRemoteLogOn());
+}
+void VnaSettings::remoteLogOn(bool isOn) {
+    if (isOn)
+        _vna->write(":SYST:LOGG:REM 1\n");
+    else
+        _vna->write(":SYST:LOGG:REM 0\n");
+}
+void VnaSettings::remoteLogOff(bool isOff) {
+    remoteLogOn(!isOff);
+}
+
 // Private
 QString VnaSettings::toScpi(VnaEmulationMode mode) {
     switch(mode) {

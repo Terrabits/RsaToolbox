@@ -18,6 +18,7 @@ enum VnaModel {
     ZVL_MODEL,
     ZVT_MODEL,
     ZNB_MODEL,
+    ZNBT_MODEL,
     ZNC_MODEL,
     ZNP_MODEL,
     UNKNOWN_MODEL };

@@ -129,6 +129,11 @@ public:
     void lowPowerAutoCalOn(bool isOn = true);
     void lowPowerAutoCalOff(bool isOff = true);
 
+    bool isRemoteLogOn();
+    bool isRemoteLogOff();
+    void remoteLogOn(bool isOn = true);
+    void remoteLogOff(bool isOff = true);
+
     void operator=(VnaSettings const &other);
 
 private:
