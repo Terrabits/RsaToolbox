@@ -87,7 +87,7 @@ private:
     void unknownDevice();
     void retrieveFunctors();
     bool isError();
-    void terminateCString(char *buffer, uint bufferSize, uint readSize);
+    void terminateCString(char *buffer, uint bufferSize);
     static QString truncateCString(const char *buffer);
 };
 }

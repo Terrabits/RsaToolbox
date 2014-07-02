@@ -186,7 +186,7 @@ bool VisaBus::_read(char *buffer, uint bufferSize) {
     QTextStream stream(&text);
     _status = _viRead(_instrument, (uchar *)buffer, (ViUInt32)bufferSize, &_bytesRead);
     if (_status >= VI_SUCCESS) {
-        terminateCString(buffer, bufferSize, _bytesRead);
+        terminateCString(buffer, bufferSize);
         stream << "Received: ";
         stream << truncateCString(buffer);
         stream << endl;
@@ -450,13 +450,13 @@ void VisaBus::retrieveFunctors() {
 bool VisaBus::isError() {
     return(_status < VI_SUCCESS);
 }
-void VisaBus::terminateCString(char *buffer, uint buffer_size, uint read_size) {
+void VisaBus::terminateCString(char *buffer, uint buffer_size) {
     // Null-terminate string:
     // NI-VISA seems to terminate with '\n' by default
-    if (read_size >= buffer_size)
-        buffer[buffer_size - 1] = '\0';
+    if (_bytesRead < buffer_size)
+        buffer[_bytesRead] = '\0';
     else
-        /*buffer[read_size - 1] = '\0'*/; // Could overwrite data?
+        /*buffer[buffer_size - 1] = '\0'*/; // Could overwrite data?
 }
 QString VisaBus::truncateCString(const char *buffer) {
     QString text = QString(buffer).trimmed();
