@@ -1,9 +1,10 @@
-#include <QDebug>
+
 
 #include "VnaFileSystem.h"
 #include "Vna.h"
 using namespace RsaToolbox;
 
+// Qt
 #include <QFileInfo>
 #include <QDir>
 #include <QFile>
@@ -38,7 +39,8 @@ VnaFileSystem::VnaFileSystem(Vna *vna, QObject *parent) :
 bool VnaFileSystem::isFile(QString pathName) {
     QFileInfo fileInfo(pathName);
     QString name = fileInfo.fileName();
-    QString fileDirectory = QDir::toNativeSeparators(fileInfo.path());
+    QString fileDirectory = fileInfo.path();
+    fileDirectory = fileDirectory.replace("/", "\\") + "\\";
 
     if (fileDirectory.isEmpty() == false) {
         QString currentDirectory = directory();
@@ -61,7 +63,8 @@ bool VnaFileSystem::isDirectory(QString pathName) {
 
     QFileInfo fileInfo(pathName);
     QString name = fileInfo.fileName();
-    QString fileDirectory = QDir::toNativeSeparators(fileInfo.path());
+    QString fileDirectory = fileInfo.path();
+    fileDirectory = fileDirectory.replace("/", "\\") + "\\";
 
     if (fileDirectory.isEmpty() == false) {
         QString currentDirectory = directory();
@@ -89,7 +92,7 @@ bool VnaFileSystem::isFreeSpace(QString path, quint64 bytes) {
 }
 
 QString VnaFileSystem::directory() {
-    return(_vna->query(":MMEM:CDIR?\n").remove('\''));
+    return(_vna->query(":MMEM:CDIR?\n").trimmed().remove('\''));
 }
 QString VnaFileSystem::directory(VnaDirectory directory) {
     QString currentDirectory = this->directory();
@@ -137,7 +140,8 @@ quint64 VnaFileSystem::freeSpace_Bytes(QString path) {
 uint VnaFileSystem::fileSize_Bytes(QString pathName) {
     QFileInfo fileInfo(pathName);
     QString name = fileInfo.fileName();
-    QString fileDirectory = QDir::toNativeSeparators(fileInfo.path());
+    QString fileDirectory = fileInfo.path();
+    fileDirectory = fileDirectory.replace("/", "\\") + "\\";
 
     QString currentDirectory = directory();
     changeDirectory(fileDirectory);
@@ -183,7 +187,7 @@ QStringList VnaFileSystem::directories(QString path) {
     return(returnValue);
 }
 
-void VnaFileSystem::changeDirectory(QString path) {
+void VnaFileSystem:: changeDirectory(QString path) {
     QString scpi = ":MMEM:CDIR \'%1\'\n";
     scpi = scpi.arg(path);
     _vna->write(scpi);
@@ -353,7 +357,7 @@ void VnaFileSystem::operator=(VnaFileSystem const &other) {
 
 // private
 QString VnaFileSystem::dir() {
-    return(_vna->query(":MMEM:CAT?\n", 10000, 1000));
+    return(_vna->query(":MMEM:CAT?\n", 10000, 1000).trimmed());
 }
 void VnaFileSystem::dir(quint64 &totalFileSize_B, quint64 &freeSpace_B,
                         QStringList &files, QVector<uint> &fileSizes_B,

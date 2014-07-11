@@ -56,6 +56,8 @@ private:
     typedef ViStatus (_VI_FUNC *_openDefaultRmFuncter)(ViPSession);
     typedef ViStatus (_VI_FUNC *_openFuncter)(ViSession, ViRsrc, ViAccessMode,
                                               ViUInt32, ViPSession);
+    typedef ViStatus (_VI_FUNC *_getAttributeFuncter)(ViObject, ViAttr, void _VI_PTR attrValue);
+    typedef ViStatus (_VI_FUNC *_setAttributeFuncter)(ViObject, ViAttr, ViAttrState);
     typedef ViStatus (_VI_FUNC *_readFuncter)(ViSession, ViPBuf, ViUInt32, ViPUInt32);
     typedef ViStatus (_VI_FUNC *_writeFuncter)(ViSession, ViBuf, ViUInt32, ViPUInt32);
     typedef ViStatus (_VI_FUNC *_clearFuncter)(ViSession);
@@ -69,6 +71,8 @@ private:
     _statusDescFuncter _viStatusDesc;
     _openDefaultRmFuncter _viOpenDefaultRM;
     _openFuncter _viOpen;
+    _getAttributeFuncter _viGetAttribute;
+    _setAttributeFuncter _viSetAttribute;
     _readFuncter _viRead;
     _writeFuncter _viWrite;
     _clearFuncter _viClear;
@@ -84,7 +88,7 @@ private:
     static const uint MAX_PRINT = 100;
 
     // VisaBus
-    void unknownDevice();
+    void notConnected();
     void retrieveFunctors();
     bool isError();
     void terminateCString(char *buffer, uint bufferSize);
