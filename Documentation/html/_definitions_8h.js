@@ -81,6 +81,9 @@ var _definitions_8h =
       [ "B_WAVE", "_definitions_8h.html#ad510ffc5b80ffa73e4165154fb790ef0aa86233ccbb7f4656d9f615f2e4a83dc5", null ]
     ] ],
     [ "COMPANY_FOLDER", "_definitions_8h.html#a84bb6c89cfb4eaf1f998b7ab9a92ab02", null ],
+    [ "DBL_INF", "_definitions_8h.html#a62ba705fcc7c634064b60d0e973bb853", null ],
+    [ "DBL_NAN", "_definitions_8h.html#ad24e1f6ce807f3a5c245f7ee6e9e8b03", null ],
+    [ "DBL_NEG_INF", "_definitions_8h.html#a7cf1a344b138cc337f4380711deba2f1", null ],
     [ "E", "_definitions_8h.html#ab587ba72a9c23f238cb4fd70e2fdb545", null ],
     [ "PI", "_definitions_8h.html#a952eac791b596a61bba0a133a3bb439f", null ],
     [ "RSA_TOOLBOX_VERSION", "_definitions_8h.html#a3b0288a2b3aee0dfa13b36da65e5cfa5", null ]

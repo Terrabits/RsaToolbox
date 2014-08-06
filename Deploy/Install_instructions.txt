@@ -1,0 +1,15 @@
+- Install VS C++ 2010 Express
+
+- Install Qt 5.2.1 & Qt Creator 3.1.2 from web installer
+  * Select Qt 5.2.1 -> msvc2010 32-bit
+  * Select Tools -> Qt Creator 3.1.2 (or newer)
+
+- Install RSA create installer
+
+- MS Windows intaller XML 3.8
+
+- Copy templates
+
+- Set up documentation
+
+- Add create installer
