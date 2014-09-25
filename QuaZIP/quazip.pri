@@ -1,12 +1,19 @@
 
 
 QT += core
-INCLUDEPATH += $$PWD
-INCLUDEPATH += $$PWD/ZLib
 
+DEFINES += NOMINMAX
 QZLIB = quazip
 CONFIG(debug, debug|release): QZLIB = $$join(QZLIB,,,d)
-
+INCLUDEPATH += $$PWD
+DEPENDPATH  += $$PWD
 LIBS += -l$$PWD/$$QZLIB
 LIBS += -L$$PWD
-LIBS += -L$$PWD/ZLib
+
+# ZLIB
+INCLUDEPATH += $$PWD/ZLib
+DEPENDPATH  += $$PWD/ZLib
+win32 {
+        LIBS += -l$$PWD/ZLib/zdll
+        LIBS += -L$$PWD/ZLib
+}
