@@ -68,6 +68,7 @@ public:
     void manualSweepOn(bool isOn = true);
 
     // Sweep
+    bool isFrequencySweep();
     bool isLinearSweep();
     bool isLogarithmicSweep();
     bool isSegmentedSweep();

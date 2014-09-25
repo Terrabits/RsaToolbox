@@ -142,6 +142,17 @@ void VnaChannel::manualSweepOn(bool isOn) {
 }
 
 // Sweep
+bool VnaChannel::isFrequencySweep() {
+    VnaSweepType type = sweepType();
+    switch(type) {
+    case LINEAR_SWEEP:
+    case LOG_SWEEP:
+    case SEGMENTED_SWEEP:
+        return true;
+    default:
+        return false;
+    }
+}
 bool VnaChannel::isLinearSweep() {
     return(sweepType() == LINEAR_SWEEP);
 }
