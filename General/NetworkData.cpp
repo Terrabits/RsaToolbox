@@ -110,6 +110,13 @@ QRowVector NetworkData::x() {
 ComplexMatrix3D& NetworkData::y() {
     return(_y);
 }
+ComplexRowVector NetworkData::y(uint outputPort, uint inputPort) {
+    ComplexRowVector crv(_points);
+    for (uint i = 0; i < _points; i++) {
+        crv[i] = _y[i][outputPort-1][inputPort-1];
+    }
+    return(crv);
+}
 QRowVector NetworkData::y_dB(uint outputPort, uint inputPort) {
     QRowVector dB(_points);
     for (uint i = 0; i < _points; i++) {

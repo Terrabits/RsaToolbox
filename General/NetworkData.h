@@ -51,6 +51,7 @@ public:
     uint points();
     QRowVector x();
     ComplexMatrix3D &y();
+    ComplexRowVector y(uint outputPort, uint inputPort);
     QRowVector y_dB(uint outputPort, uint inputPort);
     QRowVector y_magnitude(uint outputPort, uint inputPort);
     QRowVector y_phase_deg(uint outputPort, uint inputPort);

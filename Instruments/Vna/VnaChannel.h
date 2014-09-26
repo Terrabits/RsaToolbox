@@ -77,6 +77,7 @@ public:
     bool isTimeSweep();
     VnaSweepType sweepType();
     void setSweepType(VnaSweepType sweepType);
+    void setFrequencies(QRowVector values, SiPrefix prefix = NO_PREFIX);
 
     VnaLinearSweep &linearSweep();
     VnaLinearSweep *takeLinearSweep();

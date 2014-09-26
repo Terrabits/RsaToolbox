@@ -8,6 +8,7 @@
 #include "NetworkTraceData.h"
 #include "VnaMarker.h"
 #include "VnaReferenceMarker.h"
+#include "VnaLimits.h"
 #include "VnaTimeDomain.h"
 
 // Qt
@@ -94,7 +95,9 @@ public:
 
     void toMemory(QString name);
     void write(QRowVector data);
+    void write(QRowVector frequencies_Hz, QRowVector data);
     void write(ComplexRowVector data);
+    void write(QRowVector frequencies_Hz, ComplexRowVector data);
 
     // Marker
     bool isMarker(uint index);
@@ -111,9 +114,10 @@ public:
     // Reference Marker
     VnaReferenceMarker &referenceMarker();
 
-    void operator=(VnaTrace const &other);
+    // Limit Lines
+    VnaLimits &limits();
 
-//    void moveToThread(QThread *thread);
+    void operator=(VnaTrace const &other);
 
 private:
     Vna *_vna;
@@ -121,6 +125,7 @@ private:
     QString _name;
     QScopedPointer<VnaMarker> _marker;
     QScopedPointer<VnaReferenceMarker> _referenceMarker;
+    QScopedPointer<VnaLimits> _limits;
     QScopedPointer<VnaTimeDomain> _timeDomain;
     
     bool isFullyInitialized() const;

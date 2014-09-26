@@ -91,16 +91,17 @@ using namespace RsaToolbox;
  */
 Vna::Vna(QObject *parent)
     : GenericInstrument(parent),
-      _properties(this, this),
-      _settings(this, this),
-      _fileSystem(this, this),
-      _calKit(this, NameLabel(""), this),
-      _channel(this, uint(0), this),
-      _trace(this, QString(), this),
-      _diagram(this, uint(0), this),
-      _calibrate(this, this),
-      _switchMatrix(this, uint(0), this),
-      _calUnit(this, QString(""), this)
+      _properties(this),
+      _settings(this),
+      _fileSystem(this),
+      _calKit(this, NameLabel()),
+      _calibrate(this),
+//      _calGroup(),
+      _channel(this, 0),
+      _trace(this, ""),
+      _diagram(this, 0),
+      _switchMatrix(this, 0),
+      _calUnit(this, "")
 { }
 
 /*!
@@ -118,16 +119,17 @@ Vna::Vna(QObject *parent)
  */
 Vna::Vna(GenericBus *bus, QObject *parent)
     : GenericInstrument(bus, parent),
-      _properties(this, this),
-      _settings(this, this),
-      _fileSystem(this, this),
-      _calKit(this, NameLabel(""), this),
-      _channel(this, uint(0), this),
-      _trace(this, QString(), this),
-      _diagram(this, uint(0), this),
-      _calibrate(this, this),
-      _switchMatrix(this, uint(0), this),
-      _calUnit(this, QString(""), this)
+      _properties(this),
+      _settings(this),
+      _fileSystem(this),
+      _calKit(this, NameLabel()),
+      _calibrate(this),
+//      _calGroup(),
+      _channel(this, 0),
+      _trace(this, ""),
+      _diagram(this, 0),
+      _switchMatrix(this, 0),
+      _calUnit(this, "")
 { }
 
 /*!
@@ -146,16 +148,17 @@ Vna::Vna(GenericBus *bus, QObject *parent)
  */
 Vna::Vna(ConnectionType type, QString address, QObject *parent)
     : GenericInstrument(type, address, parent),
-      _properties(this, this),
-      _settings(this, this),
-      _fileSystem(this, this),
-      _calKit(this, NameLabel(""), this),
-      _channel(this, uint(0), this),
-      _trace(this, QString(), this),
-      _diagram(this, uint(0), this),
-      _calibrate(this, this),
-      _switchMatrix(this, uint(0), this),
-      _calUnit(this, QString(""), this)
+      _properties(this),
+      _settings(this),
+      _fileSystem(this),
+      _calKit(this, NameLabel()),
+      _calibrate(this),
+//      _calGroup(),
+      _channel(this, 0),
+      _trace(this, ""),
+      _diagram(this, 0),
+      _switchMatrix(this, 0),
+      _calUnit(this, "")
 { }
 
 /*!
@@ -432,7 +435,7 @@ VnaProperties &Vna::properties() {
  * \sa new, delete, QScopedPointer, VnaProperties
  */
 VnaProperties *Vna::takeProperties() {
-    return(new VnaProperties(this));
+    return(new VnaProperties());
 }
 /** @} */
 
@@ -486,7 +489,7 @@ VnaSettings &Vna::settings() {
  * \sa new, delete, QScopedPointer, VnaSettings
  */
 VnaSettings *Vna::takeSettings() {
-    return(new VnaSettings(this));
+    return(new VnaSettings());
 }
 /** @} */
 
@@ -540,7 +543,7 @@ VnaFileSystem &Vna::fileSystem() {
  * \sa new, delete, QScopedPointer, VnaSettings
  */
 VnaFileSystem *Vna::takeFileSystem() {
-    return(new VnaFileSystem(this));
+    return(new VnaFileSystem());
 }
 
 /** @} */
@@ -858,7 +861,7 @@ VnaCalibrate &Vna::calibrate() {
  * \sa new, delete, QScopedPointer, VnaCalibrate
  */
 VnaCalibrate *Vna::takeCalibrate() {
-    return(new VnaCalibrate(this));
+    return(new VnaCalibrate());
 }
 
 /** @} */

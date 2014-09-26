@@ -37,8 +37,8 @@ public:
 
     uint segments();
     uint addSegment();
-    void removeSegment(uint index);
-    void removeSegments();
+    void deleteSegment(uint index);
+    void deleteSegments();
     VnaSweepSegment &segment(uint index);
 
     QVector<uint> sParameterGroup();

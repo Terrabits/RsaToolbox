@@ -181,44 +181,55 @@ void VnaChannel::setSweepType(VnaSweepType sweepType) {
     scpi = scpi.arg(_index).arg(toScpi(sweepType));
     _vna->write(scpi);
 }
+void VnaChannel::setFrequencies(QRowVector values, SiPrefix prefix) {
+    VnaSegmentedSweep sweep = segmentedSweep();
+    sweep.deleteSegments();
+    int points = values.size();
+    for (int i = 0; i < points; i++) {
+        uint s = segmentedSweep().addSegment();
+        sweep.segment(s).setPoints(1);
+        sweep.segment(s).setStop(values[i], prefix);
+    }
+    setSweepType(SEGMENTED_SWEEP);
+}
 
 VnaLinearSweep &VnaChannel::linearSweep() {
-    _frequencySweep.reset(new VnaLinearSweep(_vna, this, this));
+    _frequencySweep.reset(new VnaLinearSweep(_vna, this));
     return(*_frequencySweep);
 }
 VnaLinearSweep *VnaChannel::takeLinearSweep() {
-    return(new VnaLinearSweep(_vna, _index, this));
+    return(new VnaLinearSweep(_vna, _index));
 }
 VnaLogSweep &VnaChannel::logSweep() {
-    _logSweep.reset(new VnaLogSweep(_vna, this, this));
+    _logSweep.reset(new VnaLogSweep(_vna, this));
     return(*_logSweep);
 }
 VnaLogSweep *VnaChannel::takeLogSweep() {
     return(new VnaLogSweep(_vna, _index));
 }
 VnaSegmentedSweep &VnaChannel::segmentedSweep() {
-    _segmentedSweep.reset(new VnaSegmentedSweep(_vna, this, this));
+    _segmentedSweep.reset(new VnaSegmentedSweep(_vna, this));
     return(*_segmentedSweep);
 }
 VnaSegmentedSweep *VnaChannel::takeSegmentedSweep() {
     return(new VnaSegmentedSweep(_vna, _index));
 }
 VnaPowerSweep &VnaChannel::powerSweep() {
-    _powerSweep.reset(new VnaPowerSweep(_vna, this, this));
+    _powerSweep.reset(new VnaPowerSweep(_vna, this));
     return(*_powerSweep);
 }
 VnaPowerSweep *VnaChannel::takePowerSweep() {
     return(new VnaPowerSweep(_vna, _index));
 }
 VnaCwSweep &VnaChannel::cwSweep() {
-    _cwSweep.reset(new VnaCwSweep(_vna, this, this));
+    _cwSweep.reset(new VnaCwSweep(_vna, this));
     return(*_cwSweep);
 }
 VnaCwSweep *VnaChannel::takeCwSweep() {
     return(new VnaCwSweep(_vna, _index));
 }
 VnaTimeSweep &VnaChannel::timeSweep() {
-    _timeSweep.reset(new VnaTimeSweep(_vna, this, this));
+    _timeSweep.reset(new VnaTimeSweep(_vna, this));
     return(*_timeSweep);
 }
 VnaTimeSweep *VnaChannel::takeTimeSweep() {
@@ -353,7 +364,7 @@ void VnaChannel::deleteUserDefinedPorts() {
 
 // Averaging
 VnaAveraging& VnaChannel::averaging() {
-    _averaging.reset(new VnaAveraging(_vna, this, this));
+    _averaging.reset(new VnaAveraging(_vna, this));
     return(*_averaging);
 }
 
@@ -403,11 +414,11 @@ void VnaChannel::dissolveCalGroup() {
 }
 
 VnaCorrections &VnaChannel::corrections() {
-    _corrections.reset(new VnaCorrections(_vna, this, this));
+    _corrections.reset(new VnaCorrections(_vna, this));
     return(*_corrections);
 }
 VnaCalibrate &VnaChannel::calibrate() {
-    _calibrate.reset(new VnaCalibrate(_vna, this, this));
+    _calibrate.reset(new VnaCalibrate(_vna, this));
     return(*_calibrate);
 }
 VnaCalibrate *VnaChannel::takeCalibrate() {

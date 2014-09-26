@@ -53,7 +53,7 @@ VnaSegmentedSweep::VnaSegmentedSweep(Vna *vna, uint index, QObject *parent) :
     QObject(parent)
 {
     _vna = vna;
-    _channel.reset(new VnaChannel(vna, index, this));
+    _channel.reset(new VnaChannel(vna, index));
     _channelIndex = index;
 }
 
@@ -115,19 +115,19 @@ uint VnaSegmentedSweep::addSegment() {
     _vna->write(scpi);
     return(index);
 }
-void VnaSegmentedSweep::removeSegment(uint index) {
+void VnaSegmentedSweep::deleteSegment(uint index) {
     QString scpi = ":SENS%1:SEGM%2:DEL\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(index);
     _vna->write(scpi);
 }
-void VnaSegmentedSweep::removeSegments() {
+void VnaSegmentedSweep::deleteSegments() {
     QString scpi = ":SENS%1:SEGM:DEL:ALL\n";
     scpi = scpi.arg(_channelIndex);
     _vna->write(scpi);
 }
 VnaSweepSegment &VnaSegmentedSweep::segment(uint index) {
-    _segment.reset(new VnaSweepSegment(_vna, _channel.data(), index, this));
+    _segment.reset(new VnaSweepSegment(_vna, _channel.data(), index));
     return(*_segment.data());
 }
 

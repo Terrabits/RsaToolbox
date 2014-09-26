@@ -388,6 +388,11 @@ void VnaTrace::write(QRowVector data) {
         complex[i] = ComplexDouble(data[i], 0);
     write(complex);
 }
+void VnaTrace::write(QRowVector frequencies_Hz, QRowVector data) {
+    uint i = channel();
+    _vna->channel(i).setFrequencies(frequencies_Hz);
+    write(data);
+}
 void VnaTrace::write(ComplexRowVector data) {
     _vna->settings().setRead64BitBinaryFormat();
     _vna->settings().setLittleEndian();
@@ -396,6 +401,11 @@ void VnaTrace::write(ComplexRowVector data) {
     _vna->binaryWrite(scpi.toUtf8()
                       + toBlockDataFormat(data)
                       + "\n");
+}
+void VnaTrace::write(QRowVector frequencies_Hz, ComplexRowVector data) {
+    uint i = channel();
+    _vna->channel(i).setFrequencies(frequencies_Hz);
+    write(data);
 }
 
 // Marker
@@ -476,14 +486,20 @@ void VnaTrace::deleteMarkers() {
     }
 }
 VnaMarker &VnaTrace::marker(uint index) {
-    _marker.reset(new VnaMarker(_vna, this, index, this));
+    _marker.reset(new VnaMarker(_vna, this, index));
     return(*_marker.data());
 }
 
 // Reference Marker
 VnaReferenceMarker &VnaTrace::referenceMarker() {
-    _referenceMarker.reset(new VnaReferenceMarker(_vna, this, this));
+    _referenceMarker.reset(new VnaReferenceMarker(_vna, this));
     return(*_referenceMarker.data());
+}
+
+// Limit Lines
+VnaLimits &VnaTrace::limits() {
+    _limits.reset(new VnaLimits(_vna, this));
+    return *_limits.data();
 }
 
 // Time Domain
@@ -495,7 +511,7 @@ bool VnaTrace::isNotTimeDomain() {
 }
 
 VnaTimeDomain &VnaTrace::timeDomain() {
-    _timeDomain.reset(new VnaTimeDomain(_vna, this, this));
+    _timeDomain.reset(new VnaTimeDomain(_vna, this));
     return(*_timeDomain.data());
 }
 
