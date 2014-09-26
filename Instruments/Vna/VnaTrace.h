@@ -94,6 +94,7 @@ public:
 
     void toMemory(QString name);
     void write(QRowVector data);
+    void write(ComplexRowVector data);
 
     // Marker
     bool isMarker(uint index);

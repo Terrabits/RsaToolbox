@@ -376,10 +376,26 @@ void VnaTrace::y(ComplexRowVector &y) {
 }
 
 void VnaTrace::toMemory(QString name) {
-    Q_UNUSED(name);
+    QString scpi = ":TRAC:COPY \'%1\',\'%2\'\n";
+    scpi = scpi.arg(this->name());
+    scpi = scpi.arg(name);
+    _vna->write(scpi);
 }
 void VnaTrace::write(QRowVector data) {
-    Q_UNUSED(data);
+    ComplexRowVector complex;
+    complex.resize(data.size());
+    for (int i = 0; i < data.size(); i++)
+        complex[i] = ComplexDouble(data[i], 0);
+    write(complex);
+}
+void VnaTrace::write(ComplexRowVector data) {
+    _vna->settings().setRead64BitBinaryFormat();
+    _vna->settings().setLittleEndian();
+    QString scpi = ":CALC%1:DATA SDAT, ";
+    scpi = scpi.arg(channel());
+    _vna->binaryWrite(scpi.toUtf8()
+                      + toBlockDataFormat(data)
+                      + "\n");
 }
 
 // Marker
