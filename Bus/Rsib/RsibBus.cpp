@@ -10,6 +10,7 @@ using namespace RsaToolbox;
 // Qt
 #include <QByteArray>
 #include <QTextStream>
+#include <QDebug>
 
 // Rsib
 #include "rsib.h"

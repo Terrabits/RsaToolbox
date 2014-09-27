@@ -54,7 +54,7 @@ VnaTimeSweep::VnaTimeSweep(Vna *vna, uint channelIndex, QObject *parent) :
     QObject(parent)
 {
     _vna = vna;
-    _channel.reset(new VnaChannel(vna, channelIndex, this));
+    _channel.reset(new VnaChannel(vna, channelIndex));
     _channelIndex = channelIndex;
 }
 

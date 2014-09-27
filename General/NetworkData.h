@@ -38,6 +38,7 @@ public:
     QString timestamp();
 
     uint numberOfPorts();
+    void setNumberOfPorts(uint ports);
     QString portComment(uint port);
     void setPortComment(uint port, QString comment);
 
@@ -49,7 +50,7 @@ public:
     void setXUnits(Units units, SiPrefix prefix = NO_PREFIX);
 
     uint points();
-    QRowVector x();
+    QRowVector &x();
     ComplexMatrix3D &y();
     ComplexRowVector y(uint outputPort, uint inputPort);
     QRowVector y_dB(uint outputPort, uint inputPort);

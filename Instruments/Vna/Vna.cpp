@@ -435,7 +435,7 @@ VnaProperties &Vna::properties() {
  * \sa new, delete, QScopedPointer, VnaProperties
  */
 VnaProperties *Vna::takeProperties() {
-    return(new VnaProperties());
+    return(new VnaProperties(this));
 }
 /** @} */
 
@@ -489,7 +489,7 @@ VnaSettings &Vna::settings() {
  * \sa new, delete, QScopedPointer, VnaSettings
  */
 VnaSettings *Vna::takeSettings() {
-    return(new VnaSettings());
+    return(new VnaSettings(this));
 }
 /** @} */
 
@@ -543,7 +543,7 @@ VnaFileSystem &Vna::fileSystem() {
  * \sa new, delete, QScopedPointer, VnaSettings
  */
 VnaFileSystem *Vna::takeFileSystem() {
-    return(new VnaFileSystem());
+    return(new VnaFileSystem(this));
 }
 
 /** @} */
@@ -789,7 +789,7 @@ void Vna::deleteCalKit(NameLabel calkit) {
  * \sa VnaCalKit
  */
 VnaCalKit &Vna::calKit(NameLabel nameLabel) {
-    _calKit = VnaCalKit(this, nameLabel, this);
+    _calKit = VnaCalKit(this, nameLabel);
     return(_calKit);
 }
 
@@ -861,7 +861,7 @@ VnaCalibrate &Vna::calibrate() {
  * \sa new, delete, QScopedPointer, VnaCalibrate
  */
 VnaCalibrate *Vna::takeCalibrate() {
-    return(new VnaCalibrate());
+    return(new VnaCalibrate(this));
 }
 
 /** @} */
@@ -1089,7 +1089,7 @@ void Vna::deleteChannels() {
  * \sa VnaChannel
  */
 VnaChannel &Vna::channel(uint index) {
-    _channel = VnaChannel(this, index, this);
+    _channel = VnaChannel(this, index);
     return(_channel);
 }
 
@@ -1249,7 +1249,7 @@ void Vna::deleteTraces() {
  * \return VnaTrace interface
  */
 VnaTrace &Vna::trace(QString name) {
-    _trace = VnaTrace(this, name, this);
+    _trace = VnaTrace(this, name);
     return(_trace);
 }
 
@@ -1452,7 +1452,7 @@ void Vna::autoscaleDiagrams() {
 }
 
 VnaDiagram &Vna::diagram(uint index) {
-    _diagram = VnaDiagram(this, index, this);
+    _diagram = VnaDiagram(this, index);
     return(_diagram);
 }
 

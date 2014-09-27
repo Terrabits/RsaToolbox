@@ -27,7 +27,7 @@ class GenericBus : public QObject {
 private: Q_OBJECT
 
 public:
-    GenericBus(QObject *parent = 0);
+    explicit GenericBus(QObject *parent = 0);
     GenericBus(ConnectionType connectionType, QString address,
                uint bufferSize_B = 500, uint timeout_ms = 1000,
                QObject *parent = 0);

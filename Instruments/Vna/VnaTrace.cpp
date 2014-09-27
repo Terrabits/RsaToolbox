@@ -11,6 +11,7 @@ using namespace RsaToolbox;
 #include <Qt>
 #include <QtGui/QColor>
 #include <QtGui/QPen>
+#include <QDebug>
 
 /*!
  * \class RsaToolbox::VnaTrace
@@ -87,9 +88,20 @@ uint VnaTrace::channel() {
     return(_vna->query(scpi).toUInt());
 }
 uint VnaTrace::diagram() {
-    QString scpi = ":CONF:TRAC:WIND? \'%1\'\n";
-    scpi = scpi.arg(_name);
-    return(_vna->query(scpi).toUInt());
+    if (!_vna->properties().isZvaFamily()) {
+        QString scpi = ":CONF:TRAC:WIND? \'%1\'\n";
+        scpi = scpi.arg(_name);
+        uint result = _vna->query(scpi).toUInt();
+        return(result);
+    }
+    else { // ZVA lacks this command
+        QVector<uint> diagrams = _vna->diagrams();
+        foreach (uint i, diagrams) {
+            if (_vna->diagram(i).traces().contains(_name))
+                return i;
+        }
+        return 0;
+    }
 }
 void VnaTrace::setDiagram(uint index) {
     QString scpi = ":DISP:WIND%1:TRAC:EFE \'%2\'\n";
@@ -377,16 +389,23 @@ void VnaTrace::y(ComplexRowVector &y) {
 
 void VnaTrace::toMemory(QString name) {
     QString scpi = ":TRAC:COPY \'%1\',\'%2\'\n";
-    scpi = scpi.arg(this->name());
     scpi = scpi.arg(name);
+    scpi = scpi.arg(this->name());
     _vna->write(scpi);
 }
 void VnaTrace::write(QRowVector data) {
-    ComplexRowVector complex;
-    complex.resize(data.size());
-    for (int i = 0; i < data.size(); i++)
-        complex[i] = ComplexDouble(data[i], 0);
-    write(complex);
+    // FOR SOME REASON YOU JUST CANNOT
+    // WRITE FORMATTED (REAL) DATA TO
+    // A MEMORY TRACE.
+    // "FUNCTION NOT AVAILABLE"!
+    QString scpi = ":CALC%1:DATA FDAT,";
+    scpi = scpi.arg(channel());
+
+    _vna->settings().setRead64BitBinaryFormat();
+    _vna->settings().setLittleEndian();
+    select();
+    _vna->binaryWrite(scpi.toUtf8()
+                      + toBlockDataFormat(data));
 }
 void VnaTrace::write(QRowVector frequencies_Hz, QRowVector data) {
     uint i = channel();
@@ -394,13 +413,14 @@ void VnaTrace::write(QRowVector frequencies_Hz, QRowVector data) {
     write(data);
 }
 void VnaTrace::write(ComplexRowVector data) {
-    _vna->settings().setRead64BitBinaryFormat();
-    _vna->settings().setLittleEndian();
     QString scpi = ":CALC%1:DATA SDAT, ";
     scpi = scpi.arg(channel());
+
+    select();
+    _vna->settings().setRead64BitBinaryFormat();
+    _vna->settings().setLittleEndian();
     _vna->binaryWrite(scpi.toUtf8()
-                      + toBlockDataFormat(data)
-                      + "\n");
+                      + toBlockDataFormat(data));
 }
 void VnaTrace::write(QRowVector frequencies_Hz, ComplexRowVector data) {
     uint i = channel();

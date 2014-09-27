@@ -36,7 +36,7 @@ class VnaSettings : public QObject
 private: Q_OBJECT
 
 public:
-    VnaSettings(QObject *parent = 0);
+    explicit VnaSettings(QObject *parent = 0);
     VnaSettings(VnaSettings &other);
     VnaSettings(Vna *_vna, QObject *parent = 0);
 

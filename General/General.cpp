@@ -475,11 +475,12 @@ QByteArray RsaToolbox::toBlockDataFormat(QRowVector values) {
     quint64 totalSize = headerSize + bytes;
     QByteArray result;
     result.resize(totalSize);
-    result.insert(0, "#" + numberOfNumbers + bytesString);
+    QByteArray header = "#" + numberOfNumbers.toUtf8() + bytesString.toUtf8();
+    result.replace(0, headerSize, header);
     int index = 0;
     for (int i = headerSize; i < totalSize; i += 8) {
         char *value = (char *)&(values[index]);
-        result.insert(i, value, 8);
+        result.replace(i, 8, value, 8);
         index++;
     }
     return(result);

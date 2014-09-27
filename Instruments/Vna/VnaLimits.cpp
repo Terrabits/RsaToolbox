@@ -8,7 +8,7 @@
 using namespace RsaToolbox;
 
 // Qt includes
-// #include <Qt>
+#include <QDebug>
 
 
 VnaLimits::VnaLimits(QObject *parent) :
@@ -80,6 +80,9 @@ bool VnaLimits::isFail() {
     _trace->select();
     QString scpi = ":CALC%1:LIM:FAIL?\n";
     scpi = scpi.arg(_channel);
+    if (_vna->channel(_channel).isManualSweep())
+        _vna->channel(_channel).startSweep();
+    _vna->wait();
     return _vna->query(scpi).trimmed() == "1";
 }
 
@@ -114,15 +117,27 @@ void VnaLimits::setUpper(QString trace, double xOffset, double yOffset) {
     scpi = scpi.arg(yOffset);
     scpi = scpi.arg(trace);
     _vna->write(scpi);
+    show();
+    on();
 }
-void VnaLimits::setUpper(QRowVector frequencies_Hz, QRowVector values) {
-    uint channel = _vna->createChannel();
-    QString name = "__________";
-    _vna->createTrace(name, channel);
-    _vna->trace(name).write(frequencies_Hz, values);
-    setUpper(name, 0, 0);
-    _vna->deleteTrace(name);
-    _vna->deleteChannel(channel);
+void VnaLimits::setUpper(QRowVector frequencies_Hz, ComplexRowVector values) {
+    uint i = _vna->createChannel();
+    VnaChannel channel = _vna->channel(i);
+    channel.manualSweepOn();
+
+    QString trc = "__________";
+    QString mem = "____________";
+    _vna->createTrace(trc, i);
+    _vna->trace(trc).setFormat(_trace->format());
+    channel.setFrequencies(frequencies_Hz);
+    channel.startSweep();
+    _vna->wait();
+    _vna->trace(trc).toMemory(mem);
+    _vna->trace(mem).write(values);
+    setUpper(mem);
+    _vna->deleteTrace(mem);
+    _vna->deleteTrace(trc);
+    _vna->deleteChannel(i);
 }
 void VnaLimits::setLower(QString trace, double xOffset, double yOffset) {
     _trace->select();
@@ -132,15 +147,27 @@ void VnaLimits::setLower(QString trace, double xOffset, double yOffset) {
     scpi = scpi.arg(yOffset);
     scpi = scpi.arg(trace);
     _vna->write(scpi);
+    show();
+    on();
 }
-void VnaLimits::setLower(QRowVector frequencies_Hz, QRowVector values) {
-    uint channel = _vna->createChannel();
-    QString name = "__________";
-    _vna->createTrace(name, channel);
-    _vna->trace(name).write(frequencies_Hz, values);
-    setLower(name, 0, 0);
-    _vna->deleteTrace(name);
-    _vna->deleteChannel(channel);
+void VnaLimits::setLower(QRowVector frequencies_Hz, ComplexRowVector values) {
+    uint i = _vna->createChannel();
+    VnaChannel channel = _vna->channel(i);
+    channel.manualSweepOn();
+
+    QString trc = "__________";
+    QString mem = "____________";
+    _vna->createTrace(trc, i);
+    _vna->trace(trc).setFormat(_trace->format());
+    channel.setFrequencies(frequencies_Hz);
+    channel.startSweep();
+    _vna->wait();
+    _vna->trace(trc).toMemory(mem);
+    _vna->trace(mem).write(values);
+    setLower(mem);
+    _vna->deleteTrace(mem);
+    _vna->deleteTrace(trc);
+    _vna->deleteChannel(i);
 }
 void VnaLimits::deleteAll() {
     QString scpi = ":CALC%1:LIM:DEL:ALL\n";

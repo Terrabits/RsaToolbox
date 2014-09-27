@@ -76,6 +76,10 @@ QString NetworkData::timestamp() {
 uint NetworkData::numberOfPorts() {
     return(_ports);
 }
+void NetworkData::setNumberOfPorts(uint ports) {
+    _ports = ports;
+}
+
 QString NetworkData::portComment(uint port) {
     return(_portComments[port-1]);
 }
@@ -104,7 +108,7 @@ void NetworkData::setXUnits(Units units, SiPrefix prefix) {
 uint NetworkData::points() {
     return(_points);
 }
-QRowVector NetworkData::x() {
+QRowVector &NetworkData::x() {
     return(_x);
 }
 ComplexMatrix3D& NetworkData::y() {

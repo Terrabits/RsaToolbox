@@ -17,6 +17,10 @@
 #include <vector>
 
 
+// ToDo: Rewrite Touchstone/NetworkData to
+// not rely on NetworkData::setNumberOfPorts().
+// This is bad form: Should be derived from setData();
+
 namespace RsaToolbox
 {
 
@@ -45,7 +49,7 @@ private:
     static bool ReadOptions(NetworkData &network, QTextStream &snpFile);
     static bool ReadFrequencyPrefix(NetworkData &network, QString units);
     static bool ReadDataType(NetworkData &network, QString dataType);
-    static bool ReadFormat(NetworkData &network, QString format);
+    static bool ReadFormat(QString format);
 
     // Read data
     static bool ReadData(NetworkData &network, QTextStream &snpFile);

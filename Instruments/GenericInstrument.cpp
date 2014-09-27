@@ -37,8 +37,7 @@ using namespace RsaToolbox;
  * \param parent Optional parent QObject
  */
 GenericInstrument::GenericInstrument(QObject *parent) :
-    QObject(parent),
-    _tempLog(this)
+    QObject(parent)
 {
     _log = &_tempLog;
     resetBus();
@@ -49,12 +48,10 @@ GenericInstrument::GenericInstrument(QObject *parent) :
  * \param parent Optional parent QObject
  */
 GenericInstrument::GenericInstrument(GenericBus *bus, QObject *parent) :
-    QObject(parent),
-    _tempLog(this)
+    QObject(parent)
 {
     _log = &_tempLog;
     resetBus(bus);
-    _bus->setParent(this);
     _bus->setBufferSize(500);
     _bus->setTimeout(1000);
 }
@@ -73,8 +70,7 @@ GenericInstrument::GenericInstrument(GenericBus *bus, QObject *parent) :
  * \param parent Optional parent QObject
  */
 GenericInstrument::GenericInstrument(ConnectionType type, QString address, QObject *parent) :
-    QObject(parent),
-    _tempLog(this)
+    QObject(parent)
 {
     _log = &_tempLog;
     resetBus(type, address);
@@ -91,7 +87,7 @@ GenericInstrument::GenericInstrument(ConnectionType type, QString address, QObje
 void GenericInstrument::resetBus() {
     bool wasConnected = isConnected();
     disconnectLog();
-    _bus.reset(new RsibBus(this));
+    _bus.reset(new RsibBus());
     QObject::connect(_bus.data(), SIGNAL(error()), this, SIGNAL(busError()));
     if (wasConnected)
         emit disconnected();
@@ -110,7 +106,6 @@ void GenericInstrument::resetBus() {
 void GenericInstrument::resetBus(GenericBus *bus) {
     resetBus();
     _bus.reset(bus);
-    _bus->setParent(this);
     if (isConnected()) {
         connectLog();
         emit connected();
@@ -131,9 +126,9 @@ void GenericInstrument::resetBus(GenericBus *bus) {
  */
 void GenericInstrument::resetBus(ConnectionType type, QString address) {
     if (type == TCPIP_CONNECTION)
-        resetBus(new RsibBus(type, address, 500, 1000, this));
+        resetBus(new RsibBus(type, address, 500, 1000));
     else if (VisaBus::isVisaPresent())
-        resetBus(new VisaBus(type, address, 500, 1000, this));
+        resetBus(new VisaBus(type, address, 500, 1000));
     else
         resetBus();
 }
@@ -291,7 +286,6 @@ void GenericInstrument::printInfo(QTextStream &stream) {
  */
 GenericBus* GenericInstrument::takeBus() {
     disconnectLog();
-    _bus->setParent(NULL);
     return(_bus.take());
     disconnected();
 }

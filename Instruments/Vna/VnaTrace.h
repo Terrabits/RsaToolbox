@@ -145,10 +145,6 @@ private:
     uint complexBufferSize();
     void parseParameters(QString scpi);
     void parseTwoPortIndices(QString scpi, uint &output, uint &input);
-
-
-
-    
 };
 }
 
