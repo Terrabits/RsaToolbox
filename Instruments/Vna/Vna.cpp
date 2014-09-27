@@ -1759,19 +1759,9 @@ VnaCalUnit *Vna::takeCalUnit(QString id) {
     return(new VnaCalUnit(this, id));
 }
 
-/** @} */
-
-//void Vna::moveToThread(QThread *thread) {
-//    QObject::moveToThread(thread);
-//    _properties.moveToThread(thread);
-//    _settings.moveToThread(thread);
-//    _fileSystem.moveToThread(thread);
-//    _calKit.moveToThread(thread);
-//    _calibrate.moveToThread(thread);
-//    //_calGroup.moveToThread(thread); // ???
-//    _channel.moveToThread(thread);
-//    _trace.moveToThread(thread);
-//    _diagram.moveToThread(thread);
-//    _switchMatrix.moveToThread(thread);
-//    _calUnit.moveToThread(thread);
-//}
+bool Vna::isGlobalLimitsPass() {
+    return !isGlobalLimitsFail();
+}
+bool Vna::isGlobalLimitsFail() {
+    return query(":CALC:CLIM:FAIL?\n").trimmed() == "1";
+}

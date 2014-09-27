@@ -141,7 +141,7 @@ void VnaLimits::setUpper(QRowVector frequencies_Hz, ComplexRowVector values) {
 }
 void VnaLimits::setLower(QString trace, double xOffset, double yOffset) {
     _trace->select();
-    QString scpi = ":CALC%1:LIM:UPP:FEED %2,%3,\'%4\'\n";
+    QString scpi = ":CALC%1:LIM:LOW:FEED %2,%3,\'%4\'\n";
     scpi = scpi.arg(_channel);
     scpi = scpi.arg(xOffset);
     scpi = scpi.arg(yOffset);

@@ -170,8 +170,9 @@ public:
     VnaCalUnit &calUnit(QString id);
     VnaCalUnit *takeCalUnit(QString id);
 
-    // QObject
-//    void moveToThread(QThread *thread);
+    // Pass/Fail
+    bool isGlobalLimitsPass();
+    bool isGlobalLimitsFail();
 
 private:
     VnaProperties _properties;
