@@ -28,6 +28,10 @@ public:
     QStringList traces();
     void deleteTraces();
 
+    bool isTitleOn();
+    bool isTitleOff();
+    void titleOn(bool isOn = true);
+    void titleOff(bool isOff = true);
     QString title();
     void setTitle(QString title);
 

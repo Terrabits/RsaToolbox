@@ -85,11 +85,13 @@ GenericInstrument::GenericInstrument(ConnectionType type, QString address, QObje
  * \sa resetBus(GenericBus *bus)
  */
 void GenericInstrument::resetBus() {
-    bool wasConnected = isConnected();
+    bool emitSignal = isConnected();
+    Log *temp = _log;
     disconnectLog();
     _bus.reset(new RsibBus());
     QObject::connect(_bus.data(), SIGNAL(error()), this, SIGNAL(busError()));
-    if (wasConnected)
+    _log = temp;
+    if (emitSignal)
         emit disconnected();
 }
 /*!
@@ -228,7 +230,6 @@ void GenericInstrument::connectLog() {
                          _log, SLOT(print(QString)));
     }
 }
-
 
 void GenericInstrument::print(QString text) {
     *_log << text;

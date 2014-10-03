@@ -54,11 +54,38 @@ void VnaDiagram::deleteTraces() {
 
 }
 
+bool VnaDiagram::isTitleOn() {
+    QString scpi = ":DISP:WIND%1:TITL?\n";
+    scpi = scpi.arg(_index);
+    return _vna->query(scpi).trimmed() == "1";
+}
+bool VnaDiagram::isTitleOff() {
+    return !isTitleOn();
+}
+void VnaDiagram::titleOn(bool isOn) {
+    QString scpi = ":DISP:WIND%1:TITL %2\n";
+    scpi = scpi.arg(_index);
+    if (isOn)
+        scpi = scpi.arg(1);
+    else
+        scpi = scpi.arg(0);
+    _vna->write(scpi);
+}
+void VnaDiagram::titleOff(bool isOff) {
+    titleOn(!isOff);
+}
+
 QString VnaDiagram::title() {
-    return(QString());
+    QString scpi = ":DISP:WIND%1:TITL:DATA?\n";
+    scpi = scpi.arg(_index);
+    return _vna->query(scpi).remove("\'").trimmed();
 }
 void VnaDiagram::setTitle(QString title) {
-    Q_UNUSED(title);
+    titleOn();
+    QString scpi = ":DISP:WIND%1:TITL:DATA \'%2\'\n";
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(title);
+    _vna->write(scpi);
 }
 
 void VnaDiagram::autoscale() {

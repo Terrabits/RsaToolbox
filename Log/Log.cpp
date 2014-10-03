@@ -158,11 +158,11 @@ bool Log::isClosed(void) {
  * possible.
  */
 void Log::open(void) {
-    if (_file.isOpen() == false) {
-        _file.open(QFile::WriteOnly);
-        if (_file.isOpen())
-            emit opened();
-    }
+    if (isOpen())
+    return;
+
+    if (_file.open(QFile::WriteOnly))
+        emit opened();
 }
 
 /*!
@@ -172,12 +172,13 @@ void Log::open(void) {
  * method does nothing.
  */
 void Log::close(void) {
-    if (_file.isOpen()) {
-        _stream.flush();
-        _file.close();
-        if (_file.isOpen() == false)
-            emit closed();
-    }
+    if (isClosed())
+        return;
+
+    _stream.flush();
+    _file.close();
+    if (isClosed())
+        emit closed();
 }
 
 /*!
@@ -197,9 +198,9 @@ void Log::reset(QString directory, QString filename, QString applicationName, QS
     close();
 
     _directory = directory;
-    _file.setFileName(directory + "/" + filename);
     _applicationName = applicationName;
     _applicationVersion = applicationVersion;
+    _file.setFileName(QDir(directory).filePath(filename));
     open();
 }
 
