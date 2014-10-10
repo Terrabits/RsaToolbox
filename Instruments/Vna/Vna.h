@@ -126,6 +126,7 @@ public:
     uint numberOfTraces();
     QStringList traces();
     void createTrace(QString name, uint channel);
+    QString createTrace(uint channel);
     void deleteTrace(QString name);
     void deleteTraces(QStringList traces);
     void deleteTraces();

@@ -1216,6 +1216,28 @@ void Vna::createTrace(QString name, uint channel) {
 }
 
 /*!
+ * \brief Create a trace in \c channel without
+ * a specific name.
+ *
+ * To also name the trace, use the overloaded
+ * method:
+ * \c createTrace(QString name, uint channel)
+ *
+ * \param channel Channel of trace
+ * \sa Vna::createTrace(QString name, uint channel)
+ */
+QString Vna::createTrace(uint channel) {
+    QStringList traces = this->traces();
+    QString name = "Trc%1";
+    int i = traces.size() + 1;
+    while (traces.contains(name.arg(i), Qt::CaseInsensitive))
+        i++;
+    name = name.arg(i);
+    createTrace(name, channel);
+    return name;
+}
+
+/*!
  * \brief Deletes trace \c name
  * \param name Name of the trace to delete
  */

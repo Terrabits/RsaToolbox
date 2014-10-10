@@ -32,6 +32,7 @@ HEADERS += $$PWD/VnaUserDefinedPort.h \
            $$PWD/VnaMarker.h \
            $$PWD/VnaReferenceMarker.h \
            $$PWD/VnaLimits.h \
+           $$PWD/VnaMath.h \
            $$PWD/VnaTimeDomain.h \
            $$PWD/VnaDiagram.h \
            $$PWD/Vna.h \
@@ -65,6 +66,7 @@ SOURCES += $$PWD/VnaUserDefinedPort.cpp \
            $$PWD/VnaMarker.cpp \
            $$PWD/VnaReferenceMarker.cpp \
            $$PWD/VnaLimits.cpp \
+           $$PWD/VnaMath.cpp \
            $$PWD/VnaTimeDomain.cpp \
            $$PWD/VnaDiagram.cpp \
            $$PWD/Vna.cpp \

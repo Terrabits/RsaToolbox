@@ -154,10 +154,16 @@ bool VnaSettings::isDisplayOff() {
 }
 
 void VnaSettings::displayOn(bool isOn) {
+    // Bug in ZNB firmware:
+    // SYST:DISP:UPD 1 is interepreted the
+    // same as
+    // SYST:DISP:UPD ONCE
+    // Oooooops!
+
     if (isOn)
-        _vna->write(":SYST:DISP:UPD 1\n");
+        _vna->write(":SYST:DISP:UPD ON\n");
     else
-        _vna->write(":SYST:DISP:UPD 0\n");
+        _vna->write(":SYST:DISP:UPD OFF\n");
 }
 void VnaSettings::displayOff(bool isOff) {
     displayOn(!isOff);

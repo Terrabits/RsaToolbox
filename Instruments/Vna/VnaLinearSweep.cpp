@@ -129,8 +129,6 @@ QRowVector VnaLinearSweep::frequencies_Hz() {
     scpi = scpi.arg(_channelIndex);
     uint bufferSize = frequencyBufferSize(points());
     return(_vna->queryVector(scpi, bufferSize));
-//    return(parseQRowVector(
-//               _vna->query(scpi, bufferSize, 1000)));
 }
 double VnaLinearSweep::power_dBm() {
     QString scpi = ":SOUR%1:POW?\n";

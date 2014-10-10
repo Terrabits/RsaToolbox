@@ -790,6 +790,58 @@ ComplexDouble RsaToolbox::linearInterpolateY(double x1, ComplexDouble y1, double
     ComplexDouble slope = (y2 - y1)/(x2 - x1);
     return(y1 + slope*(x_desired - x1));
 }
+ComplexRowVector RsaToolbox::linearInterpolateReIm(QRowVector x, ComplexRowVector y, QRowVector xDesired) {
+    int newPoints = xDesired.size();
+    ComplexRowVector result(newPoints);
+
+    int i = 0;
+    int oldPoints = x.size();
+    for (int j = 1; j < oldPoints; j++) {
+        double x1 = x[j-1];
+        double x2 = x[j];
+        ComplexDouble y1 = y[j-1];
+        ComplexDouble y2 = y[j];
+        while (i < newPoints && xDesired[i] <= x2) {
+            result[i] = linearInterpolateY(x1, y1, x2, y2, xDesired[i]);
+            i++;
+        }
+        if (i >= newPoints)
+            break;
+    }
+    return result;
+}
+ComplexRowVector RsaToolbox::linearInterpolateMagPhase(QRowVector x, ComplexRowVector y, QRowVector xDesired) {
+    int newPoints = xDesired.size();
+    ComplexRowVector result(newPoints);
+
+    int i = 0;
+    int oldPoints = x.size();
+    for (int j = 1; j < oldPoints; j++) {
+        double x1 = x[j-1];
+        double x2 = x[j];
+        double mag1 = abs(y[j-1]);
+        double phase1 = angle_rad(y[j-1]);
+        double mag2 = abs(y[j]);
+        double phase2 = angle_rad(y[j]);
+
+        // Assume no aliasing
+        // Take shortest path between points
+        if (phase2 - phase1 > PI)
+            phase1 += 2*PI;
+        else if (phase1 - phase2 > PI)
+            phase2 += 2*PI;
+
+        while (i < newPoints && xDesired[i] <= x2) {
+            double mag = linearInterpolateY(x1, mag1, x2, mag2, xDesired[i]);
+            double phase = linearInterpolateY(x1, phase1, x2, phase2, xDesired[i]);
+            result[i] = std::polar(mag, phase);
+            i++;
+        }
+        if (i >= newPoints)
+            break;
+    }
+    return result;
+}
 
 ComplexRowVector RsaToolbox::exp(ComplexRowVector x) {
     uint size = x.size();

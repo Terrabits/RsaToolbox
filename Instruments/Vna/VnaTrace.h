@@ -9,6 +9,7 @@
 #include "VnaMarker.h"
 #include "VnaReferenceMarker.h"
 #include "VnaLimits.h"
+#include "VnaMath.h"
 #include "VnaTimeDomain.h"
 
 // Qt
@@ -117,6 +118,9 @@ public:
     // Limit Lines
     VnaLimits &limits();
 
+    // Trace math
+    VnaMath &math();
+
     void operator=(VnaTrace const &other);
 
 private:
@@ -126,6 +130,7 @@ private:
     QScopedPointer<VnaMarker> _marker;
     QScopedPointer<VnaReferenceMarker> _referenceMarker;
     QScopedPointer<VnaLimits> _limits;
+    QScopedPointer<VnaMath> _math;
     QScopedPointer<VnaTimeDomain> _timeDomain;
     
     bool isFullyInitialized() const;

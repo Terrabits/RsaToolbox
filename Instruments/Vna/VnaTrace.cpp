@@ -406,6 +406,7 @@ void VnaTrace::write(QRowVector data) {
     select();
     _vna->binaryWrite(scpi.toUtf8()
                       + toBlockDataFormat(data));
+    _vna->wait();
 }
 void VnaTrace::write(QRowVector frequencies_Hz, QRowVector data) {
     uint i = channel();
@@ -421,6 +422,7 @@ void VnaTrace::write(ComplexRowVector data) {
     _vna->settings().setLittleEndian();
     _vna->binaryWrite(scpi.toUtf8()
                       + toBlockDataFormat(data));
+    _vna->wait();
 }
 void VnaTrace::write(QRowVector frequencies_Hz, ComplexRowVector data) {
     uint i = channel();
@@ -520,6 +522,12 @@ VnaReferenceMarker &VnaTrace::referenceMarker() {
 VnaLimits &VnaTrace::limits() {
     _limits.reset(new VnaLimits(_vna, this));
     return *_limits.data();
+}
+
+// Trace math
+VnaMath &VnaTrace::math() {
+    _math.reset(new VnaMath(_vna, this));
+    return *_math.data();
 }
 
 // Time Domain
