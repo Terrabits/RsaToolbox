@@ -69,7 +69,7 @@ ibcntl:   6 (bytes)<br>
  */
 RsibBus::RsibBus(QObject *parent)
     :GenericBus(parent) {
-    instrument = -1;
+    _instrument = -1;
 }
 
 /*!
@@ -103,20 +103,17 @@ RsibBus::RsibBus(ConnectionType connectionType, QString address,
 {
     // Only handles TCPIP
     if (connectionType != TCPIP_CONNECTION) {
-        instrument = -1;
-        connectionType = NO_CONNECTION;
-        return;
-    }
-
-    instrument = RSDLLibfind(address.toUtf8().data(),
-                             &ibsta, &iberr, &ibcntl);
-    if (instrument == -1) {
+        _instrument = -1;
         _connectionType = NO_CONNECTION;
         return;
     }
 
+    _instrument = RSDLLibfind(address.toUtf8().data(),
+                              &_ibsta, &_iberr, &_ibcntl);
+
     // Set timeout
-    setTimeout(timeout_ms);
+    if (isOpen())
+        setTimeout(timeout_ms);
 }
 
 /*!
@@ -126,9 +123,8 @@ RsibBus::RsibBus(ConnectionType connectionType, QString address,
  * necessary.
  */
 RsibBus::~RsibBus() {
-    if (instrument != -1) {
-        RSDLLibonl(instrument, 0, &ibsta, &iberr, &ibcntl);
-    }
+    if (isOpen())
+        RSDLLibonl(_instrument, 0, &_ibsta, &_iberr, &_ibcntl);
 }
 
 /*!
@@ -136,7 +132,7 @@ RsibBus::~RsibBus() {
  * \return Status of connection
  */
 bool RsibBus::isOpen() const {
-    return(_connectionType != NO_CONNECTION);
+    return(_instrument != -1);
 }
 
 /*!
@@ -149,7 +145,7 @@ bool RsibBus::isOpen() const {
  */
 void RsibBus::setTimeout(uint time_ms) {
     GenericBus::setTimeout(time_ms);
-    RSDLLibtmo(instrument, (short)_timeout_ms, &ibsta, &iberr, &ibcntl);
+    RSDLLibtmo(_instrument, (short)_timeout_ms, &_ibsta, &_iberr, &_ibcntl);
 }
 
 /*!
@@ -167,30 +163,18 @@ void RsibBus::setTimeout(uint time_ms) {
 * \return \c true if read is successful; \c false otherwise
  * \sa write(), query()
  */
-bool RsibBus::_read(char *buffer, unsigned int bufferSize)
-{
-    QString text;
-    QTextStream stream(&text);
-    stream << "Read:     ";
-    RSDLLilrd(instrument, buffer, bufferSize, &ibsta, &iberr, &ibcntl);
-    if (isError()) {
-        buffer[0] = '\0';
-        stream << "\n>>> READ ERROR! <<<\n";
-        printStatus(stream);
-        stream << endl;
-        stream.flush();
-        emit print(text);
-        emit error();
-        return(false);
+bool RsibBus::read(char *buffer, unsigned int bufferSize) {
+    RSDLLilrd(_instrument, buffer, bufferSize, &_ibsta, &_iberr, &_ibcntl);
+    if (!isError()) {
+        nullTerminate(buffer, bufferSize, _ibcntl);
+        printRead(buffer, _ibcntl);
+        return(true);
     }
     else {
-        terminateCString(buffer, bufferSize);
-        stream << truncateCString(buffer) << endl;
-        printStatus(stream);
-        stream << endl;
-        stream.flush();
-        emit print(text);
-        return(true);
+        buffer[0] = '\0';
+        printRead(buffer, 0);
+        emit error();
+        return(false);
     }
 }
 /*!
@@ -203,28 +187,8 @@ bool RsibBus::_read(char *buffer, unsigned int bufferSize)
  * \return \c true if write is successful; \c false otherwise
  * \sa read(), query()
  */
-bool RsibBus::_write(QString scpiCommand) {
-    QString text;
-    QTextStream stream(&text);
-    stream<< "Write:    \"" << scpiCommand.trimmed() << "\"" << endl;
-    QByteArray c_string = scpiCommand.toUtf8();
-    RSDLLibwrt(instrument, c_string.data(), &ibsta, &iberr, &ibcntl);
-    if (isError()) {
-        stream << ">>> WRITE ERROR! <<<\n";
-        printStatus(stream);
-        stream << endl;
-        stream.flush();
-        emit print(text);
-        emit error();
-        return(false);
-    }
-    else {
-        printStatus(stream);
-        stream << endl;
-        stream.flush();
-        emit print(text);
-        return(true);
-    }
+bool RsibBus::write(QString scpi) {
+    return binaryWrite(scpi.toUtf8());
 }
 
 /*!
@@ -241,15 +205,17 @@ bool RsibBus::_write(QString scpiCommand) {
  * \c false otherwise
  * \sa read(), write(), query()
  */
-bool RsibBus::_binaryRead(char *buffer, uint bufferSize,
-                          uint &bytesRead)
+bool RsibBus::binaryRead(char *buffer, uint bufferSize,
+                         uint &bytesRead)
 {
-    bool isSuccessful = _read(buffer, bufferSize);
-    if (isSuccessful == true)
-        bytesRead = ibcntl;
-    else
+    if (read(buffer, bufferSize)) {
+        bytesRead = _ibcntl;
+        return true;
+    }
+    else {
         bytesRead = 0;
-    return(isSuccessful);
+        return false;
+    }
 }
 /*!
  * \brief Writes binary data from instrument
@@ -258,26 +224,18 @@ bool RsibBus::_binaryRead(char *buffer, uint bufferSize,
  * \c false otherwise
  * \sa read(), write(), query()
  */
-bool RsibBus::_binaryWrite(QByteArray scpiCommand) {
-    QString text;
-    QTextStream stream(&text);
-    stream<< "Write:    " << truncateCString(scpiCommand.trimmed().constData()) << endl;
-    RSDLLilwrt(instrument, scpiCommand.data(), scpiCommand.size(), &ibsta, &iberr, &ibcntl);
+bool RsibBus::binaryWrite(QByteArray scpi) {
+    RSDLLilwrt(_instrument, scpi.data(), scpi.size(), &_ibsta, &_iberr, &_ibcntl);
+    if (scpi.size() > MAX_PRINT)
+        scpi = QByteArray(scpi.data(), MAX_PRINT+1);
+    printWrite(scpi);
+
     if (isError()) {
-        stream << ">>> WRITE ERROR! <<<\n";
-        printStatus(stream);
-        stream << endl;
-        stream.flush();
-        emit print(text);
         emit error();
-        return(false);
+        return false;
     }
     else {
-        printStatus(stream);
-        stream << endl;
-        stream.flush();
-        emit print(text);
-        return(true);
+        return true;
     }
 }
 
@@ -334,7 +292,7 @@ bool RsibBus::unlock() {
  * \sa VisaBus::remote()
  */
 bool RsibBus::local() {
-    RSDLLibsre(instrument, 0, &ibsta, &iberr, &ibcntl);
+    RSDLLibsre(_instrument, 0, &_ibsta, &_iberr, &_ibcntl);
     emit print("Instrument in local mode\n\n");
     return(true);
 }
@@ -360,7 +318,7 @@ bool RsibBus::local() {
  * \sa VisaBus::remote()
  */
 bool RsibBus::remote() {
-    RSDLLibsre(instrument, 1, &ibsta, &iberr, &ibcntl);
+    RSDLLibsre(_instrument, 1, &_ibsta, &_iberr, &_ibcntl);
     emit print("Instrument in remote mode\n\n");
     return(true);
 }
@@ -379,61 +337,52 @@ bool RsibBus::remote() {
     ibcntl:   17 (bytes)<br>
    </tt>
  */
-void RsibBus::printStatus() const {
+QString RsibBus::status() const {
     QString text;
     QTextStream stream(&text);
-    printStatus(stream);
-    emit print(text);
-}
 
-// Private
-void RsibBus::printStatus(QTextStream &stream) const {
     // Print ibsta
-    stream << "ibsta:    0x" << hex << ibsta;
-    if ((ibsta & IBSTA_ERR) != 0) stream << " (IBSTA_ERR)";
-    if ((ibsta & IBSTA_TIMO) != 0) stream << " (IBSTA_TIMO)";
-    if ((ibsta & IBSTA_CMPL) != 0) stream << " (IBSTA_CMPL)";
+    stream << "ibsta:    0x" << hex << _ibsta;
+    if ((_ibsta & IBSTA_ERR) != 0)
+        stream << " IBSTA_ERR";
+    if ((_ibsta & IBSTA_TIMO) != 0)
+        stream << " IBSTA_TIMO";
+    if ((_ibsta & IBSTA_CMPL) != 0)
+        stream << " IBSTA_CMPL";
     stream << endl;
 
     // Print iberr
-    stream << "iberr:    " << dec << iberr;
+    stream << "iberr:    " << dec << _iberr;
     if (isError()) {
-        if ((iberr & IBERR_DEVICE_REGISTER) != 0) stream << " (IBERR_DEVICE_REGISTER)";
-        if ((iberr & IBERR_CONNECT) != 0) stream << " (IBERR_CONNECT)";
-        if ((iberr & IBERR_NO_DEVICE) != 0) stream << " (IBERR_NO_DEVICE)";
-        if ((iberr & IBERR_MEM) != 0) stream << " (IBERR_MEM)";
-        if ((iberr & IBERR_TIMEOUT) != 0) stream << " (IBERR_TIMEOUT)";
-        if ((iberr & IBERR_BUSY) != 0) stream << " (IBERR_BUSY)";
-        if ((iberr & IBERR_FILE) != 0) stream << " (IBERR_FILE)";
-        if ((iberr & IBERR_UNKNOWN) != 0) stream << " (IBERR_UNKNOWN)";
+        if ((_iberr & IBERR_DEVICE_REGISTER) != 0)
+            stream << " IBERR_DEVICE_REGISTER";
+        if ((_iberr & IBERR_CONNECT) != 0)
+            stream << " IBERR_CONNECT";
+        if ((_iberr & IBERR_NO_DEVICE) != 0)
+            stream << " IBERR_NO_DEVICE";
+        if ((_iberr & IBERR_MEM) != 0)
+            stream << " IBERR_MEM";
+        if ((_iberr & IBERR_TIMEOUT) != 0)
+            stream << " IBERR_TIMEOUT";
+        if ((_iberr & IBERR_BUSY) != 0)
+            stream << " IBERR_BUSY";
+        if ((_iberr & IBERR_FILE) != 0)
+            stream << " IBERR_FILE";
+        if ((_iberr & IBERR_UNKNOWN) != 0)
+            stream << " IBERR_UNKNOWN";
     }
     stream << endl;
 
     // Print ibcntl
-    stream << "ibcntl:   " << ibcntl << " (bytes)" << endl;
+    stream << "ibcntl:   " << _ibcntl << " (bytes)" << endl;
 
-    // Print
     stream.flush();
+    return text;
 }
-bool RsibBus::isError() const {
-    return((ibsta & IBSTA_ERR) != 0);
-}
-void RsibBus::terminateCString(char *buffer, uint buffer_size) {
-    // Null-terminate string
-    if (ibcntl < buffer_size)
-        buffer[ibcntl] = '\0';
-    else
-        /*buffer[buffer_size - 1] = '\0'*/; // Could overwrite last byte?
-}
-QString RsibBus::truncateCString(const char *buffer) {
-    QString text(buffer);
-    if (text.length() > MAX_PRINT) {
-        text.truncate(MAX_PRINT);
-        text += "...";
-    }
 
-    text = "\"" + text + "\"";
-    return(text);
+// Private
+bool RsibBus::isError() const {
+    return((_ibsta & IBSTA_ERR) != 0);
 }
 
 

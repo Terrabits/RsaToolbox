@@ -7,6 +7,27 @@ using namespace RsaToolbox;
 // Qt
 //
 
+QString RsaToolbox::toString(ConnectionType connection_type) {
+    if (connection_type == TCPIP_CONNECTION)
+        return("TCPIP");
+    if (connection_type == GPIB_CONNECTION)
+        return("GPIB");
+    if (connection_type == USB_CONNECTION)
+        return("USB");
+    // Else
+    return("No Connection");
+}
+ConnectionType RsaToolbox::toConnectionType(QString scpi) {
+    if (scpi.contains("TCPIP", Qt::CaseInsensitive))
+        return(TCPIP_CONNECTION);
+    if (scpi.contains("GPIB", Qt::CaseInsensitive))
+        return(GPIB_CONNECTION);
+    if (scpi.contains("USB", Qt::CaseInsensitive))
+        return(USB_CONNECTION);
+    //else
+    return(NO_CONNECTION);
+}
+
 /*!
  * \defgroup BusGroup Bus
  * Interchangeable instrument busses for
@@ -79,7 +100,6 @@ using namespace RsaToolbox;
  * \sa Log, VisaBus, RsibBus
  */
 
-
 /*!
  * \brief The default constructor
  *
@@ -151,7 +171,7 @@ GenericBus::GenericBus(ConnectionType connectionType,
     if (timeout_ms > 0)
         _timeout_ms = timeout_ms;
     else
-        _timeout_ms = 1000;
+        _timeout_ms = 60000;
 
     if (bufferSize_B > 0)
         setBufferSize(bufferSize_B);
@@ -219,16 +239,6 @@ void GenericBus::setTimeout(uint time_ms) {
 }
 
 /*!
- * \brief GenericBus::read
- * \param buffer
- * \param bufferSize_B
- * \return
- */
-bool GenericBus::read(char *buffer, uint bufferSize_B) {
-    return(_read(buffer, bufferSize_B));
-}
-
-/*!
  * \brief Reads ASCII response from the
  * instrument
  *
@@ -239,18 +249,10 @@ bool GenericBus::read(char *buffer, uint bufferSize_B) {
  * \return Readback from instrument
  */
 QString GenericBus::read() {
-    if (_read(_buffer.data(), _bufferSize_B))
+    if (read(_buffer.data(), _bufferSize_B))
         return(QString(_buffer.data()));
     else
         return(QString());
-}
-/*!
- * \brief writes null-terminated, ASCII command to the
- * instrument
- * \param scpiCommand
- */
-void GenericBus::write(QString scpiCommand) {
-    _write(scpiCommand);
 }
 /*!
  * \brief Queries ASCII response from the
@@ -262,21 +264,11 @@ void GenericBus::write(QString scpiCommand) {
  *
  * \return Query result
  */
-QString GenericBus::query(QString scpiCommand) {
-    if (_write(scpiCommand))
+QString GenericBus::query(QString scpi) {
+    if (write(scpi))
         return(read());
     else
         return(QString());
-}
-
-/*!
- * \brief GenericBus::binaryRead
- * \param buffer
- * \param bufferSize_B
- * \param bytesRead
- */
-bool GenericBus::binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead) {
-    return(_binaryRead(buffer, bufferSize_B, bytesRead));
 }
 
 /*!
@@ -298,26 +290,12 @@ bool GenericBus::binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead) {
  */
 QByteArray GenericBus::binaryRead() {
     uint bytesRead;
-    if (_binaryRead(_buffer.data(), _bufferSize_B, bytesRead))
+    if (binaryRead(_buffer.data(), _bufferSize_B, bytesRead))
         return(QByteArray(_buffer.data(), bytesRead));
     else
         return(QByteArray());
 }
-/*!
- * \brief Writes binary data to instrument.
- *
- * The data contained in scpiCommand is written
- * to the instrument as-is; no null-terminations
- * or assumentions are made. This is appropriate
- * when standard string formatting would interfere
- * with the write operation, such as when
- * transferring the raw binary contents of a file.
- *
- * \param scpiCommand Command, including any binary parameters.
- */
-void GenericBus::binaryWrite(QByteArray scpiCommand) {
-    _binaryWrite(scpiCommand);
-}
+
 /*!
  * \brief Queries binary response to scpiCommand
  * from the instrument
@@ -335,30 +313,43 @@ void GenericBus::binaryWrite(QByteArray scpiCommand) {
  *
  * \return Readback from instrument
  */
-QByteArray GenericBus::binaryQuery(QByteArray scpiCommand) {
-    if (_binaryWrite(scpiCommand))
+QByteArray GenericBus::binaryQuery(QByteArray scpi) {
+    if (binaryWrite(scpi))
         return(binaryRead());
     else
         return(QByteArray());
 }
 
-QString RsaToolbox::toString(ConnectionType connection_type) {
-    if (connection_type == TCPIP_CONNECTION)
-        return("TCPIP");
-    if (connection_type == GPIB_CONNECTION)
-        return("GPIB");
-    if (connection_type == USB_CONNECTION)
-        return("USB");
-    // Else
-    return("No Connection");
+void GenericBus::nullTerminate(char *buffer, uint bufferSize_B, uint bytesRead) {
+    // Do not null terminate if it means
+    // data will be overwritten
+    if (bytesRead < bufferSize_B)
+        buffer[bytesRead] = '\0';
 }
-ConnectionType RsaToolbox::toConnectionType(QString scpi) {
-    if (scpi.contains("TCPIP", Qt::CaseInsensitive))
-        return(TCPIP_CONNECTION);
-    if (scpi.contains("GPIB", Qt::CaseInsensitive))
-        return(GPIB_CONNECTION);
-    if (scpi.contains("USB", Qt::CaseInsensitive))
-        return(USB_CONNECTION);
-    //else
-    return(NO_CONNECTION);
+
+void GenericBus::printRead(char *buffer, uint bytesRead) const {
+    QString text;
+    if (bytesRead > MAX_PRINT) {
+        text = QString(QByteArray(buffer, MAX_PRINT));
+        text = text.trimmed();
+        text += "...";
+    }
+    else {
+        text = QString(QByteArray(buffer, bytesRead));
+        text = text.trimmed();
+    }
+    text = QString("Read:     \"%1\"\n").arg(text);
+    text += status();
+    emit print(text);
+}
+void GenericBus::printWrite(QString scpi) const {
+    QString text;
+    scpi = scpi.trimmed();
+    if (scpi.size() > MAX_PRINT) {
+        scpi.truncate(MAX_PRINT);
+        scpi += "...";
+    }
+    text = QString("Write:    \"%1\"\n").arg(scpi);
+    text += status();
+    emit print(text);
 }

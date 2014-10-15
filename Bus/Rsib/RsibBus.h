@@ -16,22 +16,26 @@ class RsibBus : public GenericBus {
 private: Q_OBJECT
 
 public:
-    RsibBus(QObject *parent = 0);
+    explicit RsibBus(QObject *parent = 0);
     RsibBus(ConnectionType connectionType, QString address,
             uint bufferSize_B = 500, uint timeout_ms = 1000,
             QObject *parent = 0);
     ~RsibBus();
 
-    bool isOpen() const;
     void setTimeout(uint time_ms);
 
-protected:
-    bool _read(char *buffer, uint bufferSize);
-    bool _write(QString scpiCommand);
+    using GenericBus::read;
+    using GenericBus::query;
+    using GenericBus::binaryRead;
+    using GenericBus::binaryQuery;
 
-    bool _binaryRead(char *buffer, uint bufferSize,
+    bool isOpen() const;
+    bool read(char *buffer, uint bufferSize);
+    bool write(QString scpi);
+    bool binaryRead(char *buffer, uint bufferSize,
                     uint &bytesRead);
-    bool _binaryWrite(QByteArray scpiCommand);
+    bool binaryWrite(QByteArray scpi);
+    QString status() const;
 
 public slots:
     bool lock();
@@ -39,19 +43,12 @@ public slots:
     bool local();
     bool remote();
 
-    void printStatus() const;
-
 private:
-    short instrument;
-    short ibsta, iberr;
-    ulong ibcntl;
-    static const int MAX_PRINT = 100;
+    short _instrument;
+    short _ibsta, _iberr;
+    ulong _ibcntl;
 
-
-    void printStatus(QTextStream &stream) const;
     bool isError() const;
-    void terminateCString(char *buffer, uint bufferSize);
-    static QString truncateCString(const char *buffer);
 };
 }
 

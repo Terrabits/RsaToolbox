@@ -21,16 +21,25 @@ class VisaBus : public GenericBus {
 private: Q_OBJECT
 
 public:
-    VisaBus(QObject *parent = 0);
+    explicit VisaBus(QObject *parent = 0);
     VisaBus(ConnectionType connectionType, QString address,
             uint bufferSize_B = 500, uint timeout_ms = 1000,
             QObject *parent = 0);
     ~VisaBus();
 
     static bool isVisaPresent();
-    bool isOpen() const;
 
-    void setTimeout(uint time_ms);
+    using GenericBus::read;
+    using GenericBus::query;
+    using GenericBus::binaryRead;
+    using GenericBus::binaryQuery;
+
+    bool isOpen() const;
+    bool read(char *buffer, uint bufferSize_B);
+    bool write(QString scpi);
+    bool binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead);
+    bool binaryWrite(QByteArray scpi);
+    QString status() const;
 
 public slots:
     bool lock();
@@ -38,20 +47,8 @@ public slots:
     bool local();
     bool remote();
 
-    void printStatus() const;
-
-protected:
-    bool _read(char *buffer, uint bufferSize);
-    bool _write(QString scpiCommand);
-
-    bool _binaryRead(char *buffer, uint bufferSize,
-                     uint &bytesRead);
-    bool _binaryWrite(QByteArray scpiCommand);
-
 private:
-    void printStatus(QTextStream &stream) const;
-
-    // Function pointers
+    // Function pointer typedefs
     typedef ViStatus (_VI_FUNC *_statusDescFuncter)(ViObject, ViStatus, ViChar _VI_FAR []);
     typedef ViStatus (_VI_FUNC *_openDefaultRmFuncter)(ViPSession);
     typedef ViStatus (_VI_FUNC *_openFuncter)(ViSession, ViRsrc, ViAccessMode,
@@ -79,20 +76,19 @@ private:
     _lockFuncter _viLock;
     _unlockFuncter _viUnlock;
     _closeFuncter _viClose;
+    void getFuncters();
 
     // Visa access resources
     ViStatus _status;
     ViSession _resourceManager;
     ViSession _instrument;
-    ViUInt32 _bytesRead;
+    ViUInt32 _byteCount;
     static const uint MAX_PRINT = 100;
 
     // VisaBus
-    void notConnected();
-    void retrieveFunctors();
+
     bool isError();
-    void terminateCString(char *buffer, uint bufferSize);
-    static QString truncateCString(const char *buffer);
+    void setDisconnected();
 };
 }
 

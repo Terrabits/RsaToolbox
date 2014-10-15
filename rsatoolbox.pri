@@ -1,13 +1,14 @@
 
 
 QT += core gui
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets network printsupport
 
 INCLUDEPATH += $$PWD \
                $$PWD/GUI \
                $$PWD/General \
                $$PWD/Log \
                $$PWD/Bus \
+               $$PWD/Bus/Tcp \
                $$PWD/Bus/Rsib \
                $$PWD/Bus/Visa \
                $$PWD/Instruments \

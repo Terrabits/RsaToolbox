@@ -8,6 +8,7 @@ using namespace RsaToolbox;
 #include <cstdio>
 
 // Qt
+#include <QDebug>
 #include <QByteArray>
 
 
@@ -81,44 +82,39 @@ VisaBus::VisaBus(ConnectionType connectionType, QString address,
                 bufferSize_B, timeout_ms,
                 parent)
 {
-    char buffer[500];
     _resourceManager = NULL;
     _instrument = NULL;
-    visa_library.setFileName(FILENAME);
-    QString resource_string;
-    if (visa_library.load()) {
-        if (connectionType == TCPIP_CONNECTION) {
-            resource_string = QString("TCPIP::") + address + QString("::INSTR");
-        }
-        else if (connectionType == GPIB_CONNECTION) {
-            resource_string = QString("GPIB::") + address + QString("::INSTR");
-        }
-        else if (connectionType == USB_CONNECTION) {
-            resource_string = QString("USB::") + address + QString("::INSTR");
-        }
-        else {
-            notConnected();
-            return;
-        }
-        retrieveFunctors();
-        _status = _viOpenDefaultRM(&_resourceManager);
-        _viStatusDesc(_resourceManager, _status, buffer);
-        if (_status != VI_SUCCESS) {
-            notConnected();
-            return;
-        }
-        QByteArray c_string = resource_string.toUtf8();
-        _status = _viOpen(_resourceManager, c_string.data(), (ViUInt32)VI_NULL, (ViUInt32)timeout_ms, &_instrument);
-        _viStatusDesc(_instrument, _status, buffer);
-        if (_status != VI_SUCCESS) {
-            notConnected();
-            return;
-        }
+
+    QString resource = "%1::%2::INSTR";
+    switch (connectionType) {
+    case TCPIP_CONNECTION:
+    case GPIB_CONNECTION:
+    case USB_CONNECTION:
+        resource = resource.arg(toString(connectionType));
+        resource = resource.arg(address);
+        break;
+    default:
         return;
     }
-    else {
-        // VISA dll cannot be found on the system.
-        notConnected();
+
+    visa_library.setFileName(FILENAME);
+    if (!visa_library.load())
+        return;
+    getFuncters();
+
+    char buffer[500];
+    _status = _viOpenDefaultRM(&_resourceManager);
+    _viStatusDesc(_resourceManager, _status, buffer);
+    if (_status != VI_SUCCESS) {
+        setDisconnected();
+        return;
+    }
+
+    QByteArray c = resource.toUtf8();
+    _status = _viOpen(_resourceManager, c.data(), (ViUInt32)VI_NULL, (ViUInt32)timeout_ms, &_instrument);
+    _viStatusDesc(_instrument, _status, buffer);
+    if (_status != VI_SUCCESS) {
+        setDisconnected();
     }
 }
 
@@ -155,19 +151,7 @@ bool VisaBus::isVisaPresent() {
  * \return Status of connection
  */
 bool VisaBus::isOpen() const {
-    return(_connectionType != NO_CONNECTION);
-}
-
-/*!
- * \brief Sets the time until timeout for instrument communication
- *
- * \c time_ms is the timeout time used for all future
- * communication. This value will overwrite the value provided in the constructor.
- *
- * \param time_ms Timeout, in milliseconds
- */
-void VisaBus::setTimeout(uint time_ms) {
-    GenericBus::setTimeout(time_ms);
+    return _instrument != NULL;
 }
 
 /*!
@@ -187,28 +171,16 @@ void VisaBus::setTimeout(uint time_ms) {
  * \return \c true if read is successful;
  * \c false otherwise
  */
-bool VisaBus::_read(char *buffer, uint bufferSize) {
-    QString text;
-    QTextStream stream(&text);
-    _status = _viRead(_instrument, (uchar *)buffer, (ViUInt32)bufferSize, &_bytesRead);
-    if (_status >= VI_SUCCESS) {
-        terminateCString(buffer, bufferSize);
-        stream << "Received: ";
-        stream << truncateCString(buffer);
-        stream << endl;
-        printStatus(stream);
-        stream << endl;
-        stream.flush();
-        emit print(text);
+bool VisaBus::read(char *buffer, uint bufferSize) {
+    _status = _viRead(_instrument, (ViBuf)buffer, (ViUInt32)bufferSize, (ViPUInt32)&_byteCount);
+    if (!isError()) {
+        nullTerminate(buffer, bufferSize, _byteCount);
+        printRead(buffer, _byteCount);
         return(true);
     }
-    else { // error
+    else {
         buffer[0] = '\0';
-        stream << "Error reading from instrument." << endl;
-        printStatus(stream);
-        stream << endl;
-        stream.flush();
-        emit print(text);
+        printRead(buffer, 0);
         emit error();
         return(false);
     }
@@ -223,28 +195,8 @@ bool VisaBus::_read(char *buffer, uint bufferSize) {
  * \return \c true if write is successful;
  * \c false otherwise
  */
-bool VisaBus::_write(QString scpiCommand) {
-    QString text;
-    QTextStream stream(&text);
-    QByteArray c_string = scpiCommand.toUtf8();
-    _status = _viWrite(_instrument, (uchar *)c_string.data(), c_string.size(), &_bytesRead);
-    if (_status >= VI_SUCCESS) {
-        stream << "Sent:     \"" << scpiCommand.trimmed() <<  "\"" << endl;
-        printStatus(stream);
-        stream << endl;
-        stream.flush();
-        emit print(text);
-        return(true);
-    }
-    else { // error
-        stream << "Error sending \"" << scpiCommand.trimmed() << "\"" << endl;
-        printStatus(stream);
-        stream << endl;
-        stream.flush();
-        emit print(text);
-        emit error();
-        return(false);
-    }
+bool VisaBus::write(QString scpi) {
+    return binaryWrite(scpi.toUtf8());
 }
 
 /*!
@@ -254,16 +206,17 @@ bool VisaBus::_write(QString scpiCommand) {
  * \param bytesRead
  * \return
  */
-bool VisaBus::_binaryRead(char *buffer, uint bufferSize, uint &bytesRead)
+bool VisaBus::binaryRead(char *buffer, uint bufferSize,
+                         uint &bytesRead)
 {
-    bool isSuccessful
-            = _read(buffer, bufferSize);
-    if (isSuccessful)
-        bytesRead = _bytesRead;
-    else
+    if (read(buffer, bufferSize)) {
+        bytesRead = _byteCount;
+        return true;
+    }
+    else {
         bytesRead = 0;
-
-    return(isSuccessful);
+        return false;
+    }
 }
 /*!
  * \brief Writes binary data to instrument
@@ -271,28 +224,32 @@ bool VisaBus::_binaryRead(char *buffer, uint bufferSize, uint &bytesRead)
  * \return \c true if write is successful;
  * \c false otherwise
  */
-bool VisaBus::_binaryWrite(QByteArray scpiCommand) {
-    QString text;
-    QTextStream stream(&text);
-    ViUInt32 writeCount;
-    _status = _viWrite(_instrument, (uchar*)scpiCommand.data(), scpiCommand.size(), &writeCount);
-    if (_status >= VI_SUCCESS) {
-        stream << "Sent:     " << truncateCString(scpiCommand.constData()) << endl;
-        printStatus(stream);
-        stream << endl;
-        stream.flush();
-        emit print(text);
-        return(true);
-    }
-    else { // error
-        stream << "Error sending " << truncateCString(scpiCommand.constData()) << endl;
-        printStatus(stream);
-        stream << endl;
-        stream.flush();
-        emit print(text);
+bool VisaBus::binaryWrite(QByteArray scpi) {
+    _status = _viWrite(_instrument, (ViBuf)scpi.data(), (ViUInt32)scpi.size(), (ViPUInt32)&_byteCount);
+    if (scpi.size() > MAX_PRINT)
+        scpi = QByteArray(scpi.data(), MAX_PRINT+1);
+    printWrite(scpi);
+    if (isError()) {
         emit error();
         return(false);
     }
+    else {
+        return(true);
+    }
+}
+
+QString VisaBus::status() const {
+    const int bufferSize = 500;
+    char buffer[bufferSize];
+    _viStatusDesc(_instrument, _status, buffer);
+
+    QString text;
+    QTextStream stream(&text);
+    stream << "Bytes: " << _byteCount;
+    stream << "Status: 0x" << hex << _status << dec;
+    stream << " " << QString(buffer).trimmed() << endl;
+    stream.flush();
+    return text;
 }
 
 /*!
@@ -370,7 +327,7 @@ bool VisaBus::unlock() {
  * \sa VisaBus::remote()
  */
 bool VisaBus::local() {
-    bool isLocal = _write("@LOC\n");
+    bool isLocal = write("@LOC\n");
     if (isLocal)
         emit print("Instrument in local mode\n\n");
     else
@@ -400,7 +357,7 @@ bool VisaBus::local() {
  * \sa VisaBus::remote()
  */
 bool VisaBus::remote() {
-    bool isRemote = _write("@REM\n");
+    bool isRemote = write("@REM\n");
     if (isRemote)
         emit print("Instrument in remote mode\n\n");
     else
@@ -409,40 +366,11 @@ bool VisaBus::remote() {
     return(isRemote);
 }
 
-/*!
- * \brief Emits \c VisaBus::print() with a user-friendly status message
- *
- * This method documents the health of the VisaBus connection. It contains
- * both a hexadecimal status code and a human-readable status message. See the NI-VISA
- * documentation for an explanation of the hexadecimal status code.
- *
- * Example:
- * <tt> ViStatus: 0x0 Operation completed successfully.</tt>
- */
-void VisaBus::printStatus() const {
-    QString text;
-    QTextStream stream(&text);
-    printStatus(stream);
-    emit print(text);
-}
-
-// Private
-void VisaBus::printStatus(QTextStream &stream) const {
-    const int bufferSize = 500;
-    char buffer[bufferSize];
-    _viStatusDesc(_instrument, _status, buffer);
-    stream << "ViStatus: 0x" << hex << _status << dec;
-    stream << " " << QString(buffer).trimmed() << endl;
-    stream.flush();
-}
-
-void VisaBus::notConnected() {
-    // Handle unknown/unconnectable device situation
-    _connectionType = NO_CONNECTION;
+void VisaBus::setDisconnected() {
     _resourceManager = NULL;
     _instrument = NULL;
 }
-void VisaBus::retrieveFunctors() {
+void VisaBus::getFuncters() {
     _viStatusDesc = (_statusDescFuncter)visa_library.resolve("viStatusDesc");
     _viOpenDefaultRM = (_openDefaultRmFuncter)visa_library.resolve("viOpenDefaultRM");
     _viOpen = (_openFuncter)visa_library.resolve("viOpen");
@@ -457,25 +385,6 @@ void VisaBus::retrieveFunctors() {
 }
 bool VisaBus::isError() {
     return(_status < VI_SUCCESS);
-}
-void VisaBus::terminateCString(char *buffer, uint buffer_size) {
-    // Null-terminate string:
-    // R&S VNA firmware adds '\n' to the VERY END of a transfer
-    // (ie only one '\n' at the ver end if multiple reads are necessary
-    // to retrieve a single query response)
-    if (_bytesRead < buffer_size)
-        buffer[_bytesRead] = '\0';
-    else
-        /*buffer[buffer_size - 1] = '\0'*/; // Could overwrite data?
-}
-QString VisaBus::truncateCString(const char *buffer) {
-    QString text = QString(buffer).trimmed();
-    if (text.length() > MAX_PRINT) {
-        text.truncate(MAX_PRINT);
-        text += "...";
-    }
-    text = "\"" + text + "\"";
-    return(text);
 }
 
 

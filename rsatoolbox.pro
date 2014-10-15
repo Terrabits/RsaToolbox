@@ -17,6 +17,7 @@ CONFIG(release, debug|release):DEFINES+=QT_NO_DEBUG_OUTPUT
 
 include(base.pri)
 include(GUI/gui.pri)
+include(Bus/Tcp/tcp.pri)
 include(Bus/Rsib/rsib.pri)
 include(Bus/Visa/visa.pri)
 include(Instruments/Vna/vna.pri)
