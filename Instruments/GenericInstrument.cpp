@@ -3,6 +3,7 @@
 // RsaTolbox
 #include "General.h"
 #include "GenericInstrument.h"
+#include "TcpBus.h"
 #include "VisaBus.h"
 #include "RsibBus.h"
 using namespace RsaToolbox;
@@ -60,9 +61,9 @@ GenericInstrument::GenericInstrument(GenericBus *bus, QObject *parent) :
  * specified
  *
  * When using this constructor, %GenericInstrument defaults to
- * RsibBus for TCPIP connections, and VisaBus for everything else.
- * The RSIB dll can be easily deployed, and thus it is used as
- * the default. RSIB only supports TCPIP, however; VISA is used
+ * TcpBus for TCPIP connections, and VisaBus for everything else.
+ * The Tcp dll can be easily deployed, and thus it is used as
+ * the default. Tcp only supports TCPIP, however; VISA is used
  * for other connection types.
  *
  * \param type The type of connection (see ConnectionType)
@@ -88,7 +89,7 @@ void GenericInstrument::resetBus() {
     bool emitSignal = isConnected();
     Log *temp = _log;
     disconnectLog();
-    _bus.reset(new RsibBus());
+    _bus.reset(new TcpBus());
     QObject::connect(_bus.data(), SIGNAL(error()), this, SIGNAL(busError()));
     _log = temp;
     if (emitSignal)
@@ -118,17 +119,17 @@ void GenericInstrument::resetBus(GenericBus *bus) {
  * \brief Connects to the instrument \c type :: \c address
  * with the timeout time \c timeout_ms
  *
- * This method defaults to RsibBus for TCPIP connections
- * and VisaBus for everything else. The RSIB dll can be
+ * This method defaults to TcpBus for TCPIP connections
+ * and VisaBus for everything else. The Tcp dll can be
  * easily deployed, and thus it is used when possible.
- * RSIB only supports TCPIP, however; VISA is used for
+ * Tcp only supports TCPIP, however; VISA is used for
  * other connection types.
  * \param type The type of connection (e.g. TCPIP or GPIB)
  * \param address Address of the instrument (e.g. "127.0.0.1")
  */
 void GenericInstrument::resetBus(ConnectionType type, QString address) {
     if (type == TCPIP_CONNECTION)
-        resetBus(new RsibBus(type, address, 500, 1000));
+        resetBus(new TcpBus(type, address, 500, 1000));
     else if (VisaBus::isVisaPresent())
         resetBus(new VisaBus(type, address, 500, 1000));
     else

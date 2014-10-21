@@ -2,6 +2,7 @@
 # Note: Requires base.pri
 
 QT += network
-HEADERS += $$PWD/TcpBus.h
+
+HEADERS     += $$PWD/TcpBus.h
 INCLUDEPATH += $$PWD
-SOURCES += $$PWD/TcpBus.cpp
+SOURCES     += $$PWD/TcpBus.cpp

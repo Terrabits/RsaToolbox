@@ -4,7 +4,8 @@
 #   rsib.pri
 #   visa.pri
 
-QT += gui
+QT += core gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 HEADERS += $$PWD/VnaUserDefinedPort.h \
            $$PWD/VnaStandardModel.h \

@@ -22,7 +22,6 @@ public:
            QObject *parent = 0);
     ~TcpBus();
 
-
     using GenericBus::read;
     using GenericBus::query;
     using GenericBus::binaryRead;

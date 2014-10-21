@@ -10,6 +10,7 @@ using namespace RsaToolbox;
 #include <QFile>
 #include <QByteArray>
 #include <QScopedArrayPointer>
+#include <QDebug>
 
 /*!
  * \class RsaToolbox::VnaFileSystem
@@ -311,31 +312,56 @@ void VnaFileSystem::downloadFile(QString sourcePathName, QString destinationPath
 void VnaFileSystem::downloadFile(QString sourcePathName, QString destinationPathName, uint bufferSize_B) {
     if (isNotFile(sourcePathName))
         return;
+    QFile file(destinationPathName);
+    if (!file.open(QFile::WriteOnly))
+        return;
+    if (bufferSize_B < 20)
+        bufferSize_B = 20;
 
     QString scpi = ":MMEM:DATA? \'%1\'\n";
     scpi = scpi.arg(sourcePathName);
-
     _vna->write(scpi);
+
+    uint bytesRead;
     QScopedArrayPointer<char> buffer(new char[bufferSize_B]);
-    uint bytesRead_B;
-    _vna->binaryRead(buffer.data(), bufferSize_B, bytesRead_B);
-
-    QByteArray result = QByteArray::fromRawData(buffer.data(), bytesRead_B);
-    uint sizeSize = result.mid(1,1).toUInt();
-    uint size = result.mid(2, sizeSize).toUInt();
-
-    QFile file(destinationPathName);
-    file.open(QFile::WriteOnly);
-
-    uint bytesLeft = size;
-    file.write(result.mid(2 + sizeSize));
-    bytesLeft -= (bytesRead_B - 2 - sizeSize);
-    while (bytesLeft > 0 && bytesRead_B != 0) {
-        bytesRead_B = 0;
-        _vna->binaryRead(buffer.data(), bufferSize_B, bytesRead_B);
-        file.write(buffer.data(), bytesRead_B);
-        bytesLeft -= bytesRead_B;
+    _vna->binaryRead(buffer.data(), bufferSize_B, bytesRead);
+    if (bytesRead <= 0) {
+        file.close();
+        return;
     }
+
+    // Header
+    QByteArray result = QByteArray::fromRawData(buffer.data(), bytesRead);
+    if (result.at(0) != '#') {
+        file.close();
+        return;
+    }
+    uint sizeSize = result.mid(1,1).toUInt();
+    uint headerSize = 2 + sizeSize;
+    qint64 bytesLeft = result.mid(2, sizeSize).toUInt();
+    if (bytesLeft <= 0) {
+        file.close();
+        return;
+    }
+
+    if (bytesRead < headerSize) {
+        file.close();
+        return;
+    }
+    bytesRead -= headerSize;
+    result = QByteArray::fromRawData(buffer.data() + headerSize, bytesRead);
+    do {
+        if (bytesRead >= bytesLeft) {
+            file.write(result.mid(0, bytesLeft));
+            bytesLeft = 0;
+        }
+        else {
+            file.write(result);
+            bytesLeft -= bytesRead;
+            _vna->binaryRead(buffer.data(), bufferSize_B, bytesRead);
+            result = QByteArray::fromRawData(buffer.data(), bytesRead);
+        }
+    } while (bytesLeft > 0 && bytesRead > 0);
     file.close();
 }
 void VnaFileSystem::downloadFile(QString sourceFilename, VnaDirectory sourceDirectory, QString destinationPathName) {

@@ -62,24 +62,25 @@ bool TcpBus::remote() {
 QString TcpBus::status() const {
     QString text;
     QTextStream stream(&text);
-    stream << "Bytes: " << _blockSize;
-    stream << "State: " << _tcp.state();
-    stream << "Status: " << _tcp.error() << _tcp.errorString();
+    stream << "Bytes: " << _blockSize << endl;
+    stream << "State: " << _tcp.state() << endl;
+    stream << "Status: " << _tcp.error() << " " << _tcp.errorString() << endl;
     stream.flush();
     return text;
 }
 
 bool TcpBus::read(char *buffer, uint bufferSize_B) {
-    qDebug() << "TcpBus::read";
-    QDataStream stream(&_tcp);
-    _tcp.waitForReadyRead(_timeout_ms);
-    stream >> _blockSize;
-    qDebug() << "block size: " << _blockSize;
-    _tcp.waitForReadyRead(_timeout_ms);
+    while (_tcp.bytesAvailable() <= 0) {
+        if (!_tcp.waitForReadyRead(_timeout_ms)) {
+            nullTerminate(buffer, bufferSize_B, 0);
+            printRead(buffer, 0);
+            emit error();
+            return false;
+        }
+    }
     _blockSize = _tcp.read(buffer, bufferSize_B);
-    qDebug() << "block size: " << _blockSize;
     if (_blockSize == -1) {
-        buffer[0] = '\0';
+        nullTerminate(buffer, bufferSize_B, 0);
         printRead(buffer, 0);
         emit error();
         return false;
@@ -90,6 +91,8 @@ bool TcpBus::read(char *buffer, uint bufferSize_B) {
     return(true);
 }
 bool TcpBus::write(QString scpi) {
+    if (!scpi.endsWith("\n"))
+        scpi += "\n";
     return binaryWrite(scpi.toUtf8());
 }
 bool TcpBus::binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead) {
@@ -103,9 +106,8 @@ bool TcpBus::binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead) {
     }
 }
 bool TcpBus::binaryWrite(QByteArray scpi) {
-    qDebug() << "TcpBus::binaryWrite" << scpi;
     _blockSize = _tcp.write(scpi);
-    qDebug() << "block size: " << _blockSize;
+    _tcp.waitForBytesWritten(_timeout_ms);
     if (scpi.size() > MAX_PRINT)
         scpi = QByteArray(scpi.data(), MAX_PRINT+1);
     printWrite(scpi);
