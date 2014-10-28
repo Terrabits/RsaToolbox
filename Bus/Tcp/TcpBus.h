@@ -32,7 +32,7 @@ public:
     bool write(QString scpi);
     bool binaryRead(char *buffer, uint bufferSize_B,
                              uint &bytesRead);
-    bool binaryWrite(QByteArray scpi);
+    bool binaryWrite(QByteArray data);
     QString status() const;
 
 
@@ -46,6 +46,8 @@ private:
     static const quint16 PORT = 5025;
     QTcpSocket _tcp;
     qint64 _blockSize;
+
+    QString stateString() const;
 };
 }
 

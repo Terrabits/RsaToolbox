@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------*/
-/* Distributed by IVI Foundation Inc.                                        */
+/* Distributed by VXIplug&play Systems Alliance                              */
 /*                                                                           */
 /* Do not modify the contents of this file.                                  */
 /*---------------------------------------------------------------------------*/
@@ -19,7 +19,7 @@
 #define _VI_FUNCC           __fastcall
 #define _VI_FUNCH           __fastcall
 #define _VI_SIGNED          signed
-#elif (defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)) && !defined(_NI_mswin16_)
+#elif (defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)) && !defined(_NI_mswin16_) 
 #define _VI_FAR
 #define _VI_FUNC            __stdcall
 #define _VI_FUNCC           __cdecl
@@ -82,7 +82,7 @@ typedef int64_t             ViInt64;
 #else
 /* This platform does not support 64-bit types */
 #endif
-#endif
+#endif 
 
 #if defined(_VI_INT64_UINT64_DEFINED)
 typedef ViUInt64    _VI_PTR ViPUInt64;
@@ -91,16 +91,11 @@ typedef ViInt64     _VI_PTR ViPInt64;
 typedef ViInt64     _VI_PTR ViAInt64;
 #endif
 
-#if defined(LONG_MAX) && (LONG_MAX > 0x7FFFFFFFL)
-typedef unsigned int        ViUInt32;
-typedef _VI_SIGNED int      ViInt32;
-#else
 typedef unsigned long       ViUInt32;
-typedef _VI_SIGNED long     ViInt32;
-#endif
-
 typedef ViUInt32    _VI_PTR ViPUInt32;
 typedef ViUInt32    _VI_PTR ViAUInt32;
+
+typedef _VI_SIGNED long     ViInt32;
 typedef ViInt32     _VI_PTR ViPInt32;
 typedef ViInt32     _VI_PTR ViAInt32;
 
@@ -172,7 +167,7 @@ typedef ViObject            ViSession;
 typedef ViSession   _VI_PTR ViPSession;
 typedef ViSession   _VI_PTR ViASession;
 
-typedef ViUInt32             ViAttr;
+typedef ViUInt32            ViAttr;
 
 #ifndef _VI_CONST_STRING_DEFINED
 typedef const ViChar * ViConstString;
@@ -198,6 +193,3 @@ typedef const ViChar * ViConstString;
 #endif
 
 /*- The End -----------------------------------------------------------------*/
-
-
-

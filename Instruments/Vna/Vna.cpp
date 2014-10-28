@@ -2,10 +2,14 @@
 
 #include "General.h"
 #include "Vna.h"
-#include "RsibBus.h"
+#include "TcpBus.h"
 #include "VisaBus.h"
 #include "IndexName.h"
 using namespace RsaToolbox;
+
+// Qt
+#include <QDebug>
+
 
 /*! \defgroup VnaGroup Vna
  * Classes for controlling a Rohde \& Schwarz VNA
@@ -23,7 +27,7 @@ using namespace RsaToolbox;
  * \c %Vna is derived from the \c GenericInstrument
  * class, and as such has the ability to
  * connect to a Vna using a \c GenericBus
- * subclass such as \c RsibBus or \c VisaBus.
+ * subclass such as \c TcpBus or \c VisaBus.
  * It also can connect to a \c Log
  * for SCPI logging.
  *
@@ -249,7 +253,44 @@ void Vna::printInfo(QTextStream &stream) {
  */
 QRowVector Vna::readVector(uint bufferSize_B, uint timeout_ms) {
     QByteArray result = binaryRead(bufferSize_B, timeout_ms);
-    return(toQRowVector(result));
+    while (result.size() < 2) {
+        int prevSize = result.size();
+        result += binaryRead(bufferSize_B, timeout_ms);
+        if (result.size() <= prevSize)
+            break;
+    }
+    if (result.size() < 2)
+        return QRowVector();
+    if (result[0] != '#')
+        return QRowVector();
+    int sizeSize = result.mid(1,1).toInt();
+    if (sizeSize <= 0)
+        return QRowVector();
+
+    while (result.size() < 2 + sizeSize) {
+        int prevSize = result.size();
+        result += binaryRead(bufferSize_B, timeout_ms);
+        if (result.size() <= prevSize)
+            break;
+    }
+    if (result.size() < 2 + sizeSize)
+        return QRowVector();
+    int size = result.mid(2, sizeSize).toInt();
+    if (size <= 0)
+        return QRowVector();
+
+    while (result.size() < 2 + sizeSize + size) {
+        int prevSize = result.size();
+        result += binaryRead(bufferSize_B, timeout_ms);
+        if (result.size() <= prevSize)
+            break;
+    }
+    if (result.size() < 2 + sizeSize + size) {
+        return QRowVector();
+    }
+    else {
+        return(toQRowVector(result));
+    }
 }
 
 /*!
@@ -337,50 +378,60 @@ ComplexRowVector Vna::queryComplexVector(QString scpi, uint bufferSize_B, uint t
  * \sa Vna::isError(QStringList &errors)
  */
 bool Vna::isError() {
-    QString errorString;
-    return(isError(errorString));
+    QList<int> codes;
+    QStringList messages;
+    if (errors(codes, messages)) {
+        QString text = "SCPI Errors:\n";
+        for (int i = 0; i < messages.size(); i++) {
+            QString format = "%1: %2\n";
+            text += format.arg(codes[i]).arg(messages[i]);
+        }
+        text += "\n";
+        emit print(text);
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
-/*!
- * \brief Checks for command errors and
- * places them in \c errorString, if present
- * \param errorString Text description of any
- * errors that were found
- * \return \c true if errors are present;
- * \c false otherwise
- */
-bool Vna::isError(QString &errorString) {
-    errorString.clear();
-    QString result
-            = query(":SYST:ERR:ALL?\n", 2000);
-    errorString = result.trimmed();
-    return(errorString.at(0) != '0');
-}
+bool Vna::nextError(int &code, QString &message) {
+    code = 0;
+    message = "";
 
-/*!
- * \brief Checks for command errors and
- * places them in \c errors, if present
- *
- * The errors, if found, are separated into
- * individual strings and returned as a
- * \c QStringList. This is opposed to
- * retrieving the original, concatenated
- * string containing all error messages,
- * as Vna::isError(QString &errorString)
- * does.
- *
- * \param errors List of error strings, if any
- * \return \c true if errors are present;
- * \c false otherwise
- */
-bool Vna::isError(QStringList &errors) {
-    errors.clear();
-    QString errorMessage;
-    bool errorFound = isError(errorMessage);
-    if (errorFound)
-        errors =errorMessage.split(
-                    ",", QString::SkipEmptyParts);
-    return(errorFound);
+    QString result = query(":SYST:ERR?\n").trimmed();
+    int sep = result.indexOf(",");
+    code = result.mid(0, sep).toInt();
+    message = result.mid(sep+1);
+    message.remove(0,1);
+    message.chop(1);
+    return code != 0;
+}
+bool Vna::nextError(QString &message) {
+    int code;
+    return nextError(code, message);
+}
+bool Vna::errors(QList<int> &codes, QStringList &messages) {
+    codes.clear();
+    messages.clear();
+
+    int code;
+    QString message;
+    while (nextError(code, message)) {
+        codes << code;
+        messages << message;
+    }
+    return !messages.isEmpty();
+}
+bool Vna::errors(QStringList &messages) {
+    messages.clear();
+
+    int code;
+    QString message;
+    while (nextError(code, message)) {
+        messages << message;
+    }
+    return !messages.isEmpty();
 }
 
 /**
@@ -561,7 +612,7 @@ VnaFileSystem *Vna::takeFileSystem() {
 QVector<Connector> Vna::connectorTypes() {
     QString scpi = ":CORR:CONN:CAT?\n";
     QStringList list =
-            query(scpi).remove('\'').split(',');
+            query(scpi).trimmed().remove('\'').split(',');
     QVector<Connector> types;
     foreach (QString item, list) {
         ConnectorType type = toConnectorType(item);
@@ -697,7 +748,7 @@ QVector<NameLabel> Vna::calKits(ConnectorType type) {
 QVector<NameLabel> Vna::calKits(QString userDefinedConnectorType) {
     QString scpi = ":CORR:CKIT:LCAT? \'%1\'\n";
     scpi = scpi.arg(userDefinedConnectorType);
-    QString result = query(scpi, 2000);
+    QString result = query(scpi, 2000).trimmed();
     return(NameLabel::parse(result, ",", "\'"));
 }
 
@@ -920,7 +971,7 @@ bool Vna::isChannel(uint index) {
  * false otherwise
  */
 bool Vna::isChannel(QString name) {
-    QString result = query(":CONF:CHAN:CAT?\n", 5000);
+    QString result = query(":CONF:CHAN:CAT?\n", 5000).trimmed();
     QVector<IndexName> indexNames;
     indexNames = IndexName::parse(result, ",", "\'");
     return(IndexName::names(indexNames).contains(name));
@@ -978,7 +1029,7 @@ uint Vna::channelId(QString name) {
     QString scpi = ":CONF:CHAN:NAME:ID? \'%1\'\n";
     scpi = scpi.arg(name);
 
-    QString result = query(scpi);
+    QString result = query(scpi).trimmed();
     clearStatus();
     return(result.toUInt());
 }
@@ -1028,7 +1079,7 @@ void Vna::createChannel(uint index) {
  * \return All active (on) channels
  */
 QVector<uint> Vna::channels() {
-    QString result = query(":CONF:CHAN:CAT?\n", 5000);
+    QString result = query(":CONF:CHAN:CAT?\n", 5000).trimmed();
     QVector<IndexName> indexNames;
     indexNames = IndexName::parse(result, ",", "\'");
     return(IndexName::indices(indexNames));
@@ -1188,7 +1239,7 @@ uint Vna::numberOfTraces() {
  */
 QStringList Vna::traces() {
     QString scpi = ":CONF:TRAC:CAT?\n";
-    QString result = query(scpi, 1000);
+    QString result = query(scpi, 1000).trimmed();
     QVector<IndexName> indexNames;
     indexNames = IndexName::parse(result, ",", "\'");
     return(IndexName::names(indexNames));
@@ -1384,7 +1435,7 @@ uint Vna::numberOfDiagrams() {
  */
 QVector<uint> Vna::diagrams() {
     QString result =
-            query(":DISP:CAT?\n");
+            query(":DISP:CAT?\n").trimmed();
     QVector<uint> diagrams;
     QVector<IndexName> indexNames
             = IndexName::parse(result, ",", "\'");
@@ -1584,7 +1635,7 @@ uint Vna::testPorts() {
         return(properties().physicalPorts());
 
     QString scpi = ":INST:TPORT:COUN?\n";
-    return(query(scpi).toUInt());
+    return(query(scpi).trimmed().toUInt());
 }
 
 /*!

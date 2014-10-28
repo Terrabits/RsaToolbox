@@ -79,7 +79,7 @@ void VnaSettings::resetOptionsString() {
 
 bool VnaSettings::isRead32BitBinaryFormat() {
     QStringList result
-            = _vna->query(":FORM?\n").toUpper().split(",");
+            = _vna->query(":FORM?\n").trimmed().toUpper().split(",");
     if (result.first() == "REAL") {
         uint bit = result.last().toUInt();
         return(bit == uint(32));
@@ -92,7 +92,7 @@ void VnaSettings::setRead32BitBinaryFormat() {
 }
 bool VnaSettings::isRead64BitBinaryFormat() {
     QStringList result
-            = _vna->query(":FORM?\n").toUpper().split(",");
+            = _vna->query(":FORM?\n").trimmed().toUpper().split(",");
     if (result.first() == "REAL") {
         uint bit = result.last().toUInt();
         return(bit == uint(64));
@@ -105,14 +105,14 @@ void VnaSettings::setRead64BitBinaryFormat() {
 }
 bool VnaSettings::isReadAsciiFormat() {
     QStringList result
-            = _vna->query(":FORM?\n").toUpper().split(",");
+            = _vna->query(":FORM?\n").trimmed().toUpper().split(",");
     return(result.first() == "ASC");
 }
 bool VnaSettings::isLittleEndian() {
-    return(_vna->query(":FORM:BORD?\n").toUpper() == "SWAP");
+    return(_vna->query(":FORM:BORD?\n").trimmed().toUpper() == "SWAP");
 }
 bool VnaSettings::isBigEndian() {
-    return(_vna->query(":FORM:BORD?\n").toUpper() == "NORM");
+    return(_vna->query(":FORM:BORD?\n").trimmed().toUpper() == "NORM");
 }
 void VnaSettings::setReadAsciiFormat() {
     _vna->write(":FORM ASC\n");
@@ -135,7 +135,7 @@ bool VnaSettings::isEmulationOff() {
 }
 VnaEmulationMode VnaSettings::emulationMode() {
     return(toVnaEmulationMode(
-               _vna->query(":SYST:LANG?\n").remove("\'")));
+               _vna->query(":SYST:LANG?\n").trimmed().remove("\'")));
 }
 void VnaSettings::setEmulationMode(VnaEmulationMode mode) {
     _vna->write(
@@ -196,7 +196,7 @@ bool VnaSettings::isColorScheme(VnaColorScheme scheme) {
     return(colorScheme() == scheme);
 }
 VnaColorScheme VnaSettings::colorScheme() {
-    QString scpi = _vna->query(":SYST:DISP:COL?\n");
+    QString scpi = _vna->query(":SYST:DISP:COL?\n").trimmed();
     return(toColorScheme(scpi));
 }
 void VnaSettings::setColorScheme(VnaColorScheme scheme) {
@@ -213,7 +213,7 @@ bool VnaSettings::isFontSize(uint size_percent) {
     return(fontSize_percent() == size_percent);
 }
 uint VnaSettings::fontSize_percent() {
-    return(QString(_vna->query(":DISP:RFS?\n")).toInt());
+    return(QString(_vna->query(":DISP:RFS?\n")).trimmed().toInt());
 }
 void VnaSettings::setFontSize(uint size_percent) {
     QString scpi = QString(":DISP:RFS %1\n").arg(size_percent);
@@ -240,7 +240,7 @@ void VnaSettings::userPresetOff(bool isOff) {
 }
 QString VnaSettings::userPreset() {
     ;
-    return(_vna->query(":SYST:PRES:USER:NAME?\n").remove("\'"));
+    return(_vna->query(":SYST:PRES:USER:NAME?\n").trimmed().remove("\'"));
 }
 void VnaSettings::setUserPreset(QString setFilePath) {
     QString scpi = ":SYST:PRES:USER:NAME \'%1\'\n";
@@ -279,7 +279,7 @@ QString VnaSettings::calibrationPreset() {
         return(QString());
     }
 
-    return(_vna->query(":SYST:PRES:USER:CAL?\n").remove("\'"));
+    return(_vna->query(":SYST:PRES:USER:CAL?\n").trimmed().remove("\'"));
 }
 void VnaSettings::setCalibrationPreset(QString calibrationFilePath) {
     if (_vna->properties().isZvaFamily()) {
@@ -342,7 +342,7 @@ void VnaSettings::portPowerLimitsOff(bool isOff) {
 double VnaSettings::portPowerLimit_dBm(uint physicalPort) {
     QString scpi = ":SOUR:POW%1:LLIM:VAL?\n";
     scpi = scpi.arg(physicalPort);
-    return(_vna->query(scpi).toDouble());
+    return(_vna->query(scpi).trimmed().toDouble());
 }
 void VnaSettings::portPowerLimits(QVector<uint> &physicalPorts, QVector<double> limits_dBm) {
     Q_UNUSED(physicalPorts);

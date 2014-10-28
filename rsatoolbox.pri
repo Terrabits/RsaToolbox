@@ -16,8 +16,9 @@ INCLUDEPATH += $$PWD \
                $$PWD/Instruments/Vna/Dialogs \
                $$PWD/QCustomPlot
 
-# Rsib:
+# Rsib, RsVisa:
 win32: LIBS += -L$$PWD/Bus/Rsib -lrsib32
+win32: LIBS += -L$$PWD/Bus/Visa
 
 CONFIG(debug, release|debug) {
   LIBS += -l$$PWD/RsaToolboxd

@@ -94,7 +94,7 @@ QVector<double> VnaLogSweep::frequencies_Hz() {
     QString scpi = ":CALC%1:DATA:STIM?\n";
     scpi = scpi.arg(_channelIndex);
     uint bufferSize = frequencyBufferSize(points());
-    return(parseQRowVector(_vna->query(scpi, bufferSize)));
+    return(parseQRowVector(_vna->query(scpi, bufferSize).trimmed()));
 }
 double VnaLogSweep::power_dBm() {
     QString scpi = ":SOUR%1:POW?\n";

@@ -113,14 +113,14 @@ bool VnaProperties::isUnknownModel() {
     return(model() == UNKNOWN_MODEL);
 }
 uint VnaProperties::physicalPorts() {
-    return(_vna->query(":INST:PORT:COUN?\n").toUInt());
+    return(_vna->query(":INST:PORT:COUN?\n").trimmed().toUInt());
 }
 
 double VnaProperties::minimumFrequency_Hz() {
-    return(_vna->query(":SYST:FREQ? MIN\n").toDouble());
+    return(_vna->query(":SYST:FREQ? MIN\n").trimmed().toDouble());
 }
 double VnaProperties::maximumFrequency_Hz() {
-    return(_vna->query(":SYST:FREQ? MAX\n").toDouble());
+    return(_vna->query(":SYST:FREQ? MAX\n").trimmed().toDouble());
 }
 
 QVector<double> VnaProperties::ifBandwidthMantissa_Hz() {

@@ -125,8 +125,8 @@ void VnaLimits::setUpper(QRowVector frequencies_Hz, ComplexRowVector values) {
     VnaChannel channel = _vna->channel(i);
     channel.manualSweepOn();
 
-    QString trc = "__________";
-    QString mem = "____________";
+    QString trc = "__________trc";
+    QString mem = "____________mem";
     _vna->createTrace(trc, i);
     _vna->trace(trc).setFormat(_trace->format());
     channel.setFrequencies(frequencies_Hz);
@@ -153,8 +153,8 @@ void VnaLimits::setLower(QRowVector frequencies_Hz, ComplexRowVector values) {
     VnaChannel channel = _vna->channel(i);
     channel.manualSweepOn();
 
-    QString trc = "__________";
-    QString mem = "____________";
+    QString trc = "__________trc";
+    QString mem = "____________mem";
     _vna->createTrace(trc, i);
     _vna->trace(trc).setFormat(_trace->format());
     channel.setFrequencies(frequencies_Hz);

@@ -3,6 +3,9 @@
 
 QT += core
 
-HEADERS += $$PWD/VisaBus.h
+HEADERS     += $$PWD/VisaBus.h
 INCLUDEPATH += $$PWD
-SOURCES += $$PWD/VisaBus.cpp
+SOURCES     += $$PWD/VisaBus.cpp
+DEPENDPATH  += $$PWD
+win32: LIBS += -L$$PWD
+

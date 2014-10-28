@@ -97,7 +97,7 @@ void VnaCorrections::off(bool isOff) {
 QString VnaCorrections::calGroup() {
     QString scpi = ":MMEM:LOAD:CORR? %1\n";
     scpi = scpi.arg(_channelIndex);
-    return(_vna->query(scpi).remove("\'").trimmed());
+    return(_vna->query(scpi).trimmed().remove("\'"));
 }
 void VnaCorrections::setCalGroup(QString calGroup) {
     if (calGroup.contains(".cal", Qt::CaseInsensitive) == false)
@@ -135,7 +135,7 @@ VnaCalType VnaCorrections::calibrationType() {
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("");
     scpi = scpi.arg("TYPE");
-    QString result = _vna->query(scpi);
+    QString result = _vna->query(scpi).trimmed();
     return(toVnaCalType(result));
 
 }
@@ -144,7 +144,7 @@ VnaSweepType VnaCorrections::sweepType() {
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("");
     scpi = scpi.arg("STYP");
-    QString result = _vna->query(scpi);
+    QString result = _vna->query(scpi).trimmed();
     return(toVnaSweepType(result));
 }
 QVector<uint> VnaCorrections::ports() {
@@ -152,7 +152,7 @@ QVector<uint> VnaCorrections::ports() {
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("");
     scpi = scpi.arg("PORT");
-    QString result = _vna->query(scpi);
+    QString result = _vna->query(scpi).trimmed();
     return(parseUints(result, ","));
 }
 uint VnaCorrections::points() {
@@ -160,28 +160,28 @@ uint VnaCorrections::points() {
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("");
     scpi = scpi.arg("POIN");
-    return(_vna->query(scpi).toUInt());
+    return(_vna->query(scpi).trimmed().toUInt());
 }
 double VnaCorrections::startFrequency_Hz() {
     QString scpi = ":SENS%1:CORR:DATA:PAR%2? %3\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("");
     scpi = scpi.arg("STAR");
-    return(_vna->query(scpi).toDouble());
+    return(_vna->query(scpi).trimmed().toDouble());
 }
 double VnaCorrections::stopFrequency_Hz() {
     QString scpi = ":SENS%1:CORR:DATA:PAR%2? %3\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("");
     scpi = scpi.arg("STOP");
-    return(_vna->query(scpi).toDouble());
+    return(_vna->query(scpi).trimmed().toDouble());
 }
 double VnaCorrections::power_dBm() {
     QString scpi = ":SENS%1:CORR:DATA:PAR%2? %3\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("");
     scpi = scpi.arg("SPOW");
-    return(_vna->query(scpi).toDouble());
+    return(_vna->query(scpi).trimmed().toDouble());
 }
 
 
@@ -245,7 +245,7 @@ VnaCorrections::CorrectionState VnaCorrections::correctionState() {
     QString scpi = ":SENS%1:CORR:SST?\n";
     scpi = scpi.arg(_channelIndex);
 
-    QString result = _vna->query(scpi).remove("\'").trimmed();
+    QString result = _vna->query(scpi).trimmed().remove("\'");
     return(toCorrectionState(result));
 }
 VnaCorrections::CorrectionState VnaCorrections::toCorrectionState(QString scpi) {
@@ -279,7 +279,7 @@ void VnaCorrections::setErrorValues(QString term, ComplexRowVector corrections, 
     bool isRead32Bit = _vna->settings().isRead32BitBinaryFormat();
 
     _vna->settings().setRead64BitBinaryFormat();
-    _vna->binaryWrite(scpi.toUtf8() + toBlockDataFormat(corrections));
+    _vna->binaryWrite(scpi.toUtf8() + toBlockDataFormat(corrections) + "\n");
 
     if (isReadAscii)
         _vna->settings().setReadAsciiFormat();

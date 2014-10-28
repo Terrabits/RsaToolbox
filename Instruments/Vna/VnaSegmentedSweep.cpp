@@ -73,12 +73,11 @@ double VnaSegmentedSweep::start_Hz() {
 double VnaSegmentedSweep::stop_Hz() {
     return(max(frequencies_Hz()));
 }
-QVector<double> VnaSegmentedSweep::frequencies_Hz() {
+QRowVector VnaSegmentedSweep::frequencies_Hz() {
     QString scpi = ":CALC%1:DATA:STIM?\n";
     scpi = scpi.arg(_channelIndex);
     uint bufferSize = frequencyBufferSize(points());
-    return(parseQRowVector(
-               _vna->query(scpi, bufferSize, 1000)));
+    return _vna->queryVector(scpi, bufferSize);
 }
 double VnaSegmentedSweep::power_dBm() {
     QString scpi = ":SOUR%1:POW?\n";

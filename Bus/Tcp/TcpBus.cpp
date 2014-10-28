@@ -62,18 +62,28 @@ bool TcpBus::remote() {
 QString TcpBus::status() const {
     QString text;
     QTextStream stream(&text);
-    stream << "Bytes: " << _blockSize << endl;
-    stream << "State: " << _tcp.state() << endl;
-    stream << "Status: " << _tcp.error() << " " << _tcp.errorString() << endl;
+    stream << "Bytes:    " << _blockSize << endl;
+    stream << "State:    " << _tcp.state() << " " << stateString() << endl;
+
+
+    QAbstractSocket::SocketError error = _tcp.error();
+    QString errorString = _tcp.errorString();
+    if (error == -1 && errorString == "Unknown error")
+        stream << "Status:   Ok" << endl;
+    else
+        stream << "Status:   " << _tcp.error() << " " << _tcp.errorString() << endl;
     stream.flush();
     return text;
 }
 
 bool TcpBus::read(char *buffer, uint bufferSize_B) {
+    _blockSize = -1;
+    nullTerminate(buffer, bufferSize_B, 0);
+
     while (_tcp.bytesAvailable() <= 0) {
         if (!_tcp.waitForReadyRead(_timeout_ms)) {
-            nullTerminate(buffer, bufferSize_B, 0);
             printRead(buffer, 0);
+            emit print("QTcpSocket::waitForReadyRead returned false\n\n");
             emit error();
             return false;
         }
@@ -82,6 +92,7 @@ bool TcpBus::read(char *buffer, uint bufferSize_B) {
     if (_blockSize == -1) {
         nullTerminate(buffer, bufferSize_B, 0);
         printRead(buffer, 0);
+        emit print("QTcpSocket::read returned -1\n\n");
         emit error();
         return false;
     }
@@ -105,19 +116,46 @@ bool TcpBus::binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead) {
         return false;
     }
 }
-bool TcpBus::binaryWrite(QByteArray scpi) {
-    _blockSize = _tcp.write(scpi);
-    _tcp.waitForBytesWritten(_timeout_ms);
-    if (scpi.size() > MAX_PRINT)
-        scpi = QByteArray(scpi.data(), MAX_PRINT+1);
-    printWrite(scpi);
+bool TcpBus::binaryWrite(QByteArray data) {
+    _blockSize = _tcp.write(data);
+    bool isWritten = _tcp.waitForBytesWritten(_timeout_ms);
+    if (data.size() > MAX_PRINT)
+        data = QByteArray(data.data(), MAX_PRINT+1);
+    printWrite(data);
 
     if (_blockSize == -1) {
+        emit print("QTcpSocket::write returned -1\n\n");
+        emit error();
+        return false;
+    }
+    else if (!isWritten) {
+        emit print("QTcpSocket::waitForBytesWritten returned false\n\n");
         emit error();
         return false;
     }
     else {
         return true;
+    }
+}
+
+QString TcpBus::stateString() const {
+    switch (_tcp.state()) {
+    case QAbstractSocket::UnconnectedState:
+        return "Not connected";
+    case QAbstractSocket::HostLookupState:
+        return "Performing host name lookup";
+    case QAbstractSocket::ConnectingState:
+        return "Establishing connection";
+    case QAbstractSocket::ConnectedState:
+        return "Connected";
+    case QAbstractSocket::BoundState:
+        return "Socket is bound to an address and port";
+    case QAbstractSocket::ClosingState:
+        return "Closing";
+    case QAbstractSocket::ListeningState:
+        return "ListeningState";
+    default:
+        return "UNKNOWN";
     }
 }
 

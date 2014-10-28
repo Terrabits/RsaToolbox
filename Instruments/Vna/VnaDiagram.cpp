@@ -78,7 +78,7 @@ void VnaDiagram::titleOff(bool isOff) {
 QString VnaDiagram::title() {
     QString scpi = ":DISP:WIND%1:TITL:DATA?\n";
     scpi = scpi.arg(_index);
-    return _vna->query(scpi).remove("\'").trimmed();
+    return _vna->query(scpi).trimmed().remove("\'");
 }
 void VnaDiagram::setTitle(QString title) {
     titleOn();

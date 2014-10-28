@@ -5,7 +5,6 @@
 #include "GenericInstrument.h"
 #include "TcpBus.h"
 #include "VisaBus.h"
-#include "RsibBus.h"
 using namespace RsaToolbox;
 
 /*!
@@ -128,12 +127,7 @@ void GenericInstrument::resetBus(GenericBus *bus) {
  * \param address Address of the instrument (e.g. "127.0.0.1")
  */
 void GenericInstrument::resetBus(ConnectionType type, QString address) {
-    if (type == TCPIP_CONNECTION)
-        resetBus(new TcpBus(type, address, 500, 1000));
-    else if (VisaBus::isVisaPresent())
-        resetBus(new VisaBus(type, address, 500, 1000));
-    else
-        resetBus();
+    resetBus(new VisaBus(type, address, 500, 1000));
 }
 
 /*!
@@ -239,8 +233,7 @@ void GenericInstrument::printLine(QString text) {
     *_log << text << endl;
 }
 void GenericInstrument::printInfo() {
-    if (_log->isOpen() == false) {
-        qDebug() << "GenericInstrument: Can\'t print info.";
+    if (!_log->isOpen()) {
         return;
     }
     Log *tempLog = _log;

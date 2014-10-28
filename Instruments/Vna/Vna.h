@@ -44,8 +44,10 @@ public:
 
     // Error handling
     bool isError();
-    bool isError(QString &errorString);
-    bool isError(QStringList &errors);
+    bool nextError(QString &message);
+    bool nextError(int &code, QString &message);
+    bool errors(QStringList &messages);
+    bool errors(QList<int> &codes, QStringList &messages);
 
     // Sets
 //    void SelectSet(QString name);

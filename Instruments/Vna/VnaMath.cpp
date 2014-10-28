@@ -80,7 +80,7 @@ QString VnaMath::expression() {
     scpi = scpi.arg(_channel);
 
     _trace->select();
-    return _vna->query(scpi).remove("\'").trimmed();
+    return _vna->query(scpi).trimmed().remove("\'");
 }
 void VnaMath::setExpression(QString expression) {
     QString scpi = ":CALC%1:MATH:SDEF \'%2\'\n";

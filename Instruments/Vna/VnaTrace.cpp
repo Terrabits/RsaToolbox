@@ -49,7 +49,7 @@ VnaTrace::VnaTrace(Vna *vna, QString name, QObject *parent) :
 bool VnaTrace::isVisible() {
     QString scpi = ":DISP:TRAC:SHOW? \'%1\'\n";
     scpi = scpi.arg(_name);
-    return(_vna->query(scpi) == "1");
+    return(_vna->query(scpi).trimmed() == "1");
 }
 bool VnaTrace::isHidden() {
     return(!isVisible() || (diagram() == 0));
@@ -85,13 +85,13 @@ QString VnaTrace::name() {
 uint VnaTrace::channel() {
     QString scpi = ":CONF:TRAC:CHAN:NAME:ID? \'%1\'\n";
     scpi = scpi.arg(_name);
-    return(_vna->query(scpi).toUInt());
+    return(_vna->query(scpi).trimmed().toUInt());
 }
 uint VnaTrace::diagram() {
     if (!_vna->properties().isZvaFamily()) {
         QString scpi = ":CONF:TRAC:WIND? \'%1\'\n";
         scpi = scpi.arg(_name);
-        uint result = _vna->query(scpi).toUInt();
+        uint result = _vna->query(scpi).trimmed().toUInt();
         return(result);
     }
     else { // ZVA lacks this command
@@ -279,7 +279,7 @@ TraceFormat VnaTrace::format() {
     select();
     QString scpi = ":CALC%1:FORM?\n";
     scpi = scpi.arg(channel());
-    QString result = _vna->query(scpi);
+    QString result = _vna->query(scpi).trimmed();
     return(toTraceFormat(result));
 }
 void VnaTrace::setFormat(TraceFormat format) {
@@ -405,7 +405,7 @@ void VnaTrace::write(QRowVector data) {
     _vna->settings().setLittleEndian();
     select();
     _vna->binaryWrite(scpi.toUtf8()
-                      + toBlockDataFormat(data));
+                      + toBlockDataFormat(data) + "\n");
     _vna->wait();
 }
 void VnaTrace::write(QRowVector frequencies_Hz, QRowVector data) {
@@ -421,7 +421,7 @@ void VnaTrace::write(ComplexRowVector data) {
     _vna->settings().setRead64BitBinaryFormat();
     _vna->settings().setLittleEndian();
     _vna->binaryWrite(scpi.toUtf8()
-                      + toBlockDataFormat(data));
+                      + toBlockDataFormat(data) + "\n");
     _vna->wait();
 }
 void VnaTrace::write(QRowVector frequencies_Hz, ComplexRowVector data) {
@@ -437,7 +437,7 @@ bool VnaTrace::isMarker(uint index) {
     QString scpi = ":CALC%1:MARK%2?\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(index);
-    return(_vna->query(scpi) == "1");
+    return(_vna->query(scpi).trimmed() == "1");
 }
 bool VnaTrace::isNotMarker(uint index) {
     return(!isMarker(index));
@@ -581,7 +581,7 @@ QString VnaTrace::measurementString() {
     QString scpi = ":CALC%1:PAR:MEAS? \'%2\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
-    return(_vna->query(scpi).remove("\'"));
+    return(_vna->query(scpi).trimmed().remove("\'"));
 }
 QString VnaTrace::toScpi(TraceFormat format) {
     switch(format) {

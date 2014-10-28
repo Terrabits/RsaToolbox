@@ -89,7 +89,7 @@ void VnaPowerCorrections::off(uint port, bool isOff) {
 QString VnaPowerCorrections::calGroup() {
     QString scpi = ":MMEM:LOAD:CORR? %1\n";
     scpi = scpi.arg(_channelIndex);
-    return(_vna->query(scpi).remove("\'").trimmed());
+    return(_vna->query(scpi).trimmed().remove("\'"));
 }
 void VnaPowerCorrections::setCalGroup(QString calGroup) {
     if (calGroup.contains(".cal", Qt::CaseInsensitive) == false)

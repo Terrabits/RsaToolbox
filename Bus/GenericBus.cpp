@@ -340,6 +340,7 @@ void GenericBus::printRead(char *buffer, uint bytesRead) const {
     }
     text = QString("Read:     \"%1\"\n").arg(text);
     text += status();
+    text += "\n";
     emit print(text);
 }
 void GenericBus::printWrite(QString scpi) const {
@@ -351,5 +352,6 @@ void GenericBus::printWrite(QString scpi) const {
     }
     text = QString("Write:    \"%1\"\n").arg(scpi);
     text += status();
+    text += "\n";
     emit print(text);
 }

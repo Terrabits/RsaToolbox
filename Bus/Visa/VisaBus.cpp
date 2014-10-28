@@ -97,9 +97,12 @@ VisaBus::VisaBus(ConnectionType connectionType, QString address,
         return;
     }
 
-    visa_library.setFileName(FILENAME);
-    if (!visa_library.load())
-        return;
+    visa_library.setFileName(VISA32);
+    if (!visa_library.load()) {
+        visa_library.setFileName(RSVISA32);
+        if (!visa_library.load())
+            return;
+    }
     getFuncters();
 
     char buffer[500];
@@ -114,7 +117,11 @@ VisaBus::VisaBus(ConnectionType connectionType, QString address,
     _status = _viOpen(_resourceManager, c.data(), (ViUInt32)VI_NULL, (ViUInt32)timeout_ms, &_instrument);
     _viStatusDesc(_instrument, _status, buffer);
     if (_status != VI_SUCCESS) {
+        _viClose(_resourceManager);
         setDisconnected();
+    }
+    else {
+        setTimeout(_timeout_ms);
     }
 }
 
@@ -142,8 +149,8 @@ VisaBus::~VisaBus() {
  * \return Presence of NI-VISA installation
  * \sa RsibBus
  */
-bool VisaBus::isVisaPresent() {
-    return(QLibrary(FILENAME).load());
+bool VisaBus::isVisaInstalled() {
+    return QLibrary(VISA32).load();
 }
 
 /*!
@@ -152,6 +159,15 @@ bool VisaBus::isVisaPresent() {
  */
 bool VisaBus::isOpen() const {
     return _instrument != NULL;
+}
+
+/*!
+ * \brief Set timeout, in ms
+ */
+void VisaBus::setTimeout(uint time_ms) {
+    GenericBus::setTimeout(time_ms);
+    if (isOpen())
+        _viSetAttribute(_instrument, VI_ATTR_TMO_VALUE, time_ms);
 }
 
 /*!
@@ -179,7 +195,7 @@ bool VisaBus::read(char *buffer, uint bufferSize) {
         return(true);
     }
     else {
-        buffer[0] = '\0';
+        nullTerminate(buffer, bufferSize, 0);
         printRead(buffer, 0);
         emit error();
         return(false);
@@ -271,14 +287,18 @@ QString VisaBus::status() const {
  * \sa VisaBus::unlock()
  */
 bool VisaBus::lock() {
-    _status = _viLock(_instrument, VI_EXCLUSIVE_LOCK, (ViUInt32)_timeout_ms, VI_NULL, VI_NULL);
-    bool isLocked = _status >= VI_SUCCESS;
+    _status = _viLock(_instrument, VI_EXCLUSIVE_LOCK, ViUInt32(_timeout_ms), VI_NULL, VI_NULL);
+    bool isLocked = !isError();
     if (isLocked)
-        emit print("Instrument locked\n\n");
-    else
-        emit print("Could not lock instrument\n\n");
+        emit print("Instrument locked\n" + status() + "\n");
+    else {
+        if (visa_library.fileName().contains(RSVISA32, Qt::CaseInsensitive))
+            emit print("RsVisa does not implement locking mechanism!\n" + status() + "\n");
+        else
+            emit print("Could not lock instrument\n" + status() + "\n");
+    }
 
-    return(isLocked);
+    return isLocked;
 }
 /*!
  * \brief Unlocks the instrument, making it available for remote access by
@@ -303,9 +323,13 @@ bool VisaBus::unlock() {
     _status = _viUnlock(_instrument);
     bool isUnlocked = _status >= VI_SUCCESS;
     if (isUnlocked)
-        emit print("Instrument unlocked\n\n");
-    else
-        emit print("Could not unlock instrument\n\n");
+        emit print("Instrument unlocked\n" + status() + "\n");
+    else {
+        if (visa_library.fileName().contains(RSVISA32, Qt::CaseInsensitive))
+            emit print("RsVisa does not implement unlocking mechanism!\n" + status() + "\n");
+        else
+            emit print("Could not unlock instrument\n" + status() + "\n");
+    }
 
     return(isUnlocked);
 }

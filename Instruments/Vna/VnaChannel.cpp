@@ -48,7 +48,7 @@ uint VnaChannel::index() {
 QString VnaChannel::name() {
     QString scpi = ":CONF:CHAN%1:NAME?\n";
     scpi = scpi.arg(_index);
-    return(_vna->query(scpi).remove("\'").trimmed());
+    return(_vna->query(scpi).trimmed().remove("\'"));
 }
 void VnaChannel::setName(QString name) {
     QString scpi = ":CONF:CHAN%1:NAME \'%2\'\n";
@@ -66,7 +66,7 @@ QStringList VnaChannel::traces() {
 
     QString scpi = ":CONF:CHAN%1:TRAC:CAT?";
     scpi = scpi.arg(_index);
-    QString result = _vna->query(scpi, 1000, 1000);
+    QString result = _vna->query(scpi, 1000, 1000).trimmed();
     QVector<IndexName> indexNames;
     indexNames = IndexName::parse(result, ",", "\'");
     return(IndexName::names(indexNames));
@@ -174,7 +174,7 @@ bool VnaChannel::isTimeSweep() {
 VnaSweepType VnaChannel::sweepType() {
     QString scpi = ":SENS%1:SWE:TYPE?\n";
     scpi = scpi.arg(_index);
-    return(toVnaSweepType(_vna->query(scpi)));
+    return(toVnaSweepType(_vna->query(scpi).trimmed()));
 }
 void VnaChannel::setSweepType(VnaSweepType sweepType) {
     QString scpi = ":SENS%1:SWE:TYPE %2\n";
@@ -262,7 +262,7 @@ QVector<uint> VnaChannel::physicalPorts(uint logicalPort) {
     QString scpi = ":SOUR%1:LPOR%2?\n";
     scpi = scpi.arg(_index);
     scpi = scpi.arg(logicalPort);
-    return(parseUints(_vna->query(scpi), ","));
+    return(parseUints(_vna->query(scpi).trimmed(), ","));
 }
 void VnaChannel::physicalPorts(uint logicalPort, uint &physicalPort1, uint &physicalPort2) {
     QVector<uint> ports = physicalPorts(logicalPort);
@@ -372,7 +372,7 @@ VnaAveraging& VnaChannel::averaging() {
 bool VnaChannel::isCalibrated() {
     QString scpi = ":SENS%1:CORR:DATA:PAR:COUN?\n";
     scpi = scpi.arg(_index);
-    return(_vna->query(scpi).toInt() > 0);
+    return(_vna->query(scpi).trimmed().toInt() > 0);
 }
 bool VnaChannel::isCalGroup() {
     return(calGroup().isEmpty() == false);
@@ -398,12 +398,12 @@ void VnaChannel::setCalGroup(QString calGroup) {
 QString VnaChannel::calGroup() {
     QString scpi = ":MMEM:LOAD:CORR? %1\n";
     scpi = scpi.arg(_index);
-    return(_vna->query(scpi).remove("\'").remove(".cal"));
+    return(_vna->query(scpi).trimmed().remove("\'").remove(".cal"));
 }
 QString VnaChannel::calGroupFile() {
     QString scpi = ":MMEM:LOAD:CORR? %1\n";
     scpi = scpi.arg(_index);
-    QString filePathName = _vna->query(scpi).remove("\'");
+    QString filePathName = _vna->query(scpi).trimmed().remove("\'");
     filePathName = _vna->fileSystem().directory(CAL_GROUP_DIRECTORY) + "\\" + filePathName;
     return(filePathName);
 }

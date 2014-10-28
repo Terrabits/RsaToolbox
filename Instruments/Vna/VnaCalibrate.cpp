@@ -99,7 +99,7 @@ Connector VnaCalibrate:: connector(uint port) {
     scpi = scpi.arg(port);
 
     QStringList results
-            = _vna->query(scpi).remove("\'").split(",");
+            = _vna->query(scpi).trimmed().remove("\'").split(",");
     ConnectorType type
             = toConnectorType(results.first());
     ConnectorGender gender
@@ -138,7 +138,7 @@ NameLabel VnaCalibrate:: selectedKit(Connector type) {
     }
     scpi = scpi.arg(toConnectorTypeVnaScpi(type));
 
-    QString result = _vna->query(scpi);
+    QString result = _vna->query(scpi).trimmed();
     QVector<NameLabel> results
             = NameLabel::parse(result, ",", "\'");
     if (results.isEmpty())

@@ -63,7 +63,7 @@ bool VnaTimeDomain::isOn() {
 
     QString scpi = ":CALC%1:TRAN:TIME:STAT?\n";
     scpi = scpi.arg(_trace->channel());
-    return(_vna->query(scpi) == "1");
+    return(_vna->query(scpi).trimmed() == "1");
 }
 bool VnaTimeDomain::isOff() {
     return(!isOn());
@@ -141,7 +141,7 @@ void VnaTimeDomain::setLowpassStepResponse() {
 double VnaTimeDomain::startValue() {
     QString scpi = ":CALC%1:TRAN:TIME:STAR?\n";
     scpi = scpi.arg(_trace->channel());
-    return(_vna->query(scpi).toDouble());
+    return(_vna->query(scpi).trimmed().toDouble());
 }
 void VnaTimeDomain::setStart(double value, SiPrefix prefix) {
     value *= toDouble(prefix);
@@ -153,7 +153,7 @@ void VnaTimeDomain::setStart(double value, SiPrefix prefix) {
 double VnaTimeDomain::stopValue() {
     QString scpi = ":CALC%1:TRAN:TIME:STOP?\n";
     scpi = scpi.arg(_trace->channel());
-    return(_vna->query(scpi).toDouble());
+    return(_vna->query(scpi).trimmed().toDouble());
 }
 void VnaTimeDomain::setStop(double value, SiPrefix prefix) {
     value *= toDouble(prefix);
@@ -168,7 +168,7 @@ bool VnaTimeDomain::isAutomaticDcExtrapolation() {
 
     QString scpi = ":CALC%1:TRAN:TIME:LPAS:DCSP:CONT?\n";
     scpi = scpi.arg(_trace->channel());
-    return(_vna->query(scpi) == "1");
+    return(_vna->query(scpi).trimmed() == "1");
 }
 bool VnaTimeDomain::isManualDcExtrapolation() {
     return(!isAutomaticDcExtrapolation());
@@ -192,7 +192,7 @@ double VnaTimeDomain::extrapolatedDcValue() {
 
     QString scpi = ":CALC%1:TRAN:TIME:LPAS:DCSP?\n";
     scpi = scpi.arg(_trace->channel());
-    return(_vna->query(scpi).toDouble());
+    return(_vna->query(scpi).trimmed().toDouble());
 }
 void VnaTimeDomain::setExtrapolatedDcValue(double dcValue) {
     _trace->select();
@@ -214,7 +214,7 @@ double VnaTimeDomain::resolutionEnhancementFactor() {
 
     QString scpi = ":CALC%1:TRAN:TIME:RES:EFAC?\n";
     scpi = scpi.arg(_trace->channel());
-    return(_vna->query(scpi).toDouble());
+    return(_vna->query(scpi).trimmed().toDouble());
 }
 void VnaTimeDomain::resolutionEnhancementOff() {
     setResolutionEnhancement(1.0);
@@ -240,7 +240,7 @@ VnaWindowFunction VnaTimeDomain::window() {
 
     QString scpi = ":CALC%1:TRAN:TIME:WIND?\n";
     scpi = scpi.arg(_trace->channel());
-    return(toWindow(_vna->query(scpi)));
+    return(toWindow(_vna->query(scpi).trimmed()));
 }
 void VnaTimeDomain::setWindow(VnaWindowFunction window) {
     _trace->select();
@@ -417,14 +417,14 @@ QString VnaTimeDomain::filterTypeScpi() {
 
     QString scpi = ":CALC%1:TRAN:TIME?\n";
     scpi = scpi.arg(_trace->channel());
-    return(_vna->query(scpi).toUpper());
+    return(_vna->query(scpi).trimmed().toUpper());
 }
 QString VnaTimeDomain::responseTypeScpi() {
     _trace->select();
 
     QString scpi = ":CALC%1:TRAN:TIME:STIM?\n";
     scpi = scpi.arg(_trace->channel());
-    return(_vna->query(scpi).toUpper());
+    return(_vna->query(scpi).trimmed().toUpper());
 }
 QString VnaTimeDomain::toScpi(VnaWindowFunction window) {
     switch(window) {

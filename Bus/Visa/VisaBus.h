@@ -6,7 +6,8 @@
 
 // NI-VISA
 #include "visa.h"
-#define FILENAME "visa32"
+#define VISA32 "visa32"
+#define RSVISA32 "RsVisa32"
 
 // Qt
 #include <QObject>
@@ -27,7 +28,7 @@ public:
             QObject *parent = 0);
     ~VisaBus();
 
-    static bool isVisaPresent();
+    static bool isVisaInstalled();
 
     using GenericBus::read;
     using GenericBus::query;
@@ -35,6 +36,7 @@ public:
     using GenericBus::binaryQuery;
 
     bool isOpen() const;
+    void setTimeout(uint time_ms);
     bool read(char *buffer, uint bufferSize_B);
     bool write(QString scpi);
     bool binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead);
@@ -86,7 +88,6 @@ private:
     static const uint MAX_PRINT = 100;
 
     // VisaBus
-
     bool isError();
     void setDisconnected();
 };

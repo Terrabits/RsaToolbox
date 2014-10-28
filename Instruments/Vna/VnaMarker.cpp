@@ -69,7 +69,7 @@ QString VnaMarker::name() {
     QString scpi = ":CALC%1:MARK%2:NAME?\n";
     scpi = scpi.arg(_trace->channel());
     scpi = scpi.arg(_index);
-    return(_vna->query(scpi).remove('\''));
+    return(_vna->query(scpi).trimmed().remove('\''));
 }
 void VnaMarker::setName(QString name) {
     _trace->select();
@@ -87,7 +87,7 @@ bool VnaMarker::isDeltaOn() {
     QString scpi = ":CALC%1:MARK%2:DELT?\n";
     scpi = scpi.arg(_trace->channel());
     scpi = scpi.arg(_index);
-    return(_vna->query(scpi) == "1");
+    return(_vna->query(scpi).trimmed() == "1");
 }
 bool VnaMarker::isDeltaOff() {
     return(!isDeltaOn());
@@ -115,7 +115,7 @@ double VnaMarker::y() {
     QString scpi = ":CALC%1:MARK%2:Y?\n";
     scpi = scpi.arg(_trace->channel());
     scpi = scpi.arg(_index);
-    return(_vna->query(scpi).toDouble());
+    return(_vna->query(scpi).trimmed().toDouble());
 }
 double VnaMarker::x() {
     _trace->select();
@@ -123,7 +123,7 @@ double VnaMarker::x() {
     QString scpi = ":CALC%1:MARK%2:X?\n";
     scpi = scpi.arg(_trace->channel());
     scpi = scpi.arg(_index);
-    return(_vna->query(scpi).toDouble());
+    return(_vna->query(scpi).trimmed().toDouble());
 }
 void VnaMarker::coordinates(double &x, double &y) {
     x = this->x();

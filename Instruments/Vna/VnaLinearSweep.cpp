@@ -155,7 +155,7 @@ void VnaLinearSweep::setIfbandwidth(double bandwidth, SiPrefix prefix) {
 QVector<uint> VnaLinearSweep::sParameterGroup() {
     QString scpi = ":CALC%1:PAR:DEF:SGR?\n";
     scpi = scpi.arg(_channelIndex);
-    QString result = _vna->query(scpi);
+    QString result = _vna->query(scpi).trimmed();
     if (result == "NONE")
         return(QVector<uint>());
     else
@@ -202,7 +202,7 @@ ComplexMatrix3D VnaLinearSweep::readSParameterGroup() {
 double VnaLinearSweep::estimatedSweepTime_s() {
     QString scpi = ":SENS%1:SWE:TIME?\n";
     scpi = scpi.arg(_channelIndex);
-    return(_vna->query(scpi).toDouble());
+    return(_vna->query(scpi).trimmed().toDouble());
 }
 void VnaLinearSweep::setSweepTime(double time_s) {
     QString scpi = ":SENS%1:SWE:TIME %2\n";
