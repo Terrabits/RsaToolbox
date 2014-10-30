@@ -4,6 +4,7 @@ QT += core
 
 HEADERS += $$PWD/General/Definitions.h \
            $$PWD/General/General.h \
+           $$PWD/General/FormattedComplex.h \
            $$PWD/General/NameLabel.h \
            $$PWD/General/IndexName.h \
            $$PWD/General/Connector.h \
@@ -12,6 +13,7 @@ HEADERS += $$PWD/General/Definitions.h \
            $$PWD/General/NetworkData.h \
            $$PWD/General/NetworkTraceData.h \
            $$PWD/General/Touchstone.h \
+           $$PWD/General/FormattedTouchstone.h \
            $$PWD/General/SnpStreamReader.h \
            $$PWD/General/SnpStreamWriter.h \
            $$PWD/Log/Log.h \
@@ -25,6 +27,7 @@ INCLUDEPATH += $$PWD \
                $$PWD/Instruments
 
 SOURCES += $$PWD/General/General.cpp \
+           $$PWD/General/FormattedComplex.cpp \
            $$PWD/General/NameLabel.cpp \
            $$PWD/General/IndexName.cpp \
            $$PWD/General/Connector.cpp \
@@ -32,6 +35,7 @@ SOURCES += $$PWD/General/General.cpp \
            $$PWD/General/NetworkData.cpp \
            $$PWD/General/NetworkTraceData.cpp \
            $$PWD/General/Touchstone.cpp \
+           $$PWD/General/FormattedTouchstone.cpp \
            $$PWD/General/SnpStreamReader.cpp \
            $$PWD/General/SnpStreamWriter.cpp \
            $$PWD/Log/Log.cpp \

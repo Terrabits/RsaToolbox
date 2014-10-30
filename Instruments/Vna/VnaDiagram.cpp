@@ -1,6 +1,7 @@
 
 
 // RsaToolbox includes
+#include "IndexName.h"
 #include "VnaDiagram.h"
 #include "Vna.h"
 using namespace RsaToolbox;
@@ -44,14 +45,29 @@ VnaDiagram::VnaDiagram(Vna *vna, uint index, QObject *parent) :
 }
 
 QVector<uint> VnaDiagram::channels() {
-    return(QVector<uint>());
+    QVector<uint> chans;
+    QStringList traces = this->traces();
+    foreach (QString trace, traces) {
+        uint c = _vna->trace(trace).channel();
+        if (!chans.contains(c))
+            chans << c;
+    }
+    qSort(chans);
+    return chans;
 }
 
 QStringList VnaDiagram::traces() {
-    return(QStringList());
+    QString scpi = ":DISP:WIND%1:TRAC:CAT?\n";
+    scpi = scpi.arg(_index);
+    QString result = _vna->query(scpi, 4000).trimmed();
+    QVector<IndexName> indexNames;
+    indexNames = IndexName::parse(result, ",", "\'");
+    return IndexName::names(indexNames);
 }
 void VnaDiagram::deleteTraces() {
-
+    QStringList traces = this->traces();
+    foreach (QString trace, traces)
+        _vna->deleteTrace(trace);
 }
 
 bool VnaDiagram::isTitleOn() {

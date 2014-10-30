@@ -135,7 +135,11 @@ void VnaTrace::networkParameter(NetworkParameter &parameter, BalancedPort &outpu
     Q_UNUSED(inputPort);
 }
 void VnaTrace::setNetworkParameter(NetworkParameter parameter, uint outputPort, uint inputPort) {
-    QString scpi = ":CALC%1:PAR:MEAS:SEND \'%2\',\'%3\'\n";
+    QString scpi;
+    if (_vna->properties().isZvaFamily())
+        scpi = ":CALC%1:PAR:MEAS \'%2\',\'%3\'\n";
+    else
+        scpi = ":CALC%1:PAR:MEAS:SEND \'%2\',\'%3\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
     scpi = scpi.arg(toScpi(parameter, outputPort, inputPort));
@@ -417,6 +421,8 @@ void VnaTrace::write(ComplexRowVector data) {
     QString scpi = ":CALC%1:DATA SDAT, ";
     scpi = scpi.arg(channel());
 
+    if (_vna->properties().isZvaFamily())
+        _vna->settings().displayOn();
     select();
     _vna->settings().setRead64BitBinaryFormat();
     _vna->settings().setLittleEndian();

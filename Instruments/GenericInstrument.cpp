@@ -3,8 +3,8 @@
 // RsaTolbox
 #include "General.h"
 #include "GenericInstrument.h"
-#include "TcpBus.h"
 #include "VisaBus.h"
+#include "TcpBus.h"
 using namespace RsaToolbox;
 
 /*!
