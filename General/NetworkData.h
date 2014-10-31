@@ -64,9 +64,8 @@ public:
 
     // Operators
     void operator=(const NetworkData &other);
-    QDataStream& operator<<(QDataStream &stream);
-    QDataStream& operator>>(QDataStream &stream);
-
+    void write(QDataStream &stream) const;
+    void read(QDataStream &stream);
 
 private:
     QDateTime _timestamp;
@@ -86,10 +85,12 @@ private:
 };
 
 }
+QDataStream& operator<<(QDataStream &stream, const RsaToolbox::NetworkData &data);
+QDataStream& operator>>(QDataStream &stream, RsaToolbox::NetworkData &data);
 Q_DECLARE_METATYPE(RsaToolbox::NetworkData)
 
 
-#endif
+#endif // NETWORK_DATA_H
 
 
 

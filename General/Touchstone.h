@@ -54,10 +54,10 @@ private:
     // Read data
     static bool ReadData(NetworkData &network, QTextStream &snpFile);
     static bool ReadRow(NetworkData &network, QTextStream &snpFile, ComplexMatrix2D &dataRow, double &frequencyPoint);
-    static std::complex<double> (*ReadDatum)(double, double);
-    static std::complex<double> ReadRI(double word1, double word2);
-    static std::complex<double> ReadMA(double word1, double word2);
-    static std::complex<double> ReadDB(double word1, double word2);
+    static ComplexDouble (*ReadDatum)(double, double);
+    static ComplexDouble ReadRI(double word1, double word2);
+    static ComplexDouble ReadMA(double word1, double word2);
+    static ComplexDouble ReadDB(double word1, double word2);
 
     // Functions to help read a line, ignore comments and parse line into whitespace-delimited words
     static bool ReadLine(QTextStream &snpFile, QStringList &words);

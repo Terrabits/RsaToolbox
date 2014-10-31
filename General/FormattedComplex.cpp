@@ -122,3 +122,53 @@ FormattedComplex &FormattedComplex::operator=(const FormattedComplex &other) {
     _b = other._b;
     return *this;
 }
+bool operator==(const RsaToolbox::FormattedComplex &lft, const RsaToolbox::FormattedComplex &rt) {
+    if (lft.format() != rt.format())
+        return false;
+
+    switch (lft.format()) {
+    case REAL_IMAGINARY_COMPLEX:
+        if (lft.real() != rt.real())
+            return false;
+        if (lft.imaginary() != rt.imaginary())
+            return false;
+        return true;
+
+    case MAGNITUDE_DEGREES_COMPLEX:
+        if (lft.magnitude() != rt.magnitude())
+            return false;
+        if (lft.angle_deg() != rt.angle_deg())
+            return false;
+        return true;
+    case DB_DEGREES_COMPLEX:
+        if (lft.dB() != rt.dB())
+            return false;
+        if (lft.angle_deg() != rt.angle_deg())
+            return false;
+        return true;
+
+    default:
+        return false;
+    }
+}
+void FormattedComplex::write(QDataStream &stream) const {
+    stream << qint32(_format);
+    stream << _a;
+    stream << _b;
+}
+QDataStream& operator<<(QDataStream &stream, const FormattedComplex &fcomplex) {
+    fcomplex.write(stream);
+    return stream;
+}
+void FormattedComplex::read(QDataStream &stream) {
+    qint32 format;
+    stream >> format;
+    _format = ComplexFormat(format);
+    stream >> _a;
+    stream >> _b;
+}
+QDataStream& operator>>(QDataStream &stream, FormattedComplex &fcomplex) {
+    fcomplex.read(stream);
+    return stream;
+}
+

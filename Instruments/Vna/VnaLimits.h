@@ -38,9 +38,11 @@ public:
     void hide(bool isHidden = true);
 
     void setUpper(QString trace, double xOffset = 0, double yOffset = 0);
-    void setUpper(QRowVector frequencies_Hz, ComplexRowVector values);
+    void addUpper(QRowVector frequencies_Hz, ComplexRowVector values);
+    void addUpper(QRowVector frequencies_Hz, QRowVector values);
     void setLower(QString trace, double xOffset = 0, double yOffset = 0);
-    void setLower(QRowVector frequencies_Hz, ComplexRowVector values);
+    void addLower(QRowVector frequencies_Hz, ComplexRowVector values);
+    void addLower(QRowVector frequencies_Hz, QRowVector values);
     void deleteAll();
 
     void operator=(VnaLimits const &other);

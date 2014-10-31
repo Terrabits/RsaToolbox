@@ -27,12 +27,12 @@ uint FormattedTouchstone::ports(QString fileName) {
     fileName.chop(1);
     return(fileName.toUInt());
 }
-bool FormattedTouchstone::Read(NetworkData &network, QString filename) {
+bool FormattedTouchstone::Read(FormattedNetworkData &network, QString filename) {
     QFile file(filename);
     if (!file.open(QFile::ReadOnly))
         return false;
     QTextStream snpFile(&file);
-    network = NetworkData();
+    network = FormattedNetworkData();
     if (!ReadPorts(network, filename)) {
         return false;
     }
@@ -45,15 +45,15 @@ bool FormattedTouchstone::Read(NetworkData &network, QString filename) {
     // Else
     return true;
 }
-bool FormattedTouchstone::Read(NetworkData &network, QTextStream &FormattedTouchstone_in, int ports) {
+bool FormattedTouchstone::Read(FormattedNetworkData &network, QTextStream &FormattedTouchstone_in, int ports) {
     if (ports < 1)
         return(false);
 
-    network = NetworkData();
+    network = FormattedNetworkData();
     return(ReadOptions(network, FormattedTouchstone_in)
             && ReadData(network, FormattedTouchstone_in));
 }
-bool FormattedTouchstone::Write(NetworkData &network, QString filename) {
+bool FormattedTouchstone::Write(FormattedNetworkData &network, QString filename) {
     QFile file;
     CreateFile(file, filename, network);
     if (file.isWritable() == false) {
@@ -67,7 +67,7 @@ bool FormattedTouchstone::Write(NetworkData &network, QString filename) {
     if (network.numberOfPorts() != 2)
         WriteData(network, snpFile);
     else {
-        NetworkData copyNetwork = network;
+        FormattedNetworkData copyNetwork = network;
         Flip2Ports(copyNetwork);
         WriteData(copyNetwork, snpFile);
 
@@ -76,13 +76,13 @@ bool FormattedTouchstone::Write(NetworkData &network, QString filename) {
     file.close();
     return(true);
 }
-bool FormattedTouchstone::Write(NetworkData &network, QTextStream &FormattedTouchstone_out) {
+bool FormattedTouchstone::Write(FormattedNetworkData &network, QTextStream &FormattedTouchstone_out) {
     WriteComments(network, FormattedTouchstone_out);
     WriteOptions(network, FormattedTouchstone_out);
     if (network.numberOfPorts() != 2)
         WriteData(network, FormattedTouchstone_out);
     else {
-        NetworkData copyNetwork = network;
+        FormattedNetworkData copyNetwork = network;
         Flip2Ports(copyNetwork);
         WriteData(copyNetwork, FormattedTouchstone_out);
     }
@@ -97,12 +97,12 @@ const int FormattedTouchstone::COLUMNWIDTH = 18;
 const int FormattedTouchstone::PRECISION = 10;
 
 // Fix 2port FormattedTouchstone issue
-void FormattedTouchstone::Flip2Ports(NetworkData &network) {
+void FormattedTouchstone::Flip2Ports(FormattedNetworkData &network) {
     if (network.numberOfPorts() == 2) {
         const int PORT1 = 0;
         const int PORT2 = 1;
         for (unsigned int i = 0; i < network.points(); i++) {
-            ComplexDouble Port1Port2;
+            FormattedComplex Port1Port2;
             Port1Port2 = network.y()[i][PORT1][PORT2];
             network.y()[i][PORT1][PORT2] = network.y()[i][PORT2][PORT1];
             network.y()[i][PORT2][PORT1] = Port1Port2;
@@ -133,11 +133,11 @@ void FormattedTouchstone::RemoveComment(QString &line) {
 }
 
 // Read ports, options line
-bool FormattedTouchstone::ReadPorts(NetworkData &network, QString filename) {
+bool FormattedTouchstone::ReadPorts(FormattedNetworkData &network, QString filename) {
     network.setNumberOfPorts(ports(filename));
     return network.numberOfPorts() != 0;
 }
-bool FormattedTouchstone::ReadOptions(NetworkData &network, QTextStream &snpFile) {
+bool FormattedTouchstone::ReadOptions(FormattedNetworkData &network, QTextStream &snpFile) {
     QStringList words;
     ReadLine(snpFile, words);
     if (words[0] != "#")
@@ -148,7 +148,7 @@ bool FormattedTouchstone::ReadOptions(NetworkData &network, QTextStream &snpFile
     if (!ReadDataType(network, words[2])) {
         return false;
     }
-    if (!ReadFormat(words[3])) {
+    if (!ReadFormat(network, words[3])) {
         return false;
     }
     if (words.size() == 6)
@@ -156,7 +156,7 @@ bool FormattedTouchstone::ReadOptions(NetworkData &network, QTextStream &snpFile
     // Else
     return true;
 }
-bool FormattedTouchstone::ReadFrequencyPrefix(NetworkData &network, QString units) {
+bool FormattedTouchstone::ReadFrequencyPrefix(FormattedNetworkData &network, QString units) {
     if (!units.contains("Hz", Qt::CaseInsensitive))
         return false;
 
@@ -164,7 +164,7 @@ bool FormattedTouchstone::ReadFrequencyPrefix(NetworkData &network, QString unit
     network.setXUnits(HERTZ_UNITS, toSiPrefix(units));
     return(true);
 }
-bool FormattedTouchstone::ReadDataType(NetworkData &network, QString type) {
+bool FormattedTouchstone::ReadDataType(FormattedNetworkData &network, QString type) {
     QRegularExpression S_REGEX(toString(S_PARAMETER), QRegularExpression::CaseInsensitiveOption);
     QRegularExpression Y_REGEX(toString(Y_PARAMETER), QRegularExpression::CaseInsensitiveOption);
     QRegularExpression Z_REGEX(toString(Z_PARAMETER), QRegularExpression::CaseInsensitiveOption);
@@ -198,35 +198,40 @@ bool FormattedTouchstone::ReadDataType(NetworkData &network, QString type) {
     // If all else fails
     return(false);
 }
-bool FormattedTouchstone::ReadFormat(QString format) {
+bool FormattedTouchstone::ReadFormat(FormattedNetworkData &network, QString format) {
     QRegularExpression RI_REGEX(toString(REAL_IMAGINARY_COMPLEX), QRegularExpression::CaseInsensitiveOption);
     QRegularExpression MA_REGEX(toString(MAGNITUDE_DEGREES_COMPLEX), QRegularExpression::CaseInsensitiveOption);
     QRegularExpression DB_REGEX(toString(DB_DEGREES_COMPLEX), QRegularExpression::CaseInsensitiveOption);
 
     if(format.length() != 2)
         return false;
+
     if (RI_REGEX.match(format).hasMatch()) {
         ReadDatum = &ReadRI;
+        network.setFormat(REAL_IMAGINARY_COMPLEX);
         return(true);
     }
     if (MA_REGEX.match(format).hasMatch()) {
         ReadDatum = &ReadMA;
+        network.setFormat(MAGNITUDE_DEGREES_COMPLEX);
         return(true);
     }
     if (DB_REGEX.match(format).hasMatch()) {
         ReadDatum = &ReadDB;
+        network.setFormat(DB_DEGREES_COMPLEX);
         return(true);
     }
+
     // Else
     return false;
 }
 
 // Read data
-bool FormattedTouchstone::ReadData(NetworkData &network, QTextStream &snpFile) {
+bool FormattedTouchstone::ReadData(FormattedNetworkData &network, QTextStream &snpFile) {
     QRowVector freqs;
-    ComplexMatrix3D data;
+    FormattedComplexMatrix3D data;
     while (!snpFile.atEnd()) {
-        ComplexMatrix2D row;
+        FormattedComplexMatrix2D row;
         double freq;
         if (ReadRow(network, snpFile, row, freq)) {
             freqs << freq;
@@ -242,7 +247,7 @@ bool FormattedTouchstone::ReadData(NetworkData &network, QTextStream &snpFile) {
         Flip2Ports(network);
     return(true);
 }
-bool FormattedTouchstone::ReadRow(NetworkData &network, QTextStream &snpFile, ComplexMatrix2D &dataRow, double &frequencyPoint) {
+bool FormattedTouchstone::ReadRow(FormattedNetworkData &network, QTextStream &snpFile, FormattedComplexMatrix2D &dataRow, double &frequencyPoint) {
     // Begin to read data values
     double wordsToRead = pow(double(network.numberOfPorts()), 2) * 2 + 1;
     QStringList allWords;
@@ -254,40 +259,38 @@ bool FormattedTouchstone::ReadRow(NetworkData &network, QTextStream &snpFile, Co
     }
 
     // Check to see if all data was read
-    if (wordsToRead != 0) { return(false); }
+    if (wordsToRead != 0)
+        return false;
 
     // Process data
     frequencyPoint = allWords[0].toDouble();
     QStringList::iterator wordIndex = allWords.begin() + 1;
     dataRow.resize(network.numberOfPorts());
-    for (ComplexMatrix2D::iterator rowIndex = dataRow.begin(); rowIndex != dataRow.end(); rowIndex++) {
+    for (FormattedComplexMatrix2D::iterator rowIndex = dataRow.begin(); rowIndex != dataRow.end(); rowIndex++) {
         (*rowIndex).resize(network.numberOfPorts());
-        ComplexRowVector::iterator columnIndex = (*rowIndex).begin();
+        FormattedComplexRowVector::iterator columnIndex = (*rowIndex).begin();
         for (; columnIndex != (*rowIndex).end(); columnIndex++) {
             *columnIndex = (*ReadDatum)(wordIndex->toDouble(), (wordIndex + 1)->toDouble());
-            wordIndex += 2; }
+            wordIndex += 2;
+        }
     }
-    return(true);
+    return true;
 }
-ComplexDouble (*FormattedTouchstone::ReadDatum)(double, double);
-ComplexDouble FormattedTouchstone::ReadRI(double word1, double word2) {
-    return (ComplexDouble(word1, word2));
-
-
+FormattedComplex (*FormattedTouchstone::ReadDatum)(double, double);
+FormattedComplex FormattedTouchstone::ReadRI(double word1, double word2) {
+    return (FormattedComplex::realImaginary(word1, word2));
 }
-ComplexDouble FormattedTouchstone::ReadMA(double word1, double word2) {
-    double real = word1 * cos(word2 * PI/180);
-    double imag = word1 * sin(word2 * PI/180);
-    return(ComplexDouble(real, imag));
+FormattedComplex FormattedTouchstone::ReadMA(double word1, double word2) {
+    return FormattedComplex::magnitudeAngle(word1, word2);
 }
-ComplexDouble FormattedTouchstone::ReadDB(double word1, double word2) {
-    return(ReadMA(toMagnitude(word1), word2));
+FormattedComplex FormattedTouchstone::ReadDB(double word1, double word2) {
+    return FormattedComplex::dBAngle(word1, word2);
 }
 
 
 /* WRITE HELPER FUNCTIONS */
 
-void FormattedTouchstone::CreateFile(QFile &file, QString filename, NetworkData &network) {
+void FormattedTouchstone::CreateFile(QFile &file, QString filename, FormattedNetworkData &network) {
     QRegularExpression FormattedTouchstone_REGEX(FormattedTouchstone_FILE_REGEX, QRegularExpression::CaseInsensitiveOption);
     if (FormattedTouchstone_REGEX.match(filename).hasMatch()) {
         // Chop off file extension
@@ -298,7 +301,7 @@ void FormattedTouchstone::CreateFile(QFile &file, QString filename, NetworkData 
     file.setFileName(filename);
     file.open(QFile::WriteOnly);
 }
-void FormattedTouchstone::WriteComments(NetworkData &network, QTextStream &snpFile) {
+void FormattedTouchstone::WriteComments(FormattedNetworkData &network, QTextStream &snpFile) {
     snpFile << "! RsaToolbox (C) 2014 Rohde & Schwarz America" << endl;
     snpFile << "! " << endl;
     snpFile << "! Number of points: " << network.points() << endl;
@@ -308,7 +311,7 @@ void FormattedTouchstone::WriteComments(NetworkData &network, QTextStream &snpFi
 }
 
 // Write Options + helpers
-void FormattedTouchstone::WriteOptions(NetworkData &network, QTextStream &snpFile) {
+void FormattedTouchstone::WriteOptions(FormattedNetworkData &network, QTextStream &snpFile) {
     // Write options info
     snpFile << "# ";
     snpFile << WriteUnits(network) << " ";
@@ -317,19 +320,18 @@ void FormattedTouchstone::WriteOptions(NetworkData &network, QTextStream &snpFil
     // snpFile << "R " << network.impedance << endl;
     snpFile << "R " << 50 << endl;
 }
-QString FormattedTouchstone::WriteUnits(NetworkData &network) {
+QString FormattedTouchstone::WriteUnits(FormattedNetworkData &network) {
     return(toString(network.xPrefix(), network.xUnits()));
 }
-QString FormattedTouchstone::WriteDataType(NetworkData &network) {
+QString FormattedTouchstone::WriteDataType(FormattedNetworkData &network) {
     return(toString(network.parameter()));
 }
-QString FormattedTouchstone::WriteFormat(NetworkData &network) {
-    Q_UNUSED(network);
-    return(toString(REAL_IMAGINARY_COMPLEX));
+QString FormattedTouchstone::WriteFormat(FormattedNetworkData &network) {
+    return(toString(network.format()));
 }
 
 // Write data + helpers
-void FormattedTouchstone::WriteData(NetworkData &network, QTextStream &snpFile) {
+void FormattedTouchstone::WriteData(FormattedNetworkData &network, QTextStream &snpFile) {
     // Choose data format
     GetWriteFormat(network);
 
@@ -338,7 +340,7 @@ void FormattedTouchstone::WriteData(NetworkData &network, QTextStream &snpFile) 
         snpFile.setFieldAlignment(QTextStream::AlignLeft);
         snpFile.setFieldWidth(COLUMNWIDTH);
         snpFile << network.x()[currentFreq];
-        ComplexMatrix2D::iterator row_iter = network.y()[currentFreq].begin();
+        FormattedComplexMatrix2D::iterator row_iter = network.y()[currentFreq].begin();
         WriteRow(network, snpFile, *row_iter);
         row_iter++;
         for (; row_iter != network.y()[currentFreq].end(); row_iter++) {
@@ -349,10 +351,10 @@ void FormattedTouchstone::WriteData(NetworkData &network, QTextStream &snpFile) 
         }
     }
 }
-void FormattedTouchstone::WriteRow(NetworkData &network, QTextStream &snpFile, ComplexRowVector &row) {
+void FormattedTouchstone::WriteRow(FormattedNetworkData &network, QTextStream &snpFile, FormattedComplexRowVector &row) {
     int columnsWritten = 1;
     int const COLUMNSPERLINE = 4;
-    ComplexRowVector::iterator column_iter = row.begin();
+    FormattedComplexRowVector::iterator column_iter = row.begin();
     for (; column_iter != row.end(); column_iter++) {
         (*WriteDatum)(snpFile, *column_iter);
         // add delimiter
@@ -371,39 +373,40 @@ void FormattedTouchstone::WriteRow(NetworkData &network, QTextStream &snpFile, C
         columnsWritten++;
     }
 }
-void FormattedTouchstone::GetWriteFormat(NetworkData &network) {
-    Q_UNUSED(network);
-    WriteDatum = &WriteRI;
-    //    switch (network.format) {
-    //    case REAL_IMAGINARY_COMPLEX:
-    //        WriteDatum = &WriteRI;
-    //        break;
-    //    case MAGNITUDE_DEGREES_COMPLEX:
-    //        WriteDatum = &WriteMA;
-    //        break;
-    //    case DB_DEGREES_COMPLEX:
-    //        WriteDatum = &WriteDB;
-    //        break;
-    //    }
+void FormattedTouchstone::GetWriteFormat(FormattedNetworkData &network) {
+    switch (network.format()) {
+    case REAL_IMAGINARY_COMPLEX:
+        WriteDatum = &WriteRI;
+        return;
+    case MAGNITUDE_DEGREES_COMPLEX:
+        WriteDatum = &WriteMA;
+        return;
+    case DB_DEGREES_COMPLEX:
+        WriteDatum = &WriteDB;
+        return;
+    default:
+        WriteDatum = &WriteRI;
+        return;
+    }
 }
-void (*FormattedTouchstone::WriteDatum)(QTextStream &, ComplexDouble &);
-void FormattedTouchstone::WriteRI(QTextStream &snpFile, ComplexDouble &datum) {
+void (*FormattedTouchstone::WriteDatum)(QTextStream &, FormattedComplex &);
+void FormattedTouchstone::WriteRI(QTextStream &snpFile, FormattedComplex &datum) {
     snpFile.setFieldAlignment(QTextStream::AlignLeft);
     snpFile.setFieldWidth(COLUMNWIDTH);
     snpFile << datum.real();
-    snpFile << datum.imag();
+    snpFile << datum.imaginary();
 }
-void FormattedTouchstone::WriteMA(QTextStream &snpFile, ComplexDouble &datum) {
+void FormattedTouchstone::WriteMA(QTextStream &snpFile, FormattedComplex &datum) {
     snpFile.setFieldAlignment(QTextStream::AlignLeft);
     snpFile.setFieldWidth(COLUMNWIDTH);
-    snpFile << abs(datum);
-    snpFile << arg(datum) * 180 / PI;
+    snpFile << datum.magnitude();
+    snpFile << datum.angle_deg();
 }
-void FormattedTouchstone::WriteDB(QTextStream &snpFile, ComplexDouble &datum) {
+void FormattedTouchstone::WriteDB(QTextStream &snpFile, FormattedComplex &datum) {
     snpFile.setFieldAlignment(QTextStream::AlignLeft);
     snpFile.setFieldWidth(COLUMNWIDTH);
-    snpFile << toDb(datum);
-    snpFile << arg(datum) * 180 / PI;
+    snpFile << datum.dB();
+    snpFile << datum.angle_deg();
 }
 
 

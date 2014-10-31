@@ -8,9 +8,9 @@
 namespace RsaToolbox {
 
 class FormattedComplex;
-typedef QVector<FormattedComplex> QFormattedComplexRowVector;
-typedef QVector<QFormattedComplexRowVector> QFormattedComplexMatrix2D;
-typedef QVector<QFormattedComplexMatrix2D> QFormattedComplexMatrix3D;
+typedef QVector<FormattedComplex> FormattedComplexRowVector;
+typedef QVector<FormattedComplexRowVector> FormattedComplexMatrix2D;
+typedef QVector<FormattedComplexMatrix2D> FormattedComplexMatrix3D;
 
 class FormattedComplex {
 public:
@@ -34,14 +34,19 @@ public:
     double angle_rad() const;
     ComplexDouble value() const;
 
-    FormattedComplex &operator=(const FormattedComplex &other);
+    FormattedComplex& operator=(const FormattedComplex &other);
+    void write(QDataStream &stream) const;
+    void read(QDataStream &stream);
 
 private:
     ComplexFormat _format;
     double _a, _b;
 };
-
 }
+bool operator==(const RsaToolbox::FormattedComplex &lft, const RsaToolbox::FormattedComplex &rt);
+QDataStream& operator<<(QDataStream &stream, const RsaToolbox::FormattedComplex &fcomplex);
+QDataStream& operator>>(QDataStream &stream, RsaToolbox::FormattedComplex &fcomplex);
+Q_DECLARE_METATYPE(RsaToolbox::FormattedComplex)
 
 
 #endif // FORMATTED_COMPLEX_H

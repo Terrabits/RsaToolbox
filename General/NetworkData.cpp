@@ -197,12 +197,12 @@ void NetworkData::operator=(const NetworkData &other) {
 }
 
 
-QDataStream& NetworkData::operator<<(QDataStream &stream) {
+void NetworkData::write(QDataStream &stream) const {
     stream << _timestamp;
     stream << _comment;
     stream << _portComments;
 
-    stream << int(_parameter);
+    stream << qint32(_parameter);
     stream << _impedance_Ohms;
     stream << _ports;
     stream << _points;
@@ -211,15 +211,17 @@ QDataStream& NetworkData::operator<<(QDataStream &stream) {
     stream << _xUnits;
     stream << _xPrefix;
     stream << _y;
-
-    return(stream);
 }
-QDataStream& NetworkData::operator>>(QDataStream &stream) {
+QDataStream& operator<<(QDataStream &stream, const NetworkData &data) {
+    data.write(stream);
+    return stream;
+}
+void NetworkData::read(QDataStream &stream) {
     stream >> _timestamp;
     stream >> _comment;
     stream >> _portComments;
 
-    int enumInt;
+    qint32 enumInt;
     stream >> enumInt;
     _parameter = NetworkParameter(enumInt);
     stream >> _impedance_Ohms;
@@ -232,8 +234,10 @@ QDataStream& NetworkData::operator>>(QDataStream &stream) {
     stream >> enumInt;
     _xPrefix = SiPrefix(enumInt);
     stream >> _y;
-
-    return(stream);
+}
+QDataStream& operator>>(QDataStream &stream, NetworkData &data) {
+    data.read(stream);
+    return stream;
 }
 
 

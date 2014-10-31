@@ -265,7 +265,8 @@ bool Touchstone::ReadRow(NetworkData &network, QTextStream &snpFile, ComplexMatr
         ComplexRowVector::iterator columnIndex = (*rowIndex).begin();
         for (; columnIndex != (*rowIndex).end(); columnIndex++) {
             *columnIndex = (*ReadDatum)(wordIndex->toDouble(), (wordIndex + 1)->toDouble());
-            wordIndex += 2; }
+            wordIndex += 2;
+        }
     }
     return(true);
 }

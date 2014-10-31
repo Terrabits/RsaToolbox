@@ -110,64 +110,134 @@ void VnaLimits::hide(bool isHidden) {
 }
 
 void VnaLimits::setUpper(QString trace, double xOffset, double yOffset) {
-    _trace->select();
     QString scpi = ":CALC%1:LIM:UPP:FEED %2,%3,\'%4\'\n";
     scpi = scpi.arg(_channel);
     scpi = scpi.arg(xOffset);
     scpi = scpi.arg(yOffset);
     scpi = scpi.arg(trace);
+
+    _trace->select();
     _vna->write(scpi);
     show();
     on();
 }
-void VnaLimits::setUpper(QRowVector frequencies_Hz, ComplexRowVector values) {
-    uint i = _vna->createChannel();
-    VnaChannel channel = _vna->channel(i);
-    channel.manualSweepOn();
+void VnaLimits::addUpper(QRowVector frequencies_Hz, ComplexRowVector values) {
+    QRowVector v;
+    switch (_trace->format()) {
+    case DB_MAGNITUDE_TRACE:
+        v = toDb(values);
+        break;
+    case PHASE_DEG_TRACE:
+        v = angle_deg(values);
+        break;
+    case VSWR_TRACE:
+        v = toVswr(values);
+        break;
+    case UNWRAP_PHASE_DEG_TRACE:
+        v = unwrap(angle_deg(values));
+        break;
+    case LINEAR_MAGNITUDE_TRACE:
+        v = toMagnitude(values);
+        break;
+    case REAL_PART_TRACE:
+        v = real(values);
+        break;
+    case IMAGINARY_PART_TRACE:
+        v = imaginary(values);
+        break;
+    default:
+        return;
+    }
+    addUpper(frequencies_Hz, v);
+}
+void VnaLimits::addUpper(QRowVector f, QRowVector v) {
+    int points = v.size();
+    if (f.size() != points)
+        return;
+    if (points < 2)
+        return;
 
-    QString trc = "__________trc";
-    QString mem = "____________mem";
-    _vna->createTrace(trc, i);
-    _vna->trace(trc).setFormat(_trace->format());
-    channel.setFrequencies(frequencies_Hz);
-    _vna->trace(trc).toMemory(mem);
-    _vna->trace(mem).write(values);
-    setUpper(mem);
-    _vna->deleteTrace(mem);
-    _vna->deleteTrace(trc);
-    _vna->deleteChannel(i);
+    QString scpi = ":CALC%1:LIM:DATA ";
+    scpi = scpi.arg(_channel);
+    QString firstSegment = "1,%1,%2,%3,%4";
+    QString nextSegment = "," + firstSegment;
+    scpi += firstSegment.arg(f[0]).arg(f[1]).arg(v[0]).arg(v[1]);
+    for (int i = 2; i < points; i++)
+        scpi += nextSegment.arg(f[i-1]).arg(f[i]).arg(v[i-1]).arg(v[i]);
+    scpi += "\n";
+
+    _trace->select();
+    _vna->write(scpi);
+    show();
+    on();
 }
 void VnaLimits::setLower(QString trace, double xOffset, double yOffset) {
-    _trace->select();
     QString scpi = ":CALC%1:LIM:LOW:FEED %2,%3,\'%4\'\n";
     scpi = scpi.arg(_channel);
     scpi = scpi.arg(xOffset);
     scpi = scpi.arg(yOffset);
     scpi = scpi.arg(trace);
+
+    _trace->select();
     _vna->write(scpi);
     show();
     on();
 }
-void VnaLimits::setLower(QRowVector frequencies_Hz, ComplexRowVector values) {
-    uint i = _vna->createChannel();
-    VnaChannel channel = _vna->channel(i);
-    channel.manualSweepOn();
+void VnaLimits::addLower(QRowVector frequencies_Hz, ComplexRowVector values) {
+    QRowVector v;
+    switch (_trace->format()) {
+    case DB_MAGNITUDE_TRACE:
+        v = toDb(values);
+        break;
+    case PHASE_DEG_TRACE:
+        v = angle_deg(values);
+        break;
+    case VSWR_TRACE:
+        v = toVswr(values);
+        break;
+    case UNWRAP_PHASE_DEG_TRACE:
+        v = unwrap(angle_deg(values));
+        break;
+    case LINEAR_MAGNITUDE_TRACE:
+        v = toMagnitude(values);
+        break;
+    case REAL_PART_TRACE:
+        v = real(values);
+        break;
+    case IMAGINARY_PART_TRACE:
+        v = imaginary(values);
+        break;
+    default:
+        return;
+    }
+    addLower(frequencies_Hz, v);
+}
+void VnaLimits::addLower(QRowVector f, QRowVector v) {
+    int points = v.size();
+    if (f.size() != points)
+        return;
+    if (points < 2)
+        return;
 
-    QString trc = "__________trc";
-    QString mem = "____________mem";
-    _vna->createTrace(trc, i);
-    _vna->trace(trc).setFormat(_trace->format());
-    channel.setFrequencies(frequencies_Hz);
-    _vna->trace(trc).toMemory(mem);
-    _vna->trace(mem).write(values);
-    setLower(mem);
-    _vna->deleteTrace(mem);
-    _vna->deleteTrace(trc);
-    _vna->deleteChannel(i);
+    QString scpi = ":CALC%1:LIM:DATA ";
+    scpi = scpi.arg(_channel);
+    QString firstSegment = "2,%1,%2,%3,%4";
+    QString nextSegment = "," + firstSegment;
+    scpi += firstSegment.arg(f[0]).arg(f[1]).arg(v[0]).arg(v[1]);
+    for (int i = 2; i < points; i++)
+        scpi += nextSegment.arg(f[i-1]).arg(f[i]).arg(v[i-1]).arg(v[i]);
+    scpi += "\n";
+
+    _trace->select();
+    _vna->write(scpi);
+    show();
+    on();
 }
 void VnaLimits::deleteAll() {
     QString scpi = ":CALC%1:LIM:DEL:ALL\n";
     scpi = scpi.arg(_channel);
+
+    _trace->select();
     _vna->write(scpi);
 }
 
