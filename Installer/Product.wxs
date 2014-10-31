@@ -20,6 +20,7 @@
     <Feature Id="AppFeature" Title="R&amp;S %APPLICATION_NAME%" Description="%DESCRIPTION%" Level="1">
       <ComponentRef Id="AppComponent" />
       <ComponentRef Id="RSIB" />
+      <ComponentRef Id="RsVisa" />
       <ComponentRef Id="QCustomPlots" />
       <ComponentRef Id="QuaZip" />
       <ComponentRef Id="VC2010Runtime" />
@@ -89,6 +90,9 @@
     <Component Id="RSIB" Guid="%GUID%" Directory="INSTALLFOLDER">
       <File Id="rsib32.dll" Name="rsib32.dll" Source="..\RsaToolbox\Bus\Rsib\rsib32.dll" KeyPath="yes"/>
     </Component>
+    <Component Id="RsVisa" Guid="%GUID%" Directory="INSTALLFOLDER">
+      <File Id="RsVisa32.dll" Name="RsVisa32.dll" Source="..\RsaToolbox\Bus\Visa\RsVisa32.dll" KeyPath="yes"/>
+    </Component>
     <Component Id="QCustomPlots" Guid="%GUID%" Directory="INSTALLFOLDER">
     	<File Id="qcustomplot.dll" Name="qcustomplot.dll" Source="..\RsaToolbox\QCustomPlot\qcustomplot.dll" KeyPath="yes" />
     </Component>
@@ -110,6 +114,7 @@
       <File Id="icudt51.dll" Name="icudt51.dll" Source="%QT_CPP_RUNTIME%\icudt51.dll" />
       <File Id="icuin51.dll" Name="icuin51.dll" Source="%QT_CPP_RUNTIME%\icuin51.dll" />
       <File Id="icuuc51.dll" Name="icuuc51.dll" Source="%QT_CPP_RUNTIME%\icuuc51.dll" />
+      <File Id="Qt5Network.dll" Name="Qt5Network.dll" Source="%QT_CPP_RUNTIME%\Qt5Network.dll" />
     </Component>
     <Component Id="QtPlatformPlugin" Guid="%GUID%" Directory="PlatformsFolder">
       <File Id="qwindows.dll" Name="qwindows.dll" Source="%QT_CPP_RUNTIME%\..\plugins\platforms\qwindows.dll" KeyPath="yes" />
