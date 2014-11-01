@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/Wizard/Icons">
+        <file>RS.ico</file>
+    </qresource>
+</RCC>

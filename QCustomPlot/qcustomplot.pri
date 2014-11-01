@@ -3,8 +3,7 @@
 # for use as a dynamically linked
 # library
 
-QT += core gui
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+QT += core gui widgets printsupport
 
 HEADERS += $$PWD/Figure.h
 INCLUDEPATH += $$PWD

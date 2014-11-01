@@ -1,10 +1,8 @@
 
-
-QT += core gui
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets network printsupport
+// Requires Qt 5
+QT += core gui widgets network printsupport
 
 INCLUDEPATH += $$PWD \
-               $$PWD/GUI \
                $$PWD/General \
                $$PWD/Log \
                $$PWD/Bus \
@@ -14,6 +12,13 @@ INCLUDEPATH += $$PWD \
                $$PWD/Instruments \
                $$PWD/Instruments/Vna \
                $$PWD/Instruments/Vna/Dialogs \
+               $$PWD/Instruments/Vna/Models \
+               $$PWD/Instruments/Vna/Views \
+               $$PWD/Gui/ErrorLabel \
+               $$PWD/Gui/GetSnpFile \
+               $$PWD/Gui/ListPanel \
+               $$PWD/Gui/PortsLineEdit \
+               $$PWD/Gui/Wizard \
                $$PWD/QCustomPlot
 
 # Rsib, RsVisa:

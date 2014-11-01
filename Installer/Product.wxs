@@ -115,6 +115,7 @@
       <File Id="icuin51.dll" Name="icuin51.dll" Source="%QT_CPP_RUNTIME%\icuin51.dll" />
       <File Id="icuuc51.dll" Name="icuuc51.dll" Source="%QT_CPP_RUNTIME%\icuuc51.dll" />
       <File Id="Qt5Network.dll" Name="Qt5Network.dll" Source="%QT_CPP_RUNTIME%\Qt5Network.dll" />
+      <File Id="Qt5PrintSupport.dll" Name="Qt5PrintSupport.dll" Source="%QT_CPP_RUNTIME%\Qt5PrintSupport.dll" />
     </Component>
     <Component Id="QtPlatformPlugin" Guid="%GUID%" Directory="PlatformsFolder">
       <File Id="qwindows.dll" Name="qwindows.dll" Source="%QT_CPP_RUNTIME%\..\plugins\platforms\qwindows.dll" KeyPath="yes" />
