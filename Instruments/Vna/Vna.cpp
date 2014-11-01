@@ -215,7 +215,7 @@ void Vna::printInfo() {
 void Vna::printInfo(QTextStream &stream) {
     stream << "VNA INSTRUMENT INFO" << endl;
     if (isConnected()) {
-        if (_properties.model() != UNKNOWN_MODEL) {
+        if (_properties.isKnownModel()) {
             stream << "Connection:       " << toString(connectionType()) << endl;
             stream << "Address:          " << address() << endl;
             stream << "Make:             Rohde & Schwarz" << endl;
@@ -615,9 +615,9 @@ QVector<Connector> Vna::connectorTypes() {
             query(scpi).trimmed().remove('\'').split(',');
     QVector<Connector> types;
     foreach (QString item, list) {
-        ConnectorType type = toConnectorType(item);
+        Connector::Type type = toConnectorType(item);
         Connector new_type;
-        if (type == CUSTOM_CONNECTOR)
+        if (type == Connector::CUSTOM_CONNECTOR)
             new_type.setCustomType(item);
         else
             new_type.setType(type);
@@ -734,7 +734,7 @@ QVector<NameLabel> Vna::calKits(Connector type) {
  * \param type Connector type
  * \return Cal kits of connector \c type
  */
-QVector<NameLabel> Vna::calKits(ConnectorType type) {
+QVector<NameLabel> Vna::calKits(Connector::Type type) {
     return(calKits(toVnaScpi(type)));
 }
 
@@ -771,7 +771,7 @@ void Vna::importCalKit(QString pathName) {
     QFileInfo file_info(pathName);
     QString filename;
     if (file_info.path().isEmpty()) {
-        filename = fileSystem().directory(CAL_KIT_DIRECTORY);
+        filename = fileSystem().directory(VnaFileSystem::CAL_KIT_DIRECTORY);
         filename += file_info.fileName();
     }
     else {
@@ -801,7 +801,7 @@ void Vna::exportCalKit(NameLabel calkit, QString pathName) {
     QFileInfo file_info(pathName);
     QString filename;
     if (file_info.path().isEmpty())
-        filename = fileSystem().directory(CAL_KIT_DIRECTORY);
+        filename = fileSystem().directory(VnaFileSystem::CAL_KIT_DIRECTORY);
     else
         filename = QDir::toNativeSeparators(file_info.filePath());
     filename += file_info.baseName() + ".calkit";
@@ -929,7 +929,7 @@ VnaCalibrate *Vna::takeCalibrate() {
  */
 QStringList Vna::calGroups() {
     QString currentDirectory = fileSystem().directory();
-    fileSystem().changeDirectory(CAL_GROUP_DIRECTORY);
+    fileSystem().changeDirectory(VnaFileSystem::CAL_GROUP_DIRECTORY);
     QStringList files = fileSystem().files();
     fileSystem().changeDirectory(currentDirectory);
 

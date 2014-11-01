@@ -1,5 +1,6 @@
 #include "CalDialog.h"
 #include "ui_CalDialog.h"
+using namespace RsaToolbox;
 
 #include <QDebug>
 

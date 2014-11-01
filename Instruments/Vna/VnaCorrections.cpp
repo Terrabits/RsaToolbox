@@ -131,55 +131,48 @@ void VnaCorrections::clear() {
 
 // Correction properties
 VnaCalType VnaCorrections::calibrationType() {
-    QString scpi = ":SENS%1:CORR:DATA:PAR%2? %3\n";
+    QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg("");
     scpi = scpi.arg("TYPE");
     QString result = _vna->query(scpi).trimmed();
     return(toVnaCalType(result));
 
 }
 VnaSweepType VnaCorrections::sweepType() {
-    QString scpi = ":SENS%1:CORR:DATA:PAR%2? %3\n";
+    QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg("");
     scpi = scpi.arg("STYP");
     QString result = _vna->query(scpi).trimmed();
     return(toVnaSweepType(result));
 }
 QVector<uint> VnaCorrections::ports() {
-    QString scpi = ":SENS%1:CORR:DATA:PAR%2? %3\n";
+    QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg("");
     scpi = scpi.arg("PORT");
     QString result = _vna->query(scpi).trimmed();
     return(parseUints(result, ","));
 }
 uint VnaCorrections::points() {
-    QString scpi = ":SENS%1:CORR:DATA:PAR%2? %3\n";
+    QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg("");
     scpi = scpi.arg("POIN");
     return(_vna->query(scpi).trimmed().toUInt());
 }
 double VnaCorrections::startFrequency_Hz() {
-    QString scpi = ":SENS%1:CORR:DATA:PAR%2? %3\n";
+    QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg("");
     scpi = scpi.arg("STAR");
     return(_vna->query(scpi).trimmed().toDouble());
 }
 double VnaCorrections::stopFrequency_Hz() {
-    QString scpi = ":SENS%1:CORR:DATA:PAR%2? %3\n";
+    QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg("");
     scpi = scpi.arg("STOP");
     return(_vna->query(scpi).trimmed().toDouble());
 }
 double VnaCorrections::power_dBm() {
-    QString scpi = ":SENS%1:CORR:DATA:PAR%2? %3\n";
+    QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg("");
     scpi = scpi.arg("SPOW");
     return(_vna->query(scpi).trimmed().toDouble());
 }

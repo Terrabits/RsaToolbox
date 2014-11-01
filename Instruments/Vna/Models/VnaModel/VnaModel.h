@@ -6,14 +6,16 @@
 #include <QAbstractTableModel>
 
 
+namespace RsaToolbox {
+
 class VnaModel : public QAbstractTableModel
 {
     Q_OBJECT
 public:
     explicit VnaModel(QObject *parent = 0);
 
-    void setVna(RsaToolbox::Vna *vna);
-    RsaToolbox::Vna *vna() const;
+    void setVna(Vna *vna);
+    Vna *vna() const;
 
     enum COLUMN {
         CONNECTION_TYPE_COLUMN = 0,
@@ -44,8 +46,8 @@ public slots:
     void reset();
 
 private:
-    RsaToolbox::Vna *_vna;
-    RsaToolbox::ConnectionType _connectionType;
+    Vna *_vna;
+    ConnectionType _connectionType;
     QString _address;
     bool toggleConnection();
     QString make() const;
@@ -57,5 +59,7 @@ private:
     QList<uint> channels();
 
 };
+} // RsaToolbox
+
 
 #endif // VNAMODEL_H

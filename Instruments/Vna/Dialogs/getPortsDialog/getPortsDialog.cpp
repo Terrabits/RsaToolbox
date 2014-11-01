@@ -1,10 +1,11 @@
 #include "getPortsDialog.h"
 #include "ui_getPortsDialog.h"
+using namespace RsaToolbox;
 
 
 //RsaToolbox
 #include "General.h"
-using namespace RsaToolbox;
+
 
 getPortsDialog::getPortsDialog(QWidget *parent) :
     QDialog(parent),

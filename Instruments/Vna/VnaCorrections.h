@@ -73,7 +73,8 @@ private:
         APPLIED_CORRECTIONS,
         INTERPOLATED_CORRECTIONS,
         DISABLED_CORRECTIONS,
-        NO_CORRECTIONS };
+        NO_CORRECTIONS
+    };
     
     bool isFullyInitialized() const;
     CorrectionState correctionState();

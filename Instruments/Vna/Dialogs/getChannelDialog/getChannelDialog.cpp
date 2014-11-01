@@ -1,10 +1,11 @@
 #include "getChannelDialog.h"
 #include "ui_getChannelDialog.h"
+using namespace RsaToolbox;
 
 
 //RsaToolbox
 #include "General.h"
-using namespace RsaToolbox;
+
 
 ///
 /// \brief getChannelDialog::getChannelDialog

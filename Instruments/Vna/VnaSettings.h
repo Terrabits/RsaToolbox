@@ -14,28 +14,30 @@
 namespace RsaToolbox {
 class Vna;
 
-enum VnaEmulationMode {
-    NO_EMULATION,
-    PNA_EMULATION,
-    HP_8510_EMULATION,
-    HP_8720_EMULATION,
-    HP_8753_EMULATION,
-    HP_8714_EMULATION,
-    ZVR_EMULATION,
-    HP_8530_EMULATION,
-    ENA_EMULATION,
-    ZVABT_EMULATION };
-enum VnaColorScheme {
-    DARK_BACKGROUND,
-    LIGHT_BACKGROUND,
-    BLACK_WHITE_OUTLINE_BACKGROUND,
-    BLACK_WHITE_SOLID_BACKGROUND };
-
 class VnaSettings : public QObject
 {
 private: Q_OBJECT
 
 public:
+    enum EmulationMode {
+        NO_EMULATION,
+        PNA_EMULATION,
+        HP_8510_EMULATION,
+        HP_8720_EMULATION,
+        HP_8753_EMULATION,
+        HP_8714_EMULATION,
+        ZVR_EMULATION,
+        HP_8530_EMULATION,
+        ENA_EMULATION,
+        ZVABT_EMULATION
+    };
+    enum ColorScheme {
+        DARK_BACKGROUND,
+        LIGHT_BACKGROUND,
+        BLACK_WHITE_OUTLINE_BACKGROUND,
+        BLACK_WHITE_SOLID_BACKGROUND
+    };
+
     explicit VnaSettings(QObject *parent = 0);
     VnaSettings(VnaSettings &other);
     VnaSettings(Vna *_vna, QObject *parent = 0);
@@ -58,9 +60,9 @@ public:
 
     bool isEmulationOn();
     bool isEmulationOff();
-    bool isEmulationMode(VnaEmulationMode mode);
-    VnaEmulationMode emulationMode();
-    void setEmulationMode(VnaEmulationMode mode);
+    bool isEmulationMode(EmulationMode mode);
+    EmulationMode emulationMode();
+    void setEmulationMode(EmulationMode mode);
     void setEmulationOff();
 
     bool isDisplayOn();
@@ -75,9 +77,9 @@ public:
     void errorDisplayOn(bool isOn = true);
     void errorDisplayOff(bool isOff = true);
 
-    bool isColorScheme(VnaColorScheme scheme);
-    VnaColorScheme colorScheme();
-    void setColorScheme (VnaColorScheme scheme);
+    bool isColorScheme(ColorScheme scheme);
+    ColorScheme colorScheme();
+    void setColorScheme (ColorScheme scheme);
     void setDefaultColorScheme();
 
     bool isFontSize(uint size_percent);
@@ -140,15 +142,15 @@ private:
     Vna *_vna;
     QScopedPointer<Vna> placeholder;
 
-    static QString toScpi(VnaEmulationMode mode);
-    static VnaEmulationMode toVnaEmulationMode(QString scpi);
+    static QString toScpi(EmulationMode mode);
+    static EmulationMode toVnaEmulationMode(QString scpi);
 
-    static QString toScpi(VnaColorScheme scheme);
-    static VnaColorScheme toColorScheme(QString scpi);
+    static QString toScpi(ColorScheme scheme);
+    static ColorScheme toColorScheme(QString scpi);
     
 };
 }
-Q_DECLARE_METATYPE(RsaToolbox::VnaEmulationMode)
-Q_DECLARE_METATYPE(RsaToolbox::VnaColorScheme)
+Q_DECLARE_METATYPE(RsaToolbox::VnaSettings::EmulationMode)
+Q_DECLARE_METATYPE(RsaToolbox::VnaSettings::ColorScheme)
 
 #endif // VnaSettings_H

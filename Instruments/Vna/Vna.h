@@ -82,7 +82,7 @@ public:
     bool isNotCalKit(QString name, QString label);
     QVector<NameLabel> calKits();
     QVector<NameLabel> calKits(Connector type);
-    QVector<NameLabel> calKits(ConnectorType type);
+    QVector<NameLabel> calKits(Connector::Type type);
     QVector<NameLabel> calKits(QString userDefinedConnectorType);
     void importCalKit(QString pathName);
     void exportCalKit(NameLabel calkit, QString pathName);

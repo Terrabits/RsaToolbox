@@ -20,8 +20,8 @@ public:
     explicit VnaForm(QWidget *parent = 0);
     ~VnaForm();
 
-    SharedVnaModel model() const;
-    void setModel(SharedVnaModel model);
+    VnaModel *model() const;
+    void setModel(VnaModel *model);
 
 public slots:
     void displayError(QString message);
@@ -33,7 +33,7 @@ private slots:
 private:
     Ui::VnaForm *ui;
 
-    SharedVnaModel _model;
+    VnaModel *_model;
     QModelIndex index(VnaModel::COLUMN column);
     QModelIndex typeIndex();
     QModelIndex addressIndex();

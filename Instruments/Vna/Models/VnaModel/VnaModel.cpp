@@ -3,7 +3,8 @@
 // RsaToolbox
 #include "General.h"
 #include "VisaBus.h"
-// using namespace RsaToolbox;
+#include "VnaProperties.h"
+using namespace RsaToolbox;
 
 #include <QDebug>
 
@@ -203,8 +204,8 @@ QString VnaModel::make() const {
 QString VnaModel::model() const {
     if (_vna->isDisconnected())
         return "";
-    RsaToolbox::VnaModel model = _vna->properties().model();
-    if (model == RsaToolbox::UNKNOWN_MODEL)
+    VnaProperties::Model model = _vna->properties().model();
+    if (model == VnaProperties::UNKNOWN_MODEL)
         return "";
     // Else
     return toString(model);
@@ -228,8 +229,8 @@ QString VnaModel::firmware() const {
 QString VnaModel::displayFrequency() const {
     if (_vna->isDisconnected())
         return "";
-    RsaToolbox::VnaModel model = _vna->properties().model();
-    if (model == RsaToolbox::UNKNOWN_MODEL)
+    VnaProperties::Model model = _vna->properties().model();
+    if (model == VnaProperties::UNKNOWN_MODEL)
         return "";
     
     // Else
@@ -248,8 +249,8 @@ QString VnaModel::displayFrequency() const {
 QString VnaModel::displayPower() const {
     if (_vna->isDisconnected())
         return "";
-    RsaToolbox::VnaModel model = _vna->properties().model();
-    if (model == RsaToolbox::UNKNOWN_MODEL)
+    VnaProperties::Model model = _vna->properties().model();
+    if (model == VnaProperties::UNKNOWN_MODEL)
         return "";
     
     // Else

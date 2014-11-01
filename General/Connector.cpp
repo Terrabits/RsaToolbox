@@ -23,7 +23,7 @@ using namespace RsaToolbox;
  *
  * Several static functions are also provided for handling a
  * QVector of Connector objects.
- * \sa RsaToolbox::ConnectorType, RsaToolbox::ConnectorGender
+ * \sa RsaToolbox::Connector::Type, RsaToolbox::ConnectorGender
  */
 
 /*!
@@ -66,7 +66,7 @@ Connector::Connector(const Connector &other) {
  * \param type Connector type
  * \param gender Connector gender
  */
-Connector::Connector(ConnectorType type, ConnectorGender gender) {
+Connector::Connector(Type type, ConnectorGender gender) {
     _type = type;
     _gender = gender;
 }
@@ -77,7 +77,7 @@ Connector::Connector(ConnectorType type, ConnectorGender gender) {
  *
  * \note For a connector with one of the system-defined
  * connector types, see the
- * \c Connector::Connector(ConnectorType type, ConnectorGender gender)
+ * \c Connector::Connector(Type type, ConnectorGender gender)
  * constructor.
  *
  * \param customType User-defined connector type
@@ -276,9 +276,9 @@ bool Connector::isGenderSpecific() const {
  * method to retrieve type.
  *
  * \return System-defined connector type, or \c CUSTOM_CONNECTOR
- * \sa RsaToolboxConnectorType, customType()
+ * \sa Connector::Type, customType()
  */
-ConnectorType Connector::type() const {
+Connector::Type Connector::type() const {
     return(_type);
 }
 
@@ -348,9 +348,9 @@ void Connector::setType(const Connector type) {
  * For user-defined connector types, use \c setCustomType()
  *
  * \param type System-defined connector type
- * \sa RsaToolbox::ConnectorType, setCustomType()
+ * \sa RsaToolbox::Connector::Type, setCustomType()
  */
-void Connector::setType(ConnectorType type) {
+void Connector::setType(Type type) {
     _type = type;
 }
 
@@ -358,10 +358,10 @@ void Connector::setType(ConnectorType type) {
  * \brief Sets the connector type to user-defined \c type
  *
  * For system-defined connector types, use
- * \c setType(ConnectorType type)
+ * \c setType(Type type)
  *
  * \param type System-defined connector type
- * \sa RsaToolbox::ConnectorType, setType(Connector type), setCustomType()
+ * \sa RsaToolbox::Connector::Type, setType(Connector type), setCustomType()
  */
 void Connector::setCustomType(QString type) {
     _type = CUSTOM_CONNECTOR;
@@ -395,7 +395,7 @@ void Connector::operator =(const Connector &other) {
  * \param type Connector type to textualize
  * \return User-friendly text representation of \c type
  */
-QString Connector::displayType(ConnectorType type) {
+QString Connector::displayType(Type type) {
     switch(type) {
     case N_50_OHM_CONNECTOR: return("N 50 Ohm");
     case N_75_OHM_CONNECTOR: return("N 75 Ohm");
@@ -529,37 +529,37 @@ QStringList Connector::displayText(QVector<Connector> connectors) {
 
 /*!
  * \relates Connector
- * \brief Converts scpi representation to ConnectorType
+ * \brief Converts scpi representation to Connector::Type
  * \param vnaScpi SCPI-formatted representation
  * \return Type of connector
  */
-ConnectorType RsaToolbox::toConnectorType(QString vnaScpi) {
+Connector::Type RsaToolbox::toConnectorType(QString vnaScpi) {
     if (vnaScpi.contains("N 50 Ohm", Qt::CaseInsensitive))
-        return(N_50_OHM_CONNECTOR);
+        return Connector::N_50_OHM_CONNECTOR;
     else if (vnaScpi.contains("N 75 Ohm", Qt::CaseInsensitive))
-        return(N_75_OHM_CONNECTOR);
+        return Connector::N_75_OHM_CONNECTOR;
     else if (vnaScpi.contains("7 mm", Qt::CaseInsensitive))
-        return(mm_7_CONNECTOR);
+        return Connector::mm_7_CONNECTOR;
     else if (vnaScpi.contains("3.5 mm", Qt::CaseInsensitive))
-        return(mm_3_5_CONNECTOR);
+        return Connector::mm_3_5_CONNECTOR;
     else if (vnaScpi.contains("2.92 mm", Qt::CaseInsensitive))
-        return(mm_2_92_CONNECTOR);
+        return Connector::mm_2_92_CONNECTOR;
     else if (vnaScpi.contains("2.4 mm", Qt::CaseInsensitive))
-        return(mm_2_4_CONNECTOR);
+        return Connector::mm_2_4_CONNECTOR;
     else if (vnaScpi.contains("1.85 mm", Qt::CaseInsensitive))
-        return(mm_1_85_CONNECTOR);
+        return Connector::mm_1_85_CONNECTOR;
     else if (vnaScpi.contains("7-16"))
-        return(in_7_16_CONNECTOR);
+        return Connector::in_7_16_CONNECTOR;
     else if (vnaScpi.contains("Type F (75)", Qt::CaseInsensitive))
-        return(TYPE_F_75_OHM_CONNECTOR);
+        return Connector::TYPE_F_75_OHM_CONNECTOR;
     else if (vnaScpi.contains("BNC 50 Ohm", Qt::CaseInsensitive))
-        return(BNC_50_OHM_CONNECTOR);
+        return Connector::BNC_50_OHM_CONNECTOR;
     else if (vnaScpi.contains("BNC 75 Ohm", Qt::CaseInsensitive))
-        return(BNC_75_OHM_CONNECTOR);
+        return Connector::BNC_75_OHM_CONNECTOR;
     else if (vnaScpi.isEmpty() == false)
-        return(CUSTOM_CONNECTOR);
+        return Connector::CUSTOM_CONNECTOR;
     else
-        return(UNKNOWN_CONNECTOR);
+        return Connector::UNKNOWN_CONNECTOR;
 }
 
 /*!
@@ -580,24 +580,36 @@ ConnectorGender RsaToolbox::toConnectorGender(QString vnaScpi) {
 
 /*!
  * \relates Connector
- * \brief Converts ConnectorType to SCPI representation
+ * \brief Converts Connector::Type to SCPI representation
  * \param type Connector type to convert
  * \return SCPI representation
  */
-QString RsaToolbox::toVnaScpi(ConnectorType type) {
+QString RsaToolbox::toVnaScpi(Connector::Type type) {
     switch(type) {
-    case N_50_OHM_CONNECTOR:      return("N 50 Ohm");
-    case N_75_OHM_CONNECTOR:      return("N 75 Ohm");
-    case mm_7_CONNECTOR:          return("7 mm"); // PC 7
-    case mm_3_5_CONNECTOR:        return("3.5 mm"); // PC 3.5
-    case mm_2_92_CONNECTOR:       return("2.92 mm");
-    case mm_2_4_CONNECTOR:        return("2.4 mm");
-    case mm_1_85_CONNECTOR:       return("1.85 mm");
-    case in_7_16_CONNECTOR:       return("7-16");
-    case TYPE_F_75_OHM_CONNECTOR: return("Type F (75)"); // !Zva
-    case BNC_50_OHM_CONNECTOR:    return("BNC 50 Ohm"); // !Zva
-    case BNC_75_OHM_CONNECTOR:    return("BNC 75 Ohm"); // !Zva
-    default:                      return("UNKNOWN_CONNECTOR");
+    case Connector::N_50_OHM_CONNECTOR:
+        return("N 50 Ohm");
+    case Connector::N_75_OHM_CONNECTOR:
+        return("N 75 Ohm");
+    case Connector::mm_7_CONNECTOR:
+        return("7 mm"); // PC 7
+    case Connector::mm_3_5_CONNECTOR:
+        return("3.5 mm"); // PC 3.5
+    case Connector::mm_2_92_CONNECTOR:
+        return("2.92 mm");
+    case Connector::mm_2_4_CONNECTOR:
+        return("2.4 mm");
+    case Connector::mm_1_85_CONNECTOR:
+        return("1.85 mm");
+    case Connector::in_7_16_CONNECTOR:
+        return("7-16");
+    case Connector::TYPE_F_75_OHM_CONNECTOR:
+        return("Type F (75)"); // !Zva
+    case Connector::BNC_50_OHM_CONNECTOR:
+        return("BNC 50 Ohm"); // !Zva
+    case Connector::BNC_75_OHM_CONNECTOR:
+        return("BNC 75 Ohm"); // !Zva
+    default:
+        return("UNKNOWN_CONNECTOR");
     }
 }
 

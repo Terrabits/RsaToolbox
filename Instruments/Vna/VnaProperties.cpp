@@ -32,7 +32,7 @@ VnaProperties::VnaProperties(Vna *vna, QObject *parent) :
     this->_vna = vna;
 }
 
-VnaModel VnaProperties::model() {
+VnaProperties::Model VnaProperties::model() {
     QStringList idList = _vna->idString().split(',');
     if (idList.size() < 2)
         return(UNKNOWN_MODEL);
@@ -339,43 +339,42 @@ void VnaProperties::operator=(VnaProperties const &other) {
     this->_vna = other._vna;
 }
 
-QString RsaToolbox::toString(VnaModel model) {
+QString RsaToolbox::toString(VnaProperties::Model model) {
     switch(model) {
-    case ZVA_MODEL:
+    case VnaProperties::ZVA_MODEL:
         return(QString("ZVA"));
-    case ZVB_MODEL:
+    case VnaProperties::ZVB_MODEL:
         return(QString("ZVB"));
-    case ZVH_MODEL:
+    case VnaProperties::ZVH_MODEL:
         return(QString("ZVH"));
-    case ZVL_MODEL:
+    case VnaProperties::ZVL_MODEL:
         return(QString("ZVL"));
-    case ZVT_MODEL:
+    case VnaProperties::ZVT_MODEL:
         return(QString("ZVT"));
-    case ZNB_MODEL:
+    case VnaProperties::ZNB_MODEL:
         return(QString("ZNB"));
-    case ZNBT_MODEL:
+    case VnaProperties::ZNBT_MODEL:
         return(QString("ZNBT"));
-    case ZNC_MODEL:
+    case VnaProperties::ZNC_MODEL:
         return(QString("ZNC"));
-    case ZNP_MODEL:
+    case VnaProperties::ZNP_MODEL:
         return(QString("ZNP"));
     default:
-        // UNKNOWN_MODEL
         return(QString("UNKNOWN"));
     }
 }
-QString RsaToolbox::toSetFileExtension(VnaModel model) {
+QString RsaToolbox::toSetFileExtension(VnaProperties::Model model) {
     switch(model) {
-    case ZVA_MODEL:
-    case ZVB_MODEL:
-    case ZVH_MODEL:
-    case ZVL_MODEL:
-    case ZVT_MODEL:
+    case VnaProperties::ZVA_MODEL:
+    case VnaProperties::ZVB_MODEL:
+    case VnaProperties::ZVH_MODEL:
+    case VnaProperties::ZVL_MODEL:
+    case VnaProperties::ZVT_MODEL:
         return(QString(".zvx"));
-    case ZNB_MODEL:
-    case ZNBT_MODEL:
-    case ZNC_MODEL:
-    case ZNP_MODEL:
+    case VnaProperties::ZNB_MODEL:
+    case VnaProperties::ZNBT_MODEL:
+    case VnaProperties::ZNC_MODEL:
+    case VnaProperties::ZNP_MODEL:
         return(QString(".znx"));
     default:
         // UNKNOWN_MODEL

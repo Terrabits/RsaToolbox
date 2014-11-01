@@ -7,10 +7,11 @@
 #include <QDialog>
 #include <QStatusBar>
 
+namespace RsaToolbox {
+
 namespace Ui {
 class CalDialog;
 }
-
 class CalDialog : public QDialog
 {
     Q_OBJECT
@@ -39,5 +40,7 @@ private:
 
     QItemSelectionModel *selectionModel() const;
 };
+} // RsaToolbox
+
 
 #endif // CALDIALOG_H

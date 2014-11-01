@@ -19,7 +19,8 @@ class VnaChannel;
 enum VnaCalType {
     OSM_CAL_TYPE,
     TOSM_CAL_TYPE,
-    UOSM_CAL_TYPE };
+    UOSM_CAL_TYPE
+};
 
 class VnaCalibrate : public QObject
 {
@@ -69,7 +70,7 @@ private:
     void selectKit(NameLabel nameLabel, Connector type);
     void selectKit(QString name, QString label, Connector type);
     void selectKit(QString name, QString label, QString customConnector);
-    void selectKit(QString name, QString label, ConnectorType type);
+    void selectKit(QString name, QString label, Connector::Type type);
 
     void defineCalibration(QString calibrationName, VnaCalType type, QVector<uint> ports);
     void selectChannels();

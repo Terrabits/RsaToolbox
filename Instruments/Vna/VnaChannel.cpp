@@ -404,7 +404,7 @@ QString VnaChannel::calGroupFile() {
     QString scpi = ":MMEM:LOAD:CORR? %1\n";
     scpi = scpi.arg(_index);
     QString filePathName = _vna->query(scpi).trimmed().remove("\'");
-    filePathName = _vna->fileSystem().directory(CAL_GROUP_DIRECTORY) + "\\" + filePathName;
+    filePathName = _vna->fileSystem().directory(VnaFileSystem::CAL_GROUP_DIRECTORY) + "\\" + filePathName;
     return(filePathName);
 }
 void VnaChannel::dissolveCalGroup() {
@@ -505,6 +505,7 @@ VnaSweepType RsaToolbox::toVnaSweepType(QString scpi) {
             return(CW_SWEEP);
         if (scpi == "POIN")
             return(TIME_SWEEP);
+
         // Default
         return(LINEAR_SWEEP);
 }

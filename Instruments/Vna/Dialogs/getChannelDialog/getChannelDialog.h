@@ -8,11 +8,11 @@
 // Qt
 #include <QDialog>
 
+namespace RsaToolbox {
 
 namespace Ui {
 class getChannelDialog;
 }
-
 class getChannelDialog : public QDialog
 {
     Q_OBJECT
@@ -68,5 +68,7 @@ private:
     bool _isChannelSelected;
     uint _selectedChannel;
 };
+} // RsaToolbox
+
 
 #endif // GETPORTSDIALOG_H

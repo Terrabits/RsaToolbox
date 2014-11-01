@@ -20,24 +20,24 @@ VnaForm::~VnaForm()
     delete ui;
 }
 
-SharedVnaModel VnaForm::model() const {
+VnaModel *VnaForm::model() const {
     return _model;
 }
-void VnaForm::setModel(SharedVnaModel model) {
+void VnaForm::setModel(VnaModel *model) {
 
-    if (!_model.isNull()) {
-        QObject::disconnect(_model.data(), SIGNAL(dataChanged(QModelIndex,QModelIndex)),
+    if (_model != NULL) {
+        QObject::disconnect(_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
                          this, SLOT(dataChanged(QModelIndex,QModelIndex)));
-        QObject::disconnect(_model.data(), SIGNAL(error(QString)),
+        QObject::disconnect(_model, SIGNAL(error(QString)),
                             this, SLOT(displayError(QString)));
     }
 
     _model = model;
     dataChanged(QModelIndex(), QModelIndex());
-    if (!_model.isNull()) {
-        QObject::connect(_model.data(), SIGNAL(dataChanged(QModelIndex,QModelIndex)),
+    if (_model != NULL) {
+        QObject::connect(_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
                          this, SLOT(dataChanged(QModelIndex,QModelIndex)));
-        QObject::connect(_model.data(), SIGNAL(error(QString)),
+        QObject::connect(_model, SIGNAL(error(QString)),
                             this, SLOT(displayError(QString)));
     }
 }
@@ -63,7 +63,7 @@ void VnaForm::submit() {
 void VnaForm::dataChanged(QModelIndex topLeft, QModelIndex bottomRight) {
     Q_UNUSED(topLeft);
     Q_UNUSED(bottomRight);
-    if (_model == 0)
+    if (_model == NULL)
         return;
 
     Qt::ItemDataRole role = Qt::DisplayRole;

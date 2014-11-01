@@ -127,17 +127,17 @@ void VnaSettings::setBigEndian() {
 bool VnaSettings::isEmulationOn() {
     return(emulationMode() != NO_EMULATION);
 }
-bool VnaSettings::isEmulationMode(VnaEmulationMode mode) {
+bool VnaSettings::isEmulationMode(EmulationMode mode) {
     return(emulationMode() == mode);
 }
 bool VnaSettings::isEmulationOff() {
     return(emulationMode() == NO_EMULATION);
 }
-VnaEmulationMode VnaSettings::emulationMode() {
+VnaSettings::EmulationMode VnaSettings::emulationMode() {
     return(toVnaEmulationMode(
                _vna->query(":SYST:LANG?\n").trimmed().remove("\'")));
 }
-void VnaSettings::setEmulationMode(VnaEmulationMode mode) {
+void VnaSettings::setEmulationMode(EmulationMode mode) {
     _vna->write(
           QString(":SYST:LANG \'%1\'\n").arg(toScpi(mode)));
 }
@@ -192,14 +192,14 @@ void VnaSettings::errorDisplayOff(bool isOff) {
     errorDisplayOn(!isOff);
 }
 
-bool VnaSettings::isColorScheme(VnaColorScheme scheme) {
+bool VnaSettings::isColorScheme(ColorScheme scheme) {
     return(colorScheme() == scheme);
 }
-VnaColorScheme VnaSettings::colorScheme() {
+VnaSettings::ColorScheme VnaSettings::colorScheme() {
     QString scpi = _vna->query(":SYST:DISP:COL?\n").trimmed();
     return(toColorScheme(scpi));
 }
-void VnaSettings::setColorScheme(VnaColorScheme scheme) {
+void VnaSettings::setColorScheme(ColorScheme scheme) {
     QString scpi
             = QString(":SYST:DISP:COL %1\n").arg(
                 toScpi(scheme));
@@ -440,7 +440,7 @@ void VnaSettings::remoteLogOff(bool isOff) {
 }
 
 // Private
-QString VnaSettings::toScpi(VnaEmulationMode mode) {
+QString VnaSettings::toScpi(EmulationMode mode) {
     switch(mode) {
     case NO_EMULATION:
         return("SCPI");
@@ -466,7 +466,7 @@ QString VnaSettings::toScpi(VnaEmulationMode mode) {
         return("SCPI");
     }
 }
-VnaEmulationMode VnaSettings::toVnaEmulationMode(QString scpi) {
+VnaSettings::EmulationMode VnaSettings::toVnaEmulationMode(QString scpi) {
     scpi = scpi.toUpper();
     if (scpi == "SCPI")
         return(NO_EMULATION);
@@ -488,7 +488,7 @@ VnaEmulationMode VnaSettings::toVnaEmulationMode(QString scpi) {
     return(NO_EMULATION);
 }
 
-QString VnaSettings::toScpi(VnaColorScheme scheme) {
+QString VnaSettings::toScpi(ColorScheme scheme) {
     switch(scheme) {
     case DARK_BACKGROUND:
         return("DBAC");
@@ -502,7 +502,7 @@ QString VnaSettings::toScpi(VnaColorScheme scheme) {
         return("DBAC");
     }
 }
-VnaColorScheme VnaSettings::toColorScheme(QString scpi) {
+VnaSettings::ColorScheme VnaSettings::toColorScheme(QString scpi) {
     scpi = scpi.toUpper();
     if(scpi == "DBAC")
         return(DARK_BACKGROUND);

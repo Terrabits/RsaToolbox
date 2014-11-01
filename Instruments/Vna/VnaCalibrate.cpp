@@ -100,12 +100,12 @@ Connector VnaCalibrate:: connector(uint port) {
 
     QStringList results
             = _vna->query(scpi).trimmed().remove("\'").split(",");
-    ConnectorType type
+    Connector::Type type
             = toConnectorType(results.first());
     ConnectorGender gender
             = toConnectorGender(results.last());
 
-    if (type == CUSTOM_CONNECTOR)
+    if (type == Connector::CUSTOM_CONNECTOR)
         return(Connector(results.first(), gender));
     else
         return(Connector(type, gender));
@@ -284,7 +284,7 @@ void VnaCalibrate::selectKit(QString name, QString label, QString customConnecto
     scpi = scpi.arg(label);
     _vna->write(scpi);
 }
-void VnaCalibrate::selectKit(QString name, QString label, ConnectorType type) {
+void VnaCalibrate::selectKit(QString name, QString label, Connector::Type type) {
     selectKit(name, label, toVnaScpi(type));
 }
 void VnaCalibrate::defineCalibration(QString calibrationName, VnaCalType type, QVector<uint> ports) {

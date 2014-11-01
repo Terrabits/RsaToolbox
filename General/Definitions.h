@@ -15,7 +15,7 @@
 
 namespace RsaToolbox {
 
-const char RSA_TOOLBOX_VERSION[] = "0.1.0";
+const char VERSION[] = "0.2.0";
 const char COMPANY_FOLDER[] = "Rohde-Schwarz";
 const double PI = 3.14159265358979323846264338327950288419716939937510;
 const double  E = 2.71828182845904523536028747135266249775724709369995;

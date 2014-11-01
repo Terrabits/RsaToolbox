@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>getChannelDialog</class>
- <widget class="QDialog" name="getChannelDialog">
+ <class>RsaToolbox::getChannelDialog</class>
+ <widget class="QDialog" name="RsaToolbox::getChannelDialog">
   <property name="geometry">
    <rect>
     <x>0</x>

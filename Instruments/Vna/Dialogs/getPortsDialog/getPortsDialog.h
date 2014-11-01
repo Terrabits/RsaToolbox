@@ -8,11 +8,11 @@
 // Qt
 #include <QDialog>
 
+namespace RsaToolbox {
 
 namespace Ui {
 class getPortsDialog;
 }
-
 class getPortsDialog : public QDialog
 {
     Q_OBJECT
@@ -77,5 +77,7 @@ private:
     bool _isPortsSelected;
     QVector<uint> _selectedPorts;
 };
+} // RsaToolbox
+
 
 #endif // GETPORTSDIALOG_H

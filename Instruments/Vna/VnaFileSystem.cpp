@@ -95,7 +95,7 @@ bool VnaFileSystem::isFreeSpace(QString path, quint64 bytes) {
 QString VnaFileSystem::directory() {
     return(_vna->query(":MMEM:CDIR?\n").trimmed().remove('\''));
 }
-QString VnaFileSystem::directory(VnaDirectory directory) {
+QString VnaFileSystem::directory(Directory directory) {
     QString currentDirectory = this->directory();
     changeDirectory(directory);
     QString returnValue = this->directory();
@@ -193,7 +193,7 @@ void VnaFileSystem:: changeDirectory(QString path) {
     scpi = scpi.arg(path);
     _vna->write(scpi);
 }
-void VnaFileSystem::changeDirectory(VnaDirectory directory) {
+void VnaFileSystem::changeDirectory(Directory directory) {
     switch(directory) {
     case DEFAULT_DIRECTORY:
         _vna->write(":MMEM:CDIR DEF\n");
@@ -299,7 +299,7 @@ void VnaFileSystem::uploadFile(QString sourcePathName, QString destinationPathNa
     blockData += "\n";
     _vna->binaryWrite(blockData);
 }
-void VnaFileSystem::uploadFile(QString sourcePathName, QString destinationFilename, VnaDirectory destinationDirectory) {
+void VnaFileSystem::uploadFile(QString sourcePathName, QString destinationFilename, Directory destinationDirectory) {
     QString currentDirectory = directory();
     changeDirectory(destinationDirectory);
     uploadFile(sourcePathName, destinationFilename);
@@ -364,13 +364,13 @@ void VnaFileSystem::downloadFile(QString sourcePathName, QString destinationPath
     } while (bytesLeft > 0 && bytesRead > 0);
     file.close();
 }
-void VnaFileSystem::downloadFile(QString sourceFilename, VnaDirectory sourceDirectory, QString destinationPathName) {
+void VnaFileSystem::downloadFile(QString sourceFilename, Directory sourceDirectory, QString destinationPathName) {
     QString currentDirectory = directory();
     changeDirectory(sourceDirectory);
     downloadFile(sourceFilename, destinationPathName);
     changeDirectory(currentDirectory);
 }
-void VnaFileSystem::downloadFile(QString sourceFilename, VnaDirectory sourceDirectory, QString destinationPathName, uint bufferSize_B) {
+void VnaFileSystem::downloadFile(QString sourceFilename, Directory sourceDirectory, QString destinationPathName, uint bufferSize_B) {
     QString currentDirectory = directory();
     changeDirectory(sourceDirectory);
     downloadFile(sourceFilename, destinationPathName, bufferSize_B);

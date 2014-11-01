@@ -33,14 +33,12 @@ enum VnaSweepType {
     SEGMENTED_SWEEP,
     POWER_SWEEP,
     CW_SWEEP,
-    TIME_SWEEP };
-
-QString toScpi(VnaSweepType sweepType);
-VnaSweepType toVnaSweepType(QString scpi);
+    TIME_SWEEP
+};
 
 class VnaChannel : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaChannel(QObject *parent = 0);
@@ -160,8 +158,14 @@ private:
     bool isUserDefinedPortOff(uint physicalPort);
     void userDefinedPortOn(uint physicalPort);
     void userDefinedPortOff(uint physicalPort);
-};
-}
+}; // VnaChannel
+
+QString toScpi(VnaSweepType sweepType);
+VnaSweepType toVnaSweepType(QString scpi);
+
+} // RsaToolbox
+
+
 Q_DECLARE_METATYPE(RsaToolbox::VnaSweepType)
 
 
