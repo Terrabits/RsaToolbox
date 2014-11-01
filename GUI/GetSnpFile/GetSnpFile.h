@@ -31,7 +31,6 @@ private:
     Ui::GetSnpFile *ui;
     QString _filePath;
 };
-
 } // RsaToolbox
 
 
