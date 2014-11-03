@@ -1,5 +1,5 @@
-#ifndef KEY_H
-#define KEY_H
+#ifndef KEYS_H
+#define KEYS_H
 
 
 // Rsa
@@ -13,13 +13,14 @@
 
 
 namespace RsaToolbox {
-class Key {
+
+class Keys {
 private:
     QDir path;
 
 public:
     // Constructor
-    Key(QString path) {
+    Keys(QString path) {
         this->path = QDir(path);
     }
 
@@ -87,9 +88,9 @@ private:
         key = path.path() + "/" + key;
     }
 };
-}
+} // RsaToolbox
 
 
-#endif
+#endif // KEYS_H
 
 

@@ -22,3 +22,5 @@ include(Bus/Rsib/rsib.pri)
 include(Bus/Visa/visa.pri)
 include(Instruments/Vna/vna.pri)
 include(QCustomPlot/qcustomplot.pri)
+
+# win32: QMAKE_CXXFLAGS += /D_CRT_SECURE_NO_WARNINGS
