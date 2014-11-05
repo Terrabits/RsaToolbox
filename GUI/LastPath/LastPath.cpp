@@ -3,9 +3,11 @@ using namespace RsaToolbox;
 
 LastPath::LastPath() {
     _path = "";
+    _keys = NULL;
 }
 LastPath::LastPath(QString initialPath) {
     _path = initialPath;
+    _keys = NULL;
 }
 LastPath::LastPath(Keys *keys, QString key, QString initialPath) {
     _keys = keys;
@@ -18,6 +20,8 @@ LastPath::LastPath(Keys *keys, QString key, QString initialPath) {
 }
 LastPath::LastPath(const LastPath &other) {
     _path = other._path;
+    _keys = other._keys;
+    _key = other._key;
 }
 
 
