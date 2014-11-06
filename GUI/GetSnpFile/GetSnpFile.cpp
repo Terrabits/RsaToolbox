@@ -11,6 +11,7 @@ GetSnpFile::GetSnpFile(QWidget *parent) :
 {
     ui->setupUi(this);
     setFocusProxy(ui->getButton);
+    _lastPath = newLastPath(QDir::homePath());
 }
 
 GetSnpFile::~GetSnpFile()
@@ -18,28 +19,48 @@ GetSnpFile::~GetSnpFile()
     delete ui;
 }
 
+SharedLastPath GetSnpFile::lastPath() const {
+    return _lastPath;
+}
+void GetSnpFile::setLastPath(SharedLastPath lastPath) {
+    _lastPath = lastPath;
+}
+
+bool GetSnpFile::isFilePath() const {
+    return !_filePath.isEmpty();
+}
 QString GetSnpFile::filePath() const {
-    return(_filePath);
+    return _filePath;
 }
 void GetSnpFile::setFilePath(QString filePath) {
-    if (_filePath != filePath) {
+    if (_filePath == filePath)
+        return;
+
         _filePath = filePath;
-        ui->displayEdit->setText(QFileInfo(_filePath).fileName());
+        _lastPath->setFromFilePath(filePath);
+        ui->displayEdit->setText(fileName());
         emit filePathChanged(_filePath);
-    }
 }
 
 void GetSnpFile::on_getButton_clicked() {
-    QString start = QFileInfo(_filePath).path();
-    if (start == ".")
-        start = QDir::homePath();
-    QString filePath =
+    QString dir;
+    if (isFilePath())
+        dir = path();
+    else
+        dir = _lastPath->toString();
+
+    QString result =
             QFileDialog::getOpenFileName(this,
                                          "Choose touchstone file...",
-                                         start,
+                                         dir,
                                          "Touchstone file (*.s*p)");
-    if (filePath.isEmpty())
-        return;
-    // Else
-    setFilePath(filePath);
+    if (!result.isEmpty())
+        setFilePath(result);
+}
+
+QString GetSnpFile::fileName() const {
+    return QFileInfo(_filePath).fileName();
+}
+QString GetSnpFile::path() const {
+    return QFileInfo(_filePath).path();
 }

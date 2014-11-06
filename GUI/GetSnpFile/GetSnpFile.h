@@ -1,6 +1,11 @@
 #ifndef GETSNPFILE_H
 #define GETSNPFILE_H
 
+
+// RsaToolbox
+#include <LastPath.h>
+
+// Qt
 #include <QWidget>
 
 
@@ -18,6 +23,10 @@ public:
     explicit GetSnpFile(QWidget *parent = 0);
     ~GetSnpFile();
 
+    SharedLastPath lastPath() const;
+    void setLastPath(SharedLastPath lastPath);
+
+    bool isFilePath() const;
     QString filePath() const;
     void setFilePath(QString filePath);
 
@@ -30,6 +39,10 @@ private slots:
 private:
     Ui::GetSnpFile *ui;
     QString _filePath;
+    SharedLastPath _lastPath;
+
+    QString fileName() const;
+    QString path() const;
 };
 } // RsaToolbox
 
