@@ -143,6 +143,25 @@ ComplexMatrix3D VnaSegmentedSweep::readSParameterGroup() {
     return(_channel->linearSweep().readSParameterGroup());
 }
 
+bool VnaSegmentedSweep::isAutoSweepTimeOn() {
+    return _channel->linearSweep().isAutoSweepTimeOn();
+}
+bool VnaSegmentedSweep::isAutoSweepTimeOff() {
+    return _channel->linearSweep().isAutoSweepTimeOff();
+}
+void VnaSegmentedSweep::autoSweepTimeOn(bool isOn) {
+    _channel->linearSweep().autoSweepTimeOn(isOn);
+}
+void VnaSegmentedSweep::autoSweepTimeOff(bool isOff) {
+    _channel->linearSweep().autoSweepTimeOff(isOff);
+}
+uint VnaSegmentedSweep::sweepTime_ms() {
+    return _channel->linearSweep().sweepTime_ms();
+}
+void VnaSegmentedSweep::setSweepTime(uint time_ms) {
+    _channel->linearSweep().setSweepTime(time_ms);
+}
+
 NetworkData VnaSegmentedSweep::measure(uint port1) {
     QVector<uint> ports;
     ports << port1;

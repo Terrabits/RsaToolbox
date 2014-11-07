@@ -37,9 +37,14 @@ public:
     double ifBandwidth_Hz();
     void setIfbandwidth(double bandwidth, SiPrefix prefix = NO_PREFIX);
 
-    void operator=(VnaPowerSweep const &other);
+    bool isAutoSweepTimeOn();
+    bool isAutoSweepTimeOff();
+    void autoSweepTimeOn(bool isOn = true);
+    void autoSweepTimeOff(bool isOff = true);
+    uint sweepTime_ms();
+    void setSweepTime(uint time_ms);
 
-//    void moveToThread(QThread *thread);
+    void operator=(VnaPowerSweep const &other);
 
 private:
     Vna *_vna;

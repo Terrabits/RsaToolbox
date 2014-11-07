@@ -58,8 +58,6 @@ public:
 //    void saveSet(QString name);
 //    void deleteSet(QString name);
 
-//    void startSweeps();
-
     // Properties
     VnaProperties &properties();
     VnaProperties *takeProperties();

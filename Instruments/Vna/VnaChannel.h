@@ -65,6 +65,9 @@ public:
     void continuousSweepOn(bool isOn = true);
     void manualSweepOn(bool isOn = true);
 
+    uint sweepCount();
+    void setSweepCount(uint count = 1);
+
     // Sweep
     bool isFrequencySweep();
     bool isLinearSweep();

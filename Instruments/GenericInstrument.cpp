@@ -108,11 +108,13 @@ void GenericInstrument::resetBus() {
 void GenericInstrument::resetBus(GenericBus *bus) {
     resetBus();
     _bus.reset(bus);
+    QObject::connect(_bus.data(), SIGNAL(error()), this, SIGNAL(busError()));
     if (isConnected()) {
         connectLog();
+        if (isLogConnected())
+            printInfo();
         emit connected();
     }
-    QObject::connect(_bus.data(), SIGNAL(error()), this, SIGNAL(busError()));
 }
 /*!
  * \brief Connects to the instrument \c type :: \c address
@@ -244,22 +246,21 @@ void GenericInstrument::printInfo() {
     printInfo(stream);
     stream.flush();
     tempLog->print(info);
-
     useLog(tempLog);
 }
 void GenericInstrument::printInfo(QTextStream &stream) {
-    stream << "VNA INSTRUMENT INFO" << endl;
+    stream << "INSTRUMENT INFO" << endl;
+    stream << "Connection:       " << toString(_bus->connectionType()) << endl;
+    stream << "Address:          " << _bus->address() << endl;
     if (isConnected()) {
         if (isRohdeSchwarz())
-            stream << "Make: Rohde & Schwarz" << endl;
+            stream << "Make:             Rohde & Schwarz" << endl;
         else
-            stream << "Make: Unknown" << endl;
-        stream << "*IDN?\n  " << idString() << endl << endl << endl;
+            stream << "Make:             Unknown" << endl;
+        stream << "id string:        " << idString() << endl;
     }
     else {
-        stream << "Instrument not found" << endl;
-        stream << "Connection:       " << toString(_bus->connectionType()) << endl;
-        stream << "Address:          " << _bus->address() << endl << endl << endl;
+        stream << "Error:            Instrument not found!" << endl;
     }
     stream << endl << endl;
 }
@@ -696,6 +697,12 @@ void GenericInstrument::wait() {
  */
 void GenericInstrument::pause() {
     _bus->query("*OPC?\n");
+}
+void GenericInstrument::pause(uint timeout_ms) {
+    uint oldTime = _bus->timeout_ms();
+    _bus->setTimeout(timeout_ms);
+    pause();
+    _bus->setTimeout(oldTime);
 }
 
 /*!

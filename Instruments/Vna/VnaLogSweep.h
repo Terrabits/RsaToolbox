@@ -42,6 +42,13 @@ public:
     void clearSParameterGroup();
     ComplexMatrix3D readSParameterGroup();
 
+    bool isAutoSweepTimeOn();
+    bool isAutoSweepTimeOff();
+    void autoSweepTimeOn(bool isOn = true);
+    void autoSweepTimeOff(bool isOff = true);
+    uint sweepTime_ms();
+    void setSweepTime(uint time_ms);
+
     NetworkData measure(uint port1);
     NetworkData measure(uint port1, uint port2);
     NetworkData measure(uint port1, uint port2, uint port3);

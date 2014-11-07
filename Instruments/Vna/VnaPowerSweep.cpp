@@ -117,6 +117,25 @@ void VnaPowerSweep::setIfbandwidth(double bandwidth, SiPrefix prefix) {
     _vna->write(scpi);
 }
 
+bool VnaPowerSweep::isAutoSweepTimeOn() {
+    return _channel->linearSweep().isAutoSweepTimeOn();
+}
+bool VnaPowerSweep::isAutoSweepTimeOff() {
+    return _channel->linearSweep().isAutoSweepTimeOff();
+}
+void VnaPowerSweep::autoSweepTimeOn(bool isOn) {
+    _channel->linearSweep().autoSweepTimeOn(isOn);
+}
+void VnaPowerSweep::autoSweepTimeOff(bool isOff) {
+    _channel->linearSweep().autoSweepTimeOff(isOff);
+}
+uint VnaPowerSweep::sweepTime_ms() {
+    return _channel->linearSweep().sweepTime_ms();
+}
+void VnaPowerSweep::setSweepTime(uint time_ms) {
+    _channel->linearSweep().setSweepTime(time_ms);
+}
+
 void VnaPowerSweep::operator=(VnaPowerSweep const &other) {
     if (other.isFullyInitialized()) {
         _vna = other._vna;

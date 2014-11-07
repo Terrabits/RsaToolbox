@@ -26,7 +26,6 @@ LastPath::LastPath(QString initialPath) {
     _keys = NULL;
 }
 LastPath::LastPath(Keys *keys, QString key, QString initialPath) {
-    qDebug() << "LastPath::LastPath " << keys << key << initialPath;
     _path = "";
     _keys = NULL;
 
@@ -41,9 +40,6 @@ LastPath::LastPath(const LastPath &other) {
 
 
 bool LastPath::isKey() const {
-    qDebug() << "LastPath::isKey " << _keys << _key;
-    qDebug() << "_keys != NULL? " << (_keys != NULL);
-    qDebug() << "!_key.isEmpty()? " << (!_key.isEmpty());
     return ((_keys != NULL) && (!_key.isEmpty()));
 }
 QString LastPath::key() const {
@@ -53,23 +49,11 @@ Keys *LastPath::keys() const {
     return _keys;
 }
 void LastPath::setKey(Keys *keys, QString key) {
-    qDebug() << "LastPath::setKey " << keys << key;
     _keys = keys;
     _key = key;
 
-    qDebug() << "Attempting to dereference... " << _keys->Exists(_key);
-
-    if (isKey()) {
-        qDebug() << "...isKey!";
-        if (_keys->Exists(_key)) {
-            qDebug() << "...Key exists!";
-            _keys->Get(_key, _path);
-            qDebug() << "...Got key";
-        }
-    }
-    else {
-        qDebug() << "No key!";
-    }
+    if (isKey() && _keys->Exists(_key))
+        _keys->Get(_key, _path);
 }
 
 bool LastPath::isEmpty() const {
@@ -83,7 +67,6 @@ bool LastPath::exists() const {
 }
 
 void LastPath::setPath(const QString &path) {
-    qDebug() << "LastPath::setPath " << path;
     if (_path == path)
         return;
 

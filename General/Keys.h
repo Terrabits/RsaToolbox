@@ -10,6 +10,7 @@
 #include <QString>
 #include <QFile>
 #include <QDataStream>
+#include <QDebug>
 
 
 namespace RsaToolbox {

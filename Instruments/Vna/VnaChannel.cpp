@@ -140,6 +140,17 @@ void VnaChannel::continuousSweepOn(bool isOn) {
 void VnaChannel::manualSweepOn(bool isOn) {
     continuousSweepOn(!isOn);
 }
+uint VnaChannel::sweepCount() {
+    QString scpi = ":SENS%1:SWE:COUN?\n";
+    scpi = scpi.arg(_index);
+    return _vna->query(scpi).trimmed().toUInt();
+}
+void VnaChannel::setSweepCount(uint count) {
+    QString scpi = ":SENS%1:SWE:COUN %2\n";
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(count);
+    _vna->write(scpi);
+}
 
 // Sweep
 bool VnaChannel::isFrequencySweep() {

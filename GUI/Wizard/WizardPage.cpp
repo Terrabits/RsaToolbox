@@ -10,7 +10,6 @@ using namespace RsaToolbox;
 WizardPage::WizardPage(QWidget *parent) :
     QWidget(parent)
 {
-    qDebug() << "WizardPage::WizardPage " << parent;
     _isFinal = false;
     _next = -1;
     _wizard = NULL;

@@ -48,8 +48,13 @@ public:
     void clearSParameterGroup();
     ComplexMatrix3D readSParameterGroup();
 
-    double estimatedSweepTime_s();
-    void setSweepTime(double time_s);
+    bool isAutoSweepTimeOn();
+    bool isAutoSweepTimeOff();
+    void autoSweepTimeOn(bool isOn = true);
+    void autoSweepTimeOff(bool isOff = true);
+    uint sweepTime_ms();
+    void setSweepTime(uint time_ms);
+
     NetworkData measure(uint port1);
     NetworkData measure(uint port1, uint port2);
     NetworkData measure(uint port1, uint port2, uint port3);
@@ -63,8 +68,6 @@ public:
     bool saveSnp(QString filePathName, QVector<uint> ports, ComplexFormat format = REAL_IMAGINARY_COMPLEX);
 
     void operator=(VnaLinearSweep const &other);
-
-//    void moveToThread(QThread *thread);
 
 private:
     Vna *_vna;
