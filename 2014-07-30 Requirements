@@ -1,7 +1,0 @@
-RSATOOLBOX REQUIREMENTS
-
-Qt 5.2.1, latest MSVC2010 ANGLE (non-OpenGL) version:
-http://download.qt-project.org/official_releases/qt/5.2/5.2.1/qt-opensource-windows-x86-msvc2010-5.2.1.exe
-
-Windows Installer XML 3.8:
-https://wix.codeplex.com/downloads/get/762937

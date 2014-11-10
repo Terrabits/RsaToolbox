@@ -6,8 +6,8 @@ INCLUDEPATH += $$PWD \
                $$PWD/General \
                $$PWD/Log \
                $$PWD/Bus \
-               $$PWD/Bus/Tcp \
-               $$PWD/Bus/Rsib \
+#              $$PWD/Bus/Tcp \ # Bug in Qt 5 prevents this from working
+#               $$PWD/Bus/Rsib \ # Firmware bug
                $$PWD/Bus/Visa \
                $$PWD/Instruments \
                $$PWD/Instruments/Vna \

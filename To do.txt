@@ -1,0 +1,6 @@
+- Create Qt Creator Designer plugins for widgets
+  C:\Qt\Tools\QtCreator\bin\plugins\designer
+- Design widgets so that they don't crash if uninitialized
+- Somehow automatically add RsaToolbox dependents?
+- Documentation
+- Installation directions

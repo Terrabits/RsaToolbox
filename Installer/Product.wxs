@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Installer template for use with Rsa Create Installer,
-     part of the RsaToolbox. Do not modify unless you know
-     what you are doing!!!                                -->
+<!-- Installer template for use with Rsa Create Installer
+     and RsaToolbox project templates. Do not modify!!!   -->
 
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
