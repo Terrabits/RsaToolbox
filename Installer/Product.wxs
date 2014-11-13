@@ -45,15 +45,15 @@
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="WINDOWSVOLUME">
         <Directory Id="ProgramFilesFolder">
-          <Directory Id="CompanyFilesFolder" Name="Rohde-Schwarz">
-            <Directory Id="INSTALLFOLDER" Name="%APP_FOLDER%">
+          <Directory Id="CompanyFilesFolder" Name="%ManufacturerFolder%">
+            <Directory Id="INSTALLFOLDER" Name="%InstallFolder%">
               <Directory Id="PlatformsFolder" Name="platforms" />
             </Directory>
           </Directory>
         </Directory>
         <Directory Id="ProgramMenuFolder">
           <Directory Id="ApplicationStartMenuFolder"
-            Name="R&amp;S %ApplicationName%" />
+            Name="%ApplicationName%" />
         </Directory>
       </Directory>
       <Directory Id="ZNBExternalToolsFolder" />
