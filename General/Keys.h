@@ -16,77 +16,67 @@
 namespace RsaToolbox {
 
 class Keys {
-private:
-    QDir path;
 
 public:
     // Constructor
     Keys(QString path) {
-        this->path = QDir(path);
+        _path = QDir(path);
     }
 
-    // Boolean key functions
-    bool Exists(QString key) {
-        AppendThisPath(key);
-        QFile file(key);
-        return(file.exists());
+    bool exists(QString key) {
+        addPath(key);
+        return QFile(key).exists();
     }
-    bool DoesNotExist(QString key) {
-        return(!Exists(key));
+    bool doesNotExist(QString key) {
+        return !exists(key);
     }
     bool isTrue(QString key) {
         bool isTrue;
-        if (Get(key, isTrue) == false)
-            return(false);
+        if (!get(key, isTrue))
+            return false;
         else
-            return(isTrue);
+            return isTrue;
     }
     bool isFalse(QString key) {
-        return(!isTrue(key));
+        return !isTrue(key);
+    }
+    QString path() const {
+        return _path.path();
     }
 
-    // Get
     template <class T>
-    bool Get(QString key, T &value) {
-        AppendThisPath(key);
+    bool get(QString key, T &value) {
+        addPath(key);
         QFile file(key);
-        file.open(QIODevice::ReadOnly);
-        if (file.isOpen()) {
-            QDataStream keyfile(&file);
-            keyfile >> value;
-            file.close();
-            return(true);
-        }
-        else {
-            return(false);
-        }
-    }
+        if (!file.open(QIODevice::ReadOnly))
+            return false;
 
-    // Set
-    template <class T>
-    bool Set(QString key, T value) {
-        AppendThisPath(key);
-        QFile file(key);
-        file.open(QIODevice::WriteOnly);
-        if (file.isOpen()) {
-            QDataStream keyfile(&file);
-            keyfile << value;
-            file.close();
-            return(true);
-        }
-        else {
-            return(false);
-        }
+        QDataStream keyfile(&file);
+        keyfile >> value;
+        file.close();
+        return true;
     }
-    bool Delete(QString key) {
-        AppendThisPath(key);
-        return(QFile(key).remove());
+    template <class T>
+    bool set(QString key, T value) {
+        addPath(key);
+        QFile file(key);
+        if (!file.open(QIODevice::WriteOnly))
+            return false;
+
+        QDataStream keyfile(&file);
+        keyfile << value;
+        file.close();
+        return true;
+    }
+    bool remove(QString key) {
+        addPath(key);
+        return QFile(key).remove();
     }
 
 private:
-    // Helpers
-    void AppendThisPath(QString &key) {
-        key = path.path() + "/" + key;
+    QDir _path;
+    void addPath(QString &key) {
+        key = _path.filePath(key);
     }
 };
 } // RsaToolbox

@@ -17,10 +17,9 @@ CONFIG(release, debug|release):DEFINES+=QT_NO_DEBUG_OUTPUT
 
 include(core.pri)
 include(Gui/gui.pri)
-include(Bus/Tcp/tcp.pri)
-include(Bus/Rsib/rsib.pri)
+#include(Bus/Tcp/tcp.pri)
+#include(Bus/Rsib/rsib.pri)
+include(Bus/No/no.pri)
 include(Bus/Visa/visa.pri)
 include(Instruments/Vna/vna.pri)
 include(QCustomPlot/qcustomplot.pri)
-
-# win32: QMAKE_CXXFLAGS += /D_CRT_SECURE_NO_WARNINGS

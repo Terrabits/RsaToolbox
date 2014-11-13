@@ -2,7 +2,6 @@
 
 #include "General.h"
 #include "Vna.h"
-#include "TcpBus.h"
 #include "VisaBus.h"
 #include "IndexName.h"
 using namespace RsaToolbox;
@@ -27,7 +26,7 @@ using namespace RsaToolbox;
  * \c %Vna is derived from the \c GenericInstrument
  * class, and as such has the ability to
  * connect to a Vna using a \c GenericBus
- * subclass such as \c TcpBus or \c VisaBus.
+ * subclass such as \c VisaBus.
  * It also can connect to a \c Log
  * for SCPI logging.
  *
