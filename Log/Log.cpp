@@ -103,19 +103,18 @@ Log::Log(QObject *parent) :
  * A call to \c isOpen() or \c isClosed() should be made
  * to confirm that the log file was successfully created.
  *
- * \param directory Location for the log file.
- * \param filename Log file file name.
- * \param applicationName The name of the current application
- * \param applicationVersion The version of the current application
+ * \param filename Log file name. Can include path.
+ * \param appName The name of the current application
+ * \param appVersion The version of the current application
  * \param parent The parent QObject
  */
-Log::Log(QString directory, QString filename,
-         QString applicationName, QString applicationVersion,
+Log::Log(QString filename,
+         QString appName, QString version,
          QObject *parent) :
     QObject(parent)
 {
     _stream.setDevice(&_file);
-    reset(directory, filename, applicationName, applicationVersion);
+    reset(filename, appName, version);
 }
 
 /*!
@@ -126,26 +125,24 @@ Log::Log(QString directory, QString filename,
  *
  */
 Log::~Log() {
-    _stream.flush();
     close();
 }
 
 
 /*!
  * \brief Returns open status of log file
- *
- * \return \c true if a log file is open; \c false otherwise
+ * \return \c true if a log file is open
  */
-bool Log::isOpen(void) {
-    return(_file.isOpen());
+bool Log::isOpen() {
+    return _file.isOpen();
 }
 
 /*!
  * \brief Returns closed status of the log file
- * \return \c true if a log file is not open; \c false otherwise
+ * \return \c true if log is not open
  */
-bool Log::isClosed(void) {
-    return(!isOpen());
+bool Log::isClosed() {
+    return !isOpen();
 }
 
 /*!
@@ -156,13 +153,17 @@ bool Log::isClosed(void) {
  * \c applicationVersion) must be previously set.
  * A log file with these settings is opened, if
  * possible.
+ *
+ * \return \c true if successful
  */
-void Log::open(void) {
-    if (isOpen())
-    return;
-
-    if (_file.open(QFile::WriteOnly))
+bool Log::open() {
+    if (_file.open(QFile::WriteOnly)) {
         emit opened();
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 /*!
@@ -171,11 +172,12 @@ void Log::open(void) {
  * If a log file is not open, this
  * method does nothing.
  */
-void Log::close(void) {
+void Log::close() {
     if (isClosed())
         return;
 
     _stream.flush();
+    _file.flush();
     _file.close();
     if (isClosed())
         emit closed();
@@ -194,14 +196,15 @@ void Log::close(void) {
  * \param applicationName The name of the current application
  * \param applicationVersion The version of the current application
  */
-void Log::reset(QString directory, QString filename, QString applicationName, QString applicationVersion) {
-    close();
+bool Log::reset(QString filename, QString appName, QString version) {
+    if (isOpen())
+        close();
 
-    _directory = directory;
-    _applicationName = applicationName;
-    _applicationVersion = applicationVersion;
-    _file.setFileName(QDir(directory).filePath(filename));
-    open();
+    _filename = filename;
+    _appName = appName;
+    _version = version;
+    _file.setFileName(_filename);
+    return open();
 }
 
 /*!
@@ -212,10 +215,21 @@ void Log::reset(QString directory, QString filename, QString applicationName, QS
  * directory and filename contained in \c pathName.
  *
  * \param pathName New path and filename for the log file.
+ * \return \c true if successful
  */
-void Log::rename(QString pathName) {
-    _file.rename(pathName);
-    emit renamed(pathName);
+bool Log::rename(QString pathName) {
+    if (isClosed())
+        return false;
+
+    _stream.flush();
+    _file.flush();
+    if (_file.rename(pathName)) {
+        emit renamed(pathName);
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 /*!
@@ -228,11 +242,16 @@ void Log::rename(QString pathName) {
 Fri Dec 6 20:20:55 2013
 </tt>
  *
+ * \return \c true if successful
  */
-void Log::printApplicationHeader() {
-        _stream << _applicationName << " Version " << _applicationVersion << endl;
-        _stream << "(C) 2014 Rohde & Schwarz America" << endl << endl;
-        _stream << QDateTime::currentDateTime().toString() << endl << endl;
+bool Log::printHeader() {
+    if (isClosed())
+        return false;
+
+    _stream << _appName << " Version " << _version << endl;
+    _stream << "(C) 2014 Rohde & Schwarz America" << endl << endl;
+    _stream << QDateTime::currentDateTime().toString() << endl << endl;
+    return true;
 }
 
 /*!
@@ -243,17 +262,21 @@ void Log::printApplicationHeader() {
  * file.
  *
  * \param text Formatted text to be added to the log
+ * \return \c true if successful
  */
-void Log::print(QString text) {
+bool Log::print(QString text) {
+    if (isClosed())
+        return false;
+
     _stream << text;
-    _stream.flush();
+    return true;
 }
 
 /*!
- * \brief Prints \c text to the log, followed by a line return character
- * \param text Formatted text to be added to the log, followed by a line return
+ * \brief Prints \c text to the log, followed by \c endl;
+ * \param text Text to print
+ * \return \c true if successful
  */
-void Log::printLine(QString text) {
-    _stream << text << "\n";
-    _stream.flush();
+bool Log::printLine(QString text) {
+    return print(text + "\n");
 }

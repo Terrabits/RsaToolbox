@@ -52,8 +52,8 @@ void LastPath::setKey(Keys *keys, QString key) {
     _keys = keys;
     _key = key;
 
-    if (isKey() && _keys->Exists(_key))
-        _keys->Get(_key, _path);
+    if (isKey() && _keys->exists(_key))
+        _keys->get(_key, _path);
 }
 
 bool LastPath::isEmpty() const {
@@ -75,7 +75,7 @@ void LastPath::setPath(const QString &path) {
     else
         _path = path;
     if (isKey())
-        _keys->Set(_key, _path);
+        _keys->set(_key, _path);
 }
 void LastPath::setPath(const QDir &dir) {
     setPath(dir.path());

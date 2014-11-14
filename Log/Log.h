@@ -23,15 +23,15 @@ private: Q_OBJECT
 public:
     // Constructor / Destructor
     explicit Log(QObject *parent = 0);
-    Log(QString directory, QString filename,
-        QString applicationName, QString applicationVersion, QObject *parent = 0);
+    Log(QString filename,
+        QString appName, QString version,
+        QObject *parent = 0);
     ~Log();
 
     // Status
     bool isOpen(void);
     bool isClosed(void);
-
-    void reset(QString directory, QString filename, QString appplicationName, QString applicationVersion);
+    bool reset(QString filename, QString appName, QString version);
 
     // Operators
     template <class T>
@@ -46,18 +46,19 @@ signals:
     void renamed(QString pathName);
 
 public slots:
-    void open();
+    bool open();
     void close();
-    void rename(QString pathName);
+    bool rename(QString pathName);
 
-    void printApplicationHeader();
-    void print(QString text);
-    void printLine(QString text);
+    bool printHeader();
+    bool print(QString text);
+    bool printLine(QString text);
 
 private:
-    QString _applicationName;
-    QString _applicationVersion;
-    QString _directory;
+    QString _appName;
+    QString _version;
+
+    QString _filename;
     QFile _file;
     QTextStream _stream;
 };

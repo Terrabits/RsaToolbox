@@ -18,31 +18,13 @@ namespace RsaToolbox {
 class Keys {
 
 public:
-    // Constructor
-    Keys(QString path) {
-        _path = QDir(path);
-    }
+    Keys(QString path);
 
-    bool exists(QString key) {
-        addPath(key);
-        return QFile(key).exists();
-    }
-    bool doesNotExist(QString key) {
-        return !exists(key);
-    }
-    bool isTrue(QString key) {
-        bool isTrue;
-        if (!get(key, isTrue))
-            return false;
-        else
-            return isTrue;
-    }
-    bool isFalse(QString key) {
-        return !isTrue(key);
-    }
-    QString path() const {
-        return _path.path();
-    }
+    bool exists(QString key) const;
+    bool doesNotExist(QString key) const;
+    bool isTrue(QString key);
+    bool isFalse(QString key);
+    QString path() const;
 
     template <class T>
     bool get(QString key, T &value) {
@@ -68,14 +50,11 @@ public:
         file.close();
         return true;
     }
-    bool remove(QString key) {
-        addPath(key);
-        return QFile(key).remove();
-    }
+    bool remove(QString key);
 
 private:
     QDir _path;
-    void addPath(QString &key) {
+    void addPath(QString &key) const {
         key = _path.filePath(key);
     }
 };
