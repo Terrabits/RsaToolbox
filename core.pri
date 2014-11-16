@@ -32,7 +32,7 @@ SOURCES +=     $$PWD/General/General.cpp \
                $$PWD/General/IndexName.cpp \
                $$PWD/General/Connector.cpp \
                $$PWD/General/BalancedPort.cpp \
-               $$PWD/General/Keys.cpp
+               $$PWD/General/Keys.cpp \
                $$PWD/General/NetworkTraceData.cpp \
                $$PWD/General/NetworkData.cpp \
                $$PWD/General/Touchstone.cpp \
