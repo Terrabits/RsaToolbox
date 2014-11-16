@@ -54,7 +54,7 @@ public:
 
 private:
     QDir _path;
-    void addPath(QString &key);
+    void addPath(QString &key) const;
 };
 } // RsaToolbox
 

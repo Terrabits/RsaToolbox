@@ -32,6 +32,6 @@ bool Keys::remove(QString key) {
     return QFile(key).remove();
 }
 
-void Keys::addPath(QString &key) {
+void Keys::addPath(QString &key) const {
     key = _path.filePath(key);
 }
