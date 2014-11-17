@@ -133,7 +133,7 @@ Log::~Log() {
  * \brief Returns open status of log file
  * \return \c true if a log file is open
  */
-bool Log::isOpen() {
+bool Log::isOpen() const {
     return _file.isOpen();
 }
 
@@ -141,8 +141,16 @@ bool Log::isOpen() {
  * \brief Returns closed status of the log file
  * \return \c true if log is not open
  */
-bool Log::isClosed() {
+bool Log::isClosed() const {
     return !isOpen();
+}
+
+/*!
+ * \brief Returns the filename of the log file
+ * \return Filename, including the path to log file.
+ */
+QString Log::filename() const {
+    return _filename;
 }
 
 /*!

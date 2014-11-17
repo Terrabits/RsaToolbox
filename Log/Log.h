@@ -29,8 +29,9 @@ public:
     ~Log();
 
     // Status
-    bool isOpen(void);
-    bool isClosed(void);
+    bool isOpen(void) const;
+    bool isClosed(void) const;
+    QString filename() const;
     bool reset(QString filename, QString appName, QString version);
 
     // Operators
