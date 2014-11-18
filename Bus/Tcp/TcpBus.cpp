@@ -15,11 +15,53 @@ using namespace RsaToolbox;
 #include <QDebug>
 
 
+/*!
+ * \class RsaToolbox::TcpBus
+ * \ingroup BusGroup
+ * \brief Connects to an intrument via Tcp socket
+ * over Ethernet or WiFi.
+ *
+ * \b Warning: \c %TcpBus relies on \c QTcpSocket,
+ * which has well-documented, long-standing
+ * reliability issues on Windows platforms. If you
+ * are deploying to Windows, consider using
+ * \c VisaBus instead. Mac OS X, Linux, iOS and
+ * Android should work well.
+ *
+ * \note \c %TcpBus only supports \c TCPIP_CONNECTION
+ * methods
+ */
+
+/*!
+ * \brief Default constructor
+ *
+ * \note \c %TcpBus instances created with the
+ * default constructor are not connected to
+ * an instrument
+ *
+ * \param parent Optional parent \c QObject
+ * \sa GenericBus::GenericBus
+ */
 TcpBus::TcpBus(QObject *parent)
     : GenericBus(parent)
 {
     _blockSize = 0;
 }
+
+/*!
+ * \brief Constructs \c %TcpBus and attempts to connect
+ * to an instrument
+ *
+ * Connection status should be checked with
+ * \c isOpen or \c isClosed.
+ *
+ * \param type Connection type
+ * \param address Instrument address
+ * \param bufferSize_B Size of internal buffer, in bytes
+ * \param timeout_ms Time out time, in milliseconds
+ * \param parent Optional parent \c QObject
+ * \sa GenericBus::GenericBus
+ */
 TcpBus::TcpBus(ConnectionType type, QString address,
                uint bufferSize_B, uint timeout_ms,
                QObject *parent)
@@ -34,31 +76,121 @@ TcpBus::TcpBus(ConnectionType type, QString address,
     _tcp.connectToHost(address, PORT);
     _tcp.waitForConnected(timeout_ms);
 }
+
+/*!
+ * \brief Destructor
+ */
 TcpBus::~TcpBus() {
     _tcp.close();
 }
 
+/*!
+ * \brief Returns status of connection
+ * \return \c true if connected
+ * \sa GenericBus::isOpen
+ */
 bool TcpBus::isOpen() const {
     return _tcp.isValid();
 }
 
+/*!
+ * \brief Tcp does not have a locking mechanism.
+ *
+ * This method does nothing and returns false.
+ *
+ * You may consider using another bus implementation,
+ * such as \c VisaBus, that offers this feature.
+ * It is also possible to use this along with an
+ * external access control, such as
+ * a \c QMutex or \c QReadWriteLock instance.
+ *
+ * \return \c false
+ * \sa VisaBus::lock, VisaBus::unlock
+ */
 bool TcpBus::lock() {
     emit print("Cannot lock instrument via TcpBus.");
     return false;
 }
+
+/*!
+ * \brief Tcp does not have a locking mechanism.
+ *
+ * This method does nothing and returns false.
+ *
+ * You may consider using another bus implementation,
+ * such as \c VisaBus, that offers this feature.
+ * It is also possible to use this along with an
+ * external access control, such as
+ * a \c QMutex or \c QReadWriteLock instance.
+ *
+ * \return \c false
+ * \sa VisaBus::lock, VisaBus::unlock
+ */
 bool TcpBus::unlock() {
     emit print("Cannot unlock instrument via TcpBus.");
     return false;
 }
+
+/*!
+ * \brief Tcp does not have a remote/local
+ * mechanism.
+ *
+ * This method does nothing and returns false.
+ *
+ * You may consider using the SCPI commands
+ * \c "@LOC" and \c "@REM", so long as they
+ * are supported by the instrument.
+ * These commands are supported,
+ * for example, by Rohde & Schwarz VNAs.
+ *
+ * You may also consider using a bus that
+ * supports this feature, such as VisaBus.
+ *
+ * \return \c false
+ * \sa VisaBus::local, VisaBus::remote
+ */
 bool TcpBus::local() {
     emit print("Cannot put instrument into local mode via TcpBus.");
     return false;
 }
+
+/*!
+ * \brief Tcp does not have a remote/local
+ * mechanism.
+ *
+ * This method does nothing and returns false.
+ *
+ * You may consider using the SCPI commands
+ * \c "@LOC" and \c "@REM", so long as they
+ * are supported by the instrument.
+ * These commands are supported,
+ * for example, by Rohde & Schwarz VNAs.
+ *
+ * You may also consider using a bus that
+ * supports this feature, such as VisaBus.
+ *
+ * \return \c false
+ * \sa VisaBus::local, VisaBus::remote
+ */
 bool TcpBus::remote() {
     emit print("Cannot put instrument into remote mode via TcpBus.");
     return false;
 }
- 
+
+/*!
+ * \brief Retrieves a pretty print status message
+ *
+ * Example:
+ * <tt>
+   Bytes:    47
+   State:    3 Connected
+   Status:   Ok
+   </tt>
+ *
+ *
+ * \return User-friendly status message
+ * \sa GenericBus::status, GenericBus::printRead, GenericBus::printWrite
+ */
 QString TcpBus::status() const {
     QString text;
     QTextStream stream(&text);
@@ -76,6 +208,13 @@ QString TcpBus::status() const {
     return text;
 }
 
+/*!
+ * \brief Reads from instrument into \c buffer
+ * \param buffer C-style character array buffer
+ * \param bufferSize_B Buffer size, in bytes
+ * \return \c true if successful
+ * \sa GenericBus::read, binaryRead
+ */
 bool TcpBus::read(char *buffer, uint bufferSize_B) {
     _blockSize = -1;
     nullTerminate(buffer, bufferSize_B, 0);
@@ -101,11 +240,31 @@ bool TcpBus::read(char *buffer, uint bufferSize_B) {
     printRead(buffer, _blockSize);
     return(true);
 }
+
+/*!
+ * \brief Writes \c scpi to instrument
+ * \param scpi Command to send
+ * \return \c true if successful
+ * \sa GenericBus::write, binaryWrite
+ */
 bool TcpBus::write(QString scpi) {
     if (!scpi.endsWith("\n"))
         scpi += "\n";
     return binaryWrite(scpi.toUtf8());
 }
+
+/*!
+ * \brief Reads raw data from instrument into \c buffer
+ *
+ * \c bytesRead contains the number of bytes of
+ * raw data read into \c buffer.
+ *
+ * \param buffer C-style character array buffer
+ * \param bufferSize_B Buffer size, in bytes
+ * \param bytesRead Bytes read into \c buffer
+ * \return \c true if successful
+ * \sa GenericBus::binaryRead, read
+ */
 bool TcpBus::binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead) {
     if (read(buffer, bufferSize_B)) {
         bytesRead = _blockSize;
@@ -116,6 +275,12 @@ bool TcpBus::binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead) {
         return false;
     }
 }
+
+/*!
+ * \brief Writes raw data in \c data to instrument
+ * \param data Raw data to write
+ * \return \c true if successful
+ */
 bool TcpBus::binaryWrite(QByteArray data) {
     _blockSize = _tcp.write(data);
     bool isWritten = _tcp.waitForBytesWritten(_timeout_ms);

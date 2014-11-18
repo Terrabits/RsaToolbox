@@ -105,7 +105,7 @@ Log::Log(QObject *parent) :
  *
  * \param filename Log file name. Can include path.
  * \param appName The name of the current application
- * \param appVersion The version of the current application
+ * \param version The version of the current application
  * \param parent The parent QObject
  */
 Log::Log(QString filename,
@@ -199,10 +199,9 @@ void Log::close() {
  * it before proceeding. The effect of this method is
  * similar to the standard constructor.
  *
- * \param directory Location for the log file.
- * \param filename Log file file name.
- * \param applicationName The name of the current application
- * \param applicationVersion The version of the current application
+ * \param filename Log filename (optional: including path).
+ * \param appName The name of the current application
+ * \param version The version of the current application
  */
 bool Log::reset(QString filename, QString appName, QString version) {
     if (isOpen())

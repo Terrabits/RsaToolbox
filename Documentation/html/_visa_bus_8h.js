@@ -1,4 +1,5 @@
 var _visa_bus_8h =
 [
-    [ "FILENAME", "_visa_bus_8h.html#a8de29f7c8bbf1a81cc6e71ac602032d3", null ]
+    [ "RSVISA32", "_visa_bus_8h.html#aad4d67331cb8802110a8a76d4a769b09", null ],
+    [ "VISA32", "_visa_bus_8h.html#aacee36dbbb0824150b1a7379369ba969", null ]
 ];

@@ -1,5 +1,8 @@
 var dir_a17bacab68dc142356e39a91cc299c32 =
 [
+    [ "Dialogs", "dir_506d3ea1b7d2598501467272917bc3d6.html", "dir_506d3ea1b7d2598501467272917bc3d6" ],
+    [ "Models", "dir_068dbd9a98d062e50dd6e6e776245df1.html", "dir_068dbd9a98d062e50dd6e6e776245df1" ],
+    [ "Views", "dir_06a3c0c0236f2ee29d8a6237fe89d049.html", "dir_06a3c0c0236f2ee29d8a6237fe89d049" ],
     [ "Vna.cpp", "_vna_8cpp.html", null ],
     [ "Vna.h", "_vna_8h.html", null ],
     [ "VnaAveraging.cpp", "_vna_averaging_8cpp.html", null ],
@@ -23,13 +26,21 @@ var dir_a17bacab68dc142356e39a91cc299c32 =
     [ "VnaDiagram.cpp", "_vna_diagram_8cpp.html", null ],
     [ "VnaDiagram.h", "_vna_diagram_8h.html", null ],
     [ "VnaFileSystem.cpp", "_vna_file_system_8cpp.html", null ],
-    [ "VnaFileSystem.h", "_vna_file_system_8h.html", "_vna_file_system_8h" ],
+    [ "VnaFileSystem.h", "_vna_file_system_8h.html", null ],
+    [ "VnaLimits.cpp", "_vna_limits_8cpp.html", null ],
+    [ "VnaLimits.h", "_vna_limits_8h.html", [
+      [ "VnaLimits", "class_rsa_toolbox_1_1_vna_limits.html", "class_rsa_toolbox_1_1_vna_limits" ]
+    ] ],
     [ "VnaLinearSweep.cpp", "_vna_linear_sweep_8cpp.html", null ],
     [ "VnaLinearSweep.h", "_vna_linear_sweep_8h.html", null ],
     [ "VnaLogSweep.cpp", "_vna_log_sweep_8cpp.html", null ],
     [ "VnaLogSweep.h", "_vna_log_sweep_8h.html", null ],
     [ "VnaMarker.cpp", "_vna_marker_8cpp.html", null ],
     [ "VnaMarker.h", "_vna_marker_8h.html", null ],
+    [ "VnaMath.cpp", "_vna_math_8cpp.html", null ],
+    [ "VnaMath.h", "_vna_math_8h.html", [
+      [ "VnaMath", "class_rsa_toolbox_1_1_vna_math.html", "class_rsa_toolbox_1_1_vna_math" ]
+    ] ],
     [ "VnaPowerCalibrate.cpp", "_vna_power_calibrate_8cpp.html", null ],
     [ "VnaPowerCalibrate.h", "_vna_power_calibrate_8h.html", null ],
     [ "VnaPowerCorrections.cpp", "_vna_power_corrections_8cpp.html", null ],
@@ -43,7 +54,7 @@ var dir_a17bacab68dc142356e39a91cc299c32 =
     [ "VnaSegmentedSweep.cpp", "_vna_segmented_sweep_8cpp.html", null ],
     [ "VnaSegmentedSweep.h", "_vna_segmented_sweep_8h.html", null ],
     [ "VnaSettings.cpp", "_vna_settings_8cpp.html", null ],
-    [ "VnaSettings.h", "_vna_settings_8h.html", "_vna_settings_8h" ],
+    [ "VnaSettings.h", "_vna_settings_8h.html", null ],
     [ "VnaStandardModel.cpp", "_vna_standard_model_8cpp.html", null ],
     [ "VnaStandardModel.h", "_vna_standard_model_8h.html", "_vna_standard_model_8h" ],
     [ "VnaSweepSegment.cpp", "_vna_sweep_segment_8cpp.html", null ],

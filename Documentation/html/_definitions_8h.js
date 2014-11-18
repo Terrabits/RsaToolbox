@@ -86,5 +86,5 @@ var _definitions_8h =
     [ "DBL_NEG_INF", "_definitions_8h.html#a7cf1a344b138cc337f4380711deba2f1", null ],
     [ "E", "_definitions_8h.html#ab587ba72a9c23f238cb4fd70e2fdb545", null ],
     [ "PI", "_definitions_8h.html#a952eac791b596a61bba0a133a3bb439f", null ],
-    [ "RSA_TOOLBOX_VERSION", "_definitions_8h.html#a3b0288a2b3aee0dfa13b36da65e5cfa5", null ]
+    [ "RSATOOLBOX_VERSION", "_definitions_8h.html#a275ec1b5582cc9e27200d0ad56779541", null ]
 ];

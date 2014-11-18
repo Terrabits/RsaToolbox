@@ -17,33 +17,37 @@ using namespace RsaToolbox;
  * \ingroup BusGroup
  * \brief Establishes a connection with an instrument via the NI-VISA bus
  *
- * \c VisaBus requires that NI-VISA is installed on the target system. To
- * check for this at runtime, use the static function VisaBus::isVisaPresent().
- * Use of VisaBus without NI-VISA present will cause a runtime error.
+ * \c VisaBus deploys with an internal
+ * VISA-compatible library. However, it is
+ * recommended that VISA be installed on the host
+ * system for full VISA support. \c %VisaBus
+ * will dynamically load such a VISA installation,
+ * if present.
+ *
+ * \c static method \c isVisaInstalled is provided to
+ * test for a VISA installation.
  *
  * Example use:
- * \code
-    #include <VisaBus.h>
-    #include <QMessageBox>
-    ...
-    if (VisaBus::isVisaPresent() == false) {
-        QMessageBox::warning(this, "My Application",
-            "This application requires NI-VISA. Please install VISA and try again");
-        return;
-    }
+ \code
+   #include <VisaBus.h>
+   using namespace RsaToolbox;
 
-    VisaBus bus(TCPIP_CONNECTION, "192.168.0.1", 1000);
-    if (bus.isClosed()) {
-        QMessageBox::warning(this, "My Application",
-            "Instrument not found at 192.168.0.1; connect instrument and try again.");
-        return;
-    }
+   // ...
 
+   VisaBus bus(TCPIP_CONNECTION, "192.168.0.100");
+   if (bus.isClosed()) {
+       // Handle instrument not connected
+       // ...
+   }
 
-    bus.write("*RST");
-    ...
-   \endcode
- * \sa GenericBus, RsibBus
+   QString idString = bus.query("*IDN?");
+   // Rohde & Schwarz typical VNA response:
+   // "Rohde-Schwarz,<VNA_MODEL>-<PORTS>Port,<SERIAL_NO>,<FIRMWARE_VERSION>";
+
+   // ...
+ \endcode
+ *
+ * \sa GenericBus, TcpBus
  */
 
 /*!
@@ -121,7 +125,7 @@ VisaBus::VisaBus(ConnectionType connectionType, QString address,
         setDisconnected();
     }
     else {
-        setTimeout(_timeout_ms);
+        setTimeout(timeout_ms);
     }
 }
 
@@ -201,16 +205,8 @@ bool VisaBus::read(char *buffer, uint bufferSize) {
         return(false);
     }
 }
-/*!
- * \brief Writes a string of \c char data to the instrument
- *
- * The string contained in scpiCommand is converted to type \ char* and written to the
- * instrument. It is important that all characters in scpiCommand be ASCII compatible.
- *
- * \param scpiCommand String to be written to the instrument
- * \return \c true if write is successful;
- * \c false otherwise
- */
+
+
 bool VisaBus::write(QString scpi) {
     return binaryWrite(scpi.toUtf8());
 }
@@ -236,9 +232,8 @@ bool VisaBus::binaryRead(char *buffer, uint bufferSize,
 }
 /*!
  * \brief Writes binary data to instrument
- * \param scpiCommand
- * \return \c true if write is successful;
- * \c false otherwise
+ * \param scpi
+ * \return \c true if successful
  */
 bool VisaBus::binaryWrite(QByteArray scpi) {
     _status = _viWrite(_instrument, (ViBuf)scpi.data(), (ViUInt32)scpi.size(), (ViPUInt32)&_byteCount);
@@ -287,7 +282,7 @@ QString VisaBus::status() const {
  * \sa VisaBus::unlock()
  */
 bool VisaBus::lock() {
-    _status = _viLock(_instrument, VI_EXCLUSIVE_LOCK, ViUInt32(_timeout_ms), VI_NULL, VI_NULL);
+    _status = _viLock(_instrument, VI_EXCLUSIVE_LOCK, ViUInt32(timeout_ms()), VI_NULL, VI_NULL);
     bool isLocked = !isError();
     if (isLocked)
         emit print("Instrument locked\n" + status() + "\n");

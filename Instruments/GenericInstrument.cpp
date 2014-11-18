@@ -318,6 +318,7 @@ QString GenericInstrument::address() const {
  * \brief GenericInstrument::read
  * \param buffer
  * \param bufferSize_B
+ * \param timeout_ms
  * \return
  */
 bool GenericInstrument::read(char *buffer, uint bufferSize_B, uint timeout_ms) {

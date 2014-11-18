@@ -1,10 +1,20 @@
 var class_rsa_toolbox_1_1_vna_file_system =
 [
+    [ "Directory", "class_rsa_toolbox_1_1_vna_file_system.html#a688eb1e9e0e97f66e86454e1e689033f", [
+      [ "DEFAULT_DIRECTORY", "class_rsa_toolbox_1_1_vna_file_system.html#a688eb1e9e0e97f66e86454e1e689033faba70ab56c8497a5155e06e7bc42b3ec7", null ],
+      [ "EMBED_DIRECTORY", "class_rsa_toolbox_1_1_vna_file_system.html#a688eb1e9e0e97f66e86454e1e689033fac3bdae926d1a34444e8fa1441525fe32", null ],
+      [ "DEEMBED_DIRECTORY", "class_rsa_toolbox_1_1_vna_file_system.html#a688eb1e9e0e97f66e86454e1e689033fade6246814a395c7ccef887fc7c30a9c2", null ],
+      [ "CAL_GROUP_DIRECTORY", "class_rsa_toolbox_1_1_vna_file_system.html#a688eb1e9e0e97f66e86454e1e689033faeeb197361de055a6fe6523e31cc3f081", null ],
+      [ "CAL_KIT_DIRECTORY", "class_rsa_toolbox_1_1_vna_file_system.html#a688eb1e9e0e97f66e86454e1e689033fa981832126da42584e99723f632952208", null ],
+      [ "EXTERNAL_TOOLS_DIRECTORY", "class_rsa_toolbox_1_1_vna_file_system.html#a688eb1e9e0e97f66e86454e1e689033fa1fb38160435656bb12debb661fe4b555", null ],
+      [ "RECALL_SETS_DIRECTORY", "class_rsa_toolbox_1_1_vna_file_system.html#a688eb1e9e0e97f66e86454e1e689033fa6d5ca8263124d28188c8bdf85edc0d65", null ],
+      [ "TRACES_DIRECTORY", "class_rsa_toolbox_1_1_vna_file_system.html#a688eb1e9e0e97f66e86454e1e689033fa9f9f8a45c0bcdf2c9ec7aad9c02ab60d", null ]
+    ] ],
     [ "VnaFileSystem", "class_rsa_toolbox_1_1_vna_file_system.html#ae37eb2f93141ebc884b38950aba7ab53", null ],
     [ "VnaFileSystem", "class_rsa_toolbox_1_1_vna_file_system.html#a777d4e37c87890b199fefaf935141420", null ],
     [ "VnaFileSystem", "class_rsa_toolbox_1_1_vna_file_system.html#a1ae9468d892f153f5490123b2b1745d1", null ],
     [ "changeDirectory", "class_rsa_toolbox_1_1_vna_file_system.html#a0921c62d2c2baaf0460e0c1e5d6499bd", null ],
-    [ "changeDirectory", "class_rsa_toolbox_1_1_vna_file_system.html#a33d52efb43aa29ab5f866b4ff9f199d5", null ],
+    [ "changeDirectory", "class_rsa_toolbox_1_1_vna_file_system.html#ad0232740188922d0b5844bb36ad6a193", null ],
     [ "copyFile", "class_rsa_toolbox_1_1_vna_file_system.html#aa2bd5fa44bba5d7949ef187f0d81b975", null ],
     [ "createDirectory", "class_rsa_toolbox_1_1_vna_file_system.html#a0a90456916cce5402bbdc0c4b54ab171", null ],
     [ "deleteDirectory", "class_rsa_toolbox_1_1_vna_file_system.html#a7aa1220eb49348a3e856a3f3f6fe50bb", null ],
@@ -15,11 +25,11 @@ var class_rsa_toolbox_1_1_vna_file_system =
     [ "directories", "class_rsa_toolbox_1_1_vna_file_system.html#abfbabed179d729ef26c7da81c820f5ac", null ],
     [ "directories", "class_rsa_toolbox_1_1_vna_file_system.html#a50e01624376ad8c4c6cc80fdccb8d4e0", null ],
     [ "directory", "class_rsa_toolbox_1_1_vna_file_system.html#a0b2ce6541f7a50ec7443e0d8b0f9d75c", null ],
-    [ "directory", "class_rsa_toolbox_1_1_vna_file_system.html#a3219952936442ae99ff3d556979ff132", null ],
+    [ "directory", "class_rsa_toolbox_1_1_vna_file_system.html#a0b2f0e87107c57ac535b4fcd5a7f7e8a", null ],
     [ "downloadFile", "class_rsa_toolbox_1_1_vna_file_system.html#a9cb3a46e399ef4a7831a2bcbde4674c3", null ],
     [ "downloadFile", "class_rsa_toolbox_1_1_vna_file_system.html#ad0efb9ab51ff4bf8a49c6672a5a41c9e", null ],
-    [ "downloadFile", "class_rsa_toolbox_1_1_vna_file_system.html#abc5528fe28595abf6b6c99285c33be9c", null ],
-    [ "downloadFile", "class_rsa_toolbox_1_1_vna_file_system.html#aad8554de6a266fbf6a1b38b43a1acabb", null ],
+    [ "downloadFile", "class_rsa_toolbox_1_1_vna_file_system.html#a0a97537ad99383077e8b515c28d198c1", null ],
+    [ "downloadFile", "class_rsa_toolbox_1_1_vna_file_system.html#a1a88ec521f2f8bebc9bc25988f5c29bf", null ],
     [ "files", "class_rsa_toolbox_1_1_vna_file_system.html#a2ec428a3022d9177fa4ee6498ed55473", null ],
     [ "files", "class_rsa_toolbox_1_1_vna_file_system.html#a740879343e70c0472084b73c80888b03", null ],
     [ "fileSize_Bytes", "class_rsa_toolbox_1_1_vna_file_system.html#a5d180755743b20c590c399a62350eb66", null ],
@@ -34,5 +44,5 @@ var class_rsa_toolbox_1_1_vna_file_system =
     [ "moveFile", "class_rsa_toolbox_1_1_vna_file_system.html#a94eb41b7c63d27f170a1c5c5d1ebdce8", null ],
     [ "operator=", "class_rsa_toolbox_1_1_vna_file_system.html#a4c1dbf3639064ce227c971e2a99740f8", null ],
     [ "uploadFile", "class_rsa_toolbox_1_1_vna_file_system.html#aedbb2623e79eb4bd615ab0f25be03257", null ],
-    [ "uploadFile", "class_rsa_toolbox_1_1_vna_file_system.html#a8032bce8508a48552c32a4c651bb163f", null ]
+    [ "uploadFile", "class_rsa_toolbox_1_1_vna_file_system.html#a5ade182236b29951757e46d681df58c8", null ]
 ];

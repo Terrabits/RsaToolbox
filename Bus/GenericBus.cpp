@@ -1,22 +1,53 @@
+#include "GenericBus.h"
 
 
 // RsaToolbox
-#include "GenericBus.h"
 using namespace RsaToolbox;
 
 // Qt
-//
+// #include <>
 
-QString RsaToolbox::toString(ConnectionType connection_type) {
-    if (connection_type == TCPIP_CONNECTION)
+
+/*!
+ * \defgroup BusGroup Bus
+ * Interchangeable instrument busses for
+ * use with \c GenericInstrument subclasses
+ */
+
+/*!
+ * \brief Converts ConnectionType to a string
+ *
+ * This function produces a VISA-compatible resource
+ * prefix.
+ * "No Connection" is returned for \c NO_CONNECTION;
+ *
+ * \param connectionType
+ * \return String representation of \c connectionType
+ * \relates GenericBus
+ * \relates VisaBus
+ */
+QString RsaToolbox::toString(ConnectionType connectionType) {
+    if (connectionType == TCPIP_CONNECTION)
         return("TCPIP");
-    if (connection_type == GPIB_CONNECTION)
+    if (connectionType == GPIB_CONNECTION)
         return("GPIB");
-    if (connection_type == USB_CONNECTION)
+    if (connectionType == USB_CONNECTION)
         return("USB");
     // Else
     return("No Connection");
 }
+
+/*!
+ * \brief Converts connection type string to \c ConnectionType
+ *
+ * Assumes input is VISA compatible.
+ * Defaults to \c NO_CONNECTION for unknown strings.
+ *
+ * \param scpi Connection type string
+ * \return \c ConnectionType
+ * \relates GenericBus
+ * \relates VisaBus
+ */
 ConnectionType RsaToolbox::toConnectionType(QString scpi) {
     if (scpi.contains("TCPIP", Qt::CaseInsensitive))
         return(TCPIP_CONNECTION);
@@ -29,103 +60,120 @@ ConnectionType RsaToolbox::toConnectionType(QString scpi) {
 }
 
 /*!
- * \defgroup BusGroup Bus
- * Interchangeable instrument busses for
- * use with \c GenericInstrument subclasses
+ * \brief Creates VISA instrument resource string
+ *
+ * If \c type is \c NO_CONNECTION, an empty string is
+ * returned. No other value checking is done. Make sure
+ * the address string has a meaningful value.
+ *
+ * Example:
+ * \c toVisaInstrumentResource(TCPIP_BUS, "127.0.0.1")
+ * returns \c "TCPIP::127.0.0.1::INSTR"
+ *
+ * \param type ConnectionType
+ * \param address Well-formed address
+ * \return VISA resource string
+ * \relates GenericBus
+ * \relates VisaBus
  */
+QString RsaToolbox::toVisaInstrumentResource(ConnectionType type, QString address) {
+    if (type == NO_CONNECTION)
+        return "";
+
+    QString result = "%1::%2::INSTR";
+    result = result.arg(toString(type));
+    result = result.arg(address);
+    return result;
+}
+
+/*!
+ * \brief Safely null-character-terminates a
+ * c-style string
+ *
+ * \note If the entire buffer is full (\c bytesUsed equals
+ * \c bufferSize_B) no null termination is added.
+ * This is to prevent loss of data.
+ *
+ * \param buffer C-style string
+ * \param bufferSize_B String buffer size, in bytes
+ * \param bytesUsed Portion of string that contains data, in bytes
+ */
+void RsaToolbox::nullTerminate(char *buffer, uint bufferSize_B, uint bytesUsed) {
+    // Do not null terminate if it means
+    // data will be overwritten
+    if (bytesUsed < bufferSize_B)
+        buffer[bytesUsed] = '\0';
+}
 
 /*!
  * \class RsaToolbox::GenericBus
  * \ingroup BusGroup
- * \brief \c %GenericBus is a pure virtual base class for
- *           an instrument connection bus.
+ * \brief \c %GenericBus is a \c pure \c virtual
+ * base class for instrument connection
+ * methods.
  *
- * The \c %GenericBus class should be used as a template for
- * implementing bus connections for use with the \c RsaToolbox
- * framework. Most of the methods are purely virtual and
- * need to be implemented. Those that are not pure virtual
- * can be reimplemented and should call the equivalent
- * method in this base class.
+ * This \c %GenericBus class is \c pure \c virtual
+ * and must be implemented in a subclass.
+ * See \c VisaBus and \c TcpBus for examples.
  *
- * Protected variables \c _connectionType, \c _address and
- * \c _timeout_ms are set in the GenericBus constructors,
- * which should be called by a subclass.
+ * The \c %GenericBus class should be used to add new
+ * connection methods to \c RsaToolbox.
+ * When doing so, all \c pure \c virtual methods need to be
+ * implemented, the appropriate \c %GenericBus constructors
+ * should be called, and, when reimplementing non-virtual
+ * functions, the equivalent base class implementation
+ * should called.
  *
- * The \c _address property is the appropriately formatted,
- * \a bus-independent address of the instrument. For example,
- * for a local TCPIP connection address may be "127.0.0.1".
- * Similarly, an instrument connected via GPIB at address
- * 17 should have an \c _address value of "17".
+ * The \c pure \c virtual methods that require reimplementation are
  *
- * The setTimeout() method is virtual and can be
- * reimplemented by a base class if necessary. For most
- * instrument buses, such as Rsib and Visa, timeout is a
- * parameter send with each function call. In this situation
- * it is not necessary to reimplement setTimeout. In the
- * event that an action is required (in addition to updating
- * the \c _timeout_ms property), setTimeout() should be
- * reimplemented.
+ * \c public:
+ * \li \code virtual bool isOpen() const \endcode
+ * \li \code virtual bool read(char *buffer, uint bufferSize_B) \endcode
+ * \li \code virtual bool write(QString scpi) \endcode
+ * \li \code virtual bool binaryRead(char *buffer, int bufferSize_B, uint &bytesRead) \endcode
+ * \li \code virtual bool binaryWrite(QByteArray scpi) \endcode
+ * \li \code virtual QString status() const \endcode
+ * \n
+ * \c public slots:
+ * \li \code virtual bool lock() \endcode
+ * \li \code virtual bool unlock() \endcode
+ * \li \code virtual bool local() \endcode
+ * \li \code virtual bool remote() \endcode
  *
- * read(), write() and query() are pure virtual, and
- * need to be reimplemented to work with the specific
- * instrument bus of the base class.
+ * See the documentation for each method for
+ * specific details and hints.
  *
- * lock(), unlock(), local() and remote() functions may
- * not be implemented in certain connection methods. For
- * example, TCPIP does not have any of these mechanisms. Visa
- * has an implementation of lock() and unlock(), but local()
- * and remote() only work with GPIB. In the event that a
- * particular instrument bus does not implement this
- * functionality, implement these functions to emit a print()
- * signal with a warning message; this will help document the
- * lack of functionality in a log file for troubleshooting.
- *
- * \sa RsibBus, VisaBus
- *
- */
-
-/*!
- * \fn GenericBus::print(QString text)
- * \brief Emits text to be printed to a log file
- *
- * As methods are called, \c print provides text summaries
- * that can be logged for troubleshooting. For example, a \c write
- * command would emit \c print with text containing the command
- * written and the status of the instrument bus upon completion.
- *
- * The \c print signal should be connected to a logging device, such
- * as RsaToolbox::Log.
- *
- * The exact contents of \c print are bus-dependent.
- * \sa Log, VisaBus, RsibBus
+ * \sa VisaBus, TcpBus
  */
 
 /*!
  * \brief The default constructor
  *
- * This constructor is provided for
- * compatibility in instances where a default
- * constructor is important, for example when a GenericBus
- * subclass is used as a property in a class.
+ * The default constructor initializes a
+ * \c GenericBus object that is not connected to
+ * anything.
  *
- * Instances created with this constructor are not meant to
- * be used. Such instances will return isOpen() == false or
- * isClosed() == true. Any other method calls (such as read
- * write or query) may cause the application to crash.
+ * That is:
+ * \c connectionType() returns \c NO_CONNECTION
+ * \c address() returns \c ""
+ * and \c isOpen is \c false.
  *
- * Subclasses of GenericBus can call this constructor to
- * initialize the protected properties of this class:
- * \code
-   _connectionType = NO_CONNECTION;
-   _address.clear();
-   _timeout_ms = 0;
-   \endcode
+ * Default constructors in base classes should call
+ * this first.
+ *
+ * Calling \c read and \c write functions on a
+ * disconnected bus will cause timeouts and other
+ * errors to occur. A pointer to a \c NoBus
+ * instance can be safely used as a placeholder
+ * in the event your code may try to use it anyway.
  *
  * \note As a general rule, the RsaToolbox::NO_CONNECTION value
- * can be used when a connection is not or cannot be
+ * should be used when a connection is not or cannot be
  * established, although this is not enforced by GenericBus.
+ * Always check \c isOpen and \c isClosed for a definitive
+ * answer.
  *
- * \param parent
+ * \param parent Optional parent \c QObject
  */
 GenericBus::GenericBus(QObject *parent) :
     QObject(parent)
@@ -136,28 +184,25 @@ GenericBus::GenericBus(QObject *parent) :
     _timeout_ms = 0;
 }
 /*!
- * \brief Constructor for a GenericBus instance
+ * \brief \c GenericBus constructor for instrument
+ * connection
  *
- * Subclasses of GenericBus can call this constructor to
- * initialize the QObject base class, as well as the
- * protected properties of this class:
- * \code
-    ConnectionType _connectionType;
-    QString _address;
-    uint _bufferSize_B;
-    uint _timeout_ms;
-
-    QScopedArrayPointer<char> _buffer;
-   \endcode
+ * In the event \c bufferSize_B is \c 0, the
+ * default value of \c 500 bytes will be used.
+ * Similarly, a \c timeout_ms of \c 0 will be
+ * replaced by a timeout of \c 1 second.
  *
- * \note If \c bufferSize_B is not greater than zero,
- * a default value of 500 Bytes will be used.
+ * \note Subclasses of GenericBus should call this
+ * constructor, \b then establish a connection to the
+ * instrument. Base class constructors in C++ are
+ * unable to call virtual methods in the subclass
+ * until both constructors are executed.
  *
  * \param connectionType
  * \param address
- * \param bufferSize_B
- * \param timeout_ms
- * \param parent
+ * \param bufferSize_B Buffer size (in bytes) must be greater than zero
+ * \param timeout_ms Timeout, in milliseconds. Must be greater than zero.
+ * \param parent Optional parent \c QObject
  */
 GenericBus::GenericBus(ConnectionType connectionType,
                        QString address,
@@ -171,7 +216,7 @@ GenericBus::GenericBus(ConnectionType connectionType,
     if (timeout_ms > 0)
         _timeout_ms = timeout_ms;
     else
-        _timeout_ms = 60000;
+        _timeout_ms = 1000;
 
     if (bufferSize_B > 0)
         setBufferSize(bufferSize_B);
@@ -179,8 +224,19 @@ GenericBus::GenericBus(ConnectionType connectionType,
         setBufferSize(500);
 }
 
+/*! \fn bool GenericBus::isOpen()
+ * \brief Returns connection status
+ *
+ * This method is \c pure \c virtual and must
+ * be overloaded in base class implementations.
+ *
+ * \returns \c true if instrument is connected
+ * \sa isClosed()
+ */
+
 /*!
- * \return Whether or not the connection is closed.
+ * \brief Returns bus state
+ * \return /c true if connection is not open.
  * \sa isOpen()
  */
 bool GenericBus::isClosed() const {
@@ -188,33 +244,40 @@ bool GenericBus::isClosed() const {
 }
 
 /*!
- * \return The RsaToolbox::ConnectionType to the instrument.
+ * \brief Gets the connection type
+ * \return \c ConnectionType
  */
 ConnectionType GenericBus::connectionType() const {
     return(_connectionType);
 }
 /*!
- * \return Address for this connection
+ * \brief Gets the address
+ * \return Address for connection
  */
 QString GenericBus::address() const {
     return(_address);
 }
 
 /*!
- * \brief Returns the buffer size used for
- * read/query commands
+ * \brief Gets the buffer size
+ *
+ * Gets the internal buffer size, in bytes,
+ * that is currently being used.
+ *
  * \return Buffer size, in Bytes
  */
 uint GenericBus::bufferSize_B() const {
     return(_bufferSize_B);
 }
 /*!
- * \brief Sets the buffer size used for
- * read/query commands
+ * \brief Gets the buffer size
+ *
+ * Gets the internal buffer size, in bytes,
+ * that is currently being used.
  *
  * \note Size must be greater than zero.
  *
- * \param size_B New buffer size, in Bytes
+ * \param size_B Buffer size, in bytes
  */
 void GenericBus::setBufferSize(uint size_B) {
     if (size_B > 0) {
@@ -224,14 +287,15 @@ void GenericBus::setBufferSize(uint size_B) {
 }
 
 /*!
- * \return The time until timeout, in milliseconds
+ * \brief Gets the time until timeout
+ * \return Timeout, in milliseconds
  */
 uint GenericBus::timeout_ms() const {
     return(_timeout_ms);
 }
 /*!
- * \brief Sets the timeout, in milliseconds
- * \param time_ms Time before timeout, in milliseconds
+ * \brief Sets the time until timeout
+ * \param time_ms Timeout, in milliseconds
  */
 void GenericBus::setTimeout(uint time_ms) {
     if (time_ms > 0)
@@ -239,14 +303,49 @@ void GenericBus::setTimeout(uint time_ms) {
 }
 
 /*!
- * \brief Reads ASCII response from the
- * instrument
+ * \fn virtual bool GenericBus::read(char *buffer, uint bufferSize_B)
+ * \brief Reads from instrument using c-style
+ * character buffer
  *
- * \note bufferSize_B() must be equal to or
- * greater than the amount of data to be read,
- * otherwise a partial read will occur.
+ * This method is \c pure \c virtual and must
+ * be overloaded in base class implementations.
+ * This function should call \c printRead internally.
  *
- * \return Readback from instrument
+ * This function assumes that the read value is a
+ * c-style string that is \b null \b terminated. As such,
+ * it is assumed that the data to be read does not
+ * contain invalid or reserved values (such as the
+ * null character). \c binaryRead does not make
+ * this assumption.
+ *
+ * A failed read should return \c false and return an empty
+ * c-string:
+ * \code
+ * buffer[0] = '\0';
+ * \endcode
+ *
+ * \note GenericBus uses this function, along with an
+ * internal buffer, to implement other higher-level read
+ * functions.
+ *
+ * \param buffer C-style character buffer
+ * \param bufferSize_B Size of \c buffer, in bytes
+ * \return \c true if read is successful
+ */
+
+/*!
+ * \brief Reads C-string compatible data from
+ * the instrument
+ *
+ * \note Certain characters (such as the null character) will
+ * cause this function to truncate the c-string. Also note
+ * that bufferSize_B() should be greater than or equal
+ * to the expected read size (including null termination).
+ * If you want to perform a read without these limitations,
+ * (for example, when reading raw binary data in multiple
+ * transactions) use \c binaryRead instead.
+ *
+ * \return Read response from instrument
  */
 QString GenericBus::read() {
     if (read(_buffer.data(), _bufferSize_B))
@@ -254,15 +353,55 @@ QString GenericBus::read() {
     else
         return(QString());
 }
+
 /*!
- * \brief Queries ASCII response from the
- * instrument
+ * \fn virtual bool GenericBus::write(QString scpi)
+ * \brief Writes \c scpi to the connected instrument
  *
- * \note bufferSize_B() must be equal to or
- * greater than the amount of data to be read,
- * otherwise a partial read will occur.
+ * This method is \c pure \c virtual and must
+ * be overloaded in base class implementations.
  *
- * \return Query result
+ * If in implementing this function
+ * a C-style \c const \c char* representation of
+ * \c scpi is necessary
+ * (in a US-ASCII/Latin-1 character set) it
+ * can be retrieved by calling:
+ * \code
+ * scpi.toLatin1().constData()
+ * \endcode
+ *
+ * It is important to recognize
+ * that the above pointer only
+ * exists ephemerally, during the execution
+ * of this line of code. This is because
+ * \c const \c char* is pointing to
+ * an internal buffer in QByteArray, which
+ * disappears after this line is executed.
+ *
+ * If you need a persistent pointer,
+ * use the verbose snippet below:
+ * \code
+ * QByteArray byteArray = scpi.toLatin1();
+ * const char* cstring = byteArray.constData();
+ * \endcode
+ *
+ * \note \c bufferSize_B does not limit \c write
+ * comamnds, as the internal buffer is not used.
+ *
+ * \return \c true if successul
+ */
+
+/*!
+ * \brief Queries for a string response to
+ * \c scpi
+ *
+ * Internally \c query is a combination of
+ * \c read and \c write. The limitations of
+ * those methods inherently apply to \c query
+ *
+ * \param scpi Query command to be written
+ * \return Result of the query \c scpi
+ * \sa GenericBus::write(QString scpi), QString GenericBus::read()
  */
 QString GenericBus::query(QString scpi) {
     if (write(scpi))
@@ -275,18 +414,20 @@ QString GenericBus::query(QString scpi) {
  * \brief Reads binary response from the
  * instrument
  *
- * The data read is returned to the caller as-is;
- * no null-terminations or assumentions are made.
- * This is appropriate when standard string
- * formatting would interfere with the read
- * operation, such as when transferring the
- * raw binary contents of a file.
+ * The data is read and returned as-is;
+ * no assumptions of content or string
+ * terminations are made.
+ * An example use-case would be in transferring
+ * the raw, arbitrary contents of a file.
  *
- * \note bufferSize_B() must be equal to or
- * greater than the amount of data to be read,
- * otherwise a partial read will occur.
+ * \note Partial reads are allowed, and occur
+ * when \c bufferSize_B is less than the total
+ * read size. In this case, \c binaryRead should
+ * be called until all data is read. It is the
+ * responsibility of the callee to reassemble
+ * the data correctly.
  *
- * \return Readback from instrument
+ * \return Raw data read from the instrument
  */
 QByteArray GenericBus::binaryRead() {
     uint bytesRead;
@@ -297,21 +438,34 @@ QByteArray GenericBus::binaryRead() {
 }
 
 /*!
- * \brief Queries binary response to scpiCommand
- * from the instrument
+ * \fn virtual bool GenericBus::binaryWrite(QByteArray scpi)
+ * \brief Writes raw data to the instrument
  *
- * The data read is returned to the caller as-is;
- * no null-terminations or assumentions are made.
- * This is appropriate when standard string
- * formatting would interfere with the read
- * operation, such as when transferring the
- * raw binary contents of a file.
+ * This method is \c pure \c virtual and must
+ * be overloaded in base class implementations.
  *
- * \note bufferSize_B() must be equal to or
- * greater than the amount of data to be read,
- * otherwise a partial read will occur.
+ * All data contained in \c scpi is written
+ * as-is. The buffer size does not effect
+ * this operation.
  *
- * \return Readback from instrument
+ * \note \c scpi is not necessarily an actual
+ * SCPI command.
+ *
+ * \param scpi Raw data to write
+ * \return \c true if successful
+ */
+
+/*!
+ * \brief Queries raw data response to scpi
+ *
+ * This method uses \c binaryWrite and
+ * \c binaryRead internally. As such, it
+ * has the same inherent restrictions as
+ * those methods.
+ *
+ * \param scpi Query command
+ * \return Raw data read from query
+ * \sa binaryWrite, binaryRead
  */
 QByteArray GenericBus::binaryQuery(QByteArray scpi) {
     if (binaryWrite(scpi))
@@ -320,13 +474,120 @@ QByteArray GenericBus::binaryQuery(QByteArray scpi) {
         return(QByteArray());
 }
 
-void GenericBus::nullTerminate(char *buffer, uint bufferSize_B, uint bytesRead) {
-    // Do not null terminate if it means
-    // data will be overwritten
-    if (bytesRead < bufferSize_B)
-        buffer[bytesRead] = '\0';
-}
+/*!
+ * \fn virtual QString GenericBus::status() const
+ * \brief Retrieves a human-readable bus
+ * status message
+ *
+ * This method is \c pure \c virtual and must
+ * be overloaded in base class implementations.
+ *
+ * This method is used internally to \c print
+ * bus health information periodically to
+ * log files.
+ *
+ * \return status message.
+ * \sa printRead, printWrite
+ */
 
+/*!
+ * \fn virtual bool GenericBus::lock()
+ * \brief
+ *
+ * This method is \c pure \c virtual and must
+ * be overloaded in base class implementations.
+ *
+ * For a connection method that does not implement
+ * locking, this method should return false
+ * and \c emit \c print to log an appropriate
+ * warning.
+ *
+ * \return \c true if successful
+ * \sa unlock
+ */
+
+/*!
+ * \fn virtual bool GenericBus::unlock()
+ * \brief
+ *
+ * This method is \c pure \c virtual and must
+ * be overloaded in base class implementations.
+ *
+ * For a connection method that does not implement
+ * locking, this method should return false
+ * and \c emit \c print to log an appropriate
+ * warning.
+ *
+ * \return \c true if successful
+ * \sa lock
+ */
+
+/*!
+ * \fn virtual bool GenericBus::local()
+ * \brief
+ *
+ * This method is \c pure \c virtual and must
+ * be overloaded in base class implementations.
+ *
+ * For a connection method that does not implement
+ * this, this method should return false
+ * and \c emit \c print to log an appropriate
+ * warning.
+ *
+ * \return \c true if successful
+ * \sa remote
+ */
+
+/*!
+ * \fn virtual bool GenericBus::remote()
+ * \brief
+ *
+ * This method is \c pure \c virtual and must
+ * be overloaded in base class implementations.
+ *
+ * For a connection method that does not implement
+ * this, this method should return false
+ * and \c emit \c print to log an appropriate
+ * warning.
+ *
+ * \return \c true if successful
+ * \sa local
+ */
+
+/*!
+ * \fn void GenericBus::error() const
+ * \brief Emitted when a bus error occurs
+ *
+ * When creating methods for a \c %GenericBus
+ * subclass, make sure to \c emit \c error()
+ * when errors occur.
+ */
+
+/*!
+ * \fn void GenericBus::print(QString text)
+ * \brief Emits log info as necessary
+ *
+ * The \c print signal should be connected
+ * to a logging device, such as
+ * \c RsaToolbox::Log. \c GenericInstrument
+ * does this for you.
+ *
+ * Messages are bus-dependent.
+ *
+ * \sa status, Log, GenericInstrument, Vna
+ */
+
+/*!
+ * \brief Emits a pretty \c print summary for
+ * a read operation
+ *
+ * This method should be called from subclass
+ * implementations of \c read and \c binaryRead
+ * to ensure correct logging occurs.
+ *
+ * \param buffer Read buffer
+ * \param bytesRead Amount of data (in bytes) in \c buffer
+ */
 void GenericBus::printRead(char *buffer, uint bytesRead) const {
     QString text;
     if (bytesRead > MAX_PRINT) {
@@ -343,6 +604,32 @@ void GenericBus::printRead(char *buffer, uint bytesRead) const {
     text += "\n";
     emit print(text);
 }
+
+/*!
+ * /property static const int MAX_PRINT
+ *
+ * This property contains the truncated
+ * size (100 characters) of long SCPI
+ * commands when logging via
+ * \c printWrite.
+ *
+ * \sa printWrite
+ */
+
+/*!
+ * \brief Emits a pretty \c print summary for
+ * a write operation
+ *
+ * This method should be called from subclass
+ * implementations of \c write and \c binaryWrite
+ * to ensure correct logging occurs.
+ *
+ * \note Long scpi commands are truncated
+ * to \c MAX_PRINT characters.
+ *
+ * \param scpi Command written to the instrument
+ * \sa MAX_PRINT
+ */
 void GenericBus::printWrite(QString scpi) const {
     QString text;
     scpi = scpi.trimmed();

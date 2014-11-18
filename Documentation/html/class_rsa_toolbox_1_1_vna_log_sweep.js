@@ -4,9 +4,13 @@ var class_rsa_toolbox_1_1_vna_log_sweep =
     [ "VnaLogSweep", "class_rsa_toolbox_1_1_vna_log_sweep.html#a7422421cc25d1ec01a293e649ecf8f54", null ],
     [ "VnaLogSweep", "class_rsa_toolbox_1_1_vna_log_sweep.html#a8a804a108085745d3699b016407e9681", null ],
     [ "VnaLogSweep", "class_rsa_toolbox_1_1_vna_log_sweep.html#a67119e84876f4061b4b2c9a44467dd2b", null ],
+    [ "autoSweepTimeOff", "class_rsa_toolbox_1_1_vna_log_sweep.html#a220fef16f57b763fc04b22d35989e2dd", null ],
+    [ "autoSweepTimeOn", "class_rsa_toolbox_1_1_vna_log_sweep.html#a42fa6859b453c6c8004ec13da4580d28", null ],
     [ "clearSParameterGroup", "class_rsa_toolbox_1_1_vna_log_sweep.html#af0435978efe0339d462c159ca1b00864", null ],
     [ "frequencies_Hz", "class_rsa_toolbox_1_1_vna_log_sweep.html#aaf0a017e8ef1baa58e87488e548de3b3", null ],
     [ "ifBandwidth_Hz", "class_rsa_toolbox_1_1_vna_log_sweep.html#a669ad1da20ac86ec3e7a6b3220b785a3", null ],
+    [ "isAutoSweepTimeOff", "class_rsa_toolbox_1_1_vna_log_sweep.html#ad192ac15485a3caf48ba9b36be2beb65", null ],
+    [ "isAutoSweepTimeOn", "class_rsa_toolbox_1_1_vna_log_sweep.html#a4e1fc288463e0ad50378803d912079bc", null ],
     [ "measure", "class_rsa_toolbox_1_1_vna_log_sweep.html#a1139e1760db35d5c1304e8072b289f10", null ],
     [ "measure", "class_rsa_toolbox_1_1_vna_log_sweep.html#a108ba0072a55a62c6d70cfe0aa361b9f", null ],
     [ "measure", "class_rsa_toolbox_1_1_vna_log_sweep.html#a269807991452399fc4607e261d60318e", null ],
@@ -22,7 +26,9 @@ var class_rsa_toolbox_1_1_vna_log_sweep =
     [ "setSParameterGroup", "class_rsa_toolbox_1_1_vna_log_sweep.html#ae03d74323281e5fac2ac8c60272add1c", null ],
     [ "setStart", "class_rsa_toolbox_1_1_vna_log_sweep.html#a5ac411e306b822644e9740e62329b90c", null ],
     [ "setStop", "class_rsa_toolbox_1_1_vna_log_sweep.html#a417769e36a3253632c77c5ee09a89698", null ],
+    [ "setSweepTime", "class_rsa_toolbox_1_1_vna_log_sweep.html#ae00e33d51b3a5c16d9c00a6cdced6f5d", null ],
     [ "sParameterGroup", "class_rsa_toolbox_1_1_vna_log_sweep.html#ac7a50334398a7820485919ddb24150dd", null ],
     [ "start_Hz", "class_rsa_toolbox_1_1_vna_log_sweep.html#a413388b196a6bcd75bb8ee9284d56af4", null ],
-    [ "stop_Hz", "class_rsa_toolbox_1_1_vna_log_sweep.html#a52c971759a84fc28fa0735ce04b3e1fc", null ]
+    [ "stop_Hz", "class_rsa_toolbox_1_1_vna_log_sweep.html#a52c971759a84fc28fa0735ce04b3e1fc", null ],
+    [ "sweepTime_ms", "class_rsa_toolbox_1_1_vna_log_sweep.html#a919adcd598ff449e735b48daa047d45b", null ]
 ];

@@ -1,6 +1,7 @@
 
 /*!
- * \mainpage RsaToolbox Welcome to RsaToolbox!
+ * \mainpage notitle
+ * <h1>Welcome!</h1>
  * %RsaToolbox is a framework for test
  * automation with Rohde \& Schwarz
  * instruments. %RsaToolbox
@@ -12,14 +13,9 @@
  * these tenets allow you to concentrate on
  * creating the best application possible.
  *
- * %RsaToolbox consists of five major parts:
- * - Log
- * - Bus
- * - Instrument
- * - Qt Creator Templates
- * - Installer
- *
- * \ref Log "Log" <br>
+ * <h2>%RsaToolbox consists of five major parts:</h2>
+ * 
+ * \ref Log "Log" \n
  * Log, appropriately enough, provides a
  * logging mechanism that is compatible
  * with %RsaToolbox bus and instrument

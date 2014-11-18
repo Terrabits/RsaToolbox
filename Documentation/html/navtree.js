@@ -1,28 +1,20 @@
 var NAVTREE =
 [
   [ "RsaToolbox", "index.html", [
-    [ "RsaToolbox Welcome to RsaToolbox!", "index.html", null ],
     [ "Log", "_log.html", null ],
     [ "Bus", "_bus.html", null ],
     [ "Instrument", "_instrument.html", null ],
     [ "Templates", "_templates.html", null ],
     [ "Installer", "_installer.html", null ],
-    [ "Class List", "annotated.html", "annotated" ],
-    [ "Files", null, [
-      [ "File List", "files.html", "files" ]
-    ] ]
+    [ "Class List", "annotated.html", "annotated" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_balanced_port_8cpp.html",
-"_general_8h.html#abddef2d0ac592f2c9bd33cdbb2f70549",
-"_vna_settings_8h.html#a7d4a7e8a70dfbbc32a553dabe2381f4aa73c91c970186c6170831e63b1dc29144",
-"class_rsa_toolbox_1_1_snp_stream_reader.html#a51b5fa4646fdb97add58d53558c2fed3",
-"visa_8h.html#a4f2aeaed6210a3db5a9a6427a659caf1",
-"visa_8h.html#ab76a7b69c5277b25de4ac349c0256254",
-"visatype_8h.html#ac946fac587d5da6b5f6e0671682268f9"
+"_bus.html",
+"class_rsa_toolbox_1_1_last_path.html#a08129ad60826a07f5db6ada88279bbfa",
+"class_rsa_toolbox_1_1_vna_model.html#ad1da2096edce65195e18fe76edaf4c78"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

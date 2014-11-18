@@ -1,8514 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tagfile>
-  <compound kind="file">
-    <name>GenericBus.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/</path>
-    <filename>_generic_bus_8cpp</filename>
-    <includes id="_generic_bus_8h" name="GenericBus.h" local="yes" imported="no">GenericBus.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>GenericBus.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/</path>
-    <filename>_generic_bus_8h</filename>
-    <class kind="class">RsaToolbox::GenericBus</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>ConnectionType</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa1f0e2efd52935fd01bfece0fbead81f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>TCPIP_CONNECTION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa1f0e2efd52935fd01bfece0fbead81fa14c1f2316495d5cd32f37c7423fce72c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>GPIB_CONNECTION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa1f0e2efd52935fd01bfece0fbead81fa0fa118c77d3b0455c890e59388c6e347</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>USB_CONNECTION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa1f0e2efd52935fd01bfece0fbead81fa5d196bbeccdb8265b1082c35c3ee7b9f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>NO_CONNECTION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa1f0e2efd52935fd01bfece0fbead81facad28945d500e3fc972e2d1c3b948e8e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>acc3af340369d563a1bb92e769ebedc86</anchor>
-      <arglist>(ConnectionType connection_type)</arglist>
-    </member>
-    <member kind="function">
-      <type>ConnectionType</type>
-      <name>toConnectionType</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aedec38fe38dd15d5baf70ec815e3ccf1</anchor>
-      <arglist>(QString scpi)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>rsib.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/Rsib/</path>
-    <filename>rsib_8h</filename>
-    <member kind="define">
-      <type>#define</type>
-      <name>IBSTA_ERR</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>aed118b948a7b870ef76052646f6a3af8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>IBSTA_TIMO</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>ad3281e4a7eafff9a32b676eb0ceb50f6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>IBSTA_CMPL</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a98f1810ce547f9184d86399f3868eb49</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>IBSTA_REM</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>acc183282a6e3f373bb9c4a23586eca7e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>IBERR_DEVICE_REGISTER</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a40fa2533b795113bc9394019c66b7b0c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>IBERR_CONNECT</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>af9ff7d2f69a755bde579b4d382e20896</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>IBERR_NO_DEVICE</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a2a8b3989f4eb37bcefa6c0e3c753b28e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>IBERR_MEM</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a9c9c49475f2fd916c19cabf85192477f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>IBERR_TIMEOUT</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a33ada914bef4bbc8e032ba27b1b72853</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>IBERR_BUSY</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a37b73f1549978e94ee0568235792da61</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>IBERR_FILE</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>ad1b2d59b612b3c7d57b6abaf9d735bae</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>IBERR_UNKNOWN</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a246b01914ed0cfc0e886dddb1f556cce</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>short WINAPI</type>
-      <name>RSDLLibfind</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>ab3026911ceb2c264c398a115043fa399</anchor>
-      <arglist>(char far *szName, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>short WINAPI</type>
-      <name>RSDLLibwrt</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a3ab0548a2ba609e6926f90c9e64dcdd5</anchor>
-      <arglist>(short ud, char far *szWrt, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>short WINAPI</type>
-      <name>RSDLLilwrt</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a906cdff08be42ed4162406ec4ad8fffd</anchor>
-      <arglist>(short ud, char far *pcWrt, unsigned long ulCnt, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>short WINAPI</type>
-      <name>RSDLLibwrtf</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>aea62b460cc242523700909229d2fa0f2</anchor>
-      <arglist>(short ud, char far *szFileName, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>short WINAPI</type>
-      <name>RSDLLibrd</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>abc76062f9e87cd59ba50de448aa4262c</anchor>
-      <arglist>(short ud, char far *pcRd, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>short WINAPI</type>
-      <name>RSDLLilrd</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a8949221c0d3a67e67447919721d0582f</anchor>
-      <arglist>(short ud, char far *pcRd, unsigned long ulCnt, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>short WINAPI</type>
-      <name>RSDLLibrdf</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a0254ab5d8cace057646914703aeb6166</anchor>
-      <arglist>(short ud, char far *szFileName, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>void WINAPI</type>
-      <name>RSDLLTestSrq</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a7183eeaed9fe773a7e329eaf0ac5d039</anchor>
-      <arglist>(short ud, short far *result, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>void WINAPI</type>
-      <name>RSDLLWaitSrq</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a8cb65f60b2f927b8f015acf8954de924</anchor>
-      <arglist>(short ud, short far *result, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>short WINAPI</type>
-      <name>RSDLLibrsp</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>af6af2f7cf45c0b87bd301c3d34ea37dc</anchor>
-      <arglist>(short ud, char far *spr, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>void WINAPI</type>
-      <name>RSDLLibtmo</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a33c617f6f637f4089dd774016906022e</anchor>
-      <arglist>(short ud, short tmo, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>void WINAPI</type>
-      <name>RSDLLibsre</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>adc90afaa05063c7d2a38b26c149ab69f</anchor>
-      <arglist>(short ud, short v, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>short WINAPI</type>
-      <name>RSDLLibclr</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a060ecd7e6b1be72fc5d7a367fc2c0e5a</anchor>
-      <arglist>(short ud, short *ibsta, short *iberr, unsigned long *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>void WINAPI</type>
-      <name>RSDLLibloc</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a6a46710101f8226909e96704df9cfb92</anchor>
-      <arglist>(short ud, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>void WINAPI</type>
-      <name>RSDLLibeot</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>a395877e79d1397c40dbb09c7405b212d</anchor>
-      <arglist>(short ud, short v, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-    <member kind="function">
-      <type>void WINAPI</type>
-      <name>RSDLLibonl</name>
-      <anchorfile>rsib_8h.html</anchorfile>
-      <anchor>ac259e2bb78fb71a2a5972f3ccfdf42ba</anchor>
-      <arglist>(short ud, short v, short far *ibsta, short far *iberr, unsigned long far *ibcntl)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>RsibBus.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/Rsib/</path>
-    <filename>_rsib_bus_8cpp</filename>
-    <includes id="_rsib_bus_8h" name="RsibBus.h" local="yes" imported="no">RsibBus.h</includes>
-    <includes id="rsib_8h" name="rsib.h" local="yes" imported="no">rsib.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>RsibBus.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/Rsib/</path>
-    <filename>_rsib_bus_8h</filename>
-    <includes id="_generic_bus_8h" name="GenericBus.h" local="yes" imported="no">GenericBus.h</includes>
-    <class kind="class">RsaToolbox::RsibBus</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>visa.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/Visa/</path>
-    <filename>visa_8h</filename>
-    <includes id="visatype_8h" name="visatype.h" local="yes" imported="no">visatype.h</includes>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SPEC_VERSION</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a831503816d4136722a05e3162c779b03</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RSRC_CLASS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a10b659d698d4bf87ee65b4923681b649</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RSRC_NAME</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a73cf017400f5ed396bd0165f547fcaa6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RSRC_IMPL_VERSION</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab34a390ebd96490a754119e096eaf693</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RSRC_LOCK_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>affa02d0d5eb5e211311856dfd2932953</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_MAX_QUEUE_LENGTH</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8d7222c7d5ae297d0ef6b8661c414f5e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_USER_DATA_32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa17658e1914fa536289db7ab9369034a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_FDC_CHNL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a41be00386851b38d56cab8d1b828193a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_FDC_MODE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a568b36a230af05c602c9ca640da9e8b8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_FDC_GEN_SIGNAL_EN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1e47b2b7913b8f83b32946db4ab57ceb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_FDC_USE_PAIR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab27d96d50bc615af5c76d315367951ea</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_SEND_END_EN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0821ad630f3fac788d5209eb0b375d93</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TERMCHAR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a20dbb82d288d587522c5a3c874eb0f6b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TMO_VALUE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5d2971bb43f910a2e45e4cedd7509f63</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_READDR_EN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a573160454b4e943f63b60b5330102044</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_IO_PROT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a719d4002e580ae14d28a3633bbf104d6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_DMA_ALLOW_EN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab2bd03564a338224529280a8e7d1c311</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_BAUD</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a78999f5696149c69599256f0ab9fc53a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_DATA_BITS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2a8c3097cf63332a43f184432500516b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_PARITY</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0322f140c9e502d0ef1cc1c9ef94bfe3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_STOP_BITS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a883d73e0a7d36ceaffb7bd9677ffe426</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_FLOW_CNTRL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac9ce114e5494daf857d49a0b43f1cabf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RD_BUF_OPER_MODE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9861b0810f8259e70016096c7ebcfb62</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RD_BUF_SIZE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aef07a7d0ff9a5b789c1ddd46371895d5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_WR_BUF_OPER_MODE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9e092ac08f04ea76e123b124d8b1d050</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_WR_BUF_SIZE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a77b2b9b10393dd1fed9a1612ca49a050</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_SUPPRESS_END_EN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af417e5b66bb9e33a6388faa51a6eb8a6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TERMCHAR_EN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6b25c34bb76948f25773482c6be0e3be</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_DEST_ACCESS_PRIV</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2d0bfd11d5b09f124335abf27b4f060c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_DEST_BYTE_ORDER</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a35e9c2752faf6f1b585fe38c87f7b80f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_SRC_ACCESS_PRIV</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a297087aad7a159a8fc000a70c304af20</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_SRC_BYTE_ORDER</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af341463d56b9245ba29870cba5ae47c2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_SRC_INCREMENT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad47c126c882bbc65bccbcf7d6ebedf9e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_DEST_INCREMENT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab39983046af5acb5c1fa70d565c68877</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_WIN_ACCESS_PRIV</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae3c7bdcedfe4c8d4cae4a0ef010f3e0e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_WIN_BYTE_ORDER</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9f79873ef5d9c8f5d48d21cd8e6c15a2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_ATN_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6f89373fc96d82ca68f526efda0e60ef</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_ADDR_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae2731abdf58cc421661b8bf3cc2fbf97</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_CIC_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>acc41f804a99500e724ff11a613747693</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_NDAC_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac6257474e5a02d3d89a2d1ae408c4bd3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_SRQ_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6e23658ec7ff75a45dfe73c210df53bc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_SYS_CNTRL_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1f3ae58301d2c75d9580edeb07bb8aa9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_HS488_CBL_LEN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a820503d09fc495060649cb3fb4c4343f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_CMDR_LA</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a19f536d70a02ebb29ac12f17aafbb64d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_VXI_DEV_CLASS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad63a72cec35c96c4108fdcf89dcceb09</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_MAINFRAME_LA</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8abb369a9a1da07206dd6b6ff6a4297d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_MANF_NAME</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a72bbeca2db0ceb772aca7b81331a0a82</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_MODEL_NAME</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a24711a363c331061bb7c6e4f8723feb8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_VXI_VME_INTR_STATUS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a86be293bca87b227663edfd61bcf3a89</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_VXI_TRIG_STATUS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a455a9d1a6b7db84e80ff0b8c846a2f36</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_VXI_VME_SYSFAIL_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0bcae715cf397eba960df1e4eeb949f0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_WIN_BASE_ADDR_32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a11bea1d37c2bb411b99f548d12b81d3b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_WIN_SIZE_32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad9fe65471404eb338631b6386dea8626</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_AVAIL_NUM</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac897cd5d193e205d5f24100eeace9429</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_MEM_BASE_32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a44496dc3c8f07b7254594ac50af15dfc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_CTS_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8da84a9d83a18246f179ec532ff27bc3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_DCD_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0275b9635a98c52ab4d9bf2e976f98c7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_DSR_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aff4d7444bba8602bd05604e043564efe</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_DTR_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad21647d9798b30bf0d12c4537bebb55f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_END_IN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1638d8ce1a33a12de03be6ec9cebd113</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_END_OUT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5b37cf80093a5adda34d826fd64cad00</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_REPLACE_CHAR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2cd8cf99850dabf9aaa75a305779af74</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_RI_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a3c88dadfa06d911bf21d3b013621851a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_RTS_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8851e92c8a1e70f1917e5a118f4ad5fb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_XON_CHAR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a524c4bbe633bf7274cc6691051aa0a3c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_XOFF_CHAR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9e82d927c3581b4e4693c79eba7f6cad</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_WIN_ACCESS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a42d01ce3c5b9dc69f890a32b6a825134</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RM_SESSION</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad93a7e2295364045a4944c4997bf8969</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_VXI_LA</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad290634abd693aaee49c13277ae33175</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_MANF_ID</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a834628c210e82f47350b467f34cf77a2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_MEM_SIZE_32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a001d43d80f0d5a3464d2fe8a3ada3c21</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_MEM_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a779c80cb655c432dc15e8c0cfd79e162</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_MODEL_CODE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab5a90b7dd24b2f2eeca70dcc914b8c92</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_SLOT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a46d310c24d1df4a0c28e544a236d5a71</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_INTF_INST_NAME</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af3ab3e7fddb08975f3588c6164a4b79a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_IMMEDIATE_SERV</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a380d42ffb015a7dcd9554084b782cd35</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_INTF_PARENT_NUM</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae3c00fe91c8452aa84de895b679a72aa</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RSRC_SPEC_VERSION</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a137329b93e8d69696e76ce3cc046d92e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_INTF_TYPE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7fe16f57129ef25e65c041b5c54ee183</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_PRIMARY_ADDR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>acd7dbed2df6b69173e83e3673167d5e5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_SECONDARY_ADDR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a984f685619a015d4cd074060e71589ab</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RSRC_MANF_NAME</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa55ede6178eebdb99595b1431f8f75ee</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RSRC_MANF_ID</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af66f835ec242314b8a8d6899921f444b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_INTF_NUM</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a281474df7f8ed95dddd84cf54b493c38</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TRIG_ID</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a24453b4a91090bc303c6b4489969e58a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_REN_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a389f60fb69d523a71c61f0e5acf5b4a0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_UNADDR_EN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2440560b84085a11cd2175513690eaf0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_DEV_STATUS_BYTE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afe37e67c63ee846926b08244a8f0a031</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_FILE_APPEND_EN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a000714a71f3ae7e3c9364ac16e1d84d4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_VXI_TRIG_SUPPORT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0ef1231e92438e3fe70f160870969c55</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TCPIP_ADDR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5c2d127404dde3574c4702cd4c886169</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TCPIP_HOSTNAME</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>add019df58a6dd78b0df9466723504db0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TCPIP_PORT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a53cbecfe4c8c7f8e196e3c1684e83ef8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TCPIP_DEVICE_NAME</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa307138a62bcb3a974a95eb57bb1b9f1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TCPIP_NODELAY</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af2f07b11a1aea74efdd0bf38307c50b2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TCPIP_KEEPALIVE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0ad077253b11aa9527e45a7e8a1932a3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_4882_COMPLIANT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7ff446e4fe6d421d0eedeb3521e1a22e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_USB_SERIAL_NUM</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7b51d888b0da5d73db903910ce07f6dd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_USB_INTFC_NUM</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aed759293c9dca31c743548e841c321c4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_USB_PROTOCOL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1fa72773e3cac99e02ccc7eff8f77ae5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_USB_MAX_INTR_SIZE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a61391db4f13ea9d76042bba8def3d8b2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_DEV_NUM</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4b8e06d490ff6230d5775883a3636981</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_FUNC_NUM</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afe4bf0a237eb112ca22e8fe2e1ae4811</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_BUS_NUM</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>abe0b6d8463e93bfed54c8b093a6acbe9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_CHASSIS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab157ba883b77d39b736ededcfa00b0db</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_SLOTPATH</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a028eb77e190076128cafa8dc3d0d9644</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_SLOT_LBUS_LEFT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aaed2abebb4212050bcc60f1a520786e2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_SLOT_LBUS_RIGHT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a131f344a811cf0d381dffead0219c713</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_TRIG_BUS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a74f1ef01c9396b4cf2e1f71f1e797ce9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_STAR_TRIG_BUS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa873bfff8961ceb6ce1bdb76c12079b9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_STAR_TRIG_LINE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af621ee49d86940f1b0a4d860184e3d7f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_TYPE_BAR0</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad1b77d5b0fa05ed81cd0bae142a96494</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_TYPE_BAR1</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a00e5fac36ac59b853af19318e3d217db</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_TYPE_BAR2</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4bb1619c6798622fbdc640027cc5597d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_TYPE_BAR3</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a70fe00f578929c756422393ebf7eb722</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_TYPE_BAR4</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af432d71feaaa521c8e6f810c681736ad</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_TYPE_BAR5</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7ec84ba5bfb91c0af39facd44bf6270f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_BASE_BAR0</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a74d7723587c9cbad01e77f131db44880</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_BASE_BAR1</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad417ae3c344b5d2bb225b07f7863bb4b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_BASE_BAR2</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afd61aeb943e19686db824ee954be71a2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_BASE_BAR3</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>abc293430ceeeff630e8dbf816ac4b203</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_BASE_BAR4</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af289b78a0ec7af6900ae3df675a3125a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_BASE_BAR5</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac05d0391a0ad234b61ecd895054e8443</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_SIZE_BAR0</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8fca1cce810bcaa4b616c1caeee7a9e4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_SIZE_BAR1</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0afcefcf7156a1c72555b8f77ce4f9b5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_SIZE_BAR2</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a51576e7010559c7dc3e16e503ec318cc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_SIZE_BAR3</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>abc28011e76096a14e502649947fb301a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_SIZE_BAR4</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8b5f342653a360dc2151c7f09e4287ad</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MEM_SIZE_BAR5</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6336ecff947597fef74bb2bd43864a68</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_IS_EXPRESS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af99b701452410273c0c978bc901da73f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_SLOT_LWIDTH</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac2defcb280e0865274a25da974a17c54</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_MAX_LWIDTH</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aaf11441c976a8d448308808af17abd01</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_ACTUAL_LWIDTH</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab5f09dcbe5a5d71a2dfc5f4dd591035c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_DSTAR_BUS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa8dac94dd3342892480c3e638721a6a1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_PXI_DSTAR_SET</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad2e404aecf5566f02d3529e96093c83c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TCPIP_HISLIP_OVERLAP_EN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a600dde04ffb50cd9ac8a6869b1a68fe3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TCPIP_HISLIP_VERSION</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab2c9b580293d82795329cdf3295608da</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_TCPIP_HISLIP_MAX_MESSAGE_KB</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a78e4a3672417a52529c1e0ac3ac762f6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_JOB_ID</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2fa21d6667fdf2ff4b092e305166093e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_EVENT_TYPE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a96e5add16d3bdd1f19745d1f3ac53dd2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_SIGP_STATUS_ID</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac60c9352e192b54d1992751832c4de15</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RECV_TRIG_ID</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad14e6ecc6d3a6dcc718a1547cddd782f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_INTR_STATUS_ID</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af45f03ce22bcf3e54a1f008573e50e23</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_STATUS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9eca480a38daa062da6ccafb53b6a126</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RET_COUNT_32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7fe0a906268162ce1267913a33671575</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_BUFFER</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a62a34327980b47d9bc132efddb5b6fc2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RECV_INTR_LEVEL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a48cd1f19cd5218e737e9ba824e7835cb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_OPER_NAME</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab89279e20a610a3600a62072b90e581e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_GPIB_RECV_CIC_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a491cde91d0381d78bfc80cf544875a96</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RECV_TCPIP_ADDR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a09ce430716e929c96c0574044c7432da</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_USB_RECV_INTR_SIZE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a55409b6329fdb8bae12a27faa2007acd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_USB_RECV_INTR_DATA</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad6bbb2f97b9409e37f9bda0b11f3fcaa</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_USER_DATA</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a93d605ea45746b4ec327399d89d993ba</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_RET_COUNT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9c3cc510b33dcfecbe44cdadc4f549d9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_WIN_BASE_ADDR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af4add1e3f1cb88e9f0238261118db2d7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_WIN_SIZE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a43141f24c70615aa166cd597164c71c9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_MEM_BASE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4fdd05d2d7a4db9019b5eb9c282e6250</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_MEM_SIZE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a363e449ea28fd3e7f92742c204b26226</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_IO_COMPLETION</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac292d749b2b9a59824186285c620750c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_TRIG</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab7cfc09f8bc8bb9dd5f4fe214ecec156</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_SERVICE_REQ</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>adef62cb944209bddd8b41907efb5ee9c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_CLEAR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a3c6be8cad19996580ea21edb93f87325</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_EXCEPTION</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a571e0bea86c350489dc1cf729c9fd981</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_GPIB_CIC</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a640df79ed34392aa807c720bf830692b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_GPIB_TALK</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2bea0dbf41d1eb0262e687c4c3888e7f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_GPIB_LISTEN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa5973312285ff1b88a51017df28f42e7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_VXI_VME_SYSFAIL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a11ca76b66f9d1ee6b902ee398d55e936</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_VXI_VME_SYSRESET</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2e890b4f8694419e51283a5cad2bf61e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_VXI_SIGP</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6abc3774b6bf8b2ac52290ab7aad77c5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_VXI_VME_INTR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac96314f6e7def2e49450249f3f6d5d41</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_PXI_INTR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ada7da05125d1a517775ae1afc765aec6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_TCPIP_CONNECT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a73d45f520961be97a474d039ae5735b0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_USB_INTR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab165381611a3e5968879747ee34fa377</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ALL_ENABLED_EVENTS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a865c1180a76e2d2d07625c3898f3ac93</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS_EVENT_EN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8ee0300ea88f31ed538f9258db4e9091</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS_EVENT_DIS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa5bb82c92ff4e341034c6dce9d360cc6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS_QUEUE_EMPTY</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab20fc669b49ac45a324b027caf4e53dc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS_TERM_CHAR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>adeaa30aa76a1d62a9a2cd07c507b6ec0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS_MAX_CNT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad092a341e568a5a456b0e7bbaee53423</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS_DEV_NPRESENT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4ad3823b3bced23dbfa41f0b1d0e69df</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS_TRIG_MAPPED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>adc05c67ae6d6fb3027b738ab41e51d20</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS_QUEUE_NEMPTY</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a22e00babaa92253aa05b085a5c43daef</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS_NCHAIN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9eb7ec8a260ae5df8107f5b252a59bef</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS_NESTED_SHARED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af36e227d953164952e20f8ef0177faee</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS_NESTED_EXCLUSIVE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad500c9f735feeec8dbe31fadf321ae98</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS_SYNC</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a68851a76d27d9347cb6daa0b70577560</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WARN_QUEUE_OVERFLOW</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a3f3af395f8e0317660dcc4d72403410b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WARN_CONFIG_NLOADED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a749aba65ed5908520491998cd3a29f40</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WARN_NULL_OBJECT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa301568a468a1fe1cfe052aff40a4910</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WARN_NSUP_ATTR_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad8c445b120b9c519224d1927f303a211</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WARN_UNKNOWN_STATUS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af5d1a9973e5b2964f20aea9161f03553</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WARN_NSUP_BUF</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8a1b9d12e3701f2f3a2a55f0dd9e616c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WARN_EXT_FUNC_NIMPL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aff8b7c4814029472a12331ed28b6d8fc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_SYSTEM_ERROR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aac078af8eb1bbb716a24a66c2f10e393</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_OBJECT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af5a7a6b671e3457cb09e8bb7a164b007</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_RSRC_LOCKED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0f84f7e5ae4d3f1201623f12a03c4c59</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_EXPR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7c26ffd5d404c9833f1514d50b4bff39</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_RSRC_NFOUND</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa27a4d438337c66d5353cf571c2f977e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_RSRC_NAME</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0558d342ae6fd88392c78f4a19bb567d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_ACC_MODE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a51a80a3ec19dc527161e66028396c66b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_TMO</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a095fa1749ee8d023dbe1f5a388c2409e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_CLOSING_FAILED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>add16c06902253fe0779d0e95108d3d54</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_DEGREE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>addc959cea50caa503f767b29c792c9df</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_JOB_ID</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>acc4b1ea921b6314d5d782d2a12ad0135</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSUP_ATTR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9a7fb2591b64dcc79fc1fbec3e41f1cd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSUP_ATTR_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a97c3d16dca5c0b17cca84843c40b5910</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_ATTR_READONLY</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a10719ec45196a89bb372b3c154c73016</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_LOCK_TYPE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a503285ecea037d9ea71b83b9a0cd36aa</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_ACCESS_KEY</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a051fa4e683afdbc51432d75d12c1c8fb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_EVENT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a19ea7d30616b92f29d841d259b72f74f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_MECH</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ada222b7a4c7c3d2d15e763b06f40bc46</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_HNDLR_NINSTALLED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0aff94711acf7d13dfa4129386c7185f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_HNDLR_REF</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aab720b0c212565858b388bdda13a1c11</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_CONTEXT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac8a05e9d5ee05cc87100d44fb96a69c5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_QUEUE_OVERFLOW</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4ad7b0aa446b4c80771fb73d9182edec</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NENABLED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9fd3130e0bf1bdc19b5abcd3e5c1def8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_ABORT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0ab888096362395b23f1589f430cf2d2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_RAW_WR_PROT_VIOL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab87b96cfeece22b50f4f115a615128a3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_RAW_RD_PROT_VIOL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac89959a565b21aed8e59e8a751f4edad</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_OUTP_PROT_VIOL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0769006e4ce20da6a31a1d82aa885803</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INP_PROT_VIOL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae87542297ad00c75a9c53a1a461123d3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_BERR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2ac31a0fe441ee44aa830d7444155fdd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_IN_PROGRESS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af36d37c0155c8295f3e2fd778f2a5775</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_SETUP</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a104c6be498ae53d0a2a12278e9949d2e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_QUEUE_ERROR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab082352d97664ad03fef94738d5ebfc2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_ALLOC</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7bbf1c105e8054baee749872ab0c0d72</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_MASK</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>affce59ae7255ac37e41018fd21fb93a0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_IO</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aea42b5a8b628b1305776b96e51638896</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_FMT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab90b1520d9665488fffb1f6bb551af99</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSUP_FMT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a664a6aa973cf6332353290acfad28996</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_LINE_IN_USE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2080d145c072457f2b9334d5a2c97b21</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSUP_MODE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5c9a1bca85294ba9da9a6c93ebeff1ac</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_SRQ_NOCCURRED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4e3fe32fe055fb9262364a83dda7c8d4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aafabafbb75f325b639ca33ba1faff551</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_OFFSET</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab8324c558d707ea8ae537cf2dea3b808</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_WIDTH</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4f2e369b75c45a6c4a6bc46c505be049</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSUP_OFFSET</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa365e013bf7fb465efd450056149fb0e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSUP_VAR_WIDTH</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7304bd0b73bd0c5545619d57b158541d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_WINDOW_NMAPPED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aedab4e3aba9a4f8b205071e117dfbdc0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_RESP_PENDING</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1fa4ae114654a7ad0ff6e9362bb9fd1a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NLISTENERS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae4b8974a26da1268fd712c3d19f870b0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NCIC</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae480b2075cf20bbcf5294b4fcf47a049</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSYS_CNTLR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a26327490c8b2f1ed91b101baf0330297</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSUP_OPER</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a115aebbde1cce8e438032ce64d894310</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INTR_PENDING</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a57e278f8f9f11fbb605d10e9898f0e31</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_ASRL_PARITY</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ade949a4408962485b7ff06b89e1005bc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_ASRL_FRAMING</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a53c68b395133c9ae463bb6eccbcd73a9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_ASRL_OVERRUN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac54473146550316c90ea35224e74feb8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_TRIG_NMAPPED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7e5f3202be0e7f7682756952914aa472</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSUP_ALIGN_OFFSET</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af1b1deca2b5e0f4c785058282e2df9df</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_USER_BUF</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8c69d00e70df804f0514c6170a3cf139</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_RSRC_BUSY</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a34f6c4192365ec97461d3b5a917d3255</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSUP_WIDTH</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1539e9df06b9f48a8f6d1ec97fd9ba61</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_PARAMETER</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2177371edfd33c19706199799f84a231</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_PROT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a37469f057042aa46dfd17a1753e3239e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_SIZE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9f34b294c02e8c8f1940c21edadb3fec</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_WINDOW_MAPPED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a774651c96ae39a819d368b55e633ef95</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NIMPL_OPER</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad79fcbe4854687d2fb41963b8a85cb8e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_LENGTH</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afd16846fd30e699aa605e2b055c22755</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_MODE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a518ac9c75c4df182c26e0a95e1297885</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_SESN_NLOCKED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac328bcba18f427bc32a38000e636e9b0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_MEM_NSHARED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a610812ccce305890cbcd51bff8fa307f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_LIBRARY_NFOUND</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac54deee8e7a5dfc0411c907557a8337e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSUP_INTR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad0c7674f80319ae1230e3835d1c84afb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_LINE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab2dc4d6fdecdee9eb840d0d33fefedc2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_FILE_ACCESS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>acbbe69eb9a29f050e76ff49a8da03b1d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_FILE_IO</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad0f4d8823bde309ed01aa773e22f20b8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSUP_LINE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa79a66d4f88b55e50afef381e3c7ca99</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NSUP_MECH</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a963a4a5661ff69d6b28409264e70bdf8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INTF_NUM_NCONFIG</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2065c267cd23d77f51e331844fdec34d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_CONN_LOST</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a62e1704399bfd47657321bed8fc730f7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_MACHINE_NAVAIL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae55327353bd270a8e57a62202a97255f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_NPERMISSION</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5f2b3fbe79b9aeb4db637b9a9e376cec</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VERSION_MAJOR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ada62d0b3a5e171d0428c7ad40a3b1669</anchor>
-      <arglist>(ver)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VERSION_MINOR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a742257a92fc1d030b1626c814e1b3683</anchor>
-      <arglist>(ver)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VERSION_SUBMINOR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a372b7b5d9885ffe1162253c46c238657</anchor>
-      <arglist>(ver)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_FIND_BUFLEN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aac4226b27ebfa5b58467c3b277323176</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_INTF_GPIB</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5aa9a250840f536636634078f369536b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_INTF_VXI</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad175da42ad67727da27533e3694c31df</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_INTF_GPIB_VXI</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6664d0ee7a4fdbebed07b6937739a2bc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_INTF_ASRL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a23efe7bc2a95e1d1b9311758b8304fa8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_INTF_PXI</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afa425d4e07f369ecce2b4d6d067d43f6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_INTF_TCPIP</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a26b5a0f79e27226cfbe2ac96c32a280e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_INTF_USB</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1dda362951f8ff7653647442f05a6bec</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PROT_NORMAL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a80b18ae8eb16908bf093aaea53f9a7da</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PROT_FDC</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>abf6e8f5c3cd4ddc3e89554da12d8b12a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PROT_HS488</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab4c9bb3122a998436b42973482ed6cec</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PROT_4882_STRS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a757755c26455c38e9e5887963e84a506</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PROT_USBTMC_VENDOR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>abb414459466130571fdb97e987ca7ff1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_FDC_NORMAL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a48e3cad1dfa10222306d0941c38e82b0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_FDC_STREAM</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aaffdbb7f2502dda2f61c30259b6e05bd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_LOCAL_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a168bf6616f33ba4eb078c54b8ba1e178</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_A16_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a91a9c5f241f5bf84882072af84eaeea4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_A24_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2359a5f952246ee41fd10358fcdf6d85</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_A32_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a183d031172ea965c94511a3ec86d22f0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_A64_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac724c25b8b95e0778afae3bf5b863a6b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_ALLOC_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab60e75d3f207dc54c2ea8863bece8cb4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_CFG_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6125963562ea04d741f52f5119b944bc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_BAR0_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4f0af7c4f18301c85618655195f24ac1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_BAR1_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6c5da28969d9eef9caf3066f889e8bc9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_BAR2_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>abae386dbc54a440010190f7b133ff045</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_BAR3_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aceb810f12bf23013ebc557c3bcd0aa3d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_BAR4_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae448fa6d06f53abe1f6c56f11d6694e2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_BAR5_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7d36e3935e5e8e3063a9bd378767efe0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_OPAQUE_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>acdeb9c245bd2f846ab3e0e54b9ee2c3f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_UNKNOWN_LA</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad3ad1b56a686e27043198f4bc3d10e3c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_UNKNOWN_SLOT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1a82a101b333293681c680252206276a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_UNKNOWN_LEVEL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af4b80600f497ec0071d6c68984cc2d0b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_UNKNOWN_CHASSIS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a3b04662d936b7acadcfd66224c5cf1e9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_QUEUE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6d636911b0df938347b9900d9d93e358</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_HNDLR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afb305c7ae68e5a9e08a50a403febe62f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUSPEND_HNDLR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8013f5756f523251b4ad49af51ef3780</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ALL_MECH</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac3b3133575eeaf9dba8c1ab40a766163</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ANY_HNDLR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a58e018d9afbb5f63a2b20437e424eae8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_ALL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4f2aeaed6210a3db5a9a6427a659caf1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_SW</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a463914d9956a7b3f4c55ab2958bc1ccc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_TTL0</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a65d2e94a3527d5b7998873a64cabc842</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_TTL1</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac3c79bbf4f8993d83303ba2a3cf22fe0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_TTL2</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2bf4408a017521ba8e0b012c75721416</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_TTL3</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>acebfb24a5a50d97456b01e0f85037536</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_TTL4</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a47def2b49507f65aa63026a8744de6b8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_TTL5</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7977cbb779b2be06d22d563f0dc26910</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_TTL6</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a3d8ec327e56ae2eba4b8f04a806ae362</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_TTL7</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2b43ed2c459cb952f9d024b6a89b5ce5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_ECL0</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4e766ddb417076efb4e0bb60c7282a77</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_ECL1</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a87ad279fbfb63d808aa3f4d0978ded60</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_PANEL_IN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a51aa173264d7804d41b077489a1eb107</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_PANEL_OUT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aead2a35e6c1406751c8b2f59cd7ff958</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_PROT_DEFAULT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7acac2ba99f6f8c1d763909c3d92add8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_PROT_ON</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0d9a982e8b2caed11105746ace87d525</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_PROT_OFF</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9a0a67d179b32ed52fbf31a0eb754999</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_PROT_SYNC</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab34fdec69fc7d7d046708436a008472c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_PROT_RESERVE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a03707bea81dd4ba7f865ced52c8b4e78</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_PROT_UNRESERVE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a574302d21af9612691171bb0888371e2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_READ_BUF</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4bafb7935b616b8dba236c5a3dcbb6df</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WRITE_BUF</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5f616fa1b4f763f2d7f88bce1461f75a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_READ_BUF_DISCARD</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae9729f263aa838859e752e27fed4beea</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WRITE_BUF_DISCARD</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6088aafed62c7beb8075905525a0155b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_IO_IN_BUF</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afb4a281c622aaa4966a2e3b8638ab3ae</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_IO_OUT_BUF</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a848a35cf296b3baf092c25ea9599a871</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_IO_IN_BUF_DISCARD</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1c75f5790928f5d3adfe321baa7305cb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_IO_OUT_BUF_DISCARD</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad292f1aa97f0534387eb669911fc614e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_FLUSH_ON_ACCESS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a98a8d2d074c9479a4dff49ecdf98bfe2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_FLUSH_WHEN_FULL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af4de7c8a65a6374026938f2100eea324</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_FLUSH_DISABLE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a66d8542e38b7f315f7b63ccb1f6ab964</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_NMAPPED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aab89db03b8130c04b3c1ae4f8770fca0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_USE_OPERS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a921e6f810b1fcc34f82225a15a55ab68</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_DEREF_ADDR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa8e5b510ba66992a3e1fd105e40acb84</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_DEREF_ADDR_BYTE_SWAP</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>abdabec2d18f0905d4fd2a00185770688</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TMO_IMMEDIATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a3d197e8a724493cb52115da152622c23</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TMO_INFINITE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afeb24d6068b23d1db8202898cfd2e5d5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_NO_LOCK</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a32a4648916027bb39ee3cf8b5557e5a0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EXCLUSIVE_LOCK</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a3d67ccaebcceed9e01b720a7b88da866</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SHARED_LOCK</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aead48aac0be7512f3847376a6e6b13e1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_LOAD_CONFIG</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa5eb2e4bec978317d0c32218aa7e2f5e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_NO_SEC_ADDR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>acfbfa49f31879658c08f69fa073219a5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_PAR_NONE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5b6096211b12a398889bfa67b0d469fd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_PAR_ODD</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af87ace6732faaac7499b6beacd96bcc2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_PAR_EVEN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>abc94dcdbe51dac522ea7aeee6ae4eff6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_PAR_MARK</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae8555b2616947c4157c1a0c371607777</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_PAR_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aefb06213484c85f316ab68a9a7696721</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_STOP_ONE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>adf35b0e9c5718b6aa3ad5ce3611c3808</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_STOP_ONE5</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8253235002291c387e24f93c046bad2b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_STOP_TWO</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a49756a390b9bc76cdae14ae6d2018505</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_FLOW_NONE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6f37f8dfe038080e7ee0632b39284a1a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_FLOW_XON_XOFF</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6bd38c689bea863145c2ca6cf0bb5a48</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_FLOW_RTS_CTS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>abfb72a4de647ff48d3a6aa5116ced0d0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_FLOW_DTR_DSR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2789f5fd3633882d0f132e52d1a49007</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_END_NONE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>abec93c4f2730dbffef6dfb1c80760b44</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_END_LAST_BIT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a41e0b73f68aaf6044920b12188f246d9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_END_TERMCHAR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a502ecac4048f2992cf91585a2a7424b6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_END_BREAK</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae605a2a06297a740f56de87b996bf220</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_STATE_ASSERTED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5f386cdc3a8612f5b7d6417fa7f87bce</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_STATE_UNASSERTED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa24e9dbb88810f4a6ccbaaffa743b678</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_STATE_UNKNOWN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0f9e50086a726938df9cd05e1511b09e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_BIG_ENDIAN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab3b5c1d2cf19e1b35b5c3847f0a05cae</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_LITTLE_ENDIAN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad78fe64cfbdb8ed8e63cde69ad9a9646</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_DATA_PRIV</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad336ffbc53f5ee71cf27484b4ec7bb20</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_DATA_NPRIV</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aaf3696b58635af377802eb9bb86fcc8c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PROG_PRIV</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a3ebc0c6608838af7d18cd881a282917c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PROG_NPRIV</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5d943e04e47143db6d3d81208176182a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_BLCK_PRIV</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a94be9086ec6779a2fa47c24cc3be34e8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_BLCK_NPRIV</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a75adcecced40418ee7d001a93abc0594</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_D64_PRIV</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a85185c7052285157288e8a04102303e2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_D64_NPRIV</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af79dec24f0904829e70f816e77c098dc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WIDTH_8</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a79081625049b7fca9ccecac937f5c4ff</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WIDTH_16</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>adf74c26fd420d67cdfc2486f889d14fd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WIDTH_32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a71f1df26cb3778208ed8a88ed0789ad0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_WIDTH_64</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>adeee30d363febecb945198227e8e2a79</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_REN_DEASSERT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a055c3dcf0cb913992404c9feaf2d34c5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_REN_ASSERT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab203a8e04066058767dd2b5518bfa5a6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_REN_DEASSERT_GTL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8cd1e9af7f60d38b517445389a9ed816</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_REN_ASSERT_ADDRESS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4e0fd009007d1bb8441666d4497544cd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_REN_ASSERT_LLO</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae0c193b2354cd06820536ea1404aaa45</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_REN_ASSERT_ADDRESS_LLO</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a84fed0cdf8dfe48b839912817639a7fa</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_REN_ADDRESS_GTL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a45631114b3ac29d21a0bf43c3ba2b8ac</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_ATN_DEASSERT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a698e9656bd84ac44404e901534a426e5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_ATN_ASSERT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a23f66b639c9ea2bec23072e072c07ca0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_ATN_DEASSERT_HANDSHAKE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ada776e521af5f8bef36282659f8443c0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_ATN_ASSERT_IMMEDIATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab22200e7ff492112ae423ac90c79e4b8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_HS488_DISABLED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0977479ff320381fd750653f1de4b0e6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_HS488_NIMPL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a469f369267d9b3533b62838683ada9a9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_UNADDRESSED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a15af58deee8be12439e03fbc270249b7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_TALKER</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a813eb7b8c3efe2e470cf75e384239a19</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_GPIB_LISTENER</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a226e8262c1b25cba2fbd5a8a47e49ed6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_CMD16</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6136e9a855d08ae11d33da6733422ed3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_CMD16_RESP16</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a45215ac61d825c9538334ac3ddf45c76</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_RESP16</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac326bf9d51337bd8c62ba164cd9810b6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_CMD32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8b194df930da7fb3d1cee569d64d1c95</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_CMD32_RESP16</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a42b29ec39c572068fd4ef231052d81cf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_CMD32_RESP32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2832e45fe50379403fc740c6af2d2db4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_RESP32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4b8552dd826d85210d3d5bdf6d050d15</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASSERT_SIGNAL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afec4b708bab63f16b1bd8d05ab79eb5f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASSERT_USE_ASSIGNED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa688958cbdaa21cd3b0948d96b6a02a2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASSERT_IRQ1</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1a2871260c45b558e34a37f8cf88330d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASSERT_IRQ2</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae50ffc5512eb45b615d80a7c969d35ec</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASSERT_IRQ3</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a60d09c87417e1e1a092d791f5ce3c738</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASSERT_IRQ4</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae1e426ab08a3b8cdf205af526e03becf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASSERT_IRQ5</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa44c7bc8c2e47f6355cbfef517a630ad</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASSERT_IRQ6</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>adc1985c090b5cbf11abcb3199a1f96ba</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASSERT_IRQ7</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>abf393c6be5effc87f87bfb4931d6e5fb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_UTIL_ASSERT_SYSRESET</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa0f955848127346188677542a4ed7c71</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_UTIL_ASSERT_SYSFAIL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4dd21a643d501652f46a39ccc906f724</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_UTIL_DEASSERT_SYSFAIL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab8622e7c2dc8c9c868b14fa451cf6948</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_CLASS_MEMORY</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a096584a04d6ed2a7afee4412384471c9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_CLASS_EXTENDED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa9a0f1e6d28107b7a3625faaf7d070ba</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_CLASS_MESSAGE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a3c63515755aba95ab8e7e861504c37ce</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_CLASS_REGISTER</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a57ebbbb713e58a58007809595e87fa1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_CLASS_OTHER</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a73eeb1144fa06441d35bb7a999046013</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_ADDR_NONE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a91aabcc493487b6812dd68883a1f147d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_ADDR_MEM</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9b75eb1039942263edeec8ecfe2daf11</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_ADDR_IO</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afcb777710f57abb77c8daa4d92c71dc1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_ADDR_CFG</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af1b30363d23698970999a3eeb74eb1bd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRIG_UNKNOWN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab634420eada89d2a2a29059e506e2315</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_LBUS_UNKNOWN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a720fc816f74adb0e35041bb4e5b1c81d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_LBUS_NONE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>add4515fb87b84d2aca3b9a4e6cd12a33</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_LBUS_STAR_TRIG_BUS_0</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5f9578c39979e5769694c61d08e1d2ea</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_LBUS_STAR_TRIG_BUS_1</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae7a5f16d7364aa1d5a6e23296c72eb15</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_LBUS_STAR_TRIG_BUS_2</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afbc25b9e02ffabad3e70b7618d78baaa</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_LBUS_STAR_TRIG_BUS_3</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac7b694d664958fbcf4a96e5855e3fb9a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_LBUS_STAR_TRIG_BUS_4</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5913f185a3720e652a7f5675acde401c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_LBUS_STAR_TRIG_BUS_5</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae7c0e058e271ff7e112c49a73ac54f52</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_LBUS_STAR_TRIG_BUS_6</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a88bcf6f8426d48e1870e8723f31ac1db</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_LBUS_STAR_TRIG_BUS_7</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a97d5a73fee7c86e613d25035bcd303e1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_LBUS_STAR_TRIG_BUS_8</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aca9b80ca22c568cd4bf3c4893ada5f92</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_LBUS_STAR_TRIG_BUS_9</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9b667a78a4b23a783e77188a8972d701</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_PXI_STAR_TRIG_CONTROLLER</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0a5fbedd617a298ad5e21a5fe6bcaf26</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>viGetDefaultRM</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a31b05f4259c40a283c953ad71648c33d</anchor>
-      <arglist>(vi)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ERROR_INV_SESSION</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aada3508150b321e4d393e65dd51db7e5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_INFINITE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a89ab9caa40aa7ddae2042aea919680d1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_NORMAL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5a5ff111f78cb9e3e99000844e475f37</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_FDC</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aee044520a3d9f27f1b35ab280b310a57</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_HS488</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae9c41cd0bde400c67f8b3dfcc9939f74</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL488</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>acfc1d9a9fe9b8e34fa06de5981bf084b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_IN_BUF</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afd90595d52206b98e9d8300aacb6426a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_OUT_BUF</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aaa14679b0526afaa86706c1bb612ce20</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_IN_BUF_DISCARD</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8a4b3a45fb2fe080183770efa8ed70d9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_OUT_BUF_DISCARD</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a97603234fbc456bd69f6450fd1abc1af</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_INTF_RIO</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac3d580665added0e27fe7b2e6c3cba55</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_INTF_FIREWIRE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4a3fa9e43287d0b41c3fc2bccd44d3b0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_SYNC_MXI_ALLOW_EN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>abeb7dda76ca77b2c2af75c45c3c0ee33</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_VXI_DEV_CMD</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8707ebed9c07ae029ea28ed7dbe3c303</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_VXI_DEV_CMD_TYPE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2be4d11c4b34a157f701c0672d55a3be</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_VXI_DEV_CMD_VALUE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a751df0b33e67066859032f05678455f1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_DEV_CMD_TYPE_16</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab76a7b69c5277b25de4ac349c0256254</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_DEV_CMD_TYPE_32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afd6732c793b4d2184c8c41ba3a3c4134</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_RESP_NONE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac22245e6fa86edf5233c2367fd31972d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_VXI_RESP_PROT_ERROR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a732d10f0706b644597531b287d7ef2bf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_VXI_TRIG_LINES_EN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae224a883a211b0a467e1f328c2318a17</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_VXI_TRIG_DIR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4bd32e864c0736141da37604baf5c399</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_DISCARD_NULL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a258b0344c6c42399ee219f4164a592f5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_CONNECTED</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a81e42cf07be1f39ab38d6bed820c6732</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_BREAK_STATE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a3238768a6219691260be2fa442664b43</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_BREAK_LEN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a207e16b506aad949dfe4a393bdd70c2c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_ALLOW_TRANSMIT</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a89814a2e2e8dda168e84d1184a4f5600</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_ASRL_WIRE_MODE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8ad7b3cc1c2f65f84e76b12ed742926f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_WIRE_485_4</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a01cb3f16918ab66102457231ed5089cc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_WIRE_485_2_DTR_ECHO</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab93f73047c215412bbd07ca64ec5464a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_WIRE_485_2_DTR_CTRL</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab5df26280ec64636b88fec3f487e8a3e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_WIRE_485_2_AUTO</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7d9209d3745bedd893f3ab76eed47248</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_WIRE_232_DTE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a95fe3e2dde1b2bf89cd8defdabfeb8f4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_WIRE_232_DCE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7c862db74a48af3ca57d71908aa77cc7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ASRL_WIRE_232_AUTO</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aafad8945419a11af419e7a8eb854adaa</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_ASRL_BREAK</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ade65e60dd0a7debda22817d63f9268dd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_ASRL_CTS</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a55e6fe77ec3df6983a50074c0d075465</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_ASRL_DSR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a314eecc11a618bcb1b0be885406de7e6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_ASRL_DCD</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a575bbc74a3217238cef95ff9c5252d76</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_ASRL_RI</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0573c4f138e70ff8bfa14a8c16e9ee92</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_ASRL_CHAR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7c9d7c809161a5dba51419134737172a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_EVENT_ASRL_TERMCHAR</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a3006d702d1e0e380a6e46086e47986c3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_FIREWIRE_DEST_UPPER_OFFSET</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa9189a9dc1218f35ae53217f881c4d76</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_FIREWIRE_SRC_UPPER_OFFSET</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa56997377ae5f5a4760d074ba0367280</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_FIREWIRE_WIN_UPPER_OFFSET</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>adf024a69d1982ae2f4448d0a90498e01</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_FIREWIRE_VENDOR_ID</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae11ec5d0b3d19d0d43a293bbf566681f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_FIREWIRE_LOWER_CHIP_ID</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a22b4a7d59245f5744a9c1ffc2ffe4d91</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_ATTR_FIREWIRE_UPPER_CHIP_ID</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1eac4e06eb4292ac57b5c57fcab73928</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_FIREWIRE_DFLT_SPACE</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aae10866bf7f35ba547356149655a3917</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViObject</type>
-      <name>ViEvent</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a344530d326baf4406e16e53cd2c61fb4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViEvent _VI_PTR</type>
-      <name>ViPEvent</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a495e30540346946f3840239a118f2a8c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViObject</type>
-      <name>ViFindList</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a194efe6afb7f6468b2da8ca8578c9c9a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViFindList _VI_PTR</type>
-      <name>ViPFindList</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa1cf386be7ab335e9875e3536c003d5a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt32</type>
-      <name>ViBusAddress</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a825852ca7463eadf49e9d54afe94bd7e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt32</type>
-      <name>ViBusSize</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9d9580f83b3b5731ae1f445c1995e9be</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt32</type>
-      <name>ViAttrState</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8bd3a8348386547fd76278826f70ca68</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt32</type>
-      <name>ViEventType</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8231ea920158c00072ec3882a5f83cd3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViEventType _VI_PTR</type>
-      <name>ViPEventType</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4652eb6bca70a1dd5140af3fce6d9980</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViEventType _VI_PTR</type>
-      <name>ViAEventType</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4951ba7ad0824a59ea428783fab264b8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>void _VI_PTR</type>
-      <name>ViPAttrState</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8431a0a74717bc4cc8254e50071b6269</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViAttr _VI_PTR</type>
-      <name>ViPAttr</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4e4d24c929ae5093e8f0a77bf04e4531</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViAttr _VI_PTR</type>
-      <name>ViAAttr</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae8d84e9924cbf2772554a58aa95a8e62</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViString</type>
-      <name>ViKeyId</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad3be30598dc0ebcd4d0c1c8b396f53ec</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViPString</type>
-      <name>ViPKeyId</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a921aaacdad15682fe992a8ecad2ab12f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt32</type>
-      <name>ViJobId</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a584063b4815435814828c44d862245ad</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViJobId _VI_PTR</type>
-      <name>ViPJobId</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a508b9d3343d108955fbff733c7d932a4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt32</type>
-      <name>ViAccessMode</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab21e429c25b9ffc3a4dcf9f180651456</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViAccessMode _VI_PTR</type>
-      <name>ViPAccessMode</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1687e2af071a83065bd3fd76c402286e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViBusAddress _VI_PTR</type>
-      <name>ViPBusAddress</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a003afcb06fbd350cee31460223690627</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt32</type>
-      <name>ViEventFilter</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af8bcf8364c5e432835ce991c3da0855c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>va_list</type>
-      <name>ViVAList</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5737db08fcc362874c6ac823b5ee7cab</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViEventType</type>
-      <name>eventType</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6dc668b88ee840cd0ee2e069b7581e42</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViEventType ViEvent</type>
-      <name>event</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5020215c7f11857df5dafd6f9c677a49</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViEventType ViEvent ViAddr</type>
-      <name>userHandle</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a45395a6feff159e1ff825afd26ed9d6e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>typedef</type>
-      <name>ViStatus</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aeef5abf31d421d5635336d2d21980ebf</anchor>
-      <arglist>(_VI_FUNCH _VI_PTR ViHndlr)(ViSession vi</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viOpenDefaultRM</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a60c3d716b7431905e75c962449773ea5</anchor>
-      <arglist>(ViPSession vi)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viFindRsrc</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a628660c1047bcdf26477e491a052aee5</anchor>
-      <arglist>(ViSession sesn, ViString expr, ViPFindList vi, ViPUInt32 retCnt, ViChar _VI_FAR desc[])</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viFindNext</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6a70714d71d9c0becb499fb6efd1b0e6</anchor>
-      <arglist>(ViFindList vi, ViChar _VI_FAR desc[])</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viParseRsrc</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa10976454f0e435b652884c87448dae8</anchor>
-      <arglist>(ViSession rmSesn, ViRsrc rsrcName, ViPUInt16 intfType, ViPUInt16 intfNum)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viParseRsrcEx</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac87376563f1fe3ac9b05ab4e972cacae</anchor>
-      <arglist>(ViSession rmSesn, ViRsrc rsrcName, ViPUInt16 intfType, ViPUInt16 intfNum, ViChar _VI_FAR rsrcClass[], ViChar _VI_FAR expandedUnaliasedName[], ViChar _VI_FAR aliasIfExists[])</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viOpen</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9bfb64a2b059f9e78d2c1ff21f1171c3</anchor>
-      <arglist>(ViSession sesn, ViRsrc name, ViAccessMode mode, ViUInt32 timeout, ViPSession vi)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viClose</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac7f8e3a1817b04c813e80bee1a9360fa</anchor>
-      <arglist>(ViObject vi)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viSetAttribute</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5c8ee5dfd71472901ffdcad5790945d7</anchor>
-      <arglist>(ViObject vi, ViAttr attrName, ViAttrState attrValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viGetAttribute</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>acc32a8b0153a7de9a6b1f7290611d31b</anchor>
-      <arglist>(ViObject vi, ViAttr attrName, void _VI_PTR attrValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viStatusDesc</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa9c0943bbe4343be3e86a0ddb20d43a5</anchor>
-      <arglist>(ViObject vi, ViStatus status, ViChar _VI_FAR desc[])</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viTerminate</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>affa00de9b7cb52de0e10712443c9a311</anchor>
-      <arglist>(ViObject vi, ViUInt16 degree, ViJobId jobId)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viLock</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af9f63a8b9d68bff54692a5191766241c</anchor>
-      <arglist>(ViSession vi, ViAccessMode lockType, ViUInt32 timeout, ViKeyId requestedKey, ViChar _VI_FAR accessKey[])</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viUnlock</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a984e7fdef362c27d0657d137a097a26c</anchor>
-      <arglist>(ViSession vi)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viEnableEvent</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae156c6eb1a79cd4ec1450026f429db0e</anchor>
-      <arglist>(ViSession vi, ViEventType eventType, ViUInt16 mechanism, ViEventFilter context)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viDisableEvent</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a92be3f9f0eaa9e3a15613048fea72d09</anchor>
-      <arglist>(ViSession vi, ViEventType eventType, ViUInt16 mechanism)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viDiscardEvents</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac5c83a9c56a20226db954983eca14492</anchor>
-      <arglist>(ViSession vi, ViEventType eventType, ViUInt16 mechanism)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viWaitOnEvent</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6e6d6182014878c8662a17e8ab724e39</anchor>
-      <arglist>(ViSession vi, ViEventType inEventType, ViUInt32 timeout, ViPEventType outEventType, ViPEvent outContext)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viInstallHandler</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0f799e20dc7aafc8d81c12c69ef2bfea</anchor>
-      <arglist>(ViSession vi, ViEventType eventType, ViHndlr handler, ViAddr userHandle)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viUninstallHandler</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aeddcd9c1b594fb9d70248587224f5834</anchor>
-      <arglist>(ViSession vi, ViEventType eventType, ViHndlr handler, ViAddr userHandle)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viRead</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad8f1884071448162bf453b5928784897</anchor>
-      <arglist>(ViSession vi, ViPBuf buf, ViUInt32 cnt, ViPUInt32 retCnt)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viReadAsync</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac4b5781ba1e70c97da737a9474c67ecd</anchor>
-      <arglist>(ViSession vi, ViPBuf buf, ViUInt32 cnt, ViPJobId jobId)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viReadToFile</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0976e45f48260d2a93c34aabb4230c42</anchor>
-      <arglist>(ViSession vi, ViConstString filename, ViUInt32 cnt, ViPUInt32 retCnt)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viWrite</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a07c7b1ffd3c764360c7275ee615e28b4</anchor>
-      <arglist>(ViSession vi, ViBuf buf, ViUInt32 cnt, ViPUInt32 retCnt)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viWriteAsync</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae8d87eadd947c8fb1015b1b44c99ccc7</anchor>
-      <arglist>(ViSession vi, ViBuf buf, ViUInt32 cnt, ViPJobId jobId)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viWriteFromFile</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad86c3d7c4aab058a0a5c014c0e0c6658</anchor>
-      <arglist>(ViSession vi, ViConstString filename, ViUInt32 cnt, ViPUInt32 retCnt)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viAssertTrigger</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aaaf65b9637b232caecb746520805739b</anchor>
-      <arglist>(ViSession vi, ViUInt16 protocol)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viReadSTB</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac9351f34c48ae75308fa7f666b5fac98</anchor>
-      <arglist>(ViSession vi, ViPUInt16 status)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viClear</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a337fa2f73a1b5b46dbc53378a3842118</anchor>
-      <arglist>(ViSession vi)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viSetBuf</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a13a400c8bc8158a2133f8b48d0c260bd</anchor>
-      <arglist>(ViSession vi, ViUInt16 mask, ViUInt32 size)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viFlush</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7b25ca66ba93154ae6d7dc8ea67f2b42</anchor>
-      <arglist>(ViSession vi, ViUInt16 mask)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viBufWrite</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a07560d80dfbc33b070e511bb709b300b</anchor>
-      <arglist>(ViSession vi, ViBuf buf, ViUInt32 cnt, ViPUInt32 retCnt)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viBufRead</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa42ca34d425ebe59e88d0dc4d698c409</anchor>
-      <arglist>(ViSession vi, ViPBuf buf, ViUInt32 cnt, ViPUInt32 retCnt)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNCC</type>
-      <name>viPrintf</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa2501234b47cbe550e0abc232b05e1a2</anchor>
-      <arglist>(ViSession vi, ViString writeFmt,...)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viVPrintf</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>acc84a11dc22fa76d39ea424a97b7e61f</anchor>
-      <arglist>(ViSession vi, ViString writeFmt, ViVAList params)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNCC</type>
-      <name>viSPrintf</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>acc110afdc904284697f9a53d3e2f5b4b</anchor>
-      <arglist>(ViSession vi, ViPBuf buf, ViString writeFmt,...)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viVSPrintf</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad7611de260bca08a35f502ec41e2747b</anchor>
-      <arglist>(ViSession vi, ViPBuf buf, ViString writeFmt, ViVAList parms)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNCC</type>
-      <name>viScanf</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>acb26b753b6cd37ebcc8db94e8e97ceee</anchor>
-      <arglist>(ViSession vi, ViString readFmt,...)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viVScanf</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a172602f6271bd61273fa71ad5a598939</anchor>
-      <arglist>(ViSession vi, ViString readFmt, ViVAList params)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNCC</type>
-      <name>viSScanf</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad56d19917fbd882119208e093a07c6f4</anchor>
-      <arglist>(ViSession vi, ViBuf buf, ViString readFmt,...)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viVSScanf</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>af9331513c630c60e51447f0da181127e</anchor>
-      <arglist>(ViSession vi, ViBuf buf, ViString readFmt, ViVAList parms)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNCC</type>
-      <name>viQueryf</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a6f83a78dd3ac9f8f8c26c098c5378923</anchor>
-      <arglist>(ViSession vi, ViString writeFmt, ViString readFmt,...)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viVQueryf</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a2066d4279c9a5d40be32fd84b45b2473</anchor>
-      <arglist>(ViSession vi, ViString writeFmt, ViString readFmt, ViVAList params)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viIn8</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0045f9995314e431c7d06e55fa3d24ec</anchor>
-      <arglist>(ViSession vi, ViUInt16 space, ViBusAddress offset, ViPUInt8 val8)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viOut8</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ac1bf62d16aaa8cb0f94a15a6b01035ee</anchor>
-      <arglist>(ViSession vi, ViUInt16 space, ViBusAddress offset, ViUInt8 val8)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viIn16</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a23c3b3ff134961e6d3e9435ca77610a5</anchor>
-      <arglist>(ViSession vi, ViUInt16 space, ViBusAddress offset, ViPUInt16 val16)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viOut16</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a20f9ea3b76df0ab6bc10b8fa5b11e89e</anchor>
-      <arglist>(ViSession vi, ViUInt16 space, ViBusAddress offset, ViUInt16 val16)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viIn32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a16563e89992b95e7a969eba0cbbe0275</anchor>
-      <arglist>(ViSession vi, ViUInt16 space, ViBusAddress offset, ViPUInt32 val32)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viOut32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aa4e41240b63864e3e155d1d8018f30d2</anchor>
-      <arglist>(ViSession vi, ViUInt16 space, ViBusAddress offset, ViUInt32 val32)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viMoveIn8</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a7e79cfa80131e8f1ebf8757cfc450a80</anchor>
-      <arglist>(ViSession vi, ViUInt16 space, ViBusAddress offset, ViBusSize length, ViAUInt8 buf8)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viMoveOut8</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a77ea8e82c9e5533391a0f98c496af68c</anchor>
-      <arglist>(ViSession vi, ViUInt16 space, ViBusAddress offset, ViBusSize length, ViAUInt8 buf8)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viMoveIn16</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a9981bcb001f046374d79f9a962d26a21</anchor>
-      <arglist>(ViSession vi, ViUInt16 space, ViBusAddress offset, ViBusSize length, ViAUInt16 buf16)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viMoveOut16</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5e3330cb2cd63a8b780acae09865de27</anchor>
-      <arglist>(ViSession vi, ViUInt16 space, ViBusAddress offset, ViBusSize length, ViAUInt16 buf16)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viMoveIn32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8460e438e0e0196c8f3b6d34420d0a68</anchor>
-      <arglist>(ViSession vi, ViUInt16 space, ViBusAddress offset, ViBusSize length, ViAUInt32 buf32)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viMoveOut32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a098ca22359fec10f6f71a90e49f47697</anchor>
-      <arglist>(ViSession vi, ViUInt16 space, ViBusAddress offset, ViBusSize length, ViAUInt32 buf32)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viMove</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a32ef987175cfbc96e87b6bb2f58d57d1</anchor>
-      <arglist>(ViSession vi, ViUInt16 srcSpace, ViBusAddress srcOffset, ViUInt16 srcWidth, ViUInt16 destSpace, ViBusAddress destOffset, ViUInt16 destWidth, ViBusSize srcLength)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viMoveAsync</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afd6199b89e431bb75e3b09aaacf372fd</anchor>
-      <arglist>(ViSession vi, ViUInt16 srcSpace, ViBusAddress srcOffset, ViUInt16 srcWidth, ViUInt16 destSpace, ViBusAddress destOffset, ViUInt16 destWidth, ViBusSize srcLength, ViPJobId jobId)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viMapAddress</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afa391c7dc3b0875fb83069ebde7a8546</anchor>
-      <arglist>(ViSession vi, ViUInt16 mapSpace, ViBusAddress mapOffset, ViBusSize mapSize, ViBoolean access, ViAddr suggested, ViPAddr address)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viUnmapAddress</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a4e032a1e47c46f020d237f8240e8ef78</anchor>
-      <arglist>(ViSession vi)</arglist>
-    </member>
-    <member kind="function">
-      <type>void _VI_FUNC</type>
-      <name>viPeek8</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a209679bdcc663668bd96680272a95a61</anchor>
-      <arglist>(ViSession vi, ViAddr address, ViPUInt8 val8)</arglist>
-    </member>
-    <member kind="function">
-      <type>void _VI_FUNC</type>
-      <name>viPoke8</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5087bca756e704ef6e4aa8eebfc4beef</anchor>
-      <arglist>(ViSession vi, ViAddr address, ViUInt8 val8)</arglist>
-    </member>
-    <member kind="function">
-      <type>void _VI_FUNC</type>
-      <name>viPeek16</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a8fc28b3d684fd2be64fadf647c54a6a7</anchor>
-      <arglist>(ViSession vi, ViAddr address, ViPUInt16 val16)</arglist>
-    </member>
-    <member kind="function">
-      <type>void _VI_FUNC</type>
-      <name>viPoke16</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aca499a7a46b730a11f5604180678e6d6</anchor>
-      <arglist>(ViSession vi, ViAddr address, ViUInt16 val16)</arglist>
-    </member>
-    <member kind="function">
-      <type>void _VI_FUNC</type>
-      <name>viPeek32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab639c5af5e4875f95e16d913b57367f2</anchor>
-      <arglist>(ViSession vi, ViAddr address, ViPUInt32 val32)</arglist>
-    </member>
-    <member kind="function">
-      <type>void _VI_FUNC</type>
-      <name>viPoke32</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>aca3a19994c815edc7510cb3842b3744b</anchor>
-      <arglist>(ViSession vi, ViAddr address, ViUInt32 val32)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viMemAlloc</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a1fb648ad264f66cda7e794fb991fe18d</anchor>
-      <arglist>(ViSession vi, ViBusSize size, ViPBusAddress offset)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viMemFree</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad487449e4f43a49ae67ffddcf07872e1</anchor>
-      <arglist>(ViSession vi, ViBusAddress offset)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viGpibControlREN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a5316d8ee77405bd52be6c8abd5f84782</anchor>
-      <arglist>(ViSession vi, ViUInt16 mode)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viGpibControlATN</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ae30efd6a911e16d9503e7f4499aa163a</anchor>
-      <arglist>(ViSession vi, ViUInt16 mode)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viGpibSendIFC</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>afa3e78fccc1f1909020e9529a4aead55</anchor>
-      <arglist>(ViSession vi)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viGpibCommand</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a77c75ddf4587ee43d653fb656a407baa</anchor>
-      <arglist>(ViSession vi, ViBuf cmd, ViUInt32 cnt, ViPUInt32 retCnt)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viGpibPassControl</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a3aeb33b9b6278cef5e1ee1d249c4b2bb</anchor>
-      <arglist>(ViSession vi, ViUInt16 primAddr, ViUInt16 secAddr)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viVxiCommandQuery</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a26f6e32e7101e431075d0f26fdf9096f</anchor>
-      <arglist>(ViSession vi, ViUInt16 mode, ViUInt32 cmd, ViPUInt32 response)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viAssertUtilSignal</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ab6c70081f4c286b00371af8892c0bb57</anchor>
-      <arglist>(ViSession vi, ViUInt16 line)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viAssertIntrSignal</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad38da1dd1d12d636124d60043f946e82</anchor>
-      <arglist>(ViSession vi, ViInt16 mode, ViUInt32 statusID)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viMapTrigger</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a52a5f6f31e7b6b9a8567f743feeb585e</anchor>
-      <arglist>(ViSession vi, ViInt16 trigSrc, ViInt16 trigDest, ViUInt16 mode)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viUnmapTrigger</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a0444e4e00abcc3bdbe05f8bfd4e5a2c8</anchor>
-      <arglist>(ViSession vi, ViInt16 trigSrc, ViInt16 trigDest)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viUsbControlOut</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a37814d489bdb51a04841d42169e5c6cc</anchor>
-      <arglist>(ViSession vi, ViInt16 bmRequestType, ViInt16 bRequest, ViUInt16 wValue, ViUInt16 wIndex, ViUInt16 wLength, ViBuf buf)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viUsbControlIn</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>ad6b67eff59877adcc21a92aaae8d8ebd</anchor>
-      <arglist>(ViSession vi, ViInt16 bmRequestType, ViInt16 bRequest, ViUInt16 wValue, ViUInt16 wIndex, ViUInt16 wLength, ViPBuf buf, ViPUInt16 retCnt)</arglist>
-    </member>
-    <member kind="function">
-      <type>ViStatus _VI_FUNC</type>
-      <name>viVxiServantResponse</name>
-      <anchorfile>visa_8h.html</anchorfile>
-      <anchor>a69d173e287699def486eece5db267349</anchor>
-      <arglist>(ViSession vi, ViInt16 mode, ViUInt32 resp)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>VisaBus.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/Visa/</path>
-    <filename>_visa_bus_8cpp</filename>
-    <includes id="_visa_bus_8h" name="VisaBus.h" local="yes" imported="no">VisaBus.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VisaBus.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/Visa/</path>
-    <filename>_visa_bus_8h</filename>
-    <includes id="_generic_bus_8h" name="GenericBus.h" local="yes" imported="no">GenericBus.h</includes>
-    <includes id="visa_8h" name="visa.h" local="yes" imported="no">visa.h</includes>
-    <class kind="class">RsaToolbox::VisaBus</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="define">
-      <type>#define</type>
-      <name>FILENAME</name>
-      <anchorfile>_visa_bus_8h.html</anchorfile>
-      <anchor>a8de29f7c8bbf1a81cc6e71ac602032d3</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>visatype.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/Visa/</path>
-    <filename>visatype_8h</filename>
-    <member kind="define">
-      <type>#define</type>
-      <name>_VI_FAR</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a89fa79c79a1c430a41ec65dac263c2b9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>_VI_FUNC</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a2a0992b192332494a0a59b464ca853b0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>_VI_FUNCC</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a537f7d3356a493d52efe6bbe936c0c5a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>_VI_FUNCH</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a2a746f9c48a06ef512390f1cfb191e8d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>_VI_SIGNED</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a3d9bb067d39e13cd9fd09c0f6a75a67f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>_VI_ERROR</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ac9eaef66513901c9972d4d222cc856c0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>_VI_PTR</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a48d92e0f3ae0ca82892e6f8dceb31e8e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>_VI_CONST_STRING_DEFINED</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a487723dbc6f7a1cca587b6a9c90fa876</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_SUCCESS</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a22e7e452a3213b64fa15c874a57c56a1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_NULL</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ae91dead03dd26f5cd33e48a5f6f04210</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_TRUE</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a88931333f0acad343b54a52381a1950f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VI_FALSE</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>acfa4bf9c418b40237f1e6825926645da</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>VISAFN</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>af0a4b4bca14293c5d90adf2b9fdfe9c4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>ViPtr</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a203443dea6ddaaf491ee4cf13fd1dd2c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>unsigned long</type>
-      <name>ViUInt32</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a267227b7d7e5e8b364101c8e4bf3595e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>_VI_SIGNED long</type>
-      <name>ViInt32</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a1a7856e1fbcdeacfa08352ce9ba7e2a5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt32 _VI_PTR</type>
-      <name>ViPUInt32</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a492f7114d54eb5b825277a961b5e1a3f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt32 _VI_PTR</type>
-      <name>ViAUInt32</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a5fe7db706d9b9f5be487c6507393625e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViInt32 _VI_PTR</type>
-      <name>ViPInt32</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a75f40ceb67c13167ab0d5b585e94b705</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViInt32 _VI_PTR</type>
-      <name>ViAInt32</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a0522cac5f36d8dff3142a782e7b80d2e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>unsigned short</type>
-      <name>ViUInt16</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ac0d155a8c2af89371278a47ed3e13930</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt16 _VI_PTR</type>
-      <name>ViPUInt16</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a576ead7567e1f5a4596b9d031fb4cdc8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt16 _VI_PTR</type>
-      <name>ViAUInt16</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a0e4822de5efe8a76ff9e30ccf022742d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>_VI_SIGNED short</type>
-      <name>ViInt16</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ab9cbb12822b9038524324c392fac6b69</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViInt16 _VI_PTR</type>
-      <name>ViPInt16</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ad6a92196c67b08a92523023ad13197a9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViInt16 _VI_PTR</type>
-      <name>ViAInt16</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a0a342f630ac0b9da672f83edd90aa3d2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>unsigned char</type>
-      <name>ViUInt8</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a14d890d0ccd79b0982798820371140fe</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt8 _VI_PTR</type>
-      <name>ViPUInt8</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>aa42e2315790781edf2bbae6795cbb722</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt8 _VI_PTR</type>
-      <name>ViAUInt8</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>aa4f17ea4ba2679aa32ba29daff5df3d4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>_VI_SIGNED char</type>
-      <name>ViInt8</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>acb2655b77c535b1c3efe62b7a5106f88</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViInt8 _VI_PTR</type>
-      <name>ViPInt8</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ac674629bdf9f44d370100b9fbd1efa99</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViInt8 _VI_PTR</type>
-      <name>ViAInt8</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a14d9fa61acd5d7c65bc5972fd1c879b1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>char</type>
-      <name>ViChar</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>acb79646b9753a0e142a3266a1584a2b0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViChar _VI_PTR</type>
-      <name>ViPChar</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ac98829caf61f372c728a1ac08b7ab44b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViChar _VI_PTR</type>
-      <name>ViAChar</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ac946fac587d5da6b5f6e0671682268f9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>unsigned char</type>
-      <name>ViByte</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>aa7655e21a264b0c31e608b3e79502654</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViByte _VI_PTR</type>
-      <name>ViPByte</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a0be6d03e6d2656338f8a7fba61f7762c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViByte _VI_PTR</type>
-      <name>ViAByte</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a9d05e8148c9e183b08bf7ae4286c1bf1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>void _VI_PTR</type>
-      <name>ViAddr</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a911eccf8715049d633ea19b9d2c20bbd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViAddr _VI_PTR</type>
-      <name>ViPAddr</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a6d42dc5ad2b5b6a1eee810a2a70acd42</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViAddr _VI_PTR</type>
-      <name>ViAAddr</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a720b22a827884b4b73b5aaa437949885</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>float</type>
-      <name>ViReal32</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ad1f7916df1ea7cf405e5a13c5a182f53</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViReal32 _VI_PTR</type>
-      <name>ViPReal32</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a2fc393c14dde6b2e56e5143593465fff</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViReal32 _VI_PTR</type>
-      <name>ViAReal32</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a9f0039df95d848ef51f434eef23c4d91</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>double</type>
-      <name>ViReal64</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ad96c7ae7f77c881f5774030e08e8ea76</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViReal64 _VI_PTR</type>
-      <name>ViPReal64</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ad0b304c61020d85659467c7c7868e090</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViReal64 _VI_PTR</type>
-      <name>ViAReal64</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a43e8c7ceb1f9f8e9a1ea677068f58e27</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViPByte</type>
-      <name>ViBuf</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a23bd41197b2ed6dbd855cf95448ecdd5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViPByte</type>
-      <name>ViPBuf</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a59b15dc88d141c84559c25e0a81ac944</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViPByte _VI_PTR</type>
-      <name>ViABuf</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a328eda2387ad904412a8c0a2146a37b4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViPChar</type>
-      <name>ViString</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ab68c43ce62c02e290dcf3908e761d3e2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViPChar</type>
-      <name>ViPString</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a661042c3019726e51ada346fe7fcba5c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViPChar _VI_PTR</type>
-      <name>ViAString</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>aa31e584014ed5df0b32ced7b07618f33</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViString</type>
-      <name>ViRsrc</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a45e03b2097e03f8f14bb66eb5fd1a9ad</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViString</type>
-      <name>ViPRsrc</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a5a45876acb94bd351a0a1a726734af97</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViString _VI_PTR</type>
-      <name>ViARsrc</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a1de2ff41a01528c0947889ab15912893</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt16</type>
-      <name>ViBoolean</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a972164cd368c1cc9b3d37b0640c0f2bc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViBoolean _VI_PTR</type>
-      <name>ViPBoolean</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ab906b4e3c45889128a69688c4bc5e180</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViBoolean _VI_PTR</type>
-      <name>ViABoolean</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a36a71722a85800180c26cf550ae6e1ce</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViInt32</type>
-      <name>ViStatus</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a871edadc0943077d5079a2172793f1af</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViStatus _VI_PTR</type>
-      <name>ViPStatus</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a4f33027268dedb0d5cb5e7a54e0a3ac4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViStatus _VI_PTR</type>
-      <name>ViAStatus</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>aa93e942c8733a1689184ee5fbca896b1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt32</type>
-      <name>ViVersion</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>ac269ce5479829c868d2aabda67f8a987</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViVersion _VI_PTR</type>
-      <name>ViPVersion</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a6105a6189305985c9ab51fba0c422bbd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViVersion _VI_PTR</type>
-      <name>ViAVersion</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a8bf0debcbc79e56dc9fe41c704dc616e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt32</type>
-      <name>ViObject</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a7079f7efae4e7243f972a56e7d602f93</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViObject _VI_PTR</type>
-      <name>ViPObject</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a9d5aa794bfd65d73b58b5c7a16a37de7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViObject _VI_PTR</type>
-      <name>ViAObject</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a1aa5d72a3e60feff99c725b594fcdb85</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViObject</type>
-      <name>ViSession</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>af059dc8e4913a7191a27bd642123503d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViSession _VI_PTR</type>
-      <name>ViPSession</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a7774ede71499acbff0760cb8b63d781b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViSession _VI_PTR</type>
-      <name>ViASession</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a983bfc9daf79493953d13e842327c2b1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>ViUInt32</type>
-      <name>ViAttr</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a7cd4a134fbd139f2192e86d1cd8d03bf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>const ViChar *</type>
-      <name>ViConstString</name>
-      <anchorfile>visatype_8h.html</anchorfile>
-      <anchor>a20d1d7ac6404d40272862894a1316dc0</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>Bus.dox</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Documentation/Pages/</path>
-    <filename>_bus_8dox</filename>
-  </compound>
-  <compound kind="file">
-    <name>Installer.dox</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Documentation/Pages/</path>
-    <filename>_installer_8dox</filename>
-  </compound>
-  <compound kind="file">
-    <name>Instrument.dox</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Documentation/Pages/</path>
-    <filename>_instrument_8dox</filename>
-  </compound>
-  <compound kind="file">
-    <name>Log.dox</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Documentation/Pages/</path>
-    <filename>_log_8dox</filename>
-  </compound>
-  <compound kind="file">
-    <name>MainPage.dox</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Documentation/Pages/</path>
-    <filename>_main_page_8dox</filename>
-  </compound>
-  <compound kind="file">
-    <name>PageOrder.dox</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Documentation/Pages/</path>
-    <filename>_page_order_8dox</filename>
-  </compound>
-  <compound kind="file">
-    <name>Templates.dox</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Documentation/Pages/</path>
-    <filename>_templates_8dox</filename>
-  </compound>
-  <compound kind="file">
-    <name>BalancedPort.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_balanced_port_8cpp</filename>
-    <includes id="_balanced_port_8h" name="BalancedPort.h" local="yes" imported="no">BalancedPort.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>BalancedPort.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_balanced_port_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::BalancedPort</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>BalancedPortType</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>acf1ebdd21871818fe315b47399550e12</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>SINGLE_ENDED</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>acf1ebdd21871818fe315b47399550e12aa5cea233f1879638f5a8eb18d6d87bd2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DIFFERENTIAL_MODE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>acf1ebdd21871818fe315b47399550e12ad1ac4eb333998510c340c1f9a78cff3f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>COMMON_MODE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>acf1ebdd21871818fe315b47399550e12a61c06effc644df0555d6f1a8cff5c83a</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>Connector.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_connector_8cpp</filename>
-    <includes id="_connector_8h" name="Connector.h" local="yes" imported="no">Connector.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>Connector.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_connector_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::Connector</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>ConnectorType</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>N_50_OHM_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a61b16617c1ce5333d8c027318e8529fd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>N_75_OHM_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a18904b59a1ded80dad70fa26ab7433ce</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>mm_7_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6aadf3cc24bafb07a62442c480f517b1fd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>mm_3_5_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a4e914111258e64e9d4e2f0dbe3a2861e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>mm_2_92_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a7d63e1ba4ae171f55faa48f6fbd1ee4b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>mm_2_4_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6ae5d22d314468dd08f9106c11c7788c40</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>mm_1_85_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6aab51064780378a3d667507fe8c99c4eb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>in_7_16_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a820b27227c0cde3279db47be215854f0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>TYPE_F_75_OHM_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6aba8a6d93ba5c67bec16f42bdf0f89db1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>BNC_50_OHM_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6ad8eb9947a41587a9b042b29f41a5b6e1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>BNC_75_OHM_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a92016eee17a35da7bc24a7c67fdd31bb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>CUSTOM_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6ac9743d7b99ee46ae162cae020a155a2a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>UNKNOWN_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a6a1586a3f010b4d1fa0be495c37c400f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>ConnectorGender</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a157ffe0e4dcd14784420ca337c6251a1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>MALE_GENDER</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a157ffe0e4dcd14784420ca337c6251a1a9cfa23a30f4229b999a85cb0d577336a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>FEMALE_GENDER</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a157ffe0e4dcd14784420ca337c6251a1abc9baaf3a3a3b0b5eb7bdc25e1cac3de</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>NEUTRAL_GENDER</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a157ffe0e4dcd14784420ca337c6251a1a7faa7e6fb3376fa753cc5904fe40250e</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>Definitions.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_definitions_8h</filename>
-    <namespace>RsaToolbox</namespace>
-    <member kind="typedef">
-      <type>std::complex&lt; double &gt;</type>
-      <name>ComplexDouble</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ab82a545355b9d90ede8e612bf1bcb9ed</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::vector&lt; ComplexDouble &gt;</type>
-      <name>ComplexRowVector</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aeff8cbc6faa565bb58d8f7467e117ae0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::vector&lt; ComplexRowVector &gt;</type>
-      <name>ComplexMatrix2D</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aaf2b301924485eee4bed8606937522b6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::vector&lt; ComplexMatrix2D &gt;</type>
-      <name>ComplexMatrix3D</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a38e11e9315a74fce00f201a19143d587</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::vector&lt; double &gt;</type>
-      <name>RowVector</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a377a6286f7e32baef3ecb46643772d71</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::vector&lt; RowVector &gt;</type>
-      <name>Matrix2D</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4ac77922c110de258891e9f867b98a53</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::vector&lt; Matrix2D &gt;</type>
-      <name>Matrix3D</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ba044817ed0459f04f0bc9e98f771c0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>QVector&lt; double &gt;</type>
-      <name>QRowVector</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a277781f27cd64e7b4d0728b64ace87b8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>QVector&lt; QRowVector &gt;</type>
-      <name>QMatrix2D</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a3579c091e3c712a5242d147bc08b1762</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>QVector&lt; QMatrix2D &gt;</type>
-      <name>QMatrix3D</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac184c78328efc65ad0e0f17890004fb7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>NetworkParameter</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa0ba4d0acd5fdf65863b14e183a9f1d8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>S_PARAMETER</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa0ba4d0acd5fdf65863b14e183a9f1d8a83bb3bbd6a83a05fdbedc08fb53899fb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>Y_PARAMETER</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa0ba4d0acd5fdf65863b14e183a9f1d8a55de577f0f89545831b061382c6f97cf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>Z_PARAMETER</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa0ba4d0acd5fdf65863b14e183a9f1d8abe9267f948ce9e69f2fea2fcee4f3a6f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>H_PARAMETER</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa0ba4d0acd5fdf65863b14e183a9f1d8afa76d9d5eddc128ea577e1a56aaa61c1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>G_PARAMETER</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa0ba4d0acd5fdf65863b14e183a9f1d8af616d0899e2406c6b505f1eaf9c1982d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>WaveQuantity</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad510ffc5b80ffa73e4165154fb790ef0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>A_WAVE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad510ffc5b80ffa73e4165154fb790ef0a3782fc4390ea544b078c2e11f8223f2c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>B_WAVE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad510ffc5b80ffa73e4165154fb790ef0aa86233ccbb7f4656d9f615f2e4a83dc5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>ReferenceLevel</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac2904dcef8205419855c49db4819d430</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RELATIVE_REFERENCE_LEVEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac2904dcef8205419855c49db4819d430a8d64deccd5f19fcee8b738285d325212</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ABSOLUTE_REFERENCE_LEVEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac2904dcef8205419855c49db4819d430a5abb6dfad5d133615e921ed3ff84d3f7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>TraceFormat</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a410a23bf00f6ac6aa86b91b31688806e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DB_MAGNITUDE_TRACE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a410a23bf00f6ac6aa86b91b31688806ea9d68efc32366135baa8c1c5e1b165f70</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>PHASE_DEG_TRACE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a410a23bf00f6ac6aa86b91b31688806ea3ec0bed6d4db74c6fcf94c68a0515ad9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>SMITH_CHART_TRACE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a410a23bf00f6ac6aa86b91b31688806eaf5132fcff918f839752b73ee3b10f880</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>POLAR_CHART_TRACE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a410a23bf00f6ac6aa86b91b31688806ea01f908e0790e62d02a879eeb09dc2823</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>VSWR_TRACE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a410a23bf00f6ac6aa86b91b31688806eaab675c23e794f71b66b3426a7118ccb0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>UNWRAP_PHASE_DEG_TRACE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a410a23bf00f6ac6aa86b91b31688806ea7b48bf464a21b7e8c0a95e0dead6f416</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>LINEAR_MAGNITUDE_TRACE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a410a23bf00f6ac6aa86b91b31688806ea5c7dc179b59b3b6e9bbd746bca718998</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>INVERSE_SMITH_CHART_TRACE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a410a23bf00f6ac6aa86b91b31688806ea5f3f338f813dd9e2c70b01af96eb4e13</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>REAL_PART_TRACE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a410a23bf00f6ac6aa86b91b31688806eac3a012c86fd1233de20b73b7bc05cd4b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>IMAGINARY_PART_TRACE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a410a23bf00f6ac6aa86b91b31688806eaaac708e187a6f005eb3925a7c1b5cd5f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DELAY_TRACE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a410a23bf00f6ac6aa86b91b31688806ea6c6bf22bb32e5758f4244b7adda0b8b4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>CsvFormat</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afef9eb6dfe949b834d1b5b9d7e09d3ff</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>COMPLEX_DB_DEGREES_CSV</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afef9eb6dfe949b834d1b5b9d7e09d3ffa70dafe8e6d387e15403095e22242e536</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>COMPLEX_DB_RADIANS_CSV</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afef9eb6dfe949b834d1b5b9d7e09d3ffabcbae8db0109867d90d1587e730350fd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>COMPLEX_MAGNITUDE_DEGREES_CSV</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afef9eb6dfe949b834d1b5b9d7e09d3ffa7296e99e61aaec591a6defc0ae92dc4b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>COMPLEX_MAGNITUDE_RADIANS_CSV</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afef9eb6dfe949b834d1b5b9d7e09d3ffa045d8c588b42f9a6d6a581df9a18d56c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>COMPLEX_REAL_IMAGINARY_CSV</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afef9eb6dfe949b834d1b5b9d7e09d3ffa45f23fcf5d539cb4c309e022447acd51</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DECIBEL_MAGNITUDE_CSV</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afef9eb6dfe949b834d1b5b9d7e09d3ffa444a10677d50dbc91523a3377c5d9a90</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>MAGNITUDE_CSV</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afef9eb6dfe949b834d1b5b9d7e09d3ffa727b130c38095cde28e2a3624f6cf228</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>PHASE_DEGREES_CSV</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afef9eb6dfe949b834d1b5b9d7e09d3ffa09e5e4f652e0c6406919320dc1b534b3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>PHASE_RADIANS_CSV</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afef9eb6dfe949b834d1b5b9d7e09d3ffa65f4b2c5ca299bc0dcd2d722aec1b819</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>VSWR_CSV</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afef9eb6dfe949b834d1b5b9d7e09d3ffa27217d9450c80405548664c337e26ee4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>ComplexFormat</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a3fd1a9b25d76e60c5b6c4d86356986e9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DB_DEGREES_COMPLEX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a3fd1a9b25d76e60c5b6c4d86356986e9a925c3bdac31e15282640b1c5290ee62c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>MAGNITUDE_DEGREES_COMPLEX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a3fd1a9b25d76e60c5b6c4d86356986e9ac191a8ef9712fcb2ee164739bed9c025</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>REAL_IMAGINARY_COMPLEX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a3fd1a9b25d76e60c5b6c4d86356986e9a9c6c267b96c0f262fb37ed5ef2b21c7d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>Units</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>NO_UNITS</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a8c2ba6073467bd9d6ed60bd207a05096</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>SECONDS_UNITS</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a34953c474698c4f3087532ed910169a0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HERTZ_UNITS</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a24ebb6fb02d0d18316920fe75d4f1360</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RADIANS_UNITS</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a788009337d13367c776b4c7a6e39ed93</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DEGREES_UNITS</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a813b08eb76365a54ce935e4add28acab</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>OHMS_UNITS</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a3f0e5aed9ad87d80aea38ee0139e9c29</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>SIEMENS_UNITS</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190ae756920478732860b23c6c1f3e6d3aac</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>WATTS_UNITS</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190af380a68b72c7642fdb9a1be1554a30ef</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DECIBELS_UNITS</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a5159d6c3439081182324a3ac305c9bff</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DECIBEL_WATTS_UNITS</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a8b519c16109d150640201f28c75bf91b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DECIBEL_MILLIWATTS_UNITS</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190aa8930c6544397269ee73b3ffbf82a84a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>SiPrefix</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>TERA_PREFIX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6abd2b1d2aa49f93b8bb9585f83f830c18</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>GIGA_PREFIX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6a4dcaea62ac4bee447d5d5b0eeee87770</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>MEGA_PREFIX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6a1166811762516c7bf555accfd483d91d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>KILO_PREFIX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6a504c282f744bd1d83885ef547f9b6a19</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>NO_PREFIX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6ad8778d3390d2e20fcca92c8ef72a0903</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>MILLI_PREFIX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6ab7fe26f03d240b87584fe58c3adddd5e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>MICRO_PREFIX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6ac7dcf5de2e3b0e04a1ac04e68646b577</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>NANO_PREFIX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6a72d3a6356c1d49aa03a468f5405d95cb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>PICO_PREFIX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6a188b3047795515d3a4fb1b55efc90b7e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>FEMTO_PREFIX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6abcb0295886c8a661c7841bd1ce92c7aa</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const char</type>
-      <name>RSA_TOOLBOX_VERSION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a3b0288a2b3aee0dfa13b36da65e5cfa5</anchor>
-      <arglist>[]</arglist>
-    </member>
-    <member kind="variable">
-      <type>const char</type>
-      <name>COMPANY_FOLDER</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a84bb6c89cfb4eaf1f998b7ab9a92ab02</anchor>
-      <arglist>[]</arglist>
-    </member>
-    <member kind="variable">
-      <type>const double</type>
-      <name>PI</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a952eac791b596a61bba0a133a3bb439f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const double</type>
-      <name>E</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ab587ba72a9c23f238cb4fd70e2fdb545</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const double</type>
-      <name>DBL_INF</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a62ba705fcc7c634064b60d0e973bb853</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const double</type>
-      <name>DBL_NEG_INF</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7cf1a344b138cc337f4380711deba2f1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const double</type>
-      <name>DBL_NAN</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad24e1f6ce807f3a5c245f7ee6e9e8b03</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>General.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_general_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <namespace>RsaToolbox</namespace>
-    <member kind="function">
-      <type>double</type>
-      <name>bValue</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a42ad7834b66ba0f4eb681fa4168a6f8d</anchor>
-      <arglist>(double x1, double y1, double x2, double y2)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>bValues</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a3f8487bbaf6e2ec148233a4d6576dae6</anchor>
-      <arglist>(QRowVector x, QRowVector y)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>weightedAverage</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d5e90c7a05fed784ef929a46d58ee98</anchor>
-      <arglist>(QRowVector values, QRowVector weights)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&lt;&lt;</name>
-      <anchorfile>_general_8cpp.html</anchorfile>
-      <anchor>aeb50fe1f1675f29176810544dadd70ca</anchor>
-      <arglist>(QDataStream &amp;stream, ComplexDouble value)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&lt;&lt;</name>
-      <anchorfile>_general_8cpp.html</anchorfile>
-      <anchor>a81faf08a5b2919c1053c0d8b644fbdd7</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexRowVector vector)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&lt;&lt;</name>
-      <anchorfile>_general_8cpp.html</anchorfile>
-      <anchor>a7b124830d985f584f3ecebfd1794864b</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexMatrix2D matrix)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&lt;&lt;</name>
-      <anchorfile>_general_8cpp.html</anchorfile>
-      <anchor>a1429553fa5c7161976a710e5d5beccc3</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexMatrix3D matrix)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&gt;&gt;</name>
-      <anchorfile>_general_8cpp.html</anchorfile>
-      <anchor>ad09e87ebcb2ad244fd704e7a473fb074</anchor>
-      <arglist>(QDataStream &amp;stream, ComplexDouble &amp;value)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&gt;&gt;</name>
-      <anchorfile>_general_8cpp.html</anchorfile>
-      <anchor>aec5b5e6bc3d4d0b54f0db49f142f667c</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexRowVector &amp;vector)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&gt;&gt;</name>
-      <anchorfile>_general_8cpp.html</anchorfile>
-      <anchor>a952a5cbbb79ce1ead8cd8dd439fdcbca</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexMatrix2D &amp;matrix)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&gt;&gt;</name>
-      <anchorfile>_general_8cpp.html</anchorfile>
-      <anchor>a142433dd0bf51185b4d8543702330c3c</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexMatrix3D &amp;matrix)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>General.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_general_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <namespace>RsaToolbox</namespace>
-    <member kind="function">
-      <type>double</type>
-      <name>toDouble</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a5e75a474c2f8ba5242fce4450dcce623</anchor>
-      <arglist>(SiPrefix prefix)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>acbf9cedf585f787735a12fb954f32f84</anchor>
-      <arglist>(ComplexFormat format)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a401f7fe87f90c5ca198323624136aad1</anchor>
-      <arglist>(NetworkParameter parameter)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a2fbaebec0acf687c84979be06d132207</anchor>
-      <arglist>(NetworkParameter parameter, uint outputPort, uint inputPort)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a91578283cbe5524cd256ae631d7614e5</anchor>
-      <arglist>(SiPrefix prefix)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a2b7097a8be97e531c5cffc1ec66b8f8a</anchor>
-      <arglist>(Units units)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>abddef2d0ac592f2c9bd33cdbb2f70549</anchor>
-      <arglist>(SiPrefix prefix, Units units)</arglist>
-    </member>
-    <member kind="function">
-      <type>SiPrefix</type>
-      <name>toSiPrefix</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aef3265ac085cb4b9c3123482a618dc6d</anchor>
-      <arglist>(QString prefix)</arglist>
-    </member>
-    <member kind="function">
-      <type>SiPrefix</type>
-      <name>getPrefix</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1f7da27811bba5dc59af9872c72b5238</anchor>
-      <arglist>(double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>AppendPath</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa5cb97be2bab893b0072136464fbbf23</anchor>
-      <arglist>(QDir path, QString filename)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>AppendCurrentDirectory</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a56aa4142e468fd8422c87332b23a297f</anchor>
-      <arglist>(QString filename)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>GetAppDataPath</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af57d5ee3608f72345359f9fe53e65e66</anchor>
-      <arglist>(QString program_folder)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>AppendAppDataPath</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a05cc3717c6e3f03bb1cc84fae5b3a053</anchor>
-      <arglist>(QString program_folder, QString filename)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toScientificNotation</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af1a4280bf5e6d3cba3f29e11cfad6772</anchor>
-      <arglist>(double value, int decimal_places, SiPrefix prefix=NO_PREFIX)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>formatValue</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a78777ebbbe7e2f270250983693a54f57</anchor>
-      <arglist>(double value, int decimal_places, Units units, SiPrefix prefix=NO_PREFIX)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>formatDouble</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4f6310dc021758e8f2015b3e50d26591</anchor>
-      <arglist>(double value, int decimal_places)</arglist>
-    </member>
-    <member kind="function">
-      <type>QStringList</type>
-      <name>toStringList</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a43e55b9319f66b66baaa2f8841e999f7</anchor>
-      <arglist>(QVector&lt; T &gt; vector)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1ff4b93281f6f785d0636ec89688d423</anchor>
-      <arglist>(QVector&lt; T &gt; vector, QString separator)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4c251188f7653030333b2dbca1bafe2d</anchor>
-      <arglist>(QStringList list, QString separator)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a367a66470f1261677697344ca31223b0</anchor>
-      <arglist>(ComplexRowVector vector, QString list_separator, QString format=&quot;(%1, %2)&quot;)</arglist>
-    </member>
-    <member kind="function">
-      <type>QStringList</type>
-      <name>portLabels</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac8b87f32bdc28e2626225c2e2f1320aa</anchor>
-      <arglist>(QVector&lt; uint &gt; ports)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>portString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a59270a806ff441a388b4abf455af0e6d</anchor>
-      <arglist>(QVector&lt; uint &gt; ports)</arglist>
-    </member>
-    <member kind="function">
-      <type>QStringList</type>
-      <name>channelLabels</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa3b8d08858b7f4cb6f24de1c124a94eb</anchor>
-      <arglist>(QVector&lt; uint &gt; channels)</arglist>
-    </member>
-    <member kind="function">
-      <type>QVector&lt; uint &gt;</type>
-      <name>parseUints</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>abb3ddaa4e84753ac45836e592feb3e93</anchor>
-      <arglist>(QString values, QString separator, QString ignore=&quot;&quot;)</arglist>
-    </member>
-    <member kind="function">
-      <type>QVector&lt; int &gt;</type>
-      <name>parseInts</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a8c6a37d918959daf948d92f5957c4b6b</anchor>
-      <arglist>(QString values, QString separator, QString ignore=&quot;&quot;)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>parseDoubles</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a97ba76e16afd9853c7a81a6300db5cbe</anchor>
-      <arglist>(QString values, QString separator, QString ignore=&quot;&quot;)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>parseComplex</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ab6a9bd540b8f1e2e4ea5bc7e08b4f01b</anchor>
-      <arglist>(QString values, QString separator, QString ignore=&quot;&quot;)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>parseComplex</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a257ef823691cebf05e5b8f223b5d9b0b</anchor>
-      <arglist>(QRowVector values)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>parseQRowVector</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1d3d8cb2376dd1beb46014ac96b59b60</anchor>
-      <arglist>(QString buffer)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>parseQRowVector</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a0f00ddf7ecf4d2c63237fc41036fa7db</anchor>
-      <arglist>(ComplexRowVector values)</arglist>
-    </member>
-    <member kind="function">
-      <type>QByteArray</type>
-      <name>toBlockDataFormat</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a74dbc88890beeca8ae8c7b2bb5840737</anchor>
-      <arglist>(QRowVector values)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>toQRowVector</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7ac15524e43d1d695ecd4adbeb9bd242</anchor>
-      <arglist>(QByteArray blockData)</arglist>
-    </member>
-    <member kind="function">
-      <type>QByteArray</type>
-      <name>toBlockDataFormat</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4c977f59cee987da721313140ff98d09</anchor>
-      <arglist>(ComplexRowVector values)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>toComplexRowVector</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a095d2fe4ee83260c30082bb62657eeb8</anchor>
-      <arglist>(QByteArray blockData)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>toDb</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a90325e3eee0931db9b03e33bd969e1ba</anchor>
-      <arglist>(double magnitude)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>toDb</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a8b5fac37bd7f5d387e1fbaed38da99b6</anchor>
-      <arglist>(QRowVector magnitudes)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>toDb</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aed23023feacd7e66ba8f332cd73a929a</anchor>
-      <arglist>(ComplexDouble complexValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>toDb</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1d980b57236be3867233edbeca770a9e</anchor>
-      <arglist>(ComplexRowVector complexValues)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>toMagnitude</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7a6ebb9f84519ca70bfdcd06a5c6e6cf</anchor>
-      <arglist>(double decibels)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>toMagnitude</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a12f7bf7c929558a1234d5d92981059b6</anchor>
-      <arglist>(ComplexDouble complexValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>toMagnitude</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a85bc362fbb015bcc9d7f4dee551f3ae6</anchor>
-      <arglist>(QRowVector values_dB)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>toMagnitude</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac3bb953d5466cb4eb121671c6e5f965b</anchor>
-      <arglist>(ComplexRowVector complexValues)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>degrees</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac2ee607bb77fc38d0a66d81a561d2c82</anchor>
-      <arglist>(double phase_rad)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>degrees</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad9fad2c39c10c26ee64a498425585e0a</anchor>
-      <arglist>(QRowVector phases_rad)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>angle_deg</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a16ffbeaf48af6a84d250a4b6ed08cfbf</anchor>
-      <arglist>(ComplexDouble complexValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>angle_deg</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac4a1f133e1ad088653bf76c1cffbd8a4</anchor>
-      <arglist>(ComplexRowVector complexValues)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>radians</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a43ada3b27897583fde5a568906a41c0c</anchor>
-      <arglist>(double phase_deg)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>radians</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a57f7b6fdcaf0ee08f50bd5d6cef201b3</anchor>
-      <arglist>(QRowVector phases_deg)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>angle_rad</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aeb448e4e152415694b361688b51757fe</anchor>
-      <arglist>(ComplexDouble complexValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>angle_rad</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a36d93e3f76c6602b9959bb5171486b70</anchor>
-      <arglist>(ComplexRowVector complexValues)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>toVswr</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ae59989515f7fd67a3d5b0988a7325a14</anchor>
-      <arglist>(double magnitude)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>toVswr</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1a9c7d9d7aa4cffa3fd95574d23981f8</anchor>
-      <arglist>(QRowVector magnitudes)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>toVswr</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a100fb849363ad7d9b7df0e2c31de544a</anchor>
-      <arglist>(ComplexDouble complexValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>toVswr</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afe11daae4102f507f083c07b47d44b63</anchor>
-      <arglist>(ComplexRowVector complexValues)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>real</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad8addfeea470bb836f4ccdbbe5457e9f</anchor>
-      <arglist>(ComplexRowVector complexValues)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>imaginary</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a8aa532707d4fbf883ce23b23b895846b</anchor>
-      <arglist>(ComplexRowVector complexValues)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexDouble</type>
-      <name>fromRealImag</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a5f96f507a98b20424a6d5f0f077935b5</anchor>
-      <arglist>(double real, double imag)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexDouble</type>
-      <name>fromMagDegrees</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a2910b66fdecb1db3c45def9b20416ffa</anchor>
-      <arglist>(double magnitude, double angle_deg)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexDouble</type>
-      <name>fromDbDegrees</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4051a16c1fec914796d0e1c033216ed2</anchor>
-      <arglist>(double dB, double angle_deg)</arglist>
-    </member>
-    <member kind="function">
-      <type>QVector&lt; int &gt;</type>
-      <name>range</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9f9040fbb1ba563ada8f3e293fcb325d</anchor>
-      <arglist>(int start, int stop, int stepSize=1)</arglist>
-    </member>
-    <member kind="function">
-      <type>QVector&lt; uint &gt;</type>
-      <name>range</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aba29c509dc659952d0784be2653e58ad</anchor>
-      <arglist>(uint start, uint stop, uint stepSize=1)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>linearSpacing</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa06a5b0c1beff543070e85ef69cfca1c</anchor>
-      <arglist>(double start, double stop, int points)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>linearSpacing</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a62a922faa3d1fa360e6c10c5834ab6b1</anchor>
-      <arglist>(QRowVector &amp;result, double start, double stop, int points)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>linearSpacing</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>acb477457f800e6528ebe51e7b77388f9</anchor>
-      <arglist>(RowVector &amp;result, double start, double stop, int points)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>logSpacing</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa6a6dc53ed0a3aeb7b13422f48a792c3</anchor>
-      <arglist>(QRowVector &amp;result, double start, double stop, int points)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInfinity</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a82d846558217ee9aa87a8fe9fb74024a</anchor>
-      <arglist>(double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isNotInfinity</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a5b2f17251e538bec30ab06a564e54be3</anchor>
-      <arglist>(double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isNaN</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a2da3316cdc0d9f30d9b7c19e796191da</anchor>
-      <arglist>(double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isNotNaN</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>adbed0f7d690e0553b77c42fd0e3960bf</anchor>
-      <arglist>(double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>roundInf</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a82406f77f81e29888d7c1d0fc6cb90c3</anchor>
-      <arglist>(double value, double toValue=DBL_MAX)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>roundInf</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1609c2b05d77afbc01574aa730802758</anchor>
-      <arglist>(QRowVector values, double toValue=DBL_MAX)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>round</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ab064c7a47b8e780e57f6df879cf16076</anchor>
-      <arglist>(double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>round</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>abfb90b6522dc506a85602ab8ecd47270</anchor>
-      <arglist>(double value, uint decimal_places)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>floor</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac10aef7f1e85aca6030e5eeec0e5e1d4</anchor>
-      <arglist>(double value, double interval)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>ceiling</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a01171a0778b6254c6e4484061c2447ff</anchor>
-      <arglist>(double value, double interval)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>roundAxis</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afb5aace1130c30638a96cf43ad35db87</anchor>
-      <arglist>(double min, double max, double interval, double &amp;axis_min, double &amp;axis_max)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>roundAxis</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ae9aac1d46b78292370d33f0a73891042</anchor>
-      <arglist>(QRowVector values, double interval, double &amp;axis_min, double &amp;axis_max)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>roundAxis</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a74089e52a82669ed232297f52369b532</anchor>
-      <arglist>(RowVector values, double interval, double &amp;axis_min, double &amp;axis_max)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>linearInterpolateX</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aea56743d85a9d5f085a61d121659a0fd</anchor>
-      <arglist>(double x1, double y1, double x2, double y2, double y_desired)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>linearInterpolateY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a12bd990ca41ec3647a7c1b183cebed50</anchor>
-      <arglist>(double x1, double y1, double x2, double y2, double x_desired)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexDouble</type>
-      <name>linearInterpolateY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ab643f9391face07b2757327ced1ec1b5</anchor>
-      <arglist>(double x1, ComplexDouble y1, double x2, ComplexDouble y2, double x_desired)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>exp</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa4c85985ac0b1e775a67cb80a5d91029</anchor>
-      <arglist>(ComplexRowVector x)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>sum</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1bc51eb7992dcfc1a84d5b70b80e754c</anchor>
-      <arglist>(QRowVector x)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>diff</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aac3484c9070dd5a7491e6a31ffe755d1</anchor>
-      <arglist>(QRowVector x)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>mod</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aaa0a9a7f90355c93c633892b791f954d</anchor>
-      <arglist>(QRowVector x, double denominator)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>cumulativeSum</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a158966986ea84b4b72674ee0b7888be7</anchor>
-      <arglist>(QRowVector x)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>arg</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a283f78093d2c8cdc8f295f5391228250</anchor>
-      <arglist>(ComplexRowVector x)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>wrap</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1de101bc43524b31d4b99d056796a79f</anchor>
-      <arglist>(double x, double bounds=2.0 *PI)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>wrap</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa963d727897de9ddf14b8c64a7946da0</anchor>
-      <arglist>(QRowVector x, double bounds=2.0 *PI)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>unwrap</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a48bc89f06f044b86c3cb890b5a565090</anchor>
-      <arglist>(QRowVector x, double bounds=2.0 *PI)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>phaseAtDc_rad</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a2cbe6bcaeb53d68b19eca6f9166359e1</anchor>
-      <arglist>(QRowVector x, ComplexRowVector y)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>phaseAtDc_deg</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad9627b876d217d16ba9fa9529fc0deae</anchor>
-      <arglist>(QRowVector x, ComplexRowVector y)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>fixPhaseAtDc</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7f069a567159a5a555ce74de827e7f61</anchor>
-      <arglist>(QRowVector x, ComplexRowVector y)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>addPropagate</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a36dfd672c3e5e7469627e20af0297424</anchor>
-      <arglist>(QRowVector x, int startIndex, double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>subtractPropagate</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aab674d0683402508336c09eee11263ba</anchor>
-      <arglist>(QRowVector x, int startIndex, double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>sqrt</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a108ee276905f6053f18adbdd8c4f1bf7</anchor>
-      <arglist>(ComplexRowVector x)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>smoothSqrt</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a34accb03cadb6e22e40e87bd033d447f</anchor>
-      <arglist>(ComplexRowVector x)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>smoothPhase</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad35bef2369fdf259206c950568378ff9</anchor>
-      <arglist>(ComplexRowVector x)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>conjugate</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a32cbf8a3eea06963782d7c82490838a5</anchor>
-      <arglist>(ComplexRowVector x)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>multiply</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a44eb6477e388c2a28053326b8f4c4cc1</anchor>
-      <arglist>(ComplexRowVector vector, double scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexMatrix2D</type>
-      <name>multiply</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>adf5a3ca95570a11e958c6a487550717b</anchor>
-      <arglist>(ComplexMatrix2D matrix, double scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexMatrix3D</type>
-      <name>multiply</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>abcd3107aa8f1ceed0ca6ec2207861be7</anchor>
-      <arglist>(ComplexMatrix3D matrix, double scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>multiply</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a93fdb05e9ed1fae791ef170ea3a9e1a9</anchor>
-      <arglist>(QRowVector vector, ComplexDouble scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>multiply</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a2bc8edeadc8825a1356d4be9eac1dd67</anchor>
-      <arglist>(ComplexRowVector vector, ComplexDouble scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>RowVector</type>
-      <name>multiply</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a39d6fdfe572189b4b543ed2c1fe68add</anchor>
-      <arglist>(RowVector vector, double scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>Matrix2D</type>
-      <name>multiply</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aff7d9037a1da9d6b6e7e8c23ed9ebf8a</anchor>
-      <arglist>(Matrix2D matrix, double scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>Matrix3D</type>
-      <name>multiply</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>acf02aaac2d28bfcc353b1056b92a20b0</anchor>
-      <arglist>(Matrix3D matrix, double scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>multiply</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ab83b504dfc81911d54b73beedc2d5fc3</anchor>
-      <arglist>(QRowVector vector, double scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>QMatrix2D</type>
-      <name>multiply</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>acbab33a3bf448153fd77fae10488d89d</anchor>
-      <arglist>(QMatrix2D matrix, double scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>QMatrix3D</type>
-      <name>multiply</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a24a3db61cb4b64929a539fc03679195a</anchor>
-      <arglist>(QMatrix3D matrix, double scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>multiplyEach</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>adac5ac068e0edcddc335500c81a65748</anchor>
-      <arglist>(ComplexRowVector vector1, ComplexRowVector vector2)</arglist>
-    </member>
-    <member kind="function">
-      <type>RowVector</type>
-      <name>multiplyEach</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a64e958fd26a01aeabc5568afb033929e</anchor>
-      <arglist>(RowVector vector1, RowVector vector2)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>multiplyEach</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a61eafc7a6dae31957c61dfd2836f1287</anchor>
-      <arglist>(QRowVector vector1, QRowVector vector2)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>divideEach</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac9649d420706cacda486e6a326b7905b</anchor>
-      <arglist>(ComplexRowVector vector1, ComplexRowVector vector2)</arglist>
-    </member>
-    <member kind="function">
-      <type>RowVector</type>
-      <name>divideEach</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac6ccb7bd8170214ee3dcc998f42e3db9</anchor>
-      <arglist>(RowVector vector1, RowVector vector2)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>divideEach</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a0ada20a8cc8f6b2d1d68ff3ca6b1edbe</anchor>
-      <arglist>(QRowVector vector1, QRowVector vector2)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>add</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7eb1bec04e0160d1490483197bfd8bd6</anchor>
-      <arglist>(ComplexRowVector vector1, ComplexRowVector vector2)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexMatrix2D</type>
-      <name>add</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aeb70d9906255b09caff1fa71426d6646</anchor>
-      <arglist>(ComplexMatrix2D matrix1, ComplexMatrix2D matrix2)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexMatrix3D</type>
-      <name>add</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7407b694c1bf322461d45217e204b6b8</anchor>
-      <arglist>(ComplexMatrix3D matrix1, ComplexMatrix3D matrix2)</arglist>
-    </member>
-    <member kind="function">
-      <type>RowVector</type>
-      <name>add</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a73a78c0fecff5f804b088e9fc5b286a3</anchor>
-      <arglist>(RowVector vector1, RowVector vector2)</arglist>
-    </member>
-    <member kind="function">
-      <type>Matrix2D</type>
-      <name>add</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac5382071b09bfe5f4bfd6ea42e9f22b0</anchor>
-      <arglist>(Matrix2D matrix1, Matrix2D matrix2)</arglist>
-    </member>
-    <member kind="function">
-      <type>Matrix3D</type>
-      <name>add</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a31ebf455c15012c311764d743c9e13ec</anchor>
-      <arglist>(Matrix3D matrix1, Matrix3D matrix2)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>add</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad19951063015f44edd32dc0013d94cd6</anchor>
-      <arglist>(QRowVector vector1, QRowVector vector2)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>add</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1908c3a1b75a5b5c646690cc3fdf4fbc</anchor>
-      <arglist>(QRowVector vector, double scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>QMatrix2D</type>
-      <name>add</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a184fe3cc09fc3b4b1418541dfd4e39cf</anchor>
-      <arglist>(QMatrix2D matrix1, QMatrix2D matrix2)</arglist>
-    </member>
-    <member kind="function">
-      <type>QMatrix3D</type>
-      <name>add</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa8aa4c9635844b040a44c9854c59bbd7</anchor>
-      <arglist>(QMatrix3D matrix1, QMatrix3D matrix2)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>subtract</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af48500405f7d606c8fadfb35a0ddcec2</anchor>
-      <arglist>(ComplexRowVector vector1, ComplexRowVector vector2)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexMatrix2D</type>
-      <name>subtract</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a84cef2594a805379baa8e0a1df395dc7</anchor>
-      <arglist>(ComplexMatrix2D matrix1, ComplexMatrix2D matrix2)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexMatrix3D</type>
-      <name>subtract</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad5815ea51d583aed736472f8627df0c6</anchor>
-      <arglist>(ComplexMatrix3D matrix1, ComplexMatrix3D matrix2)</arglist>
-    </member>
-    <member kind="function">
-      <type>RowVector</type>
-      <name>subtract</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9a20fcbf652da781fb2fcbbf53e148e8</anchor>
-      <arglist>(RowVector vector1, RowVector vector2)</arglist>
-    </member>
-    <member kind="function">
-      <type>Matrix2D</type>
-      <name>subtract</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a3a863d164af0e3584db698426bfb0869</anchor>
-      <arglist>(Matrix2D matrix1, Matrix2D matrix2)</arglist>
-    </member>
-    <member kind="function">
-      <type>Matrix3D</type>
-      <name>subtract</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af7805c05bdb953b4da6f59a119a802fd</anchor>
-      <arglist>(Matrix3D matrix1, Matrix3D matrix2)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>subtract</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af7ac924bb672e7342c7ba765a39be0f4</anchor>
-      <arglist>(QRowVector vector1, QRowVector vector2)</arglist>
-    </member>
-    <member kind="function">
-      <type>QRowVector</type>
-      <name>subtract</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a64bce15fdbba4d707f489d44361234cc</anchor>
-      <arglist>(QRowVector vector, double scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type>QMatrix2D</type>
-      <name>subtract</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a39f0d94b234b9a99349de41f2b9b74ff</anchor>
-      <arglist>(QMatrix2D matrix1, QMatrix2D matrix2)</arglist>
-    </member>
-    <member kind="function">
-      <type>QMatrix3D</type>
-      <name>subtract</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a742556b11d5fc4792c002d709cc492fd</anchor>
-      <arglist>(QMatrix3D matrix1, QMatrix3D matrix2)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexMatrix2D</type>
-      <name>transpose</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aeae8c8fe3a4b7f4451bd51373b6262d6</anchor>
-      <arglist>(ComplexMatrix2D matrix)</arglist>
-    </member>
-    <member kind="function">
-      <type>QMatrix2D</type>
-      <name>transpose</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aebb27cbadbdfe5fb7ee8a7d904bd592c</anchor>
-      <arglist>(QMatrix2D matrix)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resize</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a6ca04a2d097b31b51db036f57ebba68e</anchor>
-      <arglist>(ComplexMatrix2D &amp;matrix, uint rows, uint columns)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resize</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ab2a8b1446250d8482ca08018f503cfc8</anchor>
-      <arglist>(ComplexMatrix3D &amp;matrix, uint dimension1, uint dimension2, uint dimension3)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexRowVector</type>
-      <name>serialize</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad52c99a5bd3de773d0b6a6520885f667</anchor>
-      <arglist>(ComplexMatrix2D const &amp;matrix)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexMatrix2D</type>
-      <name>toComplexMatrix2D</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4b88ff0464ec91ec2b6f53714b1fb8d3</anchor>
-      <arglist>(ComplexRowVector const &amp;data, uint rows, uint columns)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexMatrix3D</type>
-      <name>toComplexMatrix3D</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a810f041d7d3c1e797b4e6040fe1f6b82</anchor>
-      <arglist>(ComplexRowVector const &amp;data, uint dimension1, uint dimension2, uint dimension3)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexMatrix2D</type>
-      <name>subsection</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1e8fd01296b09562665ef20f0076c261</anchor>
-      <arglist>(ComplexMatrix2D matrix, QVector&lt; uint &gt; rows, QVector&lt; uint &gt; columns)</arglist>
-    </member>
-    <member kind="function">
-      <type>ComplexMatrix2D</type>
-      <name>subsection</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>abae34756352c3e78039a1d936b73e681</anchor>
-      <arglist>(ComplexMatrix2D matrix, QVector&lt; uint &gt; indices)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>insert</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af1cf69015287759252f8b7e76a326a64</anchor>
-      <arglist>(ComplexMatrix2D &amp;matrix, ComplexMatrix2D data, QVector&lt; uint &gt; toRows, QVector&lt; uint &gt; toColumns)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>insert</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4a82ae7a3e94a94cdae2b3ecd4a80faa</anchor>
-      <arglist>(ComplexMatrix2D &amp;matrix, ComplexMatrix2D data, QVector&lt; uint &gt; indices)</arglist>
-    </member>
-    <member kind="function">
-      <type>QMap&lt; T, V &gt;</type>
-      <name>cascade</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad53aceeae099578a31d8bd374328d505</anchor>
-      <arglist>(QMap&lt; T, U &gt; a, QMap&lt; U, V &gt; b)</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>max</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a2daa770aac6dd9e2682dcbd091b3a900</anchor>
-      <arglist>(QVector&lt; T &gt; vector)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>max</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a092585c3ac51be4fd2f5890a4f39f797</anchor>
-      <arglist>(QVector&lt; T &gt; vector, T &amp;maximum, int &amp;index)</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>max</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a14051d4d2caf61e4ff147cdb70e8e49f</anchor>
-      <arglist>(std::vector&lt; T &gt; vector)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>max</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a8e90b240b35e29198e213b4f13149b11</anchor>
-      <arglist>(std::vector&lt; T &gt; vector, T &amp;maximum, int &amp;index)</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>min</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aea9801959ad0df2547ebd0e7e2717c5b</anchor>
-      <arglist>(QVector&lt; T &gt; vector)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>min</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aaeab31f23497d4c7f2fb108afbd5e6f8</anchor>
-      <arglist>(QVector&lt; T &gt; vector, T &amp;minimum, int &amp;index)</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>min</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a388df8a3bb95fba9ed7ff312be73237d</anchor>
-      <arglist>(std::vector&lt; T &gt; vector)</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>min</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1e635f140e9a3d386a8ae68d4183ee23</anchor>
-      <arglist>(std::vector&lt; T &gt; vector, T &amp;minimum, int &amp;index)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&lt;&lt;</name>
-      <anchorfile>_general_8h.html</anchorfile>
-      <anchor>a23e919e3d2c278924e9ef35075ded3e9</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexDouble value)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&lt;&lt;</name>
-      <anchorfile>_general_8h.html</anchorfile>
-      <anchor>a81faf08a5b2919c1053c0d8b644fbdd7</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexRowVector vector)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&lt;&lt;</name>
-      <anchorfile>_general_8h.html</anchorfile>
-      <anchor>a7b124830d985f584f3ecebfd1794864b</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexMatrix2D matrix)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&lt;&lt;</name>
-      <anchorfile>_general_8h.html</anchorfile>
-      <anchor>a1429553fa5c7161976a710e5d5beccc3</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexMatrix3D matrix)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&gt;&gt;</name>
-      <anchorfile>_general_8h.html</anchorfile>
-      <anchor>ac357e579138bc58ffdb054b303c5420b</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexDouble &amp;value)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&gt;&gt;</name>
-      <anchorfile>_general_8h.html</anchorfile>
-      <anchor>aec5b5e6bc3d4d0b54f0db49f142f667c</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexRowVector &amp;vector)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&gt;&gt;</name>
-      <anchorfile>_general_8h.html</anchorfile>
-      <anchor>a952a5cbbb79ce1ead8cd8dd439fdcbca</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexMatrix2D &amp;matrix)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&gt;&gt;</name>
-      <anchorfile>_general_8h.html</anchorfile>
-      <anchor>a142433dd0bf51185b4d8543702330c3c</anchor>
-      <arglist>(QDataStream &amp;stream, RsaToolbox::ComplexMatrix3D &amp;matrix)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>IndexName.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_index_name_8cpp</filename>
-    <includes id="_index_name_8h" name="IndexName.h" local="yes" imported="no">IndexName.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>IndexName.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_index_name_8h</filename>
-    <class kind="class">RsaToolbox::IndexName</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator==</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a6187f001c2d47a1bcf7e55fffc3cae75</anchor>
-      <arglist>(const IndexName &amp;right, const IndexName &amp;left)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator!=</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ada8e824ea3f432f40148ecb9848c3ca6</anchor>
-      <arglist>(const IndexName &amp;right, const IndexName &amp;left)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>Key.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_key_8h</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <class kind="class">RsaToolbox::Key</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>NameLabel.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_name_label_8cpp</filename>
-    <includes id="_name_label_8h" name="NameLabel.h" local="yes" imported="no">NameLabel.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>NameLabel.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_name_label_8h</filename>
-    <class kind="class">RsaToolbox::NameLabel</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>NetworkData.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_network_data_8cpp</filename>
-    <includes id="_network_data_8h" name="NetworkData.h" local="yes" imported="no">NetworkData.h</includes>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_touchstone_8h" name="Touchstone.h" local="yes" imported="no">Touchstone.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>NetworkData.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_network_data_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::NetworkData</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>NetworkTraceData.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_network_trace_data_8cpp</filename>
-    <includes id="_network_trace_data_8h" name="NetworkTraceData.h" local="yes" imported="no">NetworkTraceData.h</includes>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>NetworkTraceData.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_network_trace_data_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_balanced_port_8h" name="BalancedPort.h" local="yes" imported="no">BalancedPort.h</includes>
-    <class kind="class">RsaToolbox::NetworkTraceData</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>SnpStreamReader.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_snp_stream_reader_8cpp</filename>
-    <includes id="_snp_stream_reader_8h" name="SnpStreamReader.h" local="yes" imported="no">SnpStreamReader.h</includes>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>SnpStreamReader.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_snp_stream_reader_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::SnpStreamReader</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>SnpStreamWriter.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_snp_stream_writer_8cpp</filename>
-    <includes id="_snp_stream_writer_8h" name="SnpStreamWriter.h" local="yes" imported="no">SnpStreamWriter.h</includes>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>SnpStreamWriter.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_snp_stream_writer_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::SnpStreamWriter</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Touchstone.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_touchstone_8cpp</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_touchstone_8h" name="Touchstone.h" local="yes" imported="no">Touchstone.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>Touchstone.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/General/</path>
-    <filename>_touchstone_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_network_data_8h" name="NetworkData.h" local="yes" imported="no">NetworkData.h</includes>
-    <class kind="class">RsaToolbox::Touchstone</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>GenericInstrument.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/</path>
-    <filename>_generic_instrument_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_generic_instrument_8h" name="GenericInstrument.h" local="yes" imported="no">GenericInstrument.h</includes>
-    <includes id="_visa_bus_8h" name="VisaBus.h" local="yes" imported="no">VisaBus.h</includes>
-    <includes id="_rsib_bus_8h" name="RsibBus.h" local="yes" imported="no">RsibBus.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>GenericInstrument.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/</path>
-    <filename>_generic_instrument_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_generic_bus_8h" name="GenericBus.h" local="yes" imported="no">GenericBus.h</includes>
-    <includes id="_log_8h" name="Log.h" local="yes" imported="no">Log.h</includes>
-    <class kind="class">RsaToolbox::GenericInstrument</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Rsc.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Rsc/</path>
-    <filename>_rsc_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_rsc_8h" name="Rsc.h" local="yes" imported="no">Rsc.h</includes>
-    <includes id="_rsib_bus_8h" name="RsibBus.h" local="yes" imported="no">RsibBus.h</includes>
-    <includes id="_visa_bus_8h" name="VisaBus.h" local="yes" imported="no">VisaBus.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>Rsc.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Rsc/</path>
-    <filename>_rsc_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_generic_bus_8h" name="GenericBus.h" local="yes" imported="no">GenericBus.h</includes>
-    <includes id="_log_8h" name="Log.h" local="yes" imported="no">Log.h</includes>
-    <class kind="class">RsaToolbox::Rsc</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>RscCalibrationState</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af41cc467667b3529f0b37438ed69b083</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>AF_RSC_CAL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af41cc467667b3529f0b37438ed69b083af18952b7bf991ff22d53a70cc8e9268e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>FULL_RSC_CAL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af41cc467667b3529f0b37438ed69b083aec9b8adfde0d2a94f3190a1c91c938eb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>OFF_RSC_CAL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af41cc467667b3529f0b37438ed69b083ae5c4cfb9e9057bd9b3ecf4b9019b5ab3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>OFS_RSC_CAL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af41cc467667b3529f0b37438ed69b083af1bf8db61bccc119314b47953b5388b0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>RscModel</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_02_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba771d457554410c47eab728f2388217a8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_03_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867bab6f053e7d24881f5a341eab2501b39e8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_04_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba0779cc9bc53e49651cbbf3a21e8d0876</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_05_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba4f6fe4aa89f08f5cf920d131cb542f9e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_13_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba6539fb0eb56784c1ad59e3882c924592</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_14_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba3a6df23307335cd02666a9d7941e168f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_15_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba15dca0b9be137e75c40cc1297328216f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_Z405_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba59263d2fc57cba1d6ddd281bd2369137</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_Z675_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867baf2f9222a8fdfc1754aeb8ea75dd5ee8c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_UNKNOWN_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867bafe0bc45ee49148b564887d252c0b8cbe</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>RscCalState_To_String</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a6c8f7600af906cd94e77e80c918bab6a</anchor>
-      <arglist>(RscCalibrationState state)</arglist>
-    </member>
-    <member kind="function">
-      <type>RscCalibrationState</type>
-      <name>Scpi_To_RscCalState</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad0161f77d312369c7399d89125ca8266</anchor>
-      <arglist>(QString scpi)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>ToString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a3b7200506b30a6eb122bde8bc1449ce0</anchor>
-      <arglist>(RscModel model)</arglist>
-    </member>
-    <member kind="function">
-      <type>RscModel</type>
-      <name>Scpi_to_RscModel</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a839354e4408d5916cde73829940fce8a</anchor>
-      <arglist>(QString scpi)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>Vna.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-    <includes id="_rsib_bus_8h" name="RsibBus.h" local="yes" imported="no">RsibBus.h</includes>
-    <includes id="_visa_bus_8h" name="VisaBus.h" local="yes" imported="no">VisaBus.h</includes>
-    <includes id="_index_name_8h" name="IndexName.h" local="yes" imported="no">IndexName.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>Vna.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_generic_instrument_8h" name="GenericInstrument.h" local="yes" imported="no">GenericInstrument.h</includes>
-    <includes id="_connector_8h" name="Connector.h" local="yes" imported="no">Connector.h</includes>
-    <includes id="_name_label_8h" name="NameLabel.h" local="yes" imported="no">NameLabel.h</includes>
-    <includes id="_vna_properties_8h" name="VnaProperties.h" local="yes" imported="no">VnaProperties.h</includes>
-    <includes id="_vna_settings_8h" name="VnaSettings.h" local="yes" imported="no">VnaSettings.h</includes>
-    <includes id="_vna_file_system_8h" name="VnaFileSystem.h" local="yes" imported="no">VnaFileSystem.h</includes>
-    <includes id="_vna_cal_kit_8h" name="VnaCalKit.h" local="yes" imported="no">VnaCalKit.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_calibrate_8h" name="VnaCalibrate.h" local="yes" imported="no">VnaCalibrate.h</includes>
-    <includes id="_vna_trace_8h" name="VnaTrace.h" local="yes" imported="no">VnaTrace.h</includes>
-    <includes id="_vna_diagram_8h" name="VnaDiagram.h" local="yes" imported="no">VnaDiagram.h</includes>
-    <includes id="_vna_switch_matrix_8h" name="VnaSwitchMatrix.h" local="yes" imported="no">VnaSwitchMatrix.h</includes>
-    <includes id="_vna_cal_unit_8h" name="VnaCalUnit.h" local="yes" imported="no">VnaCalUnit.h</includes>
-    <class kind="class">RsaToolbox::Vna</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaAveraging.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_averaging_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_averaging_8h" name="VnaAveraging.h" local="yes" imported="no">VnaAveraging.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaAveraging.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_averaging_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaAveraging</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaCalibrate.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_calibrate_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_calibrate_8h" name="VnaCalibrate.h" local="yes" imported="no">VnaCalibrate.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaCalibrate.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_calibrate_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_name_label_8h" name="NameLabel.h" local="yes" imported="no">NameLabel.h</includes>
-    <includes id="_connector_8h" name="Connector.h" local="yes" imported="no">Connector.h</includes>
-    <class kind="class">RsaToolbox::VnaCalibrate</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>VnaCalType</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aed14be025d3f2c7af72c62ee0e516cb3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>OSM_CAL_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aed14be025d3f2c7af72c62ee0e516cb3a554dfea4df7807e32e2bccab7f2f4ed9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>TOSM_CAL_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aed14be025d3f2c7af72c62ee0e516cb3a6345cb79364488133bf14a315d43d066</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>UOSM_CAL_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aed14be025d3f2c7af72c62ee0e516cb3adabb6aa8b6c33457e170fe67804562a3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toScpi</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a6cfc38382274ab6bba34041614b352eb</anchor>
-      <arglist>(VnaCalType type)</arglist>
-    </member>
-    <member kind="function">
-      <type>VnaCalType</type>
-      <name>toVnaCalType</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a782487130b4a3c995371050f18ef6922</anchor>
-      <arglist>(QString scpi)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>VnaCalKit.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_cal_kit_8cpp</filename>
-    <includes id="_vna_cal_kit_8h" name="VnaCalKit.h" local="yes" imported="no">VnaCalKit.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaCalKit.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_cal_kit_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_name_label_8h" name="NameLabel.h" local="yes" imported="no">NameLabel.h</includes>
-    <includes id="_connector_8h" name="Connector.h" local="yes" imported="no">Connector.h</includes>
-    <includes id="_vna_cal_standard_8h" name="VnaCalStandard.h" local="yes" imported="no">VnaCalStandard.h</includes>
-    <class kind="class">RsaToolbox::VnaCalKit</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaCalStandard.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_cal_standard_8cpp</filename>
-    <includes id="_vna_cal_standard_8h" name="VnaCalStandard.h" local="yes" imported="no">VnaCalStandard.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaCalStandard.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_cal_standard_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_connector_8h" name="Connector.h" local="yes" imported="no">Connector.h</includes>
-    <includes id="_vna_standard_model_8h" name="VnaStandardModel.h" local="yes" imported="no">VnaStandardModel.h</includes>
-    <class kind="class">RsaToolbox::VnaCalStandard</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>VnaStandardType</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>OPEN_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aad716b85e0fcce01ecaf5c55a4a231203</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>SHORT_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aa4b7003004c7e0cf81631bc508559c26c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>OFFSET_SHORT_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aa62a71c7de147c37857281397efa8b58b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>OFFSET_SHORT2_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aae0c01dd6eee34f1cb7a6b997194e4e04</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>OFFSET_SHORT3_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aab7dc1b42121f8ed9838140913fcfe648</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>MATCH_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aa7bc1a902cca4bcec506dffb1cb1b164c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>SLIDING_MATCH_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aa7af320277cdd677322c64b1e5e63665d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>REFLECT_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aaf420b8b1a8320d2ce4b9168d93d1b6b7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>THRU_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aaf133c2cfb6637b93f572499a25cb82f7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>LINE_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aa3519843846cbff68f1074c676668c0cc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>LINE2_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aacd137ddbb43287a71624dca6024fd3a9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>LINE3_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aa7f2b1a3fc142f96da46d0a24ef8ab817</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ATTENUATION_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aaa9241aa03e902432d4a7d210120a72ee</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>SYMMETRIC_NETWORK_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aaee85c74e67a617084ae74c4bd185eb64</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>UNKNOWN_STANDARD_TYPE</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a9ca463a100aad8f02e3d00baf761ff7aaba2dfb4dbc1f82f097268452c8b2e03d</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>VnaCalUnit.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_cal_unit_8cpp</filename>
-    <includes id="_vna_cal_unit_8h" name="VnaCalUnit.h" local="yes" imported="no">VnaCalUnit.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaCalUnit.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_cal_unit_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaCalUnit</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaChannel.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_channel_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_index_name_8h" name="IndexName.h" local="yes" imported="no">IndexName.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaChannel.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_channel_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_balanced_port_8h" name="BalancedPort.h" local="yes" imported="no">BalancedPort.h</includes>
-    <includes id="_vna_user_defined_port_8h" name="VnaUserDefinedPort.h" local="yes" imported="no">VnaUserDefinedPort.h</includes>
-    <includes id="_vna_linear_sweep_8h" name="VnaLinearSweep.h" local="yes" imported="no">VnaLinearSweep.h</includes>
-    <includes id="_vna_log_sweep_8h" name="VnaLogSweep.h" local="yes" imported="no">VnaLogSweep.h</includes>
-    <includes id="_vna_segmented_sweep_8h" name="VnaSegmentedSweep.h" local="yes" imported="no">VnaSegmentedSweep.h</includes>
-    <includes id="_vna_power_sweep_8h" name="VnaPowerSweep.h" local="yes" imported="no">VnaPowerSweep.h</includes>
-    <includes id="_vna_cw_sweep_8h" name="VnaCwSweep.h" local="yes" imported="no">VnaCwSweep.h</includes>
-    <includes id="_vna_time_sweep_8h" name="VnaTimeSweep.h" local="yes" imported="no">VnaTimeSweep.h</includes>
-    <includes id="_vna_averaging_8h" name="VnaAveraging.h" local="yes" imported="no">VnaAveraging.h</includes>
-    <includes id="_vna_corrections_8h" name="VnaCorrections.h" local="yes" imported="no">VnaCorrections.h</includes>
-    <includes id="_vna_calibrate_8h" name="VnaCalibrate.h" local="yes" imported="no">VnaCalibrate.h</includes>
-    <class kind="class">RsaToolbox::VnaChannel</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>VnaSweepType</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a741a7a035d77e272e364af0697633c79</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>LINEAR_SWEEP</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a741a7a035d77e272e364af0697633c79ad061837f35d10d8b5eedb02b431a371d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>LOG_SWEEP</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a741a7a035d77e272e364af0697633c79a10cce66a1b3df251d7fbb11fd3b89d4c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>SEGMENTED_SWEEP</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a741a7a035d77e272e364af0697633c79a33f403a42a3aea0a67b63aec71da4836</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>POWER_SWEEP</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a741a7a035d77e272e364af0697633c79ad65f8c78351e3522fde3b5b8cb3d64a2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>CW_SWEEP</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a741a7a035d77e272e364af0697633c79a72213c41d7382ad523167396ac788a40</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>TIME_SWEEP</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a741a7a035d77e272e364af0697633c79a62d23a952416a66f3d5a072bc9ced1f2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toScpi</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ab2f2ea0a80a723ce1fdf99d005cb6c98</anchor>
-      <arglist>(VnaSweepType sweepType)</arglist>
-    </member>
-    <member kind="function">
-      <type>VnaSweepType</type>
-      <name>toVnaSweepType</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a8341063968d06412b1c0713907e13df1</anchor>
-      <arglist>(QString scpi)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>VnaCorrections.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_corrections_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_corrections_8h" name="VnaCorrections.h" local="yes" imported="no">VnaCorrections.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaCorrections.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_corrections_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaCorrections</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaCwSweep.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_cw_sweep_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_cw_sweep_8h" name="VnaCwSweep.h" local="yes" imported="no">VnaCwSweep.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaCwSweep.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_cw_sweep_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaCwSweep</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaDiagram.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_diagram_8cpp</filename>
-    <includes id="_vna_diagram_8h" name="VnaDiagram.h" local="yes" imported="no">VnaDiagram.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaDiagram.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_diagram_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaDiagram</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaFileSystem.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_file_system_8cpp</filename>
-    <includes id="_vna_file_system_8h" name="VnaFileSystem.h" local="yes" imported="no">VnaFileSystem.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaFileSystem.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_file_system_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaFileSystem</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>VnaDirectory</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DEFAULT_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850aba70ab56c8497a5155e06e7bc42b3ec7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>EMBED_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850ac3bdae926d1a34444e8fa1441525fe32</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DEEMBED_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850ade6246814a395c7ccef887fc7c30a9c2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>CAL_GROUP_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850aeeb197361de055a6fe6523e31cc3f081</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>CAL_KIT_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850a981832126da42584e99723f632952208</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>EXTERNAL_TOOLS_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850a1fb38160435656bb12debb661fe4b555</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RECALL_SETS_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850a6d5ca8263124d28188c8bdf85edc0d65</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>TRACES_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850a9f9f8a45c0bcdf2c9ec7aad9c02ab60d</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>VnaLinearSweep.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_linear_sweep_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_linear_sweep_8h" name="VnaLinearSweep.h" local="yes" imported="no">VnaLinearSweep.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaLinearSweep.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_linear_sweep_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_network_data_8h" name="NetworkData.h" local="yes" imported="no">NetworkData.h</includes>
-    <class kind="class">RsaToolbox::VnaLinearSweep</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaLogSweep.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_log_sweep_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_log_sweep_8h" name="VnaLogSweep.h" local="yes" imported="no">VnaLogSweep.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaLogSweep.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_log_sweep_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_network_data_8h" name="NetworkData.h" local="yes" imported="no">NetworkData.h</includes>
-    <class kind="class">RsaToolbox::VnaLogSweep</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaMarker.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_marker_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_marker_8h" name="VnaMarker.h" local="yes" imported="no">VnaMarker.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaMarker.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_marker_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaMarker</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaPowerCalibrate.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_power_calibrate_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_power_calibrate_8h" name="VnaPowerCalibrate.h" local="yes" imported="no">VnaPowerCalibrate.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaPowerCalibrate.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_power_calibrate_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_name_label_8h" name="NameLabel.h" local="yes" imported="no">NameLabel.h</includes>
-    <includes id="_connector_8h" name="Connector.h" local="yes" imported="no">Connector.h</includes>
-    <class kind="class">RsaToolbox::VnaPowerCalibrate</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaPowerCorrections.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_power_corrections_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_power_corrections_8h" name="VnaPowerCorrections.h" local="yes" imported="no">VnaPowerCorrections.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaPowerCorrections.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_power_corrections_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaPowerCorrections</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaPowerSweep.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_power_sweep_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_power_sweep_8h" name="VnaPowerSweep.h" local="yes" imported="no">VnaPowerSweep.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaPowerSweep.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_power_sweep_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaPowerSweep</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaProperties.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_properties_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-    <includes id="_vna_properties_8h" name="VnaProperties.h" local="yes" imported="no">VnaProperties.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaProperties.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_properties_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaProperties</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>VnaModel</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVA_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a2d51e423a09a3c2b3153aa2cea9a598c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVB_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a5da95a0c91001bfb794b9b94965535ac</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVH_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01adba63c59378b92096fab4185be6b9d8d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVL_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a1f5f1ba03530b290a088a2f902558de2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVT_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a65d730cf6fef22b7c351a5eaf3f1390d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZNB_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01ad2368b2cd5f0cc866f4bce111466684e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZNBT_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01af13fef3f36941ed7498d28362babbb81</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZNC_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a7066fd4bb8edb717a681bdfa6c8f6960</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZNP_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a84ddb44271f00d058dbd9a6275361a06</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>UNKNOWN_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a3f3d79136caf882d83cc87d6b5f5478e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toString</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a803ac7720b39828537ed067e2e5b1599</anchor>
-      <arglist>(VnaModel model)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toSetFileExtension</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>abc530d8cc4fb4af9cbb2b389122b97cd</anchor>
-      <arglist>(VnaModel model)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>VnaReferenceMarker.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_reference_marker_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_reference_marker_8h" name="VnaReferenceMarker.h" local="yes" imported="no">VnaReferenceMarker.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaReferenceMarker.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_reference_marker_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaReferenceMarker</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaSegmentedSweep.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_segmented_sweep_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_segmented_sweep_8h" name="VnaSegmentedSweep.h" local="yes" imported="no">VnaSegmentedSweep.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaSegmentedSweep.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_segmented_sweep_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_network_data_8h" name="NetworkData.h" local="yes" imported="no">NetworkData.h</includes>
-    <includes id="_vna_sweep_segment_8h" name="VnaSweepSegment.h" local="yes" imported="no">VnaSweepSegment.h</includes>
-    <class kind="class">RsaToolbox::VnaSegmentedSweep</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaSettings.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_settings_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_settings_8h" name="VnaSettings.h" local="yes" imported="no">VnaSettings.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaSettings.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_settings_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaSettings</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>VnaEmulationMode</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>NO_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa1c62780b1b015465ebad1ca53372d23c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>PNA_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa157713b030dfccebbc8a2333fe49c9ca</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HP_8510_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa738dcbf912d1eab23b3ae0f7ba2e6261</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HP_8720_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa73c91c970186c6170831e63b1dc29144</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HP_8753_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aab8a7323b95539d70c78068f248e10c6c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HP_8714_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa1c284ab1efe315e9ff36c97c29e18990</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVR_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa9a1fd28ed6cbe66c21b62d5cb5c7b7c5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HP_8530_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa2f6231df7774966492dc80879e4e4f3f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ENA_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aaaf6487e48db7292fc40262e932807261</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVABT_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aac08429b0441ae1aca82fff832f5e0552</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>VnaColorScheme</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ae54ff682cf8310c58191f1b6349e09f5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DARK_BACKGROUND</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ae54ff682cf8310c58191f1b6349e09f5ac0208f506c01bf8d6a77ed681d44a376</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>LIGHT_BACKGROUND</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ae54ff682cf8310c58191f1b6349e09f5a99b64d93fc67c275192cf880466350fb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>BLACK_WHITE_OUTLINE_BACKGROUND</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ae54ff682cf8310c58191f1b6349e09f5a407aefbf802d2adb32a015d0e88b630b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>BLACK_WHITE_SOLID_BACKGROUND</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ae54ff682cf8310c58191f1b6349e09f5a1fe79d0781fe8bd380e1a5cd78c3eb46</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>VnaStandardModel.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_standard_model_8cpp</filename>
-    <includes id="_vna_standard_model_8h" name="VnaStandardModel.h" local="yes" imported="no">VnaStandardModel.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaStandardModel.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_standard_model_8h</filename>
-    <class kind="class">RsaToolbox::VnaStandardModel</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator==</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a98f28e7bd9f52e4fda5411eacfd8a98a</anchor>
-      <arglist>(VnaStandardModel const &amp;left, VnaStandardModel const &amp;right)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator!=</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4bb4255a1505d989988bf4e5bf6968cf</anchor>
-      <arglist>(VnaStandardModel const &amp;left, VnaStandardModel const &amp;right)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>VnaSweepSegment.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_sweep_segment_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_sweep_segment_8h" name="VnaSweepSegment.h" local="yes" imported="no">VnaSweepSegment.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaSweepSegment.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_sweep_segment_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaSweepSegment</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaSwitchMatrix.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_switch_matrix_8cpp</filename>
-    <includes id="_vna_switch_matrix_8h" name="VnaSwitchMatrix.h" local="yes" imported="no">VnaSwitchMatrix.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaSwitchMatrix.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_switch_matrix_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaSwitchMatrix</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaTimeDomain.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_time_domain_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_time_domain_8h" name="VnaTimeDomain.h" local="yes" imported="no">VnaTimeDomain.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaTimeDomain.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_time_domain_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaTimeDomain</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>VnaWindowFunction</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ade955acccb31f71d24b4e5458b7b742e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>REGULAR_WINDOW_FUNCTION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ade955acccb31f71d24b4e5458b7b742ea3b58f436f7b0999dbe0f8aa96dc0330e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HAMMING_WINDOW_FUNCTION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ade955acccb31f71d24b4e5458b7b742ea007b1aba6911a0756f2947be7e9c364a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HANN_WINDOW_FUNCTION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ade955acccb31f71d24b4e5458b7b742ea33b4bddabfe425dad335558453cb69f7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>BOHMAN_WINDOW_FUNCTION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ade955acccb31f71d24b4e5458b7b742ea685fd608f32061c752bf01044ace1d66</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DOLPH_CHEBYCHEV_WINDOW_FUNCTION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ade955acccb31f71d24b4e5458b7b742ea747deaadb3f99845690e7e8b8ce0e8c6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>RiseTimeDefinition</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1f109c762bc8b7db640633c8a9b4f5f7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RISETIME_20_TO_80</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1f109c762bc8b7db640633c8a9b4f5f7a5499071d72009edb7df61b9a656215f8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RISETIME_10_TO_90</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a1f109c762bc8b7db640633c8a9b4f5f7a81117b8a1f5d9bafbbf95c6bf937dd22</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>VnaTimeSweep.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_time_sweep_8cpp</filename>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_time_sweep_8h" name="VnaTimeSweep.h" local="yes" imported="no">VnaTimeSweep.h</includes>
-    <includes id="_vna_channel_8h" name="VnaChannel.h" local="yes" imported="no">VnaChannel.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaTimeSweep.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_time_sweep_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::VnaTimeSweep</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaTrace.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_trace_8cpp</filename>
-    <includes id="_vna_trace_8h" name="VnaTrace.h" local="yes" imported="no">VnaTrace.h</includes>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaTrace.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_trace_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_balanced_port_8h" name="BalancedPort.h" local="yes" imported="no">BalancedPort.h</includes>
-    <includes id="_network_trace_data_8h" name="NetworkTraceData.h" local="yes" imported="no">NetworkTraceData.h</includes>
-    <includes id="_vna_marker_8h" name="VnaMarker.h" local="yes" imported="no">VnaMarker.h</includes>
-    <includes id="_vna_reference_marker_8h" name="VnaReferenceMarker.h" local="yes" imported="no">VnaReferenceMarker.h</includes>
-    <includes id="_vna_time_domain_8h" name="VnaTimeDomain.h" local="yes" imported="no">VnaTimeDomain.h</includes>
-    <class kind="class">RsaToolbox::VnaTrace</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>VnaUserDefinedPort.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_user_defined_port_8cpp</filename>
-    <includes id="_vna_user_defined_port_8h" name="VnaUserDefinedPort.h" local="yes" imported="no">VnaUserDefinedPort.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>VnaUserDefinedPort.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
-    <filename>_vna_user_defined_port_8h</filename>
-    <class kind="class">RsaToolbox::VnaUserDefinedPort</class>
-    <namespace>RsaToolbox</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>VnaReceiver</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a0caf3cd1fce8615b0f926b3320173aa9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RECEIVER_A</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a0caf3cd1fce8615b0f926b3320173aa9a5141c5dc95df12f1f9fe8d37b6e345f8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RECEIVER_B</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a0caf3cd1fce8615b0f926b3320173aa9a9884a31097eeb934843ac3eeab240dce</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toScpi</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a5fbe812a0f21ba533aee3717affc28b7</anchor>
-      <arglist>(VnaReceiver receiver)</arglist>
-    </member>
-    <member kind="function">
-      <type>VnaReceiver</type>
-      <name>toVnaReceiver</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a8d575d47dbb967f85fc36439d58aff23</anchor>
-      <arglist>(QString scpi)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toScpi</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a5bc79df0bf071f46c615bc832eec4b72</anchor>
-      <arglist>(VnaUserDefinedPort userDefinedPort)</arglist>
-    </member>
-    <member kind="function">
-      <type>VnaUserDefinedPort</type>
-      <name>toUserDefinedPort</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>abf29c95c84ba00760dbdb51885aaa2c0</anchor>
-      <arglist>(QString scpi)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator==</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a88ba0257d35cfbf6aabd3f3d76399374</anchor>
-      <arglist>(VnaUserDefinedPort const &amp;left, VnaUserDefinedPort const &amp;right)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator!=</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afc8e915bbe9d7bdf5e912927d469ccc7</anchor>
-      <arglist>(VnaUserDefinedPort const &amp;left, VnaUserDefinedPort const &amp;right)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>Log.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Log/</path>
-    <filename>_log_8cpp</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_log_8h" name="Log.h" local="yes" imported="no">Log.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>Log.h</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Log/</path>
-    <filename>_log_8h</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <class kind="class">RsaToolbox::Log</class>
-    <namespace>RsaToolbox</namespace>
-  </compound>
-  <compound kind="file">
-    <name>main.cpp</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/</path>
-    <filename>main_8cpp</filename>
-    <includes id="_definitions_8h" name="Definitions.h" local="yes" imported="no">Definitions.h</includes>
-    <includes id="_general_8h" name="General.h" local="yes" imported="no">General.h</includes>
-    <includes id="_visa_bus_8h" name="VisaBus.h" local="yes" imported="no">VisaBus.h</includes>
-    <includes id="_vna_8h" name="Vna.h" local="yes" imported="no">Vna.h</includes>
-    <includes id="_network_data_8h" name="NetworkData.h" local="yes" imported="no">NetworkData.h</includes>
-    <includes id="_snp_stream_reader_8h" name="SnpStreamReader.h" local="yes" imported="no">SnpStreamReader.h</includes>
-    <includes id="_snp_stream_writer_8h" name="SnpStreamWriter.h" local="yes" imported="no">SnpStreamWriter.h</includes>
-    <includes id="_log_8h" name="Log.h" local="yes" imported="no">Log.h</includes>
-    <member kind="function">
-      <type>int</type>
-      <name>main</name>
-      <anchorfile>main_8cpp.html</anchorfile>
-      <anchor>a0ddf1224851353fc92bfbff6f499fa97</anchor>
-      <arglist>(int argc, char *argv[])</arglist>
-    </member>
-  </compound>
   <compound kind="page">
     <name>Log</name>
     <title></title>
@@ -8539,8 +30,8 @@
     <title>Bus</title>
     <filename>group___bus_group.html</filename>
     <class kind="class">RsaToolbox::GenericBus</class>
-    <class kind="class">RsaToolbox::RsibBus</class>
     <class kind="class">RsaToolbox::VisaBus</class>
+    <class kind="class">RsaToolbox::TcpBus</class>
   </compound>
   <compound kind="group">
     <name>InstrumentGroup</name>
@@ -8596,20 +87,39 @@
   <compound kind="namespace">
     <name>RsaToolbox</name>
     <filename>namespace_rsa_toolbox.html</filename>
+    <namespace>RsaToolbox::Ui</namespace>
     <class kind="class">RsaToolbox::BalancedPort</class>
+    <class kind="class">RsaToolbox::BreadCrumbs</class>
+    <class kind="class">RsaToolbox::CalDialog</class>
+    <class kind="class">RsaToolbox::CalGroupPanel</class>
+    <class kind="class">RsaToolbox::CalGroupsModel</class>
+    <class kind="class">RsaToolbox::ChannelsModel</class>
+    <class kind="class">RsaToolbox::ConnectButton</class>
+    <class kind="class">RsaToolbox::ConnectionTypeComboBox</class>
     <class kind="class">RsaToolbox::Connector</class>
+    <class kind="class">RsaToolbox::ErrorLabel</class>
+    <class kind="class">RsaToolbox::Figure</class>
+    <class kind="class">RsaToolbox::FormattedComplex</class>
+    <class kind="class">RsaToolbox::FormattedNetworkData</class>
+    <class kind="class">RsaToolbox::FormattedTouchstone</class>
     <class kind="class">RsaToolbox::GenericBus</class>
     <class kind="class">RsaToolbox::GenericInstrument</class>
+    <class kind="class">RsaToolbox::getChannelDialog</class>
+    <class kind="class">RsaToolbox::getPortsDialog</class>
+    <class kind="class">RsaToolbox::GetSnpFile</class>
     <class kind="class">RsaToolbox::IndexName</class>
-    <class kind="class">RsaToolbox::Key</class>
+    <class kind="class">RsaToolbox::Keys</class>
+    <class kind="class">RsaToolbox::LastPath</class>
+    <class kind="class">RsaToolbox::ListPanel</class>
     <class kind="class">RsaToolbox::Log</class>
     <class kind="class">RsaToolbox::NameLabel</class>
     <class kind="class">RsaToolbox::NetworkData</class>
     <class kind="class">RsaToolbox::NetworkTraceData</class>
-    <class kind="class">RsaToolbox::Rsc</class>
-    <class kind="class">RsaToolbox::RsibBus</class>
+    <class kind="class">RsaToolbox::NoBus</class>
+    <class kind="class">RsaToolbox::PortsLineEdit</class>
     <class kind="class">RsaToolbox::SnpStreamReader</class>
     <class kind="class">RsaToolbox::SnpStreamWriter</class>
+    <class kind="class">RsaToolbox::TcpBus</class>
     <class kind="class">RsaToolbox::Touchstone</class>
     <class kind="class">RsaToolbox::VisaBus</class>
     <class kind="class">RsaToolbox::Vna</class>
@@ -8623,9 +133,13 @@
     <class kind="class">RsaToolbox::VnaCwSweep</class>
     <class kind="class">RsaToolbox::VnaDiagram</class>
     <class kind="class">RsaToolbox::VnaFileSystem</class>
+    <class kind="class">RsaToolbox::VnaForm</class>
+    <class kind="class">RsaToolbox::VnaLimits</class>
     <class kind="class">RsaToolbox::VnaLinearSweep</class>
     <class kind="class">RsaToolbox::VnaLogSweep</class>
     <class kind="class">RsaToolbox::VnaMarker</class>
+    <class kind="class">RsaToolbox::VnaMath</class>
+    <class kind="class">RsaToolbox::VnaModel</class>
     <class kind="class">RsaToolbox::VnaPowerCalibrate</class>
     <class kind="class">RsaToolbox::VnaPowerCorrections</class>
     <class kind="class">RsaToolbox::VnaPowerSweep</class>
@@ -8640,6 +154,9 @@
     <class kind="class">RsaToolbox::VnaTimeSweep</class>
     <class kind="class">RsaToolbox::VnaTrace</class>
     <class kind="class">RsaToolbox::VnaUserDefinedPort</class>
+    <class kind="class">RsaToolbox::Wizard</class>
+    <class kind="class">RsaToolbox::WizardButtons</class>
+    <class kind="class">RsaToolbox::WizardPage</class>
     <member kind="typedef">
       <type>std::complex&lt; double &gt;</type>
       <name>ComplexDouble</name>
@@ -8710,6 +227,48 @@
       <anchor>ac184c78328efc65ad0e0f17890004fb7</anchor>
       <arglist></arglist>
     </member>
+    <member kind="typedef">
+      <type>QVector&lt; FormattedComplex &gt;</type>
+      <name>FormattedComplexRowVector</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a8f895cb7267e752eb462fbde45f3223f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>QVector&lt; FormattedComplexRowVector &gt;</type>
+      <name>FormattedComplexMatrix2D</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ae3857aec7395a9e9130142b4b0922978</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>QVector&lt; FormattedComplexMatrix2D &gt;</type>
+      <name>FormattedComplexMatrix3D</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a203b8b99e73a24dd2069a88529781714</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>QSharedPointer&lt; LastPath &gt;</type>
+      <name>SharedLastPath</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a66062e9800c9e9b6be327bdde3584b8c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>QList&lt; WizardPage * &gt;</type>
+      <name>WizardPages</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a96a5983c2cf04cc57dab882a7be10e57</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>QSharedPointer&lt; CalGroupsModel &gt;</type>
+      <name>SharedCalGroupsModel</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ad95f80ef6af58a8bb08008536300b870</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="enumeration">
       <type></type>
       <name>ConnectionType</name>
@@ -8771,104 +330,6 @@
       <name>COMMON_MODE</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>acf1ebdd21871818fe315b47399550e12a61c06effc644df0555d6f1a8cff5c83a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>ConnectorType</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>N_50_OHM_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a61b16617c1ce5333d8c027318e8529fd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>N_75_OHM_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a18904b59a1ded80dad70fa26ab7433ce</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>mm_7_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6aadf3cc24bafb07a62442c480f517b1fd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>mm_3_5_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a4e914111258e64e9d4e2f0dbe3a2861e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>mm_2_92_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a7d63e1ba4ae171f55faa48f6fbd1ee4b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>mm_2_4_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6ae5d22d314468dd08f9106c11c7788c40</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>mm_1_85_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6aab51064780378a3d667507fe8c99c4eb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>in_7_16_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a820b27227c0cde3279db47be215854f0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>TYPE_F_75_OHM_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6aba8a6d93ba5c67bec16f42bdf0f89db1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>BNC_50_OHM_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6ad8eb9947a41587a9b042b29f41a5b6e1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>BNC_75_OHM_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a92016eee17a35da7bc24a7c67fdd31bb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>CUSTOM_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6ac9743d7b99ee46ae162cae020a155a2a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>UNKNOWN_CONNECTOR</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a086c6f6507c67c8809b218d90998c5d6a6a1586a3f010b4d1fa0be495c37c400f</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumeration">
@@ -9335,118 +796,6 @@
     </member>
     <member kind="enumeration">
       <type></type>
-      <name>RscCalibrationState</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af41cc467667b3529f0b37438ed69b083</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>AF_RSC_CAL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af41cc467667b3529f0b37438ed69b083af18952b7bf991ff22d53a70cc8e9268e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>FULL_RSC_CAL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af41cc467667b3529f0b37438ed69b083aec9b8adfde0d2a94f3190a1c91c938eb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>OFF_RSC_CAL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af41cc467667b3529f0b37438ed69b083ae5c4cfb9e9057bd9b3ecf4b9019b5ab3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>OFS_RSC_CAL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af41cc467667b3529f0b37438ed69b083af1bf8db61bccc119314b47953b5388b0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>RscModel</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_02_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba771d457554410c47eab728f2388217a8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_03_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867bab6f053e7d24881f5a341eab2501b39e8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_04_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba0779cc9bc53e49651cbbf3a21e8d0876</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_05_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba4f6fe4aa89f08f5cf920d131cb542f9e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_13_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba6539fb0eb56784c1ad59e3882c924592</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_14_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba3a6df23307335cd02666a9d7941e168f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_15_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba15dca0b9be137e75c40cc1297328216f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_Z405_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867ba59263d2fc57cba1d6ddd281bd2369137</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_Z675_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867baf2f9222a8fdfc1754aeb8ea75dd5ee8c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RSC_UNKNOWN_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4588f1880198c2106f18c903b6cb867bafe0bc45ee49148b564887d252c0b8cbe</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
       <name>VnaCalType</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>aed14be025d3f2c7af72c62ee0e516cb3</anchor>
@@ -9636,258 +985,6 @@
     </member>
     <member kind="enumeration">
       <type></type>
-      <name>VnaDirectory</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DEFAULT_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850aba70ab56c8497a5155e06e7bc42b3ec7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>EMBED_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850ac3bdae926d1a34444e8fa1441525fe32</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DEEMBED_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850ade6246814a395c7ccef887fc7c30a9c2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>CAL_GROUP_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850aeeb197361de055a6fe6523e31cc3f081</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>CAL_KIT_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850a981832126da42584e99723f632952208</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>EXTERNAL_TOOLS_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850a1fb38160435656bb12debb661fe4b555</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>RECALL_SETS_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850a6d5ca8263124d28188c8bdf85edc0d65</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>TRACES_DIRECTORY</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a4af5109825e24daf9ac1de596dc44850a9f9f8a45c0bcdf2c9ec7aad9c02ab60d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>VnaModel</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVA_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a2d51e423a09a3c2b3153aa2cea9a598c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVB_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a5da95a0c91001bfb794b9b94965535ac</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVH_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01adba63c59378b92096fab4185be6b9d8d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVL_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a1f5f1ba03530b290a088a2f902558de2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVT_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a65d730cf6fef22b7c351a5eaf3f1390d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZNB_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01ad2368b2cd5f0cc866f4bce111466684e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZNBT_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01af13fef3f36941ed7498d28362babbb81</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZNC_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a7066fd4bb8edb717a681bdfa6c8f6960</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZNP_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a84ddb44271f00d058dbd9a6275361a06</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>UNKNOWN_MODEL</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad855d80aa0cfd97d333966940fa8ea01a3f3d79136caf882d83cc87d6b5f5478e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>VnaEmulationMode</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>NO_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa1c62780b1b015465ebad1ca53372d23c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>PNA_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa157713b030dfccebbc8a2333fe49c9ca</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HP_8510_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa738dcbf912d1eab23b3ae0f7ba2e6261</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HP_8720_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa73c91c970186c6170831e63b1dc29144</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HP_8753_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aab8a7323b95539d70c78068f248e10c6c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HP_8714_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa1c284ab1efe315e9ff36c97c29e18990</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVR_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa9a1fd28ed6cbe66c21b62d5cb5c7b7c5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>HP_8530_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aa2f6231df7774966492dc80879e4e4f3f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ENA_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aaaf6487e48db7292fc40262e932807261</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>ZVABT_EMULATION</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a7d4a7e8a70dfbbc32a553dabe2381f4aac08429b0441ae1aca82fff832f5e0552</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>VnaColorScheme</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ae54ff682cf8310c58191f1b6349e09f5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>DARK_BACKGROUND</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ae54ff682cf8310c58191f1b6349e09f5ac0208f506c01bf8d6a77ed681d44a376</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>LIGHT_BACKGROUND</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ae54ff682cf8310c58191f1b6349e09f5a99b64d93fc67c275192cf880466350fb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>BLACK_WHITE_OUTLINE_BACKGROUND</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ae54ff682cf8310c58191f1b6349e09f5a407aefbf802d2adb32a015d0e88b630b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>BLACK_WHITE_SOLID_BACKGROUND</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ae54ff682cf8310c58191f1b6349e09f5a1fe79d0781fe8bd380e1a5cd78c3eb46</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
       <name>VnaWindowFunction</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>ade955acccb31f71d24b4e5458b7b742e</anchor>
@@ -9974,15 +1071,29 @@
       <type>QString</type>
       <name>toString</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>acc3af340369d563a1bb92e769ebedc86</anchor>
-      <arglist>(ConnectionType connection_type)</arglist>
+      <anchor>a73e9fa82bca82f174208622b9efee682</anchor>
+      <arglist>(ConnectionType connectionType)</arglist>
     </member>
     <member kind="function">
       <type>ConnectionType</type>
       <name>toConnectionType</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aedec38fe38dd15d5baf70ec815e3ccf1</anchor>
+      <anchor>a413fbf0e0ef9b1d6f08d8f909eae8421</anchor>
       <arglist>(QString scpi)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>toVisaInstrumentResource</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>adf802d3a406f0ed2910583d01ae51837</anchor>
+      <arglist>(ConnectionType type, QString address)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>nullTerminate</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a3bc9934ec59764c47df16cf37824f82a</anchor>
+      <arglist>(char *buffer, uint bufferSize_B, uint bytesUsed)</arglist>
     </member>
     <member kind="function">
       <type>QString</type>
@@ -9992,10 +1103,10 @@
       <arglist>(BalancedPortType type)</arglist>
     </member>
     <member kind="function">
-      <type>ConnectorType</type>
+      <type>Connector::Type</type>
       <name>toConnectorType</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a91952c11059e91bb6cd936f1ffe21dbe</anchor>
+      <anchor>a518888126eae33790db794a4c0e5b185</anchor>
       <arglist>(QString vnaScpi)</arglist>
     </member>
     <member kind="function">
@@ -10009,8 +1120,8 @@
       <type>QString</type>
       <name>toVnaScpi</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac578a630fbf7237a4ceaf8cac27c348f</anchor>
-      <arglist>(ConnectorType type)</arglist>
+      <anchor>a8252e551491255846984ac405299d12b</anchor>
+      <arglist>(Connector::Type type)</arglist>
     </member>
     <member kind="function">
       <type>QString</type>
@@ -10637,6 +1748,20 @@
     </member>
     <member kind="function">
       <type>ComplexRowVector</type>
+      <name>linearInterpolateReIm</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a0abd918fe2784ccbcc796e1cf6870e5e</anchor>
+      <arglist>(QRowVector x, ComplexRowVector y, QRowVector xDesired)</arglist>
+    </member>
+    <member kind="function">
+      <type>ComplexRowVector</type>
+      <name>linearInterpolateMagPhase</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a568aedec896df78373617a0ee27e38df</anchor>
+      <arglist>(QRowVector x, ComplexRowVector y, QRowVector xDesired)</arglist>
+    </member>
+    <member kind="function">
+      <type>ComplexRowVector</type>
       <name>exp</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>aa4c85985ac0b1e775a67cb80a5d91029</anchor>
@@ -11189,32 +2314,32 @@
       <arglist>(const NameLabel &amp;right, const NameLabel &amp;left)</arglist>
     </member>
     <member kind="function">
-      <type>QString</type>
-      <name>RscCalState_To_String</name>
+      <type>SharedLastPath</type>
+      <name>newLastPath</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a6c8f7600af906cd94e77e80c918bab6a</anchor>
-      <arglist>(RscCalibrationState state)</arglist>
+      <anchor>a8f7284c01a05f7fa92173b3c8fa48595</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>RscCalibrationState</type>
-      <name>Scpi_To_RscCalState</name>
+      <type>SharedLastPath</type>
+      <name>newLastPath</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ad0161f77d312369c7399d89125ca8266</anchor>
-      <arglist>(QString scpi)</arglist>
+      <anchor>ac949fafb3c573b014e08fd3dd4eff6eb</anchor>
+      <arglist>(QString initialPath)</arglist>
     </member>
     <member kind="function">
-      <type>QString</type>
-      <name>ToString</name>
+      <type>SharedLastPath</type>
+      <name>newLastPath</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a3b7200506b30a6eb122bde8bc1449ce0</anchor>
-      <arglist>(RscModel model)</arglist>
+      <anchor>a03dd3fde12f6294c34f5a18d7035527e</anchor>
+      <arglist>(Keys *keys, QString key, QString initialPath=&quot;&quot;)</arglist>
     </member>
     <member kind="function">
-      <type>RscModel</type>
-      <name>Scpi_to_RscModel</name>
+      <type>SharedLastPath</type>
+      <name>newLastPath</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a839354e4408d5916cde73829940fce8a</anchor>
-      <arglist>(QString scpi)</arglist>
+      <anchor>a0400ab7c28c973a43ee454e131102a71</anchor>
+      <arglist>(const LastPath &amp;other)</arglist>
     </member>
     <member kind="function">
       <type>QString</type>
@@ -11283,15 +2408,15 @@
       <type>QString</type>
       <name>toString</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a803ac7720b39828537ed067e2e5b1599</anchor>
-      <arglist>(VnaModel model)</arglist>
+      <anchor>a283729c850d4a0aa0ce488d1039ed155</anchor>
+      <arglist>(VnaProperties::Model model)</arglist>
     </member>
     <member kind="function">
       <type>QString</type>
       <name>toSetFileExtension</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>abc530d8cc4fb4af9cbb2b389122b97cd</anchor>
-      <arglist>(VnaModel model)</arglist>
+      <anchor>a309262da7e862dcafe6b9f993c925da3</anchor>
+      <arglist>(VnaProperties::Model model)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -11351,9 +2476,9 @@
     </member>
     <member kind="variable">
       <type>const char</type>
-      <name>RSA_TOOLBOX_VERSION</name>
+      <name>RSATOOLBOX_VERSION</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a3b0288a2b3aee0dfa13b36da65e5cfa5</anchor>
+      <anchor>a275ec1b5582cc9e27200d0ad56779541</anchor>
       <arglist>[]</arglist>
     </member>
     <member kind="variable">
@@ -11516,8 +2641,568 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>RsaToolbox::BreadCrumbs</name>
+    <filename>class_rsa_toolbox_1_1_bread_crumbs.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>setLinks</name>
+      <anchorfile>class_rsa_toolbox_1_1_bread_crumbs.html</anchorfile>
+      <anchor>af852e0c922d78610453da1fdd72542cb</anchor>
+      <arglist>(QStringList previousPages, QString currentPage)</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>back</name>
+      <anchorfile>class_rsa_toolbox_1_1_bread_crumbs.html</anchorfile>
+      <anchor>aa4c6563663c98d6c5c109d8fdf07e24c</anchor>
+      <arglist>(int pagesBack)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>BreadCrumbs</name>
+      <anchorfile>class_rsa_toolbox_1_1_bread_crumbs.html</anchorfile>
+      <anchor>a2b5c51b0fefa2d245428766fc6a1daed</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~BreadCrumbs</name>
+      <anchorfile>class_rsa_toolbox_1_1_bread_crumbs.html</anchorfile>
+      <anchor>aa1319d9902f4d4b0ebc94197dadda8ea</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::CalDialog</name>
+    <filename>class_rsa_toolbox_1_1_cal_dialog.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>accept</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
+      <anchor>aadb9f3b844fb4cf98288cd3c60a3af91</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>reject</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
+      <anchor>a84e832c2421763b25e1ae0d9a76f519c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
+      <anchor>ad20897c5c8bd47f5d4005989bead0e55</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>selectionChanged</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
+      <anchor>a530b98c1adf71fadbf67359763e9dcea</anchor>
+      <arglist>(QItemSelection, QItemSelection)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>CalDialog</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
+      <anchor>afb0c6f32011ff5a615e2f2eba0aeb332</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~CalDialog</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
+      <anchor>add91add6be875f90291e33464269ddc0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
+      <anchor>adb02fa02794384dcb4f9f76e102bb42c</anchor>
+      <arglist>(CalGroupsModel *model, int column=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>CalGroupsModel *</type>
+      <name>model</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
+      <anchor>aaf6c8b0a27645339641090c635c48bf1</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QModelIndex</type>
+      <name>selectedIndex</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
+      <anchor>a60aaed4f68885ced63ed6c015ef2dc20</anchor>
+      <arglist>() const </arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::CalGroupPanel</name>
+    <filename>class_rsa_toolbox_1_1_cal_group_panel.html</filename>
+    <member kind="signal">
+      <type>void</type>
+      <name>selectionChanged</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_group_panel.html</anchorfile>
+      <anchor>ab832275caa305e9211e779f055a87709</anchor>
+      <arglist>(const QItemSelection &amp;selected, const QItemSelection &amp;deselected)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>CalGroupPanel</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_group_panel.html</anchorfile>
+      <anchor>a58d78a9eb0b35a0d8785d401e82a78f3</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~CalGroupPanel</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_group_panel.html</anchorfile>
+      <anchor>aca31b1583954940fbf49221e3f76c83c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_group_panel.html</anchorfile>
+      <anchor>a16aa5528f3af20d7dcb168a1064e4da1</anchor>
+      <arglist>(CalGroupsModel *model)</arglist>
+    </member>
+    <member kind="function">
+      <type>CalGroupsModel *</type>
+      <name>model</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_group_panel.html</anchorfile>
+      <anchor>aaf6c8b0a27645339641090c635c48bf1</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QItemSelectionModel *</type>
+      <name>selectionModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_group_panel.html</anchorfile>
+      <anchor>a27ddddef553b6975f438882b2e05921e</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_group_panel.html</anchorfile>
+      <anchor>ad20897c5c8bd47f5d4005989bead0e55</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::CalGroupsModel</name>
+    <filename>class_rsa_toolbox_1_1_cal_groups_model.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_groups_model.html</anchorfile>
+      <anchor>ad20897c5c8bd47f5d4005989bead0e55</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>CalGroupsModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_groups_model.html</anchorfile>
+      <anchor>a4a94cc00a5e8a5af33e5edda0c29da2c</anchor>
+      <arglist>(QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setVnaModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_groups_model.html</anchorfile>
+      <anchor>a89af59eba28a675f9188d9c8bb3cbda6</anchor>
+      <arglist>(VnaModel *model)</arglist>
+    </member>
+    <member kind="function">
+      <type>VnaModel *</type>
+      <name>vnaModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_groups_model.html</anchorfile>
+      <anchor>a9cee1f99cef3a5b51a58c34edbc95d85</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>rowCount</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_groups_model.html</anchorfile>
+      <anchor>ad1da2096edce65195e18fe76edaf4c78</anchor>
+      <arglist>(const QModelIndex &amp;parent) const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>columnCount</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_groups_model.html</anchorfile>
+      <anchor>a971fc1b550da0d8ce820b57cdf3ce163</anchor>
+      <arglist>(const QModelIndex &amp;parent) const </arglist>
+    </member>
+    <member kind="function">
+      <type>Qt::ItemFlags</type>
+      <name>flags</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_groups_model.html</anchorfile>
+      <anchor>a4cc21a105c93bf37f312e3b559f1c88d</anchor>
+      <arglist>(const QModelIndex &amp;index) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>headerData</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_groups_model.html</anchorfile>
+      <anchor>af385761936bda446a8b332b14d6c1449</anchor>
+      <arglist>(int section, Qt::Orientation orientation, int role) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QModelIndex</type>
+      <name>index</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_groups_model.html</anchorfile>
+      <anchor>a20f65129f9d0542900491b658db0ab14</anchor>
+      <arglist>(int row, int column, const QModelIndex &amp;parent) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QModelIndex</type>
+      <name>parent</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_groups_model.html</anchorfile>
+      <anchor>ae324570b1a8b7f65cd55b131fa896fb3</anchor>
+      <arglist>(const QModelIndex &amp;child) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>data</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_groups_model.html</anchorfile>
+      <anchor>adcd3df47ac02021a2c18b8a921b26b54</anchor>
+      <arglist>(const QModelIndex &amp;index, int role) const </arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const int</type>
+      <name>COLUMNS</name>
+      <anchorfile>class_rsa_toolbox_1_1_cal_groups_model.html</anchorfile>
+      <anchor>af6c484f782f36b472fb334e72c392801</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::ChannelsModel</name>
+    <filename>class_rsa_toolbox_1_1_channels_model.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>COLUMNS</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>abd5634f52bc75fd2f125f15e9957de68</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>INDEX_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>abd5634f52bc75fd2f125f15e9957de68a6270cfc6110f72304f778592a7643b6e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>NAME_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>abd5634f52bc75fd2f125f15e9957de68a1f8f29e04fd120da5a66491ef0a4ff6c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>CAL_STATUS_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>abd5634f52bc75fd2f125f15e9957de68aa3130244ebfd095cd203f8c4a3fe8267</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>IS_FREQ_SWEEP_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>abd5634f52bc75fd2f125f15e9957de68a648425344264fc27854edb5a7ec9e64c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>FREQ_RANGE_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>abd5634f52bc75fd2f125f15e9957de68af2f73cd07973039e9b1ef6ea50b6a035</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>POINTS_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>abd5634f52bc75fd2f125f15e9957de68a7aa8ee324489e7be1ec7d89a8a62036b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>IF_BW_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>abd5634f52bc75fd2f125f15e9957de68a9887f7ea4a99ef40fc7f973ec48b1609</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>POWER_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>abd5634f52bc75fd2f125f15e9957de68ab156232e776d0022d4f0f4eeb734eae0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>AVERAGING_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>abd5634f52bc75fd2f125f15e9957de68a8417752f3b40cef3a99ffece6deb752c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>ad20897c5c8bd47f5d4005989bead0e55</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ChannelsModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>a1bae4d3f00f3fc3ef20c7e77296e5f28</anchor>
+      <arglist>(QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setVnaModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>a89af59eba28a675f9188d9c8bb3cbda6</anchor>
+      <arglist>(VnaModel *model)</arglist>
+    </member>
+    <member kind="function">
+      <type>VnaModel *</type>
+      <name>vnaModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>a9cee1f99cef3a5b51a58c34edbc95d85</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>rowCount</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>ad1da2096edce65195e18fe76edaf4c78</anchor>
+      <arglist>(const QModelIndex &amp;parent) const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>columnCount</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>a971fc1b550da0d8ce820b57cdf3ce163</anchor>
+      <arglist>(const QModelIndex &amp;parent) const </arglist>
+    </member>
+    <member kind="function">
+      <type>Qt::ItemFlags</type>
+      <name>flags</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>a4cc21a105c93bf37f312e3b559f1c88d</anchor>
+      <arglist>(const QModelIndex &amp;index) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>headerData</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>af385761936bda446a8b332b14d6c1449</anchor>
+      <arglist>(int section, Qt::Orientation orientation, int role) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QModelIndex</type>
+      <name>index</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>a20f65129f9d0542900491b658db0ab14</anchor>
+      <arglist>(int row, int column, const QModelIndex &amp;parent) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QModelIndex</type>
+      <name>parent</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>ae324570b1a8b7f65cd55b131fa896fb3</anchor>
+      <arglist>(const QModelIndex &amp;child) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>data</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>adcd3df47ac02021a2c18b8a921b26b54</anchor>
+      <arglist>(const QModelIndex &amp;index, int role) const </arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const int</type>
+      <name>COLUMNS</name>
+      <anchorfile>class_rsa_toolbox_1_1_channels_model.html</anchorfile>
+      <anchor>af6c484f782f36b472fb334e72c392801</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::ConnectButton</name>
+    <filename>class_rsa_toolbox_1_1_connect_button.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>setConnected</name>
+      <anchorfile>class_rsa_toolbox_1_1_connect_button.html</anchorfile>
+      <anchor>ac04b0a2c6c96b305d4f3a5d51a0ef40a</anchor>
+      <arglist>(bool isConnected)</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>connectedChanged</name>
+      <anchorfile>class_rsa_toolbox_1_1_connect_button.html</anchorfile>
+      <anchor>ae782c73e55d82287157e550d3614dc4e</anchor>
+      <arglist>(bool isConnected)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ConnectButton</name>
+      <anchorfile>class_rsa_toolbox_1_1_connect_button.html</anchorfile>
+      <anchor>a6ae5e3a2f524d85d6be2b029bec7247e</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>connected</name>
+      <anchorfile>class_rsa_toolbox_1_1_connect_button.html</anchorfile>
+      <anchor>a59fc494d53391b27e2fd75cb750690d9</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::ConnectionTypeComboBox</name>
+    <filename>class_rsa_toolbox_1_1_connection_type_combo_box.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>setCurrentType</name>
+      <anchorfile>class_rsa_toolbox_1_1_connection_type_combo_box.html</anchorfile>
+      <anchor>a1d6acd3b119ea0047387f907728c1c33</anchor>
+      <arglist>(ConnectionType type)</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>currentTypeChanged</name>
+      <anchorfile>class_rsa_toolbox_1_1_connection_type_combo_box.html</anchorfile>
+      <anchor>a6a7f1550f9f8db302585bf1fd551238f</anchor>
+      <arglist>(ConnectionType newType)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ConnectionTypeComboBox</name>
+      <anchorfile>class_rsa_toolbox_1_1_connection_type_combo_box.html</anchorfile>
+      <anchor>abbdab687f0ca6aa54c26d689dbb4b744</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>ConnectionType</type>
+      <name>currentType</name>
+      <anchorfile>class_rsa_toolbox_1_1_connection_type_combo_box.html</anchorfile>
+      <anchor>a9adaf9b4f5b306aa18b98a7c82a04a64</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>RsaToolbox::Connector</name>
     <filename>class_rsa_toolbox_1_1_connector.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>Type</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>N_50_OHM_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7a61b16617c1ce5333d8c027318e8529fd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>N_75_OHM_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7a18904b59a1ded80dad70fa26ab7433ce</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>mm_7_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7aadf3cc24bafb07a62442c480f517b1fd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>mm_3_5_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7a4e914111258e64e9d4e2f0dbe3a2861e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>mm_2_92_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7a7d63e1ba4ae171f55faa48f6fbd1ee4b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>mm_2_4_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7ae5d22d314468dd08f9106c11c7788c40</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>mm_1_85_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7aab51064780378a3d667507fe8c99c4eb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>in_7_16_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7a820b27227c0cde3279db47be215854f0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>TYPE_F_75_OHM_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7aba8a6d93ba5c67bec16f42bdf0f89db1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>BNC_50_OHM_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7ad8eb9947a41587a9b042b29f41a5b6e1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>BNC_75_OHM_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7a92016eee17a35da7bc24a7c67fdd31bb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>CUSTOM_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7ac9743d7b99ee46ae162cae020a155a2a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>UNKNOWN_CONNECTOR</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7a6a1586a3f010b4d1fa0be495c37c400f</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>Connector</name>
@@ -11536,8 +3221,8 @@
       <type></type>
       <name>Connector</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>ac229bccd1f15a62b2922a7b030562158</anchor>
-      <arglist>(ConnectorType type, ConnectorGender gender=MALE_GENDER)</arglist>
+      <anchor>a18ecd71336a4195a590cec8fb6ca596f</anchor>
+      <arglist>(Type type, ConnectorGender gender=MALE_GENDER)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -11652,10 +3337,10 @@
       <arglist>() const </arglist>
     </member>
     <member kind="function">
-      <type>ConnectorType</type>
+      <type>Type</type>
       <name>type</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>a6cec727537aad692bfc4d1f2e55cce7d</anchor>
+      <anchor>a93a74523ec09cb5b49a0bd40ce462d88</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
@@ -11690,8 +3375,8 @@
       <type>void</type>
       <name>setType</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>a4431e852532c47c256e4aa8fd1644257</anchor>
-      <arglist>(ConnectorType type)</arglist>
+      <anchor>a608e58a2f9fb7e497f91662a6e9ae4cc</anchor>
+      <arglist>(Type type)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -11725,8 +3410,8 @@
       <type>static QString</type>
       <name>displayType</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>a22b97a494ef0325d784b12e3ccdf2841</anchor>
-      <arglist>(ConnectorType type)</arglist>
+      <anchor>a707765055ab98b07bba2386a629b7376</anchor>
+      <arglist>(Type type)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static bool</type>
@@ -11750,10 +3435,10 @@
       <arglist>(QVector&lt; Connector &gt; &amp;connectors)</arglist>
     </member>
     <member kind="function">
-      <type>ConnectorType</type>
+      <type>Connector::Type</type>
       <name>toConnectorType</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>a6fd4392a434cd20c2ceca1ce403d64b9</anchor>
+      <anchor>a8e7ce1c3a4bf690ea537124d6e88d042</anchor>
       <arglist>(QString vnaScpi)</arglist>
     </member>
     <member kind="function">
@@ -11767,8 +3452,8 @@
       <type>QString</type>
       <name>toVnaScpi</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>a577d45acb66cd3cbe8cb6d51fdce3411</anchor>
-      <arglist>(ConnectorType type)</arglist>
+      <anchor>a6b176cd5382ab852d9a7cbf6edc9286a</anchor>
+      <arglist>(Connector::Type type)</arglist>
     </member>
     <member kind="function">
       <type>QString</type>
@@ -11807,42 +3492,615 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>RsaToolbox::ErrorLabel</name>
+    <filename>class_rsa_toolbox_1_1_error_label.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ErrorLabel</name>
+      <anchorfile>class_rsa_toolbox_1_1_error_label.html</anchorfile>
+      <anchor>affde0813de69c1b4b464a857b3692ae6</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::Figure</name>
+    <filename>class_rsa_toolbox_1_1_figure.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Figure</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>aaa6c9a3c24e64e1f0640187aebb7ef2e</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Figure</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>afd360565e0e3ae9637a87681e524beab</anchor>
+      <arglist>(uint rows, uint columns, QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Figure</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>a442fcfdbfcbec589eaf2313a9dd388c7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>rows</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>abe6f57bb4b2b94cbad11cc6317cc64b4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>columns</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>ac352f06599c1097ab319c44a476b076f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setRows</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>a03ee8acdae1110d55bdeb1be0811b47b</anchor>
+      <arglist>(uint rows)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setColumns</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>acd61087e0e4cd6c85fc6745a610f2b5d</anchor>
+      <arglist>(uint columns)</arglist>
+    </member>
+    <member kind="function">
+      <type>QCustomPlot *</type>
+      <name>plot</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>a69764b5896a0abe630cccc6f78718506</anchor>
+      <arglist>(uint row, uint column)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>select</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>ae20ff988c917e65674fbce6ac14ce278</anchor>
+      <arglist>(uint row, uint column)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addTrace</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>ad58c2589b78d3b67091ae1473f34cc26</anchor>
+      <arglist>(RsaToolbox::QRowVector y, Qt::GlobalColor color=Qt::black, QString name=&quot;&quot;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addTrace</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>aa2b222ef3c545a20a23196df0f2bc44b</anchor>
+      <arglist>(RsaToolbox::QRowVector y, QPen pen, QString name=&quot;&quot;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addTrace</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>ab8036a7da907c4a2253bac384e61a9c6</anchor>
+      <arglist>(RsaToolbox::QRowVector x, RsaToolbox::QRowVector y, Qt::GlobalColor color=Qt::black, QString name=&quot;&quot;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addTrace</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>a7768d6f4c6400061c537d5167f5edc78</anchor>
+      <arglist>(RsaToolbox::QRowVector x, RsaToolbox::QRowVector y, QPen pen, QString name=&quot;&quot;)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveBmp</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>a3bf1b557e253a7cbbfd139ef33ece66f</anchor>
+      <arglist>(QString filename, int quality=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveJpg</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>a6294b8200a14edc7ef766cb17c1ac99b</anchor>
+      <arglist>(QString filename, int quality=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>savePng</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>a5d5b970c98cf37e357e84fb039b11bb0</anchor>
+      <arglist>(QString filename, int quality=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>save</name>
+      <anchorfile>class_rsa_toolbox_1_1_figure.html</anchorfile>
+      <anchor>ab8ab8616fb44ee6376fe01ad94637717</anchor>
+      <arglist>(const QString &amp;fileName, const char *format=0, int quality=-1)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::FormattedComplex</name>
+    <filename>class_rsa_toolbox_1_1_formatted_complex.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>FormattedComplex</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>ae6cdbf378e1d41314ee64c72425babef</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>FormattedComplex</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>a0d23f50191804e87187e60d3ca255ae0</anchor>
+      <arglist>(const FormattedComplex &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>ComplexFormat</type>
+      <name>format</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>a72c5d75dd47864a2cddbdb7d549abd47</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isRealImaginary</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>abcc59f26914e3844003feec3ea5c7ae5</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isDbDegrees</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>a576767a833068c5008301c68c33a63e3</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isMagnitudeDegrees</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>a5362477d05a3366bb6214a587daf5bc8</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>real</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>a0b8af920416d960ecbff29e6bf05195a</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>imaginary</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>ac24f97e083b70fe8b630969ad9274d3c</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>dB</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>aa768855209395312728294bf0da9e507</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>magnitude</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>a66be88f1c07706c722c731ed15a4d453</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>angle_deg</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>ab3cf4fb020f3ae7fb1719c8aacbb1b04</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>angle_rad</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>ab9c0bc2cfb1a6f0f6f103eea5c7cd180</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>ComplexDouble</type>
+      <name>value</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>a5b42e6aac8284f72d06908088287b845</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>FormattedComplex &amp;</type>
+      <name>operator=</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>a42f90286f148a2e9d254962e77c9327d</anchor>
+      <arglist>(const FormattedComplex &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>write</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>a5cfcb1e247c8c1145928ab7af1945f9d</anchor>
+      <arglist>(QDataStream &amp;stream) const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>read</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>a4a9a1c958e86b14cf5bde58aba8ade21</anchor>
+      <arglist>(QDataStream &amp;stream)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static FormattedComplex</type>
+      <name>realImaginary</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>a840e9898f1ab412636449e956753cdf5</anchor>
+      <arglist>(double real, double imaginary)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static FormattedComplex</type>
+      <name>dBAngle</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>abbc5ac827b5e4b6754b115d7d21bbb46</anchor>
+      <arglist>(double dB, double degrees)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static FormattedComplex</type>
+      <name>magnitudeAngle</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_complex.html</anchorfile>
+      <anchor>a3365e02a039042d782fb3b7d638a57c3</anchor>
+      <arglist>(double magnitude, double degrees)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::FormattedNetworkData</name>
+    <filename>class_rsa_toolbox_1_1_formatted_network_data.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>FormattedNetworkData</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a5e3b698001eb3f142e166b6e34c95797</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>FormattedNetworkData</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a853d500da4ea7a231201409c739b85dd</anchor>
+      <arglist>(const FormattedNetworkData &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSParameter</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>acd64e09a591153f70f022c88ac6d8e11</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isYParameter</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a9360cf5c728954a11b1f2eb42efb2132</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isZParameter</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a067ef92ffde57aed2f074b76b25f4de5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isHParameter</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a25530aa955c1d0c46c4ebc1cfec6a9fd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isGParameter</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a58f79a2c92c0df7905a139011a5301ad</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>NetworkParameter</type>
+      <name>parameter</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a20e8c472409a84c90c27d4684f9e2a4c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParameter</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a9add42f3f6bbe8cf30b017642a2ac624</anchor>
+      <arglist>(NetworkParameter parameter)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>comment</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a1e7667e3ab0e9ac96048a5d93da0f603</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setComment</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>ab3a897eff60f58840c8d1b40292cf047</anchor>
+      <arglist>(QString comment)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>timestamp</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a35b525b3b1363ff87aa25534c75e913c</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>ComplexFormat</type>
+      <name>format</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a72c5d75dd47864a2cddbdb7d549abd47</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFormat</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a4d0b4d6a9d853fc6b0bc9230b883d337</anchor>
+      <arglist>(ComplexFormat format)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>numberOfPorts</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>aecf6cc48a4bd2ad71be13330ecd7e81c</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setNumberOfPorts</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>afb64550d2d62edfdf2d91a7a65ca77a8</anchor>
+      <arglist>(uint ports)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>portComment</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>acf6bc1ca7d7b554e880d4755c71984a9</anchor>
+      <arglist>(uint port) const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPortComment</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a095fac6b4c1edd65b817a697587a2094</anchor>
+      <arglist>(uint port, QString comment)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>referenceImpedance_Ohms</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a54c06d5f7d25f119d9fe6d27ababb9ba</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setReferenceImpedance</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>ad0483d3936563c1dfa6166fd0cf852cc</anchor>
+      <arglist>(double Ohms)</arglist>
+    </member>
+    <member kind="function">
+      <type>Units</type>
+      <name>xUnits</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>aac45fcc6c1b9035850a31dc21e4842ae</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>SiPrefix</type>
+      <name>xPrefix</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a0c24630e89b5db2347e8862874ee584f</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setXUnits</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>abe36b48d13d4d973c33ed0a59b32d802</anchor>
+      <arglist>(Units units, SiPrefix prefix=NO_PREFIX)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>points</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a65efa2d342a88e21f1f5f163dbdeb24d</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QRowVector &amp;</type>
+      <name>x</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a9549742e44c875036f539d83a1ec5d60</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>FormattedComplexMatrix3D &amp;</type>
+      <name>y</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>aa5325b5c571cfe8f88331eaf1aa0c24d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>FormattedComplexRowVector</type>
+      <name>y</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a83c6b1d323453afdfefb874b4b05463b</anchor>
+      <arglist>(uint outputPort, uint inputPort) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QRowVector</type>
+      <name>y_dB</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>ab719cb40194737dcc0bd4afbf9069621</anchor>
+      <arglist>(uint outputPort, uint inputPort) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QRowVector</type>
+      <name>y_magnitude</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a5ec61df8261646b1741b7c422690fe64</anchor>
+      <arglist>(uint outputPort, uint inputPort) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QRowVector</type>
+      <name>y_phase_deg</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>ac55d592bdd054b66402c3f01191b03f0</anchor>
+      <arglist>(uint outputPort, uint inputPort) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QRowVector</type>
+      <name>y_phase_rad</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>af5825c120d3d478e2c986690dbd1f2e5</anchor>
+      <arglist>(uint outputPort, uint inputPort) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QRowVector</type>
+      <name>y_vswr</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a150a9e860ee81a9576938bfe56045e9f</anchor>
+      <arglist>(uint port) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QRowVector</type>
+      <name>y_real</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a803509e17371ac762cddc31c7e87f633</anchor>
+      <arglist>(uint outputPort, uint inputPort) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QRowVector</type>
+      <name>y_imaginary</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a72d2e20db074eabc9b81bd492641d01c</anchor>
+      <arglist>(uint outputPort, uint inputPort) const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setData</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>aabb04476858d59a8a9a4ab3fc4e8421d</anchor>
+      <arglist>(QRowVector const &amp;x, FormattedComplexMatrix3D const &amp;y)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator=</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a013dcab740397fbdd3c194cb8bf762b9</anchor>
+      <arglist>(const FormattedNetworkData &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>write</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a5cfcb1e247c8c1145928ab7af1945f9d</anchor>
+      <arglist>(QDataStream &amp;stream) const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>read</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_network_data.html</anchorfile>
+      <anchor>a4a9a1c958e86b14cf5bde58aba8ade21</anchor>
+      <arglist>(QDataStream &amp;stream)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::FormattedTouchstone</name>
+    <filename>class_rsa_toolbox_1_1_formatted_touchstone.html</filename>
+    <member kind="function" static="yes">
+      <type>static uint</type>
+      <name>ports</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_touchstone.html</anchorfile>
+      <anchor>a9151d815ca67c804e2684487963634f1</anchor>
+      <arglist>(QString fileName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>Read</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_touchstone.html</anchorfile>
+      <anchor>a0b415daed129a78a6b9a35f8c5c6d996</anchor>
+      <arglist>(FormattedNetworkData &amp;network, QTextStream &amp;FormattedTouchstone_in, int ports)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>Read</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_touchstone.html</anchorfile>
+      <anchor>ade68a150f6a1e407c48eef33cc4855bc</anchor>
+      <arglist>(FormattedNetworkData &amp;network, QString filename)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>Write</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_touchstone.html</anchorfile>
+      <anchor>a2f51d64bbe8f8e252e882d489187acf7</anchor>
+      <arglist>(FormattedNetworkData &amp;network, QTextStream &amp;FormattedTouchstone_out)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>Write</name>
+      <anchorfile>class_rsa_toolbox_1_1_formatted_touchstone.html</anchorfile>
+      <anchor>a247804a77cf57c1ff64c42584ef36216</anchor>
+      <arglist>(FormattedNetworkData &amp;network, QString filename)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>RsaToolbox::GenericBus</name>
     <filename>class_rsa_toolbox_1_1_generic_bus.html</filename>
     <member kind="slot" virtualness="pure">
       <type>virtual bool</type>
       <name>lock</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a51cc700e46d567a32975bd705b311264</anchor>
+      <anchor>a390849104628cf5e716d32e9b3bc1ff9</anchor>
       <arglist>()=0</arglist>
     </member>
     <member kind="slot" virtualness="pure">
       <type>virtual bool</type>
       <name>unlock</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>acee63855a5fae0b11df91151e9aa768b</anchor>
+      <anchor>aec0f8e7f2c59287f64c3e0734f5fa1fd</anchor>
       <arglist>()=0</arglist>
     </member>
     <member kind="slot" virtualness="pure">
       <type>virtual bool</type>
       <name>local</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a7a439487a63a07cb287eb8a8ba65f477</anchor>
+      <anchor>a492b081197a1c2155f12039a8e6020a3</anchor>
       <arglist>()=0</arglist>
     </member>
     <member kind="slot" virtualness="pure">
       <type>virtual bool</type>
       <name>remote</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>ad3ffbe90d43b7616140ef0e965f92c4c</anchor>
+      <anchor>ae8583cf413bf55ff66277bfa805a0124</anchor>
       <arglist>()=0</arglist>
-    </member>
-    <member kind="slot" virtualness="pure">
-      <type>virtual void</type>
-      <name>printStatus</name>
-      <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>adab371fea88c2e8b4d14514fcbb137e3</anchor>
-      <arglist>() const =0</arglist>
     </member>
     <member kind="signal">
       <type>void</type>
@@ -11855,7 +4113,7 @@
       <type>void</type>
       <name>print</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a2ab94e7fed40714949685d516bc50ff5</anchor>
+      <anchor>a8a3077a200101738d17810495614c1c2</anchor>
       <arglist>(QString text) const </arglist>
     </member>
     <member kind="function">
@@ -11876,11 +4134,11 @@
       <type>virtual bool</type>
       <name>isOpen</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>ac11fde026ec3cc0fdaaeaa880774ec1a</anchor>
+      <anchor>a6baf57bdf1f3516aa77aca097cd25ca9</anchor>
       <arglist>() const =0</arglist>
     </member>
-    <member kind="function">
-      <type>bool</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
       <name>isClosed</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
       <anchor>aede4b7e16e8732d29bb13b8fe77573b7</anchor>
@@ -11928,12 +4186,12 @@
       <anchor>a64f8674ed2fc1bf521b82b2c0523d310</anchor>
       <arglist>(uint time_ms)</arglist>
     </member>
-    <member kind="function">
-      <type>bool</type>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
       <name>read</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a71e5fd121c106817d7b2572ed71d321b</anchor>
-      <arglist>(char *buffer, uint bufferSize_B)</arglist>
+      <anchor>a35953b63070796882994a97f1b840de0</anchor>
+      <arglist>(char *buffer, uint bufferSize_B)=0</arglist>
     </member>
     <member kind="function">
       <type>QString</type>
@@ -11942,26 +4200,26 @@
       <anchor>a5e5005e2f7a438e19865ebc36ceaf6d5</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
       <name>write</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a5201888c1fe2bad80795fa04db2b59e4</anchor>
-      <arglist>(QString scpiCommand)</arglist>
+      <anchor>af38ff4d5a215b8f66e956587c002e2ab</anchor>
+      <arglist>(QString scpi)=0</arglist>
     </member>
     <member kind="function">
       <type>QString</type>
       <name>query</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>ad4a1fd0b3aed02610fe755ab99368d7f</anchor>
-      <arglist>(QString scpiCommand)</arglist>
+      <anchor>aa5950a9b2ee22e2399f52134c68f505d</anchor>
+      <arglist>(QString scpi)</arglist>
     </member>
-    <member kind="function">
-      <type>bool</type>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
       <name>binaryRead</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a0c5e75f5a0c689d0fbb8c41623e90d91</anchor>
-      <arglist>(char *buffer, uint bufferSize_B, uint &amp;bytesRead)</arglist>
+      <anchor>a7529a573f33858a0ab040b23b91670b3</anchor>
+      <arglist>(char *buffer, uint bufferSize_B, uint &amp;bytesRead)=0</arglist>
     </member>
     <member kind="function">
       <type>QByteArray</type>
@@ -11970,81 +4228,46 @@
       <anchor>ae13a211dade1f3df58ed6e5f00a7be1a</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
       <name>binaryWrite</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a7aa8d5adf09f1b56bc9577bbddffcc42</anchor>
-      <arglist>(QByteArray scpiCommand)</arglist>
+      <anchor>ae2298c33d70ea2005fbede4275c56823</anchor>
+      <arglist>(QByteArray scpi)=0</arglist>
     </member>
     <member kind="function">
       <type>QByteArray</type>
       <name>binaryQuery</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a4fd7dc0b8f616f16632ef15fd9cfd986</anchor>
-      <arglist>(QByteArray scpiCommand)</arglist>
+      <anchor>ab614c661f5c9b5e5fde6e855ebe08878</anchor>
+      <arglist>(QByteArray scpi)</arglist>
     </member>
-    <member kind="function" protection="protected" virtualness="pure">
-      <type>virtual bool</type>
-      <name>_read</name>
+    <member kind="function" virtualness="pure">
+      <type>virtual QString</type>
+      <name>status</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a9b42ece7656e081a99b2712c0f722c4e</anchor>
-      <arglist>(char *buffer, uint bufferSize)=0</arglist>
+      <anchor>afc313a1780e77ba9b1691b614b99ed25</anchor>
+      <arglist>() const =0</arglist>
     </member>
-    <member kind="function" protection="protected" virtualness="pure">
-      <type>virtual bool</type>
-      <name>_write</name>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>printRead</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a2b3454e0d08ee05ea4cba44c83222c3e</anchor>
-      <arglist>(QString scpiCommand)=0</arglist>
+      <anchor>a0a0907c70f3a6e5d8bc06c2ca9f56c75</anchor>
+      <arglist>(char *buffer, uint bytesRead) const </arglist>
     </member>
-    <member kind="function" protection="protected" virtualness="pure">
-      <type>virtual bool</type>
-      <name>_binaryRead</name>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>printWrite</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a242f67a055440463cc7b61068793dabc</anchor>
-      <arglist>(char *buffer, uint bufferSize, uint &amp;bytesRead)=0</arglist>
+      <anchor>a6802778e73622207ed7d46690e8c5c8a</anchor>
+      <arglist>(QString scpi) const </arglist>
     </member>
-    <member kind="function" protection="protected" virtualness="pure">
-      <type>virtual bool</type>
-      <name>_binaryWrite</name>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static const int</type>
+      <name>MAX_PRINT</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a98c33a8d19eff1cee007c98b5d63a73d</anchor>
-      <arglist>(QByteArray scpiCommand)=0</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>ConnectionType</type>
-      <name>_connectionType</name>
-      <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>ab56073dcf5f6af1685778e06d64bc893</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>QString</type>
-      <name>_address</name>
-      <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a93022a36d845ee4a72d1c4c73ecc33f6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>uint</type>
-      <name>_bufferSize_B</name>
-      <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>ab4247e4664aad376a5eacffcd3250c81</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>uint</type>
-      <name>_timeout_ms</name>
-      <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>a86a1e0018232f5b4b499e070813333ec</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>QScopedArrayPointer&lt; char &gt;</type>
-      <name>_buffer</name>
-      <anchorfile>class_rsa_toolbox_1_1_generic_bus.html</anchorfile>
-      <anchor>afd8a599827f7ef3e2c61f4d709361578</anchor>
+      <anchor>af5e93a5e8302f50ed1e0f33c5c12c113</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -12240,8 +4463,8 @@
       <anchor>a84aed46379d2dc33df360025cb2d15b4</anchor>
       <arglist>(QString text=&quot;&quot;)</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type>void</type>
       <name>printInfo</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_instrument.html</anchorfile>
       <anchor>a2dbaf5580b5305d54cff6848ae7deb30</anchor>
@@ -12354,6 +4577,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>pause</name>
+      <anchorfile>class_rsa_toolbox_1_1_generic_instrument.html</anchorfile>
+      <anchor>a8d195c195d8f25ecb428ab45b0cc7ad2</anchor>
+      <arglist>(uint timeout_ms)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>initializePolling</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_instrument.html</anchorfile>
       <anchor>a694167390c3e8d1acb16c86d026fabb9</anchor>
@@ -12365,6 +4595,368 @@
       <anchorfile>class_rsa_toolbox_1_1_generic_instrument.html</anchorfile>
       <anchor>acb2283a6cb20418383f3f512caf30550</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::getChannelDialog</name>
+    <filename>class_rsa_toolbox_1_1get_channel_dialog.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>getChannelDialog</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a9c52d5d3045c875aa8a7d631542d2b73</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>getChannelDialog</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a2c8be55fc453ee4bfa64689e22aa5966</anchor>
+      <arglist>(RsaToolbox::Vna &amp;vna, QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>getChannelDialog</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a6d0182dd9043de00ca35efaf6e1933a7</anchor>
+      <arglist>(QVector&lt; uint &gt; channels, QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~getChannelDialog</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a802d8aff18bc05011319ae6dedc333e7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QVector&lt; uint &gt;</type>
+      <name>channels</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>afea6252754a9fbd157f2d927ad88470b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>selectDefault</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>abaa1e6c8634b0b912cffbc74939b7527</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>select</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a9e994017e6a4a3ecb0df48d058831f3a</anchor>
+      <arglist>(uint channel)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearSelection</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>abd07e172ccec6823a88289c21124a367</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearDefault</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a09c3dd4870240e0f2feac7de05613d5d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDefault</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a403507b86cf9b41ad4f82a7d30aa185a</anchor>
+      <arglist>(uint channel)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isOkClicked</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a0ce4f7cf6dc393ac7210bbf3e04181ba</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isCancelClicked</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>ac1aadf57a91bfd65bb0b06a0eac19955</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isChannelSelected</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a91c291f47e43d65afb5d4edb3e0ac00b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>channel</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a3731fdf8f8ad0d1bd891c30e1ed057d7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>update</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a86c5d43e4644cb4b85c00a61b6ccf030</anchor>
+      <arglist>(RsaToolbox::Vna &amp;vna)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>update</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a7cca94f8931d3294b73290f4f176bc27</anchor>
+      <arglist>(QVector&lt; uint &gt; channels)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>exec</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a0a779c8ad978e3dd1debcc73bf705d20</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>exec</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>aff67155741b5e0cbf84c026a1256effd</anchor>
+      <arglist>(RsaToolbox::Vna &amp;vna)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>exec</name>
+      <anchorfile>class_rsa_toolbox_1_1get_channel_dialog.html</anchorfile>
+      <anchor>a6952acbd3f0bbc4c606c3457c74f81be</anchor>
+      <arglist>(QVector&lt; uint &gt; channels)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::getPortsDialog</name>
+    <filename>class_rsa_toolbox_1_1get_ports_dialog.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>getPortsDialog</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>ad8abc346005c01b5fcb11da8645d6999</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>getPortsDialog</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>adac8cfa69224a413454d69ba769bbb26</anchor>
+      <arglist>(RsaToolbox::Vna &amp;vna, QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>getPortsDialog</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>affdf5f8cac4879dff72db8e5087331b0</anchor>
+      <arglist>(QVector&lt; uint &gt; selectedPorts, QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~getPortsDialog</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>ad22c909096a84e0ddef5f31191ecd952</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QVector&lt; uint &gt;</type>
+      <name>ports</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>ac0e2cc29d1ddf19a95d69888f9c15195</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>selectDefault</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>abaa1e6c8634b0b912cffbc74939b7527</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>selectPort</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>ac8b73afdec31e6c7ec1b4884bd413163</anchor>
+      <arglist>(uint port)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>unselectPort</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>a3d1d571b2c5342cc298ef18015afbd52</anchor>
+      <arglist>(uint port)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>selectPorts</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>ac21bc5dd6c0a1af3aec7cc112fc563b0</anchor>
+      <arglist>(QVector&lt; uint &gt; selectedPorts)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearSelection</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>abd07e172ccec6823a88289c21124a367</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearDefault</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>a09c3dd4870240e0f2feac7de05613d5d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addDefault</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>a34b34ceb7c3f9dede70940275ef82db7</anchor>
+      <arglist>(uint port)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeDefault</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>a8fb7474b6f8a5ff309845234b882a886</anchor>
+      <arglist>(uint port)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDefault</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>a75358d29ad012463dbaff5e46922ab71</anchor>
+      <arglist>(QVector&lt; uint &gt; selectedPorts)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isOkClicked</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>a0ce4f7cf6dc393ac7210bbf3e04181ba</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isCancelClicked</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>ac1aadf57a91bfd65bb0b06a0eac19955</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isPortsSelected</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>aaad08d09a393180c124481c48cf163d0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QVector&lt; uint &gt;</type>
+      <name>selectedPorts</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>adf70bc9660db8c3ecd752ec38ba81739</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>update</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>a86c5d43e4644cb4b85c00a61b6ccf030</anchor>
+      <arglist>(RsaToolbox::Vna &amp;vna)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>update</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>a5a15dc61e419624f92b86167efd97f9d</anchor>
+      <arglist>(QVector&lt; uint &gt; selectedPorts)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>exec</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>a0a779c8ad978e3dd1debcc73bf705d20</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>exec</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>aff67155741b5e0cbf84c026a1256effd</anchor>
+      <arglist>(RsaToolbox::Vna &amp;vna)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>exec</name>
+      <anchorfile>class_rsa_toolbox_1_1get_ports_dialog.html</anchorfile>
+      <anchor>a2efb0323fe69c357794e60dd33158276</anchor>
+      <arglist>(QVector&lt; uint &gt; selectedPorts)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::GetSnpFile</name>
+    <filename>class_rsa_toolbox_1_1_get_snp_file.html</filename>
+    <member kind="signal">
+      <type>void</type>
+      <name>filePathChanged</name>
+      <anchorfile>class_rsa_toolbox_1_1_get_snp_file.html</anchorfile>
+      <anchor>afad13b32a23ac849292dfc6f055d50e1</anchor>
+      <arglist>(const QString &amp;filePath)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>GetSnpFile</name>
+      <anchorfile>class_rsa_toolbox_1_1_get_snp_file.html</anchorfile>
+      <anchor>a1d28de03def6575b9f3545572189a898</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~GetSnpFile</name>
+      <anchorfile>class_rsa_toolbox_1_1_get_snp_file.html</anchorfile>
+      <anchor>a0227bfb81a34a3aef33203fb2dfbba3b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>SharedLastPath</type>
+      <name>lastPath</name>
+      <anchorfile>class_rsa_toolbox_1_1_get_snp_file.html</anchorfile>
+      <anchor>afe3c5db1b844486ef56297dea335ff09</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLastPath</name>
+      <anchorfile>class_rsa_toolbox_1_1_get_snp_file.html</anchorfile>
+      <anchor>a6104003d269ff460f1348f93a47100e4</anchor>
+      <arglist>(SharedLastPath lastPath)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isFilePath</name>
+      <anchorfile>class_rsa_toolbox_1_1_get_snp_file.html</anchorfile>
+      <anchor>a487382226e56b3b01d508210f17fd1f0</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>filePath</name>
+      <anchorfile>class_rsa_toolbox_1_1_get_snp_file.html</anchorfile>
+      <anchor>a679696ce1d5dd8af8b0ea0d1b445fd9a</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFilePath</name>
+      <anchorfile>class_rsa_toolbox_1_1_get_snp_file.html</anchorfile>
+      <anchor>aa6fe16d724e232c5f7fa69e00c2c9a88</anchor>
+      <arglist>(QString filePath)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12456,73 +5048,347 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>RsaToolbox::Key</name>
-    <filename>class_rsa_toolbox_1_1_key.html</filename>
+    <name>RsaToolbox::Keys</name>
+    <filename>class_rsa_toolbox_1_1_keys.html</filename>
     <member kind="function">
       <type></type>
-      <name>Key</name>
-      <anchorfile>class_rsa_toolbox_1_1_key.html</anchorfile>
-      <anchor>ac37f8f06a27afe358919f282c3bd11d4</anchor>
+      <name>Keys</name>
+      <anchorfile>class_rsa_toolbox_1_1_keys.html</anchorfile>
+      <anchor>a9f6d842c87ef8ae58d8365e6bbb96797</anchor>
       <arglist>(QString path)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>Exists</name>
-      <anchorfile>class_rsa_toolbox_1_1_key.html</anchorfile>
-      <anchor>a90fe9b5b26b0a3ab074d9115c748f0b8</anchor>
-      <arglist>(QString key)</arglist>
+      <name>exists</name>
+      <anchorfile>class_rsa_toolbox_1_1_keys.html</anchorfile>
+      <anchor>a3d49b64b32c1ba2133aece19000f6d78</anchor>
+      <arglist>(QString key) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>DoesNotExist</name>
-      <anchorfile>class_rsa_toolbox_1_1_key.html</anchorfile>
-      <anchor>a7597608a812960da09075d96512d1191</anchor>
-      <arglist>(QString key)</arglist>
+      <name>doesNotExist</name>
+      <anchorfile>class_rsa_toolbox_1_1_keys.html</anchorfile>
+      <anchor>a2087956160fef5a7ae6b2552efe36228</anchor>
+      <arglist>(QString key) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isTrue</name>
-      <anchorfile>class_rsa_toolbox_1_1_key.html</anchorfile>
+      <anchorfile>class_rsa_toolbox_1_1_keys.html</anchorfile>
       <anchor>ad1d6d06e7b8419d1f7eb99f1ab79339d</anchor>
       <arglist>(QString key)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isFalse</name>
-      <anchorfile>class_rsa_toolbox_1_1_key.html</anchorfile>
+      <anchorfile>class_rsa_toolbox_1_1_keys.html</anchorfile>
       <anchor>ae21ed17914585f5b3ab84dd3ebeb7cb2</anchor>
       <arglist>(QString key)</arglist>
     </member>
     <member kind="function">
+      <type>QString</type>
+      <name>path</name>
+      <anchorfile>class_rsa_toolbox_1_1_keys.html</anchorfile>
+      <anchor>abef507bc8e9b061531a77dc84e991255</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
-      <name>Get</name>
-      <anchorfile>class_rsa_toolbox_1_1_key.html</anchorfile>
-      <anchor>a7a691472644d71eb1489d9388179ab8d</anchor>
+      <name>get</name>
+      <anchorfile>class_rsa_toolbox_1_1_keys.html</anchorfile>
+      <anchor>ac41157d882ba89d3907b0bb02d56e8bc</anchor>
       <arglist>(QString key, T &amp;value)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>Set</name>
-      <anchorfile>class_rsa_toolbox_1_1_key.html</anchorfile>
-      <anchor>a65ce1c838291764e0bd796a549ce13e6</anchor>
+      <name>set</name>
+      <anchorfile>class_rsa_toolbox_1_1_keys.html</anchorfile>
+      <anchor>ad91204e951d5e957bc8ca73423e6cffd</anchor>
       <arglist>(QString key, T value)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>Delete</name>
-      <anchorfile>class_rsa_toolbox_1_1_key.html</anchorfile>
-      <anchor>aa28ed71e50c73c8f1cec250388fe769a</anchor>
+      <name>remove</name>
+      <anchorfile>class_rsa_toolbox_1_1_keys.html</anchorfile>
+      <anchor>a322155c21db737fb207fa3962d37f2f4</anchor>
       <arglist>(QString key)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::LastPath</name>
+    <filename>class_rsa_toolbox_1_1_last_path.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>LastPath</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a128761c8492660c0f9101080db49ed90</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LastPath</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>af7f5d3c74729d4b4a7df84c2a91f9a2f</anchor>
+      <arglist>(QString initialPath)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LastPath</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>aa3767d04c59a5f281449981258af72d8</anchor>
+      <arglist>(Keys *keys, QString key, QString initialPath=&quot;&quot;)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LastPath</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>af79f92e55c9b8afc0d9d74e826168907</anchor>
+      <arglist>(const LastPath &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isKey</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a0131d5ff47fb9671136fa911994b7677</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>key</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>afc82a9b38fa6ccda33c4abac5e3f05b7</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>Keys *</type>
+      <name>keys</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a847ee985e812305f11d7e0af6b4c4372</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setKey</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a08129ad60826a07f5db6ada88279bbfa</anchor>
+      <arglist>(Keys *keys, QString key)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isEmpty</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a479432127ee77145cc19d6a2d1590821</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>exists</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a74bdced855aaba94868b77f21398775c</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPath</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>aa9a4400d9737d457e3c41f184b3d2385</anchor>
+      <arglist>(const QString &amp;toString)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPath</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a8914ee2acb4c7c864572409917d295df</anchor>
+      <arglist>(const QDir &amp;dir)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPath</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a93d39d825033fe940c646648844ec8c9</anchor>
+      <arglist>(const QFileInfo &amp;dir)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFromFilePath</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a59c96e6275a0656737a7d964051944b4</anchor>
+      <arglist>(const QString &amp;filePath)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFromFilePath</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a792f9702fda3e2eef63a1972cbef5eb2</anchor>
+      <arglist>(const QFileInfo &amp;filePath)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator=</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a9b1042b9608e4444ed1cabf7a744fdf9</anchor>
+      <arglist>(const LastPath &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator=</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>adb47c21256a63a9aee1f587f9736f75e</anchor>
+      <arglist>(const QString &amp;toString)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator=</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a4c58f0c5389c3a43ce7b32e7e69c3de7</anchor>
+      <arglist>(const QDir &amp;dir)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator=</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>aa7283354b622558dddbab1f219921a58</anchor>
+      <arglist>(const QFileInfo &amp;dir)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>toString</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a8aabbf2e3c7be33fa5769a5eab3eef6f</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QDir</type>
+      <name>toDir</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a82b119fe5b19fbbf28c6395c773d03c1</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QFileInfo</type>
+      <name>toFileInfo</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a4b096665d5fb132bb268bd64026d8e18</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>operator QString</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>ab73a351240de6739ff051d7ea2b519a9</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>operator QDir</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a822eaa4a8f613b61e3c492800941ee70</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>operator QFileInfo</name>
+      <anchorfile>class_rsa_toolbox_1_1_last_path.html</anchorfile>
+      <anchor>a14950615a325fc901315122ca6fd9d1d</anchor>
+      <arglist>() const </arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::ListPanel</name>
+    <filename>class_rsa_toolbox_1_1_list_panel.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>addNew</name>
+      <anchorfile>class_rsa_toolbox_1_1_list_panel.html</anchorfile>
+      <anchor>ab58542e357265f9b1157d93356e4704a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>deleteCurrent</name>
+      <anchorfile>class_rsa_toolbox_1_1_list_panel.html</anchorfile>
+      <anchor>a18baabaa109f7090f6e3212ba84e4e29</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>moveCurrentUp</name>
+      <anchorfile>class_rsa_toolbox_1_1_list_panel.html</anchorfile>
+      <anchor>abfe0301e9579f843611157f1a418a146</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>moveCurrentDown</name>
+      <anchorfile>class_rsa_toolbox_1_1_list_panel.html</anchorfile>
+      <anchor>a2d0892903cadc5838c31ea4ec0f2506a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ListPanel</name>
+      <anchorfile>class_rsa_toolbox_1_1_list_panel.html</anchorfile>
+      <anchor>a4cb9ee2ee970519a00f93ac401a77d2e</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ListPanel</name>
+      <anchorfile>class_rsa_toolbox_1_1_list_panel.html</anchorfile>
+      <anchor>a0a89c95d78476e124e65f16aaf08bbca</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isModels</name>
+      <anchorfile>class_rsa_toolbox_1_1_list_panel.html</anchorfile>
+      <anchor>a2c2198903c7ffed11f08f1e1ed6bef05</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearModels</name>
+      <anchorfile>class_rsa_toolbox_1_1_list_panel.html</anchorfile>
+      <anchor>ad588428f092dfc7b664d03bd2d770eb7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSelectionModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_list_panel.html</anchorfile>
+      <anchor>abb87eebd5936eb263f8f459d0b0bdc75</anchor>
+      <arglist>(QItemSelectionModel *selectionModel)</arglist>
+    </member>
+    <member kind="function">
+      <type>QItemSelectionModel *</type>
+      <name>selectionModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_list_panel.html</anchorfile>
+      <anchor>a27ddddef553b6975f438882b2e05921e</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_list_panel.html</anchorfile>
+      <anchor>ae23c51d0f1825c76ffa77e3a7b50655a</anchor>
+      <arglist>(QAbstractItemModel *model)</arglist>
+    </member>
+    <member kind="function">
+      <type>QAbstractItemModel *</type>
+      <name>model</name>
+      <anchorfile>class_rsa_toolbox_1_1_list_panel.html</anchorfile>
+      <anchor>a048aa8f31303bfaeade1c9672c727afe</anchor>
+      <arglist>() const </arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>RsaToolbox::Log</name>
     <filename>class_rsa_toolbox_1_1_log.html</filename>
     <member kind="slot">
-      <type>void</type>
+      <type>bool</type>
       <name>open</name>
       <anchorfile>class_rsa_toolbox_1_1_log.html</anchorfile>
-      <anchor>a9e8555112049fc2b4945120b3c45f8ab</anchor>
+      <anchor>adb20eae91802d6ad6366cdee0220c280</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="slot">
@@ -12533,31 +5399,31 @@
       <arglist>()</arglist>
     </member>
     <member kind="slot">
-      <type>void</type>
+      <type>bool</type>
       <name>rename</name>
       <anchorfile>class_rsa_toolbox_1_1_log.html</anchorfile>
-      <anchor>ad43c27ec3647ad13f65cbc0f9b04f868</anchor>
+      <anchor>a1538c89c05e7d50b52318aef5454543e</anchor>
       <arglist>(QString pathName)</arglist>
     </member>
     <member kind="slot">
-      <type>void</type>
-      <name>printApplicationHeader</name>
+      <type>bool</type>
+      <name>printHeader</name>
       <anchorfile>class_rsa_toolbox_1_1_log.html</anchorfile>
-      <anchor>a78c1c1b3c18cc6f666d4d791cfe9a4cf</anchor>
+      <anchor>abdf0aded8b5e2a69c048552ed6449b2b</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="slot">
-      <type>void</type>
+      <type>bool</type>
       <name>print</name>
       <anchorfile>class_rsa_toolbox_1_1_log.html</anchorfile>
-      <anchor>a9fcecd48b86862430fa0a6f25c9ba139</anchor>
+      <anchor>a3af674593cec1e1cf13b3fd79b7cb1ec</anchor>
       <arglist>(QString text)</arglist>
     </member>
     <member kind="slot">
-      <type>void</type>
+      <type>bool</type>
       <name>printLine</name>
       <anchorfile>class_rsa_toolbox_1_1_log.html</anchorfile>
-      <anchor>a52970f561919ea7fec0235179a1f11f9</anchor>
+      <anchor>ae2098ae2edfc0a9b8a306663ae47928d</anchor>
       <arglist>(QString text)</arglist>
     </member>
     <member kind="signal">
@@ -12592,8 +5458,8 @@
       <type></type>
       <name>Log</name>
       <anchorfile>class_rsa_toolbox_1_1_log.html</anchorfile>
-      <anchor>ae5cf0e7d024b0b070fb3bd386f526018</anchor>
-      <arglist>(QString directory, QString filename, QString applicationName, QString applicationVersion, QObject *parent=0)</arglist>
+      <anchor>a84033d972fdeee7ebbfb5e8bacf7f4fc</anchor>
+      <arglist>(QString filename, QString appName, QString version, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -12606,22 +5472,29 @@
       <type>bool</type>
       <name>isOpen</name>
       <anchorfile>class_rsa_toolbox_1_1_log.html</anchorfile>
-      <anchor>a7a8f153459b77aaa1c4486a9f378927b</anchor>
-      <arglist>(void)</arglist>
+      <anchor>a44de00431981f69c85271086f72e242c</anchor>
+      <arglist>(void) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isClosed</name>
       <anchorfile>class_rsa_toolbox_1_1_log.html</anchorfile>
-      <anchor>a995cd45aacf946ca210491d12ed4a0c0</anchor>
-      <arglist>(void)</arglist>
+      <anchor>a9ce84d738c1d52975ec9cc70bcd07b4a</anchor>
+      <arglist>(void) const </arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>QString</type>
+      <name>filename</name>
+      <anchorfile>class_rsa_toolbox_1_1_log.html</anchorfile>
+      <anchor>a783044bb7940157638752552d417c096</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
       <name>reset</name>
       <anchorfile>class_rsa_toolbox_1_1_log.html</anchorfile>
-      <anchor>a1de8621bff09767dbcf4a08b4f13b590</anchor>
-      <arglist>(QString directory, QString filename, QString appplicationName, QString applicationVersion)</arglist>
+      <anchor>ae5901e0ef50df3cf6dfd96a7e0234d26</anchor>
+      <arglist>(QString filename, QString appName, QString version)</arglist>
     </member>
     <member kind="function">
       <type>Log &amp;</type>
@@ -12849,6 +5722,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>setNumberOfPorts</name>
+      <anchorfile>class_rsa_toolbox_1_1_network_data.html</anchorfile>
+      <anchor>afb64550d2d62edfdf2d91a7a65ca77a8</anchor>
+      <arglist>(uint ports)</arglist>
+    </member>
+    <member kind="function">
       <type>QString</type>
       <name>portComment</name>
       <anchorfile>class_rsa_toolbox_1_1_network_data.html</anchorfile>
@@ -12905,10 +5785,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>QRowVector</type>
+      <type>QRowVector &amp;</type>
       <name>x</name>
       <anchorfile>class_rsa_toolbox_1_1_network_data.html</anchorfile>
-      <anchor>a72cb2736f6dcdb7ca9ce5eabf80b575e</anchor>
+      <anchor>a9549742e44c875036f539d83a1ec5d60</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -12917,6 +5797,13 @@
       <anchorfile>class_rsa_toolbox_1_1_network_data.html</anchorfile>
       <anchor>a1eaada33a0cfa9f5eca046d69e7e0e7b</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>ComplexRowVector</type>
+      <name>y</name>
+      <anchorfile>class_rsa_toolbox_1_1_network_data.html</anchorfile>
+      <anchor>a689debc748ddbd3e63447c836bc0cfaa</anchor>
+      <arglist>(uint outputPort, uint inputPort)</arglist>
     </member>
     <member kind="function">
       <type>QRowVector</type>
@@ -12982,17 +5869,17 @@
       <arglist>(const NetworkData &amp;other)</arglist>
     </member>
     <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&lt;&lt;</name>
+      <type>void</type>
+      <name>write</name>
       <anchorfile>class_rsa_toolbox_1_1_network_data.html</anchorfile>
-      <anchor>a0d37c0948a9b5e2e1f05fcf89967c761</anchor>
-      <arglist>(QDataStream &amp;stream)</arglist>
+      <anchor>a5cfcb1e247c8c1145928ab7af1945f9d</anchor>
+      <arglist>(QDataStream &amp;stream) const </arglist>
     </member>
     <member kind="function">
-      <type>QDataStream &amp;</type>
-      <name>operator&gt;&gt;</name>
+      <type>void</type>
+      <name>read</name>
       <anchorfile>class_rsa_toolbox_1_1_network_data.html</anchorfile>
-      <anchor>a9d84e2945d93431f1376c4370561cbd0</anchor>
+      <anchor>a4a9a1c958e86b14cf5bde58aba8ade21</anchor>
       <arglist>(QDataStream &amp;stream)</arglist>
     </member>
   </compound>
@@ -13267,334 +6154,124 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>RsaToolbox::Rsc</name>
-    <filename>class_rsa_toolbox_1_1_rsc.html</filename>
-    <member kind="slot">
-      <type>void</type>
-      <name>EnableCorrection</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a32b541b19cb3f614a39716408c6abdaa</anchor>
-      <arglist>(bool isEnabled=true)</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>DisableCorrection</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>ad7d59a14cf618433b96e9d54f9b968e5</anchor>
-      <arglist>(bool isDisabled=true)</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>SetUnitIndex</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a811b808c21f34c8c3e86e3d8487885a2</anchor>
-      <arglist>(uint index)</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>SetAttenuation</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a035c88101795af6b66181163ed348679</anchor>
-      <arglist>(double value)</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>SetUserCalibrationState</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a6512a6ccaad4b28dbb3603c6b0078b84</anchor>
-      <arglist>(RscCalibrationState state)</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>LoadUserCalibrationFile</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a5ddb10856cdae9f7f6e51b4baf2054aa</anchor>
-      <arglist>(QString filename)</arglist>
-    </member>
-    <member kind="signal">
-      <type>void</type>
-      <name>Print</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>ad31850e998eb495e68b827080280bded</anchor>
-      <arglist>(QString formatted_text)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Rsc</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>abfadd8abef686f79c61f9390bbaefe46</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Rsc</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>afbbbc232d8d0db0c238a2ceaca171dc3</anchor>
-      <arglist>(ConnectionType connection_type, QString address, uint timeout_ms, QObject *parent=0)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~Rsc</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>ad508f97dd7bfc25e55964449ff0698ba</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>ConnectLog</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a3eacd52cdda57615f4f697485641c1c8</anchor>
-      <arglist>(Log &amp;log)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>DisconnectLog</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>aef11d5075fbd15c59f62aa5e61f3ba3e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>GetIdString</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>aeb31884dad38db6d2055ac78afd8a739</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>RscModel</type>
-      <name>GetModel</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a76919e9866cadf6d780c0f1496f6f5ad</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>GetSerialNumber</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>ae8f336ac286184151e80cc069d78a3c4</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>GetFirmwareVersion</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a017e6af5b01236c4e455d09a364294e9</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isConnected</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a772f8f0487e0d3804e9da7585e23a29a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isOperationComplete</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>acb2283a6cb20418383f3f512caf30550</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isError</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>af0c21ff963e9cdf07e3f0412f38de4e4</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isCorrectionEnabled</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>aeedf29c86fcf70a77c868424be2069dd</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isCorrectionDisabled</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a86ac23c66979e541a1b063aad51f6fd9</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isBaseUnit</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a2b41ec391f85fa5a43924b8404228b9e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>ClearErrors</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a9973f377b3ae387fc9c0ca2f127938ba</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>QVector&lt; QStringList &gt;</type>
-      <name>GetAvailableUnits</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a6b92e6eb7a4e48ce7c631bbe92fcd303</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>uint</type>
-      <name>GetUnitIndex</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a9ff6095343efe46bb555aab8c8a8aeed</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetAttenuation_dB</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a10d8e37f144f84eab670388ea8a71459</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>RscCalibrationState</type>
-      <name>GetUserCalibrationState</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>ab0b2b75852c981f0508240748075aaa2</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMinimumFrequency_Hz</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a63398b5425d20dc765340bba434866b9</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMaximumFrequency_Hz</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>af09115e81c275a8419c68b8f49c89397</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMaximumPower_dBm</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a036579d578d7ee0021c6fdfcfd19fee7</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMaximumAttenuation_dB</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>ae7318a20db7284abee0a07efc81a08b0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetStepSize_dB</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsc.html</anchorfile>
-      <anchor>a20067873c59c1a63ffeca7ac73299f54</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>RsaToolbox::RsibBus</name>
-    <filename>class_rsa_toolbox_1_1_rsib_bus.html</filename>
+    <name>RsaToolbox::NoBus</name>
+    <filename>class_rsa_toolbox_1_1_no_bus.html</filename>
     <base>RsaToolbox::GenericBus</base>
     <member kind="slot">
       <type>bool</type>
       <name>lock</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
       <anchor>abde223cb8968835b7f8f060e505facc2</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="slot">
       <type>bool</type>
       <name>unlock</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
       <anchor>ae399421ee39cae4df5ea44bd21e31254</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="slot">
       <type>bool</type>
       <name>local</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
       <anchor>ae4642a972205ef378bb3a1550a8418d8</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="slot">
       <type>bool</type>
       <name>remote</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
       <anchor>a6f0890ff36c5a5fb58cdaca77e3f15f9</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>printStatus</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
-      <anchor>a30d7b394b3d6932f045f69a7980fa888</anchor>
-      <arglist>() const </arglist>
-    </member>
     <member kind="function">
       <type></type>
-      <name>RsibBus</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
-      <anchor>a00496bd19d2d08358d65eb4a08c25004</anchor>
+      <name>NoBus</name>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
+      <anchor>aa7a79cea5a02dd585e830f6163184d6a</anchor>
       <arglist>(QObject *parent=0)</arglist>
     </member>
     <member kind="function">
       <type></type>
-      <name>RsibBus</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
-      <anchor>a0d573a040d981a0c3c95d20b96c6d2dd</anchor>
-      <arglist>(ConnectionType connectionType, QString address, uint bufferSize_B=500, uint timeout_ms=1000, QObject *parent=0)</arglist>
+      <name>NoBus</name>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
+      <anchor>a37bbe853549530571e4b0a4b2bb20aa7</anchor>
+      <arglist>(ConnectionType type, QString address, uint bufferSize_B=500, uint timeout_ms=1000, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
       <type></type>
-      <name>~RsibBus</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
-      <anchor>a7f9a1530ba625fd1de2d5c5da50f3663</anchor>
+      <name>~NoBus</name>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
+      <anchor>a11108292892e3c28064b9c9df8ccf5ec</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isOpen</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
       <anchor>a3c7351cec1380d07f9e4b3ec96b2b1ff</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>setTimeout</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
-      <anchor>a64f8674ed2fc1bf521b82b2c0523d310</anchor>
-      <arglist>(uint time_ms)</arglist>
-    </member>
-    <member kind="function" protection="protected">
       <type>bool</type>
-      <name>_read</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
-      <anchor>ac91a11aa027b98dbb294a7450a41998b</anchor>
-      <arglist>(char *buffer, uint bufferSize)</arglist>
+      <name>read</name>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
+      <anchor>a71e5fd121c106817d7b2572ed71d321b</anchor>
+      <arglist>(char *buffer, uint bufferSize_B)</arglist>
     </member>
-    <member kind="function" protection="protected">
+    <member kind="function">
       <type>bool</type>
-      <name>_write</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
-      <anchor>a2dbf98a161012f4de9bd4f5ac988bb68</anchor>
-      <arglist>(QString scpiCommand)</arglist>
+      <name>write</name>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
+      <anchor>a55032c7de66b8ce4a1921375d2fbed5f</anchor>
+      <arglist>(QString scpi)</arglist>
     </member>
-    <member kind="function" protection="protected">
+    <member kind="function">
       <type>bool</type>
-      <name>_binaryRead</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
-      <anchor>af1ea84c6920ca23eadf907885511d3aa</anchor>
-      <arglist>(char *buffer, uint bufferSize, uint &amp;bytesRead)</arglist>
+      <name>binaryRead</name>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
+      <anchor>a0c5e75f5a0c689d0fbb8c41623e90d91</anchor>
+      <arglist>(char *buffer, uint bufferSize_B, uint &amp;bytesRead)</arglist>
     </member>
-    <member kind="function" protection="protected">
+    <member kind="function">
       <type>bool</type>
-      <name>_binaryWrite</name>
-      <anchorfile>class_rsa_toolbox_1_1_rsib_bus.html</anchorfile>
-      <anchor>a59cb83b7cd82a8afe1dbdedf26bfdd89</anchor>
-      <arglist>(QByteArray scpiCommand)</arglist>
+      <name>binaryWrite</name>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
+      <anchor>a2714b6890c65c0c602e24cb2c3563a4e</anchor>
+      <arglist>(QByteArray data)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>status</name>
+      <anchorfile>class_rsa_toolbox_1_1_no_bus.html</anchorfile>
+      <anchor>ac393ea064b5a1ab73983e28e213ebbde</anchor>
+      <arglist>() const </arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::PortsLineEdit</name>
+    <filename>class_rsa_toolbox_1_1_ports_line_edit.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>PortsLineEdit</name>
+      <anchorfile>class_rsa_toolbox_1_1_ports_line_edit.html</anchorfile>
+      <anchor>ae832f0034c9345c7c332a6afc5c1ef7e</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>QVector&lt; uint &gt;</type>
+      <name>ports</name>
+      <anchorfile>class_rsa_toolbox_1_1_ports_line_edit.html</anchorfile>
+      <anchor>ac0e2cc29d1ddf19a95d69888f9c15195</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QVector&lt; uint &gt;</type>
+      <name>sortedPorts</name>
+      <anchorfile>class_rsa_toolbox_1_1_ports_line_edit.html</anchorfile>
+      <anchor>a1c5c566386065ff6f3d62b922670d7cb</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -13823,6 +6500,102 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>RsaToolbox::TcpBus</name>
+    <filename>class_rsa_toolbox_1_1_tcp_bus.html</filename>
+    <base>RsaToolbox::GenericBus</base>
+    <member kind="slot">
+      <type>bool</type>
+      <name>lock</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>abde223cb8968835b7f8f060e505facc2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>bool</type>
+      <name>unlock</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>ae399421ee39cae4df5ea44bd21e31254</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>bool</type>
+      <name>local</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>ae4642a972205ef378bb3a1550a8418d8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>bool</type>
+      <name>remote</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>a6f0890ff36c5a5fb58cdaca77e3f15f9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TcpBus</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>ad402c663766d4e3cb3980a536eaede64</anchor>
+      <arglist>(QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TcpBus</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>a8ecf9d03ea2cba6e2763222b0f877bd2</anchor>
+      <arglist>(ConnectionType type, QString address, uint bufferSize_B=500, uint timeout_ms=1000, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~TcpBus</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>aebbd080c147c26a8a2ff534029d64b86</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isOpen</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>a3c7351cec1380d07f9e4b3ec96b2b1ff</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>read</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>a71e5fd121c106817d7b2572ed71d321b</anchor>
+      <arglist>(char *buffer, uint bufferSize_B)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>write</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>a55032c7de66b8ce4a1921375d2fbed5f</anchor>
+      <arglist>(QString scpi)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>binaryRead</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>a0c5e75f5a0c689d0fbb8c41623e90d91</anchor>
+      <arglist>(char *buffer, uint bufferSize_B, uint &amp;bytesRead)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>binaryWrite</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>a2714b6890c65c0c602e24cb2c3563a4e</anchor>
+      <arglist>(QByteArray data)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>status</name>
+      <anchorfile>class_rsa_toolbox_1_1_tcp_bus.html</anchorfile>
+      <anchor>ac393ea064b5a1ab73983e28e213ebbde</anchor>
+      <arglist>() const </arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>RsaToolbox::Touchstone</name>
     <filename>class_rsa_toolbox_1_1_touchstone.html</filename>
     <member kind="function" static="yes">
@@ -13893,13 +6666,6 @@
       <anchor>a6f0890ff36c5a5fb58cdaca77e3f15f9</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>printStatus</name>
-      <anchorfile>class_rsa_toolbox_1_1_visa_bus.html</anchorfile>
-      <anchor>a30d7b394b3d6932f045f69a7980fa888</anchor>
-      <arglist>() const </arglist>
-    </member>
     <member kind="function">
       <type></type>
       <name>VisaBus</name>
@@ -13935,40 +6701,68 @@
       <anchor>a64f8674ed2fc1bf521b82b2c0523d310</anchor>
       <arglist>(uint time_ms)</arglist>
     </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>read</name>
+      <anchorfile>class_rsa_toolbox_1_1_visa_bus.html</anchorfile>
+      <anchor>a71e5fd121c106817d7b2572ed71d321b</anchor>
+      <arglist>(char *buffer, uint bufferSize_B)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>write</name>
+      <anchorfile>class_rsa_toolbox_1_1_visa_bus.html</anchorfile>
+      <anchor>a55032c7de66b8ce4a1921375d2fbed5f</anchor>
+      <arglist>(QString scpi)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>binaryRead</name>
+      <anchorfile>class_rsa_toolbox_1_1_visa_bus.html</anchorfile>
+      <anchor>a0c5e75f5a0c689d0fbb8c41623e90d91</anchor>
+      <arglist>(char *buffer, uint bufferSize_B, uint &amp;bytesRead)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>binaryWrite</name>
+      <anchorfile>class_rsa_toolbox_1_1_visa_bus.html</anchorfile>
+      <anchor>a6fbbc7eda10e6d4c1df55ab066191998</anchor>
+      <arglist>(QByteArray scpi)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>status</name>
+      <anchorfile>class_rsa_toolbox_1_1_visa_bus.html</anchorfile>
+      <anchor>ac393ea064b5a1ab73983e28e213ebbde</anchor>
+      <arglist>() const </arglist>
+    </member>
     <member kind="function" static="yes">
       <type>static bool</type>
-      <name>isVisaPresent</name>
+      <name>isVisaInstalled</name>
       <anchorfile>class_rsa_toolbox_1_1_visa_bus.html</anchorfile>
-      <anchor>aa1016fa7162d3893d90f4e6d03ee622f</anchor>
+      <anchor>a6fb6da56d0df74528a57d8c1ca3f4af7</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function" protection="protected">
-      <type>bool</type>
-      <name>_read</name>
+    <member kind="function">
+      <type>QString</type>
+      <name>toString</name>
       <anchorfile>class_rsa_toolbox_1_1_visa_bus.html</anchorfile>
-      <anchor>ac91a11aa027b98dbb294a7450a41998b</anchor>
-      <arglist>(char *buffer, uint bufferSize)</arglist>
+      <anchor>afaed6f2820b88a9337f8a73383dbd43e</anchor>
+      <arglist>(ConnectionType connectionType)</arglist>
     </member>
-    <member kind="function" protection="protected">
-      <type>bool</type>
-      <name>_write</name>
+    <member kind="function">
+      <type>ConnectionType</type>
+      <name>toConnectionType</name>
       <anchorfile>class_rsa_toolbox_1_1_visa_bus.html</anchorfile>
-      <anchor>a2dbf98a161012f4de9bd4f5ac988bb68</anchor>
-      <arglist>(QString scpiCommand)</arglist>
+      <anchor>aedec38fe38dd15d5baf70ec815e3ccf1</anchor>
+      <arglist>(QString scpi)</arglist>
     </member>
-    <member kind="function" protection="protected">
-      <type>bool</type>
-      <name>_binaryRead</name>
+    <member kind="function">
+      <type>QString</type>
+      <name>toVisaInstrumentResource</name>
       <anchorfile>class_rsa_toolbox_1_1_visa_bus.html</anchorfile>
-      <anchor>af1ea84c6920ca23eadf907885511d3aa</anchor>
-      <arglist>(char *buffer, uint bufferSize, uint &amp;bytesRead)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>bool</type>
-      <name>_binaryWrite</name>
-      <anchorfile>class_rsa_toolbox_1_1_visa_bus.html</anchorfile>
-      <anchor>a59cb83b7cd82a8afe1dbdedf26bfdd89</anchor>
-      <arglist>(QByteArray scpiCommand)</arglist>
+      <anchor>a0afd83a6e8718cb32e31493eb3c722fe</anchor>
+      <arglist>(ConnectionType type, QString address)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14047,17 +6841,31 @@
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>isError</name>
+      <name>nextError</name>
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>ac64321b09444ed39f4b122e26fd782c9</anchor>
-      <arglist>(QString &amp;errorString)</arglist>
+      <anchor>a579d151598860bdc228b3e3ee788766a</anchor>
+      <arglist>(QString &amp;message)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>isError</name>
+      <name>nextError</name>
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>a49cda2ce4622889f356862343214ebbe</anchor>
-      <arglist>(QStringList &amp;errors)</arglist>
+      <anchor>a1fae59eaa8cfa717d025d1348135b566</anchor>
+      <arglist>(int &amp;code, QString &amp;message)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>errors</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>ab8021df0e05a1b6cc8104f0025b8b5c3</anchor>
+      <arglist>(QStringList &amp;messages)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>errors</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>ad948d84bc3defe9716b7777a0330d6be</anchor>
+      <arglist>(QList&lt; int &gt; &amp;codes, QStringList &amp;messages)</arglist>
     </member>
     <member kind="function">
       <type>VnaProperties &amp;</type>
@@ -14168,8 +6976,8 @@
       <type>QVector&lt; NameLabel &gt;</type>
       <name>calKits</name>
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>aabb899750fb3c7c6f9f81b4b3901376b</anchor>
-      <arglist>(ConnectorType type)</arglist>
+      <anchor>af330be008c72a182bc8008deabcbd9fc</anchor>
+      <arglist>(Connector::Type type)</arglist>
     </member>
     <member kind="function">
       <type>QVector&lt; NameLabel &gt;</type>
@@ -14373,6 +7181,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
       <anchor>ac0795e14d09aa2d96eafc9e7d5cfddc5</anchor>
       <arglist>(QString name, uint channel)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>createTrace</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>a05feb2c6dea03feb4ce12868891240ad</anchor>
+      <arglist>(uint channel)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14618,6 +7433,20 @@
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
       <anchor>a64df6113e20ed16eb1aa386d47582f5f</anchor>
       <arglist>(QString id)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isGlobalLimitsPass</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>a419e2de8806e2abfe3edbcbf1f2a383c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isGlobalLimitsFail</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>ae7bbe5b111f9b6c3e37428332954fef1</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -15890,6 +8719,27 @@
       <arglist>(bool isOn=true)</arglist>
     </member>
     <member kind="function">
+      <type>uint</type>
+      <name>sweepCount</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a7eb31e101b560e353044e37e22974a61</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSweepCount</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a9d76e69a5df1c1a7342822721b8abc85</anchor>
+      <arglist>(uint count=1)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isFrequencySweep</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>aa513eb12180f9b790d01a48fc6503864</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isLinearSweep</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
@@ -15944,6 +8794,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
       <anchor>a73e90e789be356accbdbfaa6a58ed966</anchor>
       <arglist>(VnaSweepType sweepType)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFrequencies</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a54221d0349a700f7309c86407197cb44</anchor>
+      <arglist>(QRowVector values, SiPrefix prefix=NO_PREFIX)</arglist>
     </member>
     <member kind="function">
       <type>VnaLinearSweep &amp;</type>
@@ -16609,6 +9466,34 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>bool</type>
+      <name>isTitleOn</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_diagram.html</anchorfile>
+      <anchor>a3a41c69e28ada94b70d04c8b34bed3b6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isTitleOff</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_diagram.html</anchorfile>
+      <anchor>a6fc88b5409629a6ffd62050fd6b3888d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>titleOn</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_diagram.html</anchorfile>
+      <anchor>a45d9e7d9fb28e4b72453d241d095029e</anchor>
+      <arglist>(bool isOn=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>titleOff</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_diagram.html</anchorfile>
+      <anchor>afcac5209074611bd7737c6b443ddda39</anchor>
+      <arglist>(bool isOff=true)</arglist>
+    </member>
+    <member kind="function">
       <type>QString</type>
       <name>title</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_diagram.html</anchorfile>
@@ -16661,6 +9546,69 @@
   <compound kind="class">
     <name>RsaToolbox::VnaFileSystem</name>
     <filename>class_rsa_toolbox_1_1_vna_file_system.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>Directory</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
+      <anchor>a688eb1e9e0e97f66e86454e1e689033f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>DEFAULT_DIRECTORY</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
+      <anchor>a688eb1e9e0e97f66e86454e1e689033faba70ab56c8497a5155e06e7bc42b3ec7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>EMBED_DIRECTORY</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
+      <anchor>a688eb1e9e0e97f66e86454e1e689033fac3bdae926d1a34444e8fa1441525fe32</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>DEEMBED_DIRECTORY</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
+      <anchor>a688eb1e9e0e97f66e86454e1e689033fade6246814a395c7ccef887fc7c30a9c2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>CAL_GROUP_DIRECTORY</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
+      <anchor>a688eb1e9e0e97f66e86454e1e689033faeeb197361de055a6fe6523e31cc3f081</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>CAL_KIT_DIRECTORY</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
+      <anchor>a688eb1e9e0e97f66e86454e1e689033fa981832126da42584e99723f632952208</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>EXTERNAL_TOOLS_DIRECTORY</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
+      <anchor>a688eb1e9e0e97f66e86454e1e689033fa1fb38160435656bb12debb661fe4b555</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>RECALL_SETS_DIRECTORY</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
+      <anchor>a688eb1e9e0e97f66e86454e1e689033fa6d5ca8263124d28188c8bdf85edc0d65</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>TRACES_DIRECTORY</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
+      <anchor>a688eb1e9e0e97f66e86454e1e689033fa9f9f8a45c0bcdf2c9ec7aad9c02ab60d</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>VnaFileSystem</name>
@@ -16784,8 +9732,8 @@
       <type>QString</type>
       <name>directory</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
-      <anchor>a3219952936442ae99ff3d556979ff132</anchor>
-      <arglist>(VnaDirectory directory)</arglist>
+      <anchor>a0b2f0e87107c57ac535b4fcd5a7f7e8a</anchor>
+      <arglist>(Directory directory)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -16798,8 +9746,8 @@
       <type>void</type>
       <name>changeDirectory</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
-      <anchor>a33d52efb43aa29ab5f866b4ff9f199d5</anchor>
-      <arglist>(VnaDirectory directory)</arglist>
+      <anchor>ad0232740188922d0b5844bb36ad6a193</anchor>
+      <arglist>(Directory directory)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -16868,8 +9816,8 @@
       <type>void</type>
       <name>uploadFile</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
-      <anchor>a8032bce8508a48552c32a4c651bb163f</anchor>
-      <arglist>(QString sourcePathName, QString destinationFilename, VnaDirectory destinationDirectory)</arglist>
+      <anchor>a5ade182236b29951757e46d681df58c8</anchor>
+      <arglist>(QString sourcePathName, QString destinationFilename, Directory destinationDirectory)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -16889,15 +9837,15 @@
       <type>void</type>
       <name>downloadFile</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
-      <anchor>abc5528fe28595abf6b6c99285c33be9c</anchor>
-      <arglist>(QString sourceFilename, VnaDirectory sourceDirectory, QString destinationPathName)</arglist>
+      <anchor>a0a97537ad99383077e8b515c28d198c1</anchor>
+      <arglist>(QString sourceFilename, Directory sourceDirectory, QString destinationPathName)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>downloadFile</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
-      <anchor>aad8554de6a266fbf6a1b38b43a1acabb</anchor>
-      <arglist>(QString sourceFilename, VnaDirectory sourceDirectory, QString destinationPathName, uint bufferSize_B)</arglist>
+      <anchor>a1a88ec521f2f8bebc9bc25988f5c29bf</anchor>
+      <arglist>(QString sourceFilename, Directory sourceDirectory, QString destinationPathName, uint bufferSize_B)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -16905,6 +9853,203 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
       <anchor>a4c1dbf3639064ce227c971e2a99740f8</anchor>
       <arglist>(VnaFileSystem const &amp;other)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::VnaForm</name>
+    <filename>class_rsa_toolbox_1_1_vna_form.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>displayError</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_form.html</anchorfile>
+      <anchor>a86a990b0634d96cab2b6b77e59f34126</anchor>
+      <arglist>(QString message)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>VnaForm</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_form.html</anchorfile>
+      <anchor>ae0b54a507c25c092dc0efa9aa56af332</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaForm</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_form.html</anchorfile>
+      <anchor>aa9272b0f8cdc5bb39e02b9450fe493cf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>VnaModel *</type>
+      <name>model</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_form.html</anchorfile>
+      <anchor>a0a806d82e5bc22b096c6d390610fc08a</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_form.html</anchorfile>
+      <anchor>a2f8b8f952f591811799b2c5f8aa23ceb</anchor>
+      <arglist>(VnaModel *model)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::VnaLimits</name>
+    <filename>class_rsa_toolbox_1_1_vna_limits.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>VnaLimits</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>aa69b81cc3c86bd93acefffa4526d0b4f</anchor>
+      <arglist>(QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>VnaLimits</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a31ac0b3646c209fe0ee3b631af0922a5</anchor>
+      <arglist>(const VnaLimits &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>VnaLimits</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a6eccb8fc6fd7582c0ae3eefbc847759a</anchor>
+      <arglist>(Vna *vna, VnaTrace *trace, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>VnaLimits</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a0a2cc92074c369a1121407a03e7333a6</anchor>
+      <arglist>(Vna *vna, QString traceName, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isOn</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a3909f77aa50b8f46ccadc196178a07a1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isOff</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a45cb35cce9c006e0f1428934f6d828cb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>on</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>af5ab223c4aa62b4fc1bcc3a166bc2517</anchor>
+      <arglist>(bool isOn=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>off</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a785abb1dda82d2aa86dca3b47ad8c5db</anchor>
+      <arglist>(bool isOff=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isPass</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a1ea9d5a5e89a4601ef596ca523d0bfd5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isFail</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a869eb1286e985afed72aa28fa005bf28</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isVisible</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>aadc2f7e6c414e3e7016fb654293daa7f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isHidden</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a05c0adb47029724e308fbcb5bee6a6d5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>show</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>af4cc61d7d505393c1bb8bff846fbb629</anchor>
+      <arglist>(bool isVisible=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>hide</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a9d51d9cb6828b7663d5448973b07f981</anchor>
+      <arglist>(bool isHidden=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUpper</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a6c0181370b92273211945c208618974a</anchor>
+      <arglist>(QString trace, double xOffset=0, double yOffset=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addUpper</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>aa1506e1f9206c72c24caf728fff6e9c5</anchor>
+      <arglist>(QRowVector frequencies_Hz, ComplexRowVector values)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addUpper</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a13ecf24ee68c753f8995f1bf17c6778e</anchor>
+      <arglist>(QRowVector frequencies_Hz, QRowVector values)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLower</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a217473042775ffff4a3415d822f73be7</anchor>
+      <arglist>(QString trace, double xOffset=0, double yOffset=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addLower</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>acae1ba424510140f6fa99cefd29964da</anchor>
+      <arglist>(QRowVector frequencies_Hz, ComplexRowVector values)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addLower</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>afe69cc4b1c4a93bee94a7e73d8a3f8ea</anchor>
+      <arglist>(QRowVector frequencies_Hz, QRowVector values)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deleteAll</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a68ae7378c8581ca7c3f11de35bfbf6df</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator=</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a2ca43e107fa71d933178222bef506a3c</anchor>
+      <arglist>(VnaLimits const &amp;other)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -17086,18 +10231,46 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
-      <name>estimatedSweepTime_s</name>
+      <type>bool</type>
+      <name>isAutoSweepTimeOn</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_linear_sweep.html</anchorfile>
-      <anchor>a38c2dda1f527752d1d4a4c4f0774b0ce</anchor>
+      <anchor>a4e1fc288463e0ad50378803d912079bc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isAutoSweepTimeOff</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_linear_sweep.html</anchorfile>
+      <anchor>ad192ac15485a3caf48ba9b36be2beb65</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>autoSweepTimeOn</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_linear_sweep.html</anchorfile>
+      <anchor>a42fa6859b453c6c8004ec13da4580d28</anchor>
+      <arglist>(bool isOn=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>autoSweepTimeOff</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_linear_sweep.html</anchorfile>
+      <anchor>a220fef16f57b763fc04b22d35989e2dd</anchor>
+      <arglist>(bool isOff=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>sweepTime_ms</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_linear_sweep.html</anchorfile>
+      <anchor>a919adcd598ff449e735b48daa047d45b</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setSweepTime</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_linear_sweep.html</anchorfile>
-      <anchor>ac67e33d2b920df17a3f648ea8e772976</anchor>
-      <arglist>(double time_s)</arglist>
+      <anchor>ae00e33d51b3a5c16d9c00a6cdced6f5d</anchor>
+      <arglist>(uint time_ms)</arglist>
     </member>
     <member kind="function">
       <type>NetworkData</type>
@@ -17314,6 +10487,48 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>bool</type>
+      <name>isAutoSweepTimeOn</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_log_sweep.html</anchorfile>
+      <anchor>a4e1fc288463e0ad50378803d912079bc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isAutoSweepTimeOff</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_log_sweep.html</anchorfile>
+      <anchor>ad192ac15485a3caf48ba9b36be2beb65</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>autoSweepTimeOn</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_log_sweep.html</anchorfile>
+      <anchor>a42fa6859b453c6c8004ec13da4580d28</anchor>
+      <arglist>(bool isOn=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>autoSweepTimeOff</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_log_sweep.html</anchorfile>
+      <anchor>a220fef16f57b763fc04b22d35989e2dd</anchor>
+      <arglist>(bool isOff=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>sweepTime_ms</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_log_sweep.html</anchorfile>
+      <anchor>a919adcd598ff449e735b48daa047d45b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSweepTime</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_log_sweep.html</anchorfile>
+      <anchor>ae00e33d51b3a5c16d9c00a6cdced6f5d</anchor>
+      <arglist>(uint time_ms)</arglist>
+    </member>
+    <member kind="function">
       <type>NetworkData</type>
       <name>measure</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_log_sweep.html</anchorfile>
@@ -17526,6 +10741,245 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_marker.html</anchorfile>
       <anchor>acf870463e4e8323487f637b6d7b3ecef</anchor>
       <arglist>(VnaMarker const &amp;other)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::VnaMath</name>
+    <filename>class_rsa_toolbox_1_1_vna_math.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>VnaMath</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>a90f69b781508657549cd30923b55f67d</anchor>
+      <arglist>(QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>VnaMath</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>a21bdc963d1b574ac2ac08e27bfead0b7</anchor>
+      <arglist>(const VnaMath &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>VnaMath</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>ae791434bc9c9048b33ef7202708dd23c</anchor>
+      <arglist>(Vna *vna, VnaTrace *trace, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>VnaMath</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>ab3dd3602aebe7c3bbf0b94e7990fd210</anchor>
+      <arglist>(Vna *vna, QString traceName, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isOn</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>a3909f77aa50b8f46ccadc196178a07a1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isOff</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>a45cb35cce9c006e0f1428934f6d828cb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>on</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>af5ab223c4aa62b4fc1bcc3a166bc2517</anchor>
+      <arglist>(bool isOn=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>off</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>a785abb1dda82d2aa86dca3b47ad8c5db</anchor>
+      <arglist>(bool isOff=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>expression</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>a9ea2bd52c4f853eb35f44871f62a0c93</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setExpression</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>a468e14f251c83ddc31fc5a60c051fe05</anchor>
+      <arglist>(QString expression)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>divideBy</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>a0b6e71340907c959d6a69556fd2f6044</anchor>
+      <arglist>(QString trace)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator=</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>aeb4734e3f230db14aa739c21b873aa8b</anchor>
+      <arglist>(VnaMath const &amp;other)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::VnaModel</name>
+    <filename>class_rsa_toolbox_1_1_vna_model.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a727e9b9696032b380d0072840595ef05</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>CONNECTION_TYPE_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a727e9b9696032b380d0072840595ef05a9221cb4e2436bbc100f076146aadfb9e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ADDRESS_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a727e9b9696032b380d0072840595ef05a888234c794028b8b264d6fef720c9207</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>CONNECTED_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a727e9b9696032b380d0072840595ef05a3fa46932d7e683b387efb23361733ffd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>MAKE_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a727e9b9696032b380d0072840595ef05a8cd443ac12c0febc2b04f9f95b1a071b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>MODEL_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a727e9b9696032b380d0072840595ef05ab2fe2272b91ff5fb04139df92823cd8b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SERIAL_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a727e9b9696032b380d0072840595ef05a7c67b16b6369090b38429e67a061513e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>FIRMWARE_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a727e9b9696032b380d0072840595ef05a2b545cac776f99a0f5182294869a0973</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>FREQ_DISPLAY_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a727e9b9696032b380d0072840595ef05aa535a29d067cf1c4244ea752c269e2ae</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>POWER_DISPLAY_COLUMN</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a727e9b9696032b380d0072840595ef05a34df5c4942d3500446f62b4febeabe9e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>ad20897c5c8bd47f5d4005989bead0e55</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>error</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a1fb8329646f59e91ec72cced259fd59f</anchor>
+      <arglist>(QString errorMessage)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>VnaModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a9132999811566cc6cd7dd36cb4bf2ca7</anchor>
+      <arglist>(QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setVna</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a775cb7c360bbc336773086f61dde8410</anchor>
+      <arglist>(Vna *vna)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vna *</type>
+      <name>vna</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a07cf7b3fd901fe1cee2f706b0e5dbd51</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>rowCount</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>ad1da2096edce65195e18fe76edaf4c78</anchor>
+      <arglist>(const QModelIndex &amp;parent) const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>columnCount</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a971fc1b550da0d8ce820b57cdf3ce163</anchor>
+      <arglist>(const QModelIndex &amp;parent) const </arglist>
+    </member>
+    <member kind="function">
+      <type>Qt::ItemFlags</type>
+      <name>flags</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a4cc21a105c93bf37f312e3b559f1c88d</anchor>
+      <arglist>(const QModelIndex &amp;index) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>data</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>adcd3df47ac02021a2c18b8a921b26b54</anchor>
+      <arglist>(const QModelIndex &amp;index, int role) const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>setData</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>a939cd7e1679ea3e46f1d3c9a81f47ac5</anchor>
+      <arglist>(const QModelIndex &amp;index, const QVariant &amp;value, int role)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const int</type>
+      <name>COLUMNS</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_model.html</anchorfile>
+      <anchor>af6c484f782f36b472fb334e72c392801</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -17869,6 +11323,48 @@
       <arglist>(double bandwidth, SiPrefix prefix=NO_PREFIX)</arglist>
     </member>
     <member kind="function">
+      <type>bool</type>
+      <name>isAutoSweepTimeOn</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_power_sweep.html</anchorfile>
+      <anchor>a4e1fc288463e0ad50378803d912079bc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isAutoSweepTimeOff</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_power_sweep.html</anchorfile>
+      <anchor>ad192ac15485a3caf48ba9b36be2beb65</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>autoSweepTimeOn</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_power_sweep.html</anchorfile>
+      <anchor>a42fa6859b453c6c8004ec13da4580d28</anchor>
+      <arglist>(bool isOn=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>autoSweepTimeOff</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_power_sweep.html</anchorfile>
+      <anchor>a220fef16f57b763fc04b22d35989e2dd</anchor>
+      <arglist>(bool isOff=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>sweepTime_ms</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_power_sweep.html</anchorfile>
+      <anchor>a919adcd598ff449e735b48daa047d45b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSweepTime</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_power_sweep.html</anchorfile>
+      <anchor>ae00e33d51b3a5c16d9c00a6cdced6f5d</anchor>
+      <arglist>(uint time_ms)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>operator=</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_power_sweep.html</anchorfile>
@@ -17879,6 +11375,83 @@
   <compound kind="class">
     <name>RsaToolbox::VnaProperties</name>
     <filename>class_rsa_toolbox_1_1_vna_properties.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>Model</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ZVA_MODEL</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea2d51e423a09a3c2b3153aa2cea9a598c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ZVB_MODEL</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea5da95a0c91001bfb794b9b94965535ac</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ZVH_MODEL</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3eadba63c59378b92096fab4185be6b9d8d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ZVL_MODEL</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea1f5f1ba03530b290a088a2f902558de2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ZVT_MODEL</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea65d730cf6fef22b7c351a5eaf3f1390d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ZNB_MODEL</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ead2368b2cd5f0cc866f4bce111466684e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ZNBT_MODEL</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3eaf13fef3f36941ed7498d28362babbb81</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ZNC_MODEL</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea7066fd4bb8edb717a681bdfa6c8f6960</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ZNP_MODEL</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea84ddb44271f00d058dbd9a6275361a06</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>UNKNOWN_MODEL</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea3f3d79136caf882d83cc87d6b5f5478e</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>VnaProperties</name>
@@ -17901,10 +11474,10 @@
       <arglist>(Vna *vna, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
-      <type>VnaModel</type>
+      <type>Model</type>
       <name>model</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
-      <anchor>a9fc082dc3c35ad05adede38a7b8bc95a</anchor>
+      <anchor>ab1feb2fe1e7a3c23bbcb79a351dd355b</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -18241,7 +11814,7 @@
       <type>QVector&lt; double &gt;</type>
       <name>frequencies_Hz</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
-      <anchor>aaf0a017e8ef1baa58e87488e548de3b3</anchor>
+      <anchor>a6bdb7349d9336d3c5eb00616f78c202a</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -18288,16 +11861,16 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>removeSegment</name>
+      <name>deleteSegment</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
-      <anchor>a9caa4c5a15a09fdcd84e62ffb78234f3</anchor>
+      <anchor>a9d0214a3a90bf58afac1787e2870fc35</anchor>
       <arglist>(uint index)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>removeSegments</name>
+      <name>deleteSegments</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
-      <anchor>a3ecd83ff27ba319307525fa4fcf7c7ef</anchor>
+      <anchor>a70b722465dfb46dc6347fc9f0f9e61c4</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -18334,6 +11907,48 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
       <anchor>a83cd1058a5091918d294e1ba612941ae</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isAutoSweepTimeOn</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
+      <anchor>a4e1fc288463e0ad50378803d912079bc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isAutoSweepTimeOff</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
+      <anchor>ad192ac15485a3caf48ba9b36be2beb65</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>autoSweepTimeOn</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
+      <anchor>a42fa6859b453c6c8004ec13da4580d28</anchor>
+      <arglist>(bool isOn=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>autoSweepTimeOff</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
+      <anchor>a220fef16f57b763fc04b22d35989e2dd</anchor>
+      <arglist>(bool isOff=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>sweepTime_ms</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
+      <anchor>a919adcd598ff449e735b48daa047d45b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSweepTime</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
+      <anchor>ae00e33d51b3a5c16d9c00a6cdced6f5d</anchor>
+      <arglist>(uint time_ms)</arglist>
     </member>
     <member kind="function">
       <type>NetworkData</type>
@@ -18381,6 +11996,118 @@
   <compound kind="class">
     <name>RsaToolbox::VnaSettings</name>
     <filename>class_rsa_toolbox_1_1_vna_settings.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>EmulationMode</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>NO_EMULATION</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52a1c62780b1b015465ebad1ca53372d23c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>PNA_EMULATION</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52a157713b030dfccebbc8a2333fe49c9ca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>HP_8510_EMULATION</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52a738dcbf912d1eab23b3ae0f7ba2e6261</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>HP_8720_EMULATION</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52a73c91c970186c6170831e63b1dc29144</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>HP_8753_EMULATION</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52ab8a7323b95539d70c78068f248e10c6c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>HP_8714_EMULATION</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52a1c284ab1efe315e9ff36c97c29e18990</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ZVR_EMULATION</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52a9a1fd28ed6cbe66c21b62d5cb5c7b7c5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>HP_8530_EMULATION</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52a2f6231df7774966492dc80879e4e4f3f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ENA_EMULATION</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52aaf6487e48db7292fc40262e932807261</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>ZVABT_EMULATION</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52ac08429b0441ae1aca82fff832f5e0552</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>ColorScheme</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a63ab7f3e964bbfd5c64e88e2861f4f41</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>DARK_BACKGROUND</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a63ab7f3e964bbfd5c64e88e2861f4f41ac0208f506c01bf8d6a77ed681d44a376</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>LIGHT_BACKGROUND</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a63ab7f3e964bbfd5c64e88e2861f4f41a99b64d93fc67c275192cf880466350fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>BLACK_WHITE_OUTLINE_BACKGROUND</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a63ab7f3e964bbfd5c64e88e2861f4f41a407aefbf802d2adb32a015d0e88b630b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>BLACK_WHITE_SOLID_BACKGROUND</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a63ab7f3e964bbfd5c64e88e2861f4f41a1fe79d0781fe8bd380e1a5cd78c3eb46</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>VnaSettings</name>
@@ -18518,22 +12245,22 @@
       <type>bool</type>
       <name>isEmulationMode</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
-      <anchor>ae39c3edb69bae81137c0d66b69339f01</anchor>
-      <arglist>(VnaEmulationMode mode)</arglist>
+      <anchor>aaa7bc8fceaee8f725b891ee36620aef7</anchor>
+      <arglist>(EmulationMode mode)</arglist>
     </member>
     <member kind="function">
-      <type>VnaEmulationMode</type>
+      <type>EmulationMode</type>
       <name>emulationMode</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
-      <anchor>a2538776253c2692c4479e3907cb9f120</anchor>
+      <anchor>a6cb1da002d6eaa336790762f6d2f9a7c</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setEmulationMode</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
-      <anchor>a6211fa0d70a641a9b255005884e27a07</anchor>
-      <arglist>(VnaEmulationMode mode)</arglist>
+      <anchor>a7b1d8ae17cecf47b3139f68322e15a26</anchor>
+      <arglist>(EmulationMode mode)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -18616,22 +12343,22 @@
       <type>bool</type>
       <name>isColorScheme</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
-      <anchor>ab8e7fd30ad03193c7794607102873aa7</anchor>
-      <arglist>(VnaColorScheme scheme)</arglist>
+      <anchor>a2026c672c8c0dfe30d49a5ed002e9f51</anchor>
+      <arglist>(ColorScheme scheme)</arglist>
     </member>
     <member kind="function">
-      <type>VnaColorScheme</type>
+      <type>ColorScheme</type>
       <name>colorScheme</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
-      <anchor>a8577f6c5832e93bbdafca54bbc4e8d81</anchor>
+      <anchor>ab4b98081f3798a0b1a5f3286b5f36fcf</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setColorScheme</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
-      <anchor>aa4f78c4ed886f85589847d365c90035c</anchor>
-      <arglist>(VnaColorScheme scheme)</arglist>
+      <anchor>af53ba2e186ec3baa349088f42050cd0d</anchor>
+      <arglist>(ColorScheme scheme)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -20030,6 +13757,27 @@
       <arglist>(QRowVector data)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>write</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_trace.html</anchorfile>
+      <anchor>a5cc7c06d3d5799ef66596a0f205c105f</anchor>
+      <arglist>(QRowVector frequencies_Hz, QRowVector data)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>write</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_trace.html</anchorfile>
+      <anchor>a7e4fd751d2f20d959af2e468b58be4b2</anchor>
+      <arglist>(ComplexRowVector data)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>write</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_trace.html</anchorfile>
+      <anchor>ad98a34e6c810c923d7ef3b303f40abd2</anchor>
+      <arglist>(QRowVector frequencies_Hz, ComplexRowVector data)</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isMarker</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_trace.html</anchorfile>
@@ -20104,6 +13852,20 @@
       <name>referenceMarker</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_trace.html</anchorfile>
       <anchor>a855640d91df16946c44dc8947de1048d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>VnaLimits &amp;</type>
+      <name>limits</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_trace.html</anchorfile>
+      <anchor>acb9cd70ff1ea9ddb789e246769202f9f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>VnaMath &amp;</type>
+      <name>math</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_trace.html</anchorfile>
+      <anchor>a4adf07183bd853b1f6ed74a0c8e56309</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -20195,14 +13957,680 @@
       <arglist>(VnaUserDefinedPort const &amp;other)</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>RsaToolbox::Wizard</name>
+    <filename>class_rsa_toolbox_1_1_wizard.html</filename>
+    <member kind="slot" virtualness="virtual">
+      <type>virtual void</type>
+      <name>back</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>af7aa7dac5f48638df59eea889bd6f396</anchor>
+      <arglist>(int count=1)</arglist>
+    </member>
+    <member kind="slot" virtualness="virtual">
+      <type>virtual void</type>
+      <name>next</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a041249f802c5bf4c2deae666610e03c4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot" virtualness="virtual">
+      <type>virtual void</type>
+      <name>restart</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a22ee094ca3f45aa4156b97d34fe678bf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>setEnabled</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a1aaa3e90f554aff4ebc6c3fdc8a294a7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>setEnabled</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a1d3704f44a323433362e7778a4657984</anchor>
+      <arglist>(bool isEnabled)</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>setDisabled</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>ac68c98836460eaf1fea86a73954429f5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>setDisabled</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a334ec4521bf8ba69ff497dccee66ffc2</anchor>
+      <arglist>(bool isDisabled)</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>enableLoadingImage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>af9518ad2218c06d96c9185067896b9f9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>disableLoadingImage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a9fc6c3dfb21a65b3d183205e710cfd87</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>currentPageChanged</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a5ffe018139cb3a78677f6fcf645e6400</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>historyChanged</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>af507ee125fe91f944063829b8095956f</anchor>
+      <arglist>(QStringList past, QString current)</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>pageAdded</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>ac0651738b7005e91f4b967a7f180b987</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>pageRemoved</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>af434a0afa9546a62bb1d969b419aea43</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Wizard</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>ac14a9584e504d0c31fac130e21825384</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Wizard</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>adb10633068be33fe840250c39571bd1e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>currentIndex</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>aa2e27d8058dc139b411cbb091865963f</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>const WizardPage *</type>
+      <name>currentPage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>abbca051d2249b024e73acafb40890ec1</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>currentName</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a977c78ad4afd254646946e44c2368597</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addPage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a514e9f18f41756efa4a67503777a77b3</anchor>
+      <arglist>(WizardPage *page)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>insertPage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a8a894f184da3622c97d0e599ba0454b7</anchor>
+      <arglist>(int index, WizardPage *page)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removePage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a75c8169843738bb818ce8581b671ce0a</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStartPage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a167989c2e4393ab34e25df3f86cca2f0</anchor>
+      <arglist>(int index=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>startPageIndex</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a15ca43eb66a488e825ffebcff6a8a2eb</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>numberOfPages</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>ae6911777bf2ff8906d49e1c999a221df</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QList&lt; int &gt;</type>
+      <name>history</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a463891f12a262c8aa18fba834c24ba95</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>keyPressEvent</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>adf2e9d5e456a754a5459e8435b0b094b</anchor>
+      <arglist>(QKeyEvent *event)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>resizeEvent</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a6fbc07cec19868c41d513b9ef8343e9a</anchor>
+      <arglist>(QResizeEvent *event)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>closeEvent</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a5de2bd09256045c0b96e5a0be780fa85</anchor>
+      <arglist>(QCloseEvent *event)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>WizardPage *</type>
+      <name>page</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>adbfa92d7a6b1e59be11a1ace6ef5bad7</anchor>
+      <arglist>(int index) const </arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>int</type>
+      <name>index</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a7be89a0bc7dce1310223c46882a5fc26</anchor>
+      <arglist>(WizardPage *page) const </arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>connectPage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a6114495d7d22d72ff82a90f84897d46d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>disconnectPage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>ae178ec6234db355f42a6ff67d9fd3407</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>int</type>
+      <name>leaveForward</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a6ca45c63c4b207be135f11a8bc3e00d3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>int</type>
+      <name>leaveBackward</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a624f32a61290e3524e7c52acc1cebe3c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>enterForward</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a573371daf9a88cf5fe32778734e54245</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>enterBackward</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a680a53c2767f29d354834adb7cdf953e</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>WizardButtons *</type>
+      <name>buttons</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>ae31d95506abc365c001a1425ef6bf6e6</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>BreadCrumbs *</type>
+      <name>breadCrumbs</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a59a810d5689483de69c447f04094bfe5</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>QStringList</type>
+      <name>nameHistory</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a5af6c1becfe6cf5e6dde90126431eb04</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>clearHistory</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a33734cf2b14d9f6339b95aeea813d32b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>pushToHistory</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a7356be24227b37629f8554ff62e2dcb5</anchor>
+      <arglist>(WizardPage *page)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>WizardPage *</type>
+      <name>popFromHistory</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a71e0419f113c106a40d6ff774b7b6b37</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>updateHistory</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a4de19ca6485cc61f5e1dfd232139cc02</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>WizardPage *</type>
+      <name>_start</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>abdeb68349c06fabb44c68fe6501f23cc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>WizardPage *</type>
+      <name>_current</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a691e6ca82e3023ae0e071ec83e5a726c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>WizardPages</type>
+      <name>_pages</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a98036a8315b88826f228f1430440ec4a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>WizardPages</type>
+      <name>_history</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a9e2a8a77288bda8b64bb3b87e8ef8177</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>WizardPage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard.html</anchorfile>
+      <anchor>a184d6ca6207ba2d55c86c17b4da9935b</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::WizardButtons</name>
+    <filename>class_rsa_toolbox_1_1_wizard_buttons.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>WizardButtons</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_buttons.html</anchorfile>
+      <anchor>ad87d675beb7130e851807eed6986026b</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~WizardButtons</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_buttons.html</anchorfile>
+      <anchor>aa6b146ca94659affba0e8224eb024011</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QPushButton *</type>
+      <name>previous</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_buttons.html</anchorfile>
+      <anchor>a6a2ce0f1085ac205d756bee9954130ce</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QPushButton *</type>
+      <name>customA</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_buttons.html</anchorfile>
+      <anchor>a3bc9bc901ad101c788d5c431779e7d99</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QPushButton *</type>
+      <name>customB</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_buttons.html</anchorfile>
+      <anchor>a267f5dc2c298cd1fc84f392ddfb73d9e</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QPushButton *</type>
+      <name>customC</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_buttons.html</anchorfile>
+      <anchor>af7b01c39a022c51b0547001177b2086c</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QPushButton *</type>
+      <name>cancel</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_buttons.html</anchorfile>
+      <anchor>aa481a42b719f59ae0013c4a14acd55c2</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QPushButton *</type>
+      <name>next</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_buttons.html</anchorfile>
+      <anchor>a1b63ad74f9d5c01b3ccaf8f606799df8</anchor>
+      <arglist>() const </arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::WizardPage</name>
+    <filename>class_rsa_toolbox_1_1_wizard_page.html</filename>
+    <member kind="slot" virtualness="virtual">
+      <type>virtual void</type>
+      <name>displayError</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a86a990b0634d96cab2b6b77e59f34126</anchor>
+      <arglist>(QString message)</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>enableNext</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a9b00ed492c9c668b7f0c9cd52a44b834</anchor>
+      <arglist>(bool isEnabled)</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>enableBack</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a82c2656fecca774e5c5f95fa7c3f8d2d</anchor>
+      <arglist>(bool isEnabled)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>WizardPage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>aa720f593f55ffb45611db4930321d843</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~WizardPage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a781551102026dfeb5e37cff1c8c39d5c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>name</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a2b0a198f837184bf6fff555cee3ce770</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setName</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a6220fae15759fd0fa7d75e415df34e83</anchor>
+      <arglist>(QString name)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>nextIndex</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>afdb9150859662c70ed79f1df0ee8c07c</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setNextIndex</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>adbdca5f8a2b702f80cb06a40661edd30</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isFinalPage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a05291f815a3be443393bd682638e85bc</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFinalPage</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a10217f7911ea6ef0e00713568db8f217</anchor>
+      <arglist>(bool isFinalPage)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>initialize</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a25a40b6614565f755233080a384c35f1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>skip</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>ae738b82d116480cbe89e5df4e57c2f33</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isReadyForNext</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a737767b79c762fcbda75fff99651970e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>next</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a4311a28891c362d4d0dd4f748beba33b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isReadyForBack</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>ae10a9558c3d08842e1fd6398e80b50f8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>back</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a0ef114368554c36e0e17a40d0a603f20</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>skipBackwards</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a6ead7e2b33045594a744ec8fd7f13dcb</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>backToThis</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>ae9f081940f04e4a052b4534e791c0e9a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>resetContents</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a5f5abe33ddc61d5a3b76198f2f87960d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>WizardPage *</type>
+      <name>pageAt</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>ab0b8f55e824e53d976f73673929a8456</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>Wizard *</type>
+      <name>wizard</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a8a37416fcdcd0d393c2d6e94d533b6d4</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>setWizard</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a74f4ad8b6f203b24072c4a938615dd7f</anchor>
+      <arglist>(Wizard *wizard)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>WizardButtons *</type>
+      <name>buttons</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>ae31d95506abc365c001a1425ef6bf6e6</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>clearHistory</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a33734cf2b14d9f6339b95aeea813d32b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>BreadCrumbs *</type>
+      <name>breadCrumbs</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>a59a810d5689483de69c447f04094bfe5</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>Wizard</name>
+      <anchorfile>class_rsa_toolbox_1_1_wizard_page.html</anchorfile>
+      <anchor>acd9f1aed5135f4c48970e8eeaf573995</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>RsaToolbox::Ui</name>
+    <filename>namespace_rsa_toolbox_1_1_ui.html</filename>
+  </compound>
+  <compound kind="namespace">
+    <name>Ui</name>
+    <filename>namespace_ui.html</filename>
+  </compound>
   <compound kind="dir">
     <name>Bus</name>
     <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/</path>
     <filename>dir_aea23620b9d20c80320ef66f596f33e0.html</filename>
-    <dir>Bus/Rsib</dir>
+    <dir>Bus/No</dir>
+    <dir>Bus/Tcp</dir>
     <dir>Bus/Visa</dir>
     <file>GenericBus.cpp</file>
     <file>GenericBus.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Instruments/Vna/Dialogs/CalDialog</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Dialogs/CalDialog/</path>
+    <filename>dir_71886fae34996f96e535901a235a2868.html</filename>
+    <file>CalDialog.cpp</file>
+    <file>CalDialog.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Instruments/Vna/Views/CalGroupPanel</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Views/CalGroupPanel/</path>
+    <filename>dir_bad37832da9807352ecc77b37d15eb7b.html</filename>
+    <file>CalGroupPanel.cpp</file>
+    <file>CalGroupPanel.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Instruments/Vna/Models/CalGroupsModel</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Models/CalGroupsModel/</path>
+    <filename>dir_a23eef33dc5f7e7c6dca16e186c5811d.html</filename>
+    <file>CalGroupsModel.cpp</file>
+    <file>CalGroupsModel.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Instruments/Vna/Models/ChannelsModel</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Models/ChannelsModel/</path>
+    <filename>dir_50d30606eb8c95b96fc6cdbbea6bcdf4.html</filename>
+    <file>ChannelsModel.cpp</file>
+    <file>ChannelsModel.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Gui/ConnectButton</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Gui/ConnectButton/</path>
+    <filename>dir_91c54d6317ebde014c6e220e41c3f52d.html</filename>
+    <file>ConnectButton.cpp</file>
+    <file>ConnectButton.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Gui/ConnectionTypeComboBox</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Gui/ConnectionTypeComboBox/</path>
+    <filename>dir_6e1fe8b2192ba7d1aca0e8fb8cef78bb.html</filename>
+    <file>ConnectionTypeComboBox.cpp</file>
+    <file>ConnectionTypeComboBox.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Instruments/Vna/Dialogs</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Dialogs/</path>
+    <filename>dir_506d3ea1b7d2598501467272917bc3d6.html</filename>
+    <dir>Instruments/Vna/Dialogs/CalDialog</dir>
+    <dir>Instruments/Vna/Dialogs/getChannelDialog</dir>
+    <dir>Instruments/Vna/Dialogs/getPortsDialog</dir>
+  </compound>
+  <compound kind="dir">
+    <name>Gui/ErrorLabel</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Gui/ErrorLabel/</path>
+    <filename>dir_38aa7eef60bfdb3b07bcd13d8d05e664.html</filename>
+    <file>ErrorLabel.cpp</file>
+    <file>ErrorLabel.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>QCustomPlot/Figure</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/QCustomPlot/Figure/</path>
+    <filename>dir_cfecc1740830870476d04329f47cc285.html</filename>
+    <file>Figure.cpp</file>
+    <file>Figure.h</file>
   </compound>
   <compound kind="dir">
     <name>General</name>
@@ -20213,11 +14641,18 @@
     <file>Connector.cpp</file>
     <file>Connector.h</file>
     <file>Definitions.h</file>
+    <file>FormattedComplex.cpp</file>
+    <file>FormattedComplex.h</file>
+    <file>FormattedNetworkData.cpp</file>
+    <file>FormattedNetworkData.h</file>
+    <file>FormattedTouchstone.cpp</file>
+    <file>FormattedTouchstone.h</file>
     <file>General.cpp</file>
     <file>General.h</file>
     <file>IndexName.cpp</file>
     <file>IndexName.h</file>
-    <file>Key.h</file>
+    <file>Keys.cpp</file>
+    <file>Keys.h</file>
     <file>NameLabel.cpp</file>
     <file>NameLabel.h</file>
     <file>NetworkData.cpp</file>
@@ -20232,13 +14667,60 @@
     <file>Touchstone.h</file>
   </compound>
   <compound kind="dir">
+    <name>Instruments/Vna/Dialogs/getChannelDialog</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Dialogs/getChannelDialog/</path>
+    <filename>dir_f3018972a5863125e1b11f5f3c9300cc.html</filename>
+    <file>getChannelDialog.cpp</file>
+    <file>getChannelDialog.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Instruments/Vna/Dialogs/getPortsDialog</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Dialogs/getPortsDialog/</path>
+    <filename>dir_eace607e5e780abb48f42a6edb4b1bb1.html</filename>
+    <file>getPortsDialog.cpp</file>
+    <file>getPortsDialog.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Gui/GetSnpFile</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Gui/GetSnpFile/</path>
+    <filename>dir_0eb32016b7094dfb4bfe94f879a1e848.html</filename>
+    <file>GetSnpFile.cpp</file>
+    <file>GetSnpFile.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Gui</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Gui/</path>
+    <filename>dir_afb8033ad6b5856085decaff90674dbb.html</filename>
+    <dir>Gui/ConnectButton</dir>
+    <dir>Gui/ConnectionTypeComboBox</dir>
+    <dir>Gui/ErrorLabel</dir>
+    <dir>Gui/GetSnpFile</dir>
+    <dir>Gui/LastPath</dir>
+    <dir>Gui/ListPanel</dir>
+    <dir>Gui/PortsLineEdit</dir>
+    <dir>Gui/Wizard</dir>
+  </compound>
+  <compound kind="dir">
     <name>Instruments</name>
     <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/</path>
     <filename>dir_b32872ef41c5ac3dcd463f1fa6a32513.html</filename>
-    <dir>Instruments/Rsc</dir>
     <dir>Instruments/Vna</dir>
     <file>GenericInstrument.cpp</file>
     <file>GenericInstrument.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Gui/LastPath</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Gui/LastPath/</path>
+    <filename>dir_0666e399f997586cdfb79c2679ae76bc.html</filename>
+    <file>LastPath.cpp</file>
+    <file>LastPath.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Gui/ListPanel</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Gui/ListPanel/</path>
+    <filename>dir_49a97226988c0c11bf51151705c4cec5.html</filename>
+    <file>ListPanel.cpp</file>
+    <file>ListPanel.h</file>
   </compound>
   <compound kind="dir">
     <name>Log</name>
@@ -20248,19 +14730,46 @@
     <file>Log.h</file>
   </compound>
   <compound kind="dir">
-    <name>Instruments/Rsc</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Rsc/</path>
-    <filename>dir_81bb15bf896ff429785f2524149495ff.html</filename>
-    <file>Rsc.cpp</file>
-    <file>Rsc.h</file>
+    <name>Instruments/Vna/Models</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Models/</path>
+    <filename>dir_068dbd9a98d062e50dd6e6e776245df1.html</filename>
+    <dir>Instruments/Vna/Models/CalGroupsModel</dir>
+    <dir>Instruments/Vna/Models/ChannelsModel</dir>
+    <dir>Instruments/Vna/Models/VnaModel</dir>
   </compound>
   <compound kind="dir">
-    <name>Bus/Rsib</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/Rsib/</path>
-    <filename>dir_096b222f2851736a2c7c8e1c1909a626.html</filename>
-    <file>rsib.h</file>
-    <file>RsibBus.cpp</file>
-    <file>RsibBus.h</file>
+    <name>Bus/No</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/No/</path>
+    <filename>dir_36e2523735f78231be4f34512295e392.html</filename>
+    <file>NoBus.cpp</file>
+    <file>NoBus.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Gui/PortsLineEdit</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Gui/PortsLineEdit/</path>
+    <filename>dir_1e6b7ad6757091a0bd102593c2edb94e.html</filename>
+    <file>PortsLineEdit.cpp</file>
+    <file>PortsLineEdit.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>QCustomPlot</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/QCustomPlot/</path>
+    <filename>dir_1d0a23bf1532bb7eee3ab69288f8ba66.html</filename>
+    <dir>QCustomPlot/Figure</dir>
+  </compound>
+  <compound kind="dir">
+    <name>Bus/Tcp</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Bus/Tcp/</path>
+    <filename>dir_2007772e80eb7b35781d7b55b12dcc41.html</filename>
+    <file>TcpBus.cpp</file>
+    <file>TcpBus.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Instruments/Vna/Views</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Views/</path>
+    <filename>dir_06a3c0c0236f2ee29d8a6237fe89d049.html</filename>
+    <dir>Instruments/Vna/Views/CalGroupPanel</dir>
+    <dir>Instruments/Vna/Views/VnaForm</dir>
   </compound>
   <compound kind="dir">
     <name>Bus/Visa</name>
@@ -20270,11 +14779,15 @@
     <file>VisaBus.cpp</file>
     <file>VisaBus.h</file>
     <file>visatype.h</file>
+    <file>vpptype.h</file>
   </compound>
   <compound kind="dir">
     <name>Instruments/Vna</name>
     <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/</path>
     <filename>dir_a17bacab68dc142356e39a91cc299c32.html</filename>
+    <dir>Instruments/Vna/Dialogs</dir>
+    <dir>Instruments/Vna/Models</dir>
+    <dir>Instruments/Vna/Views</dir>
     <file>Vna.cpp</file>
     <file>Vna.h</file>
     <file>VnaAveraging.cpp</file>
@@ -20297,12 +14810,16 @@
     <file>VnaDiagram.h</file>
     <file>VnaFileSystem.cpp</file>
     <file>VnaFileSystem.h</file>
+    <file>VnaLimits.cpp</file>
+    <file>VnaLimits.h</file>
     <file>VnaLinearSweep.cpp</file>
     <file>VnaLinearSweep.h</file>
     <file>VnaLogSweep.cpp</file>
     <file>VnaLogSweep.h</file>
     <file>VnaMarker.cpp</file>
     <file>VnaMarker.h</file>
+    <file>VnaMath.cpp</file>
+    <file>VnaMath.h</file>
     <file>VnaPowerCalibrate.cpp</file>
     <file>VnaPowerCalibrate.h</file>
     <file>VnaPowerCorrections.cpp</file>
@@ -20332,9 +14849,36 @@
     <file>VnaUserDefinedPort.cpp</file>
     <file>VnaUserDefinedPort.h</file>
   </compound>
+  <compound kind="dir">
+    <name>Instruments/Vna/Views/VnaForm</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Views/VnaForm/</path>
+    <filename>dir_280689e0aa2647a53920d09158e18113.html</filename>
+    <file>VnaForm.cpp</file>
+    <file>VnaForm.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Instruments/Vna/Models/VnaModel</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Models/VnaModel/</path>
+    <filename>dir_82cf337b9e40ab99ea61a3d28e3e1ed2.html</filename>
+    <file>VnaModel.cpp</file>
+    <file>VnaModel.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>Gui/Wizard</name>
+    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Gui/Wizard/</path>
+    <filename>dir_a9b1f3457e8287e7058613aa295fa969.html</filename>
+    <file>BreadCrumbs.cpp</file>
+    <file>BreadCrumbs.h</file>
+    <file>Wizard.cpp</file>
+    <file>Wizard.h</file>
+    <file>WizardButtons.cpp</file>
+    <file>WizardButtons.h</file>
+    <file>WizardPage.cpp</file>
+    <file>WizardPage.h</file>
+  </compound>
   <compound kind="page">
     <name>index</name>
-    <title>RsaToolbox Welcome to RsaToolbox!</title>
+    <title>notitle</title>
     <filename>index</filename>
   </compound>
 </tagfile>

@@ -47,6 +47,8 @@ var _general_8h =
     [ "isNaN", "_general_8h.html#a2da3316cdc0d9f30d9b7c19e796191da", null ],
     [ "isNotInfinity", "_general_8h.html#a5b2f17251e538bec30ab06a564e54be3", null ],
     [ "isNotNaN", "_general_8h.html#adbed0f7d690e0553b77c42fd0e3960bf", null ],
+    [ "linearInterpolateMagPhase", "_general_8h.html#a568aedec896df78373617a0ee27e38df", null ],
+    [ "linearInterpolateReIm", "_general_8h.html#a0abd918fe2784ccbcc796e1cf6870e5e", null ],
     [ "linearInterpolateX", "_general_8h.html#aea56743d85a9d5f085a61d121659a0fd", null ],
     [ "linearInterpolateY", "_general_8h.html#a12bd990ca41ec3647a7c1b183cebed50", null ],
     [ "linearInterpolateY", "_general_8h.html#ab643f9391face07b2757327ced1ec1b5", null ],

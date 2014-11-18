@@ -1,8 +1,23 @@
 var class_rsa_toolbox_1_1_connector =
 [
+    [ "Type", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7", [
+      [ "N_50_OHM_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7a61b16617c1ce5333d8c027318e8529fd", null ],
+      [ "N_75_OHM_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7a18904b59a1ded80dad70fa26ab7433ce", null ],
+      [ "mm_7_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7aadf3cc24bafb07a62442c480f517b1fd", null ],
+      [ "mm_3_5_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7a4e914111258e64e9d4e2f0dbe3a2861e", null ],
+      [ "mm_2_92_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7a7d63e1ba4ae171f55faa48f6fbd1ee4b", null ],
+      [ "mm_2_4_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7ae5d22d314468dd08f9106c11c7788c40", null ],
+      [ "mm_1_85_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7aab51064780378a3d667507fe8c99c4eb", null ],
+      [ "in_7_16_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7a820b27227c0cde3279db47be215854f0", null ],
+      [ "TYPE_F_75_OHM_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7aba8a6d93ba5c67bec16f42bdf0f89db1", null ],
+      [ "BNC_50_OHM_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7ad8eb9947a41587a9b042b29f41a5b6e1", null ],
+      [ "BNC_75_OHM_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7a92016eee17a35da7bc24a7c67fdd31bb", null ],
+      [ "CUSTOM_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7ac9743d7b99ee46ae162cae020a155a2a", null ],
+      [ "UNKNOWN_CONNECTOR", "class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7a6a1586a3f010b4d1fa0be495c37c400f", null ]
+    ] ],
     [ "Connector", "class_rsa_toolbox_1_1_connector.html#a98dcfd602309bb9d0757d0a943c97cd2", null ],
     [ "Connector", "class_rsa_toolbox_1_1_connector.html#a292a97d5e9207d8aed38b308cf724ef2", null ],
-    [ "Connector", "class_rsa_toolbox_1_1_connector.html#ac229bccd1f15a62b2922a7b030562158", null ],
+    [ "Connector", "class_rsa_toolbox_1_1_connector.html#a18ecd71336a4195a590cec8fb6ca596f", null ],
     [ "Connector", "class_rsa_toolbox_1_1_connector.html#aca86ee25bf97cf7961d8b69e70fe91d3", null ],
     [ "customType", "class_rsa_toolbox_1_1_connector.html#a0a0b5dae45b502609aa24858979a38f9", null ],
     [ "displayGender", "class_rsa_toolbox_1_1_connector.html#a2eb67c0a4ad3eb7300ae2f0eccf849dd", null ],
@@ -26,14 +41,14 @@ var class_rsa_toolbox_1_1_connector =
     [ "setCustomType", "class_rsa_toolbox_1_1_connector.html#ad58fb04ba88f5265b906bbfa62022f60", null ],
     [ "setGender", "class_rsa_toolbox_1_1_connector.html#ab905388af014c69ca0f2d58c71d9f6e8", null ],
     [ "setType", "class_rsa_toolbox_1_1_connector.html#ae90ee028f0f690616502a8a3631dcdd9", null ],
-    [ "setType", "class_rsa_toolbox_1_1_connector.html#a4431e852532c47c256e4aa8fd1644257", null ],
-    [ "type", "class_rsa_toolbox_1_1_connector.html#a6cec727537aad692bfc4d1f2e55cce7d", null ],
+    [ "setType", "class_rsa_toolbox_1_1_connector.html#a608e58a2f9fb7e497f91662a6e9ae4cc", null ],
+    [ "type", "class_rsa_toolbox_1_1_connector.html#a93a74523ec09cb5b49a0bd40ce462d88", null ],
     [ "operator!=", "class_rsa_toolbox_1_1_connector.html#a6d675583a247f0145128be6990b4e2de", null ],
     [ "operator==", "class_rsa_toolbox_1_1_connector.html#a75aebc1f06692c300a43366c89526e8b", null ],
     [ "toConnectorGender", "class_rsa_toolbox_1_1_connector.html#a8ef07f6fc2bb1fd4a622fe136a3095e8", null ],
     [ "toConnectorGenderVnaScpi", "class_rsa_toolbox_1_1_connector.html#a070da66083caf1fe8b467b8e17dedf51", null ],
-    [ "toConnectorType", "class_rsa_toolbox_1_1_connector.html#a6fd4392a434cd20c2ceca1ce403d64b9", null ],
+    [ "toConnectorType", "class_rsa_toolbox_1_1_connector.html#a8e7ce1c3a4bf690ea537124d6e88d042", null ],
     [ "toConnectorTypeVnaScpi", "class_rsa_toolbox_1_1_connector.html#a47212519396e7e490efae70fdb25714e", null ],
-    [ "toVnaScpi", "class_rsa_toolbox_1_1_connector.html#a577d45acb66cd3cbe8cb6d51fdce3411", null ],
+    [ "toVnaScpi", "class_rsa_toolbox_1_1_connector.html#a6b176cd5382ab852d9a7cbf6edc9286a", null ],
     [ "toVnaScpi", "class_rsa_toolbox_1_1_connector.html#aa2570272aec9074125ef0a8f3d4a0687", null ]
 ];

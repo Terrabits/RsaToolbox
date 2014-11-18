@@ -28,6 +28,7 @@ var class_rsa_toolbox_1_1_generic_instrument =
     [ "log", "class_rsa_toolbox_1_1_generic_instrument.html#a771abc4a471f6d3dc48ba2e3e9905c33", null ],
     [ "optionsString", "class_rsa_toolbox_1_1_generic_instrument.html#abd432a2a6aed6d74b9563d965d9e5a01", null ],
     [ "pause", "class_rsa_toolbox_1_1_generic_instrument.html#a7167f5c196fc5e167bfabde1a730e81d", null ],
+    [ "pause", "class_rsa_toolbox_1_1_generic_instrument.html#a8d195c195d8f25ecb428ab45b0cc7ad2", null ],
     [ "preset", "class_rsa_toolbox_1_1_generic_instrument.html#ae1f5fa51408b7ea44b4a8cc980693b1b", null ],
     [ "print", "class_rsa_toolbox_1_1_generic_instrument.html#a9fcecd48b86862430fa0a6f25c9ba139", null ],
     [ "printInfo", "class_rsa_toolbox_1_1_generic_instrument.html#a2dbaf5580b5305d54cff6848ae7deb30", null ],

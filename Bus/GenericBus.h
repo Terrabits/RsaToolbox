@@ -19,9 +19,12 @@ enum ConnectionType {
     TCPIP_CONNECTION,
     GPIB_CONNECTION,
     USB_CONNECTION,
-    NO_CONNECTION };
-QString toString(ConnectionType connection_type);
+    NO_CONNECTION
+};
+QString toString(ConnectionType connectionType);
 ConnectionType toConnectionType(QString scpi);
+QString toVisaInstrumentResource(ConnectionType type, QString address);
+void nullTerminate(char *buffer, uint bufferSize_B, uint bytesUsed);
 
 class GenericBus : public QObject {
 private: Q_OBJECT
@@ -32,6 +35,7 @@ public:
                uint bufferSize_B = 500, uint timeout_ms = 1000,
                QObject *parent = 0);
 
+    virtual bool isOpen() const = 0;
     virtual bool isClosed() const;
 
     ConnectionType connectionType() const;
@@ -43,20 +47,17 @@ public:
     uint timeout_ms() const;
     virtual void setTimeout(uint time_ms);
 
+    virtual bool read(char *buffer, uint bufferSize_B) = 0;
     QString read();
+    virtual bool write(QString scpi) = 0;
     QString query(QString scpi);
+
+    virtual bool binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead) = 0;
     QByteArray binaryRead();
+    virtual bool binaryWrite(QByteArray scpi) = 0;
     QByteArray binaryQuery(QByteArray scpi);
 
-    // Reimplement:
-    virtual bool isOpen() const = 0;
-    virtual bool read(char *buffer, uint bufferSize_B) = 0;
-    virtual bool write(QString scpi) = 0;
-    virtual bool binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead) = 0;
-    virtual bool binaryWrite(QByteArray scpi) = 0;
     virtual QString status() const = 0;
-
-    static void nullTerminate(char *buffer, uint bufferSize_B, uint bytesRead);
 
 public slots:
     // Reimplement:
@@ -70,15 +71,15 @@ signals:
     void print(QString text) const;
 
 protected:
-    ConnectionType _connectionType;
-    QString _address;
-    uint _timeout_ms;
-
     static const int MAX_PRINT = 100;
     void printRead(char *buffer, uint bytesRead) const;
     void printWrite(QString scpi) const;
 
 private:
+    ConnectionType _connectionType;
+    QString _address;
+    uint _timeout_ms;
+
     uint _bufferSize_B;
     QScopedArrayPointer<char> _buffer;
 };

@@ -1,5 +1,17 @@
 var class_rsa_toolbox_1_1_vna_properties =
 [
+    [ "Model", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3e", [
+      [ "ZVA_MODEL", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea2d51e423a09a3c2b3153aa2cea9a598c", null ],
+      [ "ZVB_MODEL", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea5da95a0c91001bfb794b9b94965535ac", null ],
+      [ "ZVH_MODEL", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eadba63c59378b92096fab4185be6b9d8d", null ],
+      [ "ZVL_MODEL", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea1f5f1ba03530b290a088a2f902558de2", null ],
+      [ "ZVT_MODEL", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea65d730cf6fef22b7c351a5eaf3f1390d", null ],
+      [ "ZNB_MODEL", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ead2368b2cd5f0cc866f4bce111466684e", null ],
+      [ "ZNBT_MODEL", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaf13fef3f36941ed7498d28362babbb81", null ],
+      [ "ZNC_MODEL", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea7066fd4bb8edb717a681bdfa6c8f6960", null ],
+      [ "ZNP_MODEL", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea84ddb44271f00d058dbd9a6275361a06", null ],
+      [ "UNKNOWN_MODEL", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea3f3d79136caf882d83cc87d6b5f5478e", null ]
+    ] ],
     [ "VnaProperties", "class_rsa_toolbox_1_1_vna_properties.html#a33aba4b5b99bc0d3abe583b87d0e4e10", null ],
     [ "VnaProperties", "class_rsa_toolbox_1_1_vna_properties.html#aafcbcffc0432236501d898abbb31c2b2", null ],
     [ "VnaProperties", "class_rsa_toolbox_1_1_vna_properties.html#a269ad14a79432e91a95e5f7756500667", null ],
@@ -20,7 +32,7 @@ var class_rsa_toolbox_1_1_vna_properties =
     [ "maximumPower_dBm", "class_rsa_toolbox_1_1_vna_properties.html#ad0e788e8573b52211118295a83b06be4", null ],
     [ "minimumFrequency_Hz", "class_rsa_toolbox_1_1_vna_properties.html#ae57b14f809d1115326eb2b225d0cf410", null ],
     [ "minimumPower_dBm", "class_rsa_toolbox_1_1_vna_properties.html#acd4861e70e0850a4bf482c7a0f0fb9a5", null ],
-    [ "model", "class_rsa_toolbox_1_1_vna_properties.html#a9fc082dc3c35ad05adede38a7b8bc95a", null ],
+    [ "model", "class_rsa_toolbox_1_1_vna_properties.html#ab1feb2fe1e7a3c23bbcb79a351dd355b", null ],
     [ "operator=", "class_rsa_toolbox_1_1_vna_properties.html#aae55792bb41fa712e646031dad560941", null ],
     [ "optionsList", "class_rsa_toolbox_1_1_vna_properties.html#a72f467a4b9e4a75841461dd920590758", null ],
     [ "physicalPorts", "class_rsa_toolbox_1_1_vna_properties.html#a2f34d2683e7b1ef3bac506f4d741bc81", null ],
