@@ -137,15 +137,6 @@ private:
 
     // Scpi
     QString measurementString();
-    static QString toScpi(TraceFormat format);
-    static QString toScpi(NetworkParameter parameter, uint outputPort, uint inputPort);
-    static QString toScpi(NetworkParameter parameter, BalancedPort outputPort, BalancedPort inputPort);
-    static QString toScpi(NetworkParameter parameter);
-    static QString toScpi(WaveQuantity waveQuantity, uint port);
-    static QString toScpi(WaveQuantity waveQuantity);
-    static QString toScpi(BalancedPortType portType);
-    static QString toPortPair(uint outputPort, uint inputPort);
-    static TraceFormat toTraceFormat(QString scpi);
     uint bufferSize();
     uint complexBufferSize();
     void parseParameters(QString scpi);

@@ -2,7 +2,7 @@
 #define GENERAL_H
 
 
-// Rsa
+// RsaToolbox
 #include "Definitions.h"
 
 // Qt
@@ -12,6 +12,8 @@
 #include <QVariant>
 #include <QMap>
 #include <QMapIterator>
+#include <QTextStream>
+#include <QDataStream>
 
 // C++ std lib
 #include <complex>
@@ -21,9 +23,13 @@ namespace RsaToolbox {
 
 // Enum conversions
 double toDouble(SiPrefix prefix);
-QString toString(ComplexFormat format);
 QString toString(NetworkParameter parameter);
 QString toString(NetworkParameter parameter, uint outputPort, uint inputPort);
+QString toString(WaveQuantity wave);
+
+QString toString(ComplexFormat format);
+
+
 QString toString(SiPrefix prefix);
 QString toString(Units units);
 QString toString(SiPrefix prefix, Units units);
@@ -38,9 +44,9 @@ QString GetAppDataPath(QString program_folder);
 QString AppendAppDataPath(QString program_folder, QString filename);
 
 // Formatting Functions
-QString toScientificNotation(double value, int decimal_places, SiPrefix prefix = NO_PREFIX);
-QString formatValue(double value, int decimal_places, Units units, SiPrefix prefix = NO_PREFIX);
-QString formatDouble(double value, int decimal_places);
+QString toEngineeringNotation(double value, int decimalPlaces, SiPrefix prefix = SiPrefix::None);
+QString formatValue(double value, int decimalPlaces, Units units, SiPrefix prefix = SiPrefix::None);
+QString formatDouble(double value, int decimalPlaces);
 template <class T>
 QStringList toStringList(QVector<T> vector) {
     int size = vector.size();
@@ -343,6 +349,43 @@ T min(std::vector<T> vector, T &minimum, int &index) {
 }
 }
 
+// Enum serialization
+//QDataStream &operator<<(QDataStream &stream, const RsaToolbox::Units &units);
+//QDataStream &operator<<(QDataStream &stream, const RsaToolbox::SiPrefix &prefix);
+
+//QDataStream &operator>>(QDataStream &stream, RsaToolbox::Units &units);
+//QDataStream &operator>>(QDataStream &stream, RsaToolbox::SiPrefix &prefix);
+
+//// Enum text stream operators
+//QTextStream &operator<<(QTextStream &stream, const RsaToolbox::Units &units);
+//QTextStream &operator<<(QTextStream &stream, const RsaToolbox::SiPrefix &prefix);
+
+
+// Using templates:
+template <class T>
+QDataStream& operator<<(QDataStream &stream, const T &t) {
+    static_assert(std::is_enum<T>::value, "Template type is not enum.");
+    stream << qint32(t);
+    return stream;
+}
+template <class T>
+QDataStream& operator>>(QDataStream &stream, T &t) {
+    static_assert(std::is_enum<T>::value, "Template type is not enum.");
+    qint32 value;
+    stream >> value;
+    t = T(value);
+    return stream;
+}
+
+template <class T>
+QTextStream& operator<<(QTextStream &stream, const T &t) {
+    static_assert(std::is_enum<T>::value, "Template type is not enum.");
+    stream << toString(t);
+    return stream;
+}
+
+
+// Data type stream operators
 QDataStream& operator<<(QDataStream &stream, RsaToolbox::ComplexDouble value);
 QDataStream& operator<<(QDataStream &stream, RsaToolbox::ComplexRowVector vector);
 QDataStream& operator<<(QDataStream &stream, RsaToolbox::ComplexMatrix2D matrix);

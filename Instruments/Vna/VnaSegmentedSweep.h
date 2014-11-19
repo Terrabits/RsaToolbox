@@ -33,7 +33,7 @@ public:
     double power_dBm();
     void setPower(double power_dBm);
     double ifBandwidth_Hz();
-    void setIfbandwidth(double bandwidth, SiPrefix prefix = NO_PREFIX);
+    void setIfbandwidth(double bandwidth, SiPrefix prefix = SiPrefix::None);
 
     uint segments();
     uint addSegment();

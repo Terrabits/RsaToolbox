@@ -47,7 +47,7 @@ public:
 
     Units xUnits();
     SiPrefix xPrefix();
-    void setXUnits(Units units, SiPrefix prefix = NO_PREFIX);
+    void setXUnits(Units units, SiPrefix prefix = SiPrefix::None);
 
     uint points();
     QRowVector &x();

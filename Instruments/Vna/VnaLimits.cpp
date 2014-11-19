@@ -124,25 +124,25 @@ void VnaLimits::setUpper(QString trace, double xOffset, double yOffset) {
 void VnaLimits::addUpper(QRowVector frequencies_Hz, ComplexRowVector values) {
     QRowVector v;
     switch (_trace->format()) {
-    case DB_MAGNITUDE_TRACE:
+    case TraceFormat::DecibelMagnitude:
         v = toDb(values);
         break;
-    case PHASE_DEG_TRACE:
+    case TraceFormat::Phase:
         v = angle_deg(values);
         break;
-    case VSWR_TRACE:
+    case TraceFormat::Vswr:
         v = toVswr(values);
         break;
-    case UNWRAP_PHASE_DEG_TRACE:
+    case TraceFormat::UnwrappedPhase:
         v = unwrap(angle_deg(values));
         break;
-    case LINEAR_MAGNITUDE_TRACE:
+    case TraceFormat::Magnitude:
         v = toMagnitude(values);
         break;
-    case REAL_PART_TRACE:
+    case TraceFormat::Real:
         v = real(values);
         break;
-    case IMAGINARY_PART_TRACE:
+    case TraceFormat::Imaginary:
         v = imaginary(values);
         break;
     default:
@@ -186,25 +186,25 @@ void VnaLimits::setLower(QString trace, double xOffset, double yOffset) {
 void VnaLimits::addLower(QRowVector frequencies_Hz, ComplexRowVector values) {
     QRowVector v;
     switch (_trace->format()) {
-    case DB_MAGNITUDE_TRACE:
+    case TraceFormat::DecibelMagnitude:
         v = toDb(values);
         break;
-    case PHASE_DEG_TRACE:
+    case TraceFormat::Phase:
         v = angle_deg(values);
         break;
-    case VSWR_TRACE:
+    case TraceFormat::Vswr:
         v = toVswr(values);
         break;
-    case UNWRAP_PHASE_DEG_TRACE:
+    case TraceFormat::UnwrappedPhase:
         v = unwrap(angle_deg(values));
         break;
-    case LINEAR_MAGNITUDE_TRACE:
+    case TraceFormat::Magnitude:
         v = toMagnitude(values);
         break;
-    case REAL_PART_TRACE:
+    case TraceFormat::Real:
         v = real(values);
         break;
-    case IMAGINARY_PART_TRACE:
+    case TraceFormat::Imaginary:
         v = imaginary(values);
         break;
     default:

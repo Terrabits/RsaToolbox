@@ -205,7 +205,7 @@ QString VnaModel::model() const {
     if (_vna->isDisconnected())
         return "";
     VnaProperties::Model model = _vna->properties().model();
-    if (model == VnaProperties::UNKNOWN_MODEL)
+    if (model == VnaProperties::Model::Unknown)
         return "";
     // Else
     return toString(model);
@@ -230,7 +230,7 @@ QString VnaModel::displayFrequency() const {
     if (_vna->isDisconnected())
         return "";
     VnaProperties::Model model = _vna->properties().model();
-    if (model == VnaProperties::UNKNOWN_MODEL)
+    if (model == VnaProperties::Model::Unknown)
         return "";
     
     // Else
@@ -238,19 +238,19 @@ QString VnaModel::displayFrequency() const {
     text += RsaToolbox::formatValue(
                 _vna->properties().minimumFrequency_Hz(),
                 1,
-                RsaToolbox::HERTZ_UNITS);
+                RsaToolbox::Units::Hertz);
     text += " to ";
     text += RsaToolbox::formatValue(
                 _vna->properties().maximumFrequency_Hz(),
                 1,
-                RsaToolbox::HERTZ_UNITS);
+                RsaToolbox::Units::Hertz);
     return text;
 }
 QString VnaModel::displayPower() const {
     if (_vna->isDisconnected())
         return "";
     VnaProperties::Model model = _vna->properties().model();
-    if (model == VnaProperties::UNKNOWN_MODEL)
+    if (model == VnaProperties::Model::Unknown)
         return "";
     
     // Else
@@ -258,12 +258,12 @@ QString VnaModel::displayPower() const {
     text += RsaToolbox::formatValue(
                 _vna->properties().minimumPower_dBm(),
                 1,
-                RsaToolbox::DECIBEL_MILLIWATTS_UNITS);
+                RsaToolbox::Units::dBm);
     text += " to ";
     text += RsaToolbox::formatValue(
                 _vna->properties().maximumPower_dBm(),
                 1,
-                RsaToolbox::DECIBEL_MILLIWATTS_UNITS);
+                RsaToolbox::Units::dBm);
     return text;
 }
 

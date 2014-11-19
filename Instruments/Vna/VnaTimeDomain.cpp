@@ -332,7 +332,7 @@ void VnaTimeDomain::setupChannel(double riseTime_s, RiseTimeDefinition definitio
     setHarmonicGrid(stopFrequency_Hz, spacing_Hz);
 }
 void VnaTimeDomain::setupTrace() {
-    _trace->setFormat(LINEAR_MAGNITUDE_TRACE);
+    _trace->setFormat(TraceFormat::Magnitude);
     on();
     setLowpassStepResponse();
     automaticDcExtrapolationOn();

@@ -35,36 +35,38 @@ VnaProperties::VnaProperties(Vna *vna, QObject *parent) :
 VnaProperties::Model VnaProperties::model() {
     QStringList idList = _vna->idString().split(',');
     if (idList.size() < 2)
-        return(UNKNOWN_MODEL);
+        return Model::Unknown;
 
-    QString _model = idList[1].toUpper();
-    if (_model.contains("ZVA"))
-        return(ZVA_MODEL);
-    if (_model.contains("ZVB"))
-        return(ZVB_MODEL);
-    if (_model.contains("ZVH"))
-        return(ZVH_MODEL);
-    if (_model.contains("ZVL"))
-        return(ZVL_MODEL);
-    if (_model.contains("ZVT"))
-        return(ZVT_MODEL);
-    if (_model.contains("ZNBT"))
-        return(ZNBT_MODEL);
-    if (_model.contains("ZNB"))
-        return(ZNB_MODEL);
-    if (_model.contains("ZNC"))
-        return(ZNC_MODEL);
-    if (_model.contains("ZNP"))
-        return(ZNP_MODEL);
-    // else
-    return(UNKNOWN_MODEL);
+    QString model = idList[1].toUpper();
+    if (model.contains("ZVA"))
+        return Model::Zva;
+    if (model.contains("ZVB"))
+        return Model::Zvb;
+    if (model.contains("ZVH"))
+        return Model::Zvh;
+    if (model.contains("ZVL"))
+        return Model::Zvl;
+    if (model.contains("ZVT"))
+        return Model::Zvt;
+    if (model.contains("ZNBT"))
+        return Model::Znbt;
+    if (model.contains("ZNB"))
+        return Model::Znb;
+    if (model.contains("ZNC"))
+        return Model::Znc;
+    if (model.contains("ZND"))
+        return Model::Znd;
+    if (model.contains("ZNP"))
+        return Model::Znp;
+
+    return Model::Unknown;
 }
 QString VnaProperties::serialNumber() {
     QStringList idList = _vna->idString().split(',');
     if (idList.size() < 3)
-        return("");
+        return "";
     else
-        return(idList[2].trimmed());
+        return idList[2].trimmed();
 }
 QString VnaProperties::firmwareVersion() {
     QStringList idList = _vna->idString().split(',');
@@ -79,11 +81,11 @@ QStringList VnaProperties::optionsList() {
 
 bool VnaProperties::isZvaFamily() {
     switch(model()) {
-    case ZVA_MODEL:
-    case ZVB_MODEL:
-    case ZVH_MODEL:
-    case ZVL_MODEL:
-    case ZVT_MODEL:
+    case Model::Zva:
+    case Model::Zvb:
+    case Model::Zvh:
+    case Model::Zvl:
+    case Model::Zvt:
         return(true);
     default:
         return(false);
@@ -94,10 +96,10 @@ bool VnaProperties::isNotZvaFamily() {
 }
 bool VnaProperties::isZnbFamily() {
     switch(model()) {
-    case ZNB_MODEL:
-    case ZNBT_MODEL:
-    case ZNC_MODEL:
-    case ZNP_MODEL:
+    case Model::Znb:
+    case Model::Znbt:
+    case Model::Znc:
+    case Model::Znp:
         return(true);
     default:
         return(false);
@@ -110,7 +112,7 @@ bool VnaProperties::isKnownModel() {
     return(!isUnknownModel());
 }
 bool VnaProperties::isUnknownModel() {
-    return(model() == UNKNOWN_MODEL);
+    return(model() == Model::Unknown);
 }
 uint VnaProperties::physicalPorts() {
     return(_vna->query(":INST:PORT:COUN?\n").trimmed().toUInt());
@@ -341,23 +343,23 @@ void VnaProperties::operator=(VnaProperties const &other) {
 
 QString RsaToolbox::toString(VnaProperties::Model model) {
     switch(model) {
-    case VnaProperties::ZVA_MODEL:
+    case VnaProperties::Model::Zva:
         return(QString("ZVA"));
-    case VnaProperties::ZVB_MODEL:
+    case VnaProperties::Model::Zvb:
         return(QString("ZVB"));
-    case VnaProperties::ZVH_MODEL:
+    case VnaProperties::Model::Zvh:
         return(QString("ZVH"));
-    case VnaProperties::ZVL_MODEL:
+    case VnaProperties::Model::Zvl:
         return(QString("ZVL"));
-    case VnaProperties::ZVT_MODEL:
+    case VnaProperties::Model::Zvt:
         return(QString("ZVT"));
-    case VnaProperties::ZNB_MODEL:
+    case VnaProperties::Model::Znb:
         return(QString("ZNB"));
-    case VnaProperties::ZNBT_MODEL:
+    case VnaProperties::Model::Znbt:
         return(QString("ZNBT"));
-    case VnaProperties::ZNC_MODEL:
+    case VnaProperties::Model::Znc:
         return(QString("ZNC"));
-    case VnaProperties::ZNP_MODEL:
+    case VnaProperties::Model::Znp:
         return(QString("ZNP"));
     default:
         return(QString("UNKNOWN"));
@@ -365,16 +367,16 @@ QString RsaToolbox::toString(VnaProperties::Model model) {
 }
 QString RsaToolbox::toSetFileExtension(VnaProperties::Model model) {
     switch(model) {
-    case VnaProperties::ZVA_MODEL:
-    case VnaProperties::ZVB_MODEL:
-    case VnaProperties::ZVH_MODEL:
-    case VnaProperties::ZVL_MODEL:
-    case VnaProperties::ZVT_MODEL:
+    case VnaProperties::Model::Zva:
+    case VnaProperties::Model::Zvb:
+    case VnaProperties::Model::Zvh:
+    case VnaProperties::Model::Zvl:
+    case VnaProperties::Model::Zvt:
         return(QString(".zvx"));
-    case VnaProperties::ZNB_MODEL:
-    case VnaProperties::ZNBT_MODEL:
-    case VnaProperties::ZNC_MODEL:
-    case VnaProperties::ZNP_MODEL:
+    case VnaProperties::Model::Znb:
+    case VnaProperties::Model::Znbt:
+    case VnaProperties::Model::Znc:
+    case VnaProperties::Model::Znp:
         return(QString(".znx"));
     default:
         // UNKNOWN_MODEL

@@ -255,16 +255,16 @@ bool ChannelsModel::isFreqSweep(RsaToolbox::VnaChannel &channel) const {
 QString ChannelsModel::FrequencyRange(RsaToolbox::VnaLinearSweep &sweep) const {
     using namespace RsaToolbox;
     QString text;
-    text += formatValue(sweep.start_Hz(), 1, HERTZ_UNITS);
+    text += formatValue(sweep.start_Hz(), 1, Units::Hertz);
     text += " to ";
-    text += formatValue(sweep.stop_Hz(), 1, HERTZ_UNITS);
+    text += formatValue(sweep.stop_Hz(), 1, Units::Hertz);
     return text;
 }
 QString ChannelsModel::iFBw(RsaToolbox::VnaLinearSweep &sweep) const {
     using namespace RsaToolbox;
-    return formatValue(sweep.ifBandwidth_Hz(),1,HERTZ_UNITS);
+    return formatValue(sweep.ifBandwidth_Hz(),1,Units::Hertz);
 }
 QString ChannelsModel::power(RsaToolbox::VnaLinearSweep &sweep) const {
     using namespace RsaToolbox;
-    return formatValue(sweep.power_dBm(), 1, DECIBEL_MILLIWATTS_UNITS);
+    return formatValue(sweep.power_dBm(), 1, Units::dBm);
 }

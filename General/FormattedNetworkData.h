@@ -51,7 +51,7 @@ public:
 
     Units xUnits() const;
     SiPrefix xPrefix() const;
-    void setXUnits(Units units, SiPrefix prefix = NO_PREFIX);
+    void setXUnits(Units units, SiPrefix prefix = SiPrefix::None);
 
     uint points() const;
     QRowVector &x();

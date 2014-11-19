@@ -33,9 +33,9 @@ public:
     void setStop(double power_dBm);
     QVector<double> powers_dBm();
     double frequency_Hz();
-    void setFrequency(double frequency, SiPrefix prefix = NO_PREFIX);
+    void setFrequency(double frequency, SiPrefix prefix = SiPrefix::None);
     double ifBandwidth_Hz();
-    void setIfbandwidth(double bandwidth, SiPrefix prefix = NO_PREFIX);
+    void setIfbandwidth(double bandwidth, SiPrefix prefix = SiPrefix::None);
 
     bool isAutoSweepTimeOn();
     bool isAutoSweepTimeOff();

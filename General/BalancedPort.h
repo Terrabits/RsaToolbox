@@ -11,43 +11,44 @@
 
 
 namespace RsaToolbox {
-enum BalancedPortType {
-    SINGLE_ENDED,
-    DIFFERENTIAL_MODE,
-    COMMON_MODE};
-QString toVnaScpi(BalancedPortType type);
+
 
 class BalancedPort {
 public:
 
-    BalancedPort();
-    BalancedPort(uint logicalPort);
+    enum class Type {
+        SingleEnded = 0,
+        Differential,
+        Common
+    };
 
-    BalancedPortType portType();
+    BalancedPort();
+    BalancedPort(uint port);
+
     bool isSingleEnded();
     bool isBalanced();
     bool isDifferential();
     bool isCommonMode();
-
-    uint logicalPort();
-
-    void setPortType(BalancedPortType type);
+    Type type();
     void setSingleEnded();
     void setDifferential();
     void setCommonMode();
+    void setType(BalancedPort::Type type);
 
-    void setLogicalPort(uint logicalPort);
+
+    uint port();
+    void setPort(uint logicalPort);
 
     operator int();
     operator uint();
 
 private:
-    BalancedPortType _portType;
-    uint _logicalPort;
+    Type _type;
+    uint _port;
 };
 }
 Q_DECLARE_METATYPE(RsaToolbox::BalancedPort)
-Q_DECLARE_METATYPE(RsaToolbox::BalancedPortType)
+Q_DECLARE_METATYPE(RsaToolbox::BalancedPort::Type)
 
 
 #endif // BALANCED_PORT_H

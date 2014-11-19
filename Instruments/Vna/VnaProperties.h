@@ -17,17 +17,18 @@ private: Q_OBJECT
 
 public:
 
-    enum Model {
-        ZVA_MODEL,
-        ZVB_MODEL,
-        ZVH_MODEL,
-        ZVL_MODEL,
-        ZVT_MODEL,
-        ZNB_MODEL,
-        ZNBT_MODEL,
-        ZNC_MODEL,
-        ZNP_MODEL,
-        UNKNOWN_MODEL
+    enum class Model {
+        Zva = 0,
+        Zvb = 1,
+        Zvh = 2,
+        Zvl = 3,
+        Zvt = 4,
+        Znb = 10,
+        Znbt = 11,
+        Znc = 12,
+        Znd = 13,
+        Znp = 14,
+        Unknown = 1000
     };
 
     explicit VnaProperties(QObject *parent = 0);
@@ -75,9 +76,12 @@ private:
 
 };
 
+
 QString toString(VnaProperties::Model model);
 QString toSetFileExtension(VnaProperties::Model model);
-}
+
+
+} // RsaToolbox
 
 Q_DECLARE_METATYPE(RsaToolbox::VnaProperties::Model)
 

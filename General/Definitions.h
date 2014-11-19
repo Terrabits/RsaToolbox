@@ -2,15 +2,15 @@
 #define DEFINITIONS_H
 
 
-// C++ std lib
+// Qt
+#include <QMetaType>
+#include <QVector>
+
+// C++
 #include <complex>
 #include <vector>
 #include <limits>
 #include <climits>
-
-// Qt
-#include <QMetaType>
-#include <QVector>
 
 
 namespace RsaToolbox {
@@ -23,75 +23,83 @@ const double DBL_INF = std::numeric_limits<double>::infinity();
 const double DBL_NEG_INF = -DBL_INF;
 const double DBL_NAN = std::numeric_limits<double>::quiet_NaN();
 
-enum NetworkParameter {
-    S_PARAMETER = 0,
-    Y_PARAMETER,
-    Z_PARAMETER,
-    H_PARAMETER,
-    G_PARAMETER };
+enum class NetworkParameter {
+    S = 0,
+    Y,
+    Z,
+    H,
+    G
+};
 
-enum WaveQuantity {
-    A_WAVE,
-    B_WAVE };
+enum class WaveQuantity {
+    a = 0,
+    b
+};
 
-enum ReferenceLevel {
-    RELATIVE_REFERENCE_LEVEL,
-    ABSOLUTE_REFERENCE_LEVEL };
+enum class ReferenceLevel {
+    Relative,
+    Absolute
+};
 
-enum TraceFormat {
-    DB_MAGNITUDE_TRACE,
-    PHASE_DEG_TRACE,
-    SMITH_CHART_TRACE,
-    POLAR_CHART_TRACE,
-    VSWR_TRACE,
-    UNWRAP_PHASE_DEG_TRACE,
-    LINEAR_MAGNITUDE_TRACE,
-    INVERSE_SMITH_CHART_TRACE,
-    REAL_PART_TRACE,
-    IMAGINARY_PART_TRACE,
-    DELAY_TRACE };
+enum class TraceFormat {
+    DecibelMagnitude,
+    Phase,
+    SmithChart,
+    PolarChart,
+    Vswr,
+    UnwrappedPhase,
+    Magnitude,
+    InverseSmithChart,
+    Real,
+    Imaginary,
+    Delay
+};
 
-enum CsvFormat {
-    COMPLEX_DB_DEGREES_CSV,
-    COMPLEX_DB_RADIANS_CSV,
-    COMPLEX_MAGNITUDE_DEGREES_CSV,
-    COMPLEX_MAGNITUDE_RADIANS_CSV,
-    COMPLEX_REAL_IMAGINARY_CSV,
-    DECIBEL_MAGNITUDE_CSV,
-    MAGNITUDE_CSV,
-    PHASE_DEGREES_CSV,
-    PHASE_RADIANS_CSV,
-    VSWR_CSV };
+enum class CsvFormat {
+    DecibelDegrees,
+    DecibelRadians,
+    MagnitudeDegrees,
+    MagnitudeRadians,
+    RealImaginary,
+    DecibelMagnitude,
+    Magnitude,
+    PhaseDegrees,
+    PhaseRadians,
+    Vswr
+};
 
-enum ComplexFormat {
-    DB_DEGREES_COMPLEX,
-    MAGNITUDE_DEGREES_COMPLEX,
-    REAL_IMAGINARY_COMPLEX };
+enum class ComplexFormat {
+    DecibelDegrees,
+    MagnitudeDegrees,
+    RealImaginary
+};
 
-enum Units {
-    NO_UNITS = 0,
-    SECONDS_UNITS,
-    HERTZ_UNITS,
-    RADIANS_UNITS,
-    DEGREES_UNITS,
-    OHMS_UNITS,
-    SIEMENS_UNITS,
-    WATTS_UNITS,
-    DECIBELS_UNITS,
-    DECIBEL_WATTS_UNITS,
-    DECIBEL_MILLIWATTS_UNITS };
+enum class Units {
+    None = 0,
+    Seconds,
+    Hertz,
+    Radians,
+    Degrees,
+    Ohms,
+    Siemens,
+    Watts,
+    dB,
+    dBW,
+    dBm
+};
 
-enum SiPrefix {
-    TERA_PREFIX = 12,
-    GIGA_PREFIX = 9,
-    MEGA_PREFIX = 6,
-    KILO_PREFIX = 3,
-    NO_PREFIX = 0,
-    MILLI_PREFIX = -3,
-    MICRO_PREFIX = -6,
-    NANO_PREFIX = -9,
-    PICO_PREFIX = -12,
-    FEMTO_PREFIX = -15 };
+enum class SiPrefix {
+    Tera = 12,
+    Giga = 9,
+    Mega = 6,
+    Kilo = 3,
+    None = 0,
+    Milli = -3,
+    Micro = -6,
+    Nano = -9,
+    Pico = -12,
+    Femto = -15
+};
 
 // C++ std data types
 typedef std::complex<double> ComplexDouble;

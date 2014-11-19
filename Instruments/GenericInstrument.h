@@ -44,7 +44,7 @@ public:
     void print(QString text);
     void printLine(QString text = "");
     void printInfo();
-    virtual void printInfo(QTextStream &stream);
+    virtual void printInfo(QString &info);
 
     GenericBus* takeBus();
     void resetBus();

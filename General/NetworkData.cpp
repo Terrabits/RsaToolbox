@@ -16,13 +16,13 @@ using namespace RsaToolbox;
 NetworkData::NetworkData() {
     _timestamp = QDateTime::currentDateTime();
 
-    _parameter = S_PARAMETER;
+    _parameter = NetworkParameter::S;
     _impedance_Ohms = 50;
     _ports = 0;
     _points = 0;
 
-    _xUnits = HERTZ_UNITS;
-    _xPrefix = NO_PREFIX;
+    _xUnits = Units::Hertz;
+    _xPrefix = SiPrefix::None;
 }
 NetworkData::NetworkData(const NetworkData &other) {
     _timestamp = other._timestamp;
@@ -42,19 +42,19 @@ NetworkData::NetworkData(const NetworkData &other) {
 }
 
 bool NetworkData::isSParameter() {
-    return(_parameter == S_PARAMETER);
+    return(_parameter == NetworkParameter::S);
 }
 bool NetworkData::isYParameter() {
-    return(_parameter == Y_PARAMETER);
+    return(_parameter == NetworkParameter::Y);
 }
 bool NetworkData::isZParameter() {
-    return(_parameter == Z_PARAMETER);
+    return(_parameter == NetworkParameter::Z);
 }
 bool NetworkData::isHParameter() {
-    return(_parameter == H_PARAMETER);
+    return(_parameter == NetworkParameter::H);
 }
 bool NetworkData::isGParameter() {
-    return(_parameter == G_PARAMETER);
+    return(_parameter == NetworkParameter::G);
 }
 NetworkParameter NetworkData::parameter() {
     return(_parameter);

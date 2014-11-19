@@ -37,7 +37,7 @@ public:
     double y();
     double x();
     void coordinates(double &x, double &y);
-    void setX(double x, SiPrefix prefix = NO_PREFIX);
+    void setX(double x, SiPrefix prefix = SiPrefix::None);
 
     void searchForMax();
     void searchForMin();

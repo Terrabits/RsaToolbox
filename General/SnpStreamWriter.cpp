@@ -106,16 +106,16 @@ bool SnpStreamWriter::writeOptions(NetworkParameter parameter, SiPrefix frequenc
         _impedance_Ohms = impedance_Ohms;
         _frequencyFactor = toDouble(frequencyPrefix);
 
-        if (format == DB_DEGREES_COMPLEX)
+        if (format == ComplexFormat::DecibelDegrees)
             _writeValue = &SnpStreamWriter::_writeMagnitudeAngle;
-        else if (format == MAGNITUDE_DEGREES_COMPLEX)
+        else if (format == ComplexFormat::MagnitudeDegrees)
             _writeValue = &SnpStreamWriter::_writeDecibelAngle;
         else
             _writeValue = &SnpStreamWriter::_writeRealImaginary;
 
         _stream.reset();
         QString options = "#  %1   %2   %3   R     %4\n";
-        options = options.arg(toString(frequencyPrefix, HERTZ_UNITS));
+        options = options.arg(toString(frequencyPrefix, Units::Hertz));
         options = options.arg(toString(parameter));
         options = options.arg(toString(format));
         options = options.arg(formatDouble(impedance_Ohms, 2));

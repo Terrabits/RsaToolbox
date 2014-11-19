@@ -98,7 +98,7 @@ void VnaSweepSegment::setStart(double frequency, SiPrefix prefix) {
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(_segmentIndex);
     scpi = scpi.arg(frequency);
-    scpi = scpi.arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaSweepSegment::stop_Hz() {
@@ -112,7 +112,7 @@ void VnaSweepSegment::setStop(double frequency, SiPrefix prefix) {
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(_segmentIndex);
     scpi = scpi.arg(frequency);
-    scpi = scpi.arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 void VnaSweepSegment::setSingleFrequency(double frequency, SiPrefix prefix) {

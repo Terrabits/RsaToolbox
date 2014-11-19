@@ -161,36 +161,36 @@ bool Touchstone::ReadFrequencyPrefix(NetworkData &network, QString units) {
         return false;
 
     units.chop(2);
-    network.setXUnits(HERTZ_UNITS, toSiPrefix(units));
+    network.setXUnits(Units::Hertz, toSiPrefix(units));
     return(true);
 }
 bool Touchstone::ReadDataType(NetworkData &network, QString type) {
-    QRegularExpression S_REGEX(toString(S_PARAMETER), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression Y_REGEX(toString(Y_PARAMETER), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression Z_REGEX(toString(Z_PARAMETER), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression H_REGEX(toString(H_PARAMETER), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression G_REGEX(toString(G_PARAMETER), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression S_REGEX(toString(NetworkParameter::S), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression Y_REGEX(toString(NetworkParameter::Y), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression Z_REGEX(toString(NetworkParameter::Z), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression H_REGEX(toString(NetworkParameter::H), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression G_REGEX(toString(NetworkParameter::G), QRegularExpression::CaseInsensitiveOption);
 
     if(type.size() == 1)
     {
         if (S_REGEX.match(type).hasMatch()) {
-            network.setParameter(S_PARAMETER);
+            network.setParameter(NetworkParameter::S);
             return(true);
         }
         if (Y_REGEX.match(type).hasMatch()) {
-            network.setParameter(Y_PARAMETER);
+            network.setParameter(NetworkParameter::Y);
             return(true);
         }
         if (Z_REGEX.match(type).hasMatch()) {
-            network.setParameter(Z_PARAMETER);
+            network.setParameter(NetworkParameter::Z);
             return(true);
         }
         if (H_REGEX.match(type).hasMatch()) {
-            network.setParameter(H_PARAMETER);
+            network.setParameter(NetworkParameter::H);
             return(true);
         }
         if (G_REGEX.match(type).hasMatch()) {
-            network.setParameter(G_PARAMETER);
+            network.setParameter(NetworkParameter::G);
             return(true);
         }
     }
@@ -199,9 +199,9 @@ bool Touchstone::ReadDataType(NetworkData &network, QString type) {
     return(false);
 }
 bool Touchstone::ReadFormat(QString format) {
-    QRegularExpression RI_REGEX(toString(REAL_IMAGINARY_COMPLEX), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression MA_REGEX(toString(MAGNITUDE_DEGREES_COMPLEX), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression DB_REGEX(toString(DB_DEGREES_COMPLEX), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression RI_REGEX(toString(ComplexFormat::RealImaginary), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression MA_REGEX(toString(ComplexFormat::MagnitudeDegrees), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression DB_REGEX(toString(ComplexFormat::DecibelDegrees), QRegularExpression::CaseInsensitiveOption);
 
     if(format.length() != 2)
         return false;
@@ -326,7 +326,7 @@ QString Touchstone::WriteDataType(NetworkData &network) {
 }
 QString Touchstone::WriteFormat(NetworkData &network) {
     Q_UNUSED(network);
-    return(toString(REAL_IMAGINARY_COMPLEX));
+    return(toString(ComplexFormat::RealImaginary));
 }
 
 // Write data + helpers

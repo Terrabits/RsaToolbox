@@ -30,7 +30,7 @@ public:
     void close();
 
     void writeCommentLine(QString comment);
-    bool writeOptions(NetworkParameter parameter = S_PARAMETER, SiPrefix frequencyPrefix = NO_PREFIX, ComplexFormat format = REAL_IMAGINARY_COMPLEX, double impedance_Ohms = 50);
+    bool writeOptions(NetworkParameter parameter = NetworkParameter::S, SiPrefix frequencyPrefix = SiPrefix::None, ComplexFormat format = ComplexFormat::RealImaginary, double impedance_Ohms = 50);
     bool writePoint(double const &frequency, ComplexMatrix2D const &matrix);
 
 private:

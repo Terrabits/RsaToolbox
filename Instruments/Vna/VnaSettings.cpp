@@ -125,13 +125,13 @@ void VnaSettings::setBigEndian() {
 }
 
 bool VnaSettings::isEmulationOn() {
-    return(emulationMode() != NO_EMULATION);
+    return(emulationMode() != EmulationMode::Off);
 }
 bool VnaSettings::isEmulationMode(EmulationMode mode) {
     return(emulationMode() == mode);
 }
 bool VnaSettings::isEmulationOff() {
-    return(emulationMode() == NO_EMULATION);
+    return(emulationMode() == EmulationMode::Off);
 }
 VnaSettings::EmulationMode VnaSettings::emulationMode() {
     return(toVnaEmulationMode(
@@ -142,7 +142,7 @@ void VnaSettings::setEmulationMode(EmulationMode mode) {
           QString(":SYST:LANG \'%1\'\n").arg(toScpi(mode)));
 }
 void VnaSettings::setEmulationOff() {
-    setEmulationMode(NO_EMULATION);
+    setEmulationMode(EmulationMode::Off);
 }
 
 bool VnaSettings::isDisplayOn() {
@@ -206,7 +206,7 @@ void VnaSettings::setColorScheme(ColorScheme scheme) {
     _vna->write(scpi);
 }
 void VnaSettings::setDefaultColorScheme() {
-    setColorScheme(DARK_BACKGROUND);
+    setColorScheme(ColorScheme::Dark);
 }
 
 bool VnaSettings::isFontSize(uint size_percent) {
@@ -442,25 +442,25 @@ void VnaSettings::remoteLogOff(bool isOff) {
 // Private
 QString VnaSettings::toScpi(EmulationMode mode) {
     switch(mode) {
-    case NO_EMULATION:
+    case EmulationMode::Off:
         return("SCPI");
-    case PNA_EMULATION:
+    case EmulationMode::Pna:
         return("PNA");
-    case HP_8510_EMULATION:
+    case EmulationMode::Hp8510:
         return("HP8510");
-    case HP_8720_EMULATION:
+    case EmulationMode::Hp8720:
         return("HP8720");
-    case HP_8753_EMULATION:
+    case EmulationMode::Hp8753:
         return("HP8753");
-    case HP_8714_EMULATION:
+    case EmulationMode::Hp8714:
         return("HP8714");
-    case ZVR_EMULATION:
+    case EmulationMode::Zvr:
         return("ZVR");
-    case HP_8530_EMULATION:
+    case EmulationMode::Hp8530:
         return("HP8530");
-    case ENA_EMULATION:
+    case EmulationMode::Ena:
         return("ENA");
-    case ZVABT_EMULATION:
+    case EmulationMode::Zvabt:
         return("ZVABT");
     default:
         return("SCPI");
@@ -469,34 +469,34 @@ QString VnaSettings::toScpi(EmulationMode mode) {
 VnaSettings::EmulationMode VnaSettings::toVnaEmulationMode(QString scpi) {
     scpi = scpi.toUpper();
     if (scpi == "SCPI")
-        return(NO_EMULATION);
+        return(EmulationMode::Off);
     if (scpi == "PNA")
-        return(PNA_EMULATION);
+        return(EmulationMode::Pna);
     if (scpi == "HP8510")
-        return(HP_8510_EMULATION);
+        return(EmulationMode::Hp8510);
     if (scpi == "HP8720")
-        return(HP_8720_EMULATION);
+        return(EmulationMode::Hp8720);
     if (scpi == "HP8753")
-        return(HP_8753_EMULATION);
+        return(EmulationMode::Hp8753);
     if (scpi == "HP8714")
-        return(HP_8714_EMULATION);
+        return(EmulationMode::Hp8714);
     if (scpi == "ZVR")
-        return(ZVR_EMULATION);
+        return(EmulationMode::Zvr);
     if (scpi == "ZVABT")
-        return(ZVABT_EMULATION);
+        return(EmulationMode::Zvabt);
     // default
-    return(NO_EMULATION);
+    return(EmulationMode::Off);
 }
 
 QString VnaSettings::toScpi(ColorScheme scheme) {
     switch(scheme) {
-    case DARK_BACKGROUND:
+    case ColorScheme::Dark:
         return("DBAC");
-    case LIGHT_BACKGROUND:
+    case ColorScheme::Light:
         return("LBAC");
-    case BLACK_WHITE_OUTLINE_BACKGROUND:
+    case ColorScheme::BlackWhiteOutline:
         return("BWLS");
-    case BLACK_WHITE_SOLID_BACKGROUND:
+    case ColorScheme::BlackWhiteSolid:
         return("BWS");
     default:
         return("DBAC");
@@ -505,13 +505,13 @@ QString VnaSettings::toScpi(ColorScheme scheme) {
 VnaSettings::ColorScheme VnaSettings::toColorScheme(QString scpi) {
     scpi = scpi.toUpper();
     if(scpi == "DBAC")
-        return(DARK_BACKGROUND);
+        return(ColorScheme::Dark);
     if(scpi == "LBAC")
-        return(LIGHT_BACKGROUND);
+        return(ColorScheme::Light);
     if(scpi == "BWLS")
-        return(BLACK_WHITE_OUTLINE_BACKGROUND);
+        return(ColorScheme::BlackWhiteOutline);
     if(scpi == "BWS")
-        return(BLACK_WHITE_SOLID_BACKGROUND);
+        return(ColorScheme::BlackWhiteSolid);
     // Default
-    return(DARK_BACKGROUND);
+    return(ColorScheme::Dark);
 }

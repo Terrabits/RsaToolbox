@@ -5,6 +5,7 @@
 // RsaToolbox
 #include "Definitions.h"
 #include "BalancedPort.h"
+
 #include "VnaUserDefinedPort.h"
 #include "VnaLinearSweep.h"
 #include "VnaLogSweep.h"
@@ -41,6 +42,7 @@ class VnaChannel : public QObject
     Q_OBJECT
 
 public:
+
     explicit VnaChannel(QObject *parent = 0);
     VnaChannel(VnaChannel const &other);
     VnaChannel(Vna *_vna, uint index, QObject *parent = 0);
@@ -78,7 +80,7 @@ public:
     bool isTimeSweep();
     VnaSweepType sweepType();
     void setSweepType(VnaSweepType sweepType);
-    void setFrequencies(QRowVector values, SiPrefix prefix = NO_PREFIX);
+    void setFrequencies(QRowVector values, SiPrefix prefix = SiPrefix::None);
 
     VnaLinearSweep &linearSweep();
     VnaLinearSweep *takeLinearSweep();

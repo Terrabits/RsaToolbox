@@ -19,23 +19,23 @@ class VnaSettings : public QObject
 private: Q_OBJECT
 
 public:
-    enum EmulationMode {
-        NO_EMULATION,
-        PNA_EMULATION,
-        HP_8510_EMULATION,
-        HP_8720_EMULATION,
-        HP_8753_EMULATION,
-        HP_8714_EMULATION,
-        ZVR_EMULATION,
-        HP_8530_EMULATION,
-        ENA_EMULATION,
-        ZVABT_EMULATION
+    enum class EmulationMode {
+        Pna    = 1,
+        Ena    = 2,
+        Hp8510 = 3,
+        Hp8530 = 4,
+        Hp8720 = 5,
+        Hp8753 = 6,
+        Hp8714 = 7,
+        Zvr    = 8,
+        Zvabt  = 9,
+        Off    = 0,
     };
-    enum ColorScheme {
-        DARK_BACKGROUND,
-        LIGHT_BACKGROUND,
-        BLACK_WHITE_OUTLINE_BACKGROUND,
-        BLACK_WHITE_SOLID_BACKGROUND
+    enum class ColorScheme {
+        Dark              = 0,
+        Light             = 1,
+        BlackWhiteOutline = 2,
+        BlackWhiteSolid   = 3
     };
 
     explicit VnaSettings(QObject *parent = 0);

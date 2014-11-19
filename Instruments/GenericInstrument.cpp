@@ -230,34 +230,35 @@ void GenericInstrument::printLine(QString text) {
     *_log << text << endl;
 }
 void GenericInstrument::printInfo() {
-    if (!_log->isOpen()) {
+    if (!_log->isOpen())
         return;
-    }
+
     Log *tempLog = _log;
     disconnectLog();
 
     QString info;
-    QTextStream stream(&info);
-    printInfo(stream);
-    stream.flush();
+    printInfo(info);
     tempLog->print(info);
+
     useLog(tempLog);
 }
-void GenericInstrument::printInfo(QTextStream &stream) {
+void GenericInstrument::printInfo(QString &info) {
+    QTextStream stream(&info);
     stream << "INSTRUMENT INFO" << endl;
-    stream << "Connection:       " << toString(_bus->connectionType()) << endl;
-    stream << "Address:          " << _bus->address() << endl;
+    stream << "Connection: " << toString(_bus->connectionType()) << endl;
+    stream << "Address:    " << _bus->address() << endl;
     if (isConnected()) {
         if (isRohdeSchwarz())
-            stream << "Make:             Rohde & Schwarz" << endl;
+            stream << "Make:       Rohde & Schwarz" << endl;
         else
-            stream << "Make:             Unknown" << endl;
-        stream << "id string:        " << idString() << endl;
+            stream << "Make:       Unknown" << endl;
+        stream << "Id string:  " << idString() << endl;
     }
     else {
-        stream << "Error:            Instrument not found!" << endl;
+        stream << "Error:      Instrument not found!" << endl;
     }
     stream << endl << endl;
+    stream.flush();
 }
 
 /*!

@@ -16,14 +16,14 @@ using namespace RsaToolbox;
 FormattedNetworkData::FormattedNetworkData() {
     _timestamp = QDateTime::currentDateTime();
 
-    _parameter = S_PARAMETER;
+    _parameter = NetworkParameter::S;
     _impedance_Ohms = 50;
-    _format = REAL_IMAGINARY_COMPLEX;
+    _format = ComplexFormat::RealImaginary;
     _ports = 0;
     _points = 0;
 
-    _xUnits = HERTZ_UNITS;
-    _xPrefix = NO_PREFIX;
+    _xUnits = Units::Hertz;
+    _xPrefix = SiPrefix::None;
 }
 FormattedNetworkData::FormattedNetworkData(const FormattedNetworkData &other) {
     _timestamp = other._timestamp;
@@ -44,19 +44,19 @@ FormattedNetworkData::FormattedNetworkData(const FormattedNetworkData &other) {
 }
 
 bool FormattedNetworkData::isSParameter() {
-    return(_parameter == S_PARAMETER);
+    return(_parameter == NetworkParameter::S);
 }
 bool FormattedNetworkData::isYParameter() {
-    return(_parameter == Y_PARAMETER);
+    return(_parameter == NetworkParameter::Y);
 }
 bool FormattedNetworkData::isZParameter() {
-    return(_parameter == Z_PARAMETER);
+    return(_parameter == NetworkParameter::Z);
 }
 bool FormattedNetworkData::isHParameter() {
-    return(_parameter == H_PARAMETER);
+    return(_parameter == NetworkParameter::H);
 }
 bool FormattedNetworkData::isGParameter() {
-    return(_parameter == G_PARAMETER);
+    return(_parameter == NetworkParameter::G);
 }
 NetworkParameter FormattedNetworkData::parameter() {
     return(_parameter);

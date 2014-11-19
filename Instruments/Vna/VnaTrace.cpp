@@ -5,6 +5,7 @@
 // RsaToolbox
 #include "General.h"
 #include "Vna.h"
+#include "VnaScpi.h"
 using namespace RsaToolbox;
 
 // Qt
@@ -142,14 +143,14 @@ void VnaTrace::setNetworkParameter(NetworkParameter parameter, uint outputPort, 
         scpi = ":CALC%1:PAR:MEAS:SEND \'%2\',\'%3\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
-    scpi = scpi.arg(toScpi(parameter, outputPort, inputPort));
+    scpi = scpi.arg(VnaScpi::toString(parameter, outputPort, inputPort));
     _vna->write(scpi);
 }
 void VnaTrace::setNetworkParameter(NetworkParameter parameter, BalancedPort outputPort, BalancedPort inputPort) {
     QString scpi = ":CALC%1:PAR:MEAS \'%2\',\'%3\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
-    scpi = scpi.arg(toScpi(parameter, outputPort, inputPort));
+    scpi = scpi.arg(VnaScpi::toString(parameter, outputPort, inputPort));
     _vna->write(scpi);
 }
 void VnaTrace::measure(NetworkTraceData &data) {
@@ -185,7 +186,7 @@ void VnaTrace::setWaveQuantity(WaveQuantity wave, uint port) {
     QString scpi = ":CALC%1:PAR:MEAS \'%2\',\'%3\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
-    scpi = scpi.arg(toScpi(wave, port));
+    scpi = scpi.arg(VnaScpi::toString(wave, port));
     _vna->write(scpi);
 }
 
@@ -212,8 +213,8 @@ void VnaTrace::setWaveRatio(WaveQuantity numeratorWave, uint numeratorPort, Wave
     QString scpi = ":CALC%1:PAR:MEAS \'%2\',\'%3/%4\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
-    scpi = scpi.arg(toScpi(numeratorWave, numeratorPort));
-    scpi = scpi.arg(toScpi(denominatorWave, denominatorPort));
+    scpi = scpi.arg(VnaScpi::toString(numeratorWave, numeratorPort));
+    scpi = scpi.arg(VnaScpi::toString(denominatorWave, denominatorPort));
     _vna->write(scpi);
 }
 
@@ -237,14 +238,14 @@ void VnaTrace::setImpedance(uint outputPort, uint inputPort) {
     QString scpi = ":CALC%1:PAR:MEAS \'%2\',\'Z-S%3\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
-    scpi = scpi.arg(toPortPair(outputPort, inputPort));
+    scpi = scpi.arg(VnaScpi::toPortPair(outputPort, inputPort));
     _vna->write(scpi);
 }
 void VnaTrace::setImpedance(BalancedPort outputPort, BalancedPort inputPort) {
     QString scpi = ":CALC%1:PAR:MEAS \'%2\',\'Z-%3\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
-    scpi = scpi.arg(toScpi(S_PARAMETER, outputPort, inputPort));
+    scpi = scpi.arg(VnaScpi::toString(NetworkParameter::S, outputPort, inputPort));
     _vna->write(scpi);
 }
 
@@ -268,14 +269,14 @@ void VnaTrace::setAdmittance(uint outputPort, uint inputPort) {
     QString scpi = ":CALC%1:PAR:MEAS \'%2\',\'Y-S%3\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
-    scpi = scpi.arg(toPortPair(outputPort, inputPort));
+    scpi = scpi.arg(VnaScpi::toPortPair(outputPort, inputPort));
     _vna->write(scpi);
 }
 void VnaTrace::setAdmittance(BalancedPort outputPort, BalancedPort inputPort) {
     QString scpi = ":CALC%1:PAR:MEAS \'%2\',\'Y-%3\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
-    scpi = scpi.arg(toScpi(S_PARAMETER, outputPort, inputPort));
+    scpi = scpi.arg(VnaScpi::toString(NetworkParameter::S, outputPort, inputPort));
     _vna->write(scpi);
 }
 
@@ -284,12 +285,12 @@ TraceFormat VnaTrace::format() {
     QString scpi = ":CALC%1:FORM?\n";
     scpi = scpi.arg(channel());
     QString result = _vna->query(scpi).trimmed();
-    return(toTraceFormat(result));
+    return(VnaScpi::toTraceFormat(result));
 }
 void VnaTrace::setFormat(TraceFormat format) {
     QString scpi = ":CALC%1:FORM %2\n";
     scpi = scpi.arg(channel());
-    scpi = scpi.arg(toScpi(format));
+    scpi = scpi.arg(VnaScpi::toString(format));
     _vna->write(scpi);
 }
 
@@ -588,125 +589,6 @@ QString VnaTrace::measurementString() {
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
     return(_vna->query(scpi).trimmed().remove("\'"));
-}
-QString VnaTrace::toScpi(TraceFormat format) {
-    switch(format) {
-        case DB_MAGNITUDE_TRACE:
-            return("MLOG");
-            break;
-        case PHASE_DEG_TRACE:
-            return("PHAS");
-            break;
-        case SMITH_CHART_TRACE:
-            return("SMIT");
-            break;
-        case POLAR_CHART_TRACE:
-            return("POL");
-            break;
-        case VSWR_TRACE:
-            return("SWR");
-            break;
-        case UNWRAP_PHASE_DEG_TRACE:
-            return("UPH");
-            break;
-        case LINEAR_MAGNITUDE_TRACE:
-            return("MLIN");
-            break;
-        case INVERSE_SMITH_CHART_TRACE:
-            return("ISM");
-            break;
-        case REAL_PART_TRACE:
-            return("REAL");
-            break;
-        case IMAGINARY_PART_TRACE:
-            return("IMAG");
-            break;
-        case DELAY_TRACE:
-            return("GDEL");
-            break;
-        }
-        // Default
-        return("MLOG");
-}
-QString VnaTrace::toScpi(NetworkParameter parameter, uint outputPort, uint inputPort) {
-    QString scpi = "%1%2";
-    scpi = scpi.arg(toScpi(parameter));
-    scpi = scpi.arg(toPortPair(outputPort, inputPort));
-    return(scpi);
-}
-QString VnaTrace::toScpi(NetworkParameter parameter, BalancedPort outputPort, BalancedPort inputPort) {
-    QString scpi = "%1%2%3%4";
-    scpi = scpi.arg(toScpi(parameter));
-    scpi = scpi.arg(toScpi(outputPort.portType()));
-    scpi = scpi.arg(toScpi(inputPort.portType()));
-    scpi = scpi.arg(toPortPair(outputPort.logicalPort(), inputPort.logicalPort()));
-    return(scpi);
-}
-QString VnaTrace::toScpi(NetworkParameter parameter) {
-    switch(parameter) {
-    case S_PARAMETER: return("S");
-    case Y_PARAMETER: return("Y");
-    case Z_PARAMETER: return("Z");
-    default: return("S");
-    }
-}
-QString VnaTrace::toScpi(WaveQuantity waveQuantity, uint port) {
-    return(toScpi(waveQuantity) + QVariant(port).toString());
-}
-QString VnaTrace::toScpi(WaveQuantity waveQuantity) {
-    switch(waveQuantity) {
-    case A_WAVE: return("a");
-    case B_WAVE: return("b");
-    default: return("a");
-    }
-}
-QString VnaTrace::toScpi(BalancedPortType portType) {
-    switch(portType) {
-    case SINGLE_ENDED: return("s");
-    case DIFFERENTIAL_MODE: return("d");
-    case COMMON_MODE: return("c");
-    default: return("s");
-    }
-}
-QString VnaTrace::toPortPair(uint outputPort, uint inputPort) {
-    QString outputString = QVariant(outputPort).toString();
-    QString inputString = QVariant(inputPort).toString();
-
-    int difference = outputString.size() - inputString.size();
-    if (difference > 0) {
-        inputString += QString('0', difference);
-    }
-    else if (difference < 0) {
-        outputString += QString('0', -1 * difference);
-    }
-    return(outputString + inputString);
-}
-TraceFormat VnaTrace::toTraceFormat(QString scpi) {
-    scpi = scpi.toUpper();
-    if (scpi == "MLOG")
-        return(DB_MAGNITUDE_TRACE);
-    if (scpi == "PHAS")
-        return(PHASE_DEG_TRACE);
-    if (scpi == "SMIT")
-        return(SMITH_CHART_TRACE);
-    if (scpi == "POL")
-        return(POLAR_CHART_TRACE);
-    if (scpi == "SWR")
-        return(VSWR_TRACE);
-    if (scpi == "UPH")
-        return(UNWRAP_PHASE_DEG_TRACE);
-    if (scpi == "MLIN")
-        return(LINEAR_MAGNITUDE_TRACE);
-    if (scpi == "ISM")
-        return(INVERSE_SMITH_CHART_TRACE);
-    if (scpi == "REAL")
-        return(REAL_PART_TRACE);
-    if (scpi == "IMAG")
-        return(IMAGINARY_PART_TRACE);
-    if (scpi == "GDEL")
-        return(DELAY_TRACE);
-    // Default
-    return(DB_MAGNITUDE_TRACE);
 }
 uint VnaTrace::bufferSize() {
     const uint SIZE_PER_POINT = 8;

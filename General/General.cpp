@@ -1,47 +1,46 @@
 #include <QDebug>
 
-// Rsa
+
+// RsaToolbox
 #include "General.h"
+using namespace RsaToolbox;
 
 // Qt
-#include <QStringList>
 #include <QStandardPaths>
-#include <QTextStream>
 #include <QCoreApplication>
 
 // C++ std lib
 #include <cmath>
 
-using namespace RsaToolbox;
 
 // Enum Conversions
 double RsaToolbox::toDouble(SiPrefix prefix) {
     switch(prefix) {
-    case TERA_PREFIX:
+    case SiPrefix::Tera:
         return(1E12);
         break;
-    case GIGA_PREFIX:
+    case SiPrefix::Giga:
         return(1E9);
         break;
-    case MEGA_PREFIX:
+    case SiPrefix::Mega:
         return(1E6);
         break;
-    case KILO_PREFIX:
+    case SiPrefix::Kilo:
         return(1E3);
         break;
-    case MILLI_PREFIX:
+    case SiPrefix::Milli:
         return(1E-3);
         break;
-    case MICRO_PREFIX:
+    case SiPrefix::Micro:
         return(1E-6);
         break;
-    case NANO_PREFIX:
+    case SiPrefix::Nano:
         return(1E-9);
         break;
-    case PICO_PREFIX:
+    case SiPrefix::Pico:
         return(1E-12);
         break;
-    case FEMTO_PREFIX:
+    case SiPrefix::Femto:
         return(1E-15);
         break;
     default:
@@ -53,13 +52,13 @@ double RsaToolbox::toDouble(SiPrefix prefix) {
 
 QString RsaToolbox::toString(ComplexFormat format) {
     switch(format) {
-    case DB_DEGREES_COMPLEX:
+    case ComplexFormat::DecibelDegrees:
         return("dB");
         break;
-    case MAGNITUDE_DEGREES_COMPLEX:
+    case ComplexFormat::MagnitudeDegrees:
         return("MA");
         break;
-    case REAL_IMAGINARY_COMPLEX:
+    case ComplexFormat::RealImaginary:
         return("RI");
         break;
     }
@@ -68,19 +67,19 @@ QString RsaToolbox::toString(ComplexFormat format) {
 }
 QString RsaToolbox::toString(NetworkParameter parameter) {
     switch(parameter) {
-    case S_PARAMETER:
+    case NetworkParameter::S:
         return("S");
         break;
-    case Y_PARAMETER:
+    case NetworkParameter::Y:
         return("Y");
         break;
-    case Z_PARAMETER:
+    case NetworkParameter::Z:
         return("Z");
         break;
-    case H_PARAMETER:
+    case NetworkParameter::H:
         return("H");
         break;
-    case G_PARAMETER:
+    case NetworkParameter::G:
         return("G");
         break;
     }
@@ -88,34 +87,45 @@ QString RsaToolbox::toString(NetworkParameter parameter) {
     return("S");
 }
 QString RsaToolbox::toString(NetworkParameter parameter, uint outputPort, uint inputPort) {
-    QString outputString = QVariant(outputPort).toString();
-    QString inputString = QVariant(inputPort).toString();
-    int zeros = outputString.length() - inputString.length();
+    QString output = QVariant(outputPort).toString();
+    QString input = QVariant(inputPort).toString();
+    int zeros = output.length() - input.length();
     if (zeros > 0)
-        inputString.prepend(QString(zeros, '0'));
+        input.prepend(QString(zeros, '0'));
     else if (zeros < 0)
-        outputString.prepend(QString(-zeros, '0'));
-    return(toString(parameter) + outputString + inputString);
+        output.prepend(QString(-zeros, '0'));
+    return(toString(parameter) + output + input);
 }
+QString RsaToolbox::toString(WaveQuantity wave) {
+    switch (wave) {
+    case WaveQuantity::a:
+        return "a";
+    case WaveQuantity::b:
+        return "b";
+    default:
+        return "a";
+    }
+}
+
 QString RsaToolbox::toString(SiPrefix prefix) {
     switch(prefix) {
-    case TERA_PREFIX:
+    case SiPrefix::Tera:
         return("T");
-    case GIGA_PREFIX:
+    case SiPrefix::Giga:
         return("G");
-    case MEGA_PREFIX:
+    case SiPrefix::Mega:
         return("M");
-    case KILO_PREFIX:
+    case SiPrefix::Kilo:
         return("K");
-    case MILLI_PREFIX:
+    case SiPrefix::Milli:
         return("m");
-    case MICRO_PREFIX:
+    case SiPrefix::Micro:
         return("u");
-    case NANO_PREFIX:
+    case SiPrefix::Nano:
         return("n");
-    case PICO_PREFIX:
+    case SiPrefix::Pico:
         return("p");
-    case FEMTO_PREFIX:
+    case SiPrefix::Femto:
         return("f");
     default:
         // NO_PREFIX
@@ -124,25 +134,25 @@ QString RsaToolbox::toString(SiPrefix prefix) {
 }
 QString RsaToolbox::toString(Units units) {
     switch(units) {
-    case SECONDS_UNITS:
+    case Units::Seconds:
         return("s");
-    case HERTZ_UNITS:
+    case Units::Hertz:
         return("Hz");
-    case RADIANS_UNITS:
+    case Units::Radians:
         return("Rad");
-    case DEGREES_UNITS:
+    case Units::Degrees:
         return("Deg");
-    case OHMS_UNITS:
+    case Units::Ohms:
         return("Ohm");
-    case SIEMENS_UNITS:
+    case Units::Siemens:
         return("S");
-    case WATTS_UNITS:
+    case Units::Watts:
         return("W");
-    case DECIBELS_UNITS:
+    case Units::dB:
         return("dB");
-    case DECIBEL_WATTS_UNITS:
+    case Units::dBW:
         return("dBW");
-    case DECIBEL_MILLIWATTS_UNITS:
+    case Units::dBm:
         return("dBm");
     default:
         // NO_UNITS
@@ -155,40 +165,40 @@ QString RsaToolbox::toString(SiPrefix prefix, Units units) {
 
 SiPrefix RsaToolbox::toSiPrefix(QString prefix) {
     if (prefix == "T")
-        return(TERA_PREFIX);
+        return(SiPrefix::Tera);
     if (prefix == "G")
-        return(GIGA_PREFIX);
+        return(SiPrefix::Giga);
     if (prefix == "M")
-        return(MEGA_PREFIX);
+        return(SiPrefix::Mega);
     if (prefix == "K")
-        return(KILO_PREFIX);
+        return(SiPrefix::Kilo);
     if (prefix == "m")
-        return(MILLI_PREFIX);
+        return(SiPrefix::Milli);
     if (prefix == "u")
-        return(MICRO_PREFIX);
+        return(SiPrefix::Micro);
     if (prefix == "n")
-        return(NANO_PREFIX);
+        return(SiPrefix::Nano);
     if (prefix == "p")
-        return(PICO_PREFIX);
+        return(SiPrefix::Pico);
     if (prefix == "f")
-        return(FEMTO_PREFIX);
+        return(SiPrefix::Femto);
     // Default
-    return(NO_PREFIX);
+    return(SiPrefix::None);
 }
 SiPrefix RsaToolbox::getPrefix(double value) {
     int decimal_places = 1;
     const int count = 10;
     SiPrefix prefixes[count] = {
-        FEMTO_PREFIX,
-        PICO_PREFIX,
-        NANO_PREFIX,
-        MICRO_PREFIX,
-        MILLI_PREFIX,
-        NO_PREFIX,
-        KILO_PREFIX,
-        MEGA_PREFIX,
-        GIGA_PREFIX,
-        TERA_PREFIX
+        SiPrefix::Femto,
+        SiPrefix::Pico,
+        SiPrefix::Nano,
+        SiPrefix::Micro,
+        SiPrefix::Milli,
+        SiPrefix::None,
+        SiPrefix::Kilo,
+        SiPrefix::Mega,
+        SiPrefix::Giga,
+        SiPrefix::Tera
     };
 
     double magnitude = abs(value);
@@ -235,94 +245,101 @@ QString RsaToolbox::AppendAppDataPath(QString program_folder, QString filename) 
 }
 
 // Formatting
-QString RsaToolbox::toScientificNotation(double value, int decimal_places, SiPrefix prefix) {
-    QString formatted_value;
-    QTextStream text_stream(&formatted_value);
-    text_stream.setRealNumberPrecision(decimal_places);
-    text_stream.setRealNumberNotation(QTextStream::FixedNotation);
+QString RsaToolbox::toEngineeringNotation(double value, int decimalPlaces, SiPrefix prefix) {
+    QString result;
+    QTextStream stream(&result);
+    stream.setRealNumberPrecision(decimalPlaces);
+    stream.setRealNumberNotation(QTextStream::FixedNotation);
 
     const int count = 10;
-    SiPrefix prefixes[count] =
-    { FEMTO_PREFIX,
-      PICO_PREFIX,
-      NANO_PREFIX,
-      MICRO_PREFIX,
-      MILLI_PREFIX,
-      NO_PREFIX,
-      KILO_PREFIX,
-      MEGA_PREFIX,
-      GIGA_PREFIX,
-      TERA_PREFIX };
+    SiPrefix prefixes[count] = { SiPrefix::Femto,
+                                 SiPrefix::Pico,
+                                 SiPrefix::Nano,
+                                 SiPrefix::Micro,
+                                 SiPrefix::Milli,
+                                 SiPrefix::None,
+                                 SiPrefix::Kilo,
+                                 SiPrefix::Mega,
+                                 SiPrefix::Giga,
+                                 SiPrefix::Tera
+                               };
 
-    QStringList science;
-    science.append("E-15");
-    science.append("E-12");
-    science.append("E-9");
-    science.append("E-6");
-    science.append("E-3");
-    science.append("");
-    science.append("E3");
-    science.append("E6");
-    science.append("E9");
-    science.append("E12");
+    QStringList eNotation;
+    eNotation.append("E-15");
+    eNotation.append("E-12");
+    eNotation.append("E-9");
+    eNotation.append("E-6");
+    eNotation.append("E-3");
+    eNotation.append("");
+    eNotation.append("E3");
+    eNotation.append("E6");
+    eNotation.append("E9");
+    eNotation.append("E12");
 
     double magnitude = abs(value * toDouble(prefix));
     for (int i = 0; i < count; i++) {
-        double bound = (1 - 0.5 * pow(10.0, (double)(-3 - decimal_places))) * toDouble(prefixes[i + 1]);
+        double bound = (1 - 0.5 * pow(10.0, (double)(-3 - decimalPlaces))) * toDouble(prefixes[i + 1]);
         if (magnitude < bound) {
-            text_stream << (value / toDouble(prefixes[i]));
-            text_stream << science[i];
-            text_stream.flush();
-            return(formatted_value);
+            stream << (value / toDouble(prefixes[i]));
+            stream.flush();
+            if (i == 0 && result.toDouble() == 0)
+                return result;
+            stream << eNotation[i];
+            stream.flush();
+            return(result);
         }
     }
 
     // else Tera or bigger
-    text_stream << (value / (double)prefixes[count]);
-    text_stream << science[count];
-    text_stream.flush();
-    return(formatted_value);
+    stream << (value / toDouble(SiPrefix::Tera));
+    stream << eNotation.last();
+    stream.flush();
+    return(result);
 }
-QString RsaToolbox::formatValue(double value, int decimal_places, Units units, SiPrefix prefix) {
-    QString formatted_value;
-    QTextStream text_stream(&formatted_value);
-    text_stream.setRealNumberPrecision(decimal_places);
-    text_stream.setRealNumberNotation(QTextStream::FixedNotation);
+QString RsaToolbox::formatValue(double value, int decimalPlaces, Units units, SiPrefix prefix) {
+    QString result;
+    QTextStream stream(&result);
+    stream.setRealNumberPrecision(decimalPlaces);
+    stream.setRealNumberNotation(QTextStream::FixedNotation);
 
     const int count = 10;
-    SiPrefix prefixes[count] =
-    { FEMTO_PREFIX,
-      PICO_PREFIX,
-      NANO_PREFIX,
-      MICRO_PREFIX,
-      MILLI_PREFIX,
-      NO_PREFIX,
-      KILO_PREFIX,
-      MEGA_PREFIX,
-      GIGA_PREFIX,
-      TERA_PREFIX };
+    SiPrefix prefixes[count] = { SiPrefix::Femto,
+                                 SiPrefix::Pico,
+                                 SiPrefix::Nano,
+                                 SiPrefix::Micro,
+                                 SiPrefix::Milli,
+                                 SiPrefix::None,
+                                 SiPrefix::Kilo,
+                                 SiPrefix::Mega,
+                                 SiPrefix::Giga,
+                                 SiPrefix::Tera
+                               };
 
     double magnitude = abs(value * toDouble(prefix));
     for (int i = 0; i < count; i++) {
-        double bound = (1 - 0.5 * pow(10.0, (double)(-3 - decimal_places))) * toDouble(prefixes[i + 1]);
+        double bound = (1 - 0.5 * pow(10.0, (double)(-3 - decimalPlaces))) * toDouble(prefixes[i + 1]);
         if (magnitude < bound) {
-            text_stream << (value / toDouble(prefixes[i])) << " ";
-            text_stream << toString(prefixes[i]) << toString(units);
-            text_stream.flush();
-            return(formatted_value);
+            stream << (value / toDouble(prefixes[i]));
+            stream.flush();
+            if (i == 0 && result.toDouble() == 0)
+                stream << " " << units;
+            else
+                stream << " " << prefixes[i] << units;
+            stream.flush();
+            return(result);
         }
     }
 
     // else Tera or bigger
-    text_stream << (value / (double)prefixes[count]) << " ";
-    text_stream << (QString)prefixes[count] << (QString)units;
-    text_stream.flush();
-    return(formatted_value);
+    stream << (value / toDouble(prefixes[count]));
+    stream << " " << SiPrefix::Tera << units;
+    stream.flush();
+    return result;
 }
-QString RsaToolbox::formatDouble(double value, int decimal_places) {
+QString RsaToolbox::formatDouble(double value, int decimalPlaces) {
     QString string;
     QTextStream stream(&string);
-    stream.setRealNumberPrecision(decimal_places);
+    stream.setRealNumberPrecision(decimalPlaces);
     stream.setRealNumberNotation(QTextStream::FixedNotation);
     stream << value;
     stream.flush();
@@ -1507,6 +1524,8 @@ void RsaToolbox::insert(ComplexMatrix2D &matrix, ComplexMatrix2D data, QVector<u
     insert(matrix, data, indices, indices);
 }
 
+
+// Data type stream operators
 QDataStream& operator<<(QDataStream &stream, ComplexDouble value) {
     stream << value.real();
     stream << value.imag();

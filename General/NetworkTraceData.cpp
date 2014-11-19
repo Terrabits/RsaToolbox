@@ -10,12 +10,12 @@ using namespace RsaToolbox;
 
 
 NetworkTraceData::NetworkTraceData() {
-    _parameter = S_PARAMETER;
+    _parameter = NetworkParameter::S;
     _impedance_Ohms = 50;
     _points = 0;
 
-    _xUnits = HERTZ_UNITS;
-    _xPrefix = NO_PREFIX;
+    _xUnits = Units::Hertz;
+    _xPrefix = SiPrefix::None;
 }
 NetworkTraceData::NetworkTraceData(const NetworkTraceData &other) {
     _timestamp = other._timestamp;
@@ -39,19 +39,19 @@ NetworkTraceData::NetworkTraceData(const NetworkTraceData &other) {
 }
 
 bool NetworkTraceData::isSParameter() {
-    return(_parameter == S_PARAMETER);
+    return(_parameter == NetworkParameter::S);
 }
 bool NetworkTraceData::isYParameter() {
-    return(_parameter == Y_PARAMETER);
+    return(_parameter == NetworkParameter::Y);
 }
 bool NetworkTraceData::isZParameter() {
-    return(_parameter == Z_PARAMETER);
+    return(_parameter == NetworkParameter::Z);
 }
 bool NetworkTraceData::isHParameter() {
-    return(_parameter == H_PARAMETER);
+    return(_parameter == NetworkParameter::H);
 }
 bool NetworkTraceData::isGParameter() {
-    return(_parameter == G_PARAMETER);
+    return(_parameter == NetworkParameter::G);
 }
 void NetworkTraceData::setParameter(NetworkParameter parameter) {
     _parameter = parameter;
@@ -68,11 +68,11 @@ QString NetworkTraceData::timestamp() {
 }
 
 uint NetworkTraceData::outputPort() {
-    return(_outputPort.logicalPort());
+    return(_outputPort.port());
 }
 void NetworkTraceData::setOutputPort(uint logicalPort) {
     _outputPort.setSingleEnded();
-    _outputPort.setLogicalPort(logicalPort);
+    _outputPort.setPort(logicalPort);
 }
 void NetworkTraceData::outputPort(BalancedPort &port) {
     port = _outputPort;
@@ -88,11 +88,11 @@ void NetworkTraceData::setOutputPortComment(QString comment) {
 }
 
 uint NetworkTraceData::inputPort() {
-    return(_inputPort.logicalPort());
+    return(_inputPort.port());
 }
 void NetworkTraceData::setInputPort(uint logicalPort) {
     _inputPort.setSingleEnded();
-    _inputPort.setLogicalPort(logicalPort);
+    _inputPort.setPort(logicalPort);
 }
 void NetworkTraceData::inputPort(BalancedPort &port) {
     port = _inputPort;

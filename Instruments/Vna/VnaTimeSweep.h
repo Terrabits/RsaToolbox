@@ -28,13 +28,13 @@ public:
     uint points();
     void setPoints(uint numberOfPoints);
     double frequency_Hz();
-    void setFrequency(double frequency, SiPrefix prefix = NO_PREFIX);
+    void setFrequency(double frequency, SiPrefix prefix = SiPrefix::None);
     double power_dBm();
     void setPower(double power_dBm);
     double ifBandwidth_Hz();
-    void setIfBandwidth(double bandwidth, SiPrefix prefix = NO_PREFIX);
+    void setIfBandwidth(double bandwidth, SiPrefix prefix = SiPrefix::None);
     double time_s();
-    void setTime(double time, SiPrefix prefix = NO_PREFIX);
+    void setTime(double time, SiPrefix prefix = SiPrefix::None);
 
     void operator=(VnaTimeSweep const &other);
 

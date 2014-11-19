@@ -165,17 +165,16 @@ Vna::Vna(ConnectionType type, QString address, QObject *parent)
 { }
 
 /*!
- * \brief Prints instrument info to the log file,
- * if connected
+ * \brief Prints instrument info to the log file
  *
  * Below is an example result of a call
- * to \c printInfo() on a Znb:
+ * to \c printInfo() with a ZNB connected:
     <tt>VNA INSTRUMENT INFO
 Connection:       TCPIP
 Address:          192.168.0.1
 Make:             Rohde & Schwarz
 Model:            ZNB
-Serial No:        1311601044100104
+Serial No:        12345678901234
 Firmware Version: 1.93.2.45
 Min Frequency:    9.0 KHz
 Max Frequency:    8.5 GHz
@@ -195,23 +194,8 @@ Options:          ZNB-K2
                   ZN-B12</tt>
  * \sa Vna::useLog()
  */
-void Vna::printInfo() {
-    if (isLogOpen() == false) {
-        return;
-    }
-
-    Log *tempLog = log();
-    disconnectLog();
-
-    QString info;
+void Vna::printInfo(QString &info) {
     QTextStream stream(&info);
-    printInfo(stream);
-    stream.flush();
-    tempLog->print(info);
-
-    useLog(tempLog);
-}
-void Vna::printInfo(QTextStream &stream) {
     stream << "VNA INSTRUMENT INFO" << endl;
     if (isConnected()) {
         if (_properties.isKnownModel()) {
@@ -221,8 +205,8 @@ void Vna::printInfo(QTextStream &stream) {
             stream << "Model:            " << toString(_properties.model()) << endl;
             stream << "Serial No:        " << _properties.serialNumber() << endl;
             stream << "Firmware Version: " << _properties.firmwareVersion() << endl;
-            stream << "Min Frequency:    " << formatValue(_properties.minimumFrequency_Hz(), 1, HERTZ_UNITS) << endl;
-            stream << "Max Frequency:    " << formatValue(_properties.maximumFrequency_Hz(), 1, HERTZ_UNITS) << endl;
+            stream << "Min Frequency:    " << formatValue(_properties.minimumFrequency_Hz(), 1, Units::Hertz) << endl;
+            stream << "Max Frequency:    " << formatValue(_properties.maximumFrequency_Hz(), 1, Units::Hertz) << endl;
             stream << "Number of Ports:  " << _properties.physicalPorts() << endl;
             if (optionsString().size() > 0) {
                 stream << "Options:          ";
@@ -241,6 +225,7 @@ void Vna::printInfo(QTextStream &stream) {
         stream << "Address:          " << address() << endl << endl << endl;
     }
     stream << endl << endl;
+    stream.flush();
 }
 
 /*!

@@ -91,9 +91,9 @@ public:
     bool isDistanceAxis();
 
     double startValue();
-    void setStart(double value, SiPrefix prefix = NO_PREFIX);
+    void setStart(double value, SiPrefix prefix = SiPrefix::None);
     double stopValue();
-    void setStop(double value, SiPrefix prefix = NO_PREFIX);
+    void setStop(double value, SiPrefix prefix = SiPrefix::None);
 
     void operator=(VnaTimeDomain const &other);
 

@@ -76,7 +76,7 @@ double VnaLogSweep::start_Hz() {
 void VnaLogSweep::setStart(double frequency, SiPrefix prefix) {
     QString scpi = ":SENS%1:FREQ:STAR %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequency).arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(frequency).arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaLogSweep::stop_Hz() {
@@ -87,7 +87,7 @@ double VnaLogSweep::stop_Hz() {
 void VnaLogSweep::setStop(double frequency, SiPrefix prefix) {
     QString scpi = ":SENS%1:FREQ:STOP %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequency).arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(frequency).arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 QVector<double> VnaLogSweep::frequencies_Hz() {
@@ -115,7 +115,7 @@ void VnaLogSweep::setIfbandwidth(double bandwidth, SiPrefix prefix) {
     QString scpi = "SENS%1:BAND %2%3\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(bandwidth);
-    scpi = scpi.arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 

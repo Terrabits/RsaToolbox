@@ -40,7 +40,7 @@ using namespace RsaToolbox;
  * \sa setPortType, setLogicalPort, setPhysicalPort
  */
 BalancedPort::BalancedPort() {
-    _portType = SINGLE_ENDED;
+    _type = BalancedPort::Type::SingleEnded;
 }
 
 /*!
@@ -52,8 +52,8 @@ BalancedPort::BalancedPort() {
  * \sa setPortType, setLogicalPort, setPhysicalPort
  */
 BalancedPort::BalancedPort(uint logicalPort) {
-    _logicalPort = logicalPort;
-    _portType = SINGLE_ENDED;
+    _port = logicalPort;
+    _type = BalancedPort::Type::SingleEnded;
 }
 
 /*!
@@ -62,8 +62,8 @@ BalancedPort::BalancedPort(uint logicalPort) {
  * \return Port balance type
  * \sa RsaToolbox::BalancedPortType
  */
-BalancedPortType BalancedPort::portType() {
-    return(_portType);
+BalancedPort::Type BalancedPort::type() {
+    return(_type);
 }
 
 /*!
@@ -79,7 +79,7 @@ bool BalancedPort::isBalanced() {
  * \return \c true if differential mode balanced port; \c false otherwise
  */
 bool BalancedPort::isDifferential() {
-    return(_portType == DIFFERENTIAL_MODE);
+    return(_type == BalancedPort::Type::Differential);
 }
 
 /*!
@@ -87,7 +87,7 @@ bool BalancedPort::isDifferential() {
  * \return \c true if common mode balanced port; \c false otherwise
  */
 bool BalancedPort::isCommonMode() {
-    return(_portType == COMMON_MODE);
+    return(_type == BalancedPort::Type::Common);
 }
 
 /*!
@@ -95,22 +95,22 @@ bool BalancedPort::isCommonMode() {
  * \return \c true if single ended port; \c false otherwise
  */
 bool BalancedPort::isSingleEnded() {
-    return(_portType == SINGLE_ENDED);
+    return(_type == BalancedPort::Type::SingleEnded);
 }
 
 /*!
  * \brief Returns the logical port index
  * \return Logical port number
  */
-uint BalancedPort::logicalPort() {
-    return(_logicalPort);
+uint BalancedPort::port() {
+    return(_port);
 }
 
 /*!
  * \brief Sets this to a single-ended logical port
  */
 void BalancedPort::setSingleEnded() {
-    _portType = SINGLE_ENDED;
+    _type = BalancedPort::Type::SingleEnded;
 }
 
 /*!
@@ -122,7 +122,7 @@ void BalancedPort::setSingleEnded() {
  * \sa BalancedPort::setPhysicalPorts()
  */
 void BalancedPort::setDifferential() {
-    _portType = DIFFERENTIAL_MODE;
+    _type = BalancedPort::Type::Differential;
 }
 
 /*!
@@ -133,7 +133,7 @@ void BalancedPort::setDifferential() {
  * \sa BalancedPort::setPhysicalPorts()
  */
 void BalancedPort::setCommonMode() {
-    _portType = COMMON_MODE;
+    _type = BalancedPort::Type::Common;
 }
 
 /*!
@@ -141,15 +141,15 @@ void BalancedPort::setCommonMode() {
  * \param type Type of balanced port
  * \sa RsaToolbox::BalancedPortType
  */
-void BalancedPort::setPortType(BalancedPortType type) {
-    _portType = type;
+void BalancedPort::setType(BalancedPort::Type type) {
+    _type = type;
 }
 /*!
  * \brief Sets the logical port index
  * \param logicalPort Logical port number
  */
-void BalancedPort::setLogicalPort(uint logicalPort) {
-    _logicalPort = logicalPort;
+void BalancedPort::setPort(uint logicalPort) {
+    _port = logicalPort;
 }
 
 /*!
@@ -163,7 +163,7 @@ void BalancedPort::setLogicalPort(uint logicalPort) {
  * convenience for such situations.
  */
 BalancedPort::operator int() {
-    return(int(_logicalPort));
+    return(int(_port));
 }
 
 /*!
@@ -177,25 +177,6 @@ BalancedPort::operator int() {
  * convenience for such situations.
  */
 BalancedPort::operator uint() {
-    return(_logicalPort);
+    return(_port);
 }
 
-/*!
- * \relates RsaToolbox::BalancedPort
- * \brief Converts a balanced port type into
- * VNA SCPI notation.
- *
- * This function is useful when forming SCPI
- * commands manually.
- *
- * \param type Type of balanced port
- * \return SCPI representation of port balance type
- */
-QString RsaToolbox::toVnaScpi(BalancedPortType type) {
-    switch(type) {
-    case SINGLE_ENDED: return("s");
-    case DIFFERENTIAL_MODE: return("d");
-    case COMMON_MODE: return("c");
-    default: return("s");
-    }
-}

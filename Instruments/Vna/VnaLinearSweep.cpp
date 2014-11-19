@@ -76,7 +76,7 @@ double VnaLinearSweep::start_Hz() {
 void VnaLinearSweep::setStart(double frequency, SiPrefix prefix) {
     QString scpi = ":SENS%1:FREQ:STAR %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequency).arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(frequency).arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaLinearSweep::stop_Hz() {
@@ -87,7 +87,7 @@ double VnaLinearSweep::stop_Hz() {
 void VnaLinearSweep::setStop(double frequency, SiPrefix prefix) {
     QString scpi = ":SENS%1:FREQ:STOP %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequency).arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(frequency).arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaLinearSweep::center_Hz() {
@@ -98,7 +98,7 @@ double VnaLinearSweep::center_Hz() {
 void VnaLinearSweep::setCenter(double frequency, SiPrefix prefix) {
     QString scpi = ":SENS%1:FREQ:CENT %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequency).arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(frequency).arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaLinearSweep::span_Hz() {
@@ -109,7 +109,7 @@ double VnaLinearSweep::span_Hz() {
 void VnaLinearSweep::setSpan(double frequencyRange, SiPrefix prefix) {
     QString scpi = ":SENS%1:FREQ:SPAN %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequencyRange).arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(frequencyRange).arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaLinearSweep::spacing_Hz() {
@@ -121,7 +121,7 @@ void VnaLinearSweep::setSpacing(double frequencySpacing, SiPrefix prefix) {
     QString scpi = ":SENS%1:SWE:STEP %2%3\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(frequencySpacing);
-    scpi = scpi.arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 QRowVector VnaLinearSweep::frequencies_Hz() {
@@ -148,7 +148,7 @@ void VnaLinearSweep::setIfbandwidth(double bandwidth, SiPrefix prefix) {
     QString scpi = "SENS%1:BAND %2%3\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(bandwidth);
-    scpi = scpi.arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 
@@ -263,9 +263,9 @@ NetworkData VnaLinearSweep::measure(QVector<uint> ports) {
         return(network);
 
     setSParameterGroup(ports);
-    network.setParameter(S_PARAMETER);
+    network.setParameter(NetworkParameter::S);
     network.setReferenceImpedance(50);
-    network.setXUnits(HERTZ_UNITS);
+    network.setXUnits(Units::Hertz);
     network.setData(frequencies_Hz(), readSParameterGroup());
     return(network);
 }
@@ -356,9 +356,9 @@ uint VnaLinearSweep::dataBufferSize(uint ports, uint points) {
 }
 QString VnaLinearSweep::toScpi(ComplexFormat format) {
     switch(format) {
-    case REAL_IMAGINARY_COMPLEX: return("COMP");
-    case MAGNITUDE_DEGREES_COMPLEX: return("LINP");
-    case DB_DEGREES_COMPLEX: return("LOGP");
+    case ComplexFormat::RealImaginary: return("COMP");
+    case ComplexFormat::MagnitudeDegrees: return("LINP");
+    case ComplexFormat::DecibelDegrees: return("LOGP");
     default: return("COMP");
     }
 }

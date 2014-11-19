@@ -220,7 +220,7 @@ bool TcpBus::read(char *buffer, uint bufferSize_B) {
     nullTerminate(buffer, bufferSize_B, 0);
 
     while (_tcp.bytesAvailable() <= 0) {
-        if (!_tcp.waitForReadyRead(_timeout_ms)) {
+        if (!_tcp.waitForReadyRead(timeout_ms())) {
             printRead(buffer, 0);
             emit print("QTcpSocket::waitForReadyRead returned false\n\n");
             emit error();
@@ -283,7 +283,7 @@ bool TcpBus::binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead) {
  */
 bool TcpBus::binaryWrite(QByteArray data) {
     _blockSize = _tcp.write(data);
-    bool isWritten = _tcp.waitForBytesWritten(_timeout_ms);
+    bool isWritten = _tcp.waitForBytesWritten(timeout_ms());
     if (data.size() > MAX_PRINT)
         data = QByteArray(data.data(), MAX_PRINT+1);
     printWrite(data);

@@ -32,7 +32,7 @@ public:
     bool isNotData();
     bool isData();
     uint point();
-    bool seekForward(double frequency, SiPrefix prefix = NO_PREFIX);
+    bool seekForward(double frequency, SiPrefix prefix = SiPrefix::None);
     bool peek(double &frequency_Hz, ComplexMatrix2D &data);
     bool next();
 

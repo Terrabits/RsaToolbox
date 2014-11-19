@@ -161,36 +161,36 @@ bool FormattedTouchstone::ReadFrequencyPrefix(FormattedNetworkData &network, QSt
         return false;
 
     units.chop(2);
-    network.setXUnits(HERTZ_UNITS, toSiPrefix(units));
+    network.setXUnits(Units::Hertz, toSiPrefix(units));
     return(true);
 }
 bool FormattedTouchstone::ReadDataType(FormattedNetworkData &network, QString type) {
-    QRegularExpression S_REGEX(toString(S_PARAMETER), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression Y_REGEX(toString(Y_PARAMETER), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression Z_REGEX(toString(Z_PARAMETER), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression H_REGEX(toString(H_PARAMETER), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression G_REGEX(toString(G_PARAMETER), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression S_REGEX(toString(NetworkParameter::S), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression Y_REGEX(toString(NetworkParameter::Y), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression Z_REGEX(toString(NetworkParameter::Z), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression H_REGEX(toString(NetworkParameter::H), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression G_REGEX(toString(NetworkParameter::G), QRegularExpression::CaseInsensitiveOption);
 
     if(type.size() == 1)
     {
         if (S_REGEX.match(type).hasMatch()) {
-            network.setParameter(S_PARAMETER);
+            network.setParameter(NetworkParameter::S);
             return(true);
         }
         if (Y_REGEX.match(type).hasMatch()) {
-            network.setParameter(Y_PARAMETER);
+            network.setParameter(NetworkParameter::Y);
             return(true);
         }
         if (Z_REGEX.match(type).hasMatch()) {
-            network.setParameter(Z_PARAMETER);
+            network.setParameter(NetworkParameter::Z);
             return(true);
         }
         if (H_REGEX.match(type).hasMatch()) {
-            network.setParameter(H_PARAMETER);
+            network.setParameter(NetworkParameter::H);
             return(true);
         }
         if (G_REGEX.match(type).hasMatch()) {
-            network.setParameter(G_PARAMETER);
+            network.setParameter(NetworkParameter::G);
             return(true);
         }
     }
@@ -199,26 +199,26 @@ bool FormattedTouchstone::ReadDataType(FormattedNetworkData &network, QString ty
     return(false);
 }
 bool FormattedTouchstone::ReadFormat(FormattedNetworkData &network, QString format) {
-    QRegularExpression RI_REGEX(toString(REAL_IMAGINARY_COMPLEX), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression MA_REGEX(toString(MAGNITUDE_DEGREES_COMPLEX), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression DB_REGEX(toString(DB_DEGREES_COMPLEX), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression RI_REGEX(toString(ComplexFormat::RealImaginary), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression MA_REGEX(toString(ComplexFormat::MagnitudeDegrees), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression DB_REGEX(toString(ComplexFormat::DecibelDegrees), QRegularExpression::CaseInsensitiveOption);
 
     if(format.length() != 2)
         return false;
 
     if (RI_REGEX.match(format).hasMatch()) {
         ReadDatum = &ReadRI;
-        network.setFormat(REAL_IMAGINARY_COMPLEX);
+        network.setFormat(ComplexFormat::RealImaginary);
         return(true);
     }
     if (MA_REGEX.match(format).hasMatch()) {
         ReadDatum = &ReadMA;
-        network.setFormat(MAGNITUDE_DEGREES_COMPLEX);
+        network.setFormat(ComplexFormat::MagnitudeDegrees);
         return(true);
     }
     if (DB_REGEX.match(format).hasMatch()) {
         ReadDatum = &ReadDB;
-        network.setFormat(DB_DEGREES_COMPLEX);
+        network.setFormat(ComplexFormat::DecibelDegrees);
         return(true);
     }
 
@@ -375,13 +375,13 @@ void FormattedTouchstone::WriteRow(FormattedNetworkData &network, QTextStream &s
 }
 void FormattedTouchstone::GetWriteFormat(FormattedNetworkData &network) {
     switch (network.format()) {
-    case REAL_IMAGINARY_COMPLEX:
+    case ComplexFormat::RealImaginary:
         WriteDatum = &WriteRI;
         return;
-    case MAGNITUDE_DEGREES_COMPLEX:
+    case ComplexFormat::MagnitudeDegrees:
         WriteDatum = &WriteMA;
         return;
-    case DB_DEGREES_COMPLEX:
+    case ComplexFormat::DecibelDegrees:
         WriteDatum = &WriteDB;
         return;
     default:

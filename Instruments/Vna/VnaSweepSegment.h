@@ -33,10 +33,10 @@ public:
     uint points();
     void setPoints(uint numberOfPoints);
     double start_Hz();
-    void setStart(double frequency, SiPrefix prefix = NO_PREFIX);
+    void setStart(double frequency, SiPrefix prefix = SiPrefix::None);
     double stop_Hz();
-    void setStop(double frequency, SiPrefix prefix = NO_PREFIX);
-    void setSingleFrequency(double frequency, SiPrefix prefix = NO_PREFIX);
+    void setStop(double frequency, SiPrefix prefix = SiPrefix::None);
+    void setSingleFrequency(double frequency, SiPrefix prefix = SiPrefix::None);
 
     void operator=(VnaSweepSegment const &other);
 

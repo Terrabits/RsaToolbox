@@ -76,7 +76,7 @@ double VnaTimeSweep::frequency_Hz() {
 void VnaTimeSweep::setFrequency(double frequency, SiPrefix prefix) {
     QString scpi = ":SOUR%1:FREQ %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequency).arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(frequency).arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaTimeSweep::power_dBm() {
@@ -97,7 +97,7 @@ void VnaTimeSweep::setIfBandwidth(double bandwidth, SiPrefix prefix) {
     QString scpi = "SENS%1:BAND %2%3\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(bandwidth);
-    scpi = scpi.arg(toString(prefix, HERTZ_UNITS));
+    scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaTimeSweep::time_s() {

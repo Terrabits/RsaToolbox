@@ -246,13 +246,13 @@ void SnpStreamReader::_parseNetworkParameter(QString parameter) {
     char p = parameter.at(0).toUpper().toLatin1();
     switch(p) {
     case 'S':
-        _parameter = S_PARAMETER;
+        _parameter = NetworkParameter::S;
         break;
     case 'Y':
-        _parameter = Y_PARAMETER;
+        _parameter = NetworkParameter::Y;
         break;
     case 'Z':
-        _parameter = Z_PARAMETER;
+        _parameter = NetworkParameter::Z;
         break;
     default:
         _isValidFile = false;
