@@ -2,9 +2,6 @@
 #define USERDEFINEDPORT_H
 
 
-// RsaToolbox
-
-
 // Qt
 #include <QMetaType>
 #include <QString>
@@ -12,49 +9,48 @@
 
 namespace RsaToolbox {
 
-enum VnaReceiver {
-    RECEIVER_A,
-    RECEIVER_B
-};
-QString toScpi(VnaReceiver receiver);
-VnaReceiver toVnaReceiver(QString scpi);
 
 class VnaUserDefinedPort
 {
 public:
-    VnaUserDefinedPort();
 
-    bool isSource(uint port) const;
+    enum class Receiver {
+        A,
+        B
+    };
+
+    VnaUserDefinedPort();
+    VnaUserDefinedPort(const VnaUserDefinedPort &other);
+
+    bool isSourceSet(uint port) const;
     uint sourcePort() const;
     void setSource(uint port);
 
-    bool isReference(uint port, VnaReceiver receiver) const;
-    void reference(uint &port, VnaReceiver &receiver) const;
-    void setReference(uint port, VnaReceiver receiver);
+    bool isReferenceSet(uint port, Receiver receiver) const;
+    void reference(uint &port, Receiver &receiver) const;
+    void setReference(uint port, Receiver receiver);
 
-    bool isMeasure(uint port, VnaReceiver receiver) const;
-    void measure(uint &port, VnaReceiver &receiver) const;
-    void setMeasure(uint port, VnaReceiver receiver);
+    bool isMeasurementSet(uint port, Receiver receiver) const;
+    void measurement(uint &port, Receiver &receiver) const;
+    void setMeasurement(uint port, Receiver receiver);
 
-    void operator=(VnaUserDefinedPort const &other);
+    void operator=(const VnaUserDefinedPort &other);
 
 private:
     uint _sourcePort;
 
     uint _referencePort;
-    VnaReceiver _referenceReceiver;
+    Receiver _referenceReceiver;
 
-    uint _measurePort;
-    VnaReceiver _measureReceiver;
+    uint _measurementPort;
+    Receiver _measurementReceiver;
 };
+} // RsaToolbox
 
-QString toScpi(VnaUserDefinedPort userDefinedPort);
-VnaUserDefinedPort toUserDefinedPort(QString scpi);
-bool operator==(VnaUserDefinedPort const &left, VnaUserDefinedPort const &right);
-bool operator!=(VnaUserDefinedPort const &left, VnaUserDefinedPort const &right);
-}
+bool operator==(const RsaToolbox::VnaUserDefinedPort &left, const RsaToolbox::VnaUserDefinedPort &right);
+bool operator!=(const RsaToolbox::VnaUserDefinedPort &left, const RsaToolbox::VnaUserDefinedPort &right);
 
-Q_DECLARE_METATYPE(RsaToolbox::VnaReceiver)
+Q_DECLARE_METATYPE(RsaToolbox::VnaUserDefinedPort::Receiver)
 Q_DECLARE_METATYPE(RsaToolbox::VnaUserDefinedPort)
 
 #endif // USERDEFINEDPORT_H

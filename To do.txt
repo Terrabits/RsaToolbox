@@ -1,3 +1,11 @@
+Right now right now:
+- Finish VnaSweepType (VnaChannel.h):
+  * merge into class VnaChannel
+  * Move circular #includes to end of VnaChannel.h
+
+
+
+
 - Documentation
 - FrequencyLineEdit ('g' changes units to "GHz", appropriate validator)
 - "\d+\.*\d*[GgMKkmunp]"

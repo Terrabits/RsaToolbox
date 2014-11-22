@@ -16,17 +16,18 @@ namespace RsaToolbox {
 class Vna;
 class VnaChannel;
 
-enum VnaCalType {
-    OSM_CAL_TYPE,
-    TOSM_CAL_TYPE,
-    UOSM_CAL_TYPE
-};
-
 class VnaCalibrate : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
+
+    enum CalType {
+        Osm,
+        Tosm,
+        Uosm
+    };
+
     explicit VnaCalibrate(QObject *parent = 0);
     VnaCalibrate(VnaCalibrate &other);
     VnaCalibrate(Vna *vna, QObject *parent = 0);
@@ -34,20 +35,21 @@ public:
     VnaCalibrate(Vna *vna, uint channelIndex, QObject *parent = 0);
 
     bool isRawDataKept();
-
-    void setConnector(uint port, Connector connector);
-    void setConnectors(Connector connector);
+    void keepRawData(bool isKept = true);
 
     Connector connector(uint port);
     QVector<Connector> connectors();
+    void setConnector(uint port, Connector connector);
+    void setConnectors(Connector connector);
 
     void selectKit(NameLabel nameLabel);
     void selectKit(QString name, QString label = "");
 
     NameLabel selectedKit(Connector type);
 
-    void start(QString calibrationName, VnaCalType type, QVector<uint> ports);
-    void keepRawData(bool isKept = true);
+
+
+    void start(QString calibrationName, CalType type, QVector<uint> ports);
     void measureOpen(uint port);
     void measureShort(uint port);
     void measureMatch(uint port);
@@ -72,14 +74,12 @@ private:
     void selectKit(QString name, QString label, QString customConnector);
     void selectKit(QString name, QString label, Connector::Type type);
 
-    void defineCalibration(QString calibrationName, VnaCalType type, QVector<uint> ports);
+    void defineCalibration(QString calibrationName, CalType type, QVector<uint> ports);
     void selectChannels();
 };
+} // RsaToolbox
 
-QString toScpi(VnaCalType type);
-VnaCalType toVnaCalType(QString scpi);
-}
-Q_DECLARE_METATYPE(RsaToolbox::VnaCalType)
+Q_DECLARE_METATYPE(RsaToolbox::VnaCalibrate::CalType)
 
 
 #endif // VnaCalibrate_H

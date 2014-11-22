@@ -244,10 +244,10 @@ bool ChannelsModel::isVnaConnected() const {
 
 bool ChannelsModel::isFreqSweep(RsaToolbox::VnaChannel &channel) const {
     using namespace RsaToolbox;
-    VnaSweepType type = channel.sweepType();
-    if (type != LINEAR_SWEEP
-            && type != LOG_SWEEP
-            && type != SEGMENTED_SWEEP)
+    VnaChannel::SweepType type = channel.sweepType();
+    if (type != VnaChannel::SweepType::Linear
+            && type != VnaChannel::SweepType::Log
+            && type != VnaChannel::SweepType::Segmented)
         return false;
     else
         return true;

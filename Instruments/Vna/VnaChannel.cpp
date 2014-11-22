@@ -1,14 +1,15 @@
-#include <QDebug>
+
 
 // RsaToolbox includes
 #include "General.h"
 #include "IndexName.h"
-#include "VnaChannel.h"
 #include "Vna.h"
+#include "VnaChannel.h"
+#include "VnaScpi.h"
 using namespace RsaToolbox;
 
 // Qt includes
-// #include <Qt>
+#include <QDebug>
 
 /*!
  * \class RsaToolbox::VnaChannel
@@ -154,42 +155,42 @@ void VnaChannel::setSweepCount(uint count) {
 
 // Sweep
 bool VnaChannel::isFrequencySweep() {
-    VnaSweepType type = sweepType();
+    VnaChannel::SweepType type = sweepType();
     switch(type) {
-    case LINEAR_SWEEP:
-    case LOG_SWEEP:
-    case SEGMENTED_SWEEP:
+    case SweepType::Linear:
+    case SweepType::Log:
+    case SweepType::Segmented:
         return true;
     default:
         return false;
     }
 }
 bool VnaChannel::isLinearSweep() {
-    return(sweepType() == LINEAR_SWEEP);
+    return(sweepType() == SweepType::Linear);
 }
 bool VnaChannel::isLogarithmicSweep() {
-    return(sweepType() == LOG_SWEEP);
+    return(sweepType() == SweepType::Log);
 }
 bool VnaChannel::isSegmentedSweep() {
-    return(sweepType() == SEGMENTED_SWEEP);
+    return(sweepType() == SweepType::Segmented);
 }
 bool VnaChannel::isPowerSweep() {
-    return(sweepType() == POWER_SWEEP);
+    return(sweepType() == SweepType::Power);
 }
 bool VnaChannel::isCwSweep() {
-    return(sweepType() == CW_SWEEP);
+    return(sweepType() == SweepType::Cw);
 }
 bool VnaChannel::isTimeSweep() {
-    return(sweepType() == TIME_SWEEP);
+    return(sweepType() == SweepType::Time);
 }
-VnaSweepType VnaChannel::sweepType() {
+VnaChannel::SweepType VnaChannel::sweepType() {
     QString scpi = ":SENS%1:SWE:TYPE?\n";
     scpi = scpi.arg(_index);
-    return(toVnaSweepType(_vna->query(scpi).trimmed()));
+    return(VnaScpi::toSweepType(_vna->query(scpi).trimmed()));
 }
-void VnaChannel::setSweepType(VnaSweepType sweepType) {
+void VnaChannel::setSweepType(VnaChannel::SweepType sweepType) {
     QString scpi = ":SENS%1:SWE:TYPE %2\n";
-    scpi = scpi.arg(_index).arg(toScpi(sweepType));
+    scpi = scpi.arg(_index).arg(VnaScpi::toString(sweepType));
     _vna->write(scpi);
 }
 void VnaChannel::setFrequencies(QRowVector values, SiPrefix prefix) {
@@ -201,7 +202,7 @@ void VnaChannel::setFrequencies(QRowVector values, SiPrefix prefix) {
         sweep.segment(s).setPoints(1);
         sweep.segment(s).setStop(values[i], prefix);
     }
-    setSweepType(SEGMENTED_SWEEP);
+    setSweepType(SweepType::Segmented);
 }
 
 VnaLinearSweep &VnaChannel::linearSweep() {
@@ -336,7 +337,7 @@ void VnaChannel::userDefinedPortOff(uint physicalPort) {
     _vna->write(scpi);
 }
 bool VnaChannel::isUserDefinedPort(uint physicalPort) {
-    return(isUserDefinedPortOn(physicalPort));
+    return isUserDefinedPortOn(physicalPort);
 }
 bool VnaChannel::isNotUserDefinedPort(uint physicalPort) {
     return(isUserDefinedPortOff(physicalPort));
@@ -346,13 +347,14 @@ VnaUserDefinedPort VnaChannel::userDefinedPort(uint physicalPort) {
     scpi = scpi.arg(_index);
     scpi = scpi.arg(physicalPort);
 
-    return(toUserDefinedPort(_vna->query(scpi).trimmed().remove("\'")));
+    QString result = _vna->query(scpi).trimmed().remove("\'");
+    return VnaScpi::toUserDefinedPort(result);
 }
 void VnaChannel::setUserDefinedPort(uint physicalPort, VnaUserDefinedPort userDefinedPort) {
     QString scpi = ":SENS%1:UDSP%2:PAR \'%3\'\n";
     scpi = scpi.arg(_index);
     scpi = scpi.arg(physicalPort);
-    scpi = scpi.arg(toScpi(userDefinedPort));
+    scpi = scpi.arg(VnaScpi::toString(userDefinedPort));
     _vna->write(scpi);
     userDefinedPortOn(physicalPort);
 }
@@ -482,41 +484,4 @@ QStringList VnaChannel::zvaTraces() {
 //            result << trace;
 //    }
     return(result);
-}
-
-QString RsaToolbox::toScpi(VnaSweepType sweepType) {
-    switch(sweepType) {
-    case LINEAR_SWEEP:
-        return("LIN");
-    case LOG_SWEEP:
-        return("LOG");
-    case SEGMENTED_SWEEP:
-        return("SEGM");
-    case POWER_SWEEP:
-        return("POW");
-    case CW_SWEEP:
-        return("CW");
-    case TIME_SWEEP:
-        return("POIN");
-    default:
-        return("LIN");
-    }
-}
-VnaSweepType RsaToolbox::toVnaSweepType(QString scpi) {
-    scpi = scpi.toUpper();
-    if (scpi == "LIN")
-            return(LINEAR_SWEEP);
-        if (scpi == "LOG")
-            return(LOG_SWEEP);
-        if (scpi == "SEGM")
-            return(SEGMENTED_SWEEP);
-        if (scpi == "POW")
-            return(POWER_SWEEP);
-        if (scpi == "CW")
-            return(CW_SWEEP);
-        if (scpi == "POIN")
-            return(TIME_SWEEP);
-
-        // Default
-        return(LINEAR_SWEEP);
 }

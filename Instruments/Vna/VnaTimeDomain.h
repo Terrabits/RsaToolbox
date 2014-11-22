@@ -15,22 +15,26 @@ namespace RsaToolbox {
 class Vna;
 class VnaTrace;
 
-enum VnaWindowFunction {
-    REGULAR_WINDOW_FUNCTION,
-    HAMMING_WINDOW_FUNCTION,
-    HANN_WINDOW_FUNCTION,
-    BOHMAN_WINDOW_FUNCTION,
-    DOLPH_CHEBYCHEV_WINDOW_FUNCTION };
 
-enum RiseTimeDefinition {
-    RISETIME_20_TO_80,
-    RISETIME_10_TO_90 };
 
 class VnaTimeDomain : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
+
+    enum class Window {
+        Regular,
+        Hamming,
+        Hann,
+        Bohman,
+        DolphChebychev
+    };
+    enum class RiseTime {
+        TwentyToEighty,
+        TenToNinety
+    };
+
     explicit VnaTimeDomain(QObject *parent = 0);
     VnaTimeDomain(const VnaTimeDomain &other);
     VnaTimeDomain(Vna *vna, VnaTrace *trace, QObject *parent = 0);
@@ -61,21 +65,21 @@ public:
     void resolutionEnhancementOff();
     void setResolutionEnhancement(double factor);
 
-    bool isWindow(VnaWindowFunction window);
-    VnaWindowFunction window();
-    void setWindow(VnaWindowFunction window);
+    bool isWindow(Window window);
+    Window window();
+    void setWindow(Window window);
 
-    double slowestRiseTime_s(RiseTimeDefinition definition = RISETIME_10_TO_90);
-    double fastestRiseTime_s(RiseTimeDefinition definition = RISETIME_10_TO_90);
+    double slowestRiseTime_s(VnaTimeDomain::RiseTime definition = VnaTimeDomain::RiseTime::TenToNinety);
+    double fastestRiseTime_s(VnaTimeDomain::RiseTime definition = VnaTimeDomain::RiseTime::TenToNinety);
     double longestRange_s();
-    double longestRange_s(double riseTime_s, RiseTimeDefinition definition = RISETIME_10_TO_90);
+    double longestRange_s(double riseTime_s, VnaTimeDomain::RiseTime definition = VnaTimeDomain::RiseTime::TenToNinety);
     double shortestRange_s();
-    double shortestRange_s(double riseTime_s, RiseTimeDefinition definition = RISETIME_10_TO_90);
+    double shortestRange_s(double riseTime_s, VnaTimeDomain::RiseTime definition = VnaTimeDomain::RiseTime::TenToNinety);
 
     double unambiguousRange_s();
-    double riseTime_s(RiseTimeDefinition definition);
+    double riseTime_s(VnaTimeDomain::RiseTime definition);
 
-    void setupChannel(double riseTime_s, RiseTimeDefinition definition, double unambiguousRange_s);
+    void setupChannel(double riseTime_s, VnaTimeDomain::RiseTime definition, double unambiguousRange_s);
     void setupTrace();
 
     // Harmonic grid
@@ -107,14 +111,14 @@ private:
 
     void setHarmonicGrid(double stopFrequency_Hz, double spacing_Hz);
 
-    // Scpi
+    // Queries
     QString filterTypeScpi();
     QString responseTypeScpi();
-    QString toScpi(VnaWindowFunction window);
-    VnaWindowFunction toWindow(QString scpi);
 };
-}
-Q_DECLARE_METATYPE(RsaToolbox::VnaWindowFunction)
-Q_DECLARE_METATYPE(RsaToolbox::RiseTimeDefinition)
+} // RsaToolbox
+
+
+Q_DECLARE_METATYPE(RsaToolbox::VnaTimeDomain::Window)
+Q_DECLARE_METATYPE(RsaToolbox::VnaTimeDomain::RiseTime)
 
 #endif // VnaTimeDomain_H

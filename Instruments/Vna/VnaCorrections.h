@@ -4,7 +4,8 @@
 
 // RsaToolbox
 #include "Definitions.h"
-// Etc
+#include "VnaChannel.h"
+//#include "VnaCalibrate.h"
 
 // Qt
 #include <QObject>
@@ -13,13 +14,11 @@
 
 namespace RsaToolbox {
 class Vna;
-class VnaChannel;
-enum VnaSweepType;
-enum VnaCalType;
+//class VnaChannel;
 
 class VnaCorrections : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaCorrections(QObject *parent = 0);
@@ -42,8 +41,8 @@ public:
     void clear(); //?
 
     // Correction values
-    VnaCalType calibrationType();
-    VnaSweepType sweepType();
+    VnaCalibrate::CalType calibrationType();
+    VnaChannel::SweepType sweepType();
     QVector<uint> ports();
     uint points();
     double startFrequency_Hz();
@@ -84,6 +83,7 @@ private:
     uint bufferSize(uint sfk = 1);
     uint complexBufferSize(uint sfk = 1);
 };
-}
+} // RsaToolbox
+
 
 #endif // VnaCorrections_H

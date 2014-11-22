@@ -1,14 +1,16 @@
+#include "VnaCalibrate.h"
 
 
 // RsaToolbox includes
 #include "General.h"
-#include "VnaCalibrate.h"
-#include "VnaChannel.h"
 #include "Vna.h"
+#include "VnaChannel.h"
+#include "VnaScpi.h"
 using namespace RsaToolbox;
 
 // Qt includes
-// #include <Qt>
+#include <QDebug>
+
 
 /*!
  * \class RsaToolbox::VnaCalibrate
@@ -147,8 +149,8 @@ NameLabel VnaCalibrate:: selectedKit(Connector type) {
         return(results.first());
 }
 
-void VnaCalibrate:: start(QString calibrationName,
-                          VnaCalType type,
+void VnaCalibrate::start(QString calibrationName,
+                          CalType type,
                           QVector<uint> ports) {
     defineCalibration(calibrationName, type, ports);
     selectChannels();
@@ -287,7 +289,7 @@ void VnaCalibrate::selectKit(QString name, QString label, QString customConnecto
 void VnaCalibrate::selectKit(QString name, QString label, Connector::Type type) {
     selectKit(name, label, toVnaScpi(type));
 }
-void VnaCalibrate::defineCalibration(QString calibrationName, VnaCalType type, QVector<uint> ports) {
+void VnaCalibrate::defineCalibration(QString calibrationName, CalType type, QVector<uint> ports) {
     QString scpi;
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:COLL:METH:DEF \'%2\',%3,%4\n";
@@ -297,7 +299,7 @@ void VnaCalibrate::defineCalibration(QString calibrationName, VnaCalType type, Q
         scpi = ":CORR:COLL:METH:DEF \'%2\',%3,%4\n";
     }
     scpi = scpi.arg(calibrationName);
-    scpi = scpi.arg(toScpi(type));
+    scpi = scpi.arg(VnaScpi::toString(type));
     scpi = scpi.arg(toString(ports, ","));
     _vna->write(scpi);
 }
@@ -312,24 +314,4 @@ void VnaCalibrate::selectChannels() {
             _vna->write(":CORR:COLL:CHAN:ALL 0\n");
         else
             _vna->write(":CORR:COLL:CHAN:ALL 1\n");
-}
-
-QString RsaToolbox::toScpi(VnaCalType type) {
-    switch(type) {
-        case OSM_CAL_TYPE:  return("FOP");
-        case TOSM_CAL_TYPE: return("TOSM");
-        case UOSM_CAL_TYPE: return("UOSM");
-        default: return("UNKNOWN_VNA_CAL_TYPE");
-        }
-}
-VnaCalType RsaToolbox::toVnaCalType(QString scpi) {
-    scpi = scpi.toUpper();
-    if (scpi == "FOP")
-        return(OSM_CAL_TYPE);
-    if (scpi == "UOSM")
-        return(UOSM_CAL_TYPE);
-    if (scpi == "TOSM")
-        return(TOSM_CAL_TYPE);
-    // else (default)
-    return(TOSM_CAL_TYPE);
 }

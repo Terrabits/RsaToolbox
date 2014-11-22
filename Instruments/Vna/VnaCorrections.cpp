@@ -2,9 +2,10 @@
 
 // RsaToolbox includes
 #include "General.h"
-#include "VnaCorrections.h"
-#include "VnaChannel.h"
 #include "Vna.h"
+#include "VnaChannel.h"
+#include "VnaCorrections.h"
+#include "VnaScpi.h"
 using namespace RsaToolbox;
 
 // Qt includes
@@ -130,20 +131,20 @@ void VnaCorrections::clear() {
 
 
 // Correction properties
-VnaCalType VnaCorrections::calibrationType() {
+VnaCalibrate::CalType VnaCorrections::calibrationType() {
     QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("TYPE");
     QString result = _vna->query(scpi).trimmed();
-    return(toVnaCalType(result));
+    return(VnaScpi::toCalType(result));
 
 }
-VnaSweepType VnaCorrections::sweepType() {
+VnaChannel::SweepType VnaCorrections::sweepType() {
     QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("STYP");
     QString result = _vna->query(scpi).trimmed();
-    return(toVnaSweepType(result));
+    return(VnaScpi::toSweepType(result));
 }
 QVector<uint> VnaCorrections::ports() {
     QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";

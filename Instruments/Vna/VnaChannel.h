@@ -14,8 +14,10 @@
 #include "VnaCwSweep.h"
 #include "VnaTimeSweep.h"
 #include "VnaAveraging.h"
-#include "VnaCorrections.h"
-#include "VnaCalibrate.h"
+#include "VnaCalibrate.h" // ?
+// * #include "VnaCorrections.h"
+// * See note at end of file
+
 
 // Qt
 #include <QString>
@@ -27,21 +29,22 @@
 
 namespace RsaToolbox {
 class Vna;
-
-enum VnaSweepType {
-    LINEAR_SWEEP,
-    LOG_SWEEP,
-    SEGMENTED_SWEEP,
-    POWER_SWEEP,
-    CW_SWEEP,
-    TIME_SWEEP
-};
+class VnaCorrections;
 
 class VnaChannel : public QObject
 {
     Q_OBJECT
 
 public:
+
+    enum class SweepType {
+        Linear,
+        Log,
+        Segmented,
+        Power,
+        Cw,
+        Time
+    };
 
     explicit VnaChannel(QObject *parent = 0);
     VnaChannel(VnaChannel const &other);
@@ -78,8 +81,8 @@ public:
     bool isPowerSweep();
     bool isCwSweep();
     bool isTimeSweep();
-    VnaSweepType sweepType();
-    void setSweepType(VnaSweepType sweepType);
+    SweepType sweepType();
+    void setSweepType(SweepType sweepType);
     void setFrequencies(QRowVector values, SiPrefix prefix = SiPrefix::None);
 
     VnaLinearSweep &linearSweep();
@@ -163,15 +166,20 @@ private:
     bool isUserDefinedPortOff(uint physicalPort);
     void userDefinedPortOn(uint physicalPort);
     void userDefinedPortOff(uint physicalPort);
-}; // VnaChannel
-
-QString toScpi(VnaSweepType sweepType);
-VnaSweepType toVnaSweepType(QString scpi);
-
+};
 } // RsaToolbox
 
+Q_DECLARE_METATYPE(RsaToolbox::VnaChannel::SweepType)
 
-Q_DECLARE_METATYPE(RsaToolbox::VnaSweepType)
+// Classes that depend
+// on VnaChannel::SweepType :
+// Cannot forward declare class,
+// Must provide definition first.
+// This unusual include placement
+// allows reference in
+// child classes and header
+// inclusion in parent.
+#include "VnaCorrections.h"
 
 
 #endif // VnaChannel_H
