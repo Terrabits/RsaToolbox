@@ -1,0 +1,27 @@
+var class_rsa_toolbox_1_1_vna_marker =
+[
+    [ "VnaMarker", "class_rsa_toolbox_1_1_vna_marker.html#aa695231f087265c9a0b62e467e67bddc", null ],
+    [ "VnaMarker", "class_rsa_toolbox_1_1_vna_marker.html#a6505b2c52b145cb87d5681072525502a", null ],
+    [ "VnaMarker", "class_rsa_toolbox_1_1_vna_marker.html#a9998c759ea4c3a8d842c9c46db6ade03", null ],
+    [ "VnaMarker", "class_rsa_toolbox_1_1_vna_marker.html#a29c1352a70b5708de4b2535f4fb59537", null ],
+    [ "coordinates", "class_rsa_toolbox_1_1_vna_marker.html#ada220dcb18bad3f30ae11714ff06c405", null ],
+    [ "deltaOff", "class_rsa_toolbox_1_1_vna_marker.html#a6ecdd3d6c7fc08caf85755a1cf28013c", null ],
+    [ "deltaOn", "class_rsa_toolbox_1_1_vna_marker.html#ab82ef0b332c9fa229b3a152358aa65f7", null ],
+    [ "isDeltaOff", "class_rsa_toolbox_1_1_vna_marker.html#aefd7ce5e2f8fff1f245cae5cff39b496", null ],
+    [ "isDeltaOn", "class_rsa_toolbox_1_1_vna_marker.html#a24045a320df0c2dadac21e6578017a6e", null ],
+    [ "measureBandpassFilter", "class_rsa_toolbox_1_1_vna_marker.html#aef830661e4ae111cbb2633acbf237697", null ],
+    [ "name", "class_rsa_toolbox_1_1_vna_marker.html#aee2dd8a62805e14b9f0b407a27159117", null ],
+    [ "operator=", "class_rsa_toolbox_1_1_vna_marker.html#acf870463e4e8323487f637b6d7b3ecef", null ],
+    [ "searchFor", "class_rsa_toolbox_1_1_vna_marker.html#aadc358732fa914ff77c5bcaf323f5b26", null ],
+    [ "searchForMax", "class_rsa_toolbox_1_1_vna_marker.html#a555f6e64734dd5e45d8b83f85ac38a22", null ],
+    [ "searchForMin", "class_rsa_toolbox_1_1_vna_marker.html#ad1236202839647657aa0cf65c069b942", null ],
+    [ "searchLeftFor", "class_rsa_toolbox_1_1_vna_marker.html#abf7271681a06696b38ee9160076c7880", null ],
+    [ "searchLeftForPeak", "class_rsa_toolbox_1_1_vna_marker.html#a7faf682534e094894cac09cbed8c5512", null ],
+    [ "searchRightFor", "class_rsa_toolbox_1_1_vna_marker.html#af93f5bf414f2bc9cf8f6f1d523ed3a8b", null ],
+    [ "searchRightForPeak", "class_rsa_toolbox_1_1_vna_marker.html#addc3713ed3bc2db4050ca8a74421e46b", null ],
+    [ "setName", "class_rsa_toolbox_1_1_vna_marker.html#a6220fae15759fd0fa7d75e415df34e83", null ],
+    [ "setReferenceMarker", "class_rsa_toolbox_1_1_vna_marker.html#a01c679093a777c2298d11093acce4658", null ],
+    [ "setX", "class_rsa_toolbox_1_1_vna_marker.html#a828b6323c2e6af821f6aac8565bd7a9f", null ],
+    [ "x", "class_rsa_toolbox_1_1_vna_marker.html#a1d181ea8ec179ff8046ef6cf2a8aa232", null ],
+    [ "y", "class_rsa_toolbox_1_1_vna_marker.html#a52c7eae49e9d0d75c6cc38f61ed526f2", null ]
+];

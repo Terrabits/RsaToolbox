@@ -1,1 +1,0 @@
-"C:\Qt\5.2.1\msvc2010\bin\qhelpgenerator" "C:\Users\lalic\Documents\Qt\RsaToolbox\Documentation\html\index.qhp" -o "C:\Users\lalic\Documents\Qt\RsaToolbox\Documentation\index.qch"
