@@ -16,12 +16,13 @@ class Vna;
 
 class VnaDiagram : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaDiagram(QObject *parent = 0);
     VnaDiagram(const VnaDiagram &other);
     VnaDiagram(Vna *vna, uint index, QObject *parent = 0);
+    ~VnaDiagram();
 
     QVector<uint> channels();
 

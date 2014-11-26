@@ -42,6 +42,9 @@ VnaChannel::VnaChannel(Vna *vna, uint index, QObject *parent) :
     _vna = vna;
     _index = index;
 }
+VnaChannel::~VnaChannel() {
+
+}
 
 uint VnaChannel::index() {
     return(_index);

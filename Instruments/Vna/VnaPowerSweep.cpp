@@ -56,6 +56,9 @@ VnaPowerSweep::VnaPowerSweep(Vna *vna, uint index, QObject *parent) :
     _channel.reset(new VnaChannel(vna, index));
     _channelIndex = index;
 }
+VnaPowerSweep::~VnaPowerSweep() {
+
+}
 
 
 uint VnaPowerSweep::points() {

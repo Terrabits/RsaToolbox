@@ -351,7 +351,7 @@ void Touchstone::WriteData(NetworkData &network, QTextStream &snpFile) {
     }
 }
 void Touchstone::WriteRow(NetworkData &network, QTextStream &snpFile, ComplexRowVector &row) {
-    int columnsWritten = 1;
+    uint columnsWritten = 1;
     int const COLUMNSPERLINE = 4;
     ComplexRowVector::iterator column_iter = row.begin();
     for (; column_iter != row.end(); column_iter++) {

@@ -39,6 +39,7 @@ public:
     VnaTimeDomain(const VnaTimeDomain &other);
     VnaTimeDomain(Vna *vna, VnaTrace *trace, QObject *parent = 0);
     VnaTimeDomain(Vna *vna, QString traceName, QObject *parent = 0);
+    ~VnaTimeDomain();
 
     bool isOn();
     bool isOff();

@@ -50,6 +50,10 @@ VnaAveraging::VnaAveraging(Vna *vna, uint channelIndex, QObject *parent) :
     _channel.reset(new VnaChannel(vna, channelIndex, this));
     _channelIndex = channelIndex;
 }
+VnaAveraging::~VnaAveraging() {
+
+}
+
 
 bool VnaAveraging::isOn() {
     QString scpi = ":SENS%1:AVER?\n";

@@ -14,7 +14,7 @@ class Vna;
 
 class VnaFileSystem : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     enum Directory {
@@ -31,6 +31,7 @@ public:
     explicit VnaFileSystem(QObject *parent = 0);
     VnaFileSystem(VnaFileSystem &other);
     VnaFileSystem(Vna *_vna, QObject *parent = 0);
+    ~VnaFileSystem();
 
     bool isFile(QString pathName);
     bool isNotFile(QString pathName);

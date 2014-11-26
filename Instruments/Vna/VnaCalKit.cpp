@@ -43,6 +43,9 @@ VnaCalKit::VnaCalKit(Vna *vna, NameLabel nameLabel, QObject *parent) :
     _vna = vna;
     _nameLabel = nameLabel;
 }
+VnaCalKit::~VnaCalKit() {
+
+}
 
 bool VnaCalKit::isConnectorType(Connector type) {
     Q_UNUSED(type);

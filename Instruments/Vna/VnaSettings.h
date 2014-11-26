@@ -16,7 +16,7 @@ class Vna;
 
 class VnaSettings : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     enum class EmulationMode {
@@ -41,6 +41,7 @@ public:
     explicit VnaSettings(QObject *parent = 0);
     VnaSettings(VnaSettings &other);
     VnaSettings(Vna *_vna, QObject *parent = 0);
+    ~VnaSettings();
 
     void setIdString(QString idString);
     void resetIdString();

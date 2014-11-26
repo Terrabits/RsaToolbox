@@ -22,6 +22,7 @@ public:
     explicit VnaCalUnit(QObject *parent = 0);
     VnaCalUnit(const VnaCalUnit &other);
     VnaCalUnit(Vna *vna, QString id, QObject *parent = 0);
+    ~VnaCalUnit();
 
     // METHODS
 

@@ -27,7 +27,7 @@ namespace RsaToolbox {
 
 class Vna : public GenericInstrument
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit Vna(QObject *parent = 0);

@@ -31,6 +31,9 @@ VnaSettings::VnaSettings(Vna *vna, QObject *parent) :
 {
     this->_vna = vna;
 }
+VnaSettings::~VnaSettings() {
+
+}
 
 void VnaSettings::setIdString(QString idString) {
     if (_vna->properties().isZvaFamily()) {

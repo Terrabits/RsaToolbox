@@ -43,6 +43,9 @@ VnaDiagram::VnaDiagram(Vna *vna, uint index, QObject *parent) :
     _vna = vna;
     _index = index;
 }
+VnaDiagram::~VnaDiagram() {
+
+}
 
 QVector<uint> VnaDiagram::channels() {
     QVector<uint> chans;

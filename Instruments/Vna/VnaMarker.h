@@ -17,13 +17,14 @@ class VnaTrace;
 
 class VnaMarker : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaMarker(QObject *parent = 0);
     VnaMarker(const VnaMarker &other);
     VnaMarker(Vna *vna, VnaTrace *trace, uint index, QObject *parent = 0);
     VnaMarker(Vna *vna, QString traceName, uint index, QObject *parent = 0);
+    ~VnaMarker();
 
     QString name();
     void setName(QString name);

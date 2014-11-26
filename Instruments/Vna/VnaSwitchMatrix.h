@@ -16,12 +16,13 @@ class Vna;
 
 class VnaSwitchMatrix : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaSwitchMatrix(QObject *parent = 0);
     VnaSwitchMatrix(const VnaSwitchMatrix &other);
     VnaSwitchMatrix(Vna *vna, uint index, QObject *parent = 0);
+    ~VnaSwitchMatrix();
 
     // METHODS
 

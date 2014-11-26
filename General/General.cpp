@@ -331,7 +331,7 @@ QString RsaToolbox::formatValue(double value, int decimalPlaces, Units units, Si
     }
 
     // else Tera or bigger
-    stream << (value / toDouble(prefixes[count]));
+    stream << (value / toDouble(prefixes[count-1]));
     stream << " " << SiPrefix::Tera << units;
     stream.flush();
     return result;
@@ -495,7 +495,7 @@ QByteArray RsaToolbox::toBlockDataFormat(QRowVector values) {
     QByteArray header = "#" + numberOfNumbers.toUtf8() + bytesString.toUtf8();
     result.replace(0, headerSize, header);
     int index = 0;
-    for (int i = headerSize; i < totalSize; i += 8) {
+    for (quint64 i = headerSize; i < totalSize; i += 8) {
         char *value = (char *)&(values[index]);
         result.replace(i, 8, value, 8);
         index++;
@@ -509,7 +509,7 @@ QRowVector RsaToolbox::toQRowVector(QByteArray blockData) {
     quint64 numberOfDoubles = bytes/8.0;
 
     QRowVector values(numberOfDoubles);
-    for (int i = 0; i < numberOfDoubles; i++) {
+    for (quint64 i = 0; i < numberOfDoubles; i++) {
         values[i] = *((double *)blockData.mid(8*i, 8).data());
     }
     return(values);
@@ -1141,12 +1141,12 @@ RowVector RsaToolbox::multiplyEach(RowVector vector1, RowVector vector2) {
     return(result);
 }
 QRowVector RsaToolbox::multiplyEach(QRowVector vector1, QRowVector vector2) {
-    uint size = vector1.size();
+    int size = vector1.size();
     if (vector2.size() != size)
         return(QRowVector());
 
     QRowVector result(size);
-    for (uint i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         result[i] = vector1[i] * vector2[i];
     }
     return(result);
@@ -1175,12 +1175,12 @@ RowVector RsaToolbox::divideEach(RowVector vector1, RowVector vector2) {
     return(result);
 }
 QRowVector RsaToolbox::divideEach(QRowVector vector1, QRowVector vector2) {
-    uint size = vector1.size();
+    int size = vector1.size();
     if (vector2.size() != size)
         return(QRowVector());
 
     QRowVector result(size);
-    for (uint i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         result[i] = vector1[i] / vector2[i];
     }
     return(result);
@@ -1253,12 +1253,12 @@ Matrix3D RsaToolbox::add(Matrix3D matrix1, Matrix3D matrix2) {
     return(result);
 }
 QRowVector RsaToolbox::add(QRowVector vector1, QRowVector vector2) {
-    uint size = vector1.size();
+    int size = vector1.size();
     if (vector2.size() != size)
         return(QRowVector());
 
     QRowVector result(size);
-    for (uint i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         result[i] = vector1[i] + vector2[i];
     }
     return(result);
@@ -1268,23 +1268,23 @@ QRowVector RsaToolbox::add(QRowVector vector, double scalar) {
 }
 
 QMatrix2D RsaToolbox::add(QMatrix2D matrix1, QMatrix2D matrix2) {
-    uint size = matrix1.size();
+    int size = matrix1.size();
     if (matrix2.size() != size)
         return(QMatrix2D());
 
     QMatrix2D result(size);
-    for (uint i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         result[i] = add(matrix1[i], matrix2[i]);
     }
     return(result);
 }
 QMatrix3D RsaToolbox::add(QMatrix3D matrix1, QMatrix3D matrix2) {
-    uint size = matrix1.size();
+    int size = matrix1.size();
     if (matrix2.size() != size)
         return(QMatrix3D());
 
     QMatrix3D result(size);
-    for (uint i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         result[i] = add(matrix1[i], matrix2[i]);
     }
     return(result);
@@ -1357,12 +1357,12 @@ Matrix3D RsaToolbox::subtract(Matrix3D matrix1, Matrix3D matrix2) {
     return(result);
 }
 QRowVector RsaToolbox::subtract(QRowVector vector1, QRowVector vector2) {
-    uint size = vector1.size();
+    int size = vector1.size();
     if (vector2.size() != size)
         return(QRowVector());
 
     QRowVector result(size);
-    for (uint i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         result[i] = vector1[i] - vector2[i];
     }
     return(result);
@@ -1371,23 +1371,23 @@ QRowVector RsaToolbox::subtract(QRowVector vector, double scalar) {
     return(subtract(vector, QRowVector(vector.size(), scalar)));
 }
 QMatrix2D RsaToolbox::subtract(QMatrix2D matrix1, QMatrix2D matrix2) {
-    uint size = matrix1.size();
+    int size = matrix1.size();
     if (matrix2.size() != size)
         return(QMatrix2D());
 
     QMatrix2D result(size);
-    for (uint i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         result[i] = subtract(matrix1[i], matrix2[i]);
     }
     return(result);
 }
 QMatrix3D RsaToolbox::subtract(QMatrix3D matrix1, QMatrix3D matrix2) {
-    uint size = matrix1.size();
+    int size = matrix1.size();
     if (matrix2.size() != size)
         return(QMatrix3D());
 
     QMatrix3D result(size);
-    for (uint i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         result[i] = subtract(matrix1[i], matrix2[i]);
     }
     return(result);
@@ -1413,19 +1413,19 @@ ComplexMatrix2D RsaToolbox::transpose(ComplexMatrix2D matrix) {
     return(result);
 }
 QMatrix2D RsaToolbox::transpose(QMatrix2D matrix) {
-    uint rows = matrix.size();
+    int rows = matrix.size();
     if (rows == 0)
         return(QMatrix2D());
 
-    uint columns = matrix[0].size();
+    int columns = matrix[0].size();
     if (columns == 0)
         return(QMatrix2D());
 
     QMatrix2D result = matrix;
-    for (uint i = 0; i < rows; i++) {
+    for (int i = 0; i < rows; i++) {
         if (matrix[i].size() != columns)
             return(QMatrix2D());
-        for (uint j = 0; j < columns; j++) {
+        for (int j = 0; j < columns; j++) {
             result[i][j] = matrix[j][i];
             result[j][i] = matrix[i][j];
         }
@@ -1532,21 +1532,21 @@ QDataStream& operator<<(QDataStream &stream, ComplexDouble value) {
     return(stream);
 }
 QDataStream& operator<<(QDataStream &stream, RsaToolbox::ComplexRowVector vector) {
-    ComplexRowVector::size_type size = vector.size();
+    quint64 size = vector.size();
     stream << size;
     for (ComplexRowVector::size_type i = 0; i < size; i++)
         stream << vector[i];
     return(stream);
 }
 QDataStream& operator<<(QDataStream &stream, RsaToolbox::ComplexMatrix2D matrix) {
-    ComplexMatrix2D::size_type size = matrix.size();
+    quint64 size = matrix.size();
     stream << size;
     for (ComplexMatrix2D::size_type i = 0; i < size; i++)
         stream << matrix[i];
     return(stream);
 }
 QDataStream& operator<<(QDataStream &stream, RsaToolbox::ComplexMatrix3D matrix) {
-    ComplexMatrix3D::size_type size = matrix.size();
+    quint64 size = matrix.size();
     stream << size;
     for (ComplexMatrix3D::size_type i = 0; i < size; i++)
         stream << matrix[i];
@@ -1561,7 +1561,7 @@ QDataStream& operator>>(QDataStream &stream, ComplexDouble &value) {
     return(stream);
 }
 QDataStream& operator>>(QDataStream &stream, RsaToolbox::ComplexRowVector &vector) {
-    ComplexRowVector::size_type size;
+    quint64 size;
     stream >> size;
     vector.resize(size);
     for (ComplexRowVector::size_type i = 0; i < size; i++)
@@ -1569,7 +1569,7 @@ QDataStream& operator>>(QDataStream &stream, RsaToolbox::ComplexRowVector &vecto
     return(stream);
 }
 QDataStream& operator>>(QDataStream &stream, RsaToolbox::ComplexMatrix2D &matrix) {
-    ComplexMatrix2D::size_type size;
+    quint64 size;
     stream >> size;
     matrix.resize(size);
     for (ComplexMatrix2D::size_type i = 0; i < size; i++)
@@ -1577,7 +1577,7 @@ QDataStream& operator>>(QDataStream &stream, RsaToolbox::ComplexMatrix2D &matrix
     return(stream);
 }
 QDataStream& operator>>(QDataStream &stream, RsaToolbox::ComplexMatrix3D &matrix) {
-    ComplexMatrix3D::size_type size;
+    quint64 size;
     stream >> size;
     matrix.resize(size);
     for (ComplexMatrix3D::size_type i = 0; i < size; i++)

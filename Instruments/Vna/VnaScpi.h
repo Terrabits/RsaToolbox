@@ -20,7 +20,7 @@ public:
 
     // Balanced Port
     static QString toString(BalancedPort::Type type);
-    static BalancedPort::Type toBalancedPortType(const QString &scpi);
+    static BalancedPort::Type toBalancedPortType(QString scpi);
 
     // User defined port
     static QString toString(VnaUserDefinedPort::Receiver receiver);
@@ -34,7 +34,7 @@ public:
 
     // Trace
     static QString toString(TraceFormat format);
-    static TraceFormat toTraceFormat(const QString &scpi);
+    static TraceFormat toTraceFormat(QString scpi);
     static QString toString(NetworkParameter parameter);
     static QString toString(NetworkParameter parameter, uint outputPort, uint inputPort);
     static QString toString(NetworkParameter parameter, const BalancedPort &output, const BalancedPort &input);

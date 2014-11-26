@@ -25,6 +25,7 @@ public:
     VnaCorrections(VnaCorrections &other);
     VnaCorrections(Vna *vna, VnaChannel *channel, QObject *parent = 0);
     VnaCorrections(Vna *vna, uint channelIndex, QObject *parent = 0);
+    ~VnaCorrections();
 
     bool isOn();
     bool isOff();

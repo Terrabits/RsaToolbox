@@ -62,7 +62,7 @@ BalancedPort::BalancedPort(uint logicalPort) {
  * \return Port balance type
  * \sa RsaToolbox::BalancedPortType
  */
-BalancedPort::Type BalancedPort::type() {
+BalancedPort::Type BalancedPort::type() const {
     return(_type);
 }
 
@@ -70,7 +70,7 @@ BalancedPort::Type BalancedPort::type() {
  * \brief Returns balanced port status
  * \return \c true if a balanced port; \c false otherwise
  */
-bool BalancedPort::isBalanced() {
+bool BalancedPort::isBalanced() const {
     return(!isSingleEnded());
 }
 
@@ -78,7 +78,7 @@ bool BalancedPort::isBalanced() {
  * \brief Returns differential mode port status
  * \return \c true if differential mode balanced port; \c false otherwise
  */
-bool BalancedPort::isDifferential() {
+bool BalancedPort::isDifferential() const {
     return(_type == BalancedPort::Type::Differential);
 }
 
@@ -86,7 +86,7 @@ bool BalancedPort::isDifferential() {
  * \brief Returns common mode port status
  * \return \c true if common mode balanced port; \c false otherwise
  */
-bool BalancedPort::isCommonMode() {
+bool BalancedPort::isCommonMode() const {
     return(_type == BalancedPort::Type::Common);
 }
 
@@ -94,7 +94,7 @@ bool BalancedPort::isCommonMode() {
  * \brief Returns single ended port status
  * \return \c true if single ended port; \c false otherwise
  */
-bool BalancedPort::isSingleEnded() {
+bool BalancedPort::isSingleEnded() const {
     return(_type == BalancedPort::Type::SingleEnded);
 }
 
@@ -102,8 +102,8 @@ bool BalancedPort::isSingleEnded() {
  * \brief Returns the logical port index
  * \return Logical port number
  */
-uint BalancedPort::port() {
-    return(_port);
+uint BalancedPort::port() const {
+    return _port;
 }
 
 /*!
@@ -162,8 +162,8 @@ void BalancedPort::setPort(uint logicalPort) {
  * This conversion is provided as a
  * convenience for such situations.
  */
-BalancedPort::operator int() {
-    return(int(_port));
+BalancedPort::operator int() const {
+    return int(_port);
 }
 
 /*!
@@ -176,7 +176,7 @@ BalancedPort::operator int() {
  * This conversion is provided as a
  * convenience for such situations.
  */
-BalancedPort::operator uint() {
-    return(_port);
+BalancedPort::operator uint() const {
+    return _port;
 }
 

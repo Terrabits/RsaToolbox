@@ -37,7 +37,7 @@ QString VnaScpi::toString(BalancedPort::Type type) {
  * \param scpi SCPI representation
  * \return Balanced port type
  */
-BalancedPort::Type VnaScpi::toBalancedPortType(const QString &scpi) {
+BalancedPort::Type VnaScpi::toBalancedPortType(QString scpi) {
     scpi = scpi.toUpper();
     if (scpi == "s")
         return BalancedPort::Type::SingleEnded;
@@ -86,7 +86,7 @@ VnaUserDefinedPort::Receiver VnaScpi::toReceiver(QString scpi) {
 }
 VnaUserDefinedPort VnaScpi::toUserDefinedPort(QString scpi) {
     VnaUserDefinedPort port;
-    QStringList list = scpi.trimmed().remove("\'").split(":";
+    QStringList list = scpi.trimmed().remove("\'").split(":");
             if (list.size() != 3)
             return port;
 
@@ -201,7 +201,7 @@ QString VnaScpi::toString(TraceFormat format) {
         return "MLOG";
     }
 }
-TraceFormat VnaScpi::toTraceFormat(const QString &scpi) {
+TraceFormat VnaScpi::toTraceFormat(QString scpi) {
     scpi = scpi.toUpper();
     if (scpi == "MLOG")
         return TraceFormat::DecibelMagnitude;

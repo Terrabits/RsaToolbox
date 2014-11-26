@@ -19,12 +19,13 @@ class Vna;
 
 class VnaCalKit : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaCalKit(QObject *parent = 0);
     VnaCalKit(const VnaCalKit &other);
     VnaCalKit(Vna *vna, NameLabel nameLabel, QObject *parent = 0);
+    ~VnaCalKit();
 
     bool isConnectorType(Connector type);
     bool has(VnaCalStandard standard);

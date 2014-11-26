@@ -29,6 +29,7 @@ VnaUserDefinedPort::VnaUserDefinedPort(const VnaUserDefinedPort &other) {
     this->operator =(other);
 }
 
+
 bool VnaUserDefinedPort::isSourceSet(uint port) const {
     return(port == _sourcePort);
 }

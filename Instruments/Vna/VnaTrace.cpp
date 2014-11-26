@@ -46,6 +46,9 @@ VnaTrace::VnaTrace(Vna *vna, QString name, QObject *parent) :
     _vna = vna;
     _name = name;
 }
+VnaTrace::~VnaTrace() {
+
+}
 
 bool VnaTrace::isVisible() {
     QString scpi = ":DISP:TRAC:SHOW? \'%1\'\n";
@@ -221,7 +224,7 @@ void VnaTrace::setWaveRatio(WaveQuantity numeratorWave, uint numeratorPort, Wave
 bool VnaTrace::isImpedance() {
     QString result = measurementString();
     result = result.toUpper();
-    if (result.at(0) == "Z" && result.contains("-"))
+    if (result.at(0) == 'Z' && result.contains("-"))
         return(true);
     else
         return(false);
@@ -252,7 +255,7 @@ void VnaTrace::setImpedance(BalancedPort outputPort, BalancedPort inputPort) {
 bool VnaTrace::isAdmittance() {
     QString result = measurementString();
     result = result.toUpper();
-    if (result.at(0) == "Y" && result.contains("-"))
+    if (result.at(0) == 'Y' && result.contains("-"))
         return(true);
     else
         return(false);

@@ -57,6 +57,10 @@ VnaTimeSweep::VnaTimeSweep(Vna *vna, uint channelIndex, QObject *parent) :
     _channel.reset(new VnaChannel(vna, channelIndex));
     _channelIndex = channelIndex;
 }
+VnaTimeSweep::~VnaTimeSweep() {
+
+}
+
 
 uint VnaTimeSweep::points() {
     QString scpi = ":SENS%1:SWE:POIN?\n";

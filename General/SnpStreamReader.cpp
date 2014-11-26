@@ -122,7 +122,7 @@ bool SnpStreamReader::next() {
 
     _point++;
     QStringList values = _readValues();
-    if (values.size() != _valuesToRead) {
+    if (uint(values.size()) != _valuesToRead) {
         _frequency_Hz = 0;
         _data.clear();
         _resizeData();

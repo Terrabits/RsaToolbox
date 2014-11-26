@@ -56,6 +56,9 @@ VnaSegmentedSweep::VnaSegmentedSweep(Vna *vna, uint index, QObject *parent) :
     _channel.reset(new VnaChannel(vna, index));
     _channelIndex = index;
 }
+VnaSegmentedSweep::~VnaSegmentedSweep() {
+
+}
 
 
 uint VnaSegmentedSweep::points() {

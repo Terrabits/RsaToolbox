@@ -68,6 +68,10 @@ VnaPowerCalibrate::VnaPowerCalibrate(Vna *vna, uint channelIndex, QObject *paren
     _channel.reset(new VnaChannel(vna, channelIndex, this));
     _channelIndex = channelIndex;
 }
+VnaPowerCalibrate::~VnaPowerCalibrate() {
+
+}
+
 
 bool VnaPowerCalibrate::isRawDataKept() {
     return(false);

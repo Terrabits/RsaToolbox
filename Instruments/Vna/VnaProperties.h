@@ -1,19 +1,24 @@
 #ifndef VNAPROPERTIES_H
 #define VNAPROPERTIES_H
 
+
+// RsaToolbox
 #include "Definitions.h"
 
+// Qt
 #include <QObject>
 #include <QVector>
 #include <QString>
 #include <QScopedPointer>
 
+
 namespace RsaToolbox {
+
 class Vna;
 
 class VnaProperties : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
 
@@ -31,9 +36,11 @@ public:
         Unknown = 1000
     };
 
+
     explicit VnaProperties(QObject *parent = 0);
-    VnaProperties(VnaProperties &other);
+    VnaProperties(const VnaProperties &other);
     VnaProperties(Vna *vna, QObject *parent = 0);
+    ~VnaProperties();
 
     Model model();
     QString serialNumber();
@@ -70,9 +77,9 @@ public:
 
     void operator=(VnaProperties const &other);
 
-private:
+private:    
     Vna *_vna;
-    QScopedPointer<Vna> placeholder;
+    QScopedPointer<Vna> _placeholder;
 
 };
 

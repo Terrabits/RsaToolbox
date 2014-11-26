@@ -60,6 +60,9 @@ VnaSweepSegment::VnaSweepSegment(Vna *vna, uint channelIndex, uint segmentIndex,
     _channelIndex = channelIndex;
     _segmentIndex = segmentIndex;
 }
+VnaSweepSegment::~VnaSweepSegment() {
+
+}
 
 
 bool VnaSweepSegment::isOn() {

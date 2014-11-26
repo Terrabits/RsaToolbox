@@ -62,6 +62,10 @@ VnaMarker::VnaMarker(Vna *vna, QString traceName, uint index, QObject *parent) :
     _traceName = traceName;
     _index = index;
 }
+VnaMarker::~VnaMarker() {
+
+}
+
 
 QString VnaMarker::name() {
     _trace->select();

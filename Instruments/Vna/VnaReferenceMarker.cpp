@@ -56,6 +56,9 @@ VnaReferenceMarker::VnaReferenceMarker(Vna *vna, QString traceName, QObject *par
     _trace.reset(new VnaTrace(vna, traceName));
     _traceName = traceName;
 }
+VnaReferenceMarker::~VnaReferenceMarker() {
+
+}
 
 
 bool VnaReferenceMarker::isOn() {

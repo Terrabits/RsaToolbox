@@ -50,6 +50,10 @@ VnaMath::VnaMath(Vna *vna, QString traceName, QObject *parent) :
     _trace.reset(new VnaTrace(vna, traceName));
     _channel = _trace->channel();
 }
+VnaMath::~VnaMath() {
+
+}
+
 
 bool VnaMath::isOn() {
     QString scpi = ":CALC%1:MATH:STAT?\n";

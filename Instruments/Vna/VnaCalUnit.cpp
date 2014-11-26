@@ -41,6 +41,10 @@ VnaCalUnit::VnaCalUnit(Vna *vna, QString id, QObject *parent) :
     QObject(parent)
 {
     _vna = vna;
+    _id = id;
+}
+VnaCalUnit::~VnaCalUnit() {
+
 }
 
 void VnaCalUnit::operator=(VnaCalUnit const &other) {

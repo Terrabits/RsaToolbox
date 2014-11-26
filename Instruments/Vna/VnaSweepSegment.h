@@ -18,13 +18,14 @@ class VnaSegmentedSweep;
 
 class VnaSweepSegment : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaSweepSegment(QObject *parent = 0);
     VnaSweepSegment(VnaSweepSegment &other);
     VnaSweepSegment(Vna *vna, VnaChannel *channel, uint index, QObject *parent = 0);
     VnaSweepSegment(Vna *vna, uint channelIndex, uint segmentIndex, QObject *parent = 0);
+    ~VnaSweepSegment();
 
     bool isOn();
     bool isOff();

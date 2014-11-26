@@ -17,13 +17,14 @@ class VnaChannel;
 
 class VnaAveraging : QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaAveraging(QObject *parent = 0);
     VnaAveraging(const VnaAveraging &other);
     VnaAveraging(Vna *vna, VnaChannel *channel, QObject *parent = 0);
     VnaAveraging(Vna *vna, uint channelIndex, QObject *parent = 0);
+    ~VnaAveraging();
 
     // Methods
     bool isOn();

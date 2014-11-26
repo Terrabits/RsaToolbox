@@ -36,6 +36,9 @@ VnaFileSystem::VnaFileSystem(Vna *vna, QObject *parent) :
 {
     this->_vna = vna;
 }
+VnaFileSystem::~VnaFileSystem() {
+
+}
 
 bool VnaFileSystem::isFile(QString pathName) {
     QFileInfo fileInfo(pathName);

@@ -33,6 +33,7 @@ public:
     VnaCalibrate(Vna *vna, QObject *parent = 0);
     VnaCalibrate(Vna *vna, VnaChannel *channel, QObject *parent = 0);
     VnaCalibrate(Vna *vna, uint channelIndex, QObject *parent = 0);
+    ~VnaCalibrate();
 
     bool isRawDataKept();
     void keepRawData(bool isKept = true);

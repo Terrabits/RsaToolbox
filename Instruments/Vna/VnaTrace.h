@@ -22,12 +22,13 @@ class Vna;
 
 class VnaTrace : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaTrace(QObject *parent = 0);
     VnaTrace(const VnaTrace &other);
     VnaTrace(Vna *vna, QString name, QObject *parent = 0);
+    ~VnaTrace();
 
     bool isVisible();
     bool isHidden();

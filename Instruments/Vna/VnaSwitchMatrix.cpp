@@ -43,8 +43,13 @@ VnaSwitchMatrix::VnaSwitchMatrix(Vna *vna, uint index, QObject *parent) :
     _vna = vna;
     _index = index;
 }
+VnaSwitchMatrix::~VnaSwitchMatrix() {
 
-// Etc
+}
+
+
+// To Be Continued...
+
 
 void VnaSwitchMatrix::operator=(VnaSwitchMatrix const &other) {
     if (other.isFullyInitialized()) {

@@ -14,7 +14,7 @@
 #include "VnaCwSweep.h"
 #include "VnaTimeSweep.h"
 #include "VnaAveraging.h"
-#include "VnaCalibrate.h" // ?
+#include "VnaCalibrate.h"
 // * #include "VnaCorrections.h"
 // * See note at end of file
 
@@ -49,6 +49,7 @@ public:
     explicit VnaChannel(QObject *parent = 0);
     VnaChannel(VnaChannel const &other);
     VnaChannel(Vna *_vna, uint index, QObject *parent = 0);
+    ~VnaChannel();
 
     uint index();
     QString name();

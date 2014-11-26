@@ -57,6 +57,9 @@ VnaCorrections::VnaCorrections(Vna *vna, uint channelIndex, QObject *parent) :
     _channel.reset(new VnaChannel(vna, channelIndex, this));
     _channelIndex = channelIndex;
 }
+VnaCorrections::~VnaCorrections() {
+
+}
 
 // Use corrections
 bool VnaCorrections::isOn() {

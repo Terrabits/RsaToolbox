@@ -50,6 +50,10 @@ VnaLimits::VnaLimits(Vna *vna, QString traceName, QObject *parent) :
     _trace.reset(new VnaTrace(vna, traceName));
     _channel = _trace->channel();
 }
+VnaLimits::~VnaLimits() {
+
+}
+
 
 bool VnaLimits::isOn() {
     _trace->select();

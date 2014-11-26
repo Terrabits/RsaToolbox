@@ -17,13 +17,14 @@ class VnaChannel;
 
 class VnaPowerCorrections : QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaPowerCorrections(QObject *parent = 0);
     VnaPowerCorrections(VnaPowerCorrections &other);
     VnaPowerCorrections(Vna *vna, VnaChannel *channel, QObject *parent = 0);
     VnaPowerCorrections(Vna *vna, uint channelIndex, QObject *parent = 0);
+    ~VnaPowerCorrections();
 
     bool isOn(uint port);
     bool isOff(uint port);

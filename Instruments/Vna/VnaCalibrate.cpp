@@ -70,6 +70,9 @@ VnaCalibrate::VnaCalibrate(Vna *vna, uint channelIndex, QObject *parent) :
     _channel.reset(new VnaChannel(vna, channelIndex));
     _channelIndex = channelIndex;
 }
+VnaCalibrate::~VnaCalibrate() {
+
+}
 
 bool VnaCalibrate::isRawDataKept() {
     QString scpi;

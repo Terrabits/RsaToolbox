@@ -16,8 +16,12 @@
 #include <QDataStream>
 
 // C++ std lib
+#include <cfloat>
 #include <complex>
 #include <vector>
+#include <type_traits>
+#include <limits>
+
 
 namespace RsaToolbox {
 
@@ -242,7 +246,7 @@ QMap<T,V> cascade(QMap<T,U> a, QMap<U,V> b) {
 template <class T>
 T max(QVector<T> vector) {
     if (vector.size() == 0)
-        return(NULL);
+        return(std::numeric_limits<T>::min());
 
     T _max = vector.first();
     for (int i = 1; i < vector.size(); i++) {
@@ -269,7 +273,7 @@ void max(QVector<T> vector, T &maximum, int &index) {
 template <class T>
 T max(std::vector<T> vector) {
     if (vector.size() == 0)
-        return(NULL);
+        return(std::numeric_limits<T>::min());
 
     T _max = vector[0];
     for (uint i = 1; i < vector.size(); i++) {
@@ -296,7 +300,7 @@ void max(std::vector<T> vector, T &maximum, int &index) {
 template <class T>
 T min(QVector<T> vector) {
     if (vector.size() == 0)
-        return(NULL);
+        return(std::numeric_limits<T>::max());
 
     T _min = vector.first();
     for (int i = 1; i < vector.size(); i++) {
@@ -323,7 +327,7 @@ void min(QVector<T> vector, T &minimum, int &index) {
 template <class T>
 T min(std::vector<T> vector) {
     if (vector.size() == 0)
-        return(NULL);
+        return(std::numeric_limits<T>::max());
 
     T _min = vector[0];
     for (uint i = 1; i < vector.size(); i++) {

@@ -19,7 +19,7 @@ class VnaChannel;
 
 class VnaPowerCalibrate : QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaPowerCalibrate(QObject *parent = 0);
@@ -27,6 +27,7 @@ public:
     VnaPowerCalibrate(Vna *vna, QObject *parent = 0);
     VnaPowerCalibrate(Vna *vna, VnaChannel *channel, QObject *parent = 0);
     VnaPowerCalibrate(Vna *vna, uint channelIndex, QObject *parent = 0);
+    ~VnaPowerCalibrate();
 
     bool isRawDataKept();
 

@@ -180,7 +180,7 @@ QRowVector FormattedNetworkData::y_imaginary(uint outputPort, uint inputPort) co
     return(imaginary);
 }
 void FormattedNetworkData::setData(const QRowVector &x, const FormattedComplexMatrix3D &y) {
-    if (uint(x.size()) == y.size()) {
+    if (x.size() == y.size()) {
         _x = x;
         _y = y;
         _points = uint(x.size());

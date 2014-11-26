@@ -352,8 +352,8 @@ void FormattedTouchstone::WriteData(FormattedNetworkData &network, QTextStream &
     }
 }
 void FormattedTouchstone::WriteRow(FormattedNetworkData &network, QTextStream &snpFile, FormattedComplexRowVector &row) {
-    int columnsWritten = 1;
-    int const COLUMNSPERLINE = 4;
+    uint columnsWritten = 1;
+    uint const COLUMNSPERLINE = 4;
     FormattedComplexRowVector::iterator column_iter = row.begin();
     for (; column_iter != row.end(); column_iter++) {
         (*WriteDatum)(snpFile, *column_iter);

@@ -22,3 +22,6 @@ include(Bus/No/no.pri)
 include(Bus/Visa/visa.pri)
 include(Instruments/Vna/vna.pri)
 include(QCustomPlot/qcustomplot.pri)
+
+QMAKE_CXXFLAGS += -std=c++11 -stdlib=libc++
+QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.7

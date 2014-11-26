@@ -85,7 +85,7 @@ private:
     ViSession _resourceManager;
     ViSession _instrument;
     ViUInt32 _byteCount;
-    static const uint MAX_PRINT = 100;
+    static const int MAX_PRINT = 100;
 
     // VisaBus
     bool isError();

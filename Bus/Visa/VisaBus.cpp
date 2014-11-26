@@ -62,8 +62,8 @@ using namespace RsaToolbox;
  */
 VisaBus::VisaBus(QObject *parent)
     :GenericBus(parent) {
-    _resourceManager = NULL;
-    _instrument = NULL;
+    _resourceManager = VI_NULL;
+    _instrument = VI_NULL;
 }
 
 /*!
@@ -86,8 +86,8 @@ VisaBus::VisaBus(ConnectionType connectionType, QString address,
                 bufferSize_B, timeout_ms,
                 parent)
 {
-    _resourceManager = NULL;
-    _instrument = NULL;
+    _resourceManager = VI_NULL;
+    _instrument = VI_NULL;
 
     QString resource = "%1::%2::INSTR";
     switch (connectionType) {
@@ -162,7 +162,7 @@ bool VisaBus::isVisaInstalled() {
  * \return Status of connection
  */
 bool VisaBus::isOpen() const {
-    return _instrument != NULL;
+    return _instrument != VI_NULL;
 }
 
 /*!
@@ -386,8 +386,8 @@ bool VisaBus::remote() {
 }
 
 void VisaBus::setDisconnected() {
-    _resourceManager = NULL;
-    _instrument = NULL;
+    _resourceManager = VI_NULL;
+    _instrument = VI_NULL;
 }
 void VisaBus::getFuncters() {
     _viStatusDesc = (_statusDescFuncter)visa_library.resolve("viStatusDesc");

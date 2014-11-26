@@ -56,6 +56,10 @@ VnaCwSweep::VnaCwSweep(Vna *vna, uint channelIndex, QObject *parent) :
     _channel.reset(new VnaChannel(vna, channelIndex));
     _channelIndex = channelIndex;
 }
+VnaCwSweep::~VnaCwSweep() {
+
+}
+
 
 uint VnaCwSweep::points() {
     QString scpi = ":SENS%1:SWE:POIN?\n";

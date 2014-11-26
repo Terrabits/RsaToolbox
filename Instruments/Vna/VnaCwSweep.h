@@ -17,13 +17,14 @@ class VnaChannel;
 
 class VnaCwSweep : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaCwSweep(QObject *parent = 0);
     VnaCwSweep(VnaCwSweep &other);
     VnaCwSweep(Vna *vna, VnaChannel *channel, QObject *parent = 0);
     VnaCwSweep(Vna *vna, uint channelIndex, QObject *parent = 0);
+    ~VnaCwSweep();
 
     uint points();
     void setPoints(uint numberOfPoints);

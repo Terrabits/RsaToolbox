@@ -56,6 +56,10 @@ VnaPowerCorrections::VnaPowerCorrections(Vna *vna, uint channelIndex, QObject *p
     _channel.reset(new VnaChannel(vna, channelIndex, this));
     _channelIndex = channelIndex;
 }
+VnaPowerCorrections::~VnaPowerCorrections() {
+
+}
+
 
 // Calibrated corrections
 bool VnaPowerCorrections::isOn(uint port) {

@@ -56,6 +56,9 @@ VnaLogSweep::VnaLogSweep(Vna *vna, uint index, QObject *parent) :
     _channel.reset(new VnaChannel(vna, index, this));
     _channelIndex = index;
 }
+VnaLogSweep::~VnaLogSweep() {
+
+}
 
 
 uint VnaLogSweep::points() {

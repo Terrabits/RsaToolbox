@@ -25,22 +25,21 @@ public:
     BalancedPort();
     BalancedPort(uint port);
 
-    bool isSingleEnded();
-    bool isBalanced();
-    bool isDifferential();
-    bool isCommonMode();
-    Type type();
+    bool isSingleEnded() const;
+    bool isBalanced() const;
+    bool isDifferential() const;
+    bool isCommonMode() const;
+    Type type() const;
     void setSingleEnded();
     void setDifferential();
     void setCommonMode();
     void setType(BalancedPort::Type type);
 
-
-    uint port();
+    uint port() const;
     void setPort(uint logicalPort);
 
-    operator int();
-    operator uint();
+    operator int() const;
+    operator uint() const;
 
 private:
     Type _type;

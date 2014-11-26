@@ -18,13 +18,14 @@ class VnaChannel;
 
 class VnaSegmentedSweep : public QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaSegmentedSweep(QObject *parent = 0);
     VnaSegmentedSweep(VnaSegmentedSweep &other);
     VnaSegmentedSweep(Vna *vna, VnaChannel *channel, QObject *parent = 0);
     VnaSegmentedSweep(Vna *vna, uint channelIndex, QObject *parent = 0);
+    ~VnaSegmentedSweep();
 
     uint points();
     double start_Hz();

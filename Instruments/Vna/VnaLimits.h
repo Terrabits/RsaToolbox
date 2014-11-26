@@ -17,13 +17,14 @@ class VnaTrace;
 
 class VnaLimits : QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaLimits(QObject *parent = 0);
     VnaLimits(const VnaLimits &other);
     VnaLimits(Vna *vna, VnaTrace *trace, QObject *parent = 0);
     VnaLimits(Vna *vna, QString traceName, QObject *parent = 0);
+    ~VnaLimits();
 
     bool isOn();
     bool isOff();

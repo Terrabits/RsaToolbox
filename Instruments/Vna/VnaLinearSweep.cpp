@@ -56,6 +56,9 @@ VnaLinearSweep::VnaLinearSweep(Vna *vna, uint index, QObject *parent) :
     _channel.reset(new VnaChannel(vna, index));
     _channelIndex = index;
 }
+VnaLinearSweep::~VnaLinearSweep() {
+
+}
 
 
 uint VnaLinearSweep::points() {

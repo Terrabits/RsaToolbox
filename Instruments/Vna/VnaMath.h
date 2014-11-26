@@ -17,13 +17,14 @@ class VnaTrace;
 
 class VnaMath : QObject
 {
-private: Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit VnaMath(QObject *parent = 0);
     VnaMath(const VnaMath &other);
     VnaMath(Vna *vna, VnaTrace *trace, QObject *parent = 0);
     VnaMath(Vna *vna, QString traceName, QObject *parent = 0);
+    ~VnaMath();
 
     bool isOn();
     bool isOff();

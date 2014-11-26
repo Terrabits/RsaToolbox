@@ -60,6 +60,10 @@ VnaTimeDomain::VnaTimeDomain(Vna *vna, QString traceName, QObject *parent) :
     _trace.reset(new VnaTrace(vna, traceName));
     _traceName = traceName;
 }
+VnaTimeDomain::~VnaTimeDomain() {
+
+}
+
 
 bool VnaTimeDomain::isOn() {
     _trace->select();
@@ -250,7 +254,7 @@ void VnaTimeDomain::setWindow(VnaTimeDomain::Window window) {
 
     QString scpi = ":CALC%1:TRAN:TIME:WIND %2\n";
     scpi = scpi.arg(_trace->channel());
-    scpi = scpi.arg(VnaScpi::toTimeDomainWindow(window));
+    scpi = scpi.arg(VnaScpi::toString(window));
     _vna->write(scpi);
 }
 

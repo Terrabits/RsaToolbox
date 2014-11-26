@@ -1,10 +1,11 @@
+#include "VnaProperties.h"
 
 
 // RsaToolbox
 #include "General.h"
 #include "Vna.h"
-#include "VnaProperties.h"
 using namespace RsaToolbox;
+
 
 /*!
  * \class RsaToolbox::VnaProperties
@@ -14,22 +15,28 @@ using namespace RsaToolbox;
  * Rohde \& Schwarz VNA.
  */
 
+
 VnaProperties::VnaProperties(QObject *parent) :
     QObject(parent)
 {
-    placeholder.reset(new Vna());
-    _vna = placeholder.data();
+    _placeholder.reset(new Vna());
+    _vna = _placeholder.data();
 }
 
-VnaProperties::VnaProperties(VnaProperties &other)
+VnaProperties::VnaProperties(const VnaProperties &other)
 {
-    this->_vna = other._vna;
+    _placeholder.reset(new Vna());
+    _vna = other._vna;
 }
 
 VnaProperties::VnaProperties(Vna *vna, QObject *parent) :
     QObject(parent)
 {
-    this->_vna = vna;
+    _placeholder.reset(new Vna());
+    _vna = vna;
+}
+VnaProperties::~VnaProperties() {
+
 }
 
 VnaProperties::Model VnaProperties::model() {
