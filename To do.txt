@@ -1,16 +1,34 @@
-Right now right now:
-- Finish VnaSweepType (VnaChannel.h):
-  * merge into class VnaChannel
-  * Move circular #includes to end of VnaChannel.h
+Short term:
+- vna.rs-us.net
+- App documentation
+- Update past projects:
+? RSA Attenuator Cal (Rsc)
+  RSA Autocal
+  RSA Cal Unit Sim
+  RSA Delete Corrections
+  RSA Display Delay Offset
+  RSA Emulation Demo
+X RSA File Transfer
+  RSA PA Compression Test
+  RSA Preset
+  RSA Remove Cal
+  RSA Remove Matrix
+  RSA S2P Extractor
+  RSA Save State
+? RSA Scpi Script
+  RSA Spec An (Josh)
+  RSA TDR Wizard
+  RSA User Defined Ports
+  RSA Verify Cal
+  RSA VNA Remote Logger
 
+Medium term:
+- Finish Create Installer
+- Update RsaToolbox Documentation
+- Update Qt Creator project templates
+- Add FrequencyLineEdit ('g' changes units to "GHz" etc. Validator: "\d+\.*\d*[GgMKkmunp]")
 
-
-
-- Documentation
-- FrequencyLineEdit ('g' changes units to "GHz", appropriate validator)
-- "\d+\.*\d*[GgMKkmunp]"
-- Create Qt Creator Designer plugins for widgets
-  C:\Qt\Tools\QtCreator\bin\plugins\designer
-- Design widgets so that they don't crash if uninitialized
-- Somehow automatically add RsaToolbox dependents?
-- Installation directions
+Long term:
+- Qt Designer widget plugins
+  Win: C:\Qt\Tools\QtCreator\bin\plugins\designer
+  Mac: ?

@@ -6,8 +6,7 @@ INCLUDEPATH += $$PWD \
                $$PWD/General \
                $$PWD/Log \
                $$PWD/Bus \
-#              $$PWD/Bus/Tcp \ # Bug in Qt 5 prevents this from working
-#               $$PWD/Bus/Rsib \ # Firmware bug
+               $$PWD/Bus/Tcp \
                $$PWD/Bus/No \
                $$PWD/Bus/Visa \
                $$PWD/Instruments \
@@ -30,17 +29,26 @@ INCLUDEPATH += $$PWD \
                $$PWD/Gui/Wizard \
                $$PWD/QCustomPlot
 
-# Rsib, RsVisa:
-LIBS += -L$$PWD/Bus/Visa
-win32: LIBS += -L$$PWD/Bus/Rsib -lrsib32
-
-CONFIG(debug, release|debug) {
-  LIBS += -l$$PWD/RsaToolboxd
-  LIBS += -l$$PWD/QCustomPlot/qcustomplotd
+win32 {
+    LIBS += -L$$PWD/Bus/Visa
+    LIBS += -L$$PWD
+    LIBS += -L$$PWD/QCustomPlot/
+    CONFIG(debug, release|debug) {
+        LIBS += -l$$PWD/RsaToolboxd
+        LIBS += -l$$PWD/QCustomPlot/qcustomplotd
+    }
+    else {
+        LIBS += -l$$PWD/RsaToolbox
+        LIBS += -l$$PWD/QCustomPlot/qcustomplot
+    }
 }
-else {
-  LIBS += -l$$PWD/RsaToolbox
-  LIBS += -l$$PWD/QCustomPlot/qcustomplot
+macx {
+    CONFIG(debug, release|debug) {
+        LIBS += $$PWD/libRsaToolboxd.a
+        LIBS += $$PWD/QCustomPlot/libqcustomplotd.dylib
+    }
+    else {
+        LIBS += $$PWD/libRsaToolbox.a
+        LIBS += $$PWD/QCustomPlot/libqcustomplot.dylib
+    }
 }
-LIBS += -L$$PWD
-LIBS += -L$$PWD/QCustomPlot/
