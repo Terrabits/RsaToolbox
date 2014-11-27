@@ -5,8 +5,9 @@
 #include "Vna.h"
 using namespace RsaToolbox;
 
-// Qt includes
-// #include <Qt>
+// Qt
+#include <QDebug>
+
 
 /*!
  * \class RsaToolbox::VnaCalUnit

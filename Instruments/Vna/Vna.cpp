@@ -1,7 +1,7 @@
+#include "Vna.h"
 
 
 #include "General.h"
-#include "Vna.h"
 #include "VisaBus.h"
 #include "IndexName.h"
 using namespace RsaToolbox;
@@ -105,7 +105,9 @@ Vna::Vna(QObject *parent)
       _diagram(this, 0),
       _switchMatrix(this, 0),
       _calUnit(this, "")
-{ }
+{
+    //
+}
 
 /*!
  * \brief Constructor connects to the instrument
@@ -133,7 +135,9 @@ Vna::Vna(GenericBus *bus, QObject *parent)
       _diagram(this, 0),
       _switchMatrix(this, 0),
       _calUnit(this, "")
-{ }
+{
+    //
+}
 
 /*!
  * \brief Constructor connects to the instrument
@@ -162,7 +166,9 @@ Vna::Vna(ConnectionType type, QString address, QObject *parent)
       _diagram(this, 0),
       _switchMatrix(this, 0),
       _calUnit(this, "")
-{ }
+{
+    //
+}
 
 /*!
  * \brief Prints instrument info to the log file

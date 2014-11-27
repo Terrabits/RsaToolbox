@@ -246,6 +246,19 @@ QString VnaScpi::toString(NetworkParameter parameter,
     result += toPortPair(output.port(), input.port());
     return result;
 }
+QString VnaScpi::toString(WaveQuantity wave) {
+    switch(wave) {
+    case WaveQuantity::a:
+        return "a";
+    case WaveQuantity::b:
+        return "b";
+    default:
+        return "a";
+    }
+}
+QString VnaScpi::toString(WaveQuantity wave, uint port) {
+    return toString(wave) + QVariant(port).toString();
+}
 QString VnaScpi::toPortPair(uint outputPort, uint inputPort) {
     QString out = QVariant(outputPort).toString();
     QString in = QVariant(inputPort).toString();
