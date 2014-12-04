@@ -30,9 +30,8 @@ INCLUDEPATH += $$PWD \
                $$PWD/Gui/Wizard \
                $$PWD/QCustomPlot
 
-# Rsib, RsVisa:
+# RsVisa:
 LIBS += -L$$PWD/Bus/Visa
-win32: LIBS += -L$$PWD/Bus/Rsib -lrsib32
 
 CONFIG(debug, release|debug) {
   LIBS += -l$$PWD/RsaToolboxd

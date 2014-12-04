@@ -1974,36 +1974,36 @@
       <type>bool</type>
       <name>isSingleEnded</name>
       <anchorfile>class_rsa_toolbox_1_1_balanced_port.html</anchorfile>
-      <anchor>a934d9bea93f1da3a08c2843585e330de</anchor>
-      <arglist>()</arglist>
+      <anchor>a29a55b3b5fa6ba8a557a3349d9826be2</anchor>
+      <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isBalanced</name>
       <anchorfile>class_rsa_toolbox_1_1_balanced_port.html</anchorfile>
-      <anchor>a09c71d4df079060a8552af0edac962cb</anchor>
-      <arglist>()</arglist>
+      <anchor>a5e9e60997c0d57c04c015fd8be01a74e</anchor>
+      <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isDifferential</name>
       <anchorfile>class_rsa_toolbox_1_1_balanced_port.html</anchorfile>
-      <anchor>a70a8b129aaf4d399f0732e4fa1a9452a</anchor>
-      <arglist>()</arglist>
+      <anchor>a1a98583419cb8c0fc7405621d78ec58b</anchor>
+      <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isCommonMode</name>
       <anchorfile>class_rsa_toolbox_1_1_balanced_port.html</anchorfile>
-      <anchor>abcd92d101aa0947434a0fd1985435f10</anchor>
-      <arglist>()</arglist>
+      <anchor>adf3a2618e9b94201df48a1dd65bca282</anchor>
+      <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>Type</type>
       <name>type</name>
       <anchorfile>class_rsa_toolbox_1_1_balanced_port.html</anchorfile>
-      <anchor>ae46d49e727e705499ef17a479070c83d</anchor>
-      <arglist>()</arglist>
+      <anchor>af48cbd0d0dda7ca08f4603d2af2b146b</anchor>
+      <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2037,8 +2037,8 @@
       <type>uint</type>
       <name>port</name>
       <anchorfile>class_rsa_toolbox_1_1_balanced_port.html</anchorfile>
-      <anchor>a1881fbb8edb25546cc1d650198f863b7</anchor>
-      <arglist>()</arglist>
+      <anchor>a54e463f81dfc412c50dd4d7e26903433</anchor>
+      <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2051,15 +2051,15 @@
       <type></type>
       <name>operator int</name>
       <anchorfile>class_rsa_toolbox_1_1_balanced_port.html</anchorfile>
-      <anchor>a4f4ea421e40bda08a2deca657f640fea</anchor>
-      <arglist>()</arglist>
+      <anchor>a6a6c0aaee2d785b48a1e57710ceb586b</anchor>
+      <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>operator uint</name>
       <anchorfile>class_rsa_toolbox_1_1_balanced_port.html</anchorfile>
-      <anchor>a97a032b37cdadc8ac34481c374f9634a</anchor>
-      <arglist>()</arglist>
+      <anchor>a04ce7571b9477833c44d1b377c105548</anchor>
+      <arglist>() const </arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -2491,6 +2491,13 @@
       <anchor>a59fc494d53391b27e2fd75cb750690d9</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="property">
+      <type>bool</type>
+      <name>connected</name>
+      <anchorfile>class_rsa_toolbox_1_1_connect_button.html</anchorfile>
+      <anchor>ab36823025f12a809217f7771125658c2</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>RsaToolbox::ConnectionTypeComboBox</name>
@@ -2522,6 +2529,13 @@
       <anchorfile>class_rsa_toolbox_1_1_connection_type_combo_box.html</anchorfile>
       <anchor>a9adaf9b4f5b306aa18b98a7c82a04a64</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="property">
+      <type>ConnectionType</type>
+      <name>currentType</name>
+      <anchorfile>class_rsa_toolbox_1_1_connection_type_combo_box.html</anchorfile>
+      <anchor>a4a097662518e0675d82375d221e081c7</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -2916,6 +2930,13 @@
   <compound kind="class">
     <name>RsaToolbox::ErrorLabel</name>
     <filename>class_rsa_toolbox_1_1_error_label.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>showMessage</name>
+      <anchorfile>class_rsa_toolbox_1_1_error_label.html</anchorfile>
+      <anchor>a4b763948d46f839f4dcf64f4771a5024</anchor>
+      <arglist>(const QString &amp;message, int timeout=5000)</arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>ErrorLabel</name>
@@ -4379,6 +4400,13 @@
       <anchorfile>class_rsa_toolbox_1_1_get_snp_file.html</anchorfile>
       <anchor>aa6fe16d724e232c5f7fa69e00c2c9a88</anchor>
       <arglist>(QString filePath)</arglist>
+    </member>
+    <member kind="property">
+      <type>QString</type>
+      <name>filePath</name>
+      <anchorfile>class_rsa_toolbox_1_1_get_snp_file.html</anchorfile>
+      <anchor>af17c7d27d6c71efe00a671ad8a67f941</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -6212,13 +6240,6 @@
       <anchor>a8bb04d1d8f4b1cfe67397d3c5cf6767c</anchor>
       <arglist>(ConnectionType type, QString address, QObject *parent=0)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>printInfo</name>
-      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>a2dbaf5580b5305d54cff6848ae7deb30</anchor>
-      <arglist>()</arglist>
-    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>printInfo</name>
@@ -6903,6 +6924,13 @@
       <arglist>(Vna *vna, uint channelIndex, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~VnaAveraging</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_averaging.html</anchorfile>
+      <anchor>a018cd20a794df7c9d89d2fbe966f1248</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isOn</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_averaging.html</anchorfile>
@@ -7024,6 +7052,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_calibrate.html</anchorfile>
       <anchor>a17916056a0cfd8e7964008497a9fa4be</anchor>
       <arglist>(Vna *vna, uint channelIndex, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaCalibrate</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_calibrate.html</anchorfile>
+      <anchor>a69dd8022c66d5765ef4b528c87d31c35</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -7161,6 +7196,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
       <anchor>a49dddc1f66c5af6ce852b157a785c1fd</anchor>
       <arglist>(Vna *vna, NameLabel nameLabel, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaCalKit</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
+      <anchor>ae7b3948e8eb5c425c553ee1a09b17fdc</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -8025,6 +8067,13 @@
       <arglist>(Vna *vna, QString id, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~VnaCalUnit</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>abae8f558228197be5d5680b5b07b25f9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>operator=</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
@@ -8068,6 +8117,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
       <anchor>a1bfcea0d30fe8eda50faeb05ff7a8685</anchor>
       <arglist>(Vna *_vna, uint index, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaChannel</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a4bd8a913ef2fd525b815b17d923bdf22</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>uint</type>
@@ -8462,6 +8518,48 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>double</type>
+      <name>delayOffset_s</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>ad4775e19b914d44fb16e4aa05bcf0b80</anchor>
+      <arglist>(uint port)</arglist>
+    </member>
+    <member kind="function">
+      <type>QRowVector</type>
+      <name>delayOffsets_s</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>aaacbe94117a5ae89ede389ff976b7c91</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDelayOffset</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>aa56110a1743af2d409b74c6b6493244a</anchor>
+      <arglist>(uint port, double delay, SiPrefix prefix=SiPrefix::None)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDelayOffsets</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a5ddfc5f3245bc2e183763d7495649452</anchor>
+      <arglist>(QRowVector delays, SiPrefix prefix=SiPrefix::None)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearDelayOffset</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>ab2ba789fec0568b3b316bff6c2687150</anchor>
+      <arglist>(uint port)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearDelayOffsets</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a6297e2ef932a9c48a63cbeba40562ee6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isCalibrated</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
@@ -8569,6 +8667,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
       <anchor>aacadb276e7ed8cf36aecac3d79f861e5</anchor>
       <arglist>(Vna *vna, uint channelIndex, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaCorrections</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a2578a0b9bb3fc53e589feac74ef05c5b</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -8820,6 +8925,13 @@
       <arglist>(Vna *vna, uint channelIndex, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~VnaCwSweep</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cw_sweep.html</anchorfile>
+      <anchor>ab4c4b153302d22741a3b32dfb5110907</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>uint</type>
       <name>points</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cw_sweep.html</anchorfile>
@@ -8906,6 +9018,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_diagram.html</anchorfile>
       <anchor>ac5905e3e771ba4fc0cfde356a1f3d5e9</anchor>
       <arglist>(Vna *vna, uint index, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaDiagram</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_diagram.html</anchorfile>
+      <anchor>a99480ec21c825fd3f29ea61bd33de142</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>QVector&lt; uint &gt;</type>
@@ -9092,6 +9211,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
       <anchor>a1ae9468d892f153f5490123b2b1745d1</anchor>
       <arglist>(Vna *_vna, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaFileSystem</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_file_system.html</anchorfile>
+      <anchor>ade8feb601460d4cbe2ca63d704be9c3e</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -9389,6 +9515,13 @@
       <arglist>(Vna *vna, QString traceName, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~VnaLimits</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
+      <anchor>a423fae2c916666ca6030391e8974d18b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isOn</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_limits.html</anchorfile>
@@ -9545,6 +9678,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_linear_sweep.html</anchorfile>
       <anchor>aee07ba7283603188e117cee5e28f12ce</anchor>
       <arglist>(Vna *vna, uint channelIndex, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaLinearSweep</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_linear_sweep.html</anchorfile>
+      <anchor>abe69f07dc59276ee1a91c067921a8cdd</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>uint</type>
@@ -9845,6 +9985,13 @@
       <arglist>(Vna *vna, uint channelIndex, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~VnaLogSweep</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_log_sweep.html</anchorfile>
+      <anchor>a7ce87e70ce48f2abda832f6344af4a89</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>uint</type>
       <name>points</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_log_sweep.html</anchorfile>
@@ -10066,6 +10213,13 @@
       <arglist>(Vna *vna, QString traceName, uint index, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~VnaMarker</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_marker.html</anchorfile>
+      <anchor>a02b360b5bb1f76f0a2d76d22b551b15e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>QString</type>
       <name>name</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_marker.html</anchorfile>
@@ -10236,6 +10390,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
       <anchor>ab3dd3602aebe7c3bbf0b94e7990fd210</anchor>
       <arglist>(Vna *vna, QString traceName, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaMath</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_math.html</anchorfile>
+      <anchor>a58999bbb944f4608a0c0c0a359566af7</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -10484,6 +10645,13 @@
       <arglist>(Vna *vna, uint channelIndex, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~VnaPowerCalibrate</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_power_calibrate.html</anchorfile>
+      <anchor>a5001d8911a471824d3dbc1f0d3bd6018</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isRawDataKept</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_power_calibrate.html</anchorfile>
@@ -10577,6 +10745,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_power_corrections.html</anchorfile>
       <anchor>a182d26428cd86bc7137e7c0d832d62c8</anchor>
       <arglist>(Vna *vna, uint channelIndex, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaPowerCorrections</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_power_corrections.html</anchorfile>
+      <anchor>a47cd6148fa1eab4afa221154d99b84a7</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -10707,6 +10882,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_power_sweep.html</anchorfile>
       <anchor>aacba43fec1ed8219ab0dd48597b019d2</anchor>
       <arglist>(Vna *vna, uint channelIndex, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaPowerSweep</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_power_sweep.html</anchorfile>
+      <anchor>aa94ed136a95f69c0519807e173127835</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>uint</type>
@@ -10867,8 +11049,8 @@
       <type></type>
       <name>VnaProperties</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
-      <anchor>aafcbcffc0432236501d898abbb31c2b2</anchor>
-      <arglist>(VnaProperties &amp;other)</arglist>
+      <anchor>a486d99077608385c08da6940738171b2</anchor>
+      <arglist>(const VnaProperties &amp;other)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -10876,6 +11058,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
       <anchor>a269ad14a79432e91a95e5f7756500667</anchor>
       <arglist>(Vna *vna, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaProperties</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a7c1179cd398eed34f825981422fa2428</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Model</type>
@@ -11078,6 +11267,13 @@
       <arglist>(Vna *vna, QString traceName, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~VnaReferenceMarker</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_reference_marker.html</anchorfile>
+      <anchor>a050af67f3573ff71d69911621aecceed</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isOn</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_reference_marker.html</anchorfile>
@@ -11190,8 +11386,8 @@
       <type>static BalancedPort::Type</type>
       <name>toBalancedPortType</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
-      <anchor>a8723b6cbdc27f8662d63763bec3d626a</anchor>
-      <arglist>(const QString &amp;scpi)</arglist>
+      <anchor>aacdc0a2349701524c6b3af9654715b30</anchor>
+      <arglist>(QString scpi)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static QString</type>
@@ -11246,8 +11442,8 @@
       <type>static TraceFormat</type>
       <name>toTraceFormat</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
-      <anchor>ae71c637b62ac8a5b4d05436d3b49cf4b</anchor>
-      <arglist>(const QString &amp;scpi)</arglist>
+      <anchor>a3c20efcffd62b3457529dbc792d6456a</anchor>
+      <arglist>(QString scpi)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static QString</type>
@@ -11274,7 +11470,14 @@
       <type>static QString</type>
       <name>toString</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
-      <anchor>a864ddde55d2125d1b9e3b9d68aaa4b0e</anchor>
+      <anchor>a947d2d3ec34e74a87314c59adad00215</anchor>
+      <arglist>(WaveQuantity wave)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>toString</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>a06460368434889daeaa93e7a57685210</anchor>
       <arglist>(WaveQuantity wave, uint port)</arglist>
     </member>
     <member kind="function" static="yes">
@@ -11329,6 +11532,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
       <anchor>aac07f10b686506d024f8daede103a685</anchor>
       <arglist>(Vna *vna, uint channelIndex, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaSegmentedSweep</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
+      <anchor>aed2a89241371d980b34d4da9d6f319d7</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>uint</type>
@@ -11585,6 +11795,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
       <anchor>a42d202abc6c14f20cfa456107464840e</anchor>
       <arglist>(Vna *_vna, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaSettings</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a132c10ae5ba831b2141b354cd2431827</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12281,6 +12498,13 @@
       <arglist>(Vna *vna, uint channelIndex, uint segmentIndex, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~VnaSweepSegment</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_sweep_segment.html</anchorfile>
+      <anchor>ad3ae149336838dcd0ae0a4ee8ab2e04e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isOn</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_sweep_segment.html</anchorfile>
@@ -12390,6 +12614,13 @@
       <arglist>(Vna *vna, uint index, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~VnaSwitchMatrix</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_switch_matrix.html</anchorfile>
+      <anchor>a19afb6cc2c2080d5f336bae92cbdb4a9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>operator=</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_switch_matrix.html</anchorfile>
@@ -12448,6 +12679,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_time_domain.html</anchorfile>
       <anchor>a957e58b99169749c88a5d671e27caca3</anchor>
       <arglist>(Vna *vna, QString traceName, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaTimeDomain</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_time_domain.html</anchorfile>
+      <anchor>a327aa3182d91f1ea107b9c3baa5d7eaf</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -12790,6 +13028,13 @@
       <arglist>(Vna *vna, uint channelIndex, QObject *parent=0)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~VnaTimeSweep</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_time_sweep.html</anchorfile>
+      <anchor>a8e16eaff4f718923f56046091d708196</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>uint</type>
       <name>points</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_time_sweep.html</anchorfile>
@@ -12890,6 +13135,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_trace.html</anchorfile>
       <anchor>aabb32f687d5e5a3bb29dbe0f4b0a31c3</anchor>
       <arglist>(Vna *vna, QString name, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaTrace</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_trace.html</anchorfile>
+      <anchor>a70db7e80fd426385d2b12cd7acb8ca35</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>

@@ -4,6 +4,7 @@ var class_rsa_toolbox_1_1_vna_segmented_sweep =
     [ "VnaSegmentedSweep", "class_rsa_toolbox_1_1_vna_segmented_sweep.html#a2d6fcf25a3c209be8e503d92fa4a97bc", null ],
     [ "VnaSegmentedSweep", "class_rsa_toolbox_1_1_vna_segmented_sweep.html#a294ed65a7f9060bcd12c946a6121d80a", null ],
     [ "VnaSegmentedSweep", "class_rsa_toolbox_1_1_vna_segmented_sweep.html#aac07f10b686506d024f8daede103a685", null ],
+    [ "~VnaSegmentedSweep", "class_rsa_toolbox_1_1_vna_segmented_sweep.html#aed2a89241371d980b34d4da9d6f319d7", null ],
     [ "addSegment", "class_rsa_toolbox_1_1_vna_segmented_sweep.html#ac6bb8a49fbffc26fcb5588dcf0782ccb", null ],
     [ "autoSweepTimeOff", "class_rsa_toolbox_1_1_vna_segmented_sweep.html#a220fef16f57b763fc04b22d35989e2dd", null ],
     [ "autoSweepTimeOn", "class_rsa_toolbox_1_1_vna_segmented_sweep.html#a42fa6859b453c6c8004ec13da4580d28", null ],

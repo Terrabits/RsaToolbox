@@ -4,6 +4,7 @@ var class_rsa_toolbox_1_1_vna_math =
     [ "VnaMath", "class_rsa_toolbox_1_1_vna_math.html#a21bdc963d1b574ac2ac08e27bfead0b7", null ],
     [ "VnaMath", "class_rsa_toolbox_1_1_vna_math.html#ae791434bc9c9048b33ef7202708dd23c", null ],
     [ "VnaMath", "class_rsa_toolbox_1_1_vna_math.html#ab3dd3602aebe7c3bbf0b94e7990fd210", null ],
+    [ "~VnaMath", "class_rsa_toolbox_1_1_vna_math.html#a58999bbb944f4608a0c0c0a359566af7", null ],
     [ "divideBy", "class_rsa_toolbox_1_1_vna_math.html#a0b6e71340907c959d6a69556fd2f6044", null ],
     [ "expression", "class_rsa_toolbox_1_1_vna_math.html#a9ea2bd52c4f853eb35f44871f62a0c93", null ],
     [ "isOff", "class_rsa_toolbox_1_1_vna_math.html#a45cb35cce9c006e0f1428934f6d828cb", null ],

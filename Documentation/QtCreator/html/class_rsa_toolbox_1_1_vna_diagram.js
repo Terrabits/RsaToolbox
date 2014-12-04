@@ -3,6 +3,7 @@ var class_rsa_toolbox_1_1_vna_diagram =
     [ "VnaDiagram", "class_rsa_toolbox_1_1_vna_diagram.html#aba9de54d77b745e56c2e5ac6039745fb", null ],
     [ "VnaDiagram", "class_rsa_toolbox_1_1_vna_diagram.html#aef2bbf23f7e3d47e71a4cbf5f938a165", null ],
     [ "VnaDiagram", "class_rsa_toolbox_1_1_vna_diagram.html#ac5905e3e771ba4fc0cfde356a1f3d5e9", null ],
+    [ "~VnaDiagram", "class_rsa_toolbox_1_1_vna_diagram.html#a99480ec21c825fd3f29ea61bd33de142", null ],
     [ "autoscale", "class_rsa_toolbox_1_1_vna_diagram.html#a42080b87976a6e7f1945e996b45d4df3", null ],
     [ "channels", "class_rsa_toolbox_1_1_vna_diagram.html#afea6252754a9fbd157f2d927ad88470b", null ],
     [ "deleteTraces", "class_rsa_toolbox_1_1_vna_diagram.html#ab034ce3db42f3c2f7ac4ab94d3c3e1f8", null ],

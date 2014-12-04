@@ -4,6 +4,7 @@ var class_rsa_toolbox_1_1_vna_cw_sweep =
     [ "VnaCwSweep", "class_rsa_toolbox_1_1_vna_cw_sweep.html#ad6a7e2ea77aecf8bac9e93569b8adc18", null ],
     [ "VnaCwSweep", "class_rsa_toolbox_1_1_vna_cw_sweep.html#abaa85ae2913d16a95e40eca96ab0ca47", null ],
     [ "VnaCwSweep", "class_rsa_toolbox_1_1_vna_cw_sweep.html#afe6936f6a4b48b5c2152fb4c42225f46", null ],
+    [ "~VnaCwSweep", "class_rsa_toolbox_1_1_vna_cw_sweep.html#ab4c4b153302d22741a3b32dfb5110907", null ],
     [ "frequency_Hz", "class_rsa_toolbox_1_1_vna_cw_sweep.html#a91acfcdb00405d0e48878c2bc69caa14", null ],
     [ "ifBandwidth_Hz", "class_rsa_toolbox_1_1_vna_cw_sweep.html#a669ad1da20ac86ec3e7a6b3220b785a3", null ],
     [ "operator=", "class_rsa_toolbox_1_1_vna_cw_sweep.html#ae655a51737c2ea518b957abb3890f28a", null ],

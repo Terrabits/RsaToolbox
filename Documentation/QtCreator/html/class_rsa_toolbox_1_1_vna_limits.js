@@ -4,6 +4,7 @@ var class_rsa_toolbox_1_1_vna_limits =
     [ "VnaLimits", "class_rsa_toolbox_1_1_vna_limits.html#a31ac0b3646c209fe0ee3b631af0922a5", null ],
     [ "VnaLimits", "class_rsa_toolbox_1_1_vna_limits.html#a6eccb8fc6fd7582c0ae3eefbc847759a", null ],
     [ "VnaLimits", "class_rsa_toolbox_1_1_vna_limits.html#a0a2cc92074c369a1121407a03e7333a6", null ],
+    [ "~VnaLimits", "class_rsa_toolbox_1_1_vna_limits.html#a423fae2c916666ca6030391e8974d18b", null ],
     [ "addLower", "class_rsa_toolbox_1_1_vna_limits.html#acae1ba424510140f6fa99cefd29964da", null ],
     [ "addLower", "class_rsa_toolbox_1_1_vna_limits.html#afe69cc4b1c4a93bee94a7e73d8a3f8ea", null ],
     [ "addUpper", "class_rsa_toolbox_1_1_vna_limits.html#aa1506e1f9206c72c24caf728fff6e9c5", null ],

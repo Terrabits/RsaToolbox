@@ -4,6 +4,7 @@ var class_rsa_toolbox_1_1_vna_corrections =
     [ "VnaCorrections", "class_rsa_toolbox_1_1_vna_corrections.html#af47c7513ac31496ce8652354e1765cb8", null ],
     [ "VnaCorrections", "class_rsa_toolbox_1_1_vna_corrections.html#aeec76f0ee3b555f24626591de663e556", null ],
     [ "VnaCorrections", "class_rsa_toolbox_1_1_vna_corrections.html#aacadb276e7ed8cf36aecac3d79f861e5", null ],
+    [ "~VnaCorrections", "class_rsa_toolbox_1_1_vna_corrections.html#a2578a0b9bb3fc53e589feac74ef05c5b", null ],
     [ "calGroup", "class_rsa_toolbox_1_1_vna_corrections.html#a47e13e945e580c28ecb77e7961e086e6", null ],
     [ "calibrationType", "class_rsa_toolbox_1_1_vna_corrections.html#a12a69552cf871e3e95383de31a695d0a", null ],
     [ "clear", "class_rsa_toolbox_1_1_vna_corrections.html#ac8bb3912a3ce86b15842e79d0b421204", null ],

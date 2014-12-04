@@ -1,9 +1,15 @@
 #include "GetSnpFile.h"
 #include "ui_GetSnpFile.h"
+
+
+// RsaToolbox
+using namespace RsaToolbox;
+
+// Qt
 #include <QFileInfo>
 #include <QFileDialog>
 #include <QDebug>
-using namespace RsaToolbox;
+
 
 GetSnpFile::GetSnpFile(QWidget *parent) :
     QWidget(parent),

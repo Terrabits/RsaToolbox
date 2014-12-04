@@ -4,6 +4,7 @@ var class_rsa_toolbox_1_1_vna_linear_sweep =
     [ "VnaLinearSweep", "class_rsa_toolbox_1_1_vna_linear_sweep.html#a6faa279b478d14e22da2484073d08233", null ],
     [ "VnaLinearSweep", "class_rsa_toolbox_1_1_vna_linear_sweep.html#ae8f51d6d0cf71932947e53c360d1d9bb", null ],
     [ "VnaLinearSweep", "class_rsa_toolbox_1_1_vna_linear_sweep.html#aee07ba7283603188e117cee5e28f12ce", null ],
+    [ "~VnaLinearSweep", "class_rsa_toolbox_1_1_vna_linear_sweep.html#abe69f07dc59276ee1a91c067921a8cdd", null ],
     [ "autoSweepTimeOff", "class_rsa_toolbox_1_1_vna_linear_sweep.html#a220fef16f57b763fc04b22d35989e2dd", null ],
     [ "autoSweepTimeOn", "class_rsa_toolbox_1_1_vna_linear_sweep.html#a42fa6859b453c6c8004ec13da4580d28", null ],
     [ "center_Hz", "class_rsa_toolbox_1_1_vna_linear_sweep.html#aaeaeb032dfc1d3d3c1378ff6ae207d15", null ],
