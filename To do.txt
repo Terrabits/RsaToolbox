@@ -3,10 +3,11 @@ Right now right now:
   * merge into class VnaChannel
   * Move circular #includes to end of VnaChannel.h
 
-
-
+- Finish VnaCalUnit interface, use in Cal Unit Sim
 
 - Documentation
+  Create class inheritance diagram
+
 - FrequencyLineEdit ('g' changes units to "GHz", appropriate validator)
 - "\d+\.*\d*[GgMKkmunp]"
 - Create Qt Creator Designer plugins for widgets
