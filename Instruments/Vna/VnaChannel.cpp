@@ -429,6 +429,44 @@ void VnaChannel::dissolveCalGroup() {
     _vna->write(scpi);
 }
 
+// Delay Offsets
+double VnaChannel::delayOffset_s(uint port) {
+    QString scpi = ":SENS%1:CORR:EDEL%2:TIME?\n";
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(port);
+    return _vna->query(scpi).trimmed().toDouble();
+}
+QRowVector VnaChannel::delayOffsets_s() {
+    uint ports = _vna->testPorts();
+    QRowVector delays;
+    for (uint i = 1; i <= ports; i++)
+        delays << delayOffset_s(i);
+    return delays;
+}
+void VnaChannel::setDelayOffset(uint port, double delay, SiPrefix prefix) {
+    delay *= toDouble(prefix);
+    QString scpi = ":SENS%1:CORR:EDEL%2:TIME %3\n";
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(port);
+    scpi = scpi.arg(delay);
+    _vna->write(scpi);
+}
+void VnaChannel::setDelayOffsets(QRowVector delays, SiPrefix prefix) {
+    int ports = _vna->testPorts();
+    if (delays.size() > ports)
+        delays.resize(ports);
+    for (int i = 0; i < delays.size(); i++)
+        setDelayOffset(i+1, delays[i], prefix);
+}
+void VnaChannel::clearDelayOffset(uint port) {
+    setDelayOffset(port, 0);
+}
+void VnaChannel::clearDelayOffsets() {
+    for (uint i = 1; i <= _vna->testPorts(); i++)
+        clearDelayOffset(i);
+}
+
+// Corrections
 VnaCorrections &VnaChannel::corrections() {
     _corrections.reset(new VnaCorrections(_vna, this));
     return(*_corrections);

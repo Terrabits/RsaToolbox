@@ -3,6 +3,7 @@ var class_rsa_toolbox_1_1_vna_trace =
     [ "VnaTrace", "class_rsa_toolbox_1_1_vna_trace.html#a7af0ae74e3cd4ee0dd2a94e16f3e5502", null ],
     [ "VnaTrace", "class_rsa_toolbox_1_1_vna_trace.html#ae4529f9a10b246b26d23519efaef00d4", null ],
     [ "VnaTrace", "class_rsa_toolbox_1_1_vna_trace.html#aabb32f687d5e5a3bb29dbe0f4b0a31c3", null ],
+    [ "~VnaTrace", "class_rsa_toolbox_1_1_vna_trace.html#a70db7e80fd426385d2b12cd7acb8ca35", null ],
     [ "admittance", "class_rsa_toolbox_1_1_vna_trace.html#a53a11333b6c268ce1ee8f4dd2b393609", null ],
     [ "admittance", "class_rsa_toolbox_1_1_vna_trace.html#a7e442906c31256f7439966802ad8d9ef", null ],
     [ "autoscale", "class_rsa_toolbox_1_1_vna_trace.html#a42080b87976a6e7f1945e996b45d4df3", null ],

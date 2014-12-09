@@ -14,8 +14,9 @@ var class_rsa_toolbox_1_1_vna_properties =
       [ "Unknown", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea88183b946cc5f0e8c96b2e66e1c74a7e", null ]
     ] ],
     [ "VnaProperties", "class_rsa_toolbox_1_1_vna_properties.html#a33aba4b5b99bc0d3abe583b87d0e4e10", null ],
-    [ "VnaProperties", "class_rsa_toolbox_1_1_vna_properties.html#aafcbcffc0432236501d898abbb31c2b2", null ],
+    [ "VnaProperties", "class_rsa_toolbox_1_1_vna_properties.html#a486d99077608385c08da6940738171b2", null ],
     [ "VnaProperties", "class_rsa_toolbox_1_1_vna_properties.html#a269ad14a79432e91a95e5f7756500667", null ],
+    [ "~VnaProperties", "class_rsa_toolbox_1_1_vna_properties.html#a7c1179cd398eed34f825981422fa2428", null ],
     [ "firmwareVersion", "class_rsa_toolbox_1_1_vna_properties.html#ace57bbc4eff73ff060fb917be8b6e40e", null ],
     [ "hasReceiverAttenuators", "class_rsa_toolbox_1_1_vna_properties.html#aeeba01fcad674b92b25f5f325deb480d", null ],
     [ "hasSourceAttenuators", "class_rsa_toolbox_1_1_vna_properties.html#a39ab55935b3c6166146f21aa8af74698", null ],

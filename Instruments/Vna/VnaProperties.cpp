@@ -6,6 +6,9 @@
 #include "Vna.h"
 using namespace RsaToolbox;
 
+// Qt
+#include <QDebug>
+
 
 /*!
  * \class RsaToolbox::VnaProperties
@@ -25,14 +28,12 @@ VnaProperties::VnaProperties(QObject *parent) :
 
 VnaProperties::VnaProperties(const VnaProperties &other)
 {
-    _placeholder.reset(new Vna());
     _vna = other._vna;
 }
 
 VnaProperties::VnaProperties(Vna *vna, QObject *parent) :
     QObject(parent)
 {
-    _placeholder.reset(new Vna());
     _vna = vna;
 }
 VnaProperties::~VnaProperties() {

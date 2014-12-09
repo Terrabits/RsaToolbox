@@ -10,6 +10,7 @@ var class_rsa_toolbox_1_1_vna_calibrate =
     [ "VnaCalibrate", "class_rsa_toolbox_1_1_vna_calibrate.html#a08c3db9cc7b95b3312ea64c763dd40fb", null ],
     [ "VnaCalibrate", "class_rsa_toolbox_1_1_vna_calibrate.html#a870813b3182e7e5b918e216f2ff67554", null ],
     [ "VnaCalibrate", "class_rsa_toolbox_1_1_vna_calibrate.html#a17916056a0cfd8e7964008497a9fa4be", null ],
+    [ "~VnaCalibrate", "class_rsa_toolbox_1_1_vna_calibrate.html#a69dd8022c66d5765ef4b528c87d31c35", null ],
     [ "apply", "class_rsa_toolbox_1_1_vna_calibrate.html#a95067243b72a23863ec07c821797455c", null ],
     [ "connector", "class_rsa_toolbox_1_1_vna_calibrate.html#a4e8c2593d3bd095e75aec52c0c2dc7f9", null ],
     [ "connectors", "class_rsa_toolbox_1_1_vna_calibrate.html#aa5a3dfdd57c9eba8eb08677f32c6f209", null ],

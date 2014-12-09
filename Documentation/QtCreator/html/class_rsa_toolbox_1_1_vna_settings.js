@@ -21,6 +21,7 @@ var class_rsa_toolbox_1_1_vna_settings =
     [ "VnaSettings", "class_rsa_toolbox_1_1_vna_settings.html#addf94e0241e4e5344797b8b81c82529c", null ],
     [ "VnaSettings", "class_rsa_toolbox_1_1_vna_settings.html#a4e9edb51c6769b1e0b6069ab693bce74", null ],
     [ "VnaSettings", "class_rsa_toolbox_1_1_vna_settings.html#a42d202abc6c14f20cfa456107464840e", null ],
+    [ "~VnaSettings", "class_rsa_toolbox_1_1_vna_settings.html#a132c10ae5ba831b2141b354cd2431827", null ],
     [ "calibrationPreset", "class_rsa_toolbox_1_1_vna_settings.html#ad495e678cfec341c363b434fd3a201c1", null ],
     [ "calibrationPresetOff", "class_rsa_toolbox_1_1_vna_settings.html#a596001181fc46399ce7d7ff1b8f79249", null ],
     [ "colorScheme", "class_rsa_toolbox_1_1_vna_settings.html#ab4b98081f3798a0b1a5f3286b5f36fcf", null ],

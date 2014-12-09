@@ -3,6 +3,7 @@ var class_rsa_toolbox_1_1_vna_cal_kit =
     [ "VnaCalKit", "class_rsa_toolbox_1_1_vna_cal_kit.html#a085130bab631ddee533c4352a859e3cf", null ],
     [ "VnaCalKit", "class_rsa_toolbox_1_1_vna_cal_kit.html#a9286f895dd1af893772bc5b94e856be7", null ],
     [ "VnaCalKit", "class_rsa_toolbox_1_1_vna_cal_kit.html#a49dddc1f66c5af6ce852b157a785c1fd", null ],
+    [ "~VnaCalKit", "class_rsa_toolbox_1_1_vna_cal_kit.html#ae7b3948e8eb5c425c553ee1a09b17fdc", null ],
     [ "addStandard", "class_rsa_toolbox_1_1_vna_cal_kit.html#a955867302e471115559d91a7844d9092", null ],
     [ "connectorType", "class_rsa_toolbox_1_1_vna_cal_kit.html#a767579d3bacfc6f3e1b799cee4c6eb24", null ],
     [ "has", "class_rsa_toolbox_1_1_vna_cal_kit.html#ac881444c729b3dcbb0d7795b339ba3da", null ],

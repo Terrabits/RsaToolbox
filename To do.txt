@@ -4,7 +4,7 @@ Short term:
 - Update past projects:
 ? RSA Attenuator Cal (Rsc)
   RSA Autocal
-  RSA Cal Unit Sim
+  RSA Cal Unit Sim (add VnaCalUnit class. 24 port cal?)
   RSA Delete Corrections
   RSA Display Delay Offset
   RSA Emulation Demo
@@ -23,12 +23,14 @@ X RSA File Transfer
   RSA VNA Remote Logger
 
 Medium term:
-- Finish Create Installer
-- Update RsaToolbox Documentation
 - Update Qt Creator project templates
-- Add FrequencyLineEdit ('g' changes units to "GHz" etc. Validator: "\d+\.*\d*[GgMKkmunp]")
 
 Long term:
-- Qt Designer widget plugins
+- Add FrequencyLineEdit ('g' changes units to "GHz" etc. Validator: "\d+\.*\d*[GgMKkmunp]")
+- Design widgets so that they don't crash if uninitialized
+- Qt Designer plugins for widgets
+  Automatically include RsaToolbox dependencies?
   Win: C:\Qt\Tools\QtCreator\bin\plugins\designer
   Mac: ?
+  Linux: ?
+- Installer/Installation directions

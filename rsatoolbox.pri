@@ -30,7 +30,7 @@ INCLUDEPATH += $$PWD \
                $$PWD/QCustomPlot
 
 win32 {
-    LIBS += -L$$PWD/Bus/Visa
+    LIBS += -L$$PWD/Bus/Visa # RsVisa
     LIBS += -L$$PWD
     LIBS += -L$$PWD/QCustomPlot/
     CONFIG(debug, release|debug) {

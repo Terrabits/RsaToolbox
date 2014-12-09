@@ -15,6 +15,7 @@ var class_rsa_toolbox_1_1_vna_time_domain =
     [ "VnaTimeDomain", "class_rsa_toolbox_1_1_vna_time_domain.html#a56bc0376419dc1b9ad167fd1f8a8704d", null ],
     [ "VnaTimeDomain", "class_rsa_toolbox_1_1_vna_time_domain.html#acc195eaa22f8f06e5dd92fc5e017bf65", null ],
     [ "VnaTimeDomain", "class_rsa_toolbox_1_1_vna_time_domain.html#a957e58b99169749c88a5d671e27caca3", null ],
+    [ "~VnaTimeDomain", "class_rsa_toolbox_1_1_vna_time_domain.html#a327aa3182d91f1ea107b9c3baa5d7eaf", null ],
     [ "adjustChannelFrequencySpacing", "class_rsa_toolbox_1_1_vna_time_domain.html#ac49b96fc7a3a6066bcf29d4fe6c94304", null ],
     [ "adjustChannelPoints", "class_rsa_toolbox_1_1_vna_time_domain.html#acbf9b4d91c9830636f7fc7c5071e9acf", null ],
     [ "adjustChannelStopFrequency", "class_rsa_toolbox_1_1_vna_time_domain.html#a48419f07cbbd00bc0d582674b9e75aa0", null ],

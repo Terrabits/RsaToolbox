@@ -13,6 +13,7 @@ var class_rsa_toolbox_1_1_vna_file_system =
     [ "VnaFileSystem", "class_rsa_toolbox_1_1_vna_file_system.html#ae37eb2f93141ebc884b38950aba7ab53", null ],
     [ "VnaFileSystem", "class_rsa_toolbox_1_1_vna_file_system.html#a777d4e37c87890b199fefaf935141420", null ],
     [ "VnaFileSystem", "class_rsa_toolbox_1_1_vna_file_system.html#a1ae9468d892f153f5490123b2b1745d1", null ],
+    [ "~VnaFileSystem", "class_rsa_toolbox_1_1_vna_file_system.html#ade8feb601460d4cbe2ca63d704be9c3e", null ],
     [ "changeDirectory", "class_rsa_toolbox_1_1_vna_file_system.html#a0921c62d2c2baaf0460e0c1e5d6499bd", null ],
     [ "changeDirectory", "class_rsa_toolbox_1_1_vna_file_system.html#ad0232740188922d0b5844bb36ad6a193", null ],
     [ "copyFile", "class_rsa_toolbox_1_1_vna_file_system.html#aa2bd5fa44bba5d7949ef187f0d81b975", null ],

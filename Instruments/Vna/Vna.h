@@ -34,7 +34,7 @@ public:
     Vna(GenericBus *bus, QObject *parent = 0);
     Vna(ConnectionType type, QString address, QObject *parent = 0);
 
-    void printInfo();
+    using GenericInstrument::printInfo;
     virtual void printInfo(QString &info);
 
     QRowVector readVector(uint bufferSize_B = 5000, uint timeout_ms = 1000);

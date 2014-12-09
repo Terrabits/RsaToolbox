@@ -12,3 +12,7 @@ ErrorLabel::ErrorLabel(QWidget *parent) :
     font.setItalic(true);
     setFont(font);
 }
+
+void ErrorLabel::showMessage(const QString &message, int timeout) {
+    QStatusBar::showMessage(message, timeout);
+}

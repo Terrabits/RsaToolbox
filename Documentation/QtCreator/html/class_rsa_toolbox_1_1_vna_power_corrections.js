@@ -4,6 +4,7 @@ var class_rsa_toolbox_1_1_vna_power_corrections =
     [ "VnaPowerCorrections", "class_rsa_toolbox_1_1_vna_power_corrections.html#aef59ae7fa4c3f8b1c967dba8a468a035", null ],
     [ "VnaPowerCorrections", "class_rsa_toolbox_1_1_vna_power_corrections.html#ae1d1bff1c07f3a92d570b9396689a498", null ],
     [ "VnaPowerCorrections", "class_rsa_toolbox_1_1_vna_power_corrections.html#a182d26428cd86bc7137e7c0d832d62c8", null ],
+    [ "~VnaPowerCorrections", "class_rsa_toolbox_1_1_vna_power_corrections.html#a47cd6148fa1eab4afa221154d99b84a7", null ],
     [ "calGroup", "class_rsa_toolbox_1_1_vna_power_corrections.html#a47e13e945e580c28ecb77e7961e086e6", null ],
     [ "clear", "class_rsa_toolbox_1_1_vna_power_corrections.html#ac8bb3912a3ce86b15842e79d0b421204", null ],
     [ "dissolveCalGroupLink", "class_rsa_toolbox_1_1_vna_power_corrections.html#af9210094cea5a937b7a5f5e771ac0e3d", null ],

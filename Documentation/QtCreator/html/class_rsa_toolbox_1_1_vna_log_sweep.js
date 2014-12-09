@@ -4,6 +4,7 @@ var class_rsa_toolbox_1_1_vna_log_sweep =
     [ "VnaLogSweep", "class_rsa_toolbox_1_1_vna_log_sweep.html#a7422421cc25d1ec01a293e649ecf8f54", null ],
     [ "VnaLogSweep", "class_rsa_toolbox_1_1_vna_log_sweep.html#a8a804a108085745d3699b016407e9681", null ],
     [ "VnaLogSweep", "class_rsa_toolbox_1_1_vna_log_sweep.html#a67119e84876f4061b4b2c9a44467dd2b", null ],
+    [ "~VnaLogSweep", "class_rsa_toolbox_1_1_vna_log_sweep.html#a7ce87e70ce48f2abda832f6344af4a89", null ],
     [ "autoSweepTimeOff", "class_rsa_toolbox_1_1_vna_log_sweep.html#a220fef16f57b763fc04b22d35989e2dd", null ],
     [ "autoSweepTimeOn", "class_rsa_toolbox_1_1_vna_log_sweep.html#a42fa6859b453c6c8004ec13da4580d28", null ],
     [ "clearSParameterGroup", "class_rsa_toolbox_1_1_vna_log_sweep.html#af0435978efe0339d462c159ca1b00864", null ],

@@ -5,6 +5,7 @@ var class_rsa_toolbox_1_1_vna_power_calibrate =
     [ "VnaPowerCalibrate", "class_rsa_toolbox_1_1_vna_power_calibrate.html#af15c49d8f09e1ebb0c234206e0279c17", null ],
     [ "VnaPowerCalibrate", "class_rsa_toolbox_1_1_vna_power_calibrate.html#acd8c75f2007fc1895e287b292aa0555c", null ],
     [ "VnaPowerCalibrate", "class_rsa_toolbox_1_1_vna_power_calibrate.html#abdf7a889ab542562865a530c4608f956", null ],
+    [ "~VnaPowerCalibrate", "class_rsa_toolbox_1_1_vna_power_calibrate.html#a5001d8911a471824d3dbc1f0d3bd6018", null ],
     [ "apply", "class_rsa_toolbox_1_1_vna_power_calibrate.html#a95067243b72a23863ec07c821797455c", null ],
     [ "connector", "class_rsa_toolbox_1_1_vna_power_calibrate.html#a4e8c2593d3bd095e75aec52c0c2dc7f9", null ],
     [ "connectors", "class_rsa_toolbox_1_1_vna_power_calibrate.html#aa5a3dfdd57c9eba8eb08677f32c6f209", null ],

@@ -14,6 +14,7 @@ public:
 signals:
 
 public slots:
+    void showMessage(const QString & message, int timeout = 5000);
 
 };
 }

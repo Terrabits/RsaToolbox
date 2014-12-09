@@ -71,7 +71,6 @@ var class_rsa_toolbox_1_1_vna =
     [ "numberOfDiagrams", "class_rsa_toolbox_1_1_vna.html#afff3d4de60b4d48bc08e4f14a70bb282", null ],
     [ "numberOfSwitchMatrices", "class_rsa_toolbox_1_1_vna.html#a7d0d7026ee6bef687aacf0b725eaab85", null ],
     [ "numberOfTraces", "class_rsa_toolbox_1_1_vna.html#aa589497adb0d34965c0139be83f421ae", null ],
-    [ "printInfo", "class_rsa_toolbox_1_1_vna.html#a2dbaf5580b5305d54cff6848ae7deb30", null ],
     [ "printInfo", "class_rsa_toolbox_1_1_vna.html#a0acb62c30f35ef05de9ec8554920cf36", null ],
     [ "properties", "class_rsa_toolbox_1_1_vna.html#a4515e7a85cbf9e5c92cc01b11c831234", null ],
     [ "queryComplexVector", "class_rsa_toolbox_1_1_vna.html#a28798e7559461b9761caac24d1440897", null ],

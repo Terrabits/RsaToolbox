@@ -4,6 +4,7 @@
 #include "General.h"
 #include "GenericInstrument.h"
 #include "VisaBus.h"
+#include "TcpBus.h"
 #include "NoBus.h"
 using namespace RsaToolbox;
 
@@ -124,7 +125,16 @@ void GenericInstrument::resetBus(GenericBus *bus) {
  * \param address Address of the instrument (e.g. "127.0.0.1")
  */
 void GenericInstrument::resetBus(ConnectionType type, QString address) {
-    resetBus(new VisaBus(type, address, 500, 1000));
+#ifdef Q_OS_WIN32
+    resetBus(new VisaBus(type, address));
+#else
+    if (VisaBus::isVisaInstalled())
+        resetBus(new VisaBus(type, address));
+    else if (type == ConnectionType::TCPIP_CONNECTION)
+        resetBus(new TcpBus(type, address));
+    else
+        resetBus(new NoBus());
+#endif
 }
 
 /*!

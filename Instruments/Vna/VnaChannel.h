@@ -121,6 +121,14 @@ public:
     // Averaging
     VnaAveraging &averaging();
 
+    // Delay Offsets
+    double delayOffset_s(uint port);
+    QRowVector delayOffsets_s();
+    void setDelayOffset(uint port, double delay, SiPrefix prefix = SiPrefix::None);
+    void setDelayOffsets(QRowVector delays, SiPrefix prefix = SiPrefix::None);
+    void clearDelayOffset(uint port);
+    void clearDelayOffsets();
+
     // Corrections
     bool isCalibrated();
     bool isCalGroup();
