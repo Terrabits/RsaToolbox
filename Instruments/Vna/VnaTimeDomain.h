@@ -23,14 +23,14 @@ class VnaTimeDomain : public QObject
 
 public:
 
-    enum class Window {
+    enum /*class*/ Window {
         Regular,
         Hamming,
         Hann,
         Bohman,
         DolphChebychev
     };
-    enum class RiseTime {
+    enum /*class*/ RiseTime {
         TwentyToEighty,
         TenToNinety
     };

@@ -19,7 +19,7 @@ class VnaSettings : public QObject
     Q_OBJECT
 
 public:
-    enum class EmulationMode {
+    enum /*class*/ EmulationMode {
         Pna    = 1,
         Ena    = 2,
         Hp8510 = 3,
@@ -31,7 +31,7 @@ public:
         Zvabt  = 9,
         Off    = 0,
     };
-    enum class ColorScheme {
+    enum /*class*/ ColorScheme {
         Dark              = 0,
         Light             = 1,
         BlackWhiteOutline = 2,

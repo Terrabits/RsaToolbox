@@ -214,34 +214,24 @@ SiPrefix RsaToolbox::getPrefix(double value) {
 
 
 // File system
-QString RsaToolbox::AppendPath(QDir path, QString filename) {
-    return(path.path() + "/" + filename);
-}
-QString RsaToolbox::AppendCurrentDirectory(QString filename) {
-    return(QCoreApplication::applicationDirPath() + "/" + filename);
-}
-QString RsaToolbox::GetAppDataPath(QString program_folder) {
-    QStringList dataLocations = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
-    QString path;
-    if (dataLocations.size() > 0)
-        path = dataLocations.back()
-                + "/" + QString(COMPANY_FOLDER)
-                + "/" + program_folder;
+// Only necessary since QStandardPaths
+// no longer returns C:\ProgramData
+// for some reason.
+QString RsaToolbox::GetAppDataPath(QString manufacturerFolder, QString applicationFolder) {
+    QDir dataDir;
+#ifdef Q_OS_WIN32
+    QDir programData = QDir::root();
+    programData.cd("ProgramData");
+    if (programData.exists())
+        dataDir = programData;
     else
-        path = QCoreApplication::applicationDirPath();
-    return(path);
-}
-QString RsaToolbox::AppendAppDataPath(QString program_folder, QString filename) {
-    QStringList dataLocations = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
-    QString path;
-    if (dataLocations.size() > 0)
-        path = dataLocations.back()
-                + "/" + QString(COMPANY_FOLDER)
-                + "/" + program_folder;
-    else
-        path = QCoreApplication::applicationDirPath();
-    filename = path + "/" + filename;
-    return(filename);
+        dataDir.setPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
+#else
+    dir.setPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
+#endif
+    dataDir.cd(manufacturerFolder);
+    dataDir.cd(applicationFolder);
+    return dataDir.path();
 }
 
 // Formatting

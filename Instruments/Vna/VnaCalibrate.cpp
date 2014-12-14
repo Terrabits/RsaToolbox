@@ -89,8 +89,8 @@ bool VnaCalibrate::isRawDataKept() {
 void VnaCalibrate::setConnector(uint port, Connector connector) {
     QString scpi = ":CORR:COLL:SCON%1 \'%2\',%3\n"; // port, type, gender
     scpi = scpi.arg(port);
-    scpi = scpi.arg(toConnectorTypeVnaScpi(connector));
-    scpi = scpi.arg(toConnectorGenderVnaScpi(connector));
+    scpi = scpi.arg(VnaScpi::toTypeString(connector));
+    scpi = scpi.arg(VnaScpi::toGenderString(connector));
     _vna->write(scpi);
 }
 void VnaCalibrate:: setConnectors(Connector connector) {
@@ -106,9 +106,9 @@ Connector VnaCalibrate:: connector(uint port) {
     QStringList results
             = _vna->query(scpi).trimmed().remove("\'").split(",");
     Connector::Type type
-            = toConnectorType(results.first());
-    ConnectorGender gender
-            = toConnectorGender(results.last());
+            = VnaScpi::toConnectorType(results.first());
+    Connector::Gender gender
+            = VnaScpi::toConnectorGender(results.last());
 
     if (type == Connector::CUSTOM_CONNECTOR)
         return(Connector(results.first(), gender));
@@ -141,7 +141,7 @@ NameLabel VnaCalibrate:: selectedKit(Connector type) {
     else {
         scpi = ":CORR:CKIT:LSEL? \'%2\'\n";
     }
-    scpi = scpi.arg(toConnectorTypeVnaScpi(type));
+    scpi = scpi.arg(VnaScpi::toTypeString(type));
 
     QString result = _vna->query(scpi).trimmed();
     QVector<NameLabel> results
@@ -270,10 +270,10 @@ bool VnaCalibrate::isFullyInitialized() const {
 }
 
 void VnaCalibrate::selectKit(NameLabel nameLabel, Connector type) {
-    selectKit(nameLabel.name(), nameLabel.label(), toConnectorTypeVnaScpi(type));
+    selectKit(nameLabel.name(), nameLabel.label(), VnaScpi::toTypeString(type));
 }
 void VnaCalibrate::selectKit(QString name, QString label, Connector type) {
-    selectKit(name, label, toConnectorTypeVnaScpi(type));
+    selectKit(name, label, VnaScpi::toTypeString(type));
 }
 void VnaCalibrate::selectKit(QString name, QString label, QString customConnector) {
     QString scpi;
@@ -290,7 +290,7 @@ void VnaCalibrate::selectKit(QString name, QString label, QString customConnecto
     _vna->write(scpi);
 }
 void VnaCalibrate::selectKit(QString name, QString label, Connector::Type type) {
-    selectKit(name, label, toVnaScpi(type));
+    selectKit(name, label, VnaScpi::toString(type));
 }
 void VnaCalibrate::defineCalibration(QString calibrationName, CalType type, QVector<uint> ports) {
     QString scpi;

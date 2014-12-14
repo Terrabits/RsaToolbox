@@ -30,6 +30,9 @@ INCLUDEPATH += $$PWD \
                $$PWD/QCustomPlot
 
 win32 {
+    # C++11 enum class warnings:
+    QMAKE_CXXFLAGS += /wd4482
+
     LIBS += -L$$PWD/Bus/Visa # RsVisa
     LIBS += -L$$PWD
     LIBS += -L$$PWD/QCustomPlot/

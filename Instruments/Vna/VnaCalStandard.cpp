@@ -283,7 +283,7 @@ bool VnaCalStandard::isNotType(VnaStandardType type) const {
  * \return \c true if \c this is a single-port standard of
  * gender \c gender, returns \c false otherwise
  */
-bool VnaCalStandard::isGender(ConnectorGender gender) const {
+bool VnaCalStandard::isGender(Connector::Gender gender) const {
     if (isPortSpecific())
         return(false);
     else
@@ -297,11 +297,17 @@ bool VnaCalStandard::isGender(ConnectorGender gender) const {
  * \return \c true if \c this is a two-port standard of
  * genders \c gender1 and \c gender2, returns \c false otherwise
  */
-bool VnaCalStandard::isGender(ConnectorGender gender1, ConnectorGender gender2) const {
+bool VnaCalStandard::isGender(Connector::Gender gender1, Connector::Gender gender2) const {
     if(isSinglePort() || isPortSpecific())
         return(false);
 
-    return(_connector1.isGender(gender1) && _connector2.isGender(gender2));
+    if (_connector1.isGender(gender1) && _connector2.isGender(gender2))
+        return true;
+    if (_connector1.isGender(gender2) && _connector2.isGender(gender1))
+        return true;
+
+
+    return false;
 }
 
 /*!
@@ -310,7 +316,7 @@ bool VnaCalStandard::isGender(ConnectorGender gender1, ConnectorGender gender2) 
  * \c false otherwise
  */
 bool VnaCalStandard::isMale() const {
-    return(isSinglePort() && isNotPortSpecific() && isGender(MALE_GENDER));
+    return(isSinglePort() && isNotPortSpecific() && isGender(Connector::Gender::Male));
 }
 
 /*!
@@ -319,7 +325,7 @@ bool VnaCalStandard::isMale() const {
  * \c false otherwise
  */
 bool VnaCalStandard::isFemale() const {
-    return(isSinglePort() && isNotPortSpecific() && isGender(FEMALE_GENDER));
+    return(isSinglePort() && isNotPortSpecific() && isGender(Connector::Gender::Female));
 }
 
 /*!
@@ -359,9 +365,15 @@ bool VnaCalStandard::isPortSpecific(uint port) const {
  * to VNA ports \c port1 and \c port2, \c false otherwise
  */
 bool VnaCalStandard::isPortSpecific(uint port1, uint port2) const {
-    if (isTwoPort() && isPortSpecific())
-        return(_port1 == port1 && _port2 == port2);
-    //else
+    if (!isTwoPort() || !isPortSpecific())
+        return false;
+
+
+    if (_port1 == port1 && _port2 == port2)
+        return true;
+    if (_port1 == port2 && _port2 == port1)
+        return true;
+
     return(false);
 }
 
@@ -380,7 +392,11 @@ bool VnaCalStandard::isNotPortSpecific() const {
  * \c false otherwise
  */
 bool VnaCalStandard::isSinglePort() const {
-    return(_type != UNKNOWN_STANDARD_TYPE && !isTwoPort());
+    return isSinglePort(_type);
+}
+bool VnaCalStandard::isSinglePort(VnaStandardType type) {
+    return (type != UNKNOWN_STANDARD_TYPE)
+            && !isTwoPort(type);
 }
 
 /*!
@@ -389,7 +405,10 @@ bool VnaCalStandard::isSinglePort() const {
  * \c false otherwise
  */
 bool VnaCalStandard::isTwoPort() const {
-    switch(_type) {
+    return isTwoPort(_type);
+}
+bool VnaCalStandard::isTwoPort(VnaStandardType type) {
+    switch(type) {
     case THRU_STANDARD_TYPE:
     case LINE_STANDARD_TYPE:
     case LINE2_STANDARD_TYPE:
@@ -575,7 +594,7 @@ bool VnaCalStandard::isThru() const {
  * \return \c true if is a male-to-male thru standard, false otherwise
  */
 bool VnaCalStandard::isThruMM() const {
-    return(isThru(MALE_GENDER, MALE_GENDER));
+    return(isThru(Connector::Gender::Male, Connector::Gender::Male));
 }
 
 /*!
@@ -583,7 +602,7 @@ bool VnaCalStandard::isThruMM() const {
  * \return \c true if is a male-to-female thru standard, false otherwise
  */
 bool VnaCalStandard::isThruMF() const {
-    return(isThru(MALE_GENDER, FEMALE_GENDER));
+    return(isThru(Connector::Gender::Male, Connector::Gender::Female));
 }
 
 /*!
@@ -591,7 +610,7 @@ bool VnaCalStandard::isThruMF() const {
  * \return \c true if is a female-to-female thru standard, false otherwise
  */
 bool VnaCalStandard::isThruFF() const {
-    return(isThru(FEMALE_GENDER, FEMALE_GENDER));
+    return(isThru(Connector::Gender::Female, Connector::Gender::Female));
 }
 
 /*!
@@ -612,7 +631,7 @@ bool VnaCalStandard::isThru(uint port1, uint port2) const {
  * \param gender2
  * \return \c true if is a \c gender1 -to- \c gender2 thru standard, false otherwise
  */
-bool VnaCalStandard::isThru(ConnectorGender gender1, ConnectorGender gender2) const {
+bool VnaCalStandard::isThru(Connector::Gender gender1, Connector::Gender gender2) const {
     return(isThru() && isGender(gender1, gender2));
 }
 
@@ -745,8 +764,8 @@ uint VnaCalStandard::port2() const {
  * calibration standard
  * \return %Connector
  */
-Connector VnaCalStandard::connector() const {
-    return(_connector1);
+Connector &VnaCalStandard::connector() {
+    return _connector1;
 }
 
 /*!
@@ -754,8 +773,8 @@ Connector VnaCalStandard::connector() const {
  * calibration standard
  * \return %Connector 1
  */
-Connector VnaCalStandard::connector1() const {
-    return(_connector1);
+Connector &VnaCalStandard::connector1() {
+    return _connector1;
 }
 
 /*!
@@ -763,8 +782,8 @@ Connector VnaCalStandard::connector1() const {
  * calibration standard
  * \return %Connector 2
  */
-Connector VnaCalStandard::connector2() const {
-    return(_connector2);
+Connector &VnaCalStandard::connector2() {
+    return _connector2;
 }
 
 /*!
@@ -772,7 +791,7 @@ Connector VnaCalStandard::connector2() const {
  * calibration standard
  * \return Gender
  */
-ConnectorGender VnaCalStandard::gender() const {
+Connector::Gender VnaCalStandard::gender() const {
     return(_connector1.gender());
 }
 
@@ -781,7 +800,7 @@ ConnectorGender VnaCalStandard::gender() const {
  * calibration standard
  * \return Gender of connector 1
  */
-ConnectorGender VnaCalStandard::gender1() const {
+Connector::Gender VnaCalStandard::gender1() const {
     return(_connector1.gender());
 }
 
@@ -790,7 +809,7 @@ ConnectorGender VnaCalStandard::gender1() const {
  * calibration standard
  * \return Gender of connector 2
  */
-ConnectorGender VnaCalStandard::gender2() const {
+Connector::Gender VnaCalStandard::gender2() const {
     return(_connector2.gender());
 }
 
@@ -919,6 +938,37 @@ void VnaCalStandard::setLabel(QString label) {
 void VnaCalStandard::setTouchstoneFile(QString path) {
     _isTouchstone = true;
     _touchstone = path;
+}
+
+VnaStandardModel VnaCalStandard::model() const {
+    return _model;
+}
+
+void VnaCalStandard::setModel(VnaStandardModel model) {
+    _isTouchstone = false;
+    _isModel = true;
+    _model = model;
+}
+void VnaCalStandard::setModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms,
+                           double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3,
+                           double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3,
+                           double R_Ohms)
+{
+    _isTouchstone = false;
+    _isModel = true;
+
+    _model.eLength_m = eLength_m_m;
+    _model.loss_dB_per_sqrt_Hz = loss_dB_per_Sqrt_Hz;
+    _model.Z0_Ohms = Z0_Ohms;
+    _model.C0_fF = C0_fF;
+    _model.C1_fF_per_GHz = C1_fF_per_GHz;
+    _model.C2_fF_per_GHz2 = C2_fF_per_GHz2;
+    _model.C3_fF_per_GHz3 = C3_fF_per_GHz3;
+    _model.L0_pH = L0_pH;
+    _model.L1_pH_per_GHz = L1_pH_per_GHz;
+    _model.L2_pH_per_GHz2 = L2_pH_per_GHz2;
+    _model.L3_pH_per_GHz3 = L3_pH_per_GHz3;
+    _model.R_Ohms = R_Ohms;
 }
 
 /*!
@@ -1375,33 +1425,6 @@ QStringList VnaCalStandard::displayText(const QVector<VnaCalStandard> &standards
 }
 
 // Private
-void VnaCalStandard::setModel(VnaStandardModel model) {
-    _isTouchstone = false;
-    _isModel = true;
-    _model = model;
-}
-void VnaCalStandard::setModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms,
-                           double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3,
-                           double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3,
-                           double R_Ohms)
-{
-    _isTouchstone = false;
-    _isModel = true;
-
-    _model.eLength_m = eLength_m_m;
-    _model.loss_dB_per_sqrt_Hz = loss_dB_per_Sqrt_Hz;
-    _model.Z0_Ohms = Z0_Ohms;
-    _model.C0_fF = C0_fF;
-    _model.C1_fF_per_GHz = C1_fF_per_GHz;
-    _model.C2_fF_per_GHz2 = C2_fF_per_GHz2;
-    _model.C3_fF_per_GHz3 = C3_fF_per_GHz3;
-    _model.L0_pH = L0_pH;
-    _model.L1_pH_per_GHz = L1_pH_per_GHz;
-    _model.L2_pH_per_GHz2 = L2_pH_per_GHz2;
-    _model.L3_pH_per_GHz3 = L3_pH_per_GHz3;
-    _model.R_Ohms = R_Ohms;
-}
-
 void VnaCalStandard::setConnector1(Connector connector1) {
     _connector1 = connector1;
     _port1 = 0;
@@ -1461,14 +1484,14 @@ void RsaToolbox::sort(Connector &connector1, Connector &connector2) {
  * \param gender1
  * \param gender2
  */
-void RsaToolbox::sort(ConnectorGender &gender1, ConnectorGender &gender2) {
-    if (gender2 == MALE_GENDER && gender2 != MALE_GENDER) {
-        ConnectorGender temp = gender1;
+void RsaToolbox::sort(Connector::Gender &gender1, Connector::Gender &gender2) {
+    if (gender2 == Connector::Gender::Male && gender2 != Connector::Gender::Male) {
+        Connector::Gender temp = gender1;
         gender1 = gender2;
         gender2 = temp;
     }
-    else if (gender1 == FEMALE_GENDER && gender2 != FEMALE_GENDER) {
-        ConnectorGender temp = gender1;
+    else if (gender1 == Connector::Gender::Female && gender2 != Connector::Gender::Female) {
+        Connector::Gender temp = gender1;
         gender1 = gender2;
         gender2 = temp;
     }

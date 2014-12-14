@@ -5,6 +5,9 @@
 #include "General.h"
 using namespace RsaToolbox;
 
+// Qt
+#include <QDebug>
+
 
 /*!
  * \class RsaToolbox::VnaScpi
@@ -106,6 +109,328 @@ VnaUserDefinedPort VnaScpi::toUserDefinedPort(QString scpi) {
     port.setMeasurement(i, r);
 
     return port;
+}
+
+// Connector
+QString VnaScpi::toString(Connector::Gender gender) {
+    switch(gender) {
+    case Connector::Gender::Male:
+        return "MALE";
+    case Connector::Gender::Female:
+        return "FEM";
+    default:
+        return "MALE";
+    }
+}
+QString VnaScpi::toGenderString(Connector connector) {
+    return toString(connector.gender());
+}
+QString VnaScpi::toString(Connector::Type type) {
+    switch(type) {
+    case Connector::N_50_OHM_CONNECTOR:
+        return "N 50 Ohm";
+    case Connector::N_75_OHM_CONNECTOR:
+        return "N 75 Ohm";
+    case Connector::mm_7_CONNECTOR:
+        return "7 mm"; // PC 7
+    case Connector::mm_3_5_CONNECTOR:
+        return "3.5 mm"; // PC 3.5
+    case Connector::mm_2_92_CONNECTOR:
+        return "2.92 mm";
+    case Connector::mm_2_4_CONNECTOR:
+        return "2.4 mm";
+    case Connector::mm_1_85_CONNECTOR:
+        return "1.85 mm";
+    case Connector::in_7_16_CONNECTOR:
+        return "7-16";
+    case Connector::TYPE_F_75_OHM_CONNECTOR:
+        return "Type F (75)"; // !Zva
+    case Connector::BNC_50_OHM_CONNECTOR:
+        return "BNC 50 Ohm"; // !Zva
+    case Connector::BNC_75_OHM_CONNECTOR:
+        return "BNC 75 Ohm"; // !Zva
+    default:
+        return "UNKNOWN_CONNECTOR";
+    }
+}
+QString VnaScpi::toTypeString(Connector connector) {
+    if (connector.isCustomType())
+        return connector.customType();
+    else
+        return toString(connector.type());
+}
+Connector::Gender VnaScpi::toConnectorGender(QString scpi) {
+    scpi = scpi.toUpper();
+    if (scpi == "MALE")
+        return Connector::Gender::Male;
+    if (scpi == "FEM")
+        return Connector::Gender::Female;
+    // else
+        return Connector::Gender::Neutral;
+}
+Connector::Type VnaScpi::toConnectorType(QString scpi) {
+    if (scpi.contains("N 50 Ohm", Qt::CaseInsensitive))
+        return Connector::Type::N_50_OHM_CONNECTOR;
+    else if (scpi.contains("N 75 Ohm", Qt::CaseInsensitive))
+        return Connector::Type::N_75_OHM_CONNECTOR;
+    else if (scpi.contains("7 mm", Qt::CaseInsensitive))
+        return Connector::Type::mm_7_CONNECTOR;
+    else if (scpi.contains("3.5 mm", Qt::CaseInsensitive))
+        return Connector::Type::mm_3_5_CONNECTOR;
+    else if (scpi.contains("2.92 mm", Qt::CaseInsensitive))
+        return Connector::Type::mm_2_92_CONNECTOR;
+    else if (scpi.contains("2.4 mm", Qt::CaseInsensitive))
+        return Connector::Type::mm_2_4_CONNECTOR;
+    else if (scpi.contains("1.85 mm", Qt::CaseInsensitive))
+        return Connector::Type::mm_1_85_CONNECTOR;
+    else if (scpi.contains("7-16"))
+        return Connector::Type::in_7_16_CONNECTOR;
+    else if (scpi.contains("Type F (75)", Qt::CaseInsensitive))
+        return Connector::Type::TYPE_F_75_OHM_CONNECTOR;
+    else if (scpi.contains("BNC 50 Ohm", Qt::CaseInsensitive))
+        return Connector::Type::BNC_50_OHM_CONNECTOR;
+    else if (scpi.contains("BNC 75 Ohm", Qt::CaseInsensitive))
+        return Connector::Type::BNC_75_OHM_CONNECTOR;
+    else if (scpi.isEmpty() == false)
+        return Connector::Type::CUSTOM_CONNECTOR;
+    else
+        return Connector::Type::UNKNOWN_CONNECTOR;
+}
+
+// Calibration Standards
+QString VnaScpi::toString(const VnaCalStandard &standard) {
+    if (standard.isSinglePort()) {
+        if (standard.isNotPortSpecific())
+            return(toString(standard.type(), standard.gender()));
+        else
+            return(toString(standard.type(), standard.gender(), standard.port()));
+    }
+    else {
+        if (standard.isNotPortSpecific())
+            return(toString(standard.type(), standard.gender1(), standard.gender2()));
+        else
+            return(toString(standard.type(), standard.gender1(), standard.port1(), standard.gender2(), standard.port2()));
+    }
+}
+QString VnaScpi::toString(VnaStandardType type) {
+    switch(type) {
+    case OPEN_STANDARD_TYPE:
+        return "OP";
+    case SHORT_STANDARD_TYPE:
+        return "SH";
+    case OFFSET_SHORT_STANDARD_TYPE:
+        return "OSH";
+    case OFFSET_SHORT2_STANDARD_TYPE:
+        return "OSHORT2";
+    case OFFSET_SHORT3_STANDARD_TYPE:
+        return "OSHORT3";
+    case MATCH_STANDARD_TYPE:
+        return "MTC";
+    case SLIDING_MATCH_STANDARD_TYPE:
+        return "SM";
+    case REFLECT_STANDARD_TYPE:
+        return "REF";
+    case THRU_STANDARD_TYPE:
+        return "TH";
+    case LINE_STANDARD_TYPE:
+        return "LINE1";
+    case LINE2_STANDARD_TYPE:
+        return "LINE2";
+    case LINE3_STANDARD_TYPE:
+        return "LINE3";
+    case ATTENUATION_STANDARD_TYPE:
+        return "AT";
+    case SYMMETRIC_NETWORK_STANDARD_TYPE:
+        return "SN";
+    default:
+        return "UNKNOWN_STANDARD";
+    }
+}
+QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender) {
+    if (!VnaCalStandard::isSinglePort(type))
+        return "";
+
+    QString scpi = "%1%2";
+    if (gender == Connector::Gender::Female)
+        scpi = scpi.arg("F");
+    else
+        scpi = scpi.arg("M");
+    return scpi.arg(toString(type));
+}
+QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender, uint port) {
+    if (!VnaCalStandard::isSinglePort(type))
+        return "";
+
+    QString scpi = "%1%2(P%3)";
+    if (gender == Connector::Gender::Female)
+        scpi = scpi.arg("F");
+    else
+        scpi = scpi.arg("M");
+    scpi = scpi.arg(toString(type));
+    return scpi.arg(port);
+}
+QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender1, Connector::Gender gender2) {
+    if (!VnaCalStandard::isTwoPort(type))
+        return "";
+
+//    sort(gender1, gender2);
+    QString scpi = "%1%2%3";
+    if (gender1 == Connector::Gender::Female)
+        scpi = scpi.arg("F");
+    else
+        scpi = scpi.arg("M");
+    if (gender2 == Connector::Gender::Female)
+        scpi = scpi.arg("F");
+    else
+        scpi = scpi.arg("M");
+    return scpi.arg(toString(type));
+}
+QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender1, uint port1, Connector::Gender gender2, uint port2) {
+    if (!VnaCalStandard::isTwoPort(type))
+        return "";
+
+//    sort(gender1, gender2);
+//    sort(port1, port2);
+    QString scpi = "%1%2%3(P%4P%5)";
+    if (gender1 == Connector::Gender::Female)
+        scpi = scpi.arg("F");
+    else
+        scpi = scpi.arg("M");
+    if (gender2 == Connector::Gender::Female)
+        scpi = scpi.arg("F");
+    else
+        scpi = scpi.arg("M");
+    scpi = scpi.arg(toString(type));
+    scpi = scpi.arg(port1);
+    return scpi.arg(port2);
+}
+
+VnaCalStandard VnaScpi::toCalStandard(QString scpi) {
+    qDebug() << scpi;
+    VnaCalStandard std;
+    if (scpi.contains('(')) {
+        // Port specific (PxPy)
+        QStringList parts = scpi.remove(')').split('(');
+        scpi = parts.first();
+        QStringList ports = parts.last().remove(0,1).split('P');
+        if (ports.size() == 2) {
+            std.setPorts(ports.first().toUInt(),
+                         ports.last().toUInt());
+        }
+        else {
+            std.setPort(ports.first().toUInt());
+        }
+    }
+
+    if (scpi.right(2).contains("OP", Qt::CaseInsensitive)) {
+        std.setType(OPEN_STANDARD_TYPE);
+        scpi.chop(2);
+    }
+    else if (scpi.right(3).contains("OSH", Qt::CaseInsensitive)) {
+        std.setType(OFFSET_SHORT_STANDARD_TYPE);
+        scpi.chop(3);
+    }
+    if (scpi.contains("OSHORT1", Qt::CaseInsensitive)) {
+        std.setType(OFFSET_SHORT_STANDARD_TYPE);
+        scpi.chop(7);
+    }
+    else if (scpi.contains("OSHORT2", Qt::CaseInsensitive)) {
+        std.setType(OFFSET_SHORT2_STANDARD_TYPE);
+        scpi.chop(7);
+    }
+    else if (scpi.contains("OSHORT3", Qt::CaseInsensitive)) {
+        std.setType(OFFSET_SHORT3_STANDARD_TYPE);
+        scpi.chop(7);
+    }
+    else if (scpi.right(2).contains("SH", Qt::CaseInsensitive)) {
+        std.setType(SHORT_STANDARD_TYPE);
+        scpi.chop(2);
+    }
+    else if (scpi.right(3).contains("MMT", Qt::CaseInsensitive)) {
+        std.setType(MATCH_STANDARD_TYPE);
+        scpi.chop(3);
+    }
+    else if (scpi.right(2).contains("SM", Qt::CaseInsensitive)) {
+        std.setType(SLIDING_MATCH_STANDARD_TYPE);
+        scpi.chop(2);
+    }
+    else if (scpi.right(3).contains("REF", Qt::CaseInsensitive)) {
+        std.setType(REFLECT_STANDARD_TYPE);
+        scpi.chop(3);
+    }
+    else if (scpi.right(2).contains("TH", Qt::CaseInsensitive)) {
+        std.setType(THRU_STANDARD_TYPE);
+        scpi.chop(2);
+    }
+    else if (scpi.right(1).contains("L", Qt::CaseInsensitive)) {
+        std.setType(LINE_STANDARD_TYPE);
+        scpi.chop(1);
+    }
+    else if (scpi.contains("LINE1", Qt::CaseInsensitive)) {
+        std.setType(LINE_STANDARD_TYPE);
+        scpi.chop(5);
+    }
+    else if (scpi.contains("LINE2", Qt::CaseInsensitive)) {
+        std.setType(LINE2_STANDARD_TYPE);
+        scpi.chop(5);
+    }
+    else if (scpi.contains("LINE3", Qt::CaseInsensitive)) {
+        std.setType(LINE3_STANDARD_TYPE);
+        scpi.chop(5);
+    }
+    else if (scpi.right(2).contains("AT", Qt::CaseInsensitive)) {
+        std.setType(ATTENUATION_STANDARD_TYPE);
+        scpi.chop(2);
+    }
+    if (scpi.right(2).contains("SN", Qt::CaseInsensitive)) {
+        std.setType(SYMMETRIC_NETWORK_STANDARD_TYPE);
+        scpi.chop(2);
+    }
+
+    qDebug() << scpi;
+    if (std.isSinglePort() && scpi.size() >= 1) {
+        qDebug() << scpi[0].toUpper().toLatin1();
+        switch(scpi[0].toUpper().toLatin1()) {
+        case 'M':
+            std.connector().setGender(Connector::Gender::Male);
+            break;
+        case 'F':
+            std.connector().setGender(Connector::Gender::Female);
+            break;
+        default:
+            std.connector().setGender(Connector::Gender::Neutral);
+        }
+    }
+    else if (std.isTwoPort() && scpi.size() >= 2) {
+        char port1 = scpi[0].toUpper().toLatin1();
+        qDebug() << port1;
+        switch(port1) {
+        case 'M':
+            std.connector1().setGender(Connector::Gender::Male);
+            break;
+        case 'F':
+            std.connector1().setGender(Connector::Gender::Female);
+            break;
+        default:
+            std.connector1().setGender(Connector::Gender::Neutral);
+        }
+
+        char port2 = scpi[1].toUpper().toLatin1();
+        qDebug() << port2;
+        switch(port2) {
+        case 'M':
+            std.connector2().setGender(Connector::Gender::Male);
+            break;
+        case 'F':
+            std.connector2().setGender(Connector::Gender::Female);
+            break;
+        default:
+            std.connector2().setGender(Connector::Gender::Neutral);
+        }
+    }
+
+
+    return(std);
 }
 
 // Channel

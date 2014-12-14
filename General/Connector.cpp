@@ -35,7 +35,7 @@ using namespace RsaToolbox;
  */
 Connector::Connector() {
     _type = UNKNOWN_CONNECTOR;
-    _gender = NEUTRAL_GENDER;
+    _gender = Gender::Neutral;
 }
 
 /*!
@@ -66,7 +66,7 @@ Connector::Connector(const Connector &other) {
  * \param type Connector type
  * \param gender Connector gender
  */
-Connector::Connector(Type type, ConnectorGender gender) {
+Connector::Connector(Type type, Gender gender) {
     _type = type;
     _gender = gender;
 }
@@ -83,7 +83,7 @@ Connector::Connector(Type type, ConnectorGender gender) {
  * \param customType User-defined connector type
  * \param gender Connector gender
  */
-Connector::Connector(QString customType, ConnectorGender gender) {
+Connector::Connector(QString customType, Gender gender) {
     _type = CUSTOM_CONNECTOR;
     _customType = customType;
     _gender = gender;
@@ -131,9 +131,9 @@ QString Connector::displayType() const {
  */
 QString Connector::displayGender() const {
     switch(_gender) {
-    case MALE_GENDER: return("Male");
-    case FEMALE_GENDER: return("Female");
-    case NEUTRAL_GENDER: return("Neutral");
+    case Gender::Male: return("Male");
+    case Gender::Female: return("Female");
+    case Gender::Neutral: return("Neutral");
     default: return("Unknown Gender");
     }
 }
@@ -148,9 +148,9 @@ QString Connector::displayGender() const {
  */
 QString Connector::genderAbbreviation() const {
     switch(_gender) {
-    case MALE_GENDER: return("M");
-    case FEMALE_GENDER: return("F");
-    case NEUTRAL_GENDER: return("N");
+    case Gender::Male: return("M");
+    case Gender::Female: return("F");
+    case Gender::Neutral: return("N");
     default: return("?");
     }
 }
@@ -217,7 +217,7 @@ bool Connector::isNotCustomType() const {
  * \param gender Gender to compare
  * \return  Result of gender comparison
  */
-bool Connector::isGender(ConnectorGender gender) const {
+bool Connector::isGender(Gender gender) const {
     return(_gender == gender);
 }
 
@@ -226,7 +226,7 @@ bool Connector::isGender(ConnectorGender gender) const {
  * \return \c true if connector is male.
  */
 bool Connector::isMale() const {
-    return(_gender == MALE_GENDER);
+    return(_gender == Gender::Male);
 }
 
 /*!
@@ -242,7 +242,7 @@ bool Connector::isNotMale() const {
  * \return \c true if connector is female.
  */
 bool Connector::isFemale() const {
-    return(_gender == FEMALE_GENDER);
+    return(_gender == Gender::Female);
 }
 
 /*!
@@ -258,7 +258,7 @@ bool Connector::isNotFemale() const {
  * \return \c true if connector is gender-neutral.
  */
 bool Connector::isGenderNeutral() const {
-    return(_gender == NEUTRAL_GENDER);
+    return(_gender == Gender::Neutral);
 }
 
 /*!
@@ -300,7 +300,7 @@ QString Connector::customType() const {
  * \return Gender of the connector
  * \sa RsaToolbox::ConnectorGender
  */
-ConnectorGender Connector::gender() const {
+Connector::Gender Connector::gender() const {
     return(_gender);
 }
 
@@ -316,13 +316,13 @@ Connector Connector::getMatingConnector() const {
     Connector mate;
     mate.setType(*this);
     if (isGenderNeutral()) {
-        mate.setGender(NEUTRAL_GENDER);
+        mate.setGender(Gender::Neutral);
     }
     else {
         if (isMale())
-            mate.setGender(FEMALE_GENDER);
+            mate.setGender(Gender::Female);
         else
-            mate.setGender(MALE_GENDER);
+            mate.setGender(Gender::Male);
     }
     return(mate);
 }
@@ -335,11 +335,9 @@ Connector Connector::getMatingConnector() const {
  *
  * \param type Connector with desired type
  */
-void Connector::setType(const Connector type) {
-    if (type.isCustomType())
-        setCustomType(type.customType());
-    else
-        setType(type.type());
+void Connector::setType(const Connector &type) {
+    _type = type._type;
+    _customType = type._customType;
 }
 
 /*!
@@ -372,7 +370,7 @@ void Connector::setCustomType(QString type) {
  * \brief Sets the connector gender
  * \param gender Desired gender of \c this
  */
-void Connector::setGender(ConnectorGender gender) {
+void Connector::setGender(Gender gender) {
     _gender = gender;
 }
 
@@ -397,19 +395,32 @@ void Connector::operator =(const Connector &other) {
  */
 QString Connector::displayType(Type type) {
     switch(type) {
-    case N_50_OHM_CONNECTOR: return("N 50 Ohm");
-    case N_75_OHM_CONNECTOR: return("N 75 Ohm");
-    case mm_7_CONNECTOR: return("7 mm");
-    case mm_3_5_CONNECTOR: return("3.5 mm");
-    case mm_2_92_CONNECTOR: return("2.92 mm");
-    case mm_2_4_CONNECTOR: return("2.4 mm");
-    case mm_1_85_CONNECTOR: return("1.85 mm");
-    case in_7_16_CONNECTOR: return("7/16");
-    case TYPE_F_75_OHM_CONNECTOR: return("Type F (75)");
-    case BNC_50_OHM_CONNECTOR: return("BNC 50 Ohm");
-    case BNC_75_OHM_CONNECTOR: return("BNC 75 Ohm");
-    case CUSTOM_CONNECTOR: return("Custom Connector");
-    default: return("Unknown Connector");
+    case N_50_OHM_CONNECTOR:
+        return("N 50 Ohm");
+    case N_75_OHM_CONNECTOR:
+        return("N 75 Ohm");
+    case mm_7_CONNECTOR:
+        return("7 mm");
+    case mm_3_5_CONNECTOR:
+        return("3.5 mm");
+    case mm_2_92_CONNECTOR:
+        return("2.92 mm");
+    case mm_2_4_CONNECTOR:
+        return("2.4 mm");
+    case mm_1_85_CONNECTOR:
+        return("1.85 mm");
+    case in_7_16_CONNECTOR:
+        return("7/16");
+    case TYPE_F_75_OHM_CONNECTOR:
+        return("Type F (75)");
+    case BNC_50_OHM_CONNECTOR:
+        return("BNC 50 Ohm");
+    case BNC_75_OHM_CONNECTOR:
+        return("BNC 75 Ohm");
+    case CUSTOM_CONNECTOR:
+        return("Custom Connector");
+    default:
+        return("Unknown Connector");
     }
 }
 
@@ -527,128 +538,6 @@ QStringList Connector::displayText(QVector<Connector> connectors) {
     return(displays);
 }
 
-/*!
- * \relates Connector
- * \brief Converts scpi representation to Connector::Type
- * \param vnaScpi SCPI-formatted representation
- * \return Type of connector
- */
-Connector::Type RsaToolbox::toConnectorType(QString vnaScpi) {
-    if (vnaScpi.contains("N 50 Ohm", Qt::CaseInsensitive))
-        return Connector::N_50_OHM_CONNECTOR;
-    else if (vnaScpi.contains("N 75 Ohm", Qt::CaseInsensitive))
-        return Connector::N_75_OHM_CONNECTOR;
-    else if (vnaScpi.contains("7 mm", Qt::CaseInsensitive))
-        return Connector::mm_7_CONNECTOR;
-    else if (vnaScpi.contains("3.5 mm", Qt::CaseInsensitive))
-        return Connector::mm_3_5_CONNECTOR;
-    else if (vnaScpi.contains("2.92 mm", Qt::CaseInsensitive))
-        return Connector::mm_2_92_CONNECTOR;
-    else if (vnaScpi.contains("2.4 mm", Qt::CaseInsensitive))
-        return Connector::mm_2_4_CONNECTOR;
-    else if (vnaScpi.contains("1.85 mm", Qt::CaseInsensitive))
-        return Connector::mm_1_85_CONNECTOR;
-    else if (vnaScpi.contains("7-16"))
-        return Connector::in_7_16_CONNECTOR;
-    else if (vnaScpi.contains("Type F (75)", Qt::CaseInsensitive))
-        return Connector::TYPE_F_75_OHM_CONNECTOR;
-    else if (vnaScpi.contains("BNC 50 Ohm", Qt::CaseInsensitive))
-        return Connector::BNC_50_OHM_CONNECTOR;
-    else if (vnaScpi.contains("BNC 75 Ohm", Qt::CaseInsensitive))
-        return Connector::BNC_75_OHM_CONNECTOR;
-    else if (vnaScpi.isEmpty() == false)
-        return Connector::CUSTOM_CONNECTOR;
-    else
-        return Connector::UNKNOWN_CONNECTOR;
-}
-
-/*!
- * \relates Connector
- * \brief Converts scpi representation to ConnectorGender
- * \param vnaScpi SCPI-formatted connector gender
- * \return Gender
- */
-ConnectorGender RsaToolbox::toConnectorGender(QString vnaScpi) {
-    vnaScpi = vnaScpi.toUpper();
-    if (vnaScpi == "MALE")
-        return(MALE_GENDER);
-    if (vnaScpi == "FEM")
-        return(FEMALE_GENDER);
-    // else
-        return(NEUTRAL_GENDER);
-}
-
-/*!
- * \relates Connector
- * \brief Converts Connector::Type to SCPI representation
- * \param type Connector type to convert
- * \return SCPI representation
- */
-QString RsaToolbox::toVnaScpi(Connector::Type type) {
-    switch(type) {
-    case Connector::N_50_OHM_CONNECTOR:
-        return("N 50 Ohm");
-    case Connector::N_75_OHM_CONNECTOR:
-        return("N 75 Ohm");
-    case Connector::mm_7_CONNECTOR:
-        return("7 mm"); // PC 7
-    case Connector::mm_3_5_CONNECTOR:
-        return("3.5 mm"); // PC 3.5
-    case Connector::mm_2_92_CONNECTOR:
-        return("2.92 mm");
-    case Connector::mm_2_4_CONNECTOR:
-        return("2.4 mm");
-    case Connector::mm_1_85_CONNECTOR:
-        return("1.85 mm");
-    case Connector::in_7_16_CONNECTOR:
-        return("7-16");
-    case Connector::TYPE_F_75_OHM_CONNECTOR:
-        return("Type F (75)"); // !Zva
-    case Connector::BNC_50_OHM_CONNECTOR:
-        return("BNC 50 Ohm"); // !Zva
-    case Connector::BNC_75_OHM_CONNECTOR:
-        return("BNC 75 Ohm"); // !Zva
-    default:
-        return("UNKNOWN_CONNECTOR");
-    }
-}
-
-/*!
- * \relates Connector
- * \brief Converts ConnectorGender to SCPI representation
- * \param gender Connector gender to convert
- * \return SCPI representation
- */
-QString RsaToolbox::toVnaScpi(ConnectorGender gender) {
-    switch(gender) {
-    case MALE_GENDER:   return("MALE");
-    case FEMALE_GENDER: return("FEM");
-    default:            return("MALE");
-    }
-}
-
-/*!
- * \relates Connector
- * \brief Converts Connector type to SCPI representation
- * \param connector Connector with type to convert
- * \return SCPI type representation
- */
-QString RsaToolbox::toConnectorTypeVnaScpi(Connector connector) {
-    if (connector.isCustomType())
-        return(connector.customType());
-    else
-        return(toVnaScpi(connector.type()));
-}
-
-/*!
- * \relates Connector
- * \brief Converts Connector gender to SCPI representation
- * \param connector Connector with gender to convert
- * \return SCPI gender representation
- */
-QString RsaToolbox::toConnectorGenderVnaScpi(Connector connector) {
-    return(toVnaScpi(connector.gender()));
-}
 
 /*!
  * \relates Connector
@@ -708,6 +597,30 @@ bool RsaToolbox::operator==(const Connector &right, const Connector &left) {
  */
 bool RsaToolbox::operator !=(const Connector &right, const Connector &left) {
     return(!(right == left));
+}
+
+QDataStream& RsaToolbox::operator<<(QDataStream &stream, const Connector &connector) {
+    stream << qint32(connector.type());
+    stream << connector.customType();
+    stream << qint32(connector.gender());
+    return stream;
+}
+QDataStream& RsaToolbox::operator>>(QDataStream &stream, Connector &connector) {
+    qint32 number;
+    stream >> number;
+    Connector::Type type = Connector::Type(number);
+
+    QString customType;
+    stream >> customType;
+
+    stream >> number;
+    Connector::Gender gender = Connector::Gender(number);
+
+    connector.setCustomType(customType);
+    if (type != Connector::Type::CUSTOM_CONNECTOR)
+        connector.setType(type);
+    connector.setGender(gender);
+    return stream;
 }
 
 

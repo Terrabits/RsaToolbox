@@ -37,7 +37,7 @@ class VnaChannel : public QObject
 
 public:
 
-    enum class SweepType {
+    enum /*class*/ SweepType {
         Linear,
         Log,
         Segmented,

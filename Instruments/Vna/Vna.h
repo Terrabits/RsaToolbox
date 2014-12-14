@@ -165,8 +165,7 @@ public:
     VnaSwitchMatrix *takeSwitchMatrix(uint index = 1);
 
     // Cal Unit
-    void isCalUnit(QString id);
-    uint numberOfCalUnits();
+    bool isCalUnit(QString id);
     QStringList calUnits();
     VnaCalUnit &calUnit(QString id);
     VnaCalUnit *takeCalUnit(QString id);

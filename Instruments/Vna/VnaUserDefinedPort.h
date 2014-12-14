@@ -14,7 +14,7 @@ class VnaUserDefinedPort
 {
 public:
 
-    enum class Receiver {
+    enum /*class*/ Receiver {
         A,
         B
     };

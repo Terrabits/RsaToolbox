@@ -23,7 +23,7 @@ const double DBL_INF = std::numeric_limits<double>::infinity();
 const double DBL_NEG_INF = -DBL_INF;
 const double DBL_NAN = std::numeric_limits<double>::quiet_NaN();
 
-enum class NetworkParameter {
+enum /*class*/ NetworkParameter {
     S = 0,
     Y,
     Z,
@@ -31,17 +31,17 @@ enum class NetworkParameter {
     G
 };
 
-enum class WaveQuantity {
+enum /*class*/ WaveQuantity {
     a = 0,
     b
 };
 
-enum class ReferenceLevel {
+enum /*class*/ ReferenceLevel {
     Relative,
     Absolute
 };
 
-enum class TraceFormat {
+enum /*class*/ TraceFormat {
     DecibelMagnitude,
     Phase,
     SmithChart,
@@ -55,27 +55,27 @@ enum class TraceFormat {
     Delay
 };
 
-enum class CsvFormat {
-    DecibelDegrees,
-    DecibelRadians,
-    MagnitudeDegrees,
-    MagnitudeRadians,
-    RealImaginary,
-    DecibelMagnitude,
-    Magnitude,
-    PhaseDegrees,
-    PhaseRadians,
-    Vswr
-};
+//enum /*class*/ CsvFormat {
+//    DecibelDegrees,
+//    DecibelRadians,
+//    MagnitudeDegrees,
+//    MagnitudeRadians,
+//    RealImaginary,
+//    DecibelMagnitude,
+//    Magnitude,
+//    PhaseDegrees,
+//    PhaseRadians,
+//    Vswr
+//};
 
-enum class ComplexFormat {
+enum /*class*/ ComplexFormat {
     DecibelDegrees,
     MagnitudeDegrees,
     RealImaginary
 };
 
-enum class Units {
-    None = 0,
+enum /*class*/ Units {
+    NoUnits = 0,
     Seconds,
     Hertz,
     Radians,
@@ -88,7 +88,7 @@ enum class Units {
     dBm
 };
 
-enum class SiPrefix {
+enum /*class*/ SiPrefix {
     Tera = 12,
     Giga = 9,
     Mega = 6,
@@ -121,7 +121,7 @@ Q_DECLARE_METATYPE(RsaToolbox::NetworkParameter)
 Q_DECLARE_METATYPE(RsaToolbox::WaveQuantity)
 Q_DECLARE_METATYPE(RsaToolbox::ReferenceLevel)
 Q_DECLARE_METATYPE(RsaToolbox::TraceFormat)
-Q_DECLARE_METATYPE(RsaToolbox::CsvFormat)
+//Q_DECLARE_METATYPE(RsaToolbox::CsvFormat)
 Q_DECLARE_METATYPE(RsaToolbox::ComplexFormat)
 Q_DECLARE_METATYPE(RsaToolbox::Units)
 Q_DECLARE_METATYPE(RsaToolbox::SiPrefix)
@@ -136,7 +136,4 @@ Q_DECLARE_METATYPE(RsaToolbox::QMatrix2D)
 Q_DECLARE_METATYPE(RsaToolbox::QMatrix3D)
 
 
-
 #endif
-
-

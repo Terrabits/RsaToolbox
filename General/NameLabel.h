@@ -6,6 +6,7 @@
 #include <QStringList>
 #include <QVector>
 #include <QMetaType>
+#include <QDataStream>
 
 
 namespace RsaToolbox {
@@ -39,9 +40,14 @@ private:
 
 };
 
-bool operator==(const NameLabel &right, const NameLabel &left);
-bool operator!=(const NameLabel &right, const NameLabel &left);
-}
+bool operator==(const RsaToolbox::NameLabel &right, const RsaToolbox::NameLabel &left);
+bool operator!=(const RsaToolbox::NameLabel &right, const RsaToolbox::NameLabel &left);
+QDataStream& operator<<(QDataStream &stream, const RsaToolbox::NameLabel &label);
+QDataStream& operator>>(QDataStream &stream, RsaToolbox::NameLabel &label);
+
+} // RsaToolbox
+
 Q_DECLARE_METATYPE(RsaToolbox::NameLabel)
+
 
 #endif // NAMELABEL_H

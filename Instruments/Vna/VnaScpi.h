@@ -5,6 +5,7 @@
 #include "VnaChannel.h"
 #include "BalancedPort.h"
 #include "VnaUserDefinedPort.h"
+#include "VnaCalStandard.h"
 #include "VnaTimeDomain.h"
 
 namespace RsaToolbox {
@@ -27,6 +28,23 @@ public:
     static QString toString(VnaUserDefinedPort port);
     static VnaUserDefinedPort::Receiver toReceiver(QString scpi);
     static VnaUserDefinedPort toUserDefinedPort(QString scpi);
+
+    // Connector
+    static QString toString(Connector::Gender gender);
+    static QString toGenderString(Connector connector);
+    static QString toString(Connector::Type type);
+    static QString toTypeString(Connector connector);
+    static Connector::Gender toConnectorGender(QString scpi);
+    static Connector::Type toConnectorType(QString scpi);
+
+    // Calibration Standards
+    static QString toString(const VnaCalStandard &standard);
+    static QString toString(VnaStandardType type);
+    static QString toString(VnaStandardType type, Connector::Gender gender);
+    static QString toString(VnaStandardType type, Connector::Gender gender, uint port);
+    static QString toString(VnaStandardType type, Connector::Gender gender1, Connector::Gender gender2);
+    static QString toString(VnaStandardType type, Connector::Gender gender1, uint port1, Connector::Gender gender2, uint port2);
+    static VnaCalStandard toCalStandard(QString scpi);
 
     // Calibration
     static QString toString(VnaCalibrate::CalType type);

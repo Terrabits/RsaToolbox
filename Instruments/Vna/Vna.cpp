@@ -4,6 +4,7 @@
 #include "General.h"
 #include "VisaBus.h"
 #include "IndexName.h"
+#include "VnaScpi.h"
 using namespace RsaToolbox;
 
 // Qt
@@ -605,7 +606,7 @@ QVector<Connector> Vna::connectorTypes() {
             query(scpi).trimmed().remove('\'').split(',');
     QVector<Connector> types;
     foreach (QString item, list) {
-        Connector::Type type = toConnectorType(item);
+        Connector::Type type = VnaScpi::toConnectorType(item);
         Connector new_type;
         if (type == Connector::CUSTOM_CONNECTOR)
             new_type.setCustomType(item);
@@ -725,7 +726,7 @@ QVector<NameLabel> Vna::calKits(Connector type) {
  * \return Cal kits of connector \c type
  */
 QVector<NameLabel> Vna::calKits(Connector::Type type) {
-    return(calKits(toVnaScpi(type)));
+    return(calKits(VnaScpi::toString(type)));
 }
 
 /*!
@@ -739,7 +740,7 @@ QVector<NameLabel> Vna::calKits(QString userDefinedConnectorType) {
     QString scpi = ":CORR:CKIT:LCAT? \'%1\'\n";
     scpi = scpi.arg(userDefinedConnectorType);
     QString result = query(scpi, 2000).trimmed();
-    return(NameLabel::parse(result, ",", "\'"));
+    return NameLabel::parse(result, ",", "\'");
 }
 
 /*!
@@ -1753,17 +1754,8 @@ VnaSwitchMatrix *Vna::takeSwitchMatrix(uint index) {
  * calibration unit \c id
  * \param id Identifier for cal unit
  */
-void Vna::isCalUnit(QString id) {
-    Q_UNUSED(id);
-}
-
-/*!
- * \brief Queries the number of
- * connected calibration units
- * \return Number of cal units
- */
-uint Vna::numberOfCalUnits() {
-    return(0);
+bool Vna::isCalUnit(QString id) {
+    return calUnits().contains(id);
 }
 
 /*!
@@ -1772,7 +1764,8 @@ uint Vna::numberOfCalUnits() {
  * \return List of cal units
  */
 QStringList Vna::calUnits() {
-    return(QStringList());
+    QString scpi = ":SYST:COMM:RDEV:AKAL:ADDR:ALL?\n";
+    return query(scpi).trimmed().remove("\'").split(",", QString::SkipEmptyParts);
 }
 
 /*!

@@ -13,6 +13,8 @@
 
 
 namespace RsaToolbox {
+
+
 enum VnaStandardType {
     OPEN_STANDARD_TYPE,
     SHORT_STANDARD_TYPE,
@@ -28,7 +30,8 @@ enum VnaStandardType {
     LINE3_STANDARD_TYPE,
     ATTENUATION_STANDARD_TYPE,
     SYMMETRIC_NETWORK_STANDARD_TYPE,
-    UNKNOWN_STANDARD_TYPE };
+    UNKNOWN_STANDARD_TYPE
+};
 
 class VnaCalStandard {
 public:
@@ -43,8 +46,8 @@ public:
 
     bool isType(VnaStandardType type) const;
     bool isNotType(VnaStandardType type) const;
-    bool isGender(ConnectorGender gender) const;
-    bool isGender(ConnectorGender gender1, ConnectorGender gender2) const;
+    bool isGender(Connector::Gender gender) const;
+    bool isGender(Connector::Gender gender1, Connector::Gender gender2) const;
 
     bool isMale() const;
     bool isFemale() const;
@@ -55,7 +58,9 @@ public:
     bool isNotPortSpecific() const;
 
     bool isSinglePort() const;
+    static bool isSinglePort(VnaStandardType type);
     bool isTwoPort() const;
+    static bool isTwoPort(VnaStandardType type);
 
     bool isSameStandardAs(VnaCalStandard other) const;
 
@@ -79,7 +84,7 @@ public:
     bool isThruMF() const;
     bool isThruFF() const;
     bool isThru(uint port1, uint port2) const;
-    bool isThru(ConnectorGender gender1, ConnectorGender gender2) const;
+    bool isThru(Connector::Gender gender1, Connector::Gender gender2) const;
 
     bool isTouchstone() const;
     bool isModel() const;
@@ -95,13 +100,13 @@ public:
     uint port1() const;
     uint port2() const;
 
-    Connector connector() const;
-    Connector connector1() const;
-    Connector connector2() const;
+    Connector& connector();
+    Connector& connector1();
+    Connector& connector2();
 
-    ConnectorGender gender() const;
-    ConnectorGender gender1() const;
-    ConnectorGender gender2() const;
+    Connector::Gender gender() const;
+    Connector::Gender gender1() const;
+    Connector::Gender gender2() const;
 
     QString label() const;
     QString touchstone() const;
@@ -122,7 +127,10 @@ public:
 
     void setTouchstoneFile(QString path);
 
-    VnaStandardModel model();
+    VnaStandardModel model() const;
+    void setModel(VnaStandardModel model);
+    void setModel(double eLength_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3, double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3, double R_Ohms);
+
     void setOpenModel(VnaStandardModel model);
     void setOpenModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3);
     void setOpenModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3, double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3, double R_Ohms);
@@ -154,7 +162,6 @@ public:
 
     void setDirectConnection(double Z0_Ohms);
 
-
     void clear();
     void clearPorts();
     void clearConnectors();
@@ -181,8 +188,6 @@ private:
 
     bool _isModel;
     VnaStandardModel _model;
-    void setModel(VnaStandardModel model);
-    void setModel(double eLength_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3, double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3, double R_Ohms);
 
     void setConnector1(Connector connector1);
     void setConnector2(Connector connector2);
@@ -190,7 +195,7 @@ private:
 };
 
 void sort(Connector &connector1, Connector &connector2);
-void sort(ConnectorGender &gender1, ConnectorGender &gender2);
+void sort(Connector::Gender &gender1, Connector::Gender &gender2);
 void sort(uint &port1, uint &port2);
 bool operator==(const VnaCalStandard &right, const VnaCalStandard &left);
 bool operator!=(const VnaCalStandard &right, const VnaCalStandard &left);

@@ -23,6 +23,9 @@ include(Bus/Visa/visa.pri)
 include(Instruments/Vna/vna.pri)
 include(QCustomPlot/qcustomplot.pri)
 
+win32 {
+    QMAKE_CXXFLAGS += /wd4482
+}
 macx {
     QMAKE_CXXFLAGS += -std=c++11 -stdlib=libc++
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.7

@@ -16,7 +16,7 @@ namespace RsaToolbox {
 class BalancedPort {
 public:
 
-    enum class Type {
+    enum /*class*/ Type {
         SingleEnded = 0,
         Differential,
         Common

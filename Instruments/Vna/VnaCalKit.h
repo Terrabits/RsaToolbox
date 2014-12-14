@@ -29,25 +29,29 @@ public:
 
     bool isConnectorType(Connector type);
     bool has(VnaCalStandard standard);
-    bool has(VnaStandardType type, ConnectorGender gender);
+    bool has(VnaStandardType type, Connector::Gender gender);
     bool has(VnaStandardType type, uint port);
-    bool has(VnaStandardType type, ConnectorGender gender1, ConnectorGender gender2);
+    bool has(VnaStandardType type, Connector::Gender gender1, Connector::Gender gender2);
     bool has(VnaStandardType type, uint port1, uint port2);
 
+    bool hasOpen();
     bool hasOpen(uint port);
     bool hasMaleOpen();
     bool hasFemaleOpen();
 
+    bool hasShort();
     bool hasShort(uint port);
     bool hasMaleShort();
     bool hasFemaleShort();
 
+    bool hasMatch();
     bool hasMatch(uint port);
     bool hasMaleMatch();
     bool hasFemaleMatch();
 
-    bool hasThru(ConnectorGender gender1, ConnectorGender gender2);
+    bool hasThru();
     bool hasThru(uint port1, uint port2);
+    bool hasThru(Connector::Gender gender1, Connector::Gender gender2);
 
     Connector connectorType();
     QVector<VnaCalStandard> standards();
@@ -63,9 +67,10 @@ private:
     
     bool isFullyInitialized() const;
 
-    void standardDetails(VnaCalStandard &std, Connector type);
     QStringList standardsList();
     QVector<VnaCalStandard> standardsSummary();
+    void standardDetails(VnaCalStandard &standard, Connector type);
+    void parse(VnaCalStandard &standard, QString scpi);
 
     void addStandardByTouchstone(VnaCalStandard &standard);
 

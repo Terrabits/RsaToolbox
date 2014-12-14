@@ -22,7 +22,7 @@ class VnaProperties : public QObject
 
 public:
 
-    enum class Model {
+    enum /*class*/ Model {
         Zva = 0,
         Zvb = 1,
         Zvh = 2,

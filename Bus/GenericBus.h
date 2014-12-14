@@ -15,7 +15,8 @@
 
 namespace RsaToolbox {
 
-enum ConnectionType {
+
+enum /*class*/ ConnectionType {
     TCPIP_CONNECTION,
     GPIB_CONNECTION,
     USB_CONNECTION,
@@ -26,8 +27,10 @@ ConnectionType toConnectionType(QString scpi);
 QString toVisaInstrumentResource(ConnectionType type, QString address);
 void nullTerminate(char *buffer, uint bufferSize_B, uint bytesUsed);
 
+
 class GenericBus : public QObject {
-private: Q_OBJECT
+
+    Q_OBJECT
 
 public:
     explicit GenericBus(QObject *parent = 0);

@@ -42,10 +42,7 @@ SiPrefix getPrefix(double value);
 
 
 // File system
-QString AppendPath(QDir path, QString filename);
-QString AppendCurrentDirectory(QString filename);
-QString GetAppDataPath(QString program_folder);
-QString AppendAppDataPath(QString program_folder, QString filename);
+QString GetAppDataPath(QString manufacturerFolder, QString applicationFolder);
 
 // Formatting Functions
 QString toEngineeringNotation(double value, int decimalPlaces, SiPrefix prefix = SiPrefix::None);

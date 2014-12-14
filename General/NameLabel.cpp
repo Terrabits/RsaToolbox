@@ -252,3 +252,17 @@ bool RsaToolbox::operator==(const NameLabel &right, const NameLabel &left) {
 bool RsaToolbox::operator!=(const NameLabel &right, const NameLabel &left) {
     return(!(right == left));
 }
+
+QDataStream& RsaToolbox::operator<<(QDataStream &stream, const NameLabel &nameLabel) {
+    stream << nameLabel.name();
+    stream << nameLabel.label();
+    return stream;
+}
+QDataStream& RsaToolbox::operator>>(QDataStream &stream, NameLabel &nameLabel) {
+    QString string;
+    stream >> string;
+    nameLabel.setName(string);
+    stream >> string;
+    nameLabel.setLabel(string);
+    return stream;
+}
