@@ -75,6 +75,9 @@ VnaCalibrate::~VnaCalibrate() {
 }
 
 bool VnaCalibrate::isRawDataKept() {
+    if (isMissingZvaCommand())
+        return false;
+
     QString scpi;
     if (_isChannelSpecific) {
        scpi = ":SENS%1:CORR:COLL:RSAV?\n";
@@ -87,7 +90,19 @@ bool VnaCalibrate::isRawDataKept() {
     return(_vna->query(scpi).trimmed() == "1");
 }
 void VnaCalibrate::setConnector(uint port, Connector connector) {
-    QString scpi = ":CORR:COLL:SCON%1 \'%2\',%3\n"; // port, type, gender
+    if (isMissingZvaCommand())
+            return;
+
+    selectChannels();
+
+    QString scpi;
+    if (_isChannelSpecific) {
+        scpi = ":SENS%1:CORR:COLL:SCON%2 \'%3\',%4\n";
+        scpi = scpi.arg(_channelIndex);
+    }
+    else {
+        scpi = ":CORR:COLL:SCON%2 \'%3\',%4\n";
+    }
     scpi = scpi.arg(port);
     scpi = scpi.arg(VnaScpi::toTypeString(connector));
     scpi = scpi.arg(VnaScpi::toGenderString(connector));
@@ -100,20 +115,33 @@ void VnaCalibrate:: setConnectors(Connector connector) {
 }
 
 Connector VnaCalibrate:: connector(uint port) {
-    QString scpi = ":CORR:COLL:SCON%1?\n";
+    if (isMissingZvaCommand())
+                return Connector();
+
+    QString scpi;
+    if (_isChannelSpecific) {
+        scpi = ":SENS%1:CORR:COLL:SCON%2?\n";
+        scpi = scpi.arg(_channelIndex);
+    }
+    else {
+        scpi = ":CORR:COLL:SCON%2?\n";
+    }
     scpi = scpi.arg(port);
 
     QStringList results
             = _vna->query(scpi).trimmed().remove("\'").split(",");
+
+    if (results.size() != 2)
+        return Connector();
     Connector::Type type
             = VnaScpi::toConnectorType(results.first());
     Connector::Gender gender
             = VnaScpi::toConnectorGender(results.last());
 
     if (type == Connector::CUSTOM_CONNECTOR)
-        return(Connector(results.first(), gender));
+        return Connector(results.first(), gender);
     else
-        return(Connector(type, gender));
+        return Connector(type, gender);
 }
 QVector<Connector> VnaCalibrate:: connectors() {
     QVector<Connector> result;
@@ -133,6 +161,9 @@ void VnaCalibrate:: selectKit(QString name, QString label) {
 }
 
 NameLabel VnaCalibrate:: selectedKit(Connector type) {
+    if (isMissingZvaCommand())
+        return NameLabel();
+
     QString scpi;
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:CKIT:LSEL? \'%2\'\n";
@@ -155,12 +186,17 @@ NameLabel VnaCalibrate:: selectedKit(Connector type) {
 void VnaCalibrate::start(QString calibrationName,
                           CalType type,
                           QVector<uint> ports) {
-    defineCalibration(calibrationName, type, ports);
     selectChannels();
+    defineCalibration(calibrationName, type, ports);
 }
 void VnaCalibrate:: keepRawData(bool isKept) {
+    if (isMissingZvaCommand())
+        return;
+
+    selectChannels();
+
     QString scpi;
-    if (_isChannelSpecific) {
+    if (!_vna->properties().isZvaFamily() && _isChannelSpecific) {
        scpi = ":SENS%1:CORR:COLL:RSAV %2\n";
        scpi = scpi.arg(_channelIndex);
     }
@@ -176,55 +212,86 @@ void VnaCalibrate:: keepRawData(bool isKept) {
     _vna->write(scpi);
 }
 void VnaCalibrate:: measureOpen(uint port) {
+    if (isMissingZvaCommand())
+        return;
+
+    uint timeout_ms;
     QString scpi;
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:COLL:SEL OPEN,%2\n";
         scpi = scpi.arg(_channelIndex);
+        timeout_ms = _channel->linearSweep().sweepTime_ms();
     }
     else {
         scpi = ":CORR:COLL:SEL OPEN,%2\n";
+        timeout_ms = _vna->sweepTime_ms();
     }
     scpi = scpi.arg(port);
     _vna->write(scpi);
+    _vna->pause(timeout_ms * 5 + 5000);
 }
 void VnaCalibrate:: measureShort(uint port) {
+    if (isMissingZvaCommand())
+        return;
+
+    uint timeout_ms;
     QString scpi;
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:COLL:SEL SHOR,%2\n";
         scpi = scpi.arg(_channelIndex);
+        timeout_ms = _channel->linearSweep().sweepTime_ms();
     }
     else {
         scpi = ":CORR:COLL:SEL SHOR,%2\n";
+        timeout_ms = _vna->sweepTime_ms();
     }
     scpi = scpi.arg(port);
     _vna->write(scpi);
+    _vna->pause(timeout_ms * 5 + 5000);
 }
 void VnaCalibrate:: measureMatch(uint port) {
+    if (isMissingZvaCommand())
+        return;
+
+    uint timeout_ms;
     QString scpi;
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:COLL:SEL MATC,%2\n";
         scpi = scpi.arg(_channelIndex);
+        timeout_ms = _channel->linearSweep().sweepTime_ms();
     }
     else {
         scpi = ":CORR:COLL:SEL MATC,%2\n";
+        timeout_ms = _vna->sweepTime_ms();
     }
     scpi = scpi.arg(port);
     _vna->write(scpi);
+    _vna->pause(timeout_ms * 5 + 5000);
 }
 void VnaCalibrate:: measureThru(uint port1, uint port2) {
+    if (isMissingZvaCommand())
+        return;
+
+    uint timeout_ms;
     QString scpi;
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:COLL:SEL THR,%2,%3\n";
         scpi = scpi.arg(_channelIndex);
+        timeout_ms = _channel->linearSweep().sweepTime_ms();
     }
     else {
         scpi = ":CORR:COLL:SEL THR,%2,%3\n";
+        timeout_ms = _vna->sweepTime_ms();
     }
     scpi = scpi.arg(port1);
     scpi = scpi.arg(port2);
     _vna->write(scpi);
+    _vna->pause(timeout_ms * 5 + 5000);
 }
 void VnaCalibrate:: apply() {
+    if (isMissingZvaCommand())
+        return;
+
     QString scpi;
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:COLL:SAVE:SEL\n";
@@ -234,6 +301,7 @@ void VnaCalibrate:: apply() {
         scpi = ":CORR:COLL:SAVE:SEL\n";
     }
     _vna->write(scpi);
+    _vna->pause(5000);
 }
 
 void VnaCalibrate::operator=(VnaCalibrate const &other) {
@@ -268,6 +336,14 @@ bool VnaCalibrate::isFullyInitialized() const {
     //else
     return(true);
 }
+bool VnaCalibrate::isMissingZvaCommand() {
+    if (_vna->properties().isZvaFamily() && !_isChannelSpecific) {
+        _vna->print("ZVA firmware does not support calibrating all channels at once.\n\n");
+        return true;
+    }
+
+    return false;
+}
 
 void VnaCalibrate::selectKit(NameLabel nameLabel, Connector type) {
     selectKit(nameLabel.name(), nameLabel.label(), VnaScpi::toTypeString(type));
@@ -276,6 +352,11 @@ void VnaCalibrate::selectKit(QString name, QString label, Connector type) {
     selectKit(name, label, VnaScpi::toTypeString(type));
 }
 void VnaCalibrate::selectKit(QString name, QString label, QString customConnector) {
+    if (isMissingZvaCommand())
+        return;
+
+    selectChannels();
+
     QString scpi;
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:CKIT:LSEL \'%2\',\'%3\',\'%4\'\n";
@@ -293,6 +374,9 @@ void VnaCalibrate::selectKit(QString name, QString label, Connector::Type type) 
     selectKit(name, label, VnaScpi::toString(type));
 }
 void VnaCalibrate::defineCalibration(QString calibrationName, CalType type, QVector<uint> ports) {
+    if (isMissingZvaCommand())
+        return;
+
     QString scpi;
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:COLL:METH:DEF \'%2\',%3,%4\n";
@@ -307,14 +391,12 @@ void VnaCalibrate::defineCalibration(QString calibrationName, CalType type, QVec
     _vna->write(scpi);
 }
 void VnaCalibrate::selectChannels() {
-    // Zva firmware does not have this feature.
-    if (_vna->properties().isZvaFamily() && _isChannelSpecific == false) {
-        _vna->print("ZVA firmware can\'t calibrate multiple channels at once.\n\n");
+    // ZVA does not have this capability
+    if (_vna->properties().isZvaFamily())
         return;
-    }
 
     if (_isChannelSpecific)
-            _vna->write(":CORR:COLL:CHAN:ALL 0\n");
-        else
-            _vna->write(":CORR:COLL:CHAN:ALL 1\n");
+        _vna->write(":CORR:COLL:CHAN:ALL 0\n");
+    else
+        _vna->write(":CORR:COLL:CHAN:ALL 1\n");
 }

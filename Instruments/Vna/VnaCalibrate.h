@@ -69,6 +69,7 @@ private:
     uint _channelIndex;
     
     bool isFullyInitialized() const;
+    bool isMissingZvaCommand();
 
     void selectKit(NameLabel nameLabel, Connector type);
     void selectKit(QString name, QString label, Connector type);

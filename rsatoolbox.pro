@@ -6,14 +6,9 @@
 
 QT       += core gui
 
-TEMPLATE = lib
-CONFIG += staticlib
-CONFIG += debug_and_release build_all
-
-DESTDIR = $$PWD
-CONFIG(debug, debug|release):TARGET = RsaToolboxd
-else:TARGET = RsaToolbox
-CONFIG(release, debug|release):DEFINES+=QT_NO_DEBUG_OUTPUT
+TEMPLATE =  lib
+CONFIG   += staticlib
+CONFIG   += debug_and_release build_all
 
 include(core.pri)
 include(Gui/gui.pri)
@@ -23,6 +18,16 @@ include(Bus/Visa/visa.pri)
 include(Instruments/Vna/vna.pri)
 include(QCustomPlot/qcustomplot.pri)
 
+DESTDIR     = $$PWD
+DEFINES     += SOURCE_DIR=\\\"$$PWD\\\"
+CONFIG(debug, debug|release) {
+    TARGET  = RsaToolboxd
+    DEFINES += DEBUG_MODE
+}
+else {
+    TARGET  = RsaToolbox
+    DEFINES += QT_NO_DEBUG_OUTPUT
+}
 win32 {
     QMAKE_CXXFLAGS += /wd4482
 }

@@ -288,7 +288,7 @@ void VnaCalKit::addStandard(VnaCalStandard standard) {
 
     // Values
     QString type;
-    QString conn = VnaScpi::toString(standard.connector().type());
+    QString connector = VnaScpi::toTypeString(standard.connector());
     QString label = standard.label();
     double min = standard.minimumFrequency_Hz();
     double max = standard.maximumFrequency_Hz();
@@ -309,35 +309,35 @@ void VnaCalKit::addStandard(VnaCalStandard standard) {
         if (standard.isPortSpecific()) {
             type = VnaScpi::toString(standard.type(), standard.gender());
             if (R == 0)
-                addStandardByModel(type, conn, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3, standard.port());
+                addStandardByModel(type, connector, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3, standard.port());
             else
-                addStandardByModel(type, conn, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3, R, standard.port());
+                addStandardByModel(type, connector, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3, R, standard.port());
         }
         else { // Not port specific
             type = VnaScpi::toString(standard.type(), standard.gender());
             if (R == 0)
-                addStandardByModel(type, conn, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3);
+                addStandardByModel(type, connector, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3);
             else
-                addStandardByModel(type, conn, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3, R);
+                addStandardByModel(type, connector, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3, R);
         }
     }
     else { // Two port
         if (standard.isPortSpecific()) {
             type = VnaScpi::toString(standard.type(), standard.gender1(), standard.gender2());
             if (standard.type() != SYMMETRIC_NETWORK_STANDARD_TYPE) {
-                addStandardByModel(type, conn, label, min, max, e_length, loss, Z0, standard.port1(), standard.port2());
+                addStandardByModel(type, connector, label, min, max, e_length, loss, Z0, standard.port1(), standard.port2());
             }
             else { // Symm. Network
-                addStandardByModel(type, conn, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3, standard.port1(), standard.port2());
+                addStandardByModel(type, connector, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3, standard.port1(), standard.port2());
             }
         }
         else { // Not port specific
             type = VnaScpi::toString(standard.type(), standard.gender1(), standard.gender2());
             if (standard.type() != SYMMETRIC_NETWORK_STANDARD_TYPE) {
-                addStandardByModel(type, conn, label, min, max, e_length, loss, Z0);
+                addStandardByModel(type, connector, label, min, max, e_length, loss, Z0);
             }
             else { // SYMM. Network
-                addStandardByModel(type, conn, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3);
+                addStandardByModel(type, connector, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3);
             }
         }
     }
@@ -386,7 +386,7 @@ QVector<VnaCalStandard> VnaCalKit::standardsSummary() {
             std.connector1().setType(type);
             std.connector2().setType(type);
         }
-        standards << VnaScpi::toCalStandard(i);
+        standards << std;
     }
     return standards;
 }
@@ -405,7 +405,7 @@ void VnaCalKit::standardDetails(VnaCalStandard &standard, Connector type) {
     parse(standard, _vna->query(scpi, 1000));
 }
 void VnaCalKit::parse(VnaCalStandard &standard, QString scpi) {
-    QStringList results = scpi.remove('\'').split(',');
+    QStringList results = scpi.remove('\'').split(',', QString::KeepEmptyParts);
     int length = results.size();
 
     if (length < 6)
@@ -540,8 +540,8 @@ void VnaCalKit::addStandardByTouchstone(VnaCalStandard &standard) {
             scpi = scpi.arg(_nameLabel.label());
             scpi = scpi.arg(standard.touchstone());
         }
-        _vna->write(scpi);
     }
+    _vna->write(scpi);
 }
 void VnaCalKit::addStandardByModel(QString type, QString connector, QString label, double min_Hz, double max_Hz, double length, double loss, double Z0) {
     QString scpi = ":CORR:CKIT:%1:WLAB \'%2\',\'%3\',\'%4\',\'%5\',%6,%7,%8,%9,%10\n";

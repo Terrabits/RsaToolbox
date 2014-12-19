@@ -1,7 +1,8 @@
 
 
 QT          += widgets
-HEADERS     += $$PWD/LastPath/LastPath.h \
+HEADERS     += $$PWD/About/About.h \
+               $$PWD/LastPath/LastPath.h \
                $$PWD/ErrorLabel/ErrorLabel.h \
                $$PWD/GetSnpFile/GetSnpFile.h \
                $$PWD/ListPanel/ListPanel.h \
@@ -12,7 +13,8 @@ HEADERS     += $$PWD/LastPath/LastPath.h \
                $$PWD/Wizard/WizardPage.h \
                $$PWD/Wizard/BreadCrumbs.h \
                $$PWD/Wizard/WizardButtons.h
-INCLUDEPATH += $$PWD/LastPath \
+INCLUDEPATH += $$PWD/About \
+               $$PWD/LastPath \
                $$PWD/ErrorLabel \
                $$PWD/GetSnpFile \
                $$PWD/ListPanel \
@@ -20,7 +22,8 @@ INCLUDEPATH += $$PWD/LastPath \
                $$PWD/ConnectButton \
                $$PWD/ConnectionTypeComboBox \
                $$PWD/Wizard
-SOURCES     += $$PWD/LastPath/LastPath.cpp \
+SOURCES     += $$PWD/About/About.cpp \
+               $$PWD/LastPath/LastPath.cpp \
                $$PWD/ErrorLabel/ErrorLabel.cpp \
                $$PWD/GetSnpFile/GetSnpFile.cpp \
                $$PWD/ListPanel/ListPanel.cpp \
@@ -31,9 +34,11 @@ SOURCES     += $$PWD/LastPath/LastPath.cpp \
                $$PWD/Wizard/WizardPage.cpp \
                $$PWD/Wizard/BreadCrumbs.cpp \
                $$PWD/Wizard/WizardButtons.cpp
-FORMS       += $$PWD/GetSnpFile/GetSnpFile.ui \
+FORMS       += $$PWD/About/About.ui \
+               $$PWD/GetSnpFile/GetSnpFile.ui \
                $$PWD/ListPanel/ListPanel.ui \
                $$PWD/Wizard/Wizard.ui \
                $$PWD/Wizard/BreadCrumbs.ui \
                $$PWD/Wizard/WizardButtons.ui
-RESOURCES   += $$PWD/Wizard/WizardResources.qrc
+RESOURCES   += $$PWD/About/AboutResources.qrc \
+               $$PWD/Wizard/WizardResources.qrc

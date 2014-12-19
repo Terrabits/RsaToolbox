@@ -1593,6 +1593,25 @@ VnaDiagram *Vna::takeDiagrams() {
  * @{*/
 
 /*!
+ * \brief Maximum sweep time
+ *
+ * Compares the sweep time of all channels
+ * and returns the maximum.
+ *
+ * \return Maximum sweep time, in ms
+ */
+uint Vna::sweepTime_ms() {
+    QVector<uint> cList = channels();
+    uint time = 0;
+    foreach (uint c, cList) {
+        QString scpi = ":SENS%1:SWE:TIME?\n";
+        scpi = scpi.arg(c);
+        time += uint(query(scpi).trimmed().toDouble() * 1000.0);
+    }
+    return time;
+}
+
+/*!
  * \brief Starts a sweep in all available channels
  */
 void Vna::startSweeps() {

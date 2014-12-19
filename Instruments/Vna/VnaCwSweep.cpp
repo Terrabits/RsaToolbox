@@ -104,6 +104,10 @@ void VnaCwSweep::setIfBandwidth(double bandwidth, SiPrefix prefix) {
     _vna->write(scpi);
 }
 
+uint VnaCwSweep::sweepTime_ms() {
+    return _channel->linearSweep().sweepTime_ms();
+}
+
 
 void VnaCwSweep::operator=(VnaCwSweep const &other) {
     if (other.isFullyInitialized()) {

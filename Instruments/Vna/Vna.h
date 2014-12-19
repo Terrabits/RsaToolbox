@@ -150,6 +150,7 @@ public:
     VnaDiagram *takeDiagrams();
 
     // Measurement
+    uint sweepTime_ms();
     void startSweeps();
 
     // Switch Matrix

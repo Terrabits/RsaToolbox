@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/About">
+        <file>Icons/RS.ico</file>
+        <file>Images/RS_Munich.png</file>
+    </qresource>
+</RCC>

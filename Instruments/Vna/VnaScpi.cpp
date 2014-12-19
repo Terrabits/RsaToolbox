@@ -306,7 +306,6 @@ QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender1, uint 
 }
 
 VnaCalStandard VnaScpi::toCalStandard(QString scpi) {
-    qDebug() << scpi;
     VnaCalStandard std;
     if (scpi.contains('(')) {
         // Port specific (PxPy)
@@ -387,9 +386,7 @@ VnaCalStandard VnaScpi::toCalStandard(QString scpi) {
         scpi.chop(2);
     }
 
-    qDebug() << scpi;
     if (std.isSinglePort() && scpi.size() >= 1) {
-        qDebug() << scpi[0].toUpper().toLatin1();
         switch(scpi[0].toUpper().toLatin1()) {
         case 'M':
             std.connector().setGender(Connector::Gender::Male);
@@ -403,7 +400,6 @@ VnaCalStandard VnaScpi::toCalStandard(QString scpi) {
     }
     else if (std.isTwoPort() && scpi.size() >= 2) {
         char port1 = scpi[0].toUpper().toLatin1();
-        qDebug() << port1;
         switch(port1) {
         case 'M':
             std.connector1().setGender(Connector::Gender::Male);
@@ -416,7 +412,6 @@ VnaCalStandard VnaScpi::toCalStandard(QString scpi) {
         }
 
         char port2 = scpi[1].toUpper().toLatin1();
-        qDebug() << port2;
         switch(port2) {
         case 'M':
             std.connector2().setGender(Connector::Gender::Male);
@@ -428,7 +423,6 @@ VnaCalStandard VnaScpi::toCalStandard(QString scpi) {
             std.connector2().setGender(Connector::Gender::Neutral);
         }
     }
-
 
     return(std);
 }

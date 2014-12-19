@@ -79,10 +79,10 @@ uint VnaCalUnit::ports() {
         select();
         _vna->isError();
         _vna->clearStatus();
-        uint port = 1;
+        uint port = 0;
         while (!_vna->isError()) {
-            setOpen(port);
             port++;
+            setOpen(port);
         }
         _vna->clearStatus();
         return port-1;
@@ -172,6 +172,7 @@ void VnaCalUnit::exportCalibration(QString calName, QString path) {
 
     select();
     _vna->write(scpi);
+    _vna->pause(5000);
 }
 
 bool VnaCalUnit::isWarmedUp() {
@@ -185,6 +186,7 @@ void VnaCalUnit::setOpen(uint port) {
 
     select();
     _vna->write(scpi);
+    _vna->pause(2.0E3);
 }
 void VnaCalUnit::setOpen(QVector<uint> ports) {
     foreach(uint port, ports)
@@ -199,6 +201,7 @@ void VnaCalUnit::setShort(uint port) {
 
     select();
     _vna->write(scpi);
+    _vna->pause(2.0E3);
 }
 void VnaCalUnit::setShort(QVector<uint> ports) {
     foreach(uint port, ports)
@@ -213,6 +216,7 @@ void VnaCalUnit::setMatch(uint port) {
 
     select();
     _vna->write(scpi);
+    _vna->pause(2.0E3);
 }
 void VnaCalUnit::setMatch(QVector<uint> ports) {
     foreach(uint port, ports)
@@ -228,6 +232,7 @@ void VnaCalUnit::setThru(uint port1, uint port2) {
 
     select();
     _vna->write(scpi);
+    _vna->pause(2.0E3);
 }
 
 

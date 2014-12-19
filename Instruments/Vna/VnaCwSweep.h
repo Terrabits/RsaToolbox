@@ -35,6 +35,8 @@ public:
     double ifBandwidth_Hz();
     void setIfBandwidth(double bandwidth, SiPrefix prefix = SiPrefix::None);
 
+    uint sweepTime_ms();
+
     void operator=(VnaCwSweep const &other);
 
 //    void moveToThread(QThread *thread);

@@ -19,6 +19,7 @@ INCLUDEPATH += $$PWD \
                $$PWD/Instruments/Vna/Models/CalGroupsModel \
                $$PWD/Instruments/Vna/Views/VnaForm \
                $$PWD/Instruments/Vna/Views/CalGroupPanel \
+               $$PWD/Gui/About \
                $$PWD/Gui/LastPath \
                $$PWD/Gui/ConnectButton \
                $$PWD/Gui/ConnectionTypeComboBox \
