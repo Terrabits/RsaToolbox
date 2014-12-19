@@ -17,6 +17,7 @@ include(Bus/No/no.pri)
 include(Bus/Visa/visa.pri)
 include(Instruments/Vna/vna.pri)
 include(QCustomPlot/qcustomplot.pri)
+OTHER_FILES += rsatoolbox.pri
 
 DESTDIR     = $$PWD
 DEFINES     += SOURCE_DIR=\\\"$$PWD\\\"
