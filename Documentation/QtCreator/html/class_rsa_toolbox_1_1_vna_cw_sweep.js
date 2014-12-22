@@ -13,5 +13,6 @@ var class_rsa_toolbox_1_1_vna_cw_sweep =
     [ "setFrequency", "class_rsa_toolbox_1_1_vna_cw_sweep.html#ac18fe249a5719a14aee4f6d2b59b2047", null ],
     [ "setIfBandwidth", "class_rsa_toolbox_1_1_vna_cw_sweep.html#a4b37126203dbdbd756843b787d24690f", null ],
     [ "setPoints", "class_rsa_toolbox_1_1_vna_cw_sweep.html#a865b3daabe5358c3695484b9ceaf8028", null ],
-    [ "setPower", "class_rsa_toolbox_1_1_vna_cw_sweep.html#aac822adb781e223a96898409db296a43", null ]
+    [ "setPower", "class_rsa_toolbox_1_1_vna_cw_sweep.html#aac822adb781e223a96898409db296a43", null ],
+    [ "sweepTime_ms", "class_rsa_toolbox_1_1_vna_cw_sweep.html#a919adcd598ff449e735b48daa047d45b", null ]
 ];

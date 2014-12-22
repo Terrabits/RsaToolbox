@@ -1,15 +1,15 @@
 var class_rsa_toolbox_1_1_vna_time_domain =
 [
     [ "RiseTime", "class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78", [
-      [ "TwentyToEighty", "class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78a83f18216a3c459cf950a334a67bc5dd8", null ],
-      [ "TenToNinety", "class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78a63a9770858c7f3f19bdef364fe931b5c", null ]
+      [ "TwentyToEighty", "class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78a999b9c7d384b41b80719b478ee1c789e", null ],
+      [ "TenToNinety", "class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78a01b7dea23f44372be4d74a53c18e3401", null ]
     ] ],
     [ "Window", "class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4b", [
-      [ "Regular", "class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4bad2203cb1237cb6460cbad94564e39345", null ],
-      [ "Hamming", "class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba718179b3bcff69a9d3f010aca0e9901a", null ],
-      [ "Hann", "class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba0218ace760f65b32ad5b254bf7a95ab5", null ],
-      [ "Bohman", "class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4badb8ad59f0329601f52af1b1df8cf62a3", null ],
-      [ "DolphChebychev", "class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4baba6b2002129d6c430ca8c87bf92fccac", null ]
+      [ "Regular", "class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba66dfad2fc66aab9e6bb47cfad78b4b6b", null ],
+      [ "Hamming", "class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4bad2ff0a5ffa7746b4369999e2534f3d77", null ],
+      [ "Hann", "class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba336c27eb5fd16469dd379d43b0cbf84f", null ],
+      [ "Bohman", "class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba202aeae4c95ff39308f422553f3312cc", null ],
+      [ "DolphChebychev", "class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4bae55a5b31791725a396046bd7ce81f43a", null ]
     ] ],
     [ "VnaTimeDomain", "class_rsa_toolbox_1_1_vna_time_domain.html#a1239cc10fc901cbadbd9c084a1463dcc", null ],
     [ "VnaTimeDomain", "class_rsa_toolbox_1_1_vna_time_domain.html#a56bc0376419dc1b9ad167fd1f8a8704d", null ],

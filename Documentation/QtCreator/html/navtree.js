@@ -13,8 +13,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_bus.html",
-"class_rsa_toolbox_1_1_keys.html#ad91204e951d5e957bc8ca73423e6cffd",
-"class_rsa_toolbox_1_1_vna_model.html#a727e9b9696032b380d0072840595ef05a9221cb4e2436bbc100f076146aadfb9e"
+"class_rsa_toolbox_1_1_last_path.html",
+"class_rsa_toolbox_1_1_vna_model.html#a727e9b9696032b380d0072840595ef05ab2fe2272b91ff5fb04139df92823cd8b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

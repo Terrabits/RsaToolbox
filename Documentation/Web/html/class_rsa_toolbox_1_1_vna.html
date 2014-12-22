@@ -298,6 +298,9 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Measurement Controls</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Start and synchronise measurements for all channels and traces. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_rsa_toolbox_1_1_vna_channel.html#adaf9645bebbc92214ecbc4c2bfec691b">VnaChannel::startSweep()</a>, <a class="el" href="class_rsa_toolbox_1_1_generic_instrument.html#aa3b21853f890838c88d047d6c2786917" title="Sends the &quot;*WAI&quot; SCPI command. ">wait()</a>, <a class="el" href="class_rsa_toolbox_1_1_generic_instrument.html#a7167f5c196fc5e167bfabde1a730e81d" title="Sends the &quot;*OPC?&quot; SCPI command. ">pause()</a> </dd></dl>
 </div></td></tr>
+<tr class="memitem:a919adcd598ff449e735b48daa047d45b"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a919adcd598ff449e735b48daa047d45b">sweepTime_ms</a> ()</td></tr>
+<tr class="memdesc:a919adcd598ff449e735b48daa047d45b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum sweep time.  <a href="#a919adcd598ff449e735b48daa047d45b">More...</a><br /></td></tr>
+<tr class="separator:a919adcd598ff449e735b48daa047d45b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc1ceb9a9678e4de6f0a713d947f416d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#abc1ceb9a9678e4de6f0a713d947f416d">startSweeps</a> ()</td></tr>
 <tr class="memdesc:abc1ceb9a9678e4de6f0a713d947f416d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a sweep in all available channels.  <a href="#abc1ceb9a9678e4de6f0a713d947f416d">More...</a><br /></td></tr>
 <tr class="separator:abc1ceb9a9678e4de6f0a713d947f416d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -337,12 +340,9 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Calibration Units</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Queries, configures and controls automatic calibration units (autocal units) </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_rsa_toolbox_1_1_vna_cal_unit.html" title="The VnaCalUnit class manipulates a Calibration Unit connected to a Vna. ">VnaCalUnit</a> </dd></dl>
 </div></td></tr>
-<tr class="memitem:abe18a3e9886c78813893747e271b4e5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#abe18a3e9886c78813893747e271b4e5a">isCalUnit</a> (QString id)</td></tr>
-<tr class="memdesc:abe18a3e9886c78813893747e271b4e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the presense of calibration unit <code>id</code>.  <a href="#abe18a3e9886c78813893747e271b4e5a">More...</a><br /></td></tr>
-<tr class="separator:abe18a3e9886c78813893747e271b4e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca2bc4db34f6af98228dfcd540c77a6c"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#aca2bc4db34f6af98228dfcd540c77a6c">numberOfCalUnits</a> ()</td></tr>
-<tr class="memdesc:aca2bc4db34f6af98228dfcd540c77a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the number of connected calibration units.  <a href="#aca2bc4db34f6af98228dfcd540c77a6c">More...</a><br /></td></tr>
-<tr class="separator:aca2bc4db34f6af98228dfcd540c77a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c714fb4e1cea2802fd424370904322e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a8c714fb4e1cea2802fd424370904322e">isCalUnit</a> (QString id)</td></tr>
+<tr class="memdesc:a8c714fb4e1cea2802fd424370904322e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the presense of calibration unit <code>id</code>.  <a href="#a8c714fb4e1cea2802fd424370904322e">More...</a><br /></td></tr>
+<tr class="separator:a8c714fb4e1cea2802fd424370904322e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe29686e38a9067c6064f1facba11de0"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#afe29686e38a9067c6064f1facba11de0">calUnits</a> ()</td></tr>
 <tr class="memdesc:afe29686e38a9067c6064f1facba11de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of calibration units.  <a href="#afe29686e38a9067c6064f1facba11de0">More...</a><br /></td></tr>
 <tr class="separator:afe29686e38a9067c6064f1facba11de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1644,12 +1644,12 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="abe18a3e9886c78813893747e271b4e5a"></a>
+<a class="anchor" id="a8c714fb4e1cea2802fd424370904322e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void isCalUnit </td>
+          <td class="memname">bool isCalUnit </td>
           <td>(</td>
           <td class="paramtype">QString&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -2071,24 +2071,6 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aca2bc4db34f6af98228dfcd540c77a6c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint numberOfCalUnits </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Queries the number of connected calibration units. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of cal units </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="ab7e709afe715ea12d3fe089469458e39"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2413,6 +2395,25 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Starts a sweep in all available channels. </p>
+
+</div>
+</div>
+<a class="anchor" id="a919adcd598ff449e735b48daa047d45b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint sweepTime_ms </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximum sweep time. </p>
+<p>Compares the sweep time of all channels and returns the maximum.</p>
+<dl class="section return"><dt>Returns</dt><dd>Maximum sweep time, in ms </dd></dl>
 
 </div>
 </div>

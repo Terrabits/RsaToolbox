@@ -308,43 +308,45 @@
     </member>
     <member kind="enumeration">
       <type></type>
-      <name>ConnectorGender</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a157ffe0e4dcd14784420ca337c6251a1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>MALE_GENDER</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a157ffe0e4dcd14784420ca337c6251a1a9cfa23a30f4229b999a85cb0d577336a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>FEMALE_GENDER</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a157ffe0e4dcd14784420ca337c6251a1abc9baaf3a3a3b0b5eb7bdc25e1cac3de</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>NEUTRAL_GENDER</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a157ffe0e4dcd14784420ca337c6251a1a7faa7e6fb3376fa753cc5904fe40250e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
       <name>NetworkParameter</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>aa0ba4d0acd5fdf65863b14e183a9f1d8</anchor>
       <arglist></arglist>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="aa0ba4d0acd5fdf65863b14e183a9f1d8a5dbc98dcc983a70728bd082d1a47546e">S</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="aa0ba4d0acd5fdf65863b14e183a9f1d8a57cec4137b614c87cb4e24a3d003a3e0">Y</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="aa0ba4d0acd5fdf65863b14e183a9f1d8a21c2e59531c8710156d34a3c30ac81d5">Z</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="aa0ba4d0acd5fdf65863b14e183a9f1d8ac1d9f50f86825a1a2302ec2449c17196">H</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="aa0ba4d0acd5fdf65863b14e183a9f1d8adfcf28d0734569a6a693bc8194de62bf">G</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>S</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>aa0ba4d0acd5fdf65863b14e183a9f1d8af1ce01387d2348f8b858721a7db81670</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Y</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>aa0ba4d0acd5fdf65863b14e183a9f1d8a5596231eabd6cf29050967d5ac83ad84</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Z</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>aa0ba4d0acd5fdf65863b14e183a9f1d8aa70478ce277ffc322f8e1e3418e07355</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>H</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>aa0ba4d0acd5fdf65863b14e183a9f1d8a5008b1179f399a2273fd3f6a7fc3b292</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>G</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>aa0ba4d0acd5fdf65863b14e183a9f1d8a2fe993340f6abb2234e543cd427df70b</anchor>
+      <arglist></arglist>
     </member>
     <member kind="enumeration">
       <type></type>
@@ -352,8 +354,20 @@
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>ad510ffc5b80ffa73e4165154fb790ef0</anchor>
       <arglist></arglist>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ad510ffc5b80ffa73e4165154fb790ef0a0cc175b9c0f1b6a831c399e269772661">a</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ad510ffc5b80ffa73e4165154fb790ef0a92eb5ffee6ae2fec3ad71c777531578f">b</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>a</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ad510ffc5b80ffa73e4165154fb790ef0aa91fb0824da12f8bb3b74dd78fb13b63</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>b</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ad510ffc5b80ffa73e4165154fb790ef0aa06b03e4cd5c7c464c513a95a7fcf9bf</anchor>
+      <arglist></arglist>
     </member>
     <member kind="enumeration">
       <type></type>
@@ -361,8 +375,20 @@
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>ac2904dcef8205419855c49db4819d430</anchor>
       <arglist></arglist>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac2904dcef8205419855c49db4819d430a2ca9469819fb0fb61ff98e914a7ccca0">Relative</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac2904dcef8205419855c49db4819d430ab51ca26c6c89cfc9bec338f7a0d3e0c8">Absolute</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Relative</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac2904dcef8205419855c49db4819d430a0f23d10f26a8446d64fded7b7478bee7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Absolute</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac2904dcef8205419855c49db4819d430a4b416446a4e9361cbd46fb295db6ce2e</anchor>
+      <arglist></arglist>
     </member>
     <member kind="enumeration">
       <type></type>
@@ -370,34 +396,83 @@
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>a410a23bf00f6ac6aa86b91b31688806e</anchor>
       <arglist></arglist>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a410a23bf00f6ac6aa86b91b31688806ea513b37a01b6a1cfbcc87ca03c5f7458c">DecibelMagnitude</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a410a23bf00f6ac6aa86b91b31688806ea5e35d7fff7b903516cba242ff68fc6d3">Phase</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a410a23bf00f6ac6aa86b91b31688806ea5cc54c9b546a8936c0df90fb3cda95de">SmithChart</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a410a23bf00f6ac6aa86b91b31688806eae8a0117faba640b64bd0081f279027f3">PolarChart</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a410a23bf00f6ac6aa86b91b31688806ea76002958eeb467bfa74db8308ac35d30">Vswr</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a410a23bf00f6ac6aa86b91b31688806ea98ccadc173b91257d661346a24ac892f">UnwrappedPhase</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a410a23bf00f6ac6aa86b91b31688806eac1a4f436eca777864111404effb5ae39">Magnitude</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a410a23bf00f6ac6aa86b91b31688806ea5698e9c0acd95ac44aa2ef9314da0388">InverseSmithChart</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a410a23bf00f6ac6aa86b91b31688806ea7f80fcc452c2f1ed2bb51b39d0864df1">Real</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a410a23bf00f6ac6aa86b91b31688806eaf19f497d4c860d252cc1e055d0362ccc">Imaginary</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a410a23bf00f6ac6aa86b91b31688806ea8f497c1a3d15af9e0c215019f26b887d">Delay</enumvalue>
     </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>CsvFormat</name>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>DecibelMagnitude</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>afef9eb6dfe949b834d1b5b9d7e09d3ff</anchor>
+      <anchor>a410a23bf00f6ac6aa86b91b31688806ea90c7fbb7d73a18438aa400b3c77597ac</anchor>
       <arglist></arglist>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="afef9eb6dfe949b834d1b5b9d7e09d3ffae08bd980ac25f18f85c7a240ae6be44c">DecibelDegrees</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="afef9eb6dfe949b834d1b5b9d7e09d3ffa2511f33afa283b268c6da750872f64d0">DecibelRadians</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="afef9eb6dfe949b834d1b5b9d7e09d3ffa5992abff187b5f2269bd1fb725c2d7d0">MagnitudeDegrees</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="afef9eb6dfe949b834d1b5b9d7e09d3ffabea105ac6a650577fa6a344f9d269bfb">MagnitudeRadians</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="afef9eb6dfe949b834d1b5b9d7e09d3ffa137f5826e6366d083fe1b997fd61fc3d">RealImaginary</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="afef9eb6dfe949b834d1b5b9d7e09d3ffa513b37a01b6a1cfbcc87ca03c5f7458c">DecibelMagnitude</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="afef9eb6dfe949b834d1b5b9d7e09d3ffac1a4f436eca777864111404effb5ae39">Magnitude</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="afef9eb6dfe949b834d1b5b9d7e09d3ffa77cd1d5fd36ac4aa2de4cd794836dd78">PhaseDegrees</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="afef9eb6dfe949b834d1b5b9d7e09d3ffa05cc4ebb7cd5c0cedf189bdbbdca29f6">PhaseRadians</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="afef9eb6dfe949b834d1b5b9d7e09d3ffa76002958eeb467bfa74db8308ac35d30">Vswr</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Phase</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a410a23bf00f6ac6aa86b91b31688806ea483a6928abb8b58deae3e9462f8b01a0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SmithChart</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a410a23bf00f6ac6aa86b91b31688806ea8e6105c8f95d5c30cf16aab89d43c295</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>PolarChart</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a410a23bf00f6ac6aa86b91b31688806ea7bf3599fccd2f9c30a118977ed893cd9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Vswr</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a410a23bf00f6ac6aa86b91b31688806ea4e797c8aa7924a0c1f9088f929fa569e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>UnwrappedPhase</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a410a23bf00f6ac6aa86b91b31688806ea63a9a1519e2b1ba92583d00fb86310fd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Magnitude</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a410a23bf00f6ac6aa86b91b31688806ea336a41a665e98d8d074a17e9c8acef80</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>InverseSmithChart</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a410a23bf00f6ac6aa86b91b31688806eabfc3b86870c66f9860472ff8968ccb9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Real</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a410a23bf00f6ac6aa86b91b31688806eae47767a8fd75c3f527962d1c194cc19c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Imaginary</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a410a23bf00f6ac6aa86b91b31688806ea0080769815ec006fc68ced09615b59cd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Delay</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a410a23bf00f6ac6aa86b91b31688806ea16fbf87ec18185f5066c6f797300e3ac</anchor>
+      <arglist></arglist>
     </member>
     <member kind="enumeration">
       <type></type>
@@ -405,9 +480,27 @@
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>a3fd1a9b25d76e60c5b6c4d86356986e9</anchor>
       <arglist></arglist>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a3fd1a9b25d76e60c5b6c4d86356986e9ae08bd980ac25f18f85c7a240ae6be44c">DecibelDegrees</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a3fd1a9b25d76e60c5b6c4d86356986e9a5992abff187b5f2269bd1fb725c2d7d0">MagnitudeDegrees</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a3fd1a9b25d76e60c5b6c4d86356986e9a137f5826e6366d083fe1b997fd61fc3d">RealImaginary</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>DecibelDegrees</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a3fd1a9b25d76e60c5b6c4d86356986e9acdf27f126b01f858c01a9b90692cabf5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>MagnitudeDegrees</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a3fd1a9b25d76e60c5b6c4d86356986e9a8e8dae70bf212bea8a4bde8cab17abed</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>RealImaginary</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a3fd1a9b25d76e60c5b6c4d86356986e9ad879938bc3c0b639436ed0ffc9fa792b</anchor>
+      <arglist></arglist>
     </member>
     <member kind="enumeration">
       <type></type>
@@ -415,17 +508,83 @@
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190</anchor>
       <arglist></arglist>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac33d2b1fdba15c8bfb494f9cf0ef4190a6adf97f83acf6453d4a6a4b1070f3754">None</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac33d2b1fdba15c8bfb494f9cf0ef4190a8f19a8c7566af54ea8981029730e5465">Seconds</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac33d2b1fdba15c8bfb494f9cf0ef4190af373520f32c8e017a3a42344b5706960">Hertz</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac33d2b1fdba15c8bfb494f9cf0ef4190a682f5298cdcce11e567b7f833843d3be">Radians</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac33d2b1fdba15c8bfb494f9cf0ef4190a9ef125630442bb42e2e367e0cf70d892">Degrees</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac33d2b1fdba15c8bfb494f9cf0ef4190a861923def665928fdc22d5304dad7ada">Ohms</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac33d2b1fdba15c8bfb494f9cf0ef4190a74993f42c49b81f3a77103bcbb247c2b">Siemens</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac33d2b1fdba15c8bfb494f9cf0ef4190a6af2670d4c6fd192d6fe6d69c2e9059b">Watts</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac33d2b1fdba15c8bfb494f9cf0ef4190a40c08c8a59b4acef11d698f93aeccafe">dB</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac33d2b1fdba15c8bfb494f9cf0ef4190ad6f9485f14abf73feb8bfdaa85eff2bb">dBW</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="ac33d2b1fdba15c8bfb494f9cf0ef4190a21b2c5773d09c68fe13dd43912183f9b">dBm</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>NoUnits</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a00cd339264fd83d14cc168e112484d1c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Seconds</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a59ddc87321c790df68923fb709a06cb1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Hertz</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a668e4e299b1dc007e1a756ba41fa88dc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Radians</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a7c56d276dd7a90a3833c60981af430b2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Degrees</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190ab28ef12cbe7643cb9eb5bc1151006013</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Ohms</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a93e821005ad71e5e3837e8b3c14f9fc6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Siemens</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190adb68bb5e5503134f94e5e625fb6566c9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Watts</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190ae43b04d1d464c9905ff5bfb81950a10d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>dB</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190aca9a1fbba4aa3f7e8aac9144d5a03d08</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>dBW</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190a43d386440a855ef6f292d803826a503c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>dBm</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ac33d2b1fdba15c8bfb494f9cf0ef4190ad4a392813e8d215af551009bf80031f4</anchor>
+      <arglist></arglist>
     </member>
     <member kind="enumeration">
       <type></type>
@@ -433,16 +592,76 @@
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>a9fb89ac56439ffc23c8e6942859ec3a6</anchor>
       <arglist></arglist>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a9fb89ac56439ffc23c8e6942859ec3a6a36e7fc4652810770a137e5c78a521686">Tera</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a9fb89ac56439ffc23c8e6942859ec3a6a5262457500d337190c0f3484701a4ca6">Giga</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a9fb89ac56439ffc23c8e6942859ec3a6afde5020a5a97322bf5a7aee8174abbd8">Mega</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a9fb89ac56439ffc23c8e6942859ec3a6a3afe87a2a8c61f8023e56883b9baccb8">Kilo</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a9fb89ac56439ffc23c8e6942859ec3a6a6adf97f83acf6453d4a6a4b1070f3754">None</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a9fb89ac56439ffc23c8e6942859ec3a6a12465672495917bbec5d04198923d373">Milli</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a9fb89ac56439ffc23c8e6942859ec3a6adb1ce45d604c6b1d54c31dbc69bcdb56">Micro</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a9fb89ac56439ffc23c8e6942859ec3a6a79b048d6d742fae8fc4f0524dcb6949c">Nano</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a9fb89ac56439ffc23c8e6942859ec3a6acba3b736b06870457286524ba747164f">Pico</enumvalue>
-      <enumvalue file="namespace_rsa_toolbox.html" anchor="a9fb89ac56439ffc23c8e6942859ec3a6a6805de99ae4312da34ebbf4a39e400c3">Femto</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Tera</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6ae7ec0eb3d2cf9998e4def53f83497a55</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Giga</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6aa133ea4ad0dd5f6ec73690ad8467b6c4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Mega</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6ad94c39490a2f678e8d4cc67f83211d78</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Kilo</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6a1da9972c2f40d11f3034928ded997ee5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>None</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6ac9d3e887722f2bc482bcca9d41c512af</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Milli</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6aaa0ceca5cd42045c59ffb71207c24561</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Micro</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6ae919d9c95f0fd4a08f3c94e13a3f8a9f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Nano</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6a9ab216094782f9431a11c42890b8cafe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Pico</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6ab8ff39af8beda3d44bc5b2de7ab19388</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Femto</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a9fb89ac56439ffc23c8e6942859ec3a6a8dfce9b156176c5133f713950da9e899</anchor>
+      <arglist></arglist>
     </member>
     <member kind="enumeration">
       <type></type>
@@ -585,60 +804,32 @@
       <arglist>(char *buffer, uint bufferSize_B, uint bytesUsed)</arglist>
     </member>
     <member kind="function">
-      <type>Connector::Type</type>
-      <name>toConnectorType</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a518888126eae33790db794a4c0e5b185</anchor>
-      <arglist>(QString vnaScpi)</arglist>
-    </member>
-    <member kind="function">
-      <type>ConnectorGender</type>
-      <name>toConnectorGender</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa2dc370e5ebc2e8481399159dbef53d3</anchor>
-      <arglist>(QString vnaScpi)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toVnaScpi</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a8252e551491255846984ac405299d12b</anchor>
-      <arglist>(Connector::Type type)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toVnaScpi</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a55ab29afe3fcf57a574c2ab447c51ddd</anchor>
-      <arglist>(ConnectorGender gender)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toConnectorTypeVnaScpi</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a630392534737342a787ace57db99cc3a</anchor>
-      <arglist>(Connector connector)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toConnectorGenderVnaScpi</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a876586e0da3223689989d9cd201f9b4d</anchor>
-      <arglist>(Connector connector)</arglist>
-    </member>
-    <member kind="function">
       <type>bool</type>
       <name>operator==</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>ac07e397ef61e2ad3de0d5df7e7d787f0</anchor>
-      <arglist>(const Connector &amp;left, const Connector &amp;right)</arglist>
+      <anchor>a80c35e2cb6ca30d586f5187a6d1b7974</anchor>
+      <arglist>(const RsaToolbox::Connector &amp;left, const RsaToolbox::Connector &amp;right)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator!=</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a97ed153c57306b1dc6d17adfe6efcc57</anchor>
-      <arglist>(const Connector &amp;left, const Connector &amp;right)</arglist>
+      <anchor>a4698068c74c562e72cf88a8f129b25c3</anchor>
+      <arglist>(const RsaToolbox::Connector &amp;left, const RsaToolbox::Connector &amp;right)</arglist>
+    </member>
+    <member kind="function">
+      <type>QDataStream &amp;</type>
+      <name>operator&lt;&lt;</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a2d6b0dfebf17ffa8962f9632a80f4331</anchor>
+      <arglist>(QDataStream &amp;stream, const RsaToolbox::Connector &amp;connector)</arglist>
+    </member>
+    <member kind="function">
+      <type>QDataStream &amp;</type>
+      <name>operator&gt;&gt;</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a7fd848e8707bcb5e99dbed0984b83f27</anchor>
+      <arglist>(QDataStream &amp;stream, RsaToolbox::Connector &amp;connector)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -733,31 +924,10 @@
     </member>
     <member kind="function">
       <type>QString</type>
-      <name>AppendPath</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa5cb97be2bab893b0072136464fbbf23</anchor>
-      <arglist>(QDir path, QString filename)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>AppendCurrentDirectory</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a56aa4142e468fd8422c87332b23a297f</anchor>
-      <arglist>(QString filename)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
       <name>GetAppDataPath</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>af57d5ee3608f72345359f9fe53e65e66</anchor>
-      <arglist>(QString program_folder)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>AppendAppDataPath</name>
-      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a05cc3717c6e3f03bb1cc84fae5b3a053</anchor>
-      <arglist>(QString program_folder, QString filename)</arglist>
+      <anchor>aaed5965669fb6339f65f39f09c1683eb</anchor>
+      <arglist>(QString manufacturerFolder, QString applicationFolder)</arglist>
     </member>
     <member kind="function">
       <type>QString</type>
@@ -1792,15 +1962,29 @@
       <type>bool</type>
       <name>operator==</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a39234bb9350b23a6eb532a9f519a97af</anchor>
-      <arglist>(const NameLabel &amp;right, const NameLabel &amp;left)</arglist>
+      <anchor>ab27e8e0e54bfe009ff3176dd69c31047</anchor>
+      <arglist>(const RsaToolbox::NameLabel &amp;right, const RsaToolbox::NameLabel &amp;left)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator!=</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>aa2fa79b0dfe58e581ed5d8784579ac22</anchor>
-      <arglist>(const NameLabel &amp;right, const NameLabel &amp;left)</arglist>
+      <anchor>a3f48bb83514bccb651b7bf866e82dfcc</anchor>
+      <arglist>(const RsaToolbox::NameLabel &amp;right, const RsaToolbox::NameLabel &amp;left)</arglist>
+    </member>
+    <member kind="function">
+      <type>QDataStream &amp;</type>
+      <name>operator&lt;&lt;</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>ae489687fcc3784918b9bc2d67095904c</anchor>
+      <arglist>(QDataStream &amp;stream, const RsaToolbox::NameLabel &amp;label)</arglist>
+    </member>
+    <member kind="function">
+      <type>QDataStream &amp;</type>
+      <name>operator&gt;&gt;</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a5cbee5731c321ef2bd71a51b7816e80b</anchor>
+      <arglist>(QDataStream &amp;stream, RsaToolbox::NameLabel &amp;label)</arglist>
     </member>
     <member kind="function">
       <type>SharedLastPath</type>
@@ -1841,8 +2025,8 @@
       <type>void</type>
       <name>sort</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a62a5d8ec9ef55d57fb000ac213c449b8</anchor>
-      <arglist>(ConnectorGender &amp;gender1, ConnectorGender &amp;gender2)</arglist>
+      <anchor>a734014694eefc28cfa092df1c61e45c4</anchor>
+      <arglist>(Connector::Gender &amp;gender1, Connector::Gender &amp;gender2)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -1952,9 +2136,27 @@
       <anchorfile>class_rsa_toolbox_1_1_balanced_port.html</anchorfile>
       <anchor>a1d1cfd8ffb84e947f82999c682b666a7</anchor>
       <arglist></arglist>
-      <enumvalue file="class_rsa_toolbox_1_1_balanced_port.html" anchor="a1d1cfd8ffb84e947f82999c682b666a7a3bdea3ac1bbf38ef341bac5a9d204459">SingleEnded</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_balanced_port.html" anchor="a1d1cfd8ffb84e947f82999c682b666a7a1c2eaa5d56340808f2a94368501e5496">Differential</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_balanced_port.html" anchor="a1d1cfd8ffb84e947f82999c682b666a7ad13bc5b68b2bd9e18f29777db17cc563">Common</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SingleEnded</name>
+      <anchorfile>class_rsa_toolbox_1_1_balanced_port.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7a7105661546e0ceab15572f5974305920</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Differential</name>
+      <anchorfile>class_rsa_toolbox_1_1_balanced_port.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7a6a4372c371139fa3ca5c37c305675905</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Common</name>
+      <anchorfile>class_rsa_toolbox_1_1_balanced_port.html</anchorfile>
+      <anchor>a1d1cfd8ffb84e947f82999c682b666a7a9cc00ea16fb915697974900a62a04062</anchor>
+      <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -2543,6 +2745,34 @@
     <filename>class_rsa_toolbox_1_1_connector.html</filename>
     <member kind="enumeration">
       <type></type>
+      <name>Gender</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a3667e3c5ec056737c8789615a989324f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Male</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a3667e3c5ec056737c8789615a989324fadfdd236ca597df5a4d2f5fa0d0f6ec93</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Female</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a3667e3c5ec056737c8789615a989324fa4fcdc3f409e8e27fbfd35bbd6472877c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Neutral</name>
+      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
+      <anchor>a3667e3c5ec056737c8789615a989324fa32bb6c621f52f6a0932c646d5ed47f91</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
       <name>Type</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
       <anchor>a1d1cfd8ffb84e947f82999c682b666a7</anchor>
@@ -2657,15 +2887,15 @@
       <type></type>
       <name>Connector</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>a18ecd71336a4195a590cec8fb6ca596f</anchor>
-      <arglist>(Type type, ConnectorGender gender=MALE_GENDER)</arglist>
+      <anchor>a384663f47c25a96dc850309f1165e6ed</anchor>
+      <arglist>(Type type, Gender gender=Gender::Male)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>Connector</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>aca86ee25bf97cf7961d8b69e70fe91d3</anchor>
-      <arglist>(QString customType, ConnectorGender gender=MALE_GENDER)</arglist>
+      <anchor>a2405b7b7c585284da8f766813c59f2c6</anchor>
+      <arglist>(QString customType, Gender gender=Gender::Male)</arglist>
     </member>
     <member kind="function">
       <type>QString</type>
@@ -2727,8 +2957,8 @@
       <type>bool</type>
       <name>isGender</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>a6a72a4731f22fc54b667979d05a05b5a</anchor>
-      <arglist>(ConnectorGender gender) const </arglist>
+      <anchor>a52db89bf67d294d11c0079da71fa73df</anchor>
+      <arglist>(Gender gender) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -2787,10 +3017,10 @@
       <arglist>() const </arglist>
     </member>
     <member kind="function">
-      <type>ConnectorGender</type>
+      <type>Connector::Gender</type>
       <name>gender</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>afbe0331cca4e8a65607c498ecb01ea60</anchor>
+      <anchor>a9acc83abc7649055e275a51033adfa90</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
@@ -2804,8 +3034,8 @@
       <type>void</type>
       <name>setType</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>ae90ee028f0f690616502a8a3631dcdd9</anchor>
-      <arglist>(const Connector type)</arglist>
+      <anchor>a43805e98d6c637b0d1d191ee5a4d1df1</anchor>
+      <arglist>(const Connector &amp;type)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2825,8 +3055,8 @@
       <type>void</type>
       <name>setGender</name>
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>ab905388af014c69ca0f2d58c71d9f6e8</anchor>
-      <arglist>(ConnectorGender gender)</arglist>
+      <anchor>aa38617b56386dee765766b1fbb9a98c4</anchor>
+      <arglist>(Gender gender)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2869,48 +3099,6 @@
       <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
       <anchor>a9499788a2bbcfbe897117ccb2fcabd2c</anchor>
       <arglist>(QVector&lt; Connector &gt; &amp;connectors)</arglist>
-    </member>
-    <member kind="function">
-      <type>Connector::Type</type>
-      <name>toConnectorType</name>
-      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>a8e7ce1c3a4bf690ea537124d6e88d042</anchor>
-      <arglist>(QString vnaScpi)</arglist>
-    </member>
-    <member kind="function">
-      <type>ConnectorGender</type>
-      <name>toConnectorGender</name>
-      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>a8ef07f6fc2bb1fd4a622fe136a3095e8</anchor>
-      <arglist>(QString vnaScpi)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toVnaScpi</name>
-      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>a6b176cd5382ab852d9a7cbf6edc9286a</anchor>
-      <arglist>(Connector::Type type)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toVnaScpi</name>
-      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>aa2570272aec9074125ef0a8f3d4a0687</anchor>
-      <arglist>(ConnectorGender gender)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toConnectorTypeVnaScpi</name>
-      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>a47212519396e7e490efae70fdb25714e</anchor>
-      <arglist>(Connector connector)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>toConnectorGenderVnaScpi</name>
-      <anchorfile>class_rsa_toolbox_1_1_connector.html</anchorfile>
-      <anchor>a070da66083caf1fe8b467b8e17dedf51</anchor>
-      <arglist>(Connector connector)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -6766,6 +6954,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>uint</type>
+      <name>sweepTime_ms</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>a919adcd598ff449e735b48daa047d45b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>startSweeps</name>
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
@@ -6843,18 +7038,11 @@
       <arglist>(uint index=1)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>bool</type>
       <name>isCalUnit</name>
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>abe18a3e9886c78813893747e271b4e5a</anchor>
+      <anchor>a8c714fb4e1cea2802fd424370904322e</anchor>
       <arglist>(QString id)</arglist>
-    </member>
-    <member kind="function">
-      <type>uint</type>
-      <name>numberOfCalUnits</name>
-      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>aca2bc4db34f6af98228dfcd540c77a6c</anchor>
-      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>QStringList</type>
@@ -7222,8 +7410,8 @@
       <type>bool</type>
       <name>has</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
-      <anchor>a3ea08458b2fa30bb92804273b6892993</anchor>
-      <arglist>(VnaStandardType type, ConnectorGender gender)</arglist>
+      <anchor>af8a2b61a6bf7455f8a430a39547f39bd</anchor>
+      <arglist>(VnaStandardType type, Connector::Gender gender)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -7236,8 +7424,8 @@
       <type>bool</type>
       <name>has</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
-      <anchor>afdcc6ea9e6eb647d3d778ddce96578a7</anchor>
-      <arglist>(VnaStandardType type, ConnectorGender gender1, ConnectorGender gender2)</arglist>
+      <anchor>ab8926aad2516fe08928d494a62149df2</anchor>
+      <arglist>(VnaStandardType type, Connector::Gender gender1, Connector::Gender gender2)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -7245,6 +7433,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
       <anchor>ac6b3cddf20e99a2e3aac18cadda8bfba</anchor>
       <arglist>(VnaStandardType type, uint port1, uint port2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasOpen</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
+      <anchor>aa873e17316c838b3a17dd1dfef088064</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -7265,6 +7460,13 @@
       <name>hasFemaleOpen</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
       <anchor>a90d4ebe10f18270b188eef8ea7d4018d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasShort</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
+      <anchor>ad643c3a2653b449e642f6e9877651eab</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -7292,6 +7494,13 @@
       <type>bool</type>
       <name>hasMatch</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
+      <anchor>a0bb2df101d6d8bf8af2f2ee2266a9eb3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasMatch</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
       <anchor>ad7ec772a15f1d1190108c354ebdf794e</anchor>
       <arglist>(uint port)</arglist>
     </member>
@@ -7313,8 +7522,8 @@
       <type>bool</type>
       <name>hasThru</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
-      <anchor>a328dea68cba6fd0a539ff9c2ef6366c3</anchor>
-      <arglist>(ConnectorGender gender1, ConnectorGender gender2)</arglist>
+      <anchor>a0ebd3d9d9d782df45d2658ccec13fe55</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -7322,6 +7531,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
       <anchor>af185868fb8e074e1a1a310bd2850d020</anchor>
       <arglist>(uint port1, uint port2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasThru</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_kit.html</anchorfile>
+      <anchor>a0acc3692c479d53df9d6fe04fe43629d</anchor>
+      <arglist>(Connector::Gender gender1, Connector::Gender gender2)</arglist>
     </member>
     <member kind="function">
       <type>Connector</type>
@@ -7422,15 +7638,15 @@
       <type>bool</type>
       <name>isGender</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
-      <anchor>a6a72a4731f22fc54b667979d05a05b5a</anchor>
-      <arglist>(ConnectorGender gender) const </arglist>
+      <anchor>a231038ecae76003fb555d4e750f4b0b5</anchor>
+      <arglist>(Connector::Gender gender) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isGender</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
-      <anchor>a7b59485bf91281f29020b054c50dbd7d</anchor>
-      <arglist>(ConnectorGender gender1, ConnectorGender gender2) const </arglist>
+      <anchor>a2fb51cd7958c9b33cb7df4a2eb3d5970</anchor>
+      <arglist>(Connector::Gender gender1, Connector::Gender gender2) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -7618,8 +7834,8 @@
       <type>bool</type>
       <name>isThru</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
-      <anchor>a8d1e63be8bb2748f1bfb9c53954869be</anchor>
-      <arglist>(ConnectorGender gender1, ConnectorGender gender2) const </arglist>
+      <anchor>ad490aa36cebd7b45711098cc96fe63c5</anchor>
+      <arglist>(Connector::Gender gender1, Connector::Gender gender2) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -7685,45 +7901,45 @@
       <arglist>() const </arglist>
     </member>
     <member kind="function">
-      <type>Connector</type>
+      <type>Connector &amp;</type>
       <name>connector</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
-      <anchor>a40ebe6360163e4300080bd2f202bc027</anchor>
-      <arglist>() const </arglist>
+      <anchor>a675470498d19c72bae3932d17712c480</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>Connector</type>
+      <type>Connector &amp;</type>
       <name>connector1</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
-      <anchor>a2324cc66108138a282c6fb698a889393</anchor>
-      <arglist>() const </arglist>
+      <anchor>a63c1b81d0c5f2bad21512596f2347663</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>Connector</type>
+      <type>Connector &amp;</type>
       <name>connector2</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
-      <anchor>a3fb5a77a44175148609241b326591053</anchor>
-      <arglist>() const </arglist>
+      <anchor>aaf992a8f71b5d3d79b504d1a73f62a24</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>ConnectorGender</type>
+      <type>Connector::Gender</type>
       <name>gender</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
-      <anchor>afbe0331cca4e8a65607c498ecb01ea60</anchor>
+      <anchor>a9acc83abc7649055e275a51033adfa90</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
-      <type>ConnectorGender</type>
+      <type>Connector::Gender</type>
       <name>gender1</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
-      <anchor>a09b59684bd0cebc0b9355130b18aeb1c</anchor>
+      <anchor>a07c6b652e435f29dfa1718ed3bdaad8d</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
-      <type>ConnectorGender</type>
+      <type>Connector::Gender</type>
       <name>gender2</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
-      <anchor>a9b2fe4e7bf569926747a9d5351c83c91</anchor>
+      <anchor>a61e173f4fabca43e1a63e29f638263d4</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
@@ -7807,8 +8023,22 @@
       <type>VnaStandardModel</type>
       <name>model</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
-      <anchor>a069259a93665ad932f162a7fe315e2c7</anchor>
-      <arglist>()</arglist>
+      <anchor>a5f9e4430a2b65231fa9951da2e120170</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
+      <anchor>afc80804d86e06a80448902c51b112784</anchor>
+      <arglist>(VnaStandardModel model)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setModel</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
+      <anchor>a300058af81602df0b10e911263e4844d</anchor>
+      <arglist>(double eLength_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3, double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3, double R_Ohms)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8000,6 +8230,20 @@
       <arglist>(const VnaCalStandard &amp;other)</arglist>
     </member>
     <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>isSinglePort</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
+      <anchor>abe8e47b8e8c82545edae666dadbdf794</anchor>
+      <arglist>(VnaStandardType type)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>isTwoPort</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
+      <anchor>a9fa97922dda0445967ca43167ffd86de</anchor>
+      <arglist>(VnaStandardType type)</arglist>
+    </member>
+    <member kind="function" static="yes">
       <type>static QStringList</type>
       <name>displayText</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
@@ -8017,8 +8261,8 @@
       <type>void</type>
       <name>sort</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_standard.html</anchorfile>
-      <anchor>a0c6c2b78933281925c98d9b2e715a594</anchor>
-      <arglist>(ConnectorGender &amp;gender1, ConnectorGender &amp;gender2)</arglist>
+      <anchor>aac60f87a81ffba05dcf786692bf95b66</anchor>
+      <arglist>(Connector::Gender &amp;gender1, Connector::Gender &amp;gender2)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8074,6 +8318,195 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>double</type>
+      <name>minimunFrequency_Hz</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>abb33e51081dcd97cac9afb130435a3d8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>maximumFrequency_Hz</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>af8d4193c1724e8f3c954f807acaf138e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>ports</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a2bf03b7bfda0414cb985e35c05744ce0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasConnector</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a3a6e1b5a27dc4ee2fd69ec0ded81fc5c</anchor>
+      <arglist>(Connector connector)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasConnector</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>aeee864d7d95c3034e4e9608447c1469f</anchor>
+      <arglist>(QString calName, Connector connector)</arglist>
+    </member>
+    <member kind="function">
+      <type>QVector&lt; Connector &gt;</type>
+      <name>physicalConnectors</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>ae8a03b6e0c4c94504669b1a792fa3006</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QVector&lt; Connector &gt;</type>
+      <name>connectorsFromLatestCal</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a9c6f3cc2c6c738d9f7e58f49e8530fa4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QVector&lt; Connector &gt;</type>
+      <name>connectorsFrom</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a9e3d5fbfbdd499d376ecd5e7b0558f4a</anchor>
+      <arglist>(QString calName)</arglist>
+    </member>
+    <member kind="function">
+      <type>QVector&lt; uint &gt;</type>
+      <name>portsOfType</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a6d0b9082c27687e589897f292b043131</anchor>
+      <arglist>(Connector connector)</arglist>
+    </member>
+    <member kind="function">
+      <type>QVector&lt; uint &gt;</type>
+      <name>portsOfTypeFromLatestCal</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a8bb9c99c34ee229a186e6015ee98ab28</anchor>
+      <arglist>(Connector connector)</arglist>
+    </member>
+    <member kind="function">
+      <type>QVector&lt; uint &gt;</type>
+      <name>portsOfType</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>affb65d573ee1c70f3d0cf4864a0f356c</anchor>
+      <arglist>(QString calName, Connector connector)</arglist>
+    </member>
+    <member kind="function">
+      <type>QStringList</type>
+      <name>calibrations</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a56bd883b6ced62a83389f854de212ebe</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>frequencyRange</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>afa4ea9310212e87b9aa96f8bb93d488a</anchor>
+      <arglist>(QString calName, double &amp;min_Hz, double &amp;max_Hz)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>exportFactoryCal</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a64d83be2f2089ac243f3f0d1e9d38869</anchor>
+      <arglist>(QString path)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>exportLatestCal</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a3fa9119c3bccfeb15c17991c040fa93d</anchor>
+      <arglist>(QString path)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>exportCalibration</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>afc98dc27c45f9dbc71284c457beacdc6</anchor>
+      <arglist>(QString calName, QString path)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isWarmedUp</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a5591de30396b55e24836f3d2d6f7223b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setOpen</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>aca5eae4d8f1c0e9a416667d56f03aa2b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setOpen</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a67335c45163d844224b1050d862b14a5</anchor>
+      <arglist>(uint port)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setOpen</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a0cde223fc77e4283054cd2ee273a3882</anchor>
+      <arglist>(QVector&lt; uint &gt; ports)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setShort</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a5d63a34596809cc59c97bedbdf1ebe21</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setShort</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a3e2d5137dd4f7febcc28057b92e57e0b</anchor>
+      <arglist>(uint port)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setShort</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a4c345362889a45b454329c9adca7e227</anchor>
+      <arglist>(QVector&lt; uint &gt; ports)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMatch</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>afe2ecf49b22b9a79e9c0154fd687883d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMatch</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a778b31671f24f768d08c82b02f6e2781</anchor>
+      <arglist>(uint port)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMatch</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a47d751ddabfaac209e237143693796d5</anchor>
+      <arglist>(QVector&lt; uint &gt; ports)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setThru</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
+      <anchor>a8afd315d3cbdcf7d1aeb4154226e42ec</anchor>
+      <arglist>(uint port1, uint port2)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>operator=</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_cal_unit.html</anchorfile>
@@ -8090,12 +8523,48 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
       <anchor>a725b144803c6fcb63efe6bb90f7692b6</anchor>
       <arglist></arglist>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_channel.html" anchor="a725b144803c6fcb63efe6bb90f7692b6a32a843da6ea40ab3b17a3421ccdf671b">Linear</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_channel.html" anchor="a725b144803c6fcb63efe6bb90f7692b6ace0be71e33226e4c1db2bcea5959f16b">Log</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_channel.html" anchor="a725b144803c6fcb63efe6bb90f7692b6a8484a13cbb8a8a53d6c4285938d21f60">Segmented</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_channel.html" anchor="a725b144803c6fcb63efe6bb90f7692b6add4fe0cc913f704600b97d1f5dd285de">Power</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_channel.html" anchor="a725b144803c6fcb63efe6bb90f7692b6a1f21606af996c5154e5e88760f82592f">Cw</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_channel.html" anchor="a725b144803c6fcb63efe6bb90f7692b6aa76d4ef5f3f6a672bbfab2865563e530">Time</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Linear</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a725b144803c6fcb63efe6bb90f7692b6a1a1f3bc55fefa098d9034cc46e2e7a2b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Log</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a725b144803c6fcb63efe6bb90f7692b6a089fe3c8ed633fc44cb2e73b17af84ec</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Segmented</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a725b144803c6fcb63efe6bb90f7692b6afff7dad2db182e8750be5c1041549718</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Power</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a725b144803c6fcb63efe6bb90f7692b6aeaf106a8b179fcfe2585c7efd72ed55a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Cw</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a725b144803c6fcb63efe6bb90f7692b6af4b433fb53bb4c3f0b493b2a1217df05</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Time</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a725b144803c6fcb63efe6bb90f7692b6a3045f33dbb706dfcf7d3467ec6e685af</anchor>
+      <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -8986,6 +9455,13 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_cw_sweep.html</anchorfile>
       <anchor>a4b37126203dbdbd756843b787d24690f</anchor>
       <arglist>(double bandwidth, SiPrefix prefix=SiPrefix::None)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>sweepTime_ms</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_cw_sweep.html</anchorfile>
+      <anchor>a919adcd598ff449e735b48daa047d45b</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -11026,17 +11502,83 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
       <anchor>a051e4d035e053a4636efc58c1bde9b3e</anchor>
       <arglist></arglist>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_properties.html" anchor="a051e4d035e053a4636efc58c1bde9b3ea004c62d454db23c91d020b8081f35595">Zva</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_properties.html" anchor="a051e4d035e053a4636efc58c1bde9b3ea62103c84434eda43a0ec77df06d7da9b">Zvb</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_properties.html" anchor="a051e4d035e053a4636efc58c1bde9b3eaebe0dc251d92608c935601a383c12a33">Zvh</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_properties.html" anchor="a051e4d035e053a4636efc58c1bde9b3ea340dc2e2b3c9bc329a60e8ec04296804">Zvl</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_properties.html" anchor="a051e4d035e053a4636efc58c1bde9b3ea6e7f6fcd3ec59cb7428cf48601fe1bb2">Zvt</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_properties.html" anchor="a051e4d035e053a4636efc58c1bde9b3ea9f77d285383a042336e68f38810103e4">Znb</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_properties.html" anchor="a051e4d035e053a4636efc58c1bde9b3eaf417e8b9733aae94f26de0ba4613850d">Znbt</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_properties.html" anchor="a051e4d035e053a4636efc58c1bde9b3eae7c81917779cf05186bd36cfed82fa41">Znc</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_properties.html" anchor="a051e4d035e053a4636efc58c1bde9b3eaecd3f61b14914b0ef627811dade58c23">Znd</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_properties.html" anchor="a051e4d035e053a4636efc58c1bde9b3eaa29e1d6b45a4e746544ca55c514d3fd6">Znp</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_properties.html" anchor="a051e4d035e053a4636efc58c1bde9b3ea88183b946cc5f0e8c96b2e66e1c74a7e">Unknown</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Zva</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea635535e8cd6a967dbd5eff7600494e0a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Zvb</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3eae23d6774336e07155cda71c087630cb8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Zvh</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3eac733a108172eaba6c1a5c89b4d94155b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Zvl</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea12d0b9f3310d0c23febbb49dfcbc4ad2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Zvt</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3eaf885a66b495d9b494dfc174f6bd19c23</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Znb</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea91b9863aefc8b69012690f5090b2211e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Znbt</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea966a594c141db7ca0eca59e53fb4d5b6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Znc</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea5c597faa0a335d5b12cd66b9af04cd1c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Znd</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea00618900d0b31925b0823466f61bd24a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Znp</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea29385cd5c1d71ff184ec16e3923a1cf0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Unknown</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_properties.html</anchorfile>
+      <anchor>a051e4d035e053a4636efc58c1bde9b3ea4e81c184ac3ad48a389cd4454c4a05bb</anchor>
+      <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -11421,6 +11963,97 @@
       <type>static QString</type>
       <name>toString</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>ad9d5041def5a764cd04311ec26e1722e</anchor>
+      <arglist>(Connector::Gender gender)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>toGenderString</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>a9393ce1dfbd8e555c2e768255d22db60</anchor>
+      <arglist>(Connector connector)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>toString</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>a9bab33a43921c472c3798e5098e1b5ed</anchor>
+      <arglist>(Connector::Type type)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>toTypeString</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>a7c51b2090097eb6d0466c0672d8d8631</anchor>
+      <arglist>(Connector connector)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Connector::Gender</type>
+      <name>toConnectorGender</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>afc346ab7f382cf01d002e344c6e01860</anchor>
+      <arglist>(QString scpi)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Connector::Type</type>
+      <name>toConnectorType</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>a33bca8bbf5bd87edcb4fcf5268bcbf73</anchor>
+      <arglist>(QString scpi)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>toString</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>ada20569b00b9cbc4d8061157aa1bc40b</anchor>
+      <arglist>(const VnaCalStandard &amp;standard)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>toString</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>a4a14096e51a38e00a5a0a810a89a857d</anchor>
+      <arglist>(VnaStandardType type)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>toString</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>a7d4bedee47bad1112914750f2f21d8a4</anchor>
+      <arglist>(VnaStandardType type, Connector::Gender gender)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>toString</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>a9f58a403893a11e855165179e62a4812</anchor>
+      <arglist>(VnaStandardType type, Connector::Gender gender, uint port)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>toString</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>a6089f2cc3ebb8cb37e7c0cfa724e55a5</anchor>
+      <arglist>(VnaStandardType type, Connector::Gender gender1, Connector::Gender gender2)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>toString</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>a9b5f7a2fd4bb810a4ce456e9e7ff21e0</anchor>
+      <arglist>(VnaStandardType type, Connector::Gender gender1, uint port1, Connector::Gender gender2, uint port2)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static VnaCalStandard</type>
+      <name>toCalStandard</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>a96a6d6d2354dc8233f9ac0ba7d21fb54</anchor>
+      <arglist>(QString scpi)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>toString</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
       <anchor>a89c1fee732bc6ba630d99a273d614334</anchor>
       <arglist>(VnaCalibrate::CalType type)</arglist>
     </member>
@@ -11753,16 +12386,76 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
       <anchor>a86996facc6803c75265d0a0c28663e52</anchor>
       <arglist></arglist>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a86996facc6803c75265d0a0c28663e52a77ce3fcd6fc104c2722c7b5b9b8689d8">Pna</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a86996facc6803c75265d0a0c28663e52ab7a16f02562d5c049a827d7cbdf4f704">Ena</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a86996facc6803c75265d0a0c28663e52a5998fa4430e635f81e3942fa575a9b6c">Hp8510</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a86996facc6803c75265d0a0c28663e52a22407f65e562d747f7580f0a2e42e43b">Hp8530</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a86996facc6803c75265d0a0c28663e52a8293eb26f551c3531019a248ea393e8c">Hp8720</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a86996facc6803c75265d0a0c28663e52aaa4cf2d669e6dbd324adacd6e31458d6">Hp8753</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a86996facc6803c75265d0a0c28663e52ac7f07f53ce86f3dd1d6ba5dbd99f8bc0">Hp8714</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a86996facc6803c75265d0a0c28663e52a35824cb8bcedba1f8550ec171b472b4a">Zvr</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a86996facc6803c75265d0a0c28663e52ab1801f47e7d57b2339020bbb1d8a2982">Zvabt</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a86996facc6803c75265d0a0c28663e52ad15305d7a4e34e02489c74a5ef542f36">Off</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Pna</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52a56742694361862fbf1111ebb41728260</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Ena</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52a7e60c7a62a73b127f6896c165f7ee262</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Hp8510</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52a619b07319fdfeef7be925cb80a5fbda8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Hp8530</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52a40d8f6ef0451208b86f8bfa7612e9229</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Hp8720</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52af1cdea6ace7a06213d126c58501fb045</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Hp8753</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52aebe0e64172771e1c9b168e17385759f2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Hp8714</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52ac12230cd386601f614fd107ea6e79a0d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Zvr</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52ab4259ce6959687f26fc2df55f2792475</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Zvabt</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52a693bc0b2ef1ad0492f877c5c9f837c08</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Off</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a86996facc6803c75265d0a0c28663e52ad8a892b94d3a94ea861543c085ae782b</anchor>
+      <arglist></arglist>
     </member>
     <member kind="enumeration">
       <type></type>
@@ -11770,10 +12463,34 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
       <anchor>a63ab7f3e964bbfd5c64e88e2861f4f41</anchor>
       <arglist></arglist>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a63ab7f3e964bbfd5c64e88e2861f4f41aa18366b217ebf811ad1886e4f4f865b2">Dark</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a63ab7f3e964bbfd5c64e88e2861f4f41a9914a0ce04a7b7b6a8e39bec55064b82">Light</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a63ab7f3e964bbfd5c64e88e2861f4f41a84300ac412499b1bdc3c7e51c2994dbe">BlackWhiteOutline</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_settings.html" anchor="a63ab7f3e964bbfd5c64e88e2861f4f41aa0d87d427bd7e3f5b0edbfb560797801">BlackWhiteSolid</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Dark</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a63ab7f3e964bbfd5c64e88e2861f4f41ab881c2fca9941a632de2b4af173a7906</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Light</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a63ab7f3e964bbfd5c64e88e2861f4f41a40f3b2e02173a504f9b3720d1dcede51</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>BlackWhiteOutline</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a63ab7f3e964bbfd5c64e88e2861f4f41a1542e24f5d23e71c2bf68ae39d36a7cb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>BlackWhiteSolid</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_settings.html</anchorfile>
+      <anchor>a63ab7f3e964bbfd5c64e88e2861f4f41a02a2befb1a87facb05b6024a67d6061b</anchor>
+      <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -12637,11 +13354,41 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_time_domain.html</anchorfile>
       <anchor>a6f567238a0aaa00ab1b336d0cf0faf4b</anchor>
       <arglist></arglist>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_time_domain.html" anchor="a6f567238a0aaa00ab1b336d0cf0faf4bad2203cb1237cb6460cbad94564e39345">Regular</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_time_domain.html" anchor="a6f567238a0aaa00ab1b336d0cf0faf4ba718179b3bcff69a9d3f010aca0e9901a">Hamming</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_time_domain.html" anchor="a6f567238a0aaa00ab1b336d0cf0faf4ba0218ace760f65b32ad5b254bf7a95ab5">Hann</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_time_domain.html" anchor="a6f567238a0aaa00ab1b336d0cf0faf4badb8ad59f0329601f52af1b1df8cf62a3">Bohman</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_time_domain.html" anchor="a6f567238a0aaa00ab1b336d0cf0faf4baba6b2002129d6c430ca8c87bf92fccac">DolphChebychev</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Regular</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_time_domain.html</anchorfile>
+      <anchor>a6f567238a0aaa00ab1b336d0cf0faf4ba66dfad2fc66aab9e6bb47cfad78b4b6b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Hamming</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_time_domain.html</anchorfile>
+      <anchor>a6f567238a0aaa00ab1b336d0cf0faf4bad2ff0a5ffa7746b4369999e2534f3d77</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Hann</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_time_domain.html</anchorfile>
+      <anchor>a6f567238a0aaa00ab1b336d0cf0faf4ba336c27eb5fd16469dd379d43b0cbf84f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Bohman</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_time_domain.html</anchorfile>
+      <anchor>a6f567238a0aaa00ab1b336d0cf0faf4ba202aeae4c95ff39308f422553f3312cc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>DolphChebychev</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_time_domain.html</anchorfile>
+      <anchor>a6f567238a0aaa00ab1b336d0cf0faf4bae55a5b31791725a396046bd7ce81f43a</anchor>
+      <arglist></arglist>
     </member>
     <member kind="enumeration">
       <type></type>
@@ -12649,8 +13396,20 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_time_domain.html</anchorfile>
       <anchor>a6511252f5da550fe3b657b5b47fcba78</anchor>
       <arglist></arglist>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_time_domain.html" anchor="a6511252f5da550fe3b657b5b47fcba78a83f18216a3c459cf950a334a67bc5dd8">TwentyToEighty</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_time_domain.html" anchor="a6511252f5da550fe3b657b5b47fcba78a63a9770858c7f3f19bdef364fe931b5c">TenToNinety</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>TwentyToEighty</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_time_domain.html</anchorfile>
+      <anchor>a6511252f5da550fe3b657b5b47fcba78a999b9c7d384b41b80719b478ee1c789e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>TenToNinety</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_time_domain.html</anchorfile>
+      <anchor>a6511252f5da550fe3b657b5b47fcba78a01b7dea23f44372be4d74a53c18e3401</anchor>
+      <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -13615,8 +14374,20 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_user_defined_port.html</anchorfile>
       <anchor>a2bf9da2d42eaf652668bd97c9ad25853</anchor>
       <arglist></arglist>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_user_defined_port.html" anchor="a2bf9da2d42eaf652668bd97c9ad25853a7fc56270e7a70fa81a5935b72eacbe29">A</enumvalue>
-      <enumvalue file="class_rsa_toolbox_1_1_vna_user_defined_port.html" anchor="a2bf9da2d42eaf652668bd97c9ad25853a9d5ed678fe57bcca610140957afab571">B</enumvalue>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>A</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_user_defined_port.html</anchorfile>
+      <anchor>a2bf9da2d42eaf652668bd97c9ad25853a42a4ade1acd55a49164099104990e09f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>B</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_user_defined_port.html</anchorfile>
+      <anchor>a2bf9da2d42eaf652668bd97c9ad25853a3f2a77ecd272aa6d6b5902faa5e5fc68</anchor>
+      <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>

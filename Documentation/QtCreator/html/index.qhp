@@ -15,9 +15,9 @@
           <section title="RsaToolbox" ref="namespace_rsa_toolbox.html">
             <section title="BalancedPort" ref="class_rsa_toolbox_1_1_balanced_port.html">
               <section title="Type" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7">
-                <section title="SingleEnded" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7a3bdea3ac1bbf38ef341bac5a9d204459" />
-                <section title="Differential" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7a1c2eaa5d56340808f2a94368501e5496" />
-                <section title="Common" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7ad13bc5b68b2bd9e18f29777db17cc563" />
+                <section title="SingleEnded" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7a7105661546e0ceab15572f5974305920" />
+                <section title="Differential" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7a6a4372c371139fa3ca5c37c305675905" />
+                <section title="Common" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7a9cc00ea16fb915697974900a62a04062" />
               </section>
               <section title="BalancedPort" ref="class_rsa_toolbox_1_1_balanced_port.html#a3a47c5546649bcd01ec5859e5cb1a041" />
               <section title="BalancedPort" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d37add954fc5db2d8d9b77a311f7557" />
@@ -113,6 +113,11 @@
               <section title="currentType" ref="class_rsa_toolbox_1_1_connection_type_combo_box.html#a4a097662518e0675d82375d221e081c7" />
             </section>
             <section title="Connector" ref="class_rsa_toolbox_1_1_connector.html">
+              <section title="Gender" ref="class_rsa_toolbox_1_1_connector.html#a3667e3c5ec056737c8789615a989324f">
+                <section title="Male" ref="class_rsa_toolbox_1_1_connector.html#a3667e3c5ec056737c8789615a989324fadfdd236ca597df5a4d2f5fa0d0f6ec93" />
+                <section title="Female" ref="class_rsa_toolbox_1_1_connector.html#a3667e3c5ec056737c8789615a989324fa4fcdc3f409e8e27fbfd35bbd6472877c" />
+                <section title="Neutral" ref="class_rsa_toolbox_1_1_connector.html#a3667e3c5ec056737c8789615a989324fa32bb6c621f52f6a0932c646d5ed47f91" />
+              </section>
               <section title="Type" ref="class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7">
                 <section title="N_50_OHM_CONNECTOR" ref="class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7a61b16617c1ce5333d8c027318e8529fd" />
                 <section title="N_75_OHM_CONNECTOR" ref="class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7a18904b59a1ded80dad70fa26ab7433ce" />
@@ -130,18 +135,18 @@
               </section>
               <section title="Connector" ref="class_rsa_toolbox_1_1_connector.html#a98dcfd602309bb9d0757d0a943c97cd2" />
               <section title="Connector" ref="class_rsa_toolbox_1_1_connector.html#a292a97d5e9207d8aed38b308cf724ef2" />
-              <section title="Connector" ref="class_rsa_toolbox_1_1_connector.html#a18ecd71336a4195a590cec8fb6ca596f" />
-              <section title="Connector" ref="class_rsa_toolbox_1_1_connector.html#aca86ee25bf97cf7961d8b69e70fe91d3" />
+              <section title="Connector" ref="class_rsa_toolbox_1_1_connector.html#a384663f47c25a96dc850309f1165e6ed" />
+              <section title="Connector" ref="class_rsa_toolbox_1_1_connector.html#a2405b7b7c585284da8f766813c59f2c6" />
               <section title="customType" ref="class_rsa_toolbox_1_1_connector.html#a0a0b5dae45b502609aa24858979a38f9" />
               <section title="displayGender" ref="class_rsa_toolbox_1_1_connector.html#a2eb67c0a4ad3eb7300ae2f0eccf849dd" />
               <section title="displayText" ref="class_rsa_toolbox_1_1_connector.html#a9944fb6e1c6c1323263e37bdba06c2b4" />
               <section title="displayType" ref="class_rsa_toolbox_1_1_connector.html#aec201798cb33fcb3c7dffec7259e0a94" />
-              <section title="gender" ref="class_rsa_toolbox_1_1_connector.html#afbe0331cca4e8a65607c498ecb01ea60" />
+              <section title="gender" ref="class_rsa_toolbox_1_1_connector.html#a9acc83abc7649055e275a51033adfa90" />
               <section title="genderAbbreviation" ref="class_rsa_toolbox_1_1_connector.html#a4f99c475c65fa68f36ce31e83925ffac" />
               <section title="getMatingConnector" ref="class_rsa_toolbox_1_1_connector.html#aff1f136213e085e4e902d5d18e308694" />
               <section title="isCustomType" ref="class_rsa_toolbox_1_1_connector.html#a7e962a1151ed339a5571db2ee4f658e7" />
               <section title="isFemale" ref="class_rsa_toolbox_1_1_connector.html#ac732e2378747c65b5ba737fe9c2c74e2" />
-              <section title="isGender" ref="class_rsa_toolbox_1_1_connector.html#a6a72a4731f22fc54b667979d05a05b5a" />
+              <section title="isGender" ref="class_rsa_toolbox_1_1_connector.html#a52db89bf67d294d11c0079da71fa73df" />
               <section title="isGenderNeutral" ref="class_rsa_toolbox_1_1_connector.html#ab327a2e06d17572630c9621b0c91e425" />
               <section title="isGenderSpecific" ref="class_rsa_toolbox_1_1_connector.html#a027b98434800338f77ba57384afc63da" />
               <section title="isMale" ref="class_rsa_toolbox_1_1_connector.html#aebd8639c0076439cdc71eeac6c84c02f" />
@@ -152,18 +157,12 @@
               <section title="isType" ref="class_rsa_toolbox_1_1_connector.html#ae2322591f8616c98eb3f7d60378026f5" />
               <section title="operator=" ref="class_rsa_toolbox_1_1_connector.html#a65b079a3d13e3033981fa14f302d2685" />
               <section title="setCustomType" ref="class_rsa_toolbox_1_1_connector.html#ad58fb04ba88f5265b906bbfa62022f60" />
-              <section title="setGender" ref="class_rsa_toolbox_1_1_connector.html#ab905388af014c69ca0f2d58c71d9f6e8" />
-              <section title="setType" ref="class_rsa_toolbox_1_1_connector.html#ae90ee028f0f690616502a8a3631dcdd9" />
+              <section title="setGender" ref="class_rsa_toolbox_1_1_connector.html#aa38617b56386dee765766b1fbb9a98c4" />
+              <section title="setType" ref="class_rsa_toolbox_1_1_connector.html#a43805e98d6c637b0d1d191ee5a4d1df1" />
               <section title="setType" ref="class_rsa_toolbox_1_1_connector.html#a608e58a2f9fb7e497f91662a6e9ae4cc" />
               <section title="type" ref="class_rsa_toolbox_1_1_connector.html#a93a74523ec09cb5b49a0bd40ce462d88" />
               <section title="operator!=" ref="class_rsa_toolbox_1_1_connector.html#a6d675583a247f0145128be6990b4e2de" />
               <section title="operator==" ref="class_rsa_toolbox_1_1_connector.html#a75aebc1f06692c300a43366c89526e8b" />
-              <section title="toConnectorGender" ref="class_rsa_toolbox_1_1_connector.html#a8ef07f6fc2bb1fd4a622fe136a3095e8" />
-              <section title="toConnectorGenderVnaScpi" ref="class_rsa_toolbox_1_1_connector.html#a070da66083caf1fe8b467b8e17dedf51" />
-              <section title="toConnectorType" ref="class_rsa_toolbox_1_1_connector.html#a8e7ce1c3a4bf690ea537124d6e88d042" />
-              <section title="toConnectorTypeVnaScpi" ref="class_rsa_toolbox_1_1_connector.html#a47212519396e7e490efae70fdb25714e" />
-              <section title="toVnaScpi" ref="class_rsa_toolbox_1_1_connector.html#a6b176cd5382ab852d9a7cbf6edc9286a" />
-              <section title="toVnaScpi" ref="class_rsa_toolbox_1_1_connector.html#aa2570272aec9074125ef0a8f3d4a0687" />
             </section>
             <section title="ErrorLabel" ref="class_rsa_toolbox_1_1_error_label.html">
               <section title="ErrorLabel" ref="class_rsa_toolbox_1_1_error_label.html#affde0813de69c1b4b464a857b3692ae6" />
@@ -691,7 +690,7 @@
               <section title="importCalKit" ref="class_rsa_toolbox_1_1_vna.html#ab1cb02a44b48bed030b04cfe9bbfbcf2" />
               <section title="isCalKit" ref="class_rsa_toolbox_1_1_vna.html#ae99b92b85ffd250a767e8f083f21415a" />
               <section title="isCalKit" ref="class_rsa_toolbox_1_1_vna.html#aa2d101ac75c27061aa0c03aea882bd22" />
-              <section title="isCalUnit" ref="class_rsa_toolbox_1_1_vna.html#abe18a3e9886c78813893747e271b4e5a" />
+              <section title="isCalUnit" ref="class_rsa_toolbox_1_1_vna.html#a8c714fb4e1cea2802fd424370904322e" />
               <section title="isChannel" ref="class_rsa_toolbox_1_1_vna.html#adaa3910833eb41cffd1303618d794404" />
               <section title="isChannel" ref="class_rsa_toolbox_1_1_vna.html#af74e3ba98044d169130895b8797f8a45" />
               <section title="isConnectorType" ref="class_rsa_toolbox_1_1_vna.html#ace47065a2e5e9845e4e86ff76a999b16" />
@@ -709,7 +708,6 @@
               <section title="isTrace" ref="class_rsa_toolbox_1_1_vna.html#ac47677937a1b2e4807cca77c9bec6944" />
               <section title="nextError" ref="class_rsa_toolbox_1_1_vna.html#a579d151598860bdc228b3e3ee788766a" />
               <section title="nextError" ref="class_rsa_toolbox_1_1_vna.html#a1fae59eaa8cfa717d025d1348135b566" />
-              <section title="numberOfCalUnits" ref="class_rsa_toolbox_1_1_vna.html#aca2bc4db34f6af98228dfcd540c77a6c" />
               <section title="numberOfChannels" ref="class_rsa_toolbox_1_1_vna.html#ab7e709afe715ea12d3fe089469458e39" />
               <section title="numberOfDiagrams" ref="class_rsa_toolbox_1_1_vna.html#afff3d4de60b4d48bc08e4f14a70bb282" />
               <section title="numberOfSwitchMatrices" ref="class_rsa_toolbox_1_1_vna.html#a7d0d7026ee6bef687aacf0b725eaab85" />
@@ -722,6 +720,7 @@
               <section title="readVector" ref="class_rsa_toolbox_1_1_vna.html#a0650976dcff919626ebaade4346800c8" />
               <section title="settings" ref="class_rsa_toolbox_1_1_vna.html#affcacca0956ef82c5b28506a036498e8" />
               <section title="startSweeps" ref="class_rsa_toolbox_1_1_vna.html#abc1ceb9a9678e4de6f0a713d947f416d" />
+              <section title="sweepTime_ms" ref="class_rsa_toolbox_1_1_vna.html#a919adcd598ff449e735b48daa047d45b" />
               <section title="switchMatrices" ref="class_rsa_toolbox_1_1_vna.html#af35c2a5f614190d3c4ccdfe232b58f96" />
               <section title="switchMatrix" ref="class_rsa_toolbox_1_1_vna.html#a4fc198802de2aa7e9f6be80185cb1369" />
               <section title="takeCalibrate" ref="class_rsa_toolbox_1_1_vna.html#a17813337ac4d01f73de6d925918c31a3" />
@@ -792,9 +791,9 @@
               <section title="addStandard" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a955867302e471115559d91a7844d9092" />
               <section title="connectorType" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a767579d3bacfc6f3e1b799cee4c6eb24" />
               <section title="has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ac881444c729b3dcbb0d7795b339ba3da" />
-              <section title="has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a3ea08458b2fa30bb92804273b6892993" />
+              <section title="has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#af8a2b61a6bf7455f8a430a39547f39bd" />
               <section title="has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a1144a2cb8651dbef4929da7110debbee" />
-              <section title="has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#afdcc6ea9e6eb647d3d778ddce96578a7" />
+              <section title="has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ab8926aad2516fe08928d494a62149df2" />
               <section title="has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ac6b3cddf20e99a2e3aac18cadda8bfba" />
               <section title="hasFemaleMatch" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a173be47ae50acb3930206bf83550fd1e" />
               <section title="hasFemaleOpen" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a90d4ebe10f18270b188eef8ea7d4018d" />
@@ -802,11 +801,15 @@
               <section title="hasMaleMatch" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a0bd352fadbd3842d921a22c99257c7ea" />
               <section title="hasMaleOpen" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#afad02038620eb367cb51b1b77a33563b" />
               <section title="hasMaleShort" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#aa6718c0bf1511a25cd323f711607a382" />
+              <section title="hasMatch" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a0bb2df101d6d8bf8af2f2ee2266a9eb3" />
               <section title="hasMatch" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ad7ec772a15f1d1190108c354ebdf794e" />
+              <section title="hasOpen" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#aa873e17316c838b3a17dd1dfef088064" />
               <section title="hasOpen" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#aa77229e8913e336b59a17a97f5342147" />
+              <section title="hasShort" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ad643c3a2653b449e642f6e9877651eab" />
               <section title="hasShort" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a755dbadb8d2d1a431ebcc629e27a74c5" />
-              <section title="hasThru" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a328dea68cba6fd0a539ff9c2ef6366c3" />
+              <section title="hasThru" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a0ebd3d9d9d782df45d2658ccec13fe55" />
               <section title="hasThru" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#af185868fb8e074e1a1a310bd2850d020" />
+              <section title="hasThru" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a0acc3692c479d53df9d6fe04fe43629d" />
               <section title="isConnectorType" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ace47065a2e5e9845e4e86ff76a999b16" />
               <section title="operator=" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#aaa5b8dc14505cd041b95628ba6d0ebf3" />
               <section title="standards" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a2ab5f06e4f221fb25ec30cd045805aa9" />
@@ -820,20 +823,20 @@
               <section title="clear" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ac8bb3912a3ce86b15842e79d0b421204" />
               <section title="clearConnectors" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#af3cf8e1deb00399a95c2970a5da33dc5" />
               <section title="clearPorts" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a1515b7f16c67389474f533fec9ab6f61" />
-              <section title="connector" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a40ebe6360163e4300080bd2f202bc027" />
-              <section title="connector1" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a2324cc66108138a282c6fb698a889393" />
-              <section title="connector2" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a3fb5a77a44175148609241b326591053" />
+              <section title="connector" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a675470498d19c72bae3932d17712c480" />
+              <section title="connector1" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a63c1b81d0c5f2bad21512596f2347663" />
+              <section title="connector2" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#aaf992a8f71b5d3d79b504d1a73f62a24" />
               <section title="displayText" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a9944fb6e1c6c1323263e37bdba06c2b4" />
               <section title="displayType" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#aec201798cb33fcb3c7dffec7259e0a94" />
-              <section title="gender" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#afbe0331cca4e8a65607c498ecb01ea60" />
-              <section title="gender1" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a09b59684bd0cebc0b9355130b18aeb1c" />
-              <section title="gender2" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a9b2fe4e7bf569926747a9d5351c83c91" />
+              <section title="gender" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a9acc83abc7649055e275a51033adfa90" />
+              <section title="gender1" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a07c6b652e435f29dfa1718ed3bdaad8d" />
+              <section title="gender2" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a61e173f4fabca43e1a63e29f638263d4" />
               <section title="isFemale" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ac732e2378747c65b5ba737fe9c2c74e2" />
               <section title="isFemaleMatch" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#abf36e482e91278bb59eb545f1a5a796b" />
               <section title="isFemaleOpen" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a8c47d0bf0a8cfad7888deb7c8333cddd" />
               <section title="isFemaleShort" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#aa51d7b758f4e1cbf378a0c68354de221" />
-              <section title="isGender" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a6a72a4731f22fc54b667979d05a05b5a" />
-              <section title="isGender" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a7b59485bf91281f29020b054c50dbd7d" />
+              <section title="isGender" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a231038ecae76003fb555d4e750f4b0b5" />
+              <section title="isGender" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a2fb51cd7958c9b33cb7df4a2eb3d5970" />
               <section title="isMale" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#aebd8639c0076439cdc71eeac6c84c02f" />
               <section title="isMaleMatch" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a0c76569c464cf0696998fedca37e8cae" />
               <section title="isMaleOpen" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a8825097e5839b7a5191c65044f3908d0" />
@@ -855,7 +858,7 @@
               <section title="isSinglePort" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a42d28e6c44887dd9d8c11621b6ebccd8" />
               <section title="isThru" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a2e719bd101b5d50d3e395322f954935d" />
               <section title="isThru" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#aca57133290ed96f316722a7ab6776c5e" />
-              <section title="isThru" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a8d1e63be8bb2748f1bfb9c53954869be" />
+              <section title="isThru" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ad490aa36cebd7b45711098cc96fe63c5" />
               <section title="isThruFF" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ad8e53509a1ac250d0ececb3bd1a10e59" />
               <section title="isThruMF" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ad859b59d24770cd5105e2cec1140884a" />
               <section title="isThruMM" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a0e0c315bfb003d1e502f8d5be32a88c1" />
@@ -865,7 +868,7 @@
               <section title="label" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a9acc60996c9e03257803daf0176fb1ff" />
               <section title="maximumFrequency_Hz" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a73d5dbbed152c99013ce8f7217f13124" />
               <section title="minimumFrequency_Hz" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#af335863b3623b329e1535756bcd6737f" />
-              <section title="model" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a069259a93665ad932f162a7fe315e2c7" />
+              <section title="model" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a5f9e4430a2b65231fa9951da2e120170" />
               <section title="operator=" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ae50bfa34883c0e5ba9af6719d0da2ed3" />
               <section title="port" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a54e463f81dfc412c50dd4d7e26903433" />
               <section title="port1" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ab7448f7cff53dd0e661f9be4fea84aff" />
@@ -885,6 +888,8 @@
               <section title="setMatchModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a424f5cc1a367adf02e78f74cf9116a29" />
               <section title="setMaximumFrequency" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ac11610d3b873bed108afbd925b337151" />
               <section title="setMinimumFrequency" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ab2f56337ecc21f9dbc5fc76f2578ee7d" />
+              <section title="setModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#afc80804d86e06a80448902c51b112784" />
+              <section title="setModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a300058af81602df0b10e911263e4844d" />
               <section title="setOpenModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a92dfe16522eb33cf873834d74bfc956c" />
               <section title="setOpenModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ad6b9db7c7efe40f1ab622a97675a4c18" />
               <section title="setOpenModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a6c86d8fa9e6478d821ef6b5925a7cb41" />
@@ -907,7 +912,7 @@
               <section title="operator!=" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ae2d1af1697179fcdc95de980965fb6cc" />
               <section title="operator==" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a6888f1003222efc185fc962a6786d9af" />
               <section title="sort" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ace23468d67cf1b2b773d7bdc7cdc4a1e" />
-              <section title="sort" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a0c6c2b78933281925c98d9b2e715a594" />
+              <section title="sort" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#aac60f87a81ffba05dcf786692bf95b66" />
               <section title="sort" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a4a9342a5b548dfd45fcaa415fc05ac7e" />
             </section>
             <section title="VnaCalUnit" ref="class_rsa_toolbox_1_1_vna_cal_unit.html">
@@ -915,16 +920,43 @@
               <section title="VnaCalUnit" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#ac26b44c38376fae3ff546a82cfa11369" />
               <section title="VnaCalUnit" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#ae886cafb3e731c9614f2843ee652211d" />
               <section title="~VnaCalUnit" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#abae8f558228197be5d5680b5b07b25f9" />
+              <section title="calibrations" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a56bd883b6ced62a83389f854de212ebe" />
+              <section title="connectorsFrom" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a9e3d5fbfbdd499d376ecd5e7b0558f4a" />
+              <section title="connectorsFromLatestCal" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a9c6f3cc2c6c738d9f7e58f49e8530fa4" />
+              <section title="exportCalibration" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#afc98dc27c45f9dbc71284c457beacdc6" />
+              <section title="exportFactoryCal" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a64d83be2f2089ac243f3f0d1e9d38869" />
+              <section title="exportLatestCal" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a3fa9119c3bccfeb15c17991c040fa93d" />
+              <section title="frequencyRange" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#afa4ea9310212e87b9aa96f8bb93d488a" />
+              <section title="hasConnector" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a3a6e1b5a27dc4ee2fd69ec0ded81fc5c" />
+              <section title="hasConnector" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#aeee864d7d95c3034e4e9608447c1469f" />
+              <section title="isWarmedUp" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a5591de30396b55e24836f3d2d6f7223b" />
+              <section title="maximumFrequency_Hz" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#af8d4193c1724e8f3c954f807acaf138e" />
+              <section title="minimunFrequency_Hz" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#abb33e51081dcd97cac9afb130435a3d8" />
               <section title="operator=" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a18edc54202b62041bb6dfd897b211ccd" />
+              <section title="physicalConnectors" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#ae8a03b6e0c4c94504669b1a792fa3006" />
+              <section title="ports" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a2bf03b7bfda0414cb985e35c05744ce0" />
+              <section title="portsOfType" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a6d0b9082c27687e589897f292b043131" />
+              <section title="portsOfType" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#affb65d573ee1c70f3d0cf4864a0f356c" />
+              <section title="portsOfTypeFromLatestCal" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a8bb9c99c34ee229a186e6015ee98ab28" />
+              <section title="setMatch" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#afe2ecf49b22b9a79e9c0154fd687883d" />
+              <section title="setMatch" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a778b31671f24f768d08c82b02f6e2781" />
+              <section title="setMatch" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a47d751ddabfaac209e237143693796d5" />
+              <section title="setOpen" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#aca5eae4d8f1c0e9a416667d56f03aa2b" />
+              <section title="setOpen" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a67335c45163d844224b1050d862b14a5" />
+              <section title="setOpen" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a0cde223fc77e4283054cd2ee273a3882" />
+              <section title="setShort" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a5d63a34596809cc59c97bedbdf1ebe21" />
+              <section title="setShort" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a3e2d5137dd4f7febcc28057b92e57e0b" />
+              <section title="setShort" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a4c345362889a45b454329c9adca7e227" />
+              <section title="setThru" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a8afd315d3cbdcf7d1aeb4154226e42ec" />
             </section>
             <section title="VnaChannel" ref="class_rsa_toolbox_1_1_vna_channel.html">
               <section title="SweepType" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6">
-                <section title="Linear" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a32a843da6ea40ab3b17a3421ccdf671b" />
-                <section title="Log" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6ace0be71e33226e4c1db2bcea5959f16b" />
-                <section title="Segmented" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a8484a13cbb8a8a53d6c4285938d21f60" />
-                <section title="Power" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6add4fe0cc913f704600b97d1f5dd285de" />
-                <section title="Cw" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a1f21606af996c5154e5e88760f82592f" />
-                <section title="Time" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6aa76d4ef5f3f6a672bbfab2865563e530" />
+                <section title="Linear" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a1a1f3bc55fefa098d9034cc46e2e7a2b" />
+                <section title="Log" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a089fe3c8ed633fc44cb2e73b17af84ec" />
+                <section title="Segmented" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6afff7dad2db182e8750be5c1041549718" />
+                <section title="Power" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6aeaf106a8b179fcfe2585c7efd72ed55a" />
+                <section title="Cw" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6af4b433fb53bb4c3f0b493b2a1217df05" />
+                <section title="Time" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a3045f33dbb706dfcf7d3467ec6e685af" />
               </section>
               <section title="VnaChannel" ref="class_rsa_toolbox_1_1_vna_channel.html#a42c1f7ab205006c53a335212856ef77f" />
               <section title="VnaChannel" ref="class_rsa_toolbox_1_1_vna_channel.html#a7d695dc59eafb320bc777c1031380603" />
@@ -1057,6 +1089,7 @@
               <section title="setIfBandwidth" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html#a4b37126203dbdbd756843b787d24690f" />
               <section title="setPoints" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html#a865b3daabe5358c3695484b9ceaf8028" />
               <section title="setPower" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html#aac822adb781e223a96898409db296a43" />
+              <section title="sweepTime_ms" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html#a919adcd598ff449e735b48daa047d45b" />
             </section>
             <section title="VnaDiagram" ref="class_rsa_toolbox_1_1_vna_diagram.html">
               <section title="VnaDiagram" ref="class_rsa_toolbox_1_1_vna_diagram.html#aba9de54d77b745e56c2e5ac6039745fb" />
@@ -1367,17 +1400,17 @@
             </section>
             <section title="VnaProperties" ref="class_rsa_toolbox_1_1_vna_properties.html">
               <section title="Model" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3e">
-                <section title="Zva" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea004c62d454db23c91d020b8081f35595" />
-                <section title="Zvb" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea62103c84434eda43a0ec77df06d7da9b" />
-                <section title="Zvh" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaebe0dc251d92608c935601a383c12a33" />
-                <section title="Zvl" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea340dc2e2b3c9bc329a60e8ec04296804" />
-                <section title="Zvt" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea6e7f6fcd3ec59cb7428cf48601fe1bb2" />
-                <section title="Znb" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea9f77d285383a042336e68f38810103e4" />
-                <section title="Znbt" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaf417e8b9733aae94f26de0ba4613850d" />
-                <section title="Znc" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eae7c81917779cf05186bd36cfed82fa41" />
-                <section title="Znd" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaecd3f61b14914b0ef627811dade58c23" />
-                <section title="Znp" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaa29e1d6b45a4e746544ca55c514d3fd6" />
-                <section title="Unknown" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea88183b946cc5f0e8c96b2e66e1c74a7e" />
+                <section title="Zva" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea635535e8cd6a967dbd5eff7600494e0a" />
+                <section title="Zvb" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eae23d6774336e07155cda71c087630cb8" />
+                <section title="Zvh" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eac733a108172eaba6c1a5c89b4d94155b" />
+                <section title="Zvl" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea12d0b9f3310d0c23febbb49dfcbc4ad2" />
+                <section title="Zvt" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaf885a66b495d9b494dfc174f6bd19c23" />
+                <section title="Znb" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea91b9863aefc8b69012690f5090b2211e" />
+                <section title="Znbt" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea966a594c141db7ca0eca59e53fb4d5b6" />
+                <section title="Znc" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea5c597faa0a335d5b12cd66b9af04cd1c" />
+                <section title="Znd" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea00618900d0b31925b0823466f61bd24a" />
+                <section title="Znp" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea29385cd5c1d71ff184ec16e3923a1cf0" />
+                <section title="Unknown" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea4e81c184ac3ad48a389cd4454c4a05bb" />
               </section>
               <section title="VnaProperties" ref="class_rsa_toolbox_1_1_vna_properties.html#a33aba4b5b99bc0d3abe583b87d0e4e10" />
               <section title="VnaProperties" ref="class_rsa_toolbox_1_1_vna_properties.html#a486d99077608385c08da6940738171b2" />
@@ -1466,22 +1499,22 @@
             </section>
             <section title="VnaSettings" ref="class_rsa_toolbox_1_1_vna_settings.html">
               <section title="ColorScheme" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41">
-                <section title="Dark" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41aa18366b217ebf811ad1886e4f4f865b2" />
-                <section title="Light" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a9914a0ce04a7b7b6a8e39bec55064b82" />
-                <section title="BlackWhiteOutline" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a84300ac412499b1bdc3c7e51c2994dbe" />
-                <section title="BlackWhiteSolid" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41aa0d87d427bd7e3f5b0edbfb560797801" />
+                <section title="Dark" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41ab881c2fca9941a632de2b4af173a7906" />
+                <section title="Light" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a40f3b2e02173a504f9b3720d1dcede51" />
+                <section title="BlackWhiteOutline" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a1542e24f5d23e71c2bf68ae39d36a7cb" />
+                <section title="BlackWhiteSolid" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a02a2befb1a87facb05b6024a67d6061b" />
               </section>
               <section title="EmulationMode" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52">
-                <section title="Pna" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a77ce3fcd6fc104c2722c7b5b9b8689d8" />
-                <section title="Ena" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ab7a16f02562d5c049a827d7cbdf4f704" />
-                <section title="Hp8510" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a5998fa4430e635f81e3942fa575a9b6c" />
-                <section title="Hp8530" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a22407f65e562d747f7580f0a2e42e43b" />
-                <section title="Hp8720" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a8293eb26f551c3531019a248ea393e8c" />
-                <section title="Hp8753" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52aaa4cf2d669e6dbd324adacd6e31458d6" />
-                <section title="Hp8714" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ac7f07f53ce86f3dd1d6ba5dbd99f8bc0" />
-                <section title="Zvr" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a35824cb8bcedba1f8550ec171b472b4a" />
-                <section title="Zvabt" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ab1801f47e7d57b2339020bbb1d8a2982" />
-                <section title="Off" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ad15305d7a4e34e02489c74a5ef542f36" />
+                <section title="Pna" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a56742694361862fbf1111ebb41728260" />
+                <section title="Ena" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a7e60c7a62a73b127f6896c165f7ee262" />
+                <section title="Hp8510" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a619b07319fdfeef7be925cb80a5fbda8" />
+                <section title="Hp8530" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a40d8f6ef0451208b86f8bfa7612e9229" />
+                <section title="Hp8720" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52af1cdea6ace7a06213d126c58501fb045" />
+                <section title="Hp8753" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52aebe0e64172771e1c9b168e17385759f2" />
+                <section title="Hp8714" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ac12230cd386601f614fd107ea6e79a0d" />
+                <section title="Zvr" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ab4259ce6959687f26fc2df55f2792475" />
+                <section title="Zvabt" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a693bc0b2ef1ad0492f877c5c9f837c08" />
+                <section title="Off" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ad8a892b94d3a94ea861543c085ae782b" />
               </section>
               <section title="VnaSettings" ref="class_rsa_toolbox_1_1_vna_settings.html#addf94e0241e4e5344797b8b81c82529c" />
               <section title="VnaSettings" ref="class_rsa_toolbox_1_1_vna_settings.html#a4e9edb51c6769b1e0b6069ab693bce74" />
@@ -1612,15 +1645,15 @@
             </section>
             <section title="VnaTimeDomain" ref="class_rsa_toolbox_1_1_vna_time_domain.html">
               <section title="RiseTime" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78">
-                <section title="TwentyToEighty" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78a83f18216a3c459cf950a334a67bc5dd8" />
-                <section title="TenToNinety" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78a63a9770858c7f3f19bdef364fe931b5c" />
+                <section title="TwentyToEighty" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78a999b9c7d384b41b80719b478ee1c789e" />
+                <section title="TenToNinety" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78a01b7dea23f44372be4d74a53c18e3401" />
               </section>
               <section title="Window" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4b">
-                <section title="Regular" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4bad2203cb1237cb6460cbad94564e39345" />
-                <section title="Hamming" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba718179b3bcff69a9d3f010aca0e9901a" />
-                <section title="Hann" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba0218ace760f65b32ad5b254bf7a95ab5" />
-                <section title="Bohman" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4badb8ad59f0329601f52af1b1df8cf62a3" />
-                <section title="DolphChebychev" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4baba6b2002129d6c430ca8c87bf92fccac" />
+                <section title="Regular" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba66dfad2fc66aab9e6bb47cfad78b4b6b" />
+                <section title="Hamming" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4bad2ff0a5ffa7746b4369999e2534f3d77" />
+                <section title="Hann" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba336c27eb5fd16469dd379d43b0cbf84f" />
+                <section title="Bohman" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba202aeae4c95ff39308f422553f3312cc" />
+                <section title="DolphChebychev" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4bae55a5b31791725a396046bd7ce81f43a" />
               </section>
               <section title="VnaTimeDomain" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a1239cc10fc901cbadbd9c084a1463dcc" />
               <section title="VnaTimeDomain" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a56bc0376419dc1b9ad167fd1f8a8704d" />
@@ -1764,8 +1797,8 @@
             </section>
             <section title="VnaUserDefinedPort" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html">
               <section title="Receiver" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853">
-                <section title="A" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853a7fc56270e7a70fa81a5935b72eacbe29" />
-                <section title="B" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853a9d5ed678fe57bcca610140957afab571" />
+                <section title="A" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853a42a4ade1acd55a49164099104990e09f" />
+                <section title="B" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853a3f2a77ecd272aa6d6b5902faa5e5fc68" />
               </section>
               <section title="VnaUserDefinedPort" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a17dd613dba5a7e978c146a5d524e7c71" />
               <section title="VnaUserDefinedPort" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#af56f182bb4339402282f744f26083591" />
@@ -1905,14 +1938,10 @@
       <keyword name="toConnectionType" id="RsaToolbox::toConnectionType" ref="namespace_rsa_toolbox.html#a413fbf0e0ef9b1d6f08d8f909eae8421" />
       <keyword name="toVisaInstrumentResource" id="RsaToolbox::toVisaInstrumentResource" ref="namespace_rsa_toolbox.html#adf802d3a406f0ed2910583d01ae51837" />
       <keyword name="nullTerminate" id="RsaToolbox::nullTerminate" ref="namespace_rsa_toolbox.html#a3bc9934ec59764c47df16cf37824f82a" />
-      <keyword name="toConnectorType" id="RsaToolbox::toConnectorType" ref="namespace_rsa_toolbox.html#a518888126eae33790db794a4c0e5b185" />
-      <keyword name="toConnectorGender" id="RsaToolbox::toConnectorGender" ref="namespace_rsa_toolbox.html#aa2dc370e5ebc2e8481399159dbef53d3" />
-      <keyword name="toVnaScpi" id="RsaToolbox::toVnaScpi" ref="namespace_rsa_toolbox.html#a8252e551491255846984ac405299d12b" />
-      <keyword name="toVnaScpi" id="RsaToolbox::toVnaScpi" ref="namespace_rsa_toolbox.html#a55ab29afe3fcf57a574c2ab447c51ddd" />
-      <keyword name="toConnectorTypeVnaScpi" id="RsaToolbox::toConnectorTypeVnaScpi" ref="namespace_rsa_toolbox.html#a630392534737342a787ace57db99cc3a" />
-      <keyword name="toConnectorGenderVnaScpi" id="RsaToolbox::toConnectorGenderVnaScpi" ref="namespace_rsa_toolbox.html#a876586e0da3223689989d9cd201f9b4d" />
-      <keyword name="operator==" id="RsaToolbox::operator==" ref="namespace_rsa_toolbox.html#ac07e397ef61e2ad3de0d5df7e7d787f0" />
-      <keyword name="operator!=" id="RsaToolbox::operator!=" ref="namespace_rsa_toolbox.html#a97ed153c57306b1dc6d17adfe6efcc57" />
+      <keyword name="operator==" id="RsaToolbox::operator==" ref="namespace_rsa_toolbox.html#a80c35e2cb6ca30d586f5187a6d1b7974" />
+      <keyword name="operator!=" id="RsaToolbox::operator!=" ref="namespace_rsa_toolbox.html#a4698068c74c562e72cf88a8f129b25c3" />
+      <keyword name="operator&lt;&lt;" id="RsaToolbox::operator&lt;&lt;" ref="namespace_rsa_toolbox.html#a2d6b0dfebf17ffa8962f9632a80f4331" />
+      <keyword name="operator&gt;&gt;" id="RsaToolbox::operator&gt;&gt;" ref="namespace_rsa_toolbox.html#a7fd848e8707bcb5e99dbed0984b83f27" />
       <keyword name="bValue" id="RsaToolbox::bValue" ref="namespace_rsa_toolbox.html#a42ad7834b66ba0f4eb681fa4168a6f8d" />
       <keyword name="bValues" id="RsaToolbox::bValues" ref="namespace_rsa_toolbox.html#a3f8487bbaf6e2ec148233a4d6576dae6" />
       <keyword name="weightedAverage" id="RsaToolbox::weightedAverage" ref="namespace_rsa_toolbox.html#a7d5e90c7a05fed784ef929a46d58ee98" />
@@ -1926,10 +1955,7 @@
       <keyword name="toString" id="RsaToolbox::toString" ref="namespace_rsa_toolbox.html#abddef2d0ac592f2c9bd33cdbb2f70549" />
       <keyword name="toSiPrefix" id="RsaToolbox::toSiPrefix" ref="namespace_rsa_toolbox.html#aef3265ac085cb4b9c3123482a618dc6d" />
       <keyword name="getPrefix" id="RsaToolbox::getPrefix" ref="namespace_rsa_toolbox.html#a1f7da27811bba5dc59af9872c72b5238" />
-      <keyword name="AppendPath" id="RsaToolbox::AppendPath" ref="namespace_rsa_toolbox.html#aa5cb97be2bab893b0072136464fbbf23" />
-      <keyword name="AppendCurrentDirectory" id="RsaToolbox::AppendCurrentDirectory" ref="namespace_rsa_toolbox.html#a56aa4142e468fd8422c87332b23a297f" />
-      <keyword name="GetAppDataPath" id="RsaToolbox::GetAppDataPath" ref="namespace_rsa_toolbox.html#af57d5ee3608f72345359f9fe53e65e66" />
-      <keyword name="AppendAppDataPath" id="RsaToolbox::AppendAppDataPath" ref="namespace_rsa_toolbox.html#a05cc3717c6e3f03bb1cc84fae5b3a053" />
+      <keyword name="GetAppDataPath" id="RsaToolbox::GetAppDataPath" ref="namespace_rsa_toolbox.html#aaed5965669fb6339f65f39f09c1683eb" />
       <keyword name="toEngineeringNotation" id="RsaToolbox::toEngineeringNotation" ref="namespace_rsa_toolbox.html#a10e3e534e78bd3f180602cb2352a2e96" />
       <keyword name="formatValue" id="RsaToolbox::formatValue" ref="namespace_rsa_toolbox.html#a49d6da7251b3231094dc1f815ce2cc34" />
       <keyword name="formatDouble" id="RsaToolbox::formatDouble" ref="namespace_rsa_toolbox.html#ac7e3f05829feda08e986d0544f418408" />
@@ -2077,14 +2103,16 @@
       <keyword name="min" id="RsaToolbox::min" ref="namespace_rsa_toolbox.html#a1e635f140e9a3d386a8ae68d4183ee23" />
       <keyword name="operator==" id="RsaToolbox::operator==" ref="namespace_rsa_toolbox.html#a6187f001c2d47a1bcf7e55fffc3cae75" />
       <keyword name="operator!=" id="RsaToolbox::operator!=" ref="namespace_rsa_toolbox.html#ada8e824ea3f432f40148ecb9848c3ca6" />
-      <keyword name="operator==" id="RsaToolbox::operator==" ref="namespace_rsa_toolbox.html#a39234bb9350b23a6eb532a9f519a97af" />
-      <keyword name="operator!=" id="RsaToolbox::operator!=" ref="namespace_rsa_toolbox.html#aa2fa79b0dfe58e581ed5d8784579ac22" />
+      <keyword name="operator==" id="RsaToolbox::operator==" ref="namespace_rsa_toolbox.html#ab27e8e0e54bfe009ff3176dd69c31047" />
+      <keyword name="operator!=" id="RsaToolbox::operator!=" ref="namespace_rsa_toolbox.html#a3f48bb83514bccb651b7bf866e82dfcc" />
+      <keyword name="operator&lt;&lt;" id="RsaToolbox::operator&lt;&lt;" ref="namespace_rsa_toolbox.html#ae489687fcc3784918b9bc2d67095904c" />
+      <keyword name="operator&gt;&gt;" id="RsaToolbox::operator&gt;&gt;" ref="namespace_rsa_toolbox.html#a5cbee5731c321ef2bd71a51b7816e80b" />
       <keyword name="newLastPath" id="RsaToolbox::newLastPath" ref="namespace_rsa_toolbox.html#a8f7284c01a05f7fa92173b3c8fa48595" />
       <keyword name="newLastPath" id="RsaToolbox::newLastPath" ref="namespace_rsa_toolbox.html#ac949fafb3c573b014e08fd3dd4eff6eb" />
       <keyword name="newLastPath" id="RsaToolbox::newLastPath" ref="namespace_rsa_toolbox.html#a03dd3fde12f6294c34f5a18d7035527e" />
       <keyword name="newLastPath" id="RsaToolbox::newLastPath" ref="namespace_rsa_toolbox.html#a0400ab7c28c973a43ee454e131102a71" />
       <keyword name="sort" id="RsaToolbox::sort" ref="namespace_rsa_toolbox.html#a675e23b9f3e241bdfd17390d9d546bd6" />
-      <keyword name="sort" id="RsaToolbox::sort" ref="namespace_rsa_toolbox.html#a62a5d8ec9ef55d57fb000ac213c449b8" />
+      <keyword name="sort" id="RsaToolbox::sort" ref="namespace_rsa_toolbox.html#a734014694eefc28cfa092df1c61e45c4" />
       <keyword name="sort" id="RsaToolbox::sort" ref="namespace_rsa_toolbox.html#a38668f5ffd0a8c1ddfe9008701f66ff3" />
       <keyword name="operator==" id="RsaToolbox::operator==" ref="namespace_rsa_toolbox.html#a3188740f580e8e54d1103d7171c5490b" />
       <keyword name="operator!=" id="RsaToolbox::operator!=" ref="namespace_rsa_toolbox.html#aeae83c95a3ef4810afc15e1c15ca558f" />
@@ -2099,65 +2127,52 @@
       <keyword name="DBL_INF" id="RsaToolbox::DBL_INF" ref="namespace_rsa_toolbox.html#a62ba705fcc7c634064b60d0e973bb853" />
       <keyword name="DBL_NEG_INF" id="RsaToolbox::DBL_NEG_INF" ref="namespace_rsa_toolbox.html#a7cf1a344b138cc337f4380711deba2f1" />
       <keyword name="DBL_NAN" id="RsaToolbox::DBL_NAN" ref="namespace_rsa_toolbox.html#ad24e1f6ce807f3a5c245f7ee6e9e8b03" />
-      <keyword name="DecibelDegrees" id="RsaToolbox::DecibelDegrees" ref="namespace_rsa_toolbox.html#a3fd1a9b25d76e60c5b6c4d86356986e9ae08bd980ac25f18f85c7a240ae6be44c" />
-      <keyword name="MagnitudeDegrees" id="RsaToolbox::MagnitudeDegrees" ref="namespace_rsa_toolbox.html#a3fd1a9b25d76e60c5b6c4d86356986e9a5992abff187b5f2269bd1fb725c2d7d0" />
-      <keyword name="RealImaginary" id="RsaToolbox::RealImaginary" ref="namespace_rsa_toolbox.html#a3fd1a9b25d76e60c5b6c4d86356986e9a137f5826e6366d083fe1b997fd61fc3d" />
+      <keyword name="DecibelDegrees" id="RsaToolbox::DecibelDegrees" ref="namespace_rsa_toolbox.html#a3fd1a9b25d76e60c5b6c4d86356986e9acdf27f126b01f858c01a9b90692cabf5" />
+      <keyword name="MagnitudeDegrees" id="RsaToolbox::MagnitudeDegrees" ref="namespace_rsa_toolbox.html#a3fd1a9b25d76e60c5b6c4d86356986e9a8e8dae70bf212bea8a4bde8cab17abed" />
+      <keyword name="RealImaginary" id="RsaToolbox::RealImaginary" ref="namespace_rsa_toolbox.html#a3fd1a9b25d76e60c5b6c4d86356986e9ad879938bc3c0b639436ed0ffc9fa792b" />
       <keyword name="TCPIP_CONNECTION" id="RsaToolbox::TCPIP_CONNECTION" ref="namespace_rsa_toolbox.html#aa1f0e2efd52935fd01bfece0fbead81fa14c1f2316495d5cd32f37c7423fce72c" />
       <keyword name="GPIB_CONNECTION" id="RsaToolbox::GPIB_CONNECTION" ref="namespace_rsa_toolbox.html#aa1f0e2efd52935fd01bfece0fbead81fa0fa118c77d3b0455c890e59388c6e347" />
       <keyword name="USB_CONNECTION" id="RsaToolbox::USB_CONNECTION" ref="namespace_rsa_toolbox.html#aa1f0e2efd52935fd01bfece0fbead81fa5d196bbeccdb8265b1082c35c3ee7b9f" />
       <keyword name="NO_CONNECTION" id="RsaToolbox::NO_CONNECTION" ref="namespace_rsa_toolbox.html#aa1f0e2efd52935fd01bfece0fbead81facad28945d500e3fc972e2d1c3b948e8e" />
-      <keyword name="MALE_GENDER" id="RsaToolbox::MALE_GENDER" ref="namespace_rsa_toolbox.html#a157ffe0e4dcd14784420ca337c6251a1a9cfa23a30f4229b999a85cb0d577336a" />
-      <keyword name="FEMALE_GENDER" id="RsaToolbox::FEMALE_GENDER" ref="namespace_rsa_toolbox.html#a157ffe0e4dcd14784420ca337c6251a1abc9baaf3a3a3b0b5eb7bdc25e1cac3de" />
-      <keyword name="NEUTRAL_GENDER" id="RsaToolbox::NEUTRAL_GENDER" ref="namespace_rsa_toolbox.html#a157ffe0e4dcd14784420ca337c6251a1a7faa7e6fb3376fa753cc5904fe40250e" />
-      <keyword name="DecibelDegrees" id="RsaToolbox::DecibelDegrees" ref="namespace_rsa_toolbox.html#afef9eb6dfe949b834d1b5b9d7e09d3ffae08bd980ac25f18f85c7a240ae6be44c" />
-      <keyword name="DecibelRadians" id="RsaToolbox::DecibelRadians" ref="namespace_rsa_toolbox.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa2511f33afa283b268c6da750872f64d0" />
-      <keyword name="MagnitudeDegrees" id="RsaToolbox::MagnitudeDegrees" ref="namespace_rsa_toolbox.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa5992abff187b5f2269bd1fb725c2d7d0" />
-      <keyword name="MagnitudeRadians" id="RsaToolbox::MagnitudeRadians" ref="namespace_rsa_toolbox.html#afef9eb6dfe949b834d1b5b9d7e09d3ffabea105ac6a650577fa6a344f9d269bfb" />
-      <keyword name="RealImaginary" id="RsaToolbox::RealImaginary" ref="namespace_rsa_toolbox.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa137f5826e6366d083fe1b997fd61fc3d" />
-      <keyword name="DecibelMagnitude" id="RsaToolbox::DecibelMagnitude" ref="namespace_rsa_toolbox.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa513b37a01b6a1cfbcc87ca03c5f7458c" />
-      <keyword name="Magnitude" id="RsaToolbox::Magnitude" ref="namespace_rsa_toolbox.html#afef9eb6dfe949b834d1b5b9d7e09d3ffac1a4f436eca777864111404effb5ae39" />
-      <keyword name="PhaseDegrees" id="RsaToolbox::PhaseDegrees" ref="namespace_rsa_toolbox.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa77cd1d5fd36ac4aa2de4cd794836dd78" />
-      <keyword name="PhaseRadians" id="RsaToolbox::PhaseRadians" ref="namespace_rsa_toolbox.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa05cc4ebb7cd5c0cedf189bdbbdca29f6" />
-      <keyword name="Vswr" id="RsaToolbox::Vswr" ref="namespace_rsa_toolbox.html#afef9eb6dfe949b834d1b5b9d7e09d3ffa76002958eeb467bfa74db8308ac35d30" />
-      <keyword name="S" id="RsaToolbox::S" ref="namespace_rsa_toolbox.html#aa0ba4d0acd5fdf65863b14e183a9f1d8a5dbc98dcc983a70728bd082d1a47546e" />
-      <keyword name="Y" id="RsaToolbox::Y" ref="namespace_rsa_toolbox.html#aa0ba4d0acd5fdf65863b14e183a9f1d8a57cec4137b614c87cb4e24a3d003a3e0" />
-      <keyword name="Z" id="RsaToolbox::Z" ref="namespace_rsa_toolbox.html#aa0ba4d0acd5fdf65863b14e183a9f1d8a21c2e59531c8710156d34a3c30ac81d5" />
-      <keyword name="H" id="RsaToolbox::H" ref="namespace_rsa_toolbox.html#aa0ba4d0acd5fdf65863b14e183a9f1d8ac1d9f50f86825a1a2302ec2449c17196" />
-      <keyword name="G" id="RsaToolbox::G" ref="namespace_rsa_toolbox.html#aa0ba4d0acd5fdf65863b14e183a9f1d8adfcf28d0734569a6a693bc8194de62bf" />
-      <keyword name="Relative" id="RsaToolbox::Relative" ref="namespace_rsa_toolbox.html#ac2904dcef8205419855c49db4819d430a2ca9469819fb0fb61ff98e914a7ccca0" />
-      <keyword name="Absolute" id="RsaToolbox::Absolute" ref="namespace_rsa_toolbox.html#ac2904dcef8205419855c49db4819d430ab51ca26c6c89cfc9bec338f7a0d3e0c8" />
-      <keyword name="Tera" id="RsaToolbox::Tera" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6a36e7fc4652810770a137e5c78a521686" />
-      <keyword name="Giga" id="RsaToolbox::Giga" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6a5262457500d337190c0f3484701a4ca6" />
-      <keyword name="Mega" id="RsaToolbox::Mega" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6afde5020a5a97322bf5a7aee8174abbd8" />
-      <keyword name="Kilo" id="RsaToolbox::Kilo" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6a3afe87a2a8c61f8023e56883b9baccb8" />
-      <keyword name="None" id="RsaToolbox::None" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6a6adf97f83acf6453d4a6a4b1070f3754" />
-      <keyword name="Milli" id="RsaToolbox::Milli" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6a12465672495917bbec5d04198923d373" />
-      <keyword name="Micro" id="RsaToolbox::Micro" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6adb1ce45d604c6b1d54c31dbc69bcdb56" />
-      <keyword name="Nano" id="RsaToolbox::Nano" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6a79b048d6d742fae8fc4f0524dcb6949c" />
-      <keyword name="Pico" id="RsaToolbox::Pico" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6acba3b736b06870457286524ba747164f" />
-      <keyword name="Femto" id="RsaToolbox::Femto" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6a6805de99ae4312da34ebbf4a39e400c3" />
-      <keyword name="DecibelMagnitude" id="RsaToolbox::DecibelMagnitude" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea513b37a01b6a1cfbcc87ca03c5f7458c" />
-      <keyword name="Phase" id="RsaToolbox::Phase" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea5e35d7fff7b903516cba242ff68fc6d3" />
-      <keyword name="SmithChart" id="RsaToolbox::SmithChart" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea5cc54c9b546a8936c0df90fb3cda95de" />
-      <keyword name="PolarChart" id="RsaToolbox::PolarChart" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806eae8a0117faba640b64bd0081f279027f3" />
-      <keyword name="Vswr" id="RsaToolbox::Vswr" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea76002958eeb467bfa74db8308ac35d30" />
-      <keyword name="UnwrappedPhase" id="RsaToolbox::UnwrappedPhase" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea98ccadc173b91257d661346a24ac892f" />
-      <keyword name="Magnitude" id="RsaToolbox::Magnitude" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806eac1a4f436eca777864111404effb5ae39" />
-      <keyword name="InverseSmithChart" id="RsaToolbox::InverseSmithChart" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea5698e9c0acd95ac44aa2ef9314da0388" />
-      <keyword name="Real" id="RsaToolbox::Real" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea7f80fcc452c2f1ed2bb51b39d0864df1" />
-      <keyword name="Imaginary" id="RsaToolbox::Imaginary" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806eaf19f497d4c860d252cc1e055d0362ccc" />
-      <keyword name="Delay" id="RsaToolbox::Delay" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea8f497c1a3d15af9e0c215019f26b887d" />
-      <keyword name="None" id="RsaToolbox::None" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a6adf97f83acf6453d4a6a4b1070f3754" />
-      <keyword name="Seconds" id="RsaToolbox::Seconds" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a8f19a8c7566af54ea8981029730e5465" />
-      <keyword name="Hertz" id="RsaToolbox::Hertz" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190af373520f32c8e017a3a42344b5706960" />
-      <keyword name="Radians" id="RsaToolbox::Radians" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a682f5298cdcce11e567b7f833843d3be" />
-      <keyword name="Degrees" id="RsaToolbox::Degrees" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a9ef125630442bb42e2e367e0cf70d892" />
-      <keyword name="Ohms" id="RsaToolbox::Ohms" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a861923def665928fdc22d5304dad7ada" />
-      <keyword name="Siemens" id="RsaToolbox::Siemens" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a74993f42c49b81f3a77103bcbb247c2b" />
-      <keyword name="Watts" id="RsaToolbox::Watts" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a6af2670d4c6fd192d6fe6d69c2e9059b" />
-      <keyword name="dB" id="RsaToolbox::dB" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a40c08c8a59b4acef11d698f93aeccafe" />
-      <keyword name="dBW" id="RsaToolbox::dBW" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190ad6f9485f14abf73feb8bfdaa85eff2bb" />
-      <keyword name="dBm" id="RsaToolbox::dBm" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a21b2c5773d09c68fe13dd43912183f9b" />
+      <keyword name="S" id="RsaToolbox::S" ref="namespace_rsa_toolbox.html#aa0ba4d0acd5fdf65863b14e183a9f1d8af1ce01387d2348f8b858721a7db81670" />
+      <keyword name="Y" id="RsaToolbox::Y" ref="namespace_rsa_toolbox.html#aa0ba4d0acd5fdf65863b14e183a9f1d8a5596231eabd6cf29050967d5ac83ad84" />
+      <keyword name="Z" id="RsaToolbox::Z" ref="namespace_rsa_toolbox.html#aa0ba4d0acd5fdf65863b14e183a9f1d8aa70478ce277ffc322f8e1e3418e07355" />
+      <keyword name="H" id="RsaToolbox::H" ref="namespace_rsa_toolbox.html#aa0ba4d0acd5fdf65863b14e183a9f1d8a5008b1179f399a2273fd3f6a7fc3b292" />
+      <keyword name="G" id="RsaToolbox::G" ref="namespace_rsa_toolbox.html#aa0ba4d0acd5fdf65863b14e183a9f1d8a2fe993340f6abb2234e543cd427df70b" />
+      <keyword name="Relative" id="RsaToolbox::Relative" ref="namespace_rsa_toolbox.html#ac2904dcef8205419855c49db4819d430a0f23d10f26a8446d64fded7b7478bee7" />
+      <keyword name="Absolute" id="RsaToolbox::Absolute" ref="namespace_rsa_toolbox.html#ac2904dcef8205419855c49db4819d430a4b416446a4e9361cbd46fb295db6ce2e" />
+      <keyword name="Tera" id="RsaToolbox::Tera" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6ae7ec0eb3d2cf9998e4def53f83497a55" />
+      <keyword name="Giga" id="RsaToolbox::Giga" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6aa133ea4ad0dd5f6ec73690ad8467b6c4" />
+      <keyword name="Mega" id="RsaToolbox::Mega" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6ad94c39490a2f678e8d4cc67f83211d78" />
+      <keyword name="Kilo" id="RsaToolbox::Kilo" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6a1da9972c2f40d11f3034928ded997ee5" />
+      <keyword name="None" id="RsaToolbox::None" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6ac9d3e887722f2bc482bcca9d41c512af" />
+      <keyword name="Milli" id="RsaToolbox::Milli" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6aaa0ceca5cd42045c59ffb71207c24561" />
+      <keyword name="Micro" id="RsaToolbox::Micro" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6ae919d9c95f0fd4a08f3c94e13a3f8a9f" />
+      <keyword name="Nano" id="RsaToolbox::Nano" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6a9ab216094782f9431a11c42890b8cafe" />
+      <keyword name="Pico" id="RsaToolbox::Pico" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6ab8ff39af8beda3d44bc5b2de7ab19388" />
+      <keyword name="Femto" id="RsaToolbox::Femto" ref="namespace_rsa_toolbox.html#a9fb89ac56439ffc23c8e6942859ec3a6a8dfce9b156176c5133f713950da9e899" />
+      <keyword name="DecibelMagnitude" id="RsaToolbox::DecibelMagnitude" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea90c7fbb7d73a18438aa400b3c77597ac" />
+      <keyword name="Phase" id="RsaToolbox::Phase" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea483a6928abb8b58deae3e9462f8b01a0" />
+      <keyword name="SmithChart" id="RsaToolbox::SmithChart" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea8e6105c8f95d5c30cf16aab89d43c295" />
+      <keyword name="PolarChart" id="RsaToolbox::PolarChart" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea7bf3599fccd2f9c30a118977ed893cd9" />
+      <keyword name="Vswr" id="RsaToolbox::Vswr" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea4e797c8aa7924a0c1f9088f929fa569e" />
+      <keyword name="UnwrappedPhase" id="RsaToolbox::UnwrappedPhase" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea63a9a1519e2b1ba92583d00fb86310fd" />
+      <keyword name="Magnitude" id="RsaToolbox::Magnitude" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea336a41a665e98d8d074a17e9c8acef80" />
+      <keyword name="InverseSmithChart" id="RsaToolbox::InverseSmithChart" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806eabfc3b86870c66f9860472ff8968ccb9d" />
+      <keyword name="Real" id="RsaToolbox::Real" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806eae47767a8fd75c3f527962d1c194cc19c" />
+      <keyword name="Imaginary" id="RsaToolbox::Imaginary" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea0080769815ec006fc68ced09615b59cd" />
+      <keyword name="Delay" id="RsaToolbox::Delay" ref="namespace_rsa_toolbox.html#a410a23bf00f6ac6aa86b91b31688806ea16fbf87ec18185f5066c6f797300e3ac" />
+      <keyword name="NoUnits" id="RsaToolbox::NoUnits" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a00cd339264fd83d14cc168e112484d1c" />
+      <keyword name="Seconds" id="RsaToolbox::Seconds" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a59ddc87321c790df68923fb709a06cb1" />
+      <keyword name="Hertz" id="RsaToolbox::Hertz" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a668e4e299b1dc007e1a756ba41fa88dc" />
+      <keyword name="Radians" id="RsaToolbox::Radians" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a7c56d276dd7a90a3833c60981af430b2" />
+      <keyword name="Degrees" id="RsaToolbox::Degrees" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190ab28ef12cbe7643cb9eb5bc1151006013" />
+      <keyword name="Ohms" id="RsaToolbox::Ohms" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a93e821005ad71e5e3837e8b3c14f9fc6" />
+      <keyword name="Siemens" id="RsaToolbox::Siemens" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190adb68bb5e5503134f94e5e625fb6566c9" />
+      <keyword name="Watts" id="RsaToolbox::Watts" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190ae43b04d1d464c9905ff5bfb81950a10d" />
+      <keyword name="dB" id="RsaToolbox::dB" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190aca9a1fbba4aa3f7e8aac9144d5a03d08" />
+      <keyword name="dBW" id="RsaToolbox::dBW" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190a43d386440a855ef6f292d803826a503c" />
+      <keyword name="dBm" id="RsaToolbox::dBm" ref="namespace_rsa_toolbox.html#ac33d2b1fdba15c8bfb494f9cf0ef4190ad4a392813e8d215af551009bf80031f4" />
       <keyword name="OPEN_STANDARD_TYPE" id="RsaToolbox::OPEN_STANDARD_TYPE" ref="namespace_rsa_toolbox.html#a9ca463a100aad8f02e3d00baf761ff7aad716b85e0fcce01ecaf5c55a4a231203" />
       <keyword name="SHORT_STANDARD_TYPE" id="RsaToolbox::SHORT_STANDARD_TYPE" ref="namespace_rsa_toolbox.html#a9ca463a100aad8f02e3d00baf761ff7aa4b7003004c7e0cf81631bc508559c26c" />
       <keyword name="OFFSET_SHORT_STANDARD_TYPE" id="RsaToolbox::OFFSET_SHORT_STANDARD_TYPE" ref="namespace_rsa_toolbox.html#a9ca463a100aad8f02e3d00baf761ff7aa62a71c7de147c37857281397efa8b58b" />
@@ -2173,8 +2188,8 @@
       <keyword name="ATTENUATION_STANDARD_TYPE" id="RsaToolbox::ATTENUATION_STANDARD_TYPE" ref="namespace_rsa_toolbox.html#a9ca463a100aad8f02e3d00baf761ff7aaa9241aa03e902432d4a7d210120a72ee" />
       <keyword name="SYMMETRIC_NETWORK_STANDARD_TYPE" id="RsaToolbox::SYMMETRIC_NETWORK_STANDARD_TYPE" ref="namespace_rsa_toolbox.html#a9ca463a100aad8f02e3d00baf761ff7aaee85c74e67a617084ae74c4bd185eb64" />
       <keyword name="UNKNOWN_STANDARD_TYPE" id="RsaToolbox::UNKNOWN_STANDARD_TYPE" ref="namespace_rsa_toolbox.html#a9ca463a100aad8f02e3d00baf761ff7aaba2dfb4dbc1f82f097268452c8b2e03d" />
-      <keyword name="a" id="RsaToolbox::a" ref="namespace_rsa_toolbox.html#ad510ffc5b80ffa73e4165154fb790ef0a0cc175b9c0f1b6a831c399e269772661" />
-      <keyword name="b" id="RsaToolbox::b" ref="namespace_rsa_toolbox.html#ad510ffc5b80ffa73e4165154fb790ef0a92eb5ffee6ae2fec3ad71c777531578f" />
+      <keyword name="a" id="RsaToolbox::a" ref="namespace_rsa_toolbox.html#ad510ffc5b80ffa73e4165154fb790ef0aa91fb0824da12f8bb3b74dd78fb13b63" />
+      <keyword name="b" id="RsaToolbox::b" ref="namespace_rsa_toolbox.html#ad510ffc5b80ffa73e4165154fb790ef0aa06b03e4cd5c7c464c513a95a7fcf9bf" />
       <keyword name="RsaToolbox::BalancedPort" id="RsaToolbox::BalancedPort" ref="class_rsa_toolbox_1_1_balanced_port.html" />
       <keyword name="BalancedPort" id="RsaToolbox::BalancedPort::BalancedPort" ref="class_rsa_toolbox_1_1_balanced_port.html#a3a47c5546649bcd01ec5859e5cb1a041" />
       <keyword name="BalancedPort" id="RsaToolbox::BalancedPort::BalancedPort" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d37add954fc5db2d8d9b77a311f7557" />
@@ -2191,9 +2206,9 @@
       <keyword name="setPort" id="RsaToolbox::BalancedPort::setPort" ref="class_rsa_toolbox_1_1_balanced_port.html#a30b944e6e2d7cdd496fe67bb91a4222b" />
       <keyword name="operator int" id="RsaToolbox::BalancedPort::operator int" ref="class_rsa_toolbox_1_1_balanced_port.html#a6a6c0aaee2d785b48a1e57710ceb586b" />
       <keyword name="operator uint" id="RsaToolbox::BalancedPort::operator uint" ref="class_rsa_toolbox_1_1_balanced_port.html#a04ce7571b9477833c44d1b377c105548" />
-      <keyword name="SingleEnded" id="RsaToolbox::BalancedPort::SingleEnded" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7a3bdea3ac1bbf38ef341bac5a9d204459" />
-      <keyword name="Differential" id="RsaToolbox::BalancedPort::Differential" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7a1c2eaa5d56340808f2a94368501e5496" />
-      <keyword name="Common" id="RsaToolbox::BalancedPort::Common" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7ad13bc5b68b2bd9e18f29777db17cc563" />
+      <keyword name="SingleEnded" id="RsaToolbox::BalancedPort::SingleEnded" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7a7105661546e0ceab15572f5974305920" />
+      <keyword name="Differential" id="RsaToolbox::BalancedPort::Differential" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7a6a4372c371139fa3ca5c37c305675905" />
+      <keyword name="Common" id="RsaToolbox::BalancedPort::Common" ref="class_rsa_toolbox_1_1_balanced_port.html#a1d1cfd8ffb84e947f82999c682b666a7a9cc00ea16fb915697974900a62a04062" />
       <keyword name="RsaToolbox::BreadCrumbs" id="RsaToolbox::BreadCrumbs" ref="class_rsa_toolbox_1_1_bread_crumbs.html" />
       <keyword name="setLinks" id="RsaToolbox::BreadCrumbs::setLinks" ref="class_rsa_toolbox_1_1_bread_crumbs.html#af852e0c922d78610453da1fdd72542cb" />
       <keyword name="back" id="RsaToolbox::BreadCrumbs::back" ref="class_rsa_toolbox_1_1_bread_crumbs.html#aa4c6563663c98d6c5c109d8fdf07e24c" />
@@ -2267,8 +2282,8 @@
       <keyword name="RsaToolbox::Connector" id="RsaToolbox::Connector" ref="class_rsa_toolbox_1_1_connector.html" />
       <keyword name="Connector" id="RsaToolbox::Connector::Connector" ref="class_rsa_toolbox_1_1_connector.html#a98dcfd602309bb9d0757d0a943c97cd2" />
       <keyword name="Connector" id="RsaToolbox::Connector::Connector" ref="class_rsa_toolbox_1_1_connector.html#a292a97d5e9207d8aed38b308cf724ef2" />
-      <keyword name="Connector" id="RsaToolbox::Connector::Connector" ref="class_rsa_toolbox_1_1_connector.html#a18ecd71336a4195a590cec8fb6ca596f" />
-      <keyword name="Connector" id="RsaToolbox::Connector::Connector" ref="class_rsa_toolbox_1_1_connector.html#aca86ee25bf97cf7961d8b69e70fe91d3" />
+      <keyword name="Connector" id="RsaToolbox::Connector::Connector" ref="class_rsa_toolbox_1_1_connector.html#a384663f47c25a96dc850309f1165e6ed" />
+      <keyword name="Connector" id="RsaToolbox::Connector::Connector" ref="class_rsa_toolbox_1_1_connector.html#a2405b7b7c585284da8f766813c59f2c6" />
       <keyword name="displayText" id="RsaToolbox::Connector::displayText" ref="class_rsa_toolbox_1_1_connector.html#a9944fb6e1c6c1323263e37bdba06c2b4" />
       <keyword name="displayType" id="RsaToolbox::Connector::displayType" ref="class_rsa_toolbox_1_1_connector.html#aec201798cb33fcb3c7dffec7259e0a94" />
       <keyword name="displayGender" id="RsaToolbox::Connector::displayGender" ref="class_rsa_toolbox_1_1_connector.html#a2eb67c0a4ad3eb7300ae2f0eccf849dd" />
@@ -2277,7 +2292,7 @@
       <keyword name="isNotType" id="RsaToolbox::Connector::isNotType" ref="class_rsa_toolbox_1_1_connector.html#aa913e97fe035fc677a1888cf4a428f88" />
       <keyword name="isCustomType" id="RsaToolbox::Connector::isCustomType" ref="class_rsa_toolbox_1_1_connector.html#a7e962a1151ed339a5571db2ee4f658e7" />
       <keyword name="isNotCustomType" id="RsaToolbox::Connector::isNotCustomType" ref="class_rsa_toolbox_1_1_connector.html#a899c08008b268d15d927564faf92f39d" />
-      <keyword name="isGender" id="RsaToolbox::Connector::isGender" ref="class_rsa_toolbox_1_1_connector.html#a6a72a4731f22fc54b667979d05a05b5a" />
+      <keyword name="isGender" id="RsaToolbox::Connector::isGender" ref="class_rsa_toolbox_1_1_connector.html#a52db89bf67d294d11c0079da71fa73df" />
       <keyword name="isMale" id="RsaToolbox::Connector::isMale" ref="class_rsa_toolbox_1_1_connector.html#aebd8639c0076439cdc71eeac6c84c02f" />
       <keyword name="isNotMale" id="RsaToolbox::Connector::isNotMale" ref="class_rsa_toolbox_1_1_connector.html#a005de4031172b7ff3206a0d0ec5f7b13" />
       <keyword name="isFemale" id="RsaToolbox::Connector::isFemale" ref="class_rsa_toolbox_1_1_connector.html#ac732e2378747c65b5ba737fe9c2c74e2" />
@@ -2286,26 +2301,23 @@
       <keyword name="isGenderSpecific" id="RsaToolbox::Connector::isGenderSpecific" ref="class_rsa_toolbox_1_1_connector.html#a027b98434800338f77ba57384afc63da" />
       <keyword name="type" id="RsaToolbox::Connector::type" ref="class_rsa_toolbox_1_1_connector.html#a93a74523ec09cb5b49a0bd40ce462d88" />
       <keyword name="customType" id="RsaToolbox::Connector::customType" ref="class_rsa_toolbox_1_1_connector.html#a0a0b5dae45b502609aa24858979a38f9" />
-      <keyword name="gender" id="RsaToolbox::Connector::gender" ref="class_rsa_toolbox_1_1_connector.html#afbe0331cca4e8a65607c498ecb01ea60" />
+      <keyword name="gender" id="RsaToolbox::Connector::gender" ref="class_rsa_toolbox_1_1_connector.html#a9acc83abc7649055e275a51033adfa90" />
       <keyword name="getMatingConnector" id="RsaToolbox::Connector::getMatingConnector" ref="class_rsa_toolbox_1_1_connector.html#aff1f136213e085e4e902d5d18e308694" />
-      <keyword name="setType" id="RsaToolbox::Connector::setType" ref="class_rsa_toolbox_1_1_connector.html#ae90ee028f0f690616502a8a3631dcdd9" />
+      <keyword name="setType" id="RsaToolbox::Connector::setType" ref="class_rsa_toolbox_1_1_connector.html#a43805e98d6c637b0d1d191ee5a4d1df1" />
       <keyword name="setType" id="RsaToolbox::Connector::setType" ref="class_rsa_toolbox_1_1_connector.html#a608e58a2f9fb7e497f91662a6e9ae4cc" />
       <keyword name="setCustomType" id="RsaToolbox::Connector::setCustomType" ref="class_rsa_toolbox_1_1_connector.html#ad58fb04ba88f5265b906bbfa62022f60" />
-      <keyword name="setGender" id="RsaToolbox::Connector::setGender" ref="class_rsa_toolbox_1_1_connector.html#ab905388af014c69ca0f2d58c71d9f6e8" />
+      <keyword name="setGender" id="RsaToolbox::Connector::setGender" ref="class_rsa_toolbox_1_1_connector.html#aa38617b56386dee765766b1fbb9a98c4" />
       <keyword name="operator=" id="RsaToolbox::Connector::operator=" ref="class_rsa_toolbox_1_1_connector.html#a65b079a3d13e3033981fa14f302d2685" />
       <keyword name="displayText" id="RsaToolbox::Connector::displayText" ref="class_rsa_toolbox_1_1_connector.html#a65e5cdafeb90b94565efaa72060c4ff1" />
       <keyword name="displayType" id="RsaToolbox::Connector::displayType" ref="class_rsa_toolbox_1_1_connector.html#a707765055ab98b07bba2386a629b7376" />
       <keyword name="isSingleConnectorType" id="RsaToolbox::Connector::isSingleConnectorType" ref="class_rsa_toolbox_1_1_connector.html#aa26b2813671de12c367c7924d9b2abe3" />
       <keyword name="numberOfMaleConnectors" id="RsaToolbox::Connector::numberOfMaleConnectors" ref="class_rsa_toolbox_1_1_connector.html#a908b79608e66e67f78070c0fd8cd73e4" />
       <keyword name="numberOfFemaleConnectors" id="RsaToolbox::Connector::numberOfFemaleConnectors" ref="class_rsa_toolbox_1_1_connector.html#a9499788a2bbcfbe897117ccb2fcabd2c" />
-      <keyword name="toConnectorType" id="RsaToolbox::Connector::toConnectorType" ref="class_rsa_toolbox_1_1_connector.html#a8e7ce1c3a4bf690ea537124d6e88d042" />
-      <keyword name="toConnectorGender" id="RsaToolbox::Connector::toConnectorGender" ref="class_rsa_toolbox_1_1_connector.html#a8ef07f6fc2bb1fd4a622fe136a3095e8" />
-      <keyword name="toVnaScpi" id="RsaToolbox::Connector::toVnaScpi" ref="class_rsa_toolbox_1_1_connector.html#a6b176cd5382ab852d9a7cbf6edc9286a" />
-      <keyword name="toVnaScpi" id="RsaToolbox::Connector::toVnaScpi" ref="class_rsa_toolbox_1_1_connector.html#aa2570272aec9074125ef0a8f3d4a0687" />
-      <keyword name="toConnectorTypeVnaScpi" id="RsaToolbox::Connector::toConnectorTypeVnaScpi" ref="class_rsa_toolbox_1_1_connector.html#a47212519396e7e490efae70fdb25714e" />
-      <keyword name="toConnectorGenderVnaScpi" id="RsaToolbox::Connector::toConnectorGenderVnaScpi" ref="class_rsa_toolbox_1_1_connector.html#a070da66083caf1fe8b467b8e17dedf51" />
       <keyword name="operator==" id="RsaToolbox::Connector::operator==" ref="class_rsa_toolbox_1_1_connector.html#a75aebc1f06692c300a43366c89526e8b" />
       <keyword name="operator!=" id="RsaToolbox::Connector::operator!=" ref="class_rsa_toolbox_1_1_connector.html#a6d675583a247f0145128be6990b4e2de" />
+      <keyword name="Male" id="RsaToolbox::Connector::Male" ref="class_rsa_toolbox_1_1_connector.html#a3667e3c5ec056737c8789615a989324fadfdd236ca597df5a4d2f5fa0d0f6ec93" />
+      <keyword name="Female" id="RsaToolbox::Connector::Female" ref="class_rsa_toolbox_1_1_connector.html#a3667e3c5ec056737c8789615a989324fa4fcdc3f409e8e27fbfd35bbd6472877c" />
+      <keyword name="Neutral" id="RsaToolbox::Connector::Neutral" ref="class_rsa_toolbox_1_1_connector.html#a3667e3c5ec056737c8789615a989324fa32bb6c621f52f6a0932c646d5ed47f91" />
       <keyword name="N_50_OHM_CONNECTOR" id="RsaToolbox::Connector::N_50_OHM_CONNECTOR" ref="class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7a61b16617c1ce5333d8c027318e8529fd" />
       <keyword name="N_75_OHM_CONNECTOR" id="RsaToolbox::Connector::N_75_OHM_CONNECTOR" ref="class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7a18904b59a1ded80dad70fa26ab7433ce" />
       <keyword name="mm_7_CONNECTOR" id="RsaToolbox::Connector::mm_7_CONNECTOR" ref="class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7aadf3cc24bafb07a62442c480f517b1fd" />
@@ -2943,6 +2955,7 @@
       <keyword name="diagram" id="RsaToolbox::Vna::diagram" ref="class_rsa_toolbox_1_1_vna.html#a82d973ff6e159f183c0966c79f59365a" />
       <keyword name="takeDiagram" id="RsaToolbox::Vna::takeDiagram" ref="class_rsa_toolbox_1_1_vna.html#a58e48306b854ff20311bf381963bd3ce" />
       <keyword name="takeDiagrams" id="RsaToolbox::Vna::takeDiagrams" ref="class_rsa_toolbox_1_1_vna.html#aaab02a9c6572fa996ffe8391c316634e" />
+      <keyword name="sweepTime_ms" id="RsaToolbox::Vna::sweepTime_ms" ref="class_rsa_toolbox_1_1_vna.html#a919adcd598ff449e735b48daa047d45b" />
       <keyword name="startSweeps" id="RsaToolbox::Vna::startSweeps" ref="class_rsa_toolbox_1_1_vna.html#abc1ceb9a9678e4de6f0a713d947f416d" />
       <keyword name="testPorts" id="RsaToolbox::Vna::testPorts" ref="class_rsa_toolbox_1_1_vna.html#a7d3bd486c8f2cb4e353868ec707b145b" />
       <keyword name="isSwitchMatrix" id="RsaToolbox::Vna::isSwitchMatrix" ref="class_rsa_toolbox_1_1_vna.html#adf847af4c791c3ed290ce1e0cc991bd7" />
@@ -2954,8 +2967,7 @@
       <keyword name="deleteSwitchMatrices" id="RsaToolbox::Vna::deleteSwitchMatrices" ref="class_rsa_toolbox_1_1_vna.html#a47a02aba98d882c20f7d7c67f7fb16ac" />
       <keyword name="switchMatrix" id="RsaToolbox::Vna::switchMatrix" ref="class_rsa_toolbox_1_1_vna.html#a4fc198802de2aa7e9f6be80185cb1369" />
       <keyword name="takeSwitchMatrix" id="RsaToolbox::Vna::takeSwitchMatrix" ref="class_rsa_toolbox_1_1_vna.html#a5ed3ffbc6016a6f6ed9cd25daecaa065" />
-      <keyword name="isCalUnit" id="RsaToolbox::Vna::isCalUnit" ref="class_rsa_toolbox_1_1_vna.html#abe18a3e9886c78813893747e271b4e5a" />
-      <keyword name="numberOfCalUnits" id="RsaToolbox::Vna::numberOfCalUnits" ref="class_rsa_toolbox_1_1_vna.html#aca2bc4db34f6af98228dfcd540c77a6c" />
+      <keyword name="isCalUnit" id="RsaToolbox::Vna::isCalUnit" ref="class_rsa_toolbox_1_1_vna.html#a8c714fb4e1cea2802fd424370904322e" />
       <keyword name="calUnits" id="RsaToolbox::Vna::calUnits" ref="class_rsa_toolbox_1_1_vna.html#afe29686e38a9067c6064f1facba11de0" />
       <keyword name="calUnit" id="RsaToolbox::Vna::calUnit" ref="class_rsa_toolbox_1_1_vna.html#ad98b94d258597f304e09b85f2fd97684" />
       <keyword name="takeCalUnit" id="RsaToolbox::Vna::takeCalUnit" ref="class_rsa_toolbox_1_1_vna.html#a64df6113e20ed16eb1aa386d47582f5f" />
@@ -3053,21 +3065,25 @@
       <keyword name="~VnaCalKit" id="RsaToolbox::VnaCalKit::~VnaCalKit" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ae7b3948e8eb5c425c553ee1a09b17fdc" />
       <keyword name="isConnectorType" id="RsaToolbox::VnaCalKit::isConnectorType" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ace47065a2e5e9845e4e86ff76a999b16" />
       <keyword name="has" id="RsaToolbox::VnaCalKit::has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ac881444c729b3dcbb0d7795b339ba3da" />
-      <keyword name="has" id="RsaToolbox::VnaCalKit::has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a3ea08458b2fa30bb92804273b6892993" />
+      <keyword name="has" id="RsaToolbox::VnaCalKit::has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#af8a2b61a6bf7455f8a430a39547f39bd" />
       <keyword name="has" id="RsaToolbox::VnaCalKit::has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a1144a2cb8651dbef4929da7110debbee" />
-      <keyword name="has" id="RsaToolbox::VnaCalKit::has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#afdcc6ea9e6eb647d3d778ddce96578a7" />
+      <keyword name="has" id="RsaToolbox::VnaCalKit::has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ab8926aad2516fe08928d494a62149df2" />
       <keyword name="has" id="RsaToolbox::VnaCalKit::has" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ac6b3cddf20e99a2e3aac18cadda8bfba" />
+      <keyword name="hasOpen" id="RsaToolbox::VnaCalKit::hasOpen" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#aa873e17316c838b3a17dd1dfef088064" />
       <keyword name="hasOpen" id="RsaToolbox::VnaCalKit::hasOpen" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#aa77229e8913e336b59a17a97f5342147" />
       <keyword name="hasMaleOpen" id="RsaToolbox::VnaCalKit::hasMaleOpen" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#afad02038620eb367cb51b1b77a33563b" />
       <keyword name="hasFemaleOpen" id="RsaToolbox::VnaCalKit::hasFemaleOpen" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a90d4ebe10f18270b188eef8ea7d4018d" />
+      <keyword name="hasShort" id="RsaToolbox::VnaCalKit::hasShort" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ad643c3a2653b449e642f6e9877651eab" />
       <keyword name="hasShort" id="RsaToolbox::VnaCalKit::hasShort" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a755dbadb8d2d1a431ebcc629e27a74c5" />
       <keyword name="hasMaleShort" id="RsaToolbox::VnaCalKit::hasMaleShort" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#aa6718c0bf1511a25cd323f711607a382" />
       <keyword name="hasFemaleShort" id="RsaToolbox::VnaCalKit::hasFemaleShort" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#aff33e969409413472a5361186c142cd8" />
+      <keyword name="hasMatch" id="RsaToolbox::VnaCalKit::hasMatch" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a0bb2df101d6d8bf8af2f2ee2266a9eb3" />
       <keyword name="hasMatch" id="RsaToolbox::VnaCalKit::hasMatch" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#ad7ec772a15f1d1190108c354ebdf794e" />
       <keyword name="hasMaleMatch" id="RsaToolbox::VnaCalKit::hasMaleMatch" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a0bd352fadbd3842d921a22c99257c7ea" />
       <keyword name="hasFemaleMatch" id="RsaToolbox::VnaCalKit::hasFemaleMatch" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a173be47ae50acb3930206bf83550fd1e" />
-      <keyword name="hasThru" id="RsaToolbox::VnaCalKit::hasThru" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a328dea68cba6fd0a539ff9c2ef6366c3" />
+      <keyword name="hasThru" id="RsaToolbox::VnaCalKit::hasThru" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a0ebd3d9d9d782df45d2658ccec13fe55" />
       <keyword name="hasThru" id="RsaToolbox::VnaCalKit::hasThru" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#af185868fb8e074e1a1a310bd2850d020" />
+      <keyword name="hasThru" id="RsaToolbox::VnaCalKit::hasThru" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a0acc3692c479d53df9d6fe04fe43629d" />
       <keyword name="connectorType" id="RsaToolbox::VnaCalKit::connectorType" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a767579d3bacfc6f3e1b799cee4c6eb24" />
       <keyword name="standards" id="RsaToolbox::VnaCalKit::standards" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a2ab5f06e4f221fb25ec30cd045805aa9" />
       <keyword name="addStandard" id="RsaToolbox::VnaCalKit::addStandard" ref="class_rsa_toolbox_1_1_vna_cal_kit.html#a955867302e471115559d91a7844d9092" />
@@ -3082,8 +3098,8 @@
       <keyword name="displayType" id="RsaToolbox::VnaCalStandard::displayType" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#aec201798cb33fcb3c7dffec7259e0a94" />
       <keyword name="isType" id="RsaToolbox::VnaCalStandard::isType" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a15131169b48ed2c3f915bb3480102135" />
       <keyword name="isNotType" id="RsaToolbox::VnaCalStandard::isNotType" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#adb5919561105d9f52aae85f5835df3ff" />
-      <keyword name="isGender" id="RsaToolbox::VnaCalStandard::isGender" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a6a72a4731f22fc54b667979d05a05b5a" />
-      <keyword name="isGender" id="RsaToolbox::VnaCalStandard::isGender" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a7b59485bf91281f29020b054c50dbd7d" />
+      <keyword name="isGender" id="RsaToolbox::VnaCalStandard::isGender" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a231038ecae76003fb555d4e750f4b0b5" />
+      <keyword name="isGender" id="RsaToolbox::VnaCalStandard::isGender" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a2fb51cd7958c9b33cb7df4a2eb3d5970" />
       <keyword name="isMale" id="RsaToolbox::VnaCalStandard::isMale" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#aebd8639c0076439cdc71eeac6c84c02f" />
       <keyword name="isFemale" id="RsaToolbox::VnaCalStandard::isFemale" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ac732e2378747c65b5ba737fe9c2c74e2" />
       <keyword name="isPortSpecific" id="RsaToolbox::VnaCalStandard::isPortSpecific" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a9bb705e38f8c5740127237671e7c285d" />
@@ -3110,7 +3126,7 @@
       <keyword name="isThruMF" id="RsaToolbox::VnaCalStandard::isThruMF" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ad859b59d24770cd5105e2cec1140884a" />
       <keyword name="isThruFF" id="RsaToolbox::VnaCalStandard::isThruFF" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ad8e53509a1ac250d0ececb3bd1a10e59" />
       <keyword name="isThru" id="RsaToolbox::VnaCalStandard::isThru" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#aca57133290ed96f316722a7ab6776c5e" />
-      <keyword name="isThru" id="RsaToolbox::VnaCalStandard::isThru" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a8d1e63be8bb2748f1bfb9c53954869be" />
+      <keyword name="isThru" id="RsaToolbox::VnaCalStandard::isThru" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ad490aa36cebd7b45711098cc96fe63c5" />
       <keyword name="isTouchstone" id="RsaToolbox::VnaCalStandard::isTouchstone" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a9a2984901961b1ad202b7373c9bf1a2a" />
       <keyword name="isModel" id="RsaToolbox::VnaCalStandard::isModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a588bfe3a8e03dac74767755f1852c542" />
       <keyword name="isSameModel" id="RsaToolbox::VnaCalStandard::isSameModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#afda3432ec292cc5fd8d7f6286aacff67" />
@@ -3120,12 +3136,12 @@
       <keyword name="port" id="RsaToolbox::VnaCalStandard::port" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a54e463f81dfc412c50dd4d7e26903433" />
       <keyword name="port1" id="RsaToolbox::VnaCalStandard::port1" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ab7448f7cff53dd0e661f9be4fea84aff" />
       <keyword name="port2" id="RsaToolbox::VnaCalStandard::port2" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a760296cb8c0237a090bd971349acf8f0" />
-      <keyword name="connector" id="RsaToolbox::VnaCalStandard::connector" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a40ebe6360163e4300080bd2f202bc027" />
-      <keyword name="connector1" id="RsaToolbox::VnaCalStandard::connector1" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a2324cc66108138a282c6fb698a889393" />
-      <keyword name="connector2" id="RsaToolbox::VnaCalStandard::connector2" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a3fb5a77a44175148609241b326591053" />
-      <keyword name="gender" id="RsaToolbox::VnaCalStandard::gender" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#afbe0331cca4e8a65607c498ecb01ea60" />
-      <keyword name="gender1" id="RsaToolbox::VnaCalStandard::gender1" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a09b59684bd0cebc0b9355130b18aeb1c" />
-      <keyword name="gender2" id="RsaToolbox::VnaCalStandard::gender2" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a9b2fe4e7bf569926747a9d5351c83c91" />
+      <keyword name="connector" id="RsaToolbox::VnaCalStandard::connector" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a675470498d19c72bae3932d17712c480" />
+      <keyword name="connector1" id="RsaToolbox::VnaCalStandard::connector1" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a63c1b81d0c5f2bad21512596f2347663" />
+      <keyword name="connector2" id="RsaToolbox::VnaCalStandard::connector2" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#aaf992a8f71b5d3d79b504d1a73f62a24" />
+      <keyword name="gender" id="RsaToolbox::VnaCalStandard::gender" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a9acc83abc7649055e275a51033adfa90" />
+      <keyword name="gender1" id="RsaToolbox::VnaCalStandard::gender1" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a07c6b652e435f29dfa1718ed3bdaad8d" />
+      <keyword name="gender2" id="RsaToolbox::VnaCalStandard::gender2" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a61e173f4fabca43e1a63e29f638263d4" />
       <keyword name="label" id="RsaToolbox::VnaCalStandard::label" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a9acc60996c9e03257803daf0176fb1ff" />
       <keyword name="touchstone" id="RsaToolbox::VnaCalStandard::touchstone" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a42c399fa3751c331d2b858018817764a" />
       <keyword name="setType" id="RsaToolbox::VnaCalStandard::setType" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a82d37599bb65e253237d282bb9779159" />
@@ -3137,7 +3153,9 @@
       <keyword name="setConnectors" id="RsaToolbox::VnaCalStandard::setConnectors" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a9f209c77f70b3ac6a0a950e515a4b469" />
       <keyword name="setLabel" id="RsaToolbox::VnaCalStandard::setLabel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#adbee8ee5ce0807424c561759be441a6f" />
       <keyword name="setTouchstoneFile" id="RsaToolbox::VnaCalStandard::setTouchstoneFile" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ac463ef74307b563dd38518301f3d773a" />
-      <keyword name="model" id="RsaToolbox::VnaCalStandard::model" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a069259a93665ad932f162a7fe315e2c7" />
+      <keyword name="model" id="RsaToolbox::VnaCalStandard::model" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a5f9e4430a2b65231fa9951da2e120170" />
+      <keyword name="setModel" id="RsaToolbox::VnaCalStandard::setModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#afc80804d86e06a80448902c51b112784" />
+      <keyword name="setModel" id="RsaToolbox::VnaCalStandard::setModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a300058af81602df0b10e911263e4844d" />
       <keyword name="setOpenModel" id="RsaToolbox::VnaCalStandard::setOpenModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a92dfe16522eb33cf873834d74bfc956c" />
       <keyword name="setOpenModel" id="RsaToolbox::VnaCalStandard::setOpenModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ad6b9db7c7efe40f1ab622a97675a4c18" />
       <keyword name="setOpenModel" id="RsaToolbox::VnaCalStandard::setOpenModel" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a6c86d8fa9e6478d821ef6b5925a7cb41" />
@@ -3165,9 +3183,11 @@
       <keyword name="clearPorts" id="RsaToolbox::VnaCalStandard::clearPorts" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a1515b7f16c67389474f533fec9ab6f61" />
       <keyword name="clearConnectors" id="RsaToolbox::VnaCalStandard::clearConnectors" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#af3cf8e1deb00399a95c2970a5da33dc5" />
       <keyword name="operator=" id="RsaToolbox::VnaCalStandard::operator=" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ae50bfa34883c0e5ba9af6719d0da2ed3" />
+      <keyword name="isSinglePort" id="RsaToolbox::VnaCalStandard::isSinglePort" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#abe8e47b8e8c82545edae666dadbdf794" />
+      <keyword name="isTwoPort" id="RsaToolbox::VnaCalStandard::isTwoPort" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a9fa97922dda0445967ca43167ffd86de" />
       <keyword name="displayText" id="RsaToolbox::VnaCalStandard::displayText" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a36db2c809a818f9c696bc18b45ce6724" />
       <keyword name="sort" id="RsaToolbox::VnaCalStandard::sort" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ace23468d67cf1b2b773d7bdc7cdc4a1e" />
-      <keyword name="sort" id="RsaToolbox::VnaCalStandard::sort" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a0c6c2b78933281925c98d9b2e715a594" />
+      <keyword name="sort" id="RsaToolbox::VnaCalStandard::sort" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#aac60f87a81ffba05dcf786692bf95b66" />
       <keyword name="sort" id="RsaToolbox::VnaCalStandard::sort" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a4a9342a5b548dfd45fcaa415fc05ac7e" />
       <keyword name="operator==" id="RsaToolbox::VnaCalStandard::operator==" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#a6888f1003222efc185fc962a6786d9af" />
       <keyword name="operator!=" id="RsaToolbox::VnaCalStandard::operator!=" ref="class_rsa_toolbox_1_1_vna_cal_standard.html#ae2d1af1697179fcdc95de980965fb6cc" />
@@ -3176,6 +3196,33 @@
       <keyword name="VnaCalUnit" id="RsaToolbox::VnaCalUnit::VnaCalUnit" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#ac26b44c38376fae3ff546a82cfa11369" />
       <keyword name="VnaCalUnit" id="RsaToolbox::VnaCalUnit::VnaCalUnit" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#ae886cafb3e731c9614f2843ee652211d" />
       <keyword name="~VnaCalUnit" id="RsaToolbox::VnaCalUnit::~VnaCalUnit" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#abae8f558228197be5d5680b5b07b25f9" />
+      <keyword name="minimunFrequency_Hz" id="RsaToolbox::VnaCalUnit::minimunFrequency_Hz" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#abb33e51081dcd97cac9afb130435a3d8" />
+      <keyword name="maximumFrequency_Hz" id="RsaToolbox::VnaCalUnit::maximumFrequency_Hz" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#af8d4193c1724e8f3c954f807acaf138e" />
+      <keyword name="ports" id="RsaToolbox::VnaCalUnit::ports" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a2bf03b7bfda0414cb985e35c05744ce0" />
+      <keyword name="hasConnector" id="RsaToolbox::VnaCalUnit::hasConnector" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a3a6e1b5a27dc4ee2fd69ec0ded81fc5c" />
+      <keyword name="hasConnector" id="RsaToolbox::VnaCalUnit::hasConnector" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#aeee864d7d95c3034e4e9608447c1469f" />
+      <keyword name="physicalConnectors" id="RsaToolbox::VnaCalUnit::physicalConnectors" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#ae8a03b6e0c4c94504669b1a792fa3006" />
+      <keyword name="connectorsFromLatestCal" id="RsaToolbox::VnaCalUnit::connectorsFromLatestCal" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a9c6f3cc2c6c738d9f7e58f49e8530fa4" />
+      <keyword name="connectorsFrom" id="RsaToolbox::VnaCalUnit::connectorsFrom" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a9e3d5fbfbdd499d376ecd5e7b0558f4a" />
+      <keyword name="portsOfType" id="RsaToolbox::VnaCalUnit::portsOfType" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a6d0b9082c27687e589897f292b043131" />
+      <keyword name="portsOfTypeFromLatestCal" id="RsaToolbox::VnaCalUnit::portsOfTypeFromLatestCal" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a8bb9c99c34ee229a186e6015ee98ab28" />
+      <keyword name="portsOfType" id="RsaToolbox::VnaCalUnit::portsOfType" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#affb65d573ee1c70f3d0cf4864a0f356c" />
+      <keyword name="calibrations" id="RsaToolbox::VnaCalUnit::calibrations" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a56bd883b6ced62a83389f854de212ebe" />
+      <keyword name="frequencyRange" id="RsaToolbox::VnaCalUnit::frequencyRange" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#afa4ea9310212e87b9aa96f8bb93d488a" />
+      <keyword name="exportFactoryCal" id="RsaToolbox::VnaCalUnit::exportFactoryCal" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a64d83be2f2089ac243f3f0d1e9d38869" />
+      <keyword name="exportLatestCal" id="RsaToolbox::VnaCalUnit::exportLatestCal" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a3fa9119c3bccfeb15c17991c040fa93d" />
+      <keyword name="exportCalibration" id="RsaToolbox::VnaCalUnit::exportCalibration" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#afc98dc27c45f9dbc71284c457beacdc6" />
+      <keyword name="isWarmedUp" id="RsaToolbox::VnaCalUnit::isWarmedUp" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a5591de30396b55e24836f3d2d6f7223b" />
+      <keyword name="setOpen" id="RsaToolbox::VnaCalUnit::setOpen" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#aca5eae4d8f1c0e9a416667d56f03aa2b" />
+      <keyword name="setOpen" id="RsaToolbox::VnaCalUnit::setOpen" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a67335c45163d844224b1050d862b14a5" />
+      <keyword name="setOpen" id="RsaToolbox::VnaCalUnit::setOpen" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a0cde223fc77e4283054cd2ee273a3882" />
+      <keyword name="setShort" id="RsaToolbox::VnaCalUnit::setShort" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a5d63a34596809cc59c97bedbdf1ebe21" />
+      <keyword name="setShort" id="RsaToolbox::VnaCalUnit::setShort" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a3e2d5137dd4f7febcc28057b92e57e0b" />
+      <keyword name="setShort" id="RsaToolbox::VnaCalUnit::setShort" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a4c345362889a45b454329c9adca7e227" />
+      <keyword name="setMatch" id="RsaToolbox::VnaCalUnit::setMatch" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#afe2ecf49b22b9a79e9c0154fd687883d" />
+      <keyword name="setMatch" id="RsaToolbox::VnaCalUnit::setMatch" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a778b31671f24f768d08c82b02f6e2781" />
+      <keyword name="setMatch" id="RsaToolbox::VnaCalUnit::setMatch" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a47d751ddabfaac209e237143693796d5" />
+      <keyword name="setThru" id="RsaToolbox::VnaCalUnit::setThru" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a8afd315d3cbdcf7d1aeb4154226e42ec" />
       <keyword name="operator=" id="RsaToolbox::VnaCalUnit::operator=" ref="class_rsa_toolbox_1_1_vna_cal_unit.html#a18edc54202b62041bb6dfd897b211ccd" />
       <keyword name="RsaToolbox::VnaChannel" id="RsaToolbox::VnaChannel" ref="class_rsa_toolbox_1_1_vna_channel.html" />
       <keyword name="VnaChannel" id="RsaToolbox::VnaChannel::VnaChannel" ref="class_rsa_toolbox_1_1_vna_channel.html#a42c1f7ab205006c53a335212856ef77f" />
@@ -3255,12 +3302,12 @@
       <keyword name="calibrate" id="RsaToolbox::VnaChannel::calibrate" ref="class_rsa_toolbox_1_1_vna_channel.html#a85ef0d9299e04b6ad4c9448c444fc206" />
       <keyword name="takeCalibrate" id="RsaToolbox::VnaChannel::takeCalibrate" ref="class_rsa_toolbox_1_1_vna_channel.html#a17813337ac4d01f73de6d925918c31a3" />
       <keyword name="operator=" id="RsaToolbox::VnaChannel::operator=" ref="class_rsa_toolbox_1_1_vna_channel.html#a292ca03a043b857aa4e9f08a2eb089dc" />
-      <keyword name="Linear" id="RsaToolbox::VnaChannel::Linear" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a32a843da6ea40ab3b17a3421ccdf671b" />
-      <keyword name="Log" id="RsaToolbox::VnaChannel::Log" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6ace0be71e33226e4c1db2bcea5959f16b" />
-      <keyword name="Segmented" id="RsaToolbox::VnaChannel::Segmented" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a8484a13cbb8a8a53d6c4285938d21f60" />
-      <keyword name="Power" id="RsaToolbox::VnaChannel::Power" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6add4fe0cc913f704600b97d1f5dd285de" />
-      <keyword name="Cw" id="RsaToolbox::VnaChannel::Cw" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a1f21606af996c5154e5e88760f82592f" />
-      <keyword name="Time" id="RsaToolbox::VnaChannel::Time" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6aa76d4ef5f3f6a672bbfab2865563e530" />
+      <keyword name="Linear" id="RsaToolbox::VnaChannel::Linear" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a1a1f3bc55fefa098d9034cc46e2e7a2b" />
+      <keyword name="Log" id="RsaToolbox::VnaChannel::Log" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a089fe3c8ed633fc44cb2e73b17af84ec" />
+      <keyword name="Segmented" id="RsaToolbox::VnaChannel::Segmented" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6afff7dad2db182e8750be5c1041549718" />
+      <keyword name="Power" id="RsaToolbox::VnaChannel::Power" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6aeaf106a8b179fcfe2585c7efd72ed55a" />
+      <keyword name="Cw" id="RsaToolbox::VnaChannel::Cw" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6af4b433fb53bb4c3f0b493b2a1217df05" />
+      <keyword name="Time" id="RsaToolbox::VnaChannel::Time" ref="class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a3045f33dbb706dfcf7d3467ec6e685af" />
       <keyword name="RsaToolbox::VnaCorrections" id="RsaToolbox::VnaCorrections" ref="class_rsa_toolbox_1_1_vna_corrections.html" />
       <keyword name="VnaCorrections" id="RsaToolbox::VnaCorrections::VnaCorrections" ref="class_rsa_toolbox_1_1_vna_corrections.html#af0731b2392e1f6f02d78047f9cb9ab04" />
       <keyword name="VnaCorrections" id="RsaToolbox::VnaCorrections::VnaCorrections" ref="class_rsa_toolbox_1_1_vna_corrections.html#af47c7513ac31496ce8652354e1765cb8" />
@@ -3312,6 +3359,7 @@
       <keyword name="setPower" id="RsaToolbox::VnaCwSweep::setPower" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html#aac822adb781e223a96898409db296a43" />
       <keyword name="ifBandwidth_Hz" id="RsaToolbox::VnaCwSweep::ifBandwidth_Hz" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html#a669ad1da20ac86ec3e7a6b3220b785a3" />
       <keyword name="setIfBandwidth" id="RsaToolbox::VnaCwSweep::setIfBandwidth" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html#a4b37126203dbdbd756843b787d24690f" />
+      <keyword name="sweepTime_ms" id="RsaToolbox::VnaCwSweep::sweepTime_ms" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html#a919adcd598ff449e735b48daa047d45b" />
       <keyword name="operator=" id="RsaToolbox::VnaCwSweep::operator=" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html#ae655a51737c2ea518b957abb3890f28a" />
       <keyword name="RsaToolbox::VnaDiagram" id="RsaToolbox::VnaDiagram" ref="class_rsa_toolbox_1_1_vna_diagram.html" />
       <keyword name="VnaDiagram" id="RsaToolbox::VnaDiagram::VnaDiagram" ref="class_rsa_toolbox_1_1_vna_diagram.html#aba9de54d77b745e56c2e5ac6039745fb" />
@@ -3634,17 +3682,17 @@
       <keyword name="receiverAttenuations_dB" id="RsaToolbox::VnaProperties::receiverAttenuations_dB" ref="class_rsa_toolbox_1_1_vna_properties.html#a1fd63575b01163a8b4f794cfe4d4c46e" />
       <keyword name="maximumPoints" id="RsaToolbox::VnaProperties::maximumPoints" ref="class_rsa_toolbox_1_1_vna_properties.html#a7e1a7c4a1222d0813e28a5b9a0eaa85f" />
       <keyword name="operator=" id="RsaToolbox::VnaProperties::operator=" ref="class_rsa_toolbox_1_1_vna_properties.html#aae55792bb41fa712e646031dad560941" />
-      <keyword name="Zva" id="RsaToolbox::VnaProperties::Zva" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea004c62d454db23c91d020b8081f35595" />
-      <keyword name="Zvb" id="RsaToolbox::VnaProperties::Zvb" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea62103c84434eda43a0ec77df06d7da9b" />
-      <keyword name="Zvh" id="RsaToolbox::VnaProperties::Zvh" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaebe0dc251d92608c935601a383c12a33" />
-      <keyword name="Zvl" id="RsaToolbox::VnaProperties::Zvl" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea340dc2e2b3c9bc329a60e8ec04296804" />
-      <keyword name="Zvt" id="RsaToolbox::VnaProperties::Zvt" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea6e7f6fcd3ec59cb7428cf48601fe1bb2" />
-      <keyword name="Znb" id="RsaToolbox::VnaProperties::Znb" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea9f77d285383a042336e68f38810103e4" />
-      <keyword name="Znbt" id="RsaToolbox::VnaProperties::Znbt" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaf417e8b9733aae94f26de0ba4613850d" />
-      <keyword name="Znc" id="RsaToolbox::VnaProperties::Znc" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eae7c81917779cf05186bd36cfed82fa41" />
-      <keyword name="Znd" id="RsaToolbox::VnaProperties::Znd" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaecd3f61b14914b0ef627811dade58c23" />
-      <keyword name="Znp" id="RsaToolbox::VnaProperties::Znp" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaa29e1d6b45a4e746544ca55c514d3fd6" />
-      <keyword name="Unknown" id="RsaToolbox::VnaProperties::Unknown" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea88183b946cc5f0e8c96b2e66e1c74a7e" />
+      <keyword name="Zva" id="RsaToolbox::VnaProperties::Zva" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea635535e8cd6a967dbd5eff7600494e0a" />
+      <keyword name="Zvb" id="RsaToolbox::VnaProperties::Zvb" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eae23d6774336e07155cda71c087630cb8" />
+      <keyword name="Zvh" id="RsaToolbox::VnaProperties::Zvh" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eac733a108172eaba6c1a5c89b4d94155b" />
+      <keyword name="Zvl" id="RsaToolbox::VnaProperties::Zvl" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea12d0b9f3310d0c23febbb49dfcbc4ad2" />
+      <keyword name="Zvt" id="RsaToolbox::VnaProperties::Zvt" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaf885a66b495d9b494dfc174f6bd19c23" />
+      <keyword name="Znb" id="RsaToolbox::VnaProperties::Znb" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea91b9863aefc8b69012690f5090b2211e" />
+      <keyword name="Znbt" id="RsaToolbox::VnaProperties::Znbt" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea966a594c141db7ca0eca59e53fb4d5b6" />
+      <keyword name="Znc" id="RsaToolbox::VnaProperties::Znc" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea5c597faa0a335d5b12cd66b9af04cd1c" />
+      <keyword name="Znd" id="RsaToolbox::VnaProperties::Znd" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea00618900d0b31925b0823466f61bd24a" />
+      <keyword name="Znp" id="RsaToolbox::VnaProperties::Znp" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea29385cd5c1d71ff184ec16e3923a1cf0" />
+      <keyword name="Unknown" id="RsaToolbox::VnaProperties::Unknown" ref="class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea4e81c184ac3ad48a389cd4454c4a05bb" />
       <keyword name="RsaToolbox::VnaReferenceMarker" id="RsaToolbox::VnaReferenceMarker" ref="class_rsa_toolbox_1_1_vna_reference_marker.html" />
       <keyword name="VnaReferenceMarker" id="RsaToolbox::VnaReferenceMarker::VnaReferenceMarker" ref="class_rsa_toolbox_1_1_vna_reference_marker.html#acd62a9b6a0974701894cca5940ba1372" />
       <keyword name="VnaReferenceMarker" id="RsaToolbox::VnaReferenceMarker::VnaReferenceMarker" ref="class_rsa_toolbox_1_1_vna_reference_marker.html#a99e580ef72992484fbf0998f81381e84" />
@@ -3672,6 +3720,19 @@
       <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#af4ce6490daf5879ea81e7b749988080f" />
       <keyword name="toReceiver" id="RsaToolbox::VnaScpi::toReceiver" ref="class_rsa_toolbox_1_1_vna_scpi.html#ae401c279567ede544e8ebcdaf6da4829" />
       <keyword name="toUserDefinedPort" id="RsaToolbox::VnaScpi::toUserDefinedPort" ref="class_rsa_toolbox_1_1_vna_scpi.html#abf29c95c84ba00760dbdb51885aaa2c0" />
+      <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#ad9d5041def5a764cd04311ec26e1722e" />
+      <keyword name="toGenderString" id="RsaToolbox::VnaScpi::toGenderString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a9393ce1dfbd8e555c2e768255d22db60" />
+      <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a9bab33a43921c472c3798e5098e1b5ed" />
+      <keyword name="toTypeString" id="RsaToolbox::VnaScpi::toTypeString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a7c51b2090097eb6d0466c0672d8d8631" />
+      <keyword name="toConnectorGender" id="RsaToolbox::VnaScpi::toConnectorGender" ref="class_rsa_toolbox_1_1_vna_scpi.html#afc346ab7f382cf01d002e344c6e01860" />
+      <keyword name="toConnectorType" id="RsaToolbox::VnaScpi::toConnectorType" ref="class_rsa_toolbox_1_1_vna_scpi.html#a33bca8bbf5bd87edcb4fcf5268bcbf73" />
+      <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#ada20569b00b9cbc4d8061157aa1bc40b" />
+      <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a4a14096e51a38e00a5a0a810a89a857d" />
+      <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a7d4bedee47bad1112914750f2f21d8a4" />
+      <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a9f58a403893a11e855165179e62a4812" />
+      <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a6089f2cc3ebb8cb37e7c0cfa724e55a5" />
+      <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a9b5f7a2fd4bb810a4ce456e9e7ff21e0" />
+      <keyword name="toCalStandard" id="RsaToolbox::VnaScpi::toCalStandard" ref="class_rsa_toolbox_1_1_vna_scpi.html#a96a6d6d2354dc8233f9ac0ba7d21fb54" />
       <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a89c1fee732bc6ba630d99a273d614334" />
       <keyword name="toCalType" id="RsaToolbox::VnaScpi::toCalType" ref="class_rsa_toolbox_1_1_vna_scpi.html#ae8d96fe5a474ae9334f16339bc64e8c0" />
       <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a0faf6311db9c213ef727fa945c7dce15" />
@@ -3804,20 +3865,20 @@
       <keyword name="remoteLogOn" id="RsaToolbox::VnaSettings::remoteLogOn" ref="class_rsa_toolbox_1_1_vna_settings.html#a2683c0e9d762bbe519fef0512608603e" />
       <keyword name="remoteLogOff" id="RsaToolbox::VnaSettings::remoteLogOff" ref="class_rsa_toolbox_1_1_vna_settings.html#a40b319d5a7b18048b60a17025e031a26" />
       <keyword name="operator=" id="RsaToolbox::VnaSettings::operator=" ref="class_rsa_toolbox_1_1_vna_settings.html#a06223e072386ef58b3c655636a7a953b" />
-      <keyword name="Dark" id="RsaToolbox::VnaSettings::Dark" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41aa18366b217ebf811ad1886e4f4f865b2" />
-      <keyword name="Light" id="RsaToolbox::VnaSettings::Light" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a9914a0ce04a7b7b6a8e39bec55064b82" />
-      <keyword name="BlackWhiteOutline" id="RsaToolbox::VnaSettings::BlackWhiteOutline" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a84300ac412499b1bdc3c7e51c2994dbe" />
-      <keyword name="BlackWhiteSolid" id="RsaToolbox::VnaSettings::BlackWhiteSolid" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41aa0d87d427bd7e3f5b0edbfb560797801" />
-      <keyword name="Pna" id="RsaToolbox::VnaSettings::Pna" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a77ce3fcd6fc104c2722c7b5b9b8689d8" />
-      <keyword name="Ena" id="RsaToolbox::VnaSettings::Ena" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ab7a16f02562d5c049a827d7cbdf4f704" />
-      <keyword name="Hp8510" id="RsaToolbox::VnaSettings::Hp8510" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a5998fa4430e635f81e3942fa575a9b6c" />
-      <keyword name="Hp8530" id="RsaToolbox::VnaSettings::Hp8530" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a22407f65e562d747f7580f0a2e42e43b" />
-      <keyword name="Hp8720" id="RsaToolbox::VnaSettings::Hp8720" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a8293eb26f551c3531019a248ea393e8c" />
-      <keyword name="Hp8753" id="RsaToolbox::VnaSettings::Hp8753" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52aaa4cf2d669e6dbd324adacd6e31458d6" />
-      <keyword name="Hp8714" id="RsaToolbox::VnaSettings::Hp8714" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ac7f07f53ce86f3dd1d6ba5dbd99f8bc0" />
-      <keyword name="Zvr" id="RsaToolbox::VnaSettings::Zvr" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a35824cb8bcedba1f8550ec171b472b4a" />
-      <keyword name="Zvabt" id="RsaToolbox::VnaSettings::Zvabt" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ab1801f47e7d57b2339020bbb1d8a2982" />
-      <keyword name="Off" id="RsaToolbox::VnaSettings::Off" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ad15305d7a4e34e02489c74a5ef542f36" />
+      <keyword name="Dark" id="RsaToolbox::VnaSettings::Dark" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41ab881c2fca9941a632de2b4af173a7906" />
+      <keyword name="Light" id="RsaToolbox::VnaSettings::Light" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a40f3b2e02173a504f9b3720d1dcede51" />
+      <keyword name="BlackWhiteOutline" id="RsaToolbox::VnaSettings::BlackWhiteOutline" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a1542e24f5d23e71c2bf68ae39d36a7cb" />
+      <keyword name="BlackWhiteSolid" id="RsaToolbox::VnaSettings::BlackWhiteSolid" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a02a2befb1a87facb05b6024a67d6061b" />
+      <keyword name="Pna" id="RsaToolbox::VnaSettings::Pna" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a56742694361862fbf1111ebb41728260" />
+      <keyword name="Ena" id="RsaToolbox::VnaSettings::Ena" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a7e60c7a62a73b127f6896c165f7ee262" />
+      <keyword name="Hp8510" id="RsaToolbox::VnaSettings::Hp8510" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a619b07319fdfeef7be925cb80a5fbda8" />
+      <keyword name="Hp8530" id="RsaToolbox::VnaSettings::Hp8530" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a40d8f6ef0451208b86f8bfa7612e9229" />
+      <keyword name="Hp8720" id="RsaToolbox::VnaSettings::Hp8720" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52af1cdea6ace7a06213d126c58501fb045" />
+      <keyword name="Hp8753" id="RsaToolbox::VnaSettings::Hp8753" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52aebe0e64172771e1c9b168e17385759f2" />
+      <keyword name="Hp8714" id="RsaToolbox::VnaSettings::Hp8714" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ac12230cd386601f614fd107ea6e79a0d" />
+      <keyword name="Zvr" id="RsaToolbox::VnaSettings::Zvr" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ab4259ce6959687f26fc2df55f2792475" />
+      <keyword name="Zvabt" id="RsaToolbox::VnaSettings::Zvabt" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a693bc0b2ef1ad0492f877c5c9f837c08" />
+      <keyword name="Off" id="RsaToolbox::VnaSettings::Off" ref="class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ad8a892b94d3a94ea861543c085ae782b" />
       <keyword name="RsaToolbox::VnaStandardModel" id="RsaToolbox::VnaStandardModel" ref="class_rsa_toolbox_1_1_vna_standard_model.html" />
       <keyword name="VnaStandardModel" id="RsaToolbox::VnaStandardModel::VnaStandardModel" ref="class_rsa_toolbox_1_1_vna_standard_model.html#a946b62a0b5798f86c044e56564fd6cee" />
       <keyword name="operator=" id="RsaToolbox::VnaStandardModel::operator=" ref="class_rsa_toolbox_1_1_vna_standard_model.html#a856131836f36d54654ae68b11f194031" />
@@ -3907,13 +3968,13 @@
       <keyword name="stopValue" id="RsaToolbox::VnaTimeDomain::stopValue" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a9670d61da4612fd23221ba9206ae1925" />
       <keyword name="setStop" id="RsaToolbox::VnaTimeDomain::setStop" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a085cba3427e94499580f2a0f9e598266" />
       <keyword name="operator=" id="RsaToolbox::VnaTimeDomain::operator=" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a3ea85afd3ab94fd36d5669b62a3d12ac" />
-      <keyword name="TwentyToEighty" id="RsaToolbox::VnaTimeDomain::TwentyToEighty" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78a83f18216a3c459cf950a334a67bc5dd8" />
-      <keyword name="TenToNinety" id="RsaToolbox::VnaTimeDomain::TenToNinety" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78a63a9770858c7f3f19bdef364fe931b5c" />
-      <keyword name="Regular" id="RsaToolbox::VnaTimeDomain::Regular" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4bad2203cb1237cb6460cbad94564e39345" />
-      <keyword name="Hamming" id="RsaToolbox::VnaTimeDomain::Hamming" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba718179b3bcff69a9d3f010aca0e9901a" />
-      <keyword name="Hann" id="RsaToolbox::VnaTimeDomain::Hann" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba0218ace760f65b32ad5b254bf7a95ab5" />
-      <keyword name="Bohman" id="RsaToolbox::VnaTimeDomain::Bohman" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4badb8ad59f0329601f52af1b1df8cf62a3" />
-      <keyword name="DolphChebychev" id="RsaToolbox::VnaTimeDomain::DolphChebychev" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4baba6b2002129d6c430ca8c87bf92fccac" />
+      <keyword name="TwentyToEighty" id="RsaToolbox::VnaTimeDomain::TwentyToEighty" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78a999b9c7d384b41b80719b478ee1c789e" />
+      <keyword name="TenToNinety" id="RsaToolbox::VnaTimeDomain::TenToNinety" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78a01b7dea23f44372be4d74a53c18e3401" />
+      <keyword name="Regular" id="RsaToolbox::VnaTimeDomain::Regular" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba66dfad2fc66aab9e6bb47cfad78b4b6b" />
+      <keyword name="Hamming" id="RsaToolbox::VnaTimeDomain::Hamming" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4bad2ff0a5ffa7746b4369999e2534f3d77" />
+      <keyword name="Hann" id="RsaToolbox::VnaTimeDomain::Hann" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba336c27eb5fd16469dd379d43b0cbf84f" />
+      <keyword name="Bohman" id="RsaToolbox::VnaTimeDomain::Bohman" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4ba202aeae4c95ff39308f422553f3312cc" />
+      <keyword name="DolphChebychev" id="RsaToolbox::VnaTimeDomain::DolphChebychev" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6f567238a0aaa00ab1b336d0cf0faf4bae55a5b31791725a396046bd7ce81f43a" />
       <keyword name="RsaToolbox::VnaTimeSweep" id="RsaToolbox::VnaTimeSweep" ref="class_rsa_toolbox_1_1_vna_time_sweep.html" />
       <keyword name="VnaTimeSweep" id="RsaToolbox::VnaTimeSweep::VnaTimeSweep" ref="class_rsa_toolbox_1_1_vna_time_sweep.html#a72965f6b47078863081e12e145bcdcc2" />
       <keyword name="VnaTimeSweep" id="RsaToolbox::VnaTimeSweep::VnaTimeSweep" ref="class_rsa_toolbox_1_1_vna_time_sweep.html#a4741b332519a5909650de23562179b65" />
@@ -4015,8 +4076,8 @@
       <keyword name="measurement" id="RsaToolbox::VnaUserDefinedPort::measurement" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#ac0eb75e38f74d6876bac1811fbbdd99a" />
       <keyword name="setMeasurement" id="RsaToolbox::VnaUserDefinedPort::setMeasurement" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a03da768ece572f47db73a372561fee8a" />
       <keyword name="operator=" id="RsaToolbox::VnaUserDefinedPort::operator=" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#ab8a6cba6ef7380b15442e0929e3ada3f" />
-      <keyword name="A" id="RsaToolbox::VnaUserDefinedPort::A" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853a7fc56270e7a70fa81a5935b72eacbe29" />
-      <keyword name="B" id="RsaToolbox::VnaUserDefinedPort::B" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853a9d5ed678fe57bcca610140957afab571" />
+      <keyword name="A" id="RsaToolbox::VnaUserDefinedPort::A" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853a42a4ade1acd55a49164099104990e09f" />
+      <keyword name="B" id="RsaToolbox::VnaUserDefinedPort::B" ref="class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853a3f2a77ecd272aa6d6b5902faa5e5fc68" />
       <keyword name="RsaToolbox::Wizard" id="RsaToolbox::Wizard" ref="class_rsa_toolbox_1_1_wizard.html" />
       <keyword name="back" id="RsaToolbox::Wizard::back" ref="class_rsa_toolbox_1_1_wizard.html#af7aa7dac5f48638df59eea889bd6f396" />
       <keyword name="next" id="RsaToolbox::Wizard::next" ref="class_rsa_toolbox_1_1_wizard.html#a041249f802c5bf4c2deae666610e03c4" />
@@ -4544,6 +4605,7 @@
       <file>functions_vars.html</file>
       <file>functions_vars.html</file>
       <file>functions_vars.html</file>
+      <file>functions_enum.html</file>
       <file>functions_enum.html</file>
       <file>functions_enum.html</file>
       <file>functions_enum.html</file>

@@ -1,22 +1,22 @@
 var class_rsa_toolbox_1_1_vna_settings =
 [
     [ "ColorScheme", "class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41", [
-      [ "Dark", "class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41aa18366b217ebf811ad1886e4f4f865b2", null ],
-      [ "Light", "class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a9914a0ce04a7b7b6a8e39bec55064b82", null ],
-      [ "BlackWhiteOutline", "class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a84300ac412499b1bdc3c7e51c2994dbe", null ],
-      [ "BlackWhiteSolid", "class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41aa0d87d427bd7e3f5b0edbfb560797801", null ]
+      [ "Dark", "class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41ab881c2fca9941a632de2b4af173a7906", null ],
+      [ "Light", "class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a40f3b2e02173a504f9b3720d1dcede51", null ],
+      [ "BlackWhiteOutline", "class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a1542e24f5d23e71c2bf68ae39d36a7cb", null ],
+      [ "BlackWhiteSolid", "class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41a02a2befb1a87facb05b6024a67d6061b", null ]
     ] ],
     [ "EmulationMode", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52", [
-      [ "Pna", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a77ce3fcd6fc104c2722c7b5b9b8689d8", null ],
-      [ "Ena", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ab7a16f02562d5c049a827d7cbdf4f704", null ],
-      [ "Hp8510", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a5998fa4430e635f81e3942fa575a9b6c", null ],
-      [ "Hp8530", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a22407f65e562d747f7580f0a2e42e43b", null ],
-      [ "Hp8720", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a8293eb26f551c3531019a248ea393e8c", null ],
-      [ "Hp8753", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52aaa4cf2d669e6dbd324adacd6e31458d6", null ],
-      [ "Hp8714", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ac7f07f53ce86f3dd1d6ba5dbd99f8bc0", null ],
-      [ "Zvr", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a35824cb8bcedba1f8550ec171b472b4a", null ],
-      [ "Zvabt", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ab1801f47e7d57b2339020bbb1d8a2982", null ],
-      [ "Off", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ad15305d7a4e34e02489c74a5ef542f36", null ]
+      [ "Pna", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a56742694361862fbf1111ebb41728260", null ],
+      [ "Ena", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a7e60c7a62a73b127f6896c165f7ee262", null ],
+      [ "Hp8510", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a619b07319fdfeef7be925cb80a5fbda8", null ],
+      [ "Hp8530", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a40d8f6ef0451208b86f8bfa7612e9229", null ],
+      [ "Hp8720", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52af1cdea6ace7a06213d126c58501fb045", null ],
+      [ "Hp8753", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52aebe0e64172771e1c9b168e17385759f2", null ],
+      [ "Hp8714", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ac12230cd386601f614fd107ea6e79a0d", null ],
+      [ "Zvr", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ab4259ce6959687f26fc2df55f2792475", null ],
+      [ "Zvabt", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52a693bc0b2ef1ad0492f877c5c9f837c08", null ],
+      [ "Off", "class_rsa_toolbox_1_1_vna_settings.html#a86996facc6803c75265d0a0c28663e52ad8a892b94d3a94ea861543c085ae782b", null ]
     ] ],
     [ "VnaSettings", "class_rsa_toolbox_1_1_vna_settings.html#addf94e0241e4e5344797b8b81c82529c", null ],
     [ "VnaSettings", "class_rsa_toolbox_1_1_vna_settings.html#a4e9edb51c6769b1e0b6069ab693bce74", null ],

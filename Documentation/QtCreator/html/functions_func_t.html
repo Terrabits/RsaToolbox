@@ -201,6 +201,9 @@ $(document).ready(function(){initNavTree('functions_func_t.html','');});
 <li>toBalancedPortType()
 : <a class="el" href="class_rsa_toolbox_1_1_vna_scpi.html#aacdc0a2349701524c6b3af9654715b30">VnaScpi</a>
 </li>
+<li>toCalStandard()
+: <a class="el" href="class_rsa_toolbox_1_1_vna_scpi.html#a96a6d6d2354dc8233f9ac0ba7d21fb54">VnaScpi</a>
+</li>
 <li>toCalType()
 : <a class="el" href="class_rsa_toolbox_1_1_vna_scpi.html#ae8d96fe5a474ae9334f16339bc64e8c0">VnaScpi</a>
 </li>
@@ -208,22 +211,19 @@ $(document).ready(function(){initNavTree('functions_func_t.html','');});
 : <a class="el" href="class_rsa_toolbox_1_1_visa_bus.html#aedec38fe38dd15d5baf70ec815e3ccf1">VisaBus</a>
 </li>
 <li>toConnectorGender()
-: <a class="el" href="class_rsa_toolbox_1_1_connector.html#a8ef07f6fc2bb1fd4a622fe136a3095e8">Connector</a>
-</li>
-<li>toConnectorGenderVnaScpi()
-: <a class="el" href="class_rsa_toolbox_1_1_connector.html#a070da66083caf1fe8b467b8e17dedf51">Connector</a>
+: <a class="el" href="class_rsa_toolbox_1_1_vna_scpi.html#afc346ab7f382cf01d002e344c6e01860">VnaScpi</a>
 </li>
 <li>toConnectorType()
-: <a class="el" href="class_rsa_toolbox_1_1_connector.html#a8e7ce1c3a4bf690ea537124d6e88d042">Connector</a>
-</li>
-<li>toConnectorTypeVnaScpi()
-: <a class="el" href="class_rsa_toolbox_1_1_connector.html#a47212519396e7e490efae70fdb25714e">Connector</a>
+: <a class="el" href="class_rsa_toolbox_1_1_vna_scpi.html#a33bca8bbf5bd87edcb4fcf5268bcbf73">VnaScpi</a>
 </li>
 <li>toDir()
 : <a class="el" href="class_rsa_toolbox_1_1_last_path.html#a82b119fe5b19fbbf28c6395c773d03c1">LastPath</a>
 </li>
 <li>toFileInfo()
 : <a class="el" href="class_rsa_toolbox_1_1_last_path.html#a4b096665d5fb132bb268bd64026d8e18">LastPath</a>
+</li>
+<li>toGenderString()
+: <a class="el" href="class_rsa_toolbox_1_1_vna_scpi.html#a9393ce1dfbd8e555c2e768255d22db60">VnaScpi</a>
 </li>
 <li>toMemory()
 : <a class="el" href="class_rsa_toolbox_1_1_vna_trace.html#a494e7ea7e94a9bc939dc49c0f5fd1a75">VnaTrace</a>
@@ -237,7 +237,7 @@ $(document).ready(function(){initNavTree('functions_func_t.html','');});
 <li>toString()
 : <a class="el" href="class_rsa_toolbox_1_1_last_path.html#a8aabbf2e3c7be33fa5769a5eab3eef6f">LastPath</a>
 , <a class="el" href="class_rsa_toolbox_1_1_visa_bus.html#afaed6f2820b88a9337f8a73383dbd43e">VisaBus</a>
-, <a class="el" href="class_rsa_toolbox_1_1_vna_scpi.html#a2fbaebec0acf687c84979be06d132207">VnaScpi</a>
+, <a class="el" href="class_rsa_toolbox_1_1_vna_scpi.html#ad9d5041def5a764cd04311ec26e1722e">VnaScpi</a>
 </li>
 <li>toSweepType()
 : <a class="el" href="class_rsa_toolbox_1_1_vna_scpi.html#a2a54174d3b9861aa00e53b5aafdda763">VnaScpi</a>
@@ -248,6 +248,9 @@ $(document).ready(function(){initNavTree('functions_func_t.html','');});
 <li>toTraceFormat()
 : <a class="el" href="class_rsa_toolbox_1_1_vna_scpi.html#a3c20efcffd62b3457529dbc792d6456a">VnaScpi</a>
 </li>
+<li>toTypeString()
+: <a class="el" href="class_rsa_toolbox_1_1_vna_scpi.html#a7c51b2090097eb6d0466c0672d8d8631">VnaScpi</a>
+</li>
 <li>touchstone()
 : <a class="el" href="class_rsa_toolbox_1_1_vna_cal_standard.html#a42c399fa3751c331d2b858018817764a">VnaCalStandard</a>
 </li>
@@ -256,9 +259,6 @@ $(document).ready(function(){initNavTree('functions_func_t.html','');});
 </li>
 <li>toVisaInstrumentResource()
 : <a class="el" href="class_rsa_toolbox_1_1_visa_bus.html#a0afd83a6e8718cb32e31493eb3c722fe">VisaBus</a>
-</li>
-<li>toVnaScpi()
-: <a class="el" href="class_rsa_toolbox_1_1_connector.html#aa2570272aec9074125ef0a8f3d4a0687">Connector</a>
 </li>
 <li>trace()
 : <a class="el" href="class_rsa_toolbox_1_1_vna.html#abfb62d021035eba2e741fe981d43c6da">Vna</a>
@@ -283,7 +283,7 @@ $(document).ready(function(){initNavTree('functions_func_t.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Dec 3 2014 00:23:10 for RsaToolbox by
+    <li class="footer">Generated on Mon Dec 22 2014 15:29:21 for RsaToolbox by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

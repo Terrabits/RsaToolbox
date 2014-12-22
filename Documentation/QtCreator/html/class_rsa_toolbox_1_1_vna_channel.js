@@ -1,12 +1,12 @@
 var class_rsa_toolbox_1_1_vna_channel =
 [
     [ "SweepType", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6", [
-      [ "Linear", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a32a843da6ea40ab3b17a3421ccdf671b", null ],
-      [ "Log", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6ace0be71e33226e4c1db2bcea5959f16b", null ],
-      [ "Segmented", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a8484a13cbb8a8a53d6c4285938d21f60", null ],
-      [ "Power", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6add4fe0cc913f704600b97d1f5dd285de", null ],
-      [ "Cw", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a1f21606af996c5154e5e88760f82592f", null ],
-      [ "Time", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6aa76d4ef5f3f6a672bbfab2865563e530", null ]
+      [ "Linear", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a1a1f3bc55fefa098d9034cc46e2e7a2b", null ],
+      [ "Log", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a089fe3c8ed633fc44cb2e73b17af84ec", null ],
+      [ "Segmented", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6afff7dad2db182e8750be5c1041549718", null ],
+      [ "Power", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6aeaf106a8b179fcfe2585c7efd72ed55a", null ],
+      [ "Cw", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6af4b433fb53bb4c3f0b493b2a1217df05", null ],
+      [ "Time", "class_rsa_toolbox_1_1_vna_channel.html#a725b144803c6fcb63efe6bb90f7692b6a3045f33dbb706dfcf7d3467ec6e685af", null ]
     ] ],
     [ "VnaChannel", "class_rsa_toolbox_1_1_vna_channel.html#a42c1f7ab205006c53a335212856ef77f", null ],
     [ "VnaChannel", "class_rsa_toolbox_1_1_vna_channel.html#a7d695dc59eafb320bc777c1031380603", null ],

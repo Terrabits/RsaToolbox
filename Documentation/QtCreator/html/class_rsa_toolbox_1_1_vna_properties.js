@@ -1,17 +1,17 @@
 var class_rsa_toolbox_1_1_vna_properties =
 [
     [ "Model", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3e", [
-      [ "Zva", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea004c62d454db23c91d020b8081f35595", null ],
-      [ "Zvb", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea62103c84434eda43a0ec77df06d7da9b", null ],
-      [ "Zvh", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaebe0dc251d92608c935601a383c12a33", null ],
-      [ "Zvl", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea340dc2e2b3c9bc329a60e8ec04296804", null ],
-      [ "Zvt", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea6e7f6fcd3ec59cb7428cf48601fe1bb2", null ],
-      [ "Znb", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea9f77d285383a042336e68f38810103e4", null ],
-      [ "Znbt", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaf417e8b9733aae94f26de0ba4613850d", null ],
-      [ "Znc", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eae7c81917779cf05186bd36cfed82fa41", null ],
-      [ "Znd", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaecd3f61b14914b0ef627811dade58c23", null ],
-      [ "Znp", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaa29e1d6b45a4e746544ca55c514d3fd6", null ],
-      [ "Unknown", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea88183b946cc5f0e8c96b2e66e1c74a7e", null ]
+      [ "Zva", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea635535e8cd6a967dbd5eff7600494e0a", null ],
+      [ "Zvb", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eae23d6774336e07155cda71c087630cb8", null ],
+      [ "Zvh", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eac733a108172eaba6c1a5c89b4d94155b", null ],
+      [ "Zvl", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea12d0b9f3310d0c23febbb49dfcbc4ad2", null ],
+      [ "Zvt", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3eaf885a66b495d9b494dfc174f6bd19c23", null ],
+      [ "Znb", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea91b9863aefc8b69012690f5090b2211e", null ],
+      [ "Znbt", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea966a594c141db7ca0eca59e53fb4d5b6", null ],
+      [ "Znc", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea5c597faa0a335d5b12cd66b9af04cd1c", null ],
+      [ "Znd", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea00618900d0b31925b0823466f61bd24a", null ],
+      [ "Znp", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea29385cd5c1d71ff184ec16e3923a1cf0", null ],
+      [ "Unknown", "class_rsa_toolbox_1_1_vna_properties.html#a051e4d035e053a4636efc58c1bde9b3ea4e81c184ac3ad48a389cd4454c4a05bb", null ]
     ] ],
     [ "VnaProperties", "class_rsa_toolbox_1_1_vna_properties.html#a33aba4b5b99bc0d3abe583b87d0e4e10", null ],
     [ "VnaProperties", "class_rsa_toolbox_1_1_vna_properties.html#a486d99077608385c08da6940738171b2", null ],

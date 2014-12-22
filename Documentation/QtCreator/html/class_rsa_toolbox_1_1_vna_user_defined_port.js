@@ -1,8 +1,8 @@
 var class_rsa_toolbox_1_1_vna_user_defined_port =
 [
     [ "Receiver", "class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853", [
-      [ "A", "class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853a7fc56270e7a70fa81a5935b72eacbe29", null ],
-      [ "B", "class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853a9d5ed678fe57bcca610140957afab571", null ]
+      [ "A", "class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853a42a4ade1acd55a49164099104990e09f", null ],
+      [ "B", "class_rsa_toolbox_1_1_vna_user_defined_port.html#a2bf9da2d42eaf652668bd97c9ad25853a3f2a77ecd272aa6d6b5902faa5e5fc68", null ]
     ] ],
     [ "VnaUserDefinedPort", "class_rsa_toolbox_1_1_vna_user_defined_port.html#a17dd613dba5a7e978c146a5d524e7c71", null ],
     [ "VnaUserDefinedPort", "class_rsa_toolbox_1_1_vna_user_defined_port.html#af56f182bb4339402282f744f26083591", null ],
