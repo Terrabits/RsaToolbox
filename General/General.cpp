@@ -219,8 +219,9 @@ SiPrefix RsaToolbox::getPrefix(double value) {
 // for some reason.
 QString RsaToolbox::GetAppDataPath(QString manufacturerFolder, QString applicationFolder) {
     QDir dataDir;
+    QDir dir;
 #ifdef Q_OS_WIN32
-    QDir dir = QDir::root();
+    dir = QDir::root();
     if (dir.cd("ProgramData") || dir.cd("Documents and Settings/All Users/Application Data"))
         dataDir = dir;
     else

@@ -47,12 +47,15 @@ win32 {
     }
 }
 macx {
+    QMAKE_CXXFLAGS += -std=c++11 -stdlib=libc++
+    QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.7
+    LIBS += -stdlib=libc++
+    LIBS += -L$$PWD \
+            -L$$PWD/QCustomPlot
     CONFIG(debug, release|debug) {
         LIBS += $$PWD/libRsaToolboxd.a
-        LIBS += $$PWD/QCustomPlot/libqcustomplotd.dylib
     }
     else {
         LIBS += $$PWD/libRsaToolbox.a
-        LIBS += $$PWD/QCustomPlot/libqcustomplot.dylib
     }
 }
