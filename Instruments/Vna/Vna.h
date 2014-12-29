@@ -155,13 +155,14 @@ public:
 
     // Switch Matrix
     uint testPorts();
-    bool isSwitchMatrix(uint index = 1);
+    bool isSwitchMatrices();
+    bool isSwitchMatrix(uint index);
     uint numberOfSwitchMatrices();
     QVector<uint> switchMatrices();
-    void addSwitchMatrix(uint index);
-    uint addSwitchMatrix();
-    void deleteSwitchMatrix(uint index);
-    void deleteSwitchMatrices();
+    void disconnectSwitchMatrices();
+    void removeSwitchMatrices();
+    PortMap vnaToTestPortMap();
+    QVector<uint> vnaTestPorts();
     VnaSwitchMatrix &switchMatrix(uint index = 1);
     VnaSwitchMatrix *takeSwitchMatrix(uint index = 1);
 

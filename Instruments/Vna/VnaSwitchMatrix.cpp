@@ -48,7 +48,31 @@ VnaSwitchMatrix::~VnaSwitchMatrix() {
 }
 
 
-// To Be Continued...
+QString VnaSwitchMatrix::driver() {
+    QStringList result = defineQuery();
+    if (result.size() < 4)
+        return "";
+
+    return result[1];
+}
+ConnectionType VnaSwitchMatrix::connectionType() {
+    QStringList result = defineQuery();
+    if (result.size() < 4)
+        return "";
+
+    return VnaScpi::toMatrixConnection(result[2]);
+}
+QString VnaSwitchMatrix::address() {
+    QStringList result = defineQuery();
+    if (result.size() < 4)
+        return "";
+
+    return result[3];
+}
+
+PortMap VnaSwitchMatrix::matrixToVnaConnections() {
+    QString scpi = "";
+}
 
 
 void VnaSwitchMatrix::operator=(VnaSwitchMatrix const &other) {
@@ -72,4 +96,14 @@ bool VnaSwitchMatrix::isFullyInitialized() const {
 
     //else
     return(true);
+}
+QStringList VnaSwitchMatrix::defineQuery() {
+    QString scpi = ":SYST:COMM:RDEV:SMAT%1:DEF?\n";
+    scpi = scpi.arg(_index);
+
+    // result[0]: Unused/Empty;
+    // result[1]: Driver (usually switch matrix model)
+    // result[2]: Interface (LAN, USB)
+    // result[3]: Address (eg "127.0.0.1");
+    return _vna->query(scpi).trimmed().remove("\'").split(",",QString::KeepEmptyParts);
 }

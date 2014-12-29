@@ -5,6 +5,7 @@
 // Qt
 #include <QMetaType>
 #include <QVector>
+#include <QMap>
 
 // C++
 #include <complex>
@@ -112,6 +113,7 @@ typedef std::vector<RowVector> Matrix2D;
 typedef std::vector<Matrix2D> Matrix3D;
 
 // Qt data types
+typedef QMap<uint,uint> PortMap;
 typedef QVector<double> QRowVector;
 typedef QVector<QRowVector> QMatrix2D;
 typedef QVector<QMatrix2D> QMatrix3D;
@@ -131,6 +133,7 @@ Q_DECLARE_METATYPE(RsaToolbox::ComplexRowVector)
 Q_DECLARE_METATYPE(RsaToolbox::ComplexMatrix2D)
 Q_DECLARE_METATYPE(RsaToolbox::ComplexMatrix3D)
 
+Q_DECLARE_METATYPE(RsaToolbox::PortMap)
 Q_DECLARE_METATYPE(RsaToolbox::QRowVector)
 Q_DECLARE_METATYPE(RsaToolbox::QMatrix2D)
 Q_DECLARE_METATYPE(RsaToolbox::QMatrix3D)
