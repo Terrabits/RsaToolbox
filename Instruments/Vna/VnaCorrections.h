@@ -51,15 +51,30 @@ public:
     double power_dBm();
 
     ComplexRowVector directivity(uint outputPort, uint inputPort);
-    void setDirectivity(ComplexRowVector corrections, uint outputPort, uint inputPort);
     ComplexRowVector sourceMatch(uint outputPort, uint inputPort);
-    void setSourceMatch(ComplexRowVector corrections, uint outputPort, uint inputPort);
     ComplexRowVector reflectionTracking(uint outputPort, uint inputPort);
-    void setReflectionTracking(ComplexRowVector corrections, uint outputPort, uint inputPort);
     ComplexRowVector loadMatch(uint outputPort, uint inputPort);
-    void setLoadMatch(ComplexRowVector corrections, uint outputPort, uint inputPort);
     ComplexRowVector transmissionTracking(uint outputPort, uint inputPort);
+
+    void setDirectivity(ComplexRowVector corrections, uint outputPort, uint inputPort);
+    void setSourceMatch(ComplexRowVector corrections, uint outputPort, uint inputPort);
+    void setReflectionTracking(ComplexRowVector corrections, uint outputPort, uint inputPort);
+    void setLoadMatch(ComplexRowVector corrections, uint outputPort, uint inputPort);
     void setTransmissionTracking(ComplexRowVector corrections, uint outputPort, uint inputPort);
+
+    // With switch matrix paths
+    ComplexRowVector directivity(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
+    ComplexRowVector sourceMatch(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
+    ComplexRowVector reflectionTracking(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
+    ComplexRowVector loadMatch(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
+    ComplexRowVector transmissionTracking(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
+
+    void setDirectivity(ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
+    void setSourceMatch(ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
+    void setReflectionTracking(ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
+    void setLoadMatch(ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
+    void setTransmissionTracking(ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
+
 
     void operator=(VnaCorrections const &other);
 
@@ -80,7 +95,9 @@ private:
     CorrectionState correctionState();
     CorrectionState toCorrectionState(QString scpi);
     ComplexRowVector errorValues(QString term, uint outputPort, uint inputPort);
+    ComplexRowVector errorValues(QString term, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
     void setErrorValues(QString term, ComplexRowVector corrections, uint outputPort, uint inputPort);
+    void setErrorValues(QString term, ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
     uint bufferSize(uint sfk = 1);
     uint complexBufferSize(uint sfk = 1);
 };

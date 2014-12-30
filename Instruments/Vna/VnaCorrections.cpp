@@ -181,7 +181,6 @@ double VnaCorrections::power_dBm() {
     return(_vna->query(scpi).trimmed().toDouble());
 }
 
-
 ComplexRowVector VnaCorrections::directivity(uint outputPort, uint inputPort) {
     return(errorValues("DIRECTIVITY", outputPort, inputPort));
 }
@@ -213,6 +212,38 @@ void VnaCorrections::setTransmissionTracking(ComplexRowVector corrections, uint 
     setErrorValues("TRANSTRACK", corrections, outputPort, inputPort);
 }
 
+// With switch matrix paths
+ComplexRowVector VnaCorrections::directivity(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+    return errorValues("DIRECTIVITY", outputTestPort, vnaGeneratorPort, inputTestPort, vnaReceiverPort);
+}
+ComplexRowVector VnaCorrections::sourceMatch(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+    return errorValues("SRCMATCH", outputTestPort, vnaGeneratorPort, inputTestPort, vnaReceiverPort);
+}
+ComplexRowVector VnaCorrections::reflectionTracking(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+    return errorValues("REFLTRACK", outputTestPort, vnaGeneratorPort, inputTestPort, vnaReceiverPort);
+}
+ComplexRowVector VnaCorrections::loadMatch(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+    return errorValues("LOADMATCH", outputTestPort, vnaGeneratorPort, inputTestPort, vnaReceiverPort);
+}
+ComplexRowVector VnaCorrections::transmissionTracking(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+    return errorValues("TRANSTRACK", outputTestPort, vnaGeneratorPort, inputTestPort, vnaReceiverPort);
+}
+
+void VnaCorrections::setDirectivity(ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+    setErrorValues("DIRECTIVITY", corrections, outputTestPort, vnaGeneratorPort, inputTestPort, vnaReceiverPort);
+}
+void VnaCorrections::setSourceMatch(ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+    setErrorValues("SRCMATCH", corrections, outputTestPort, vnaGeneratorPort, inputTestPort, vnaReceiverPort);
+}
+void VnaCorrections::setReflectionTracking(ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+    setErrorValues("REFLTRACK", corrections, outputTestPort, vnaGeneratorPort, inputTestPort, vnaReceiverPort);
+}
+void VnaCorrections::setLoadMatch(ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+    setErrorValues("LOADMATCH", corrections, outputTestPort, vnaGeneratorPort, inputTestPort, vnaReceiverPort);
+}
+void VnaCorrections::transmissionTracking(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+    setErrorValues("TRANSTRACK", corrections, outputTestPort, vnaGeneratorPort, inputTestPort, vnaReceiverPort);
+}
 
 void VnaCorrections::operator=(VnaCorrections const &other) {
     if (other.isFullyInitialized()) {
@@ -265,12 +296,43 @@ ComplexRowVector VnaCorrections::errorValues(QString term, uint outputPort, uint
     scpi = scpi.arg(outputPort);
     return(_vna->queryComplexVector(scpi, complexBufferSize()));
 }
+ComplexRowVector VnaCorrections::errorValues(QString term, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+    QString scpi = ":SENS%1:CORR:SMAT:CDAT? \'%2\',%3,%4,%5,%6\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(term);
+    scpi = scpi.arg(inputTestPort);
+    scpi = scpi.arg(outputTestPort);
+    scpi = scpi.arg(vnaGeneratorPort);
+    scpi = scpi.arg(vnaReceiverPort);
+    return _vna->queryComplexVector(scpi, complexBufferSize());
+}
+
 void VnaCorrections::setErrorValues(QString term, ComplexRowVector corrections, uint outputPort, uint inputPort) {
-    QString scpi = ":SENS%1:CORR:CDAT \'%2\',%3,%4";
+    QString scpi = ":SENS%1:CORR:CDAT \'%2\',%3,%4\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(term);
     scpi = scpi.arg(inputPort);
     scpi = scpi.arg(outputPort);
+
+    bool isReadAscii = _vna->settings().isReadAsciiFormat();
+    bool isRead32Bit = _vna->settings().isRead32BitBinaryFormat();
+
+    _vna->settings().setRead64BitBinaryFormat();
+    _vna->binaryWrite(scpi.toUtf8() + toBlockDataFormat(corrections) + "\n");
+
+    if (isReadAscii)
+        _vna->settings().setReadAsciiFormat();
+    if (isRead32Bit)
+        _vna->settings().setRead32BitBinaryFormat();
+}
+void VnaCorrections::setErrorValues(QString term, ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+    QString scpi = ":SENS%1:CORR:SMAT:CDAT \'%2\',%3,%4,%5,%5\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(term);
+    scpi = scpi.arg(inputTestPort);
+    scpi = scpi.arg(outputTestPort);
+    scpi = scpi.arg(vnaGeneratorPort);
+    scpi = scpi.arg(vnaReceiverPort);
 
     bool isReadAscii = _vna->settings().isReadAsciiFormat();
     bool isRead32Bit = _vna->settings().isRead32BitBinaryFormat();

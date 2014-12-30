@@ -1,7 +1,8 @@
+#include "VnaSwitchMatrix.h"
 
 
 // RsaToolbox includes
-#include "VnaSwitchMatrix.h"
+#include "General.h"
 #include "Vna.h"
 using namespace RsaToolbox;
 
@@ -70,10 +71,18 @@ QString VnaSwitchMatrix::address() {
     return result[3];
 }
 
-PortMap VnaSwitchMatrix::matrixToVnaConnections() {
-    QString scpi = "";
+PortMap VnaSwitchMatrix::matrixToVnaPortMap() {
+    QString scpi = ":SYST:COMM:RDEV:SMAT%1:CONF:MVNA?\n";
+    scpi = scpi.arg(_index);
+    QString result = _vna->query(scpi).trimmed();
+    return RsaToolbox::parseMap<uint,uint>(result, ",");
 }
-
+PortMap VnaSwitchMatrix::matrixToTestPortMap() {
+    QString scpi = ":SYST:COMM:RDEV:SMAT%1:CONF:MTES?\n";
+    scpi = scpi.arg(_index);
+    QString result = _vna->query(scpi).trimmed();
+    return RsaToolbox::parseMap<uint,uint>(result, ",");
+}
 
 void VnaSwitchMatrix::operator=(VnaSwitchMatrix const &other) {
     if (other.isFullyInitialized()) {

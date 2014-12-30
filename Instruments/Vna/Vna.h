@@ -155,6 +155,11 @@ public:
 
     // Switch Matrix
     uint testPorts();
+    bool isMatrixPort(uint testPort);
+    bool isVnaPort(uint testPort);
+    uint matrixWithPort(uint testPort);
+    uint vnaPort(uint testPort);
+
     bool isSwitchMatrices();
     bool isSwitchMatrix(uint index);
     uint numberOfSwitchMatrices();
