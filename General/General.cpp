@@ -340,7 +340,7 @@ QString RsaToolbox::formatDouble(double value, int decimalPlaces) {
 QString RsaToolbox::toString(QStringList list, QString separator) {
     return(toString(list.toVector(), separator));
 }
-QString RsaToolbox::toString(ComplexRowVector vector, QString list_separator, QString format) {
+QString RsaToolbox::toString(ComplexRowVector vector, QString separator, QString format) {
     int size = vector.size();
     if (size == 0)
         return("");
@@ -352,7 +352,7 @@ QString RsaToolbox::toString(ComplexRowVector vector, QString list_separator, QS
     item = item.arg(vector[0].imag());
     list += item;
     for (int i = 1; i < size; i++) {
-        list.append(list_separator);
+        list.append(separator);
         item = format;
         item = item.arg(vector[i].real());
         item = item.arg(vector[i].imag());

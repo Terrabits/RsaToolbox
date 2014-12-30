@@ -7,6 +7,7 @@
 #include "VnaUserDefinedPort.h"
 #include "VnaCalStandard.h"
 #include "VnaTimeDomain.h"
+#include "GenericBus.h"
 
 namespace RsaToolbox {
 
@@ -28,6 +29,10 @@ public:
     static QString toString(VnaUserDefinedPort port);
     static VnaUserDefinedPort::Receiver toReceiver(QString scpi);
     static VnaUserDefinedPort toUserDefinedPort(QString scpi);
+
+    // Switch Matrix
+    static QString toMatrixString(ConnectionType type);
+    static ConnectionType toMatrixConnection(QString scpi);
 
     // Connector
     static QString toString(Connector::Gender gender);

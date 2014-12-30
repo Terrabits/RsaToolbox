@@ -1648,6 +1648,10 @@ uint Vna::testPorts() {
     return(query(scpi).trimmed().toUInt());
 }
 
+bool Vna::isSwitchMatrices() {
+    return numberOfSwitchMatrices() > 0;
+}
+
 /*!
  * \brief Queries for a configured switch matrix
  * \param index Index of matrix to query
@@ -1655,8 +1659,12 @@ uint Vna::testPorts() {
  * \c false otherwise
  */
 bool Vna::isSwitchMatrix(uint index) {
-    Q_UNUSED(index);
-    return(false);
+    if (!isSwitchMatrices())
+        return false;
+    if (index == 0)
+        return false;
+
+    return index <= numberOfSwitchMatrices();
 }
 
 /*!
@@ -1664,7 +1672,7 @@ bool Vna::isSwitchMatrix(uint index) {
  * \return Number of switch matrices
  */
 uint Vna::numberOfSwitchMatrices() {
-    return(0);
+    return query(":SYST:COMM:RDEV:SMAT:COUN?\n").trimmed().toUInt();
 }
 
 /*!
@@ -1672,42 +1680,26 @@ uint Vna::numberOfSwitchMatrices() {
  * \return QVector of switch matrix indices
  */
 QVector<uint> Vna::switchMatrices() {
-    return(QVector<uint>());
+    if (!isSwitchMatrices())
+        return QVector<uint>();
+    else
+        return range(uint(1), numberOfSwitchMatrices());
 }
 
-/*!
- * \brief Adds a switch matrix
- * \note The switch matrix must be
- * configured before it can be used.
- * \param index Index of switch matrix
- */
-void Vna::addSwitchMatrix(uint index) {
-    Q_UNUSED(index);
-}
+void Vna::disconnectSwitchMatrices() {
+    if (properties().isZvaFamily()) {
+        print("disconnectSwitchMatrices not available on Zva\n\n");
+        return;
+    }
 
-/*!
- * \brief Adds a switch matrix with the next available index
- * \return Index of added switch matrix
- */
-uint Vna::addSwitchMatrix() {
-    return(0);
-}
-
-/*!
- * \brief Deletes switch matrix \c index
- * \param index Index of switch matrix to delete
- */
-void Vna::deleteSwitchMatrix(uint index) {
-    Q_UNUSED(index);
+    write(":INST:SMAT 0\n");
 }
 
 /*!
  * \brief Deletes all configured switch matrices
  */
-void Vna::deleteSwitchMatrices() {
-    //    QVector<uint> matrices = switchMatrices();
-    //    foreach (uint matrix, matrices)
-    //        deleteSwitchMatrix(matrix);
+void Vna::removeSwitchMatrices() {
+    write(":SYST:COMM:RDEV:SMAT:DEL\n");
 }
 
 /*!

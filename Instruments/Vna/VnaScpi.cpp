@@ -111,6 +111,27 @@ VnaUserDefinedPort VnaScpi::toUserDefinedPort(QString scpi) {
     return port;
 }
 
+QString VnaScpi::toMatrixString(ConnectionType type) {
+    switch(type) {
+    case TCPIP_CONNECTION:
+        return "LAN";
+    case USB_CONNECTION:
+        return "USB";
+    default:
+        return "";
+    }
+}
+ConnectionType VnaScpi::toMatrixConnection(QString scpi) {
+    scpi = scpi.trimmed().toUpper();
+    if (scpi == "LAN")
+        return TCPIP_CONNECTION;
+    if (scpi == "USB")
+        return USB_CONNECTION;
+
+    // default:
+    return NO_CONNECTION;
+}
+
 // Connector
 QString VnaScpi::toString(Connector::Gender gender) {
     switch(gender) {

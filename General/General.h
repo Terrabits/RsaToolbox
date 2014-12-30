@@ -70,7 +70,7 @@ QString toString(QVector<T> vector, QString separator) {
     return(list);
 }
 QString toString(QStringList list, QString separator);
-QString toString(ComplexRowVector vector, QString list_separator, QString format = "(%1, %2)");
+QString toString(ComplexRowVector vector, QString separator, QString format = "(%1, %2)");
 QStringList portLabels(QVector<uint> ports);
 QString portString(QVector<uint> ports);
 QStringList channelLabels(QVector<uint> channels);
@@ -83,6 +83,23 @@ ComplexRowVector parseComplex(QString values, QString separator, QString ignore 
 ComplexRowVector parseComplex(QRowVector values);
 QRowVector parseQRowVector(QString buffer);
 QRowVector parseQRowVector(ComplexRowVector values);
+template <class T1, class T2>
+QMap<T1, T2> parseMap(QString values, QString separator, QString ignore = "", QString::SplitBehavior splitBehavior = QString::KeepEmptyParts) {
+    QMap<T1, T2> map;
+    if (!ignore.isEmpty())
+        values = values.remove(ignore);
+    QStringList results = values.split(separator, splitBehavior);
+    uint size = results.size();
+    if (size % 2 != 0)
+        return map;
+
+    for (int i = 0; i < size; i+=2) {
+        T1 key = QVariant(results[i]).value<T1>();
+        T2 value = QVariant(results[i+1]).value<T2>();
+        map.insert(key, value);
+    }
+    return map;
+}
 
 QByteArray toBlockDataFormat(QRowVector values);
 QRowVector toQRowVector(QByteArray blockData);
