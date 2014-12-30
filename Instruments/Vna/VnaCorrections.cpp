@@ -241,7 +241,7 @@ void VnaCorrections::setReflectionTracking(ComplexRowVector corrections, uint ou
 void VnaCorrections::setLoadMatch(ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
     setErrorValues("LOADMATCH", corrections, outputTestPort, vnaGeneratorPort, inputTestPort, vnaReceiverPort);
 }
-void VnaCorrections::transmissionTracking(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
+void VnaCorrections::setTransmissionTracking(ComplexRowVector corrections, uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort) {
     setErrorValues("TRANSTRACK", corrections, outputTestPort, vnaGeneratorPort, inputTestPort, vnaReceiverPort);
 }
 

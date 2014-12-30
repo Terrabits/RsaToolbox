@@ -29,8 +29,9 @@ public:
     ConnectionType connectionType();
     QString address();
 
+    bool hasTestPort(uint testPort);
     PortMap matrixToVnaPortMap();
-    PortMap matrixToTestPortMap();
+    PortMap testPortToMatrixMap();
 
     void operator=(VnaSwitchMatrix const &other);
 

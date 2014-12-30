@@ -1622,9 +1622,9 @@ void Vna::startSweeps() {
 /** @} */
 
 /**
- * \name Switch Matrices
- * Queries, configures and controls switch
- * matrices.
+ * \name Test Ports
+ * Queries and configures test port
+ * assignments.
  * @{*/
 
 /*!
@@ -1648,47 +1648,115 @@ uint Vna::testPorts() {
     return(query(scpi).trimmed().toUInt());
 }
 
-bool Vna::isSwitchMatrices() {
-    return numberOfSwitchMatrices() > 0;
+/*!
+ * \brief Queries test port mapping to physical VNA port
+ *
+ * \param testPort Queried test port
+ * \return \c true if the test port maps directly to a physical VNA port; \c false otherwise
+ */
+bool Vna::isVnaPort(uint testPort) {
+    return testPortToVnaMap().contains(testPort);
 }
 
 /*!
- * \brief Queries for a configured switch matrix
- * \param index Index of matrix to query
- * \return \c true if switch matrix \c index exists;
- * \c false otherwise
+ * \brief Returns physical VNA port assigned \c testPort index.
+ * \param testPort Queried test port
+ * \return Returns physical VNA port if mapped, or \c 0 otherwise.
  */
-bool Vna::isSwitchMatrix(uint index) {
-    if (!isSwitchMatrices())
-        return false;
-    if (index == 0)
-        return false;
+uint Vna::vnaPort(uint testPort) {
+    return testPortToVnaMap().value(testPort, 0);
+}
 
-    return index <= numberOfSwitchMatrices();
+/*!
+ * \brief Returns a list of test ports mapped to physical VNA ports
+ * \return Physical VNA ports
+ */
+QVector<uint> Vna::vnaTestPorts() {
+    return testPortToVnaMap().keys().toVector();
+}
+
+/*!
+ * \brief Returns the mapping for test ports
+ * that map directly to physical VNA ports.
+ *
+ * Test ports that do not map directly to the VNA
+ * (because they are assigned to a switch matrix)
+ * are not contained in PortMap.
+ *
+ * \return \c PortMap from test port to VNA port
+ */
+PortMap Vna::testPortToVnaMap() {
+    const QString scpi = ":SYST:COMM:RDEV:SMAT:CONF:TVNA?\n";
+    QString result = query(scpi).trimmed();
+    if (result.isEmpty())
+        return PortMap();
+    else
+        return parseMap<uint,uint>(result, ",");
+}
+
+/** @} */
+
+/**
+ * \name Switch Matrix
+ * Queries, configures and controls switch
+ * matrices.
+ * @{*/
+
+/*!
+ * \brief Vna::areSwitchMatrices
+ * \return
+ */
+bool Vna::areSwitchMatrices() {
+    return switchMatrices() > 0;
 }
 
 /*!
  * \brief Queries the number of switch matrices
  * \return Number of switch matrices
  */
-uint Vna::numberOfSwitchMatrices() {
+uint Vna::switchMatrices() {
     return query(":SYST:COMM:RDEV:SMAT:COUN?\n").trimmed().toUInt();
 }
 
 /*!
- * \brief Returns a list of all switch matrices
- * \return QVector of switch matrix indices
+ * \brief Vna::isMatrixPort
+ * \param testPort
+ * \return
  */
-QVector<uint> Vna::switchMatrices() {
-    if (!isSwitchMatrices())
-        return QVector<uint>();
-    else
-        return range(uint(1), numberOfSwitchMatrices());
+bool Vna::isMatrixPort(uint testPort) {
+    return matrixWithPort(testPort) != 0;
 }
 
+/*!
+ * \brief Returns switch matrix
+ * assigned to port \c testPort
+ *
+ * If \c testPort is not valid, or is
+ * not mapped to a switch matrix,
+ * this function returns \c 0;
+ *
+ * \param testPort Test port
+ * \return Switch matrix mapped to
+ * \c testPort; \c 0 otherwise.
+ */
+uint Vna::matrixWithPort(uint testPort) {
+    uint matrices = switchMatrices();
+    for (uint i = 1; i <= matrices; i++) {
+        if (switchMatrix(i).hasTestPort(testPort))
+            return i;
+    }
+
+    // Test port not found
+    return 0;
+}
+
+/*!
+ * \brief Disconnects all switch matrices from
+ * the VNA.
+ */
 void Vna::disconnectSwitchMatrices() {
     if (properties().isZvaFamily()) {
-        print("disconnectSwitchMatrices not available on Zva\n\n");
+        print("disconnectSwitchMatrices (\"INST:SMAT [ON/OFF]\") not available on Zva\n\n");
         return;
     }
 
@@ -1696,7 +1764,8 @@ void Vna::disconnectSwitchMatrices() {
 }
 
 /*!
- * \brief Deletes all configured switch matrices
+ * \brief Removes all switch matrices
+ * from the pool of connected devices.
  */
 void Vna::removeSwitchMatrices() {
     write(":SYST:COMM:RDEV:SMAT:DEL\n");

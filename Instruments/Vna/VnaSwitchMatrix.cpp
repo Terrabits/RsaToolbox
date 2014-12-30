@@ -59,7 +59,7 @@ QString VnaSwitchMatrix::driver() {
 ConnectionType VnaSwitchMatrix::connectionType() {
     QStringList result = defineQuery();
     if (result.size() < 4)
-        return "";
+        return NO_CONNECTION;
 
     return VnaScpi::toMatrixConnection(result[2]);
 }
@@ -71,13 +71,17 @@ QString VnaSwitchMatrix::address() {
     return result[3];
 }
 
+bool VnaSwitchMatrix::hasTestPort(uint testPort) {
+    return testPortToMatrixMap().contains(testPort);
+}
+
 PortMap VnaSwitchMatrix::matrixToVnaPortMap() {
     QString scpi = ":SYST:COMM:RDEV:SMAT%1:CONF:MVNA?\n";
     scpi = scpi.arg(_index);
     QString result = _vna->query(scpi).trimmed();
     return RsaToolbox::parseMap<uint,uint>(result, ",");
 }
-PortMap VnaSwitchMatrix::matrixToTestPortMap() {
+PortMap VnaSwitchMatrix::testPortToMatrixMap() {
     QString scpi = ":SYST:COMM:RDEV:SMAT%1:CONF:MTES?\n";
     scpi = scpi.arg(_index);
     QString result = _vna->query(scpi).trimmed();

@@ -89,7 +89,7 @@ QMap<T1, T2> parseMap(QString values, QString separator, QString ignore = "", QS
     if (!ignore.isEmpty())
         values = values.remove(ignore);
     QStringList results = values.split(separator, splitBehavior);
-    uint size = results.size();
+    int size = results.size();
     if (size % 2 != 0)
         return map;
 

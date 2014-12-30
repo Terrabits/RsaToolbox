@@ -153,21 +153,20 @@ public:
     uint sweepTime_ms();
     void startSweeps();
 
-    // Switch Matrix
+    // Test ports
     uint testPorts();
-    bool isMatrixPort(uint testPort);
     bool isVnaPort(uint testPort);
-    uint matrixWithPort(uint testPort);
     uint vnaPort(uint testPort);
+    QVector<uint> vnaTestPorts();
+    PortMap testPortToVnaMap();
 
-    bool isSwitchMatrices();
-    bool isSwitchMatrix(uint index);
-    uint numberOfSwitchMatrices();
-    QVector<uint> switchMatrices();
+    // Switch matrix
+    bool areSwitchMatrices();
+    uint switchMatrices();
+    bool isMatrixPort(uint testPort);
+    uint matrixWithPort(uint testPort);
     void disconnectSwitchMatrices();
     void removeSwitchMatrices();
-    PortMap vnaToTestPortMap();
-    QVector<uint> vnaTestPorts();
     VnaSwitchMatrix &switchMatrix(uint index = 1);
     VnaSwitchMatrix *takeSwitchMatrix(uint index = 1);
 
