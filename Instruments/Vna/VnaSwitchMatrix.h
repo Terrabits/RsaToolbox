@@ -30,7 +30,7 @@ public:
     QString address();
 
     bool hasTestPort(uint testPort);
-    PortMap matrixToVnaPortMap();
+    PortMap switchMatrixToVnaPortMap();
     PortMap testPortToMatrixMap();
 
     void operator=(VnaSwitchMatrix const &other);

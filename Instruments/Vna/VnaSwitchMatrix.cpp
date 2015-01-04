@@ -75,7 +75,7 @@ bool VnaSwitchMatrix::hasTestPort(uint testPort) {
     return testPortToMatrixMap().contains(testPort);
 }
 
-PortMap VnaSwitchMatrix::matrixToVnaPortMap() {
+PortMap VnaSwitchMatrix::switchMatrixToVnaPortMap() {
     QString scpi = ":SYST:COMM:RDEV:SMAT%1:CONF:MVNA?\n";
     scpi = scpi.arg(_index);
     QString result = _vna->query(scpi).trimmed();

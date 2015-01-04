@@ -41,15 +41,28 @@ public:
     void dissolveCalGroupLink();
     void clear(); //?
 
-    // Correction values
+    // Properties
     VnaCalibrate::CalType calibrationType();
     VnaChannel::SweepType sweepType();
-    QVector<uint> ports();
+    QVector<uint> testPorts();
     uint points();
     double startFrequency_Hz();
     double stopFrequency_Hz();
     double power_dBm();
 
+    // Physical setup
+    bool isVnaPort(uint testPort);
+    uint vnaPort(uint testPort);
+    PortMap testPortToVnaMap();
+
+    bool areSwitchMatrices();
+    uint switchMatrices();
+    bool isSwitchMatrixPort(uint testPort);
+    uint switchMatrix(uint testPort);
+    PortMap switchMatrixToVnaPortMap(uint switchMatrix);
+    PortMap testPortToSwitchMatrixMap(uint switchMatrix);
+
+    // Corrections:
     // Vna ports
     ComplexRowVector directivity(uint outputPort, uint inputPort);
     ComplexRowVector sourceMatch(uint outputPort, uint inputPort);
@@ -63,6 +76,7 @@ public:
     void setLoadMatch(ComplexRowVector corrections, uint outputPort, uint inputPort);
     void setTransmissionTracking(ComplexRowVector corrections, uint outputPort, uint inputPort);
 
+    // Corrections:
     // Switch matrix paths
     ComplexRowVector directivity(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);
     ComplexRowVector sourceMatch(uint outputTestPort, uint vnaGeneratorPort, uint inputTestPort, uint vnaReceiverPort);

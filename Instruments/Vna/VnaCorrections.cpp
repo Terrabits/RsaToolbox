@@ -133,7 +133,7 @@ void VnaCorrections::clear() {
 } //?
 
 
-// Correction properties
+// Properties
 VnaCalibrate::CalType VnaCorrections::calibrationType() {
     QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
@@ -149,7 +149,7 @@ VnaChannel::SweepType VnaCorrections::sweepType() {
     QString result = _vna->query(scpi).trimmed();
     return(VnaScpi::toSweepType(result));
 }
-QVector<uint> VnaCorrections::ports() {
+QVector<uint> VnaCorrections::testPorts() {
     QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("PORT");
@@ -179,6 +179,84 @@ double VnaCorrections::power_dBm() {
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("SPOW");
     return(_vna->query(scpi).trimmed().toDouble());
+}
+
+// Physical setup
+bool VnaCorrections::isVnaPort(uint testPort) {
+    return testPortToVnaMap().contains(testPort);
+}
+uint VnaCorrections::vnaPort(uint testPort) {
+    return testPortToVnaMap().value(testPort, 0);
+}
+PortMap VnaCorrections::testPortToVnaMap() {
+    QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg("TVNA");
+    QString result = _vna->query(scpi).trimmed();
+    return RsaToolbox::parseMap<uint,uint>(result, ",");
+}
+
+bool VnaCorrections::areSwitchMatrices() {
+    _vna->isError();
+    _vna->clearStatus();
+
+    const PortMap map = switchMatrixToVnaPortMap(1);
+    if (!map.isEmpty() && !_vna->isError())
+        return true;
+    else {
+        _vna->clearStatus();
+        return false;
+    }
+}
+uint VnaCorrections::switchMatrices() {
+    _vna->isError();
+    _vna->clearStatus();
+
+    uint i = 0;
+    PortMap map = switchMatrixToVnaPortMap(i+1);
+    while (!_vna->isError() && !map.isEmpty()) {
+        i++;
+        map = switchMatrixToVnaPortMap(i+1);
+    }
+
+    _vna->clearStatus();
+    return i;
+}
+bool VnaCorrections::isSwitchMatrixPort(uint testPort) {
+    uint matrices = switchMatrices();
+    for (uint i = 1; i <= matrices; i++) {
+        if (testPortToSwitchMatrixMap(i).contains(testPort))
+            return true;
+    }
+
+    // Else
+    return false;
+}
+uint VnaCorrections::switchMatrix(uint testPort) {
+    uint matrices = switchMatrices();
+    for (uint i = 1; i <= matrices; i++) {
+        if (testPortToSwitchMatrixMap(i).contains(testPort))
+            return i;
+    }
+
+    // Else
+    return 0;
+}
+PortMap VnaCorrections::switchMatrixToVnaPortMap(uint switchMatrix) {
+    QString scpi = ":SENS%1:CORR:DATA:PAR? %3,%4\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg("MVNA");
+    scpi = scpi.arg(switchMatrix);
+    QString result = _vna->query(scpi).trimmed();
+    return RsaToolbox::parseMap<uint,uint>(result, ",");
+}
+PortMap VnaCorrections::testPortToSwitchMatrixMap(uint switchMatrix) {
+    QString scpi = ":SENS%1:CORR:DATA:PAR? %3,%4\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg("MTES");
+    scpi = scpi.arg(switchMatrix);
+    QString result = _vna->query(scpi).trimmed();
+    return RsaToolbox::parseMap<uint,uint>(result, ",");
 }
 
 ComplexRowVector VnaCorrections::directivity(uint outputPort, uint inputPort) {
