@@ -3,7 +3,7 @@
 
 
 #include "CalGroupsModel.h"
-#include "CalDialog.h"
+#include "getCalGroupDialog.h"
 
 #include <QWidget>
 #include <QItemSelectionModel>
@@ -39,7 +39,7 @@ private:
 
     CalGroupsModel *_model;
     QScopedPointer<QItemSelectionModel> _selection;
-    CalDialog _dialog;
+    getCalGroupDialog _dialog;
 };
 } // RsaToolbox
 

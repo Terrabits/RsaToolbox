@@ -1,5 +1,5 @@
-#ifndef CALDIALOG_H
-#define CALDIALOG_H
+#ifndef GET_CALGROUP_DIALOG_H
+#define GET_CALGROUP_DIALOG_H
 
 #include "CalGroupsModel.h"
 #include "QItemSelectionModel"
@@ -10,15 +10,15 @@
 namespace RsaToolbox {
 
 namespace Ui {
-class CalDialog;
+class getCalGroupDialog;
 }
-class CalDialog : public QDialog
+class getCalGroupDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit CalDialog(QWidget *parent = 0);
-    ~CalDialog();
+    explicit getCalGroupDialog(QWidget *parent = 0);
+    ~getCalGroupDialog();
 
     void setModel(CalGroupsModel *model, int column = 0);
     CalGroupsModel *model() const;
@@ -34,7 +34,7 @@ public slots:
     void reset();
 
 private:
-    Ui::CalDialog *ui;
+    Ui::getCalGroupDialog *ui;
     CalGroupsModel *_model;
     QPersistentModelIndex _previous;
 
@@ -43,4 +43,4 @@ private:
 } // RsaToolbox
 
 
-#endif // CALDIALOG_H
+#endif // GET_CALGROUP_DIALOG_H

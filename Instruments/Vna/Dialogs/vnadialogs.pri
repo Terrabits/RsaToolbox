@@ -1,12 +1,12 @@
-HEADERS     += $$PWD/CalDialog/CalDialog.h \
+HEADERS     += $$PWD/getCalGroupDialog/getCalGroupDialog.h \
                $$PWD/getChannelDialog/getChannelDialog.h \
                $$PWD/getPortsDialog/getPortsDialog.h
-INCLUDEPATH += $$PWD/CalDialog \
+INCLUDEPATH += $$PWD/getCalGroupDialog \
                $$PWD/getChannelDialog \
                $$PWD/getPortsDialog
-SOURCES     += $$PWD/CalDialog/CalDialog.cpp \
+SOURCES     += $$PWD/getCalGroupDialog/getCalGroupDialog.cpp \
                $$PWD/getChannelDialog/getChannelDialog.cpp \
                $$PWD/getPortsDialog/getPortsDialog.cpp
-FORMS       += $$PWD/CalDialog/CalDialog.ui \
+FORMS       += $$PWD/getCalGroupDialog/getCalGroupDialog.ui \
                $$PWD/getChannelDialog/getChannelDialog.ui \
                $$PWD/getPortsDialog/getPortsDialog.ui

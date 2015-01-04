@@ -11,7 +11,7 @@ INCLUDEPATH += $$PWD \
                $$PWD/Bus/Visa \
                $$PWD/Instruments \
                $$PWD/Instruments/Vna \
-               $$PWD/Instruments/Vna/Dialogs/CalDialog \
+               $$PWD/Instruments/Vna/Dialogs/getCalGroupDialog \
                $$PWD/Instruments/Vna/Dialogs/getChannelDialog \
                $$PWD/Instruments/Vna/Dialogs/getPortsDialog \
                $$PWD/Instruments/Vna/Models/VnaModel \

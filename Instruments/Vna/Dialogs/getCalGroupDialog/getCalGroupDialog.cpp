@@ -1,23 +1,23 @@
-#include "CalDialog.h"
-#include "ui_CalDialog.h"
+#include "getCalGroupDialog.h"
+#include "ui_getCalGroupDialog.h"
 using namespace RsaToolbox;
 
 #include <QDebug>
 
-CalDialog::CalDialog(QWidget *parent) :
+getCalGroupDialog::getCalGroupDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::CalDialog)
+    ui(new Ui::getCalGroupDialog)
 {
     ui->setupUi(this);
     _model = NULL;
     _previous = QModelIndex();
 }
-CalDialog::~CalDialog()
+getCalGroupDialog::~getCalGroupDialog()
 {
     delete ui;
 }
 
-void CalDialog::setModel(CalGroupsModel *model, int column) {
+void getCalGroupDialog::setModel(CalGroupsModel *model, int column) {
     if (model == _model && ui->listView->modelColumn() == column)
         return;
 
@@ -25,15 +25,15 @@ void CalDialog::setModel(CalGroupsModel *model, int column) {
     ui->listView->setModel(model);
     ui->listView->setModelColumn(column);
 }
-CalGroupsModel *CalDialog::model() const {
+CalGroupsModel *getCalGroupDialog::model() const {
     return _model;
 }
 
-QItemSelectionModel *CalDialog::selectionModel() const {
+QItemSelectionModel *getCalGroupDialog::selectionModel() const {
     return ui->listView->selectionModel();
 }
 
-QModelIndex CalDialog::selectedIndex() const {
+QModelIndex getCalGroupDialog::selectedIndex() const {
     QModelIndexList list = selectionModel()->selectedIndexes();
     if (!list.isEmpty())
         return list.first();
@@ -41,7 +41,7 @@ QModelIndex CalDialog::selectedIndex() const {
         return QModelIndex();
 }
 
-void CalDialog::accept() {
+void getCalGroupDialog::accept() {
     if (!selectedIndex().isValid()) {
         ui->error->showMessage("*Please select cal group.", 5000);
         return;
@@ -52,11 +52,11 @@ void CalDialog::accept() {
     _previous = selectedIndex();
     QDialog::accept();
 }
-void CalDialog::reject() {
+void getCalGroupDialog::reject() {
     selectionModel()->clear();
     QDialog::reject();
 }
-void CalDialog::reset() {
+void getCalGroupDialog::reset() {
     selectionModel()->clearSelection();
     _previous = QModelIndex();
 }

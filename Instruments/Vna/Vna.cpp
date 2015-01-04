@@ -847,13 +847,13 @@ VnaCalKit &Vna::calKit(NameLabel nameLabel) {
 
 // Calibration
 QVector<uint> Vna::calibratedChannels() {
-    QVector<uint> allChannels = channels();
-    QVector<uint> calibratedChannels;
-    foreach (uint i, allChannels) {
+    QVector<uint> _channels = channels();
+    QVector<uint> _calibratedChannels;
+    foreach (uint i, _channels) {
         if (channel(i).isCalibrated())
-            calibratedChannels.append(i);
+            _calibratedChannels.append(i);
     }
-    return(calibratedChannels);
+    return _calibratedChannels;
 }
 
 /*!
@@ -1723,8 +1723,8 @@ uint Vna::switchMatrices() {
  * \param testPort
  * \return
  */
-bool Vna::isMatrixPort(uint testPort) {
-    return matrixWithPort(testPort) != 0;
+bool Vna::isSwitchMatrixPort(uint testPort) {
+    return switchMatrixWithPort(testPort) != 0;
 }
 
 /*!
@@ -1739,7 +1739,7 @@ bool Vna::isMatrixPort(uint testPort) {
  * \return Switch matrix mapped to
  * \c testPort; \c 0 otherwise.
  */
-uint Vna::matrixWithPort(uint testPort) {
+uint Vna::switchMatrixWithPort(uint testPort) {
     uint matrices = switchMatrices();
     for (uint i = 1; i <= matrices; i++) {
         if (switchMatrix(i).hasTestPort(testPort))

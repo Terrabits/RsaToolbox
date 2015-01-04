@@ -163,8 +163,8 @@ public:
     // Switch matrix
     bool areSwitchMatrices();
     uint switchMatrices();
-    bool isMatrixPort(uint testPort);
-    uint matrixWithPort(uint testPort);
+    bool isSwitchMatrixPort(uint testPort);
+    uint switchMatrixWithPort(uint testPort);
     void disconnectSwitchMatrices();
     void removeSwitchMatrices();
     VnaSwitchMatrix &switchMatrix(uint index = 1);
