@@ -144,6 +144,7 @@ QVector<uint> range(uint start, uint stop, uint stepSize = 1);
 QRowVector linearSpacing(double start, double stop, int points);
 void linearSpacing(QRowVector &result, double start, double stop, int points);
 void linearSpacing(RowVector &result, double start, double stop, int points);
+QRowVector logSpacing(double start, double stop, int points);
 void logSpacing(QRowVector &result, double start, double stop, int points);
 
 bool isInfinity(double value);

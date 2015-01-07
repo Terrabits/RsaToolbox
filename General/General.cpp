@@ -714,6 +714,11 @@ void RsaToolbox::linearSpacing(RowVector &result, double start, double stop, int
         result[i] = start + spacing * i;
     }
 }
+QRowVector RsaToolbox::logSpacing(double start, double stop, int points) {
+    QRowVector result;
+    logSpacing(result, start, stop, points);
+    return result;
+}
 void RsaToolbox::logSpacing(QRowVector &result, double start, double stop, int points) {
     double geoStart = log10(start);
     double geoStop = log10(stop);

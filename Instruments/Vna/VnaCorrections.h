@@ -44,13 +44,14 @@ public:
     // Properties
     VnaCalibrate::CalType calibrationType();
     VnaChannel::SweepType sweepType();
-    QVector<uint> testPorts();
+    QVector<uint> ports();
     uint points();
     double startFrequency_Hz();
     double stopFrequency_Hz();
     double power_dBm();
 
     // Physical setup
+    // Place under VnaCalHardware interface?
     bool isVnaPort(uint testPort);
     uint vnaPort(uint testPort);
     PortMap testPortToVnaMap();

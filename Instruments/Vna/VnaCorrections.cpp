@@ -149,7 +149,7 @@ VnaChannel::SweepType VnaCorrections::sweepType() {
     QString result = _vna->query(scpi).trimmed();
     return(VnaScpi::toSweepType(result));
 }
-QVector<uint> VnaCorrections::testPorts() {
+QVector<uint> VnaCorrections::ports() {
     QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("PORT");
@@ -199,18 +199,25 @@ PortMap VnaCorrections::testPortToVnaMap() {
 bool VnaCorrections::areSwitchMatrices() {
     _vna->isError();
     _vna->clearStatus();
+    bool displayError = _vna->settings().isErrorDisplayOn();
+    _vna->settings().errorDisplayOff();
 
     const PortMap map = switchMatrixToVnaPortMap(1);
-    if (!map.isEmpty() && !_vna->isError())
+    if (!map.isEmpty() && !_vna->isError()) {
+        _vna->settings().errorDisplayOn(displayError);
         return true;
+    }
     else {
         _vna->clearStatus();
+        _vna->settings().errorDisplayOn(displayError);
         return false;
     }
 }
 uint VnaCorrections::switchMatrices() {
     _vna->isError();
     _vna->clearStatus();
+    bool displayError = _vna->settings().isErrorDisplayOn();
+    _vna->settings().errorDisplayOff();
 
     uint i = 0;
     PortMap map = switchMatrixToVnaPortMap(i+1);
@@ -220,6 +227,7 @@ uint VnaCorrections::switchMatrices() {
     }
 
     _vna->clearStatus();
+    _vna->settings().errorDisplayOn(displayError);
     return i;
 }
 bool VnaCorrections::isSwitchMatrixPort(uint testPort) {
