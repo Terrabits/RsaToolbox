@@ -356,13 +356,9 @@ void Touchstone::WriteRow(NetworkData &network, QTextStream &snpFile, ComplexRow
     ComplexRowVector::iterator column_iter = row.begin();
     for (; column_iter != row.end(); column_iter++) {
         (*WriteDatum)(snpFile, *column_iter);
-        // add delimiter
-        if (columnsWritten == network.numberOfPorts()) {
-            snpFile.setFieldWidth(0);
-            snpFile << endl;
-            snpFile.setFieldWidth(COLUMNWIDTH);
-        }
-        else if (columnsWritten % COLUMNSPERLINE == 0) {
+        if (columnsWritten % COLUMNSPERLINE == 0
+                && column_iter != row.end())
+        {
             snpFile.setFieldWidth(0);
             snpFile << endl;
             snpFile.setFieldAlignment(QTextStream::AlignLeft);
@@ -371,6 +367,12 @@ void Touchstone::WriteRow(NetworkData &network, QTextStream &snpFile, ComplexRow
         }
         columnsWritten++;
     }
+
+    // Newline to separate frequency points:
+    snpFile.setFieldWidth(0);
+    snpFile << endl;
+    snpFile.setFieldAlignment(QTextStream::AlignLeft);
+    snpFile.setFieldWidth(COLUMNWIDTH);
 }
 void Touchstone::GetWriteFormat(NetworkData &network) {
     Q_UNUSED(network);
