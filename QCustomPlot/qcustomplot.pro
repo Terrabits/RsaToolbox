@@ -2,8 +2,7 @@
 #  Project to compile QCustomPlot as shared library (.so/.dll) from the amalgamated sources
 #
 
-QT += core gui
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+QT += core gui widgets printsupport
 
 DEFINES += QCUSTOMPLOT_COMPILE_LIBRARY
 TEMPLATE = lib
