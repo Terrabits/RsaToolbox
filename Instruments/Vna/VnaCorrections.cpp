@@ -204,11 +204,11 @@ bool VnaCorrections::areSwitchMatrices() {
 
     const PortMap map = switchMatrixToVnaPortMap(1);
     if (!map.isEmpty() && !_vna->isError()) {
+        _vna->clearStatus();
         _vna->settings().errorDisplayOn(displayError);
         return true;
     }
     else {
-        _vna->clearStatus();
         _vna->settings().errorDisplayOn(displayError);
         return false;
     }
