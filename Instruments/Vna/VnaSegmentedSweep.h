@@ -53,6 +53,7 @@ public:
     void autoSweepTimeOff(bool isOff = true);
     uint sweepTime_ms();
     void setSweepTime(uint time_ms);
+    uint calibrationSweepTime_ms();
 
     NetworkData measure(uint port1);
     NetworkData measure(uint port1, uint port2);

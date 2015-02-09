@@ -195,7 +195,7 @@ ComplexMatrix3D VnaLinearSweep::readSParameterGroup() {
     if (isContinuousSweep)
         _channel->manualSweepOn();
     _channel->startSweep();
-    _vna->pause(sweepTime_ms() * 2);
+    _vna->pause(sweepTime_ms() * _channel->sweepCount());
     ComplexRowVector data = _vna->queryComplexVector(scpi, bufferSize);
     if (isContinuousSweep)
         _channel->continuousSweepOn();
@@ -227,7 +227,9 @@ uint VnaLinearSweep::sweepTime_ms() {
     QString scpi = ":SENS%1:SWE:TIME?\n";
     scpi = scpi.arg(_channelIndex);
     double time = _vna->query(scpi).trimmed().toDouble();
-    return uint(1000.0 * time/* * double(_channel->sweepCount())*/);
+
+//    uint sweeps = _channel->sweepCount();
+    return uint(1000.0 * time/* * double(sweeps)*/);
 }
 void VnaLinearSweep::setSweepTime(uint time_ms) {
     QString scpi = ":SENS%1:SWE:TIME %2 ms\n";
@@ -237,6 +239,10 @@ void VnaLinearSweep::setSweepTime(uint time_ms) {
     autoSweepTimeOff();
     _vna->write(scpi);
 }
+uint VnaLinearSweep::calibrationSweepTime_ms() {
+    return sweepTime_ms() * _channel->averaging().number();
+}
+
 NetworkData VnaLinearSweep::measure(uint port1) {
     QVector<uint> ports;
     ports << port1;

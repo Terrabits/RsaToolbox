@@ -44,6 +44,7 @@ public:
     void autoSweepTimeOff(bool isOff = true);
     uint sweepTime_ms();
     void setSweepTime(uint time_ms);
+    uint calibrationSweepTime_ms();
 
     void operator=(VnaPowerSweep const &other);
 

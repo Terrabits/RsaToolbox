@@ -164,6 +164,9 @@ uint VnaSegmentedSweep::sweepTime_ms() {
 void VnaSegmentedSweep::setSweepTime(uint time_ms) {
     _channel->linearSweep().setSweepTime(time_ms);
 }
+uint VnaSegmentedSweep::calibrationSweepTime_ms() {
+    return _channel->linearSweep().calibrationSweepTime_ms();
+}
 
 NetworkData VnaSegmentedSweep::measure(uint port1) {
     QVector<uint> ports;

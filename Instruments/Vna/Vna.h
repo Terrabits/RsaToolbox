@@ -151,6 +151,7 @@ public:
 
     // Measurement
     uint sweepTime_ms();
+    uint calibrationSweepTime_ms();
     void startSweeps();
 
     // Test ports

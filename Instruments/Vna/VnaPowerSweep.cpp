@@ -138,6 +138,9 @@ uint VnaPowerSweep::sweepTime_ms() {
 void VnaPowerSweep::setSweepTime(uint time_ms) {
     _channel->linearSweep().setSweepTime(time_ms);
 }
+uint VnaPowerSweep::calibrationSweepTime_ms() {
+    return _channel->linearSweep().calibrationSweepTime_ms();
+}
 
 void VnaPowerSweep::operator=(VnaPowerSweep const &other) {
     if (other.isFullyInitialized()) {

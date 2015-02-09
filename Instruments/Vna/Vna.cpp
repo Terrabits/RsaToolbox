@@ -1593,22 +1593,41 @@ VnaDiagram *Vna::takeDiagrams() {
  * @{*/
 
 /*!
- * \brief Maximum sweep time
+ * \brief Sweep time for all channels
  *
- * Compares the sweep time of all channels
- * and returns the maximum.
+ * Returns the total sweep time when sweeping all channels
+ * at once, including multiple manual sweeps.
  *
- * \return Maximum sweep time, in ms
+ * \return Time, in ms
  */
 uint Vna::sweepTime_ms() {
     QVector<uint> cList = channels();
-    uint time = 0;
+    uint totalTime = 0;
     foreach (uint c, cList) {
-        QString scpi = ":SENS%1:SWE:TIME?\n";
-        scpi = scpi.arg(c);
-        time += uint(query(scpi).trimmed().toDouble() * 1000.0);
+        uint time = channel(c).linearSweep().sweepTime_ms();
+        uint sweeps = channel(c).sweepCount();
+        totalTime += (time*sweeps);
     }
-    return time;
+    return totalTime;
+}
+
+/*!
+ * \brief Calibration sweep time for all channels
+ *
+ * Returns the sweep time for calibrating all channels.
+ * This includes extra sweeps for averaging.
+ *
+ * \return Time, in ms.
+ */
+uint Vna::calibrationSweepTime_ms() {
+    QVector<uint> cList = channels();
+    uint totalTime = 0;
+    foreach (uint c, cList) {
+        uint time = channel(c).linearSweep().sweepTime_ms();
+        uint sweeps = channel(c).averaging().number();
+        totalTime += (time*sweeps);
+    }
+    return totalTime;
 }
 
 /*!
