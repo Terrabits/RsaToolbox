@@ -11,7 +11,8 @@ include($$PWD/Dialogs/vnadialogs.pri)
 include($$PWD/Models/vnamodels.pri)
 include($$PWD/Views/vnaviews.pri)
 
-HEADERS += $$PWD/VnaUserDefinedPort.h \
+HEADERS += $$PWD/VnaSet.h \
+           $$PWD/VnaUserDefinedPort.h \
            $$PWD/VnaStandardModel.h \
            $$PWD/VnaCalStandard.h \
            $$PWD/VnaProperties.h \
@@ -43,7 +44,8 @@ HEADERS += $$PWD/VnaUserDefinedPort.h \
            $$PWD/VnaScpi.h \
            $$PWD/Vna.h
 INCLUDEPATH += $$PWD
-SOURCES += $$PWD/VnaUserDefinedPort.cpp \
+SOURCES += $$PWD/VnaSet.cpp \
+           $$PWD/VnaUserDefinedPort.cpp \
            $$PWD/VnaStandardModel.cpp \
            $$PWD/VnaCalStandard.cpp \
            $$PWD/VnaProperties.cpp \

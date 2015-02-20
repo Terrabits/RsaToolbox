@@ -10,6 +10,7 @@
 #include "VnaProperties.h"
 #include "VnaSettings.h"
 #include "VnaFileSystem.h"
+#include "VnaSet.h"
 #include "VnaCalKit.h"
 #include "VnaChannel.h"
 #include "VnaCalibrate.h"
@@ -57,6 +58,16 @@ public:
 //    void closeSets();
 //    void saveSet(QString name);
 //    void deleteSet(QString name);
+
+    QStringList sets();
+    QString selectedSet();
+    QString newSet();
+    void newSet(const QString &name);
+    void openSet(QString filePathName);
+    void closeSet(const QString &name);
+    void closeSets();
+    void deleteSet(QString filePathName);
+    VnaSet &set(const QString &name = "Set1");
 
     // Properties
     VnaProperties &properties();
@@ -185,6 +196,7 @@ private:
     VnaProperties _properties;
     VnaSettings _settings;
     VnaFileSystem _fileSystem;
+    VnaSet _set;
     VnaCalKit _calKit;
     VnaCalibrate _calibrate;
     //VnaCalGroup _calGroup;

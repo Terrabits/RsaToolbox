@@ -227,9 +227,7 @@ uint VnaLinearSweep::sweepTime_ms() {
     QString scpi = ":SENS%1:SWE:TIME?\n";
     scpi = scpi.arg(_channelIndex);
     double time = _vna->query(scpi).trimmed().toDouble();
-
-//    uint sweeps = _channel->sweepCount();
-    return uint(1000.0 * time/* * double(sweeps)*/);
+    return uint(1000.0 * time);
 }
 void VnaLinearSweep::setSweepTime(uint time_ms) {
     QString scpi = ":SENS%1:SWE:TIME %2 ms\n";
@@ -238,9 +236,6 @@ void VnaLinearSweep::setSweepTime(uint time_ms) {
 
     autoSweepTimeOff();
     _vna->write(scpi);
-}
-uint VnaLinearSweep::calibrationSweepTime_ms() {
-    return sweepTime_ms() * _channel->averaging().number();
 }
 
 NetworkData VnaLinearSweep::measure(uint port1) {

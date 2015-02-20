@@ -63,8 +63,8 @@ public:
                            uint bufferSize_B = 500, uint timeout_ms = 1000);
 
     void wait();
-    void pause();
-    void pause(uint timeout_ms);
+    bool pause();
+    bool pause(uint timeout_ms);
     void initializePolling();
     bool isOperationComplete();
 

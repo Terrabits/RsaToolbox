@@ -8,6 +8,7 @@
 using namespace RsaToolbox;
 
 // Qt
+#include <QUuid>
 #include <QDebug>
 
 
@@ -98,6 +99,7 @@ Vna::Vna(QObject *parent)
       _properties(this),
       _settings(this),
       _fileSystem(this),
+      _set(this, ""),
       _calKit(this, NameLabel()),
       _calibrate(this),
 //      _calGroup(),
@@ -128,6 +130,7 @@ Vna::Vna(GenericBus *bus, QObject *parent)
       _properties(this),
       _settings(this),
       _fileSystem(this),
+      _set(this, ""),
       _calKit(this, NameLabel()),
       _calibrate(this),
 //      _calGroup(),
@@ -159,6 +162,7 @@ Vna::Vna(ConnectionType type, QString address, QObject *parent)
       _properties(this),
       _settings(this),
       _fileSystem(this),
+      _set(this, ""),
       _calKit(this, NameLabel()),
       _calibrate(this),
 //      _calGroup(),
@@ -424,6 +428,104 @@ bool Vna::errors(QStringList &messages) {
     }
     return !messages.isEmpty();
 }
+/**
+ * \name Set
+ * VNA Sets
+ * \sa VnaSet
+ * @{*/
+
+/*!
+ * \brief Retrieve interface to set \c name
+ * \param name Name of set
+ * \return \c VnaSet object for \c name
+ */
+QStringList Vna::sets() {
+    QString scpi = ":MEM:CAT?\n";
+    return query(":MEM:CAT?\n").trimmed().remove('\'').split(',', QString::SkipEmptyParts);
+}
+QString Vna::selectedSet() {
+    QStringList setList = sets();
+    if (setList.size() == 1)
+        return setList.first();
+
+    uint channel = channels().first();
+    QString name = QUuid::createUuid().toString().remove('{').remove('}').remove('-');
+    name.prepend("tr");
+    createTrace(name, channel);
+
+    foreach (QString s, setList) {
+        set(s).select();
+        if (traces().contains(name)) {
+            deleteTrace(name);
+            return s;
+        }
+    }
+
+    // Else
+    return "";
+}
+QString Vna::newSet() {
+    QStringList setList = sets();
+    QString name = "Set%1";
+    uint i = 1;
+    while (setList.contains(name.arg(i), Qt::CaseInsensitive))
+        i++;
+    name = name.arg(i);
+
+    newSet(name);
+    return name;
+}
+void Vna::newSet(const QString &name) {
+    QString scpi = ":MEM:DEF \'%1\'\n";
+    scpi = scpi.arg(name);
+    write(scpi);
+}
+void Vna::openSet(QString filePathName) {
+    QString extension;
+    if (properties().isZvaFamily())
+        extension = ".zvx";
+    else
+        extension = ".znx";
+    if (!filePathName.endsWith(extension, Qt::CaseInsensitive))
+        filePathName += extension;
+
+    QString scpi = ":MMEM:LOAD:STAT 1,\'%1\'\n";
+    scpi = scpi.arg(filePathName);
+
+    QString directory = fileSystem().directory();
+    fileSystem().changeDirectory(VnaFileSystem::Directory::RECALL_SETS_DIRECTORY);
+    write(scpi);
+    fileSystem().changeDirectory(directory);
+}
+void Vna::closeSet(const QString &name) {
+    QString scpi = ":MEM:DEL \'%1\'\n";
+    scpi = scpi.arg(name);
+    write(scpi);
+}
+void Vna::closeSets() {
+    write(":MEM:DEL:ALL\n");
+}
+void Vna::deleteSet(QString filePathName) {
+    QString extension;
+    if (properties().isZvaFamily())
+        extension = ".zvx";
+    else
+        extension = ".znx";
+    if (!filePathName.endsWith(extension, Qt::CaseInsensitive))
+        filePathName += extension;
+
+    QString directory = fileSystem().directory();
+    fileSystem().changeDirectory(VnaFileSystem::Directory::RECALL_SETS_DIRECTORY);
+    fileSystem().deleteFile(filePathName);
+    fileSystem().changeDirectory(directory);
+}
+VnaSet &Vna::set(const QString &name) {
+    _set = VnaSet(this, name);
+    return _set;
+}
+
+/** @} */
+
 
 /**
  * \name Properties
@@ -1604,9 +1706,9 @@ uint Vna::sweepTime_ms() {
     QVector<uint> cList = channels();
     uint totalTime = 0;
     foreach (uint c, cList) {
-        uint time = channel(c).linearSweep().sweepTime_ms();
+        uint time = channel(c).sweepTime_ms();
         uint sweeps = channel(c).sweepCount();
-        totalTime += (time*sweeps);
+        totalTime += (time * sweeps);
     }
     return totalTime;
 }
@@ -1622,11 +1724,8 @@ uint Vna::sweepTime_ms() {
 uint Vna::calibrationSweepTime_ms() {
     QVector<uint> cList = channels();
     uint totalTime = 0;
-    foreach (uint c, cList) {
-        uint time = channel(c).linearSweep().sweepTime_ms();
-        uint sweeps = channel(c).averaging().number();
-        totalTime += (time*sweeps);
-    }
+    foreach (uint c, cList)
+        totalTime += channel(c).calibrationSweepTime_ms();
     return totalTime;
 }
 

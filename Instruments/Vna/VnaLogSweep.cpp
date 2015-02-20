@@ -153,9 +153,6 @@ uint VnaLogSweep::sweepTime_ms() {
 void VnaLogSweep::setSweepTime(uint time_ms) {
     _channel->linearSweep().setSweepTime(time_ms);
 }
-uint VnaLogSweep::calibrationSweepTime_ms() {
-    return _channel->linearSweep().calibrationSweepTime_ms();
-}
 
 NetworkData VnaLogSweep::measure(uint port1) {
     QVector<uint> ports;

@@ -156,6 +156,32 @@ void VnaChannel::setSweepCount(uint count) {
     _vna->write(scpi);
 }
 
+uint VnaChannel::sweepTime_ms() {
+    SweepType type = sweepType();
+    switch(type) {
+    case SweepType::Linear:
+        return linearSweep().sweepTime_ms();
+    case SweepType::Log:
+        return logSweep().sweepTime_ms();
+    case SweepType::Segmented:
+        return segmentedSweep().sweepTime_ms();
+    case SweepType::Power:
+        return powerSweep().sweepTime_ms();
+    case SweepType::Cw:
+        return cwSweep().sweepTime_ms();
+    case SweepType::Time:
+        return timeSweep().time_s() * 1000.0;
+    default:
+        return linearSweep().sweepTime_ms();
+    }
+}
+uint VnaChannel::calibrationSweepTime_ms() {
+    if (averaging().isOff())
+        return sweepTime_ms();
+
+    return sweepTime_ms() * averaging().number();
+}
+
 // Sweep
 bool VnaChannel::isFrequencySweep() {
     VnaChannel::SweepType type = sweepType();

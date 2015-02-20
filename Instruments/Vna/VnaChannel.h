@@ -74,6 +74,10 @@ public:
     uint sweepCount();
     void setSweepCount(uint count = 1);
 
+    // Timing
+    uint sweepTime_ms();
+    uint calibrationSweepTime_ms();
+
     // Sweep
     bool isFrequencySweep();
     bool isLinearSweep();

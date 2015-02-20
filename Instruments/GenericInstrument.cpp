@@ -498,17 +498,14 @@ QByteArray GenericInstrument::binaryQuery(QByteArray scpiCommand,
 }
 
 /*!
- * \brief Locks the instrument for exclusive remote access
+ * \brief Locks the instrument for exclusive access
  *
+ * This method calls the \c GenericBus::lock() method
+ * of the underlying connection bus. Note that
  * Not all instrument busses support locking the instrument.
- * See GenericBus() and its subclasses for more information.
- *
- *\note Make sure that a valid instrument connection is
- * present before calling this method, otherwise
- * unintended behavior may result.
  *
  * \return \c true if operation is successful, \c false otherwise
- * \sa unlock()
+ * \sa GenericBus::lock(), unlock()
  */
 bool GenericInstrument::lock() {
     if (isConnected())
@@ -520,15 +517,12 @@ bool GenericInstrument::lock() {
 /*!
  * \brief Unlocks the instrument for access by other applications
  *
+ * This method calls the \c GenericBus::unlock() method
+ * of the underlying connection bus. Note that
  * Not all instrument busses support locking the instrument.
- * See GenericBus() and its subclasses for more information.
- *
- *\note Make sure that a valid instrument connection is
- * present before calling this method, otherwise
- * unintended behavior may result.
  *
  * \return \c true if operation is successful, \c false otherwise
- * \sa lock()
+ * \sa GenericBus::unlock(), lock()
  */
 bool GenericInstrument::unlock() {
     if (isConnected())
@@ -539,19 +533,17 @@ bool GenericInstrument::unlock() {
 
 /*!
  * \brief Puts the instrument into local mode
+ * via the current bus protocol
  *
- * Not all instrument busses support putting the instrument
- * into remote mode. If a bus-level method is not provided,
- * check the instrument documentation for device-specific
- * SCPI commands (e.g. R\&S VNAs respond to "\@LOC" and
- * "\@REM" for local and remote states, respectively.
+ * This method calls the \c GenericBus::local()
+ * method of the current bus object. Note that
+ * not all busses support putting the instrument
+ * into local mode. If a bus-level method is not provided,
+ * check the instrument documentation for an equivalent
+ * device-specific SCPI commands.
  *
- *\note Make sure that a valid instrument connection is
- * present before calling this method, otherwise
- * unintended behavior may result.
- *
- * \return \c true if operation is successful, \c false otherwise
- * \sa remote()
+ * \return \c true if successful, \c false otherwise
+ * \sa GenericBus::remote(), local()
  */
 bool GenericInstrument::local() {
     if (isConnected())
@@ -562,19 +554,17 @@ bool GenericInstrument::local() {
 
 /*!
  * \brief Puts the instrument into remote mode
+ * via the current bus protocol
  *
- * Not all instrument busses support putting the instrument
+ * This method calls the \c GenericBus::remote()
+ * method of the current bus object. Note that
+ * not all busses support putting the instrument
  * into remote mode. If a bus-level method is not provided,
- * check the instrument documentation for device-specific
- * SCPI commands (e.g. R\&S VNAs respond to "\@LOC" and
- * "\@REM" for local and remote states, respectively.
+ * check the instrument documentation for an equivalent
+ * device-specific SCPI commands.
  *
- *\note Make sure that a valid instrument connection is
- * present before calling this method, otherwise
- * unintended behavior may result.
- *
- * \return \c true if operation is successful, \c false otherwise
- * \sa local()
+ * \return \c true if successful, \c false otherwise
+ * \sa GenericBus::remote(), local()
  */
 bool GenericInstrument::remote() {
     if (isConnected())
@@ -587,11 +577,11 @@ bool GenericInstrument::remote() {
  * \brief Determines if the instrument is a Rohde \&
  * Schwarz instrument
  *
- *\note Make sure that a valid instrument connection is
- * present before calling this method, otherwise
- * unintended behavior may result.
+ * This method uses the \c idString(). If the
+ * \c idString() contains the string "Rohde",
+ * this method returns true.
  *
- * \return \c true if Rohde \& Schwarz instrument,
+ * \return \c true if instrument is Rohde \& Schwarz,
  * \c false otherwise
  */
 bool GenericInstrument::isRohdeSchwarz() {
@@ -601,51 +591,36 @@ bool GenericInstrument::isRohdeSchwarz() {
 // General SCPI commands (*)
 
 /*!
- * \brief Returns the result of the "*IDN?"
- * SCPI identification string
+ * \brief Returns the identification string
  *
- *\note Make sure that a valid instrument connection is
- * present before calling this method, otherwise
- * unintended behavior may result.
+ * This method uses the "*IDN?" SCPI
+ * command to query the id string
+ * of the instrument.
  *
- * \return The result of *IDN?
+ * \return Identification string
  */
 QString GenericInstrument::idString() {
     return(_bus->query("*IDN?\n").trimmed());
 }
 
 /*!
- * \brief Returns the result of the "*OPT?"
- * SCPI command
+ * \brief Returns the options string
  *
- * This method splits the *OPT? response
- * at each comma (',') character. This works
- * for Rohde \& Schwarz instruments, but may not
- * be universally observed among different
- * instrument manufacturers.
- * Use isRohdeSchwarz() to determine the manufacturer
- * of the instrument.
+ * This method uses the "*OPT?"
+ * SCPI command.
  *
- *\note Make sure that a valid instrument connection is
- * present before calling this method, otherwise
- * unintended behavior may result.
- *
- * \return Result of the *OPT? command
- * as a QStringList
- * \sa idString(), isRohdeSchwarz()
+ * \return Options string
+ * \sa idString()
  */
 QString GenericInstrument::optionsString() {
     return(_bus->query("*OPT?\n").trimmed());
 }
 
 /*!
- * \brief Sends the "*RST" preset
+ * \brief Presets the instrument
  *
- *\note Make sure that a valid instrument connection is
- * present before calling this method, otherwise
- * unintended behavior may result.
- *
- * SCPI command
+ * This method sends the "*RST"
+ * SCPI command.
  */
 void GenericInstrument::preset() {
     _bus->write("*RST\n");
@@ -680,14 +655,20 @@ void GenericInstrument::wait() {
 }
 
 /*!
- * \brief Sends the "*OPC?" SCPI command
+ * \brief Pauses until previous commands are completed.
  *
- * *OPC? is used to synchonize SCPI commands.
- * *OPC? commands the instrument to finish all
- * current operations (sweeps) before returning a value
- * This method will wait for the return value from
- * the instrument before returning control to
- * your application.
+ * Use this method to synchronize your application
+ * with the SCPI command queue of the instrument.
+ *
+ * This method sends the "*OPC?" SCPI command
+ * to the instrument. Upon receiving this query,
+ * the instrument will complete all previous
+ * SCPI commands before returning the string "1".
+ * \c Pause waits for this return value before
+ * returning to the caller.
+ *
+ * This command is used for synchronous
+ * measurement sweeps.
  *
  * For a gentle introduction to synchronous
  * instrument programming, see Application Note
@@ -698,46 +679,45 @@ void GenericInstrument::wait() {
  * the concepts apply equally well to all
  * instruments.
  *
- *\note Make sure that a valid instrument connection is
- * present before calling this method, otherwise
- * unintended behavior may result.
+ * \note This command has a timeout of
+ * \c GenericBus::timeout_ms() milliseconds.
+ *
+ * \return \c true if operation(s) completed.
+ * \c false otherwise.
+ * \sa pause(uint timeout_ms), GenericBus::timeout_ms()
  */
-void GenericInstrument::pause() {
-    _bus->query("*OPC?\n");
-}
-void GenericInstrument::pause(uint timeout_ms) {
-    uint oldTime = _bus->timeout_ms();
-    _bus->setTimeout(timeout_ms);
-    pause();
-    _bus->setTimeout(oldTime);
+bool GenericInstrument::pause() {
+    return _bus->query("*OPC?\n").toUInt() == 1;
 }
 
 /*!
- * \brief Initialize a poll-and-loop sequence with
- * the "*OPC" command.
+ * \brief Pauses until previous commands are completed
+ * or for \c timeout_ms, whichever comes first.
+ * \param timeout_ms
+ * \return \c true if operation(s) completed.
+ * \c false otherwise
+ * \sa pause()
+ */
+bool GenericInstrument::pause(uint timeout_ms) {
+    uint oldTime = _bus->timeout_ms();
+    _bus->setTimeout(timeout_ms);
+    bool isOperationComplete = pause();
+    _bus->setTimeout(oldTime);
+    return isOperationComplete;
+}
+
+/*!
+ * \brief Initialize poll-and-loop synchronization
  *
- * *OPC commands the instrument to set the 0-bit of
- * the Event Status Register (ESR) after all previous operations
- * (including the current sweep) are completed.
- * This command is primarily used with the
- * "poll and loop" method, where an application
- * periodically polls the instrument to see if
- * it has completed the current operation(s); if
- * the current operation is not complete, the
- * application typically does some unrelated
- * processing then asks again. This polling
- * process is repeated (i.e. loops) until the
- * current operation is complete and the
- * application can continue.
+ * This command sets the Operation Complete
+ * bit (bit 0) of the Event Status Register (ESR)
+ * to zero. Call this command immediately after
+ * the operation you want to synchronize to.
  *
- * To initiate this process, the *OPC command is
- * sent at the beginning of the loop, and the *ESR?
- * query is sent to poll, making sure to check the
- * 0th bit of the 8-bit register value that is
- * returned. When the 0th bit ("Operation Complete" bit)
- * is set to 1, all operations previous to *OPC are complete.
- * If the bit has a value of 0, the operations previous to
- * *OPC are still pending.
+ * When the instrument completes the current operation,
+ * it will set the Operation Complete bit to
+ * 1. Use the \c isOperationComplete() method
+ * to check for this.
  *
  * For a gentle introduction to synchronous
  * instrument programming, see Application Note
@@ -747,35 +727,18 @@ void GenericInstrument::pause(uint timeout_ms) {
  * specifically for Signal Generators, many of
  * the concepts apply equally well to all
  * instruments.
- *
- *\note Make sure that a valid instrument connection is
- * present before calling this method, otherwise
- * unintended behavior may result.
+ * \sa isOperationComplete()
  */
 void GenericInstrument::initializePolling() {
     _bus->write("*OPC\n");
 }
 
 /*!
- * \brief Returns the result of the "*OPC"
- * SCPI command
+ * \brief Polls instrument for operation status
  *
- * This command is used in conjunction with
- * isOperationComplete().
- *
- * *OPC is used to synchonize SCPI commands.
- * *OPC polls the instrument to determine if
- * the current operation (sweep) has completed.
- * This command is primarily used with the
- * "poll and loop" method, where an application
- * periodically polls the instrument to see if
- * it has completed the current operation; if
- * the current operation is not complete, the
- * application typically does some unrelated
- * processing then calls *OPC again. This polling
- * process is repeated (i.e. loops) until the
- * current operation is complete and the
- * application can continue.
+ * When used with \c initializePolling(),
+ * this method returns \c true when the current
+ * operation is complete.
  *
  * For a gentle introduction to synchronous
  * instrument programming, see Application Note
@@ -785,31 +748,25 @@ void GenericInstrument::initializePolling() {
  * specifically for Signal Generators, many of
  * the concepts apply equally well to all
  * instruments.
- *
- *\note Make sure that a valid instrument connection is
- * present before calling this method, otherwise
- * unintended behavior may result.
- * \sa isOperationComplete()
+ * \return \c true if operation is complete,
+ * \c false otherwise
+ * \sa initializePolling()
  */
 bool GenericInstrument::isOperationComplete() {
-    return(_bus->query("*ESR?").toUInt() % 2 == 1);
+    const uint opcBit = 0x1;
+    uint esr = _bus->query("*ESR?\n").toUInt();
+    return (esr & opcBit) == 1;
 }
 
 /*!
- * \brief Sends the "*CLS" SCPI command to
- * the instrument
+ * \brief Clears all errors
  *
- * The *CLS command clears current errors from the
- * instrument error queue. Those errors are not
- * retrieved; they are immediately deleted. Retrieving
- * the error queue is instrument-specific; see
- * the instrument documentation for additional
- * details.
- *
- *\note Make sure that a valid instrument connection is
- * present before calling this method, otherwise
- * unintended behavior may result.
- * \sa initializePolling()
+ * Sends the "*CLS" SCPI command to
+ * the instrument, which clears
+ * all errors from the
+ * error queue.  These errors are
+ * discarded without being read
+ * or handled.
  */
 void GenericInstrument::clearStatus() {
     _bus->write("*CLS\n");
