@@ -67,6 +67,7 @@ private:
     bool _isChannelSpecific;
     QScopedPointer<VnaChannel> _channel;
     uint _channelIndex;
+    uint _timeout_ms;
     
     bool isFullyInitialized() const;
     bool isMissingZvaCommand();

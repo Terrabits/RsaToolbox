@@ -185,7 +185,15 @@ NameLabel VnaCalibrate:: selectedKit(Connector type) {
 
 void VnaCalibrate::start(QString calibrationName,
                           CalType type,
-                          QVector<uint> ports) {
+                          QVector<uint> ports)
+{
+    // Note: Cannot ask for sweep type (and therefore sweep time)
+    // during calibration!
+    if (_isChannelSpecific)
+        _timeout_ms = _channel->calibrationSweepTime_ms();
+    else
+        _timeout_ms = _vna->calibrationSweepTime_ms();
+
     selectChannels();
     defineCalibration(calibrationName, type, ports);
 }
@@ -220,7 +228,7 @@ void VnaCalibrate:: measureOpen(uint port) {
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:COLL:SEL OPEN,%2\n";
         scpi = scpi.arg(_channelIndex);
-//        timeout_ms = _channel->linearSweep().calibrationSweepTime_ms();
+//        timeout_ms = _channel->calibrationSweepTime_ms();
     }
     else {
         scpi = ":CORR:COLL:SEL OPEN,%2\n";
@@ -229,9 +237,9 @@ void VnaCalibrate:: measureOpen(uint port) {
     scpi = scpi.arg(port);
     _vna->write(scpi);
 
-    _vna->pause(600000 /*timeout_ms * 5 + 6000*/);
-//    _vna->initializePolling();
-//    while (!_vna->isOperationComplete());
+    // Note: Cannot ask for sweep type (and therefore sweep time)
+    // during calibration!
+    _vna->pause(_timeout_ms * 2 + 5000 /*timeout_ms * 2 + 5000*/);
 }
 void VnaCalibrate:: measureShort(uint port) {
     if (isMissingZvaCommand())
@@ -242,7 +250,7 @@ void VnaCalibrate:: measureShort(uint port) {
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:COLL:SEL SHOR,%2\n";
         scpi = scpi.arg(_channelIndex);
-//        timeout_ms = _channel->linearSweep().calibrationSweepTime_ms();
+//        timeout_ms = _channel->calibrationSweepTime_ms();
     }
     else {
         scpi = ":CORR:COLL:SEL SHOR,%2\n";
@@ -251,9 +259,9 @@ void VnaCalibrate:: measureShort(uint port) {
     scpi = scpi.arg(port);
     _vna->write(scpi);
 
-    _vna->pause(600000 /*timeout_ms * 5 + 6000*/);
-//    _vna->initializePolling();
-//    while (!_vna->isOperationComplete());
+    // Note: Cannot ask for sweep type (and therefore sweep time)
+    // during calibration!
+    _vna->pause(_timeout_ms * 2 + 5000 /*timeout_ms * 2 + 5000*/);
 }
 void VnaCalibrate:: measureMatch(uint port) {
     if (isMissingZvaCommand())
@@ -264,7 +272,7 @@ void VnaCalibrate:: measureMatch(uint port) {
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:COLL:SEL MATC,%2\n";
         scpi = scpi.arg(_channelIndex);
-//        timeout_ms = _channel->linearSweep().calibrationSweepTime_ms();
+//        timeout_ms = _channel->calibrationSweepTime_ms();
     }
     else {
         scpi = ":CORR:COLL:SEL MATC,%2\n";
@@ -273,9 +281,9 @@ void VnaCalibrate:: measureMatch(uint port) {
     scpi = scpi.arg(port);
     _vna->write(scpi);
 
-    _vna->pause(600000 /*timeout_ms * 5 + 6000*/);
-//    _vna->initializePolling();
-//    while (!_vna->isOperationComplete());
+    // Note: Cannot ask for sweep type (and therefore sweep time)
+    // during calibration!
+    _vna->pause(_timeout_ms * 2 + 5000 /*timeout_ms * 2 + 5000*/);
 }
 void VnaCalibrate:: measureThru(uint port1, uint port2) {
     if (isMissingZvaCommand())
@@ -286,7 +294,7 @@ void VnaCalibrate:: measureThru(uint port1, uint port2) {
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:COLL:SEL THR,%2,%3\n";
         scpi = scpi.arg(_channelIndex);
-//        timeout_ms = _channel->linearSweep().calibrationSweepTime_ms();
+//        timeout_ms = _channel->calibrationSweepTime_ms();
     }
     else {
         scpi = ":CORR:COLL:SEL THR,%2,%3\n";
@@ -296,9 +304,9 @@ void VnaCalibrate:: measureThru(uint port1, uint port2) {
     scpi = scpi.arg(port2);
     _vna->write(scpi);
 
-    _vna->pause(600000 /*timeout_ms * 5 + 6000*/);
-//    _vna->initializePolling();
-//    while (!_vna->isOperationComplete());
+    // Note: Cannot ask for sweep type (and therefore sweep time)
+    // during calibration!
+    _vna->pause(_timeout_ms * 2 + 5000 /*timeout_ms * 2 + 5000*/);
 }
 void VnaCalibrate:: apply() {
     if (isMissingZvaCommand())

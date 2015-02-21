@@ -148,7 +148,8 @@ ComplexMatrix3D VnaSegmentedSweep::readSParameterGroup() {
 uint VnaSegmentedSweep::sweepTime_ms() {
     QString scpi = ":SENS%1:SEGM:SWE:TIME:SUM?\n";
     scpi = scpi.arg(_channelIndex);
-    return _vna->query(scpi).trimmed().toUInt();
+//    return _vna->query(scpi).trimmed().toDouble() * 1000;
+    return 600000; // 10 minutes!
 }
 
 NetworkData VnaSegmentedSweep::measure(uint port1) {

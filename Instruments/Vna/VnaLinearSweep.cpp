@@ -227,7 +227,17 @@ uint VnaLinearSweep::sweepTime_ms() {
     QString scpi = ":SENS%1:SWE:TIME?\n";
     scpi = scpi.arg(_channelIndex);
     double time = _vna->query(scpi).trimmed().toDouble();
-    return uint(1000.0 * time);
+
+    // Znb 20, 40 may report incorrect
+    // sweep times. These instruments are
+    // slower than the Znb 8!
+    if (_vna->properties().isZnbFamily()
+            && _vna->properties().maximumFrequency_Hz() >= 20.0E9)
+    {
+        time *= 2.0;
+    }
+
+    return uint(time * 1000.0);
 }
 void VnaLinearSweep::setSweepTime(uint time_ms) {
     QString scpi = ":SENS%1:SWE:TIME %2 ms\n";
