@@ -91,7 +91,6 @@
     <namespace>RsaToolbox::Ui</namespace>
     <class kind="class">RsaToolbox::BalancedPort</class>
     <class kind="class">RsaToolbox::BreadCrumbs</class>
-    <class kind="class">RsaToolbox::CalDialog</class>
     <class kind="class">RsaToolbox::CalGroupPanel</class>
     <class kind="class">RsaToolbox::CalGroupsModel</class>
     <class kind="class">RsaToolbox::ChannelsModel</class>
@@ -148,6 +147,7 @@
     <class kind="class">RsaToolbox::VnaReferenceMarker</class>
     <class kind="class">RsaToolbox::VnaScpi</class>
     <class kind="class">RsaToolbox::VnaSegmentedSweep</class>
+    <class kind="class">RsaToolbox::VnaSet</class>
     <class kind="class">RsaToolbox::VnaSettings</class>
     <class kind="class">RsaToolbox::VnaStandardModel</class>
     <class kind="class">RsaToolbox::VnaSweepSegment</class>
@@ -206,6 +206,13 @@
       <name>Matrix3D</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>a9ba044817ed0459f04f0bc9e98f771c0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>QMap&lt; uint, uint &gt;</type>
+      <name>PortMap</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a5177d61f749a5ba10aaa71a3d62f6cc2</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
@@ -975,8 +982,8 @@
       <type>QString</type>
       <name>toString</name>
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
-      <anchor>a367a66470f1261677697344ca31223b0</anchor>
-      <arglist>(ComplexRowVector vector, QString list_separator, QString format=&quot;(%1, %2)&quot;)</arglist>
+      <anchor>ad6a771f988a19c2874b9f8152d8bbc35</anchor>
+      <arglist>(ComplexRowVector vector, QString separator, QString format=&quot;(%1, %2)&quot;)</arglist>
     </member>
     <member kind="function">
       <type>QStringList</type>
@@ -1047,6 +1054,13 @@
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>a0f00ddf7ecf4d2c63237fc41036fa7db</anchor>
       <arglist>(ComplexRowVector values)</arglist>
+    </member>
+    <member kind="function">
+      <type>QMap&lt; T1, T2 &gt;</type>
+      <name>parseMap</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a4f07c6af2a4188ae266e5f02628dab48</anchor>
+      <arglist>(QString values, QString separator, QString ignore=&quot;&quot;, QString::SplitBehavior splitBehavior=QString::KeepEmptyParts)</arglist>
     </member>
     <member kind="function">
       <type>QByteArray</type>
@@ -1285,6 +1299,13 @@
       <anchorfile>namespace_rsa_toolbox.html</anchorfile>
       <anchor>acb477457f800e6528ebe51e7b77388f9</anchor>
       <arglist>(RowVector &amp;result, double start, double stop, int points)</arglist>
+    </member>
+    <member kind="function">
+      <type>QRowVector</type>
+      <name>logSpacing</name>
+      <anchorfile>namespace_rsa_toolbox.html</anchorfile>
+      <anchor>a5093a52162231404771577a1a47f3efe</anchor>
+      <arglist>(double start, double stop, int points)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2294,73 +2315,6 @@
       <anchorfile>class_rsa_toolbox_1_1_bread_crumbs.html</anchorfile>
       <anchor>aa1319d9902f4d4b0ebc94197dadda8ea</anchor>
       <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>RsaToolbox::CalDialog</name>
-    <filename>class_rsa_toolbox_1_1_cal_dialog.html</filename>
-    <member kind="slot">
-      <type>void</type>
-      <name>accept</name>
-      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
-      <anchor>aadb9f3b844fb4cf98288cd3c60a3af91</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>reject</name>
-      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
-      <anchor>a84e832c2421763b25e1ae0d9a76f519c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
-      <anchor>ad20897c5c8bd47f5d4005989bead0e55</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="signal">
-      <type>void</type>
-      <name>selectionChanged</name>
-      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
-      <anchor>a530b98c1adf71fadbf67359763e9dcea</anchor>
-      <arglist>(QItemSelection, QItemSelection)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>CalDialog</name>
-      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
-      <anchor>afb0c6f32011ff5a615e2f2eba0aeb332</anchor>
-      <arglist>(QWidget *parent=0)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~CalDialog</name>
-      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
-      <anchor>add91add6be875f90291e33464269ddc0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setModel</name>
-      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
-      <anchor>adb02fa02794384dcb4f9f76e102bb42c</anchor>
-      <arglist>(CalGroupsModel *model, int column=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>CalGroupsModel *</type>
-      <name>model</name>
-      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
-      <anchor>aaf6c8b0a27645339641090c635c48bf1</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>QModelIndex</type>
-      <name>selectedIndex</name>
-      <anchorfile>class_rsa_toolbox_1_1_cal_dialog.html</anchorfile>
-      <anchor>a60aaed4f68885ced63ed6c015ef2dc20</anchor>
-      <arglist>() const </arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -4200,17 +4154,17 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>bool</type>
       <name>pause</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_instrument.html</anchorfile>
-      <anchor>a7167f5c196fc5e167bfabde1a730e81d</anchor>
+      <anchor>a2853250ac5b9806e29d41f6f37b3b7f0</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>bool</type>
       <name>pause</name>
       <anchorfile>class_rsa_toolbox_1_1_generic_instrument.html</anchorfile>
-      <anchor>a8d195c195d8f25ecb428ab45b0cc7ad2</anchor>
+      <anchor>a02e2de9df861e2bc948a17ae6e675de9</anchor>
       <arglist>(uint timeout_ms)</arglist>
     </member>
     <member kind="function">
@@ -6245,30 +6199,30 @@
     </member>
     <member kind="function" static="yes">
       <type>static bool</type>
-      <name>Read</name>
+      <name>read</name>
       <anchorfile>class_rsa_toolbox_1_1_touchstone.html</anchorfile>
-      <anchor>ae986ab885883976bb96f1323c4acb019</anchor>
-      <arglist>(NetworkData &amp;network, QTextStream &amp;touchstone_in, int ports)</arglist>
+      <anchor>a635b64b9c446f9c7bb4e5149edb1bf04</anchor>
+      <arglist>(NetworkData &amp;network, QTextStream &amp;stream, int ports)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static bool</type>
-      <name>Read</name>
+      <name>read</name>
       <anchorfile>class_rsa_toolbox_1_1_touchstone.html</anchorfile>
-      <anchor>a99e50d32edc83325828f93466a731e32</anchor>
+      <anchor>a6b32c5d8c90095e96586a5671e327baa</anchor>
       <arglist>(NetworkData &amp;network, QString filename)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static bool</type>
-      <name>Write</name>
+      <name>write</name>
       <anchorfile>class_rsa_toolbox_1_1_touchstone.html</anchorfile>
-      <anchor>a6143cc2562bf17edc99f4f5a3be8d4d4</anchor>
-      <arglist>(NetworkData &amp;network, QTextStream &amp;touchstone_out)</arglist>
+      <anchor>a97879d3dc158e6088073a28543f69dd1</anchor>
+      <arglist>(NetworkData &amp;network, QTextStream &amp;stream)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static bool</type>
-      <name>Write</name>
+      <name>write</name>
       <anchorfile>class_rsa_toolbox_1_1_touchstone.html</anchorfile>
-      <anchor>a75ea7e0ce229b6317a1970a0de3e83ef</anchor>
+      <anchor>a154afc7f419eaf0d080cf59c85d2939d</anchor>
       <arglist>(NetworkData &amp;network, QString filename)</arglist>
     </member>
   </compound>
@@ -6497,6 +6451,69 @@
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
       <anchor>ad948d84bc3defe9716b7777a0330d6be</anchor>
       <arglist>(QList&lt; int &gt; &amp;codes, QStringList &amp;messages)</arglist>
+    </member>
+    <member kind="function">
+      <type>QStringList</type>
+      <name>sets</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>a058442cc8713072634ac38dda9a9ec69</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>selectedSet</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>a2f43fadc20a749b84b13f671d1313105</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>newSet</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>ad35ec6fce0d2df13d1b71d948d37e176</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>newSet</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>af090830af182ad752ac45d9938c2d9d7</anchor>
+      <arglist>(const QString &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>openSet</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>a480ae0716ff64b7018fa2455d0f9a28d</anchor>
+      <arglist>(QString filePathName)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>closeSet</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>a28fb02649a6dd4191c10c84c59236911</anchor>
+      <arglist>(const QString &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>closeSets</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>a6e3dcc127707ee0cb045559c15f9c5bf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deleteSet</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>a738754f0b66c03d016acff17aeb58423</anchor>
+      <arglist>(QString filePathName)</arglist>
+    </member>
+    <member kind="function">
+      <type>VnaSet &amp;</type>
+      <name>set</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>ac4243b8f437e3db4b8a383b4155184f6</anchor>
+      <arglist>(const QString &amp;name=&quot;Set1&quot;)</arglist>
     </member>
     <member kind="function">
       <type>VnaProperties &amp;</type>
@@ -6961,6 +6978,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>uint</type>
+      <name>calibrationSweepTime_ms</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>ae6f71637540648b6d9ad10d4dc3f14fa</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>startSweeps</name>
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
@@ -6976,51 +7000,72 @@
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>isSwitchMatrix</name>
+      <name>isVnaPort</name>
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>adf847af4c791c3ed290ce1e0cc991bd7</anchor>
-      <arglist>(uint index=1)</arglist>
+      <anchor>a78d5b602a94575d5bba6d1caa8ed0ed6</anchor>
+      <arglist>(uint testPort)</arglist>
     </member>
     <member kind="function">
       <type>uint</type>
-      <name>numberOfSwitchMatrices</name>
+      <name>vnaPort</name>
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>a7d0d7026ee6bef687aacf0b725eaab85</anchor>
-      <arglist>()</arglist>
+      <anchor>a04aba52f1d92249b793d9f6ada2573a6</anchor>
+      <arglist>(uint testPort)</arglist>
     </member>
     <member kind="function">
       <type>QVector&lt; uint &gt;</type>
-      <name>switchMatrices</name>
+      <name>vnaTestPorts</name>
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>af35c2a5f614190d3c4ccdfe232b58f96</anchor>
+      <anchor>a882c285df61f01e6c63d816bdb972d79</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>addSwitchMatrix</name>
+      <type>PortMap</type>
+      <name>testPortToVnaMap</name>
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>ac7326c667d2c27dac917ec55ac794297</anchor>
-      <arglist>(uint index)</arglist>
+      <anchor>a43e19b66c422a512780e04b4f15e2c8c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>areSwitchMatrices</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>ac7b239ccd1d278c690380a04ccffed9e</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>uint</type>
-      <name>addSwitchMatrix</name>
+      <name>switchMatrices</name>
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>a076766d06e234da4574737c670235c55</anchor>
+      <anchor>ae41461d8ea92b9fa2a01f2f17fb705dc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSwitchMatrixPort</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>a203d34896fd28eaa107f4fb9e635d63f</anchor>
+      <arglist>(uint testPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>switchMatrixWithPort</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>a241aeb7c810e62fae6e84186f65ff9c8</anchor>
+      <arglist>(uint testPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>disconnectSwitchMatrices</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
+      <anchor>a4ce5f91ae524a459f64dd79803d22bcf</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>deleteSwitchMatrix</name>
+      <name>removeSwitchMatrices</name>
       <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>afe23b168d640debc37d36c410db63521</anchor>
-      <arglist>(uint index)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deleteSwitchMatrices</name>
-      <anchorfile>class_rsa_toolbox_1_1_vna.html</anchorfile>
-      <anchor>a47a02aba98d882c20f7d7c67f7fb16ac</anchor>
+      <anchor>a9e516652d2fc8e80891b01a1e0d3ede3</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -8721,6 +8766,20 @@
       <arglist>(uint count=1)</arglist>
     </member>
     <member kind="function">
+      <type>uint</type>
+      <name>sweepTime_ms</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>a919adcd598ff449e735b48daa047d45b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>calibrationSweepTime_ms</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
+      <anchor>ae6f71637540648b6d9ad10d4dc3f14fa</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isFrequencySweep</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_channel.html</anchorfile>
@@ -9285,18 +9344,74 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>bool</type>
+      <name>isVnaPort</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a78d5b602a94575d5bba6d1caa8ed0ed6</anchor>
+      <arglist>(uint testPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>vnaPort</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a04aba52f1d92249b793d9f6ada2573a6</anchor>
+      <arglist>(uint testPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>PortMap</type>
+      <name>testPortToVnaMap</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a43e19b66c422a512780e04b4f15e2c8c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>areSwitchMatrices</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>ac7b239ccd1d278c690380a04ccffed9e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>switchMatrices</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>ae41461d8ea92b9fa2a01f2f17fb705dc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSwitchMatrixPort</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a203d34896fd28eaa107f4fb9e635d63f</anchor>
+      <arglist>(uint testPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint</type>
+      <name>switchMatrix</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a3e1d86358bc59d924225e5701634adf0</anchor>
+      <arglist>(uint testPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>PortMap</type>
+      <name>switchMatrixToVnaPortMap</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>ac0f772d78427ac7b4296fdf0a494f892</anchor>
+      <arglist>(uint switchMatrix)</arglist>
+    </member>
+    <member kind="function">
+      <type>PortMap</type>
+      <name>testPortToSwitchMatrixMap</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a85f239af69dae512287b42088506be89</anchor>
+      <arglist>(uint switchMatrix)</arglist>
+    </member>
+    <member kind="function">
       <type>ComplexRowVector</type>
       <name>directivity</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
       <anchor>a38dd5aa70137810f69f129d4c0a3c9df</anchor>
       <arglist>(uint outputPort, uint inputPort)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setDirectivity</name>
-      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
-      <anchor>a15019ba28b89e00acc11e4fc90ae23d6</anchor>
-      <arglist>(ComplexRowVector corrections, uint outputPort, uint inputPort)</arglist>
     </member>
     <member kind="function">
       <type>ComplexRowVector</type>
@@ -9306,13 +9421,6 @@
       <arglist>(uint outputPort, uint inputPort)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>setSourceMatch</name>
-      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
-      <anchor>acbe76af6d143849cf3bd3485db8be3cc</anchor>
-      <arglist>(ComplexRowVector corrections, uint outputPort, uint inputPort)</arglist>
-    </member>
-    <member kind="function">
       <type>ComplexRowVector</type>
       <name>reflectionTracking</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
@@ -9320,25 +9428,11 @@
       <arglist>(uint outputPort, uint inputPort)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>setReflectionTracking</name>
-      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
-      <anchor>a781e021b20a15a5680607e90617d5e40</anchor>
-      <arglist>(ComplexRowVector corrections, uint outputPort, uint inputPort)</arglist>
-    </member>
-    <member kind="function">
       <type>ComplexRowVector</type>
       <name>loadMatch</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
       <anchor>a8022002532bb645b57a7204ab705b0d1</anchor>
       <arglist>(uint outputPort, uint inputPort)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setLoadMatch</name>
-      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
-      <anchor>a67d65f31c357351a45d1e80520b03d66</anchor>
-      <arglist>(ComplexRowVector corrections, uint outputPort, uint inputPort)</arglist>
     </member>
     <member kind="function">
       <type>ComplexRowVector</type>
@@ -9349,10 +9443,108 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setDirectivity</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a15019ba28b89e00acc11e4fc90ae23d6</anchor>
+      <arglist>(ComplexRowVector corrections, uint outputPort, uint inputPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSourceMatch</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>acbe76af6d143849cf3bd3485db8be3cc</anchor>
+      <arglist>(ComplexRowVector corrections, uint outputPort, uint inputPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setReflectionTracking</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a781e021b20a15a5680607e90617d5e40</anchor>
+      <arglist>(ComplexRowVector corrections, uint outputPort, uint inputPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLoadMatch</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a67d65f31c357351a45d1e80520b03d66</anchor>
+      <arglist>(ComplexRowVector corrections, uint outputPort, uint inputPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setTransmissionTracking</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
       <anchor>ace87f8f0c756763e9ce50324b9e62acb</anchor>
       <arglist>(ComplexRowVector corrections, uint outputPort, uint inputPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>ComplexRowVector</type>
+      <name>directivity</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a13792555c538c221fa117a8dc6571293</anchor>
+      <arglist>(uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>ComplexRowVector</type>
+      <name>sourceMatch</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>ab45a204ab93a5aeff1fabf9a7fa488a6</anchor>
+      <arglist>(uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>ComplexRowVector</type>
+      <name>reflectionTracking</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>afdf9d63225c3f14f94bb9d673d3a7de0</anchor>
+      <arglist>(uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>ComplexRowVector</type>
+      <name>loadMatch</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a0801b7f297b3734886aeb8f54a7c9b02</anchor>
+      <arglist>(uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>ComplexRowVector</type>
+      <name>transmissionTracking</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a8bc1a551fe1c560a5ade23da987228bb</anchor>
+      <arglist>(uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDirectivity</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a1569cc0d20ba4716295145c4165b776f</anchor>
+      <arglist>(ComplexRowVector corrections, uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSourceMatch</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>ace4cae532a72baa7119615ddff12bafa</anchor>
+      <arglist>(ComplexRowVector corrections, uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setReflectionTracking</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a2ee159ea2617a102aec23608ed73556b</anchor>
+      <arglist>(ComplexRowVector corrections, uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLoadMatch</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>aac444e8f3464d04c73c91074a8c2c2d7</anchor>
+      <arglist>(ComplexRowVector corrections, uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTransmissionTracking</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_corrections.html</anchorfile>
+      <anchor>a65a51a0f2e9e600ee0f603cd417411bd</anchor>
+      <arglist>(ComplexRowVector corrections, uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -11961,6 +12153,20 @@
     </member>
     <member kind="function" static="yes">
       <type>static QString</type>
+      <name>toMatrixString</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>a4ebed389e68ea2a4162b4f095396bba4</anchor>
+      <arglist>(ConnectionType type)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static ConnectionType</type>
+      <name>toMatrixConnection</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
+      <anchor>ac4930bb2a4a9d151fdbc5b31be627239</anchor>
+      <arglist>(QString scpi)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static QString</type>
       <name>toString</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_scpi.html</anchorfile>
       <anchor>ad9d5041def5a764cd04311ec26e1722e</anchor>
@@ -12293,46 +12499,11 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>isAutoSweepTimeOn</name>
-      <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
-      <anchor>a4e1fc288463e0ad50378803d912079bc</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isAutoSweepTimeOff</name>
-      <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
-      <anchor>ad192ac15485a3caf48ba9b36be2beb65</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>autoSweepTimeOn</name>
-      <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
-      <anchor>a42fa6859b453c6c8004ec13da4580d28</anchor>
-      <arglist>(bool isOn=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>autoSweepTimeOff</name>
-      <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
-      <anchor>a220fef16f57b763fc04b22d35989e2dd</anchor>
-      <arglist>(bool isOff=true)</arglist>
-    </member>
-    <member kind="function">
       <type>uint</type>
       <name>sweepTime_ms</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
       <anchor>a919adcd598ff449e735b48daa047d45b</anchor>
       <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setSweepTime</name>
-      <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
-      <anchor>ae00e33d51b3a5c16d9c00a6cdced6f5d</anchor>
-      <arglist>(uint time_ms)</arglist>
     </member>
     <member kind="function">
       <type>NetworkData</type>
@@ -12375,6 +12546,59 @@
       <anchorfile>class_rsa_toolbox_1_1_vna_segmented_sweep.html</anchorfile>
       <anchor>a1de61dd353557f367470fda30dc1c52e</anchor>
       <arglist>(VnaSegmentedSweep const &amp;other)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RsaToolbox::VnaSet</name>
+    <filename>class_rsa_toolbox_1_1_vna_set.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>VnaSet</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_set.html</anchorfile>
+      <anchor>a39a666eb8418be5411ac3387f69a8f1c</anchor>
+      <arglist>(QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>VnaSet</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_set.html</anchorfile>
+      <anchor>aa1126a10a67211fec8909371dd9578f9</anchor>
+      <arglist>(const VnaSet &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>VnaSet</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_set.html</anchorfile>
+      <anchor>ad9b079b352b12ffefad3250af5201ecd</anchor>
+      <arglist>(Vna *vna, QString name, QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~VnaSet</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_set.html</anchorfile>
+      <anchor>af5057477b544336e605d7606a65172d9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>select</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_set.html</anchorfile>
+      <anchor>ae60563c7ee9cee897adaca8bd61f17ce</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>save</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_set.html</anchorfile>
+      <anchor>ab36de738538a9f38a8d82b71dcc58efe</anchor>
+      <arglist>(QString filePathName)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator=</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_set.html</anchorfile>
+      <anchor>aa1ac04193685ea2d2f7d5ef09fdef0ec</anchor>
+      <arglist>(VnaSet const &amp;other)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -13335,6 +13559,48 @@
       <name>~VnaSwitchMatrix</name>
       <anchorfile>class_rsa_toolbox_1_1_vna_switch_matrix.html</anchorfile>
       <anchor>a19afb6cc2c2080d5f336bae92cbdb4a9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>driver</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_switch_matrix.html</anchorfile>
+      <anchor>ac6e1ecd8c5c309bd706a2b01d7b77c84</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>ConnectionType</type>
+      <name>connectionType</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_switch_matrix.html</anchorfile>
+      <anchor>a10abba59c249eada1acc8b335ce34ccd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>address</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_switch_matrix.html</anchorfile>
+      <anchor>a18c505ec7f478c73d37dd059a0ce4ce6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasTestPort</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_switch_matrix.html</anchorfile>
+      <anchor>ae8c7ea0679b300bf50e89198feebeeb5</anchor>
+      <arglist>(uint testPort)</arglist>
+    </member>
+    <member kind="function">
+      <type>PortMap</type>
+      <name>switchMatrixToVnaPortMap</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_switch_matrix.html</anchorfile>
+      <anchor>a3f633a0d224fdde2decd765ac214f5a8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>PortMap</type>
+      <name>testPortToMatrixMap</name>
+      <anchorfile>class_rsa_toolbox_1_1_vna_switch_matrix.html</anchorfile>
+      <anchor>a7308a8f7ce85312774443f2e455db408</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -15086,13 +15352,6 @@
     <file>GenericBus.h</file>
   </compound>
   <compound kind="dir">
-    <name>Instruments/Vna/Dialogs/CalDialog</name>
-    <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Dialogs/CalDialog/</path>
-    <filename>dir_71886fae34996f96e535901a235a2868.html</filename>
-    <file>CalDialog.cpp</file>
-    <file>CalDialog.h</file>
-  </compound>
-  <compound kind="dir">
     <name>Instruments/Vna/Views/CalGroupPanel</name>
     <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Views/CalGroupPanel/</path>
     <filename>dir_bad37832da9807352ecc77b37d15eb7b.html</filename>
@@ -15131,7 +15390,6 @@
     <name>Instruments/Vna/Dialogs</name>
     <path>C:/Users/lalic/Documents/Qt/RsaToolbox/Instruments/Vna/Dialogs/</path>
     <filename>dir_506d3ea1b7d2598501467272917bc3d6.html</filename>
-    <dir>Instruments/Vna/Dialogs/CalDialog</dir>
     <dir>Instruments/Vna/Dialogs/getChannelDialog</dir>
     <dir>Instruments/Vna/Dialogs/getPortsDialog</dir>
   </compound>
@@ -15351,6 +15609,8 @@
     <file>VnaScpi.h</file>
     <file>VnaSegmentedSweep.cpp</file>
     <file>VnaSegmentedSweep.h</file>
+    <file>VnaSet.cpp</file>
+    <file>VnaSet.h</file>
     <file>VnaSettings.cpp</file>
     <file>VnaSettings.h</file>
     <file>VnaStandardModel.cpp</file>

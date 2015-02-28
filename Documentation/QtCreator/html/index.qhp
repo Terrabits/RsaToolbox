@@ -41,17 +41,6 @@
               <section title="back" ref="class_rsa_toolbox_1_1_bread_crumbs.html#aa4c6563663c98d6c5c109d8fdf07e24c" />
               <section title="setLinks" ref="class_rsa_toolbox_1_1_bread_crumbs.html#af852e0c922d78610453da1fdd72542cb" />
             </section>
-            <section title="CalDialog" ref="class_rsa_toolbox_1_1_cal_dialog.html">
-              <section title="CalDialog" ref="class_rsa_toolbox_1_1_cal_dialog.html#afb0c6f32011ff5a615e2f2eba0aeb332" />
-              <section title="~CalDialog" ref="class_rsa_toolbox_1_1_cal_dialog.html#add91add6be875f90291e33464269ddc0" />
-              <section title="accept" ref="class_rsa_toolbox_1_1_cal_dialog.html#aadb9f3b844fb4cf98288cd3c60a3af91" />
-              <section title="model" ref="class_rsa_toolbox_1_1_cal_dialog.html#aaf6c8b0a27645339641090c635c48bf1" />
-              <section title="reject" ref="class_rsa_toolbox_1_1_cal_dialog.html#a84e832c2421763b25e1ae0d9a76f519c" />
-              <section title="reset" ref="class_rsa_toolbox_1_1_cal_dialog.html#ad20897c5c8bd47f5d4005989bead0e55" />
-              <section title="selectedIndex" ref="class_rsa_toolbox_1_1_cal_dialog.html#a60aaed4f68885ced63ed6c015ef2dc20" />
-              <section title="selectionChanged" ref="class_rsa_toolbox_1_1_cal_dialog.html#a530b98c1adf71fadbf67359763e9dcea" />
-              <section title="setModel" ref="class_rsa_toolbox_1_1_cal_dialog.html#adb02fa02794384dcb4f9f76e102bb42c" />
-            </section>
             <section title="CalGroupPanel" ref="class_rsa_toolbox_1_1_cal_group_panel.html">
               <section title="CalGroupPanel" ref="class_rsa_toolbox_1_1_cal_group_panel.html#a58d78a9eb0b35a0d8785d401e82a78f3" />
               <section title="~CalGroupPanel" ref="class_rsa_toolbox_1_1_cal_group_panel.html#aca31b1583954940fbf49221e3f76c83c" />
@@ -303,8 +292,8 @@
               <section title="lock" ref="class_rsa_toolbox_1_1_generic_instrument.html#abde223cb8968835b7f8f060e505facc2" />
               <section title="log" ref="class_rsa_toolbox_1_1_generic_instrument.html#a771abc4a471f6d3dc48ba2e3e9905c33" />
               <section title="optionsString" ref="class_rsa_toolbox_1_1_generic_instrument.html#abd432a2a6aed6d74b9563d965d9e5a01" />
-              <section title="pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7167f5c196fc5e167bfabde1a730e81d" />
-              <section title="pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a8d195c195d8f25ecb428ab45b0cc7ad2" />
+              <section title="pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2853250ac5b9806e29d41f6f37b3b7f0" />
+              <section title="pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a02e2de9df861e2bc948a17ae6e675de9" />
               <section title="preset" ref="class_rsa_toolbox_1_1_generic_instrument.html#ae1f5fa51408b7ea44b4a8cc980693b1b" />
               <section title="print" ref="class_rsa_toolbox_1_1_generic_instrument.html#a9fcecd48b86862430fa0a6f25c9ba139" />
               <section title="printInfo" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2dbaf5580b5305d54cff6848ae7deb30" />
@@ -645,12 +634,12 @@
               <section title="Vna" ref="class_rsa_toolbox_1_1_vna.html#ae35ba6409591fefaa4bd01724d592a33" />
               <section title="Vna" ref="class_rsa_toolbox_1_1_vna.html#abf2c50ec714bcf258b2cc7ca680de035" />
               <section title="Vna" ref="class_rsa_toolbox_1_1_vna.html#a8bb04d1d8f4b1cfe67397d3c5cf6767c" />
-              <section title="addSwitchMatrix" ref="class_rsa_toolbox_1_1_vna.html#ac7326c667d2c27dac917ec55ac794297" />
-              <section title="addSwitchMatrix" ref="class_rsa_toolbox_1_1_vna.html#a076766d06e234da4574737c670235c55" />
+              <section title="areSwitchMatrices" ref="class_rsa_toolbox_1_1_vna.html#ac7b239ccd1d278c690380a04ccffed9e" />
               <section title="autoscaleDiagrams" ref="class_rsa_toolbox_1_1_vna.html#a2321ed51fd6157f9ae56dfc9da3df179" />
               <section title="calGroups" ref="class_rsa_toolbox_1_1_vna.html#a9bb813257723c4e0c670b5fe0759a1fb" />
               <section title="calibrate" ref="class_rsa_toolbox_1_1_vna.html#a85ef0d9299e04b6ad4c9448c444fc206" />
               <section title="calibratedChannels" ref="class_rsa_toolbox_1_1_vna.html#a522defb3438d3aaac8dd6fd71de04a52" />
+              <section title="calibrationSweepTime_ms" ref="class_rsa_toolbox_1_1_vna.html#ae6f71637540648b6d9ad10d4dc3f14fa" />
               <section title="calKit" ref="class_rsa_toolbox_1_1_vna.html#a9a1ae54c95fdba0b0dbfd4ac450c10c4" />
               <section title="calKits" ref="class_rsa_toolbox_1_1_vna.html#a9a3a033dfb8fe01d79d2b5b36e6e385a" />
               <section title="calKits" ref="class_rsa_toolbox_1_1_vna.html#a893bafc910d0eccdbb8ff3e8bc81c837" />
@@ -661,6 +650,8 @@
               <section title="channel" ref="class_rsa_toolbox_1_1_vna.html#a6a49928953474b5d3d8eda5d2438907b" />
               <section title="channelId" ref="class_rsa_toolbox_1_1_vna.html#a4f7d3dfa58e5fa355124509e7cafdfd1" />
               <section title="channels" ref="class_rsa_toolbox_1_1_vna.html#afea6252754a9fbd157f2d927ad88470b" />
+              <section title="closeSet" ref="class_rsa_toolbox_1_1_vna.html#a28fb02649a6dd4191c10c84c59236911" />
+              <section title="closeSets" ref="class_rsa_toolbox_1_1_vna.html#a6e3dcc127707ee0cb045559c15f9c5bf" />
               <section title="connectorTypes" ref="class_rsa_toolbox_1_1_vna.html#ad67ace0c386c3deb2e841fdad13f448e" />
               <section title="createChannel" ref="class_rsa_toolbox_1_1_vna.html#a22d2792c50b5919d1ed4939a707f42a8" />
               <section title="createChannel" ref="class_rsa_toolbox_1_1_vna.html#a5394b3e15ed64066cc188864b3cf9eaf" />
@@ -676,13 +667,13 @@
               <section title="deleteDiagram" ref="class_rsa_toolbox_1_1_vna.html#a74e7681f101d28822de37965ddfc438e" />
               <section title="deleteDiagrams" ref="class_rsa_toolbox_1_1_vna.html#a21f7508403b4170b3b1ce3e903bbd6a5" />
               <section title="deleteDiagrams" ref="class_rsa_toolbox_1_1_vna.html#a0d701a4b9ec44f64fa212aaa3fa13704" />
-              <section title="deleteSwitchMatrices" ref="class_rsa_toolbox_1_1_vna.html#a47a02aba98d882c20f7d7c67f7fb16ac" />
-              <section title="deleteSwitchMatrix" ref="class_rsa_toolbox_1_1_vna.html#afe23b168d640debc37d36c410db63521" />
+              <section title="deleteSet" ref="class_rsa_toolbox_1_1_vna.html#a738754f0b66c03d016acff17aeb58423" />
               <section title="deleteTrace" ref="class_rsa_toolbox_1_1_vna.html#aec0a8a21739d27317e000f74ccb6edee" />
               <section title="deleteTraces" ref="class_rsa_toolbox_1_1_vna.html#abf77ba9afb3df0556934292b78499734" />
               <section title="deleteTraces" ref="class_rsa_toolbox_1_1_vna.html#ab034ce3db42f3c2f7ac4ab94d3c3e1f8" />
               <section title="diagram" ref="class_rsa_toolbox_1_1_vna.html#a82d973ff6e159f183c0966c79f59365a" />
               <section title="diagrams" ref="class_rsa_toolbox_1_1_vna.html#aa49393813f1cf620661930fc4ad70d3f" />
+              <section title="disconnectSwitchMatrices" ref="class_rsa_toolbox_1_1_vna.html#a4ce5f91ae524a459f64dd79803d22bcf" />
               <section title="errors" ref="class_rsa_toolbox_1_1_vna.html#ab8021df0e05a1b6cc8104f0025b8b5c3" />
               <section title="errors" ref="class_rsa_toolbox_1_1_vna.html#ad948d84bc3defe9716b7777a0330d6be" />
               <section title="exportCalKit" ref="class_rsa_toolbox_1_1_vna.html#a1e8e199ac870aa517ce5cf4b44ba3452" />
@@ -704,25 +695,33 @@
               <section title="isNotChannel" ref="class_rsa_toolbox_1_1_vna.html#a2b3c37c94062a6db9a915978a97132e1" />
               <section title="isNotChannel" ref="class_rsa_toolbox_1_1_vna.html#a4c8df67f5cc8b4c0218271ce73045387" />
               <section title="isNotDiagram" ref="class_rsa_toolbox_1_1_vna.html#a896c347c0be367bf7f2f72ac3c98b00d" />
-              <section title="isSwitchMatrix" ref="class_rsa_toolbox_1_1_vna.html#adf847af4c791c3ed290ce1e0cc991bd7" />
+              <section title="isSwitchMatrixPort" ref="class_rsa_toolbox_1_1_vna.html#a203d34896fd28eaa107f4fb9e635d63f" />
               <section title="isTrace" ref="class_rsa_toolbox_1_1_vna.html#ac47677937a1b2e4807cca77c9bec6944" />
+              <section title="isVnaPort" ref="class_rsa_toolbox_1_1_vna.html#a78d5b602a94575d5bba6d1caa8ed0ed6" />
+              <section title="newSet" ref="class_rsa_toolbox_1_1_vna.html#ad35ec6fce0d2df13d1b71d948d37e176" />
+              <section title="newSet" ref="class_rsa_toolbox_1_1_vna.html#af090830af182ad752ac45d9938c2d9d7" />
               <section title="nextError" ref="class_rsa_toolbox_1_1_vna.html#a579d151598860bdc228b3e3ee788766a" />
               <section title="nextError" ref="class_rsa_toolbox_1_1_vna.html#a1fae59eaa8cfa717d025d1348135b566" />
               <section title="numberOfChannels" ref="class_rsa_toolbox_1_1_vna.html#ab7e709afe715ea12d3fe089469458e39" />
               <section title="numberOfDiagrams" ref="class_rsa_toolbox_1_1_vna.html#afff3d4de60b4d48bc08e4f14a70bb282" />
-              <section title="numberOfSwitchMatrices" ref="class_rsa_toolbox_1_1_vna.html#a7d0d7026ee6bef687aacf0b725eaab85" />
               <section title="numberOfTraces" ref="class_rsa_toolbox_1_1_vna.html#aa589497adb0d34965c0139be83f421ae" />
+              <section title="openSet" ref="class_rsa_toolbox_1_1_vna.html#a480ae0716ff64b7018fa2455d0f9a28d" />
               <section title="printInfo" ref="class_rsa_toolbox_1_1_vna.html#a0acb62c30f35ef05de9ec8554920cf36" />
               <section title="properties" ref="class_rsa_toolbox_1_1_vna.html#a4515e7a85cbf9e5c92cc01b11c831234" />
               <section title="queryComplexVector" ref="class_rsa_toolbox_1_1_vna.html#a28798e7559461b9761caac24d1440897" />
               <section title="queryVector" ref="class_rsa_toolbox_1_1_vna.html#a63b4ac253ad026c8f013721c56f96e03" />
               <section title="readComplexVector" ref="class_rsa_toolbox_1_1_vna.html#abb69dcb6930ac6a0f53efc9d5776e57e" />
               <section title="readVector" ref="class_rsa_toolbox_1_1_vna.html#a0650976dcff919626ebaade4346800c8" />
+              <section title="removeSwitchMatrices" ref="class_rsa_toolbox_1_1_vna.html#a9e516652d2fc8e80891b01a1e0d3ede3" />
+              <section title="selectedSet" ref="class_rsa_toolbox_1_1_vna.html#a2f43fadc20a749b84b13f671d1313105" />
+              <section title="set" ref="class_rsa_toolbox_1_1_vna.html#ac4243b8f437e3db4b8a383b4155184f6" />
+              <section title="sets" ref="class_rsa_toolbox_1_1_vna.html#a058442cc8713072634ac38dda9a9ec69" />
               <section title="settings" ref="class_rsa_toolbox_1_1_vna.html#affcacca0956ef82c5b28506a036498e8" />
               <section title="startSweeps" ref="class_rsa_toolbox_1_1_vna.html#abc1ceb9a9678e4de6f0a713d947f416d" />
               <section title="sweepTime_ms" ref="class_rsa_toolbox_1_1_vna.html#a919adcd598ff449e735b48daa047d45b" />
-              <section title="switchMatrices" ref="class_rsa_toolbox_1_1_vna.html#af35c2a5f614190d3c4ccdfe232b58f96" />
+              <section title="switchMatrices" ref="class_rsa_toolbox_1_1_vna.html#ae41461d8ea92b9fa2a01f2f17fb705dc" />
               <section title="switchMatrix" ref="class_rsa_toolbox_1_1_vna.html#a4fc198802de2aa7e9f6be80185cb1369" />
+              <section title="switchMatrixWithPort" ref="class_rsa_toolbox_1_1_vna.html#a241aeb7c810e62fae6e84186f65ff9c8" />
               <section title="takeCalibrate" ref="class_rsa_toolbox_1_1_vna.html#a17813337ac4d01f73de6d925918c31a3" />
               <section title="takeCalUnit" ref="class_rsa_toolbox_1_1_vna.html#a64df6113e20ed16eb1aa386d47582f5f" />
               <section title="takeChannel" ref="class_rsa_toolbox_1_1_vna.html#af32fc349faf160b87ad7b73d8f6690c1" />
@@ -736,8 +735,11 @@
               <section title="takeTrace" ref="class_rsa_toolbox_1_1_vna.html#a392ab2b3b4d85056ddf59f7930f436a6" />
               <section title="takeTraces" ref="class_rsa_toolbox_1_1_vna.html#a2d09df214f10ec2f92c48a6b7e3cee7a" />
               <section title="testPorts" ref="class_rsa_toolbox_1_1_vna.html#a7d3bd486c8f2cb4e353868ec707b145b" />
+              <section title="testPortToVnaMap" ref="class_rsa_toolbox_1_1_vna.html#a43e19b66c422a512780e04b4f15e2c8c" />
               <section title="trace" ref="class_rsa_toolbox_1_1_vna.html#abfb62d021035eba2e741fe981d43c6da" />
               <section title="traces" ref="class_rsa_toolbox_1_1_vna.html#a43cb9ed8da7e6710f50b5402792ac7e6" />
+              <section title="vnaPort" ref="class_rsa_toolbox_1_1_vna.html#a04aba52f1d92249b793d9f6ada2573a6" />
+              <section title="vnaTestPorts" ref="class_rsa_toolbox_1_1_vna.html#a882c285df61f01e6c63d816bdb972d79" />
             </section>
             <section title="VnaAveraging" ref="class_rsa_toolbox_1_1_vna_averaging.html">
               <section title="VnaAveraging" ref="class_rsa_toolbox_1_1_vna_averaging.html#a6db262c7f2503b3eb862c3deec35e28b" />
@@ -966,6 +968,7 @@
               <section title="calGroup" ref="class_rsa_toolbox_1_1_vna_channel.html#a47e13e945e580c28ecb77e7961e086e6" />
               <section title="calGroupFile" ref="class_rsa_toolbox_1_1_vna_channel.html#ab3f5140e5ea7b7a8f79bcaf97cf8b765" />
               <section title="calibrate" ref="class_rsa_toolbox_1_1_vna_channel.html#a85ef0d9299e04b6ad4c9448c444fc206" />
+              <section title="calibrationSweepTime_ms" ref="class_rsa_toolbox_1_1_vna_channel.html#ae6f71637540648b6d9ad10d4dc3f14fa" />
               <section title="clearDelayOffset" ref="class_rsa_toolbox_1_1_vna_channel.html#ab2ba789fec0568b3b316bff6c2687150" />
               <section title="clearDelayOffsets" ref="class_rsa_toolbox_1_1_vna_channel.html#a6297e2ef932a9c48a63cbeba40562ee6" />
               <section title="continuousSweepOn" ref="class_rsa_toolbox_1_1_vna_channel.html#a57a0f55aa0a1d9a707aeb48c1c5a4ab9" />
@@ -1024,6 +1027,7 @@
               <section title="sweepCount" ref="class_rsa_toolbox_1_1_vna_channel.html#a7eb31e101b560e353044e37e22974a61" />
               <section title="sweepOff" ref="class_rsa_toolbox_1_1_vna_channel.html#ad5208a593a114a6bed990844b4baaad5" />
               <section title="sweepOn" ref="class_rsa_toolbox_1_1_vna_channel.html#a502f6157a83e166d76cb5a651aa5af08" />
+              <section title="sweepTime_ms" ref="class_rsa_toolbox_1_1_vna_channel.html#a919adcd598ff449e735b48daa047d45b" />
               <section title="sweepType" ref="class_rsa_toolbox_1_1_vna_channel.html#ad26411d445d3d63c0b0ef48e7e2da496" />
               <section title="takeCalibrate" ref="class_rsa_toolbox_1_1_vna_channel.html#a17813337ac4d01f73de6d925918c31a3" />
               <section title="takeCwSweep" ref="class_rsa_toolbox_1_1_vna_channel.html#a8f0285b65449d18e15e91ee74d33e557" />
@@ -1042,10 +1046,12 @@
               <section title="VnaCorrections" ref="class_rsa_toolbox_1_1_vna_corrections.html#aeec76f0ee3b555f24626591de663e556" />
               <section title="VnaCorrections" ref="class_rsa_toolbox_1_1_vna_corrections.html#aacadb276e7ed8cf36aecac3d79f861e5" />
               <section title="~VnaCorrections" ref="class_rsa_toolbox_1_1_vna_corrections.html#a2578a0b9bb3fc53e589feac74ef05c5b" />
+              <section title="areSwitchMatrices" ref="class_rsa_toolbox_1_1_vna_corrections.html#ac7b239ccd1d278c690380a04ccffed9e" />
               <section title="calGroup" ref="class_rsa_toolbox_1_1_vna_corrections.html#a47e13e945e580c28ecb77e7961e086e6" />
               <section title="calibrationType" ref="class_rsa_toolbox_1_1_vna_corrections.html#a12a69552cf871e3e95383de31a695d0a" />
               <section title="clear" ref="class_rsa_toolbox_1_1_vna_corrections.html#ac8bb3912a3ce86b15842e79d0b421204" />
               <section title="directivity" ref="class_rsa_toolbox_1_1_vna_corrections.html#a38dd5aa70137810f69f129d4c0a3c9df" />
+              <section title="directivity" ref="class_rsa_toolbox_1_1_vna_corrections.html#a13792555c538c221fa117a8dc6571293" />
               <section title="dissolveCalGroupLink" ref="class_rsa_toolbox_1_1_vna_corrections.html#af9210094cea5a937b7a5f5e771ac0e3d" />
               <section title="isInterpolated" ref="class_rsa_toolbox_1_1_vna_corrections.html#a63b09953bbe7677d9eedcae2b4d3c666" />
               <section title="isNotInterpolated" ref="class_rsa_toolbox_1_1_vna_corrections.html#ad992522d8bbcd1ddee5303dbf345bede" />
@@ -1053,7 +1059,10 @@
               <section title="isOff" ref="class_rsa_toolbox_1_1_vna_corrections.html#a45cb35cce9c006e0f1428934f6d828cb" />
               <section title="isOn" ref="class_rsa_toolbox_1_1_vna_corrections.html#a3909f77aa50b8f46ccadc196178a07a1" />
               <section title="isPresent" ref="class_rsa_toolbox_1_1_vna_corrections.html#ae66473ae8c9abee2961692c5473ab1cd" />
+              <section title="isSwitchMatrixPort" ref="class_rsa_toolbox_1_1_vna_corrections.html#a203d34896fd28eaa107f4fb9e635d63f" />
+              <section title="isVnaPort" ref="class_rsa_toolbox_1_1_vna_corrections.html#a78d5b602a94575d5bba6d1caa8ed0ed6" />
               <section title="loadMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#a8022002532bb645b57a7204ab705b0d1" />
+              <section title="loadMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#a0801b7f297b3734886aeb8f54a7c9b02" />
               <section title="off" ref="class_rsa_toolbox_1_1_vna_corrections.html#a785abb1dda82d2aa86dca3b47ad8c5db" />
               <section title="on" ref="class_rsa_toolbox_1_1_vna_corrections.html#af5ab223c4aa62b4fc1bcc3a166bc2517" />
               <section title="operator=" ref="class_rsa_toolbox_1_1_vna_corrections.html#a257927904d3edb1a2f78448700848dba" />
@@ -1061,18 +1070,32 @@
               <section title="ports" ref="class_rsa_toolbox_1_1_vna_corrections.html#ac0e2cc29d1ddf19a95d69888f9c15195" />
               <section title="power_dBm" ref="class_rsa_toolbox_1_1_vna_corrections.html#aed9bf0f8af990a0e5169bcbd4c6fda0e" />
               <section title="reflectionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#a44b1572eea37fdcaab3eccef28ce0b0d" />
+              <section title="reflectionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#afdf9d63225c3f14f94bb9d673d3a7de0" />
               <section title="saveToCalGroup" ref="class_rsa_toolbox_1_1_vna_corrections.html#a256b5234b73e122040a9e5b5246ee9ff" />
               <section title="setCalGroup" ref="class_rsa_toolbox_1_1_vna_corrections.html#a73db6c7f78413379050ef4e5f7945701" />
               <section title="setDirectivity" ref="class_rsa_toolbox_1_1_vna_corrections.html#a15019ba28b89e00acc11e4fc90ae23d6" />
+              <section title="setDirectivity" ref="class_rsa_toolbox_1_1_vna_corrections.html#a1569cc0d20ba4716295145c4165b776f" />
               <section title="setLoadMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#a67d65f31c357351a45d1e80520b03d66" />
+              <section title="setLoadMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#aac444e8f3464d04c73c91074a8c2c2d7" />
               <section title="setReflectionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#a781e021b20a15a5680607e90617d5e40" />
+              <section title="setReflectionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#a2ee159ea2617a102aec23608ed73556b" />
               <section title="setSourceMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#acbe76af6d143849cf3bd3485db8be3cc" />
+              <section title="setSourceMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#ace4cae532a72baa7119615ddff12bafa" />
               <section title="setTransmissionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#ace87f8f0c756763e9ce50324b9e62acb" />
+              <section title="setTransmissionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#a65a51a0f2e9e600ee0f603cd417411bd" />
               <section title="sourceMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#a78330ff1a25e01a99647bc02cf04e90c" />
+              <section title="sourceMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#ab45a204ab93a5aeff1fabf9a7fa488a6" />
               <section title="startFrequency_Hz" ref="class_rsa_toolbox_1_1_vna_corrections.html#a9f9ac6fbd537bac5ef248f5b53fdf279" />
               <section title="stopFrequency_Hz" ref="class_rsa_toolbox_1_1_vna_corrections.html#ada869bfd357d80ea884bf7c822906329" />
               <section title="sweepType" ref="class_rsa_toolbox_1_1_vna_corrections.html#ad26411d445d3d63c0b0ef48e7e2da496" />
+              <section title="switchMatrices" ref="class_rsa_toolbox_1_1_vna_corrections.html#ae41461d8ea92b9fa2a01f2f17fb705dc" />
+              <section title="switchMatrix" ref="class_rsa_toolbox_1_1_vna_corrections.html#a3e1d86358bc59d924225e5701634adf0" />
+              <section title="switchMatrixToVnaPortMap" ref="class_rsa_toolbox_1_1_vna_corrections.html#ac0f772d78427ac7b4296fdf0a494f892" />
+              <section title="testPortToSwitchMatrixMap" ref="class_rsa_toolbox_1_1_vna_corrections.html#a85f239af69dae512287b42088506be89" />
+              <section title="testPortToVnaMap" ref="class_rsa_toolbox_1_1_vna_corrections.html#a43e19b66c422a512780e04b4f15e2c8c" />
               <section title="transmissionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#ad3392508fc15b93d27ba91ff16bda253" />
+              <section title="transmissionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#a8bc1a551fe1c560a5ade23da987228bb" />
+              <section title="vnaPort" ref="class_rsa_toolbox_1_1_vna_corrections.html#a04aba52f1d92249b793d9f6ada2573a6" />
             </section>
             <section title="VnaCwSweep" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html">
               <section title="VnaCwSweep" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html#ab90bcae14d2901b085b895e575e9f5a3" />
@@ -1468,15 +1491,11 @@
               <section title="VnaSegmentedSweep" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#aac07f10b686506d024f8daede103a685" />
               <section title="~VnaSegmentedSweep" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#aed2a89241371d980b34d4da9d6f319d7" />
               <section title="addSegment" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#ac6bb8a49fbffc26fcb5588dcf0782ccb" />
-              <section title="autoSweepTimeOff" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a220fef16f57b763fc04b22d35989e2dd" />
-              <section title="autoSweepTimeOn" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a42fa6859b453c6c8004ec13da4580d28" />
               <section title="clearSParameterGroup" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#af0435978efe0339d462c159ca1b00864" />
               <section title="deleteSegment" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a9d0214a3a90bf58afac1787e2870fc35" />
               <section title="deleteSegments" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a70b722465dfb46dc6347fc9f0f9e61c4" />
               <section title="frequencies_Hz" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a6bdb7349d9336d3c5eb00616f78c202a" />
               <section title="ifBandwidth_Hz" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a669ad1da20ac86ec3e7a6b3220b785a3" />
-              <section title="isAutoSweepTimeOff" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#ad192ac15485a3caf48ba9b36be2beb65" />
-              <section title="isAutoSweepTimeOn" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a4e1fc288463e0ad50378803d912079bc" />
               <section title="measure" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a1139e1760db35d5c1304e8072b289f10" />
               <section title="measure" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a108ba0072a55a62c6d70cfe0aa361b9f" />
               <section title="measure" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a269807991452399fc4607e261d60318e" />
@@ -1491,11 +1510,19 @@
               <section title="setIfbandwidth" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a6897e7d16b43c43db216849375c1cffd" />
               <section title="setPower" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#aac822adb781e223a96898409db296a43" />
               <section title="setSParameterGroup" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#ae03d74323281e5fac2ac8c60272add1c" />
-              <section title="setSweepTime" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#ae00e33d51b3a5c16d9c00a6cdced6f5d" />
               <section title="sParameterGroup" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#ac7a50334398a7820485919ddb24150dd" />
               <section title="start_Hz" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a413388b196a6bcd75bb8ee9284d56af4" />
               <section title="stop_Hz" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a52c971759a84fc28fa0735ce04b3e1fc" />
               <section title="sweepTime_ms" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a919adcd598ff449e735b48daa047d45b" />
+            </section>
+            <section title="VnaSet" ref="class_rsa_toolbox_1_1_vna_set.html">
+              <section title="VnaSet" ref="class_rsa_toolbox_1_1_vna_set.html#a39a666eb8418be5411ac3387f69a8f1c" />
+              <section title="VnaSet" ref="class_rsa_toolbox_1_1_vna_set.html#aa1126a10a67211fec8909371dd9578f9" />
+              <section title="VnaSet" ref="class_rsa_toolbox_1_1_vna_set.html#ad9b079b352b12ffefad3250af5201ecd" />
+              <section title="~VnaSet" ref="class_rsa_toolbox_1_1_vna_set.html#af5057477b544336e605d7606a65172d9" />
+              <section title="operator=" ref="class_rsa_toolbox_1_1_vna_set.html#aa1ac04193685ea2d2f7d5ef09fdef0ec" />
+              <section title="save" ref="class_rsa_toolbox_1_1_vna_set.html#ab36de738538a9f38a8d82b71dcc58efe" />
+              <section title="select" ref="class_rsa_toolbox_1_1_vna_set.html#ae60563c7ee9cee897adaca8bd61f17ce" />
             </section>
             <section title="VnaSettings" ref="class_rsa_toolbox_1_1_vna_settings.html">
               <section title="ColorScheme" ref="class_rsa_toolbox_1_1_vna_settings.html#a63ab7f3e964bbfd5c64e88e2861f4f41">
@@ -1641,7 +1668,13 @@
               <section title="VnaSwitchMatrix" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a19870ce3c5b473569aee09138db04069" />
               <section title="VnaSwitchMatrix" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#aec91b536ba305a6951526c5e89ff4f92" />
               <section title="~VnaSwitchMatrix" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a19afb6cc2c2080d5f336bae92cbdb4a9" />
+              <section title="address" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a18c505ec7f478c73d37dd059a0ce4ce6" />
+              <section title="connectionType" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a10abba59c249eada1acc8b335ce34ccd" />
+              <section title="driver" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#ac6e1ecd8c5c309bd706a2b01d7b77c84" />
+              <section title="hasTestPort" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#ae8c7ea0679b300bf50e89198feebeeb5" />
               <section title="operator=" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a06fc446f121d1dc8b59fcccc62e63cc3" />
+              <section title="switchMatrixToVnaPortMap" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a3f633a0d224fdde2decd765ac214f5a8" />
+              <section title="testPortToMatrixMap" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a7308a8f7ce85312774443f2e455db408" />
             </section>
             <section title="VnaTimeDomain" ref="class_rsa_toolbox_1_1_vna_time_domain.html">
               <section title="RiseTime" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a6511252f5da550fe3b657b5b47fcba78">
@@ -1925,6 +1958,7 @@
       <keyword name="RowVector" id="RsaToolbox::RowVector" ref="namespace_rsa_toolbox.html#a377a6286f7e32baef3ecb46643772d71" />
       <keyword name="Matrix2D" id="RsaToolbox::Matrix2D" ref="namespace_rsa_toolbox.html#a4ac77922c110de258891e9f867b98a53" />
       <keyword name="Matrix3D" id="RsaToolbox::Matrix3D" ref="namespace_rsa_toolbox.html#a9ba044817ed0459f04f0bc9e98f771c0" />
+      <keyword name="PortMap" id="RsaToolbox::PortMap" ref="namespace_rsa_toolbox.html#a5177d61f749a5ba10aaa71a3d62f6cc2" />
       <keyword name="QRowVector" id="RsaToolbox::QRowVector" ref="namespace_rsa_toolbox.html#a277781f27cd64e7b4d0728b64ace87b8" />
       <keyword name="QMatrix2D" id="RsaToolbox::QMatrix2D" ref="namespace_rsa_toolbox.html#a3579c091e3c712a5242d147bc08b1762" />
       <keyword name="QMatrix3D" id="RsaToolbox::QMatrix3D" ref="namespace_rsa_toolbox.html#ac184c78328efc65ad0e0f17890004fb7" />
@@ -1962,7 +1996,7 @@
       <keyword name="toStringList" id="RsaToolbox::toStringList" ref="namespace_rsa_toolbox.html#a43e55b9319f66b66baaa2f8841e999f7" />
       <keyword name="toString" id="RsaToolbox::toString" ref="namespace_rsa_toolbox.html#a1ff4b93281f6f785d0636ec89688d423" />
       <keyword name="toString" id="RsaToolbox::toString" ref="namespace_rsa_toolbox.html#a4c251188f7653030333b2dbca1bafe2d" />
-      <keyword name="toString" id="RsaToolbox::toString" ref="namespace_rsa_toolbox.html#a367a66470f1261677697344ca31223b0" />
+      <keyword name="toString" id="RsaToolbox::toString" ref="namespace_rsa_toolbox.html#ad6a771f988a19c2874b9f8152d8bbc35" />
       <keyword name="portLabels" id="RsaToolbox::portLabels" ref="namespace_rsa_toolbox.html#ac8b87f32bdc28e2626225c2e2f1320aa" />
       <keyword name="portString" id="RsaToolbox::portString" ref="namespace_rsa_toolbox.html#a59270a806ff441a388b4abf455af0e6d" />
       <keyword name="channelLabels" id="RsaToolbox::channelLabels" ref="namespace_rsa_toolbox.html#aa3b8d08858b7f4cb6f24de1c124a94eb" />
@@ -1973,6 +2007,7 @@
       <keyword name="parseComplex" id="RsaToolbox::parseComplex" ref="namespace_rsa_toolbox.html#a257ef823691cebf05e5b8f223b5d9b0b" />
       <keyword name="parseQRowVector" id="RsaToolbox::parseQRowVector" ref="namespace_rsa_toolbox.html#a1d3d8cb2376dd1beb46014ac96b59b60" />
       <keyword name="parseQRowVector" id="RsaToolbox::parseQRowVector" ref="namespace_rsa_toolbox.html#a0f00ddf7ecf4d2c63237fc41036fa7db" />
+      <keyword name="parseMap" id="RsaToolbox::parseMap" ref="namespace_rsa_toolbox.html#a4f07c6af2a4188ae266e5f02628dab48" />
       <keyword name="toBlockDataFormat" id="RsaToolbox::toBlockDataFormat" ref="namespace_rsa_toolbox.html#a74dbc88890beeca8ae8c7b2bb5840737" />
       <keyword name="toQRowVector" id="RsaToolbox::toQRowVector" ref="namespace_rsa_toolbox.html#a7ac15524e43d1d695ecd4adbeb9bd242" />
       <keyword name="toBlockDataFormat" id="RsaToolbox::toBlockDataFormat" ref="namespace_rsa_toolbox.html#a4c977f59cee987da721313140ff98d09" />
@@ -2007,6 +2042,7 @@
       <keyword name="linearSpacing" id="RsaToolbox::linearSpacing" ref="namespace_rsa_toolbox.html#aa06a5b0c1beff543070e85ef69cfca1c" />
       <keyword name="linearSpacing" id="RsaToolbox::linearSpacing" ref="namespace_rsa_toolbox.html#a62a922faa3d1fa360e6c10c5834ab6b1" />
       <keyword name="linearSpacing" id="RsaToolbox::linearSpacing" ref="namespace_rsa_toolbox.html#acb477457f800e6528ebe51e7b77388f9" />
+      <keyword name="logSpacing" id="RsaToolbox::logSpacing" ref="namespace_rsa_toolbox.html#a5093a52162231404771577a1a47f3efe" />
       <keyword name="logSpacing" id="RsaToolbox::logSpacing" ref="namespace_rsa_toolbox.html#aa6a6dc53ed0a3aeb7b13422f48a792c3" />
       <keyword name="isInfinity" id="RsaToolbox::isInfinity" ref="namespace_rsa_toolbox.html#a82d846558217ee9aa87a8fe9fb74024a" />
       <keyword name="isNotInfinity" id="RsaToolbox::isNotInfinity" ref="namespace_rsa_toolbox.html#a5b2f17251e538bec30ab06a564e54be3" />
@@ -2214,16 +2250,6 @@
       <keyword name="back" id="RsaToolbox::BreadCrumbs::back" ref="class_rsa_toolbox_1_1_bread_crumbs.html#aa4c6563663c98d6c5c109d8fdf07e24c" />
       <keyword name="BreadCrumbs" id="RsaToolbox::BreadCrumbs::BreadCrumbs" ref="class_rsa_toolbox_1_1_bread_crumbs.html#a2b5c51b0fefa2d245428766fc6a1daed" />
       <keyword name="~BreadCrumbs" id="RsaToolbox::BreadCrumbs::~BreadCrumbs" ref="class_rsa_toolbox_1_1_bread_crumbs.html#aa1319d9902f4d4b0ebc94197dadda8ea" />
-      <keyword name="RsaToolbox::CalDialog" id="RsaToolbox::CalDialog" ref="class_rsa_toolbox_1_1_cal_dialog.html" />
-      <keyword name="accept" id="RsaToolbox::CalDialog::accept" ref="class_rsa_toolbox_1_1_cal_dialog.html#aadb9f3b844fb4cf98288cd3c60a3af91" />
-      <keyword name="reject" id="RsaToolbox::CalDialog::reject" ref="class_rsa_toolbox_1_1_cal_dialog.html#a84e832c2421763b25e1ae0d9a76f519c" />
-      <keyword name="reset" id="RsaToolbox::CalDialog::reset" ref="class_rsa_toolbox_1_1_cal_dialog.html#ad20897c5c8bd47f5d4005989bead0e55" />
-      <keyword name="selectionChanged" id="RsaToolbox::CalDialog::selectionChanged" ref="class_rsa_toolbox_1_1_cal_dialog.html#a530b98c1adf71fadbf67359763e9dcea" />
-      <keyword name="CalDialog" id="RsaToolbox::CalDialog::CalDialog" ref="class_rsa_toolbox_1_1_cal_dialog.html#afb0c6f32011ff5a615e2f2eba0aeb332" />
-      <keyword name="~CalDialog" id="RsaToolbox::CalDialog::~CalDialog" ref="class_rsa_toolbox_1_1_cal_dialog.html#add91add6be875f90291e33464269ddc0" />
-      <keyword name="setModel" id="RsaToolbox::CalDialog::setModel" ref="class_rsa_toolbox_1_1_cal_dialog.html#adb02fa02794384dcb4f9f76e102bb42c" />
-      <keyword name="model" id="RsaToolbox::CalDialog::model" ref="class_rsa_toolbox_1_1_cal_dialog.html#aaf6c8b0a27645339641090c635c48bf1" />
-      <keyword name="selectedIndex" id="RsaToolbox::CalDialog::selectedIndex" ref="class_rsa_toolbox_1_1_cal_dialog.html#a60aaed4f68885ced63ed6c015ef2dc20" />
       <keyword name="RsaToolbox::CalGroupPanel" id="RsaToolbox::CalGroupPanel" ref="class_rsa_toolbox_1_1_cal_group_panel.html" />
       <keyword name="selectionChanged" id="RsaToolbox::CalGroupPanel::selectionChanged" ref="class_rsa_toolbox_1_1_cal_group_panel.html#ab832275caa305e9211e779f055a87709" />
       <keyword name="CalGroupPanel" id="RsaToolbox::CalGroupPanel::CalGroupPanel" ref="class_rsa_toolbox_1_1_cal_group_panel.html#a58d78a9eb0b35a0d8785d401e82a78f3" />
@@ -2489,8 +2515,8 @@
       <keyword name="binaryWrite" id="RsaToolbox::GenericInstrument::binaryWrite" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
       <keyword name="binaryQuery" id="RsaToolbox::GenericInstrument::binaryQuery" ref="class_rsa_toolbox_1_1_generic_instrument.html#a8bd7dd60c803759cf0ad29894f46bb68" />
       <keyword name="wait" id="RsaToolbox::GenericInstrument::wait" ref="class_rsa_toolbox_1_1_generic_instrument.html#aa3b21853f890838c88d047d6c2786917" />
-      <keyword name="pause" id="RsaToolbox::GenericInstrument::pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7167f5c196fc5e167bfabde1a730e81d" />
-      <keyword name="pause" id="RsaToolbox::GenericInstrument::pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a8d195c195d8f25ecb428ab45b0cc7ad2" />
+      <keyword name="pause" id="RsaToolbox::GenericInstrument::pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2853250ac5b9806e29d41f6f37b3b7f0" />
+      <keyword name="pause" id="RsaToolbox::GenericInstrument::pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a02e2de9df861e2bc948a17ae6e675de9" />
       <keyword name="initializePolling" id="RsaToolbox::GenericInstrument::initializePolling" ref="class_rsa_toolbox_1_1_generic_instrument.html#a694167390c3e8d1acb16c86d026fabb9" />
       <keyword name="isOperationComplete" id="RsaToolbox::GenericInstrument::isOperationComplete" ref="class_rsa_toolbox_1_1_generic_instrument.html#acb2283a6cb20418383f3f512caf30550" />
       <keyword name="RsaToolbox::getChannelDialog" id="RsaToolbox::getChannelDialog" ref="class_rsa_toolbox_1_1get_channel_dialog.html" />
@@ -2832,10 +2858,10 @@
       <keyword name="MAX_PRINT" id="RsaToolbox::GenericBus::MAX_PRINT" ref="class_rsa_toolbox_1_1_generic_bus.html#af5e93a5e8302f50ed1e0f33c5c12c113" />
       <keyword name="RsaToolbox::Touchstone" id="RsaToolbox::Touchstone" ref="class_rsa_toolbox_1_1_touchstone.html" />
       <keyword name="ports" id="RsaToolbox::Touchstone::ports" ref="class_rsa_toolbox_1_1_touchstone.html#a9151d815ca67c804e2684487963634f1" />
-      <keyword name="Read" id="RsaToolbox::Touchstone::Read" ref="class_rsa_toolbox_1_1_touchstone.html#ae986ab885883976bb96f1323c4acb019" />
-      <keyword name="Read" id="RsaToolbox::Touchstone::Read" ref="class_rsa_toolbox_1_1_touchstone.html#a99e50d32edc83325828f93466a731e32" />
-      <keyword name="Write" id="RsaToolbox::Touchstone::Write" ref="class_rsa_toolbox_1_1_touchstone.html#a6143cc2562bf17edc99f4f5a3be8d4d4" />
-      <keyword name="Write" id="RsaToolbox::Touchstone::Write" ref="class_rsa_toolbox_1_1_touchstone.html#a75ea7e0ce229b6317a1970a0de3e83ef" />
+      <keyword name="read" id="RsaToolbox::Touchstone::read" ref="class_rsa_toolbox_1_1_touchstone.html#a635b64b9c446f9c7bb4e5149edb1bf04" />
+      <keyword name="read" id="RsaToolbox::Touchstone::read" ref="class_rsa_toolbox_1_1_touchstone.html#a6b32c5d8c90095e96586a5671e327baa" />
+      <keyword name="write" id="RsaToolbox::Touchstone::write" ref="class_rsa_toolbox_1_1_touchstone.html#a97879d3dc158e6088073a28543f69dd1" />
+      <keyword name="write" id="RsaToolbox::Touchstone::write" ref="class_rsa_toolbox_1_1_touchstone.html#a154afc7f419eaf0d080cf59c85d2939d" />
       <keyword name="RsaToolbox::VisaBus" id="RsaToolbox::VisaBus" ref="class_rsa_toolbox_1_1_visa_bus.html" />
       <keyword name="lock" id="RsaToolbox::VisaBus::lock" ref="class_rsa_toolbox_1_1_visa_bus.html#abde223cb8968835b7f8f060e505facc2" />
       <keyword name="unlock" id="RsaToolbox::VisaBus::unlock" ref="class_rsa_toolbox_1_1_visa_bus.html#ae399421ee39cae4df5ea44bd21e31254" />
@@ -2890,6 +2916,15 @@
       <keyword name="nextError" id="RsaToolbox::Vna::nextError" ref="class_rsa_toolbox_1_1_vna.html#a1fae59eaa8cfa717d025d1348135b566" />
       <keyword name="errors" id="RsaToolbox::Vna::errors" ref="class_rsa_toolbox_1_1_vna.html#ab8021df0e05a1b6cc8104f0025b8b5c3" />
       <keyword name="errors" id="RsaToolbox::Vna::errors" ref="class_rsa_toolbox_1_1_vna.html#ad948d84bc3defe9716b7777a0330d6be" />
+      <keyword name="sets" id="RsaToolbox::Vna::sets" ref="class_rsa_toolbox_1_1_vna.html#a058442cc8713072634ac38dda9a9ec69" />
+      <keyword name="selectedSet" id="RsaToolbox::Vna::selectedSet" ref="class_rsa_toolbox_1_1_vna.html#a2f43fadc20a749b84b13f671d1313105" />
+      <keyword name="newSet" id="RsaToolbox::Vna::newSet" ref="class_rsa_toolbox_1_1_vna.html#ad35ec6fce0d2df13d1b71d948d37e176" />
+      <keyword name="newSet" id="RsaToolbox::Vna::newSet" ref="class_rsa_toolbox_1_1_vna.html#af090830af182ad752ac45d9938c2d9d7" />
+      <keyword name="openSet" id="RsaToolbox::Vna::openSet" ref="class_rsa_toolbox_1_1_vna.html#a480ae0716ff64b7018fa2455d0f9a28d" />
+      <keyword name="closeSet" id="RsaToolbox::Vna::closeSet" ref="class_rsa_toolbox_1_1_vna.html#a28fb02649a6dd4191c10c84c59236911" />
+      <keyword name="closeSets" id="RsaToolbox::Vna::closeSets" ref="class_rsa_toolbox_1_1_vna.html#a6e3dcc127707ee0cb045559c15f9c5bf" />
+      <keyword name="deleteSet" id="RsaToolbox::Vna::deleteSet" ref="class_rsa_toolbox_1_1_vna.html#a738754f0b66c03d016acff17aeb58423" />
+      <keyword name="set" id="RsaToolbox::Vna::set" ref="class_rsa_toolbox_1_1_vna.html#ac4243b8f437e3db4b8a383b4155184f6" />
       <keyword name="properties" id="RsaToolbox::Vna::properties" ref="class_rsa_toolbox_1_1_vna.html#a4515e7a85cbf9e5c92cc01b11c831234" />
       <keyword name="takeProperties" id="RsaToolbox::Vna::takeProperties" ref="class_rsa_toolbox_1_1_vna.html#aaa98bf8483c7bf0854b9b51cf39264c9" />
       <keyword name="settings" id="RsaToolbox::Vna::settings" ref="class_rsa_toolbox_1_1_vna.html#affcacca0956ef82c5b28506a036498e8" />
@@ -2956,15 +2991,19 @@
       <keyword name="takeDiagram" id="RsaToolbox::Vna::takeDiagram" ref="class_rsa_toolbox_1_1_vna.html#a58e48306b854ff20311bf381963bd3ce" />
       <keyword name="takeDiagrams" id="RsaToolbox::Vna::takeDiagrams" ref="class_rsa_toolbox_1_1_vna.html#aaab02a9c6572fa996ffe8391c316634e" />
       <keyword name="sweepTime_ms" id="RsaToolbox::Vna::sweepTime_ms" ref="class_rsa_toolbox_1_1_vna.html#a919adcd598ff449e735b48daa047d45b" />
+      <keyword name="calibrationSweepTime_ms" id="RsaToolbox::Vna::calibrationSweepTime_ms" ref="class_rsa_toolbox_1_1_vna.html#ae6f71637540648b6d9ad10d4dc3f14fa" />
       <keyword name="startSweeps" id="RsaToolbox::Vna::startSweeps" ref="class_rsa_toolbox_1_1_vna.html#abc1ceb9a9678e4de6f0a713d947f416d" />
       <keyword name="testPorts" id="RsaToolbox::Vna::testPorts" ref="class_rsa_toolbox_1_1_vna.html#a7d3bd486c8f2cb4e353868ec707b145b" />
-      <keyword name="isSwitchMatrix" id="RsaToolbox::Vna::isSwitchMatrix" ref="class_rsa_toolbox_1_1_vna.html#adf847af4c791c3ed290ce1e0cc991bd7" />
-      <keyword name="numberOfSwitchMatrices" id="RsaToolbox::Vna::numberOfSwitchMatrices" ref="class_rsa_toolbox_1_1_vna.html#a7d0d7026ee6bef687aacf0b725eaab85" />
-      <keyword name="switchMatrices" id="RsaToolbox::Vna::switchMatrices" ref="class_rsa_toolbox_1_1_vna.html#af35c2a5f614190d3c4ccdfe232b58f96" />
-      <keyword name="addSwitchMatrix" id="RsaToolbox::Vna::addSwitchMatrix" ref="class_rsa_toolbox_1_1_vna.html#ac7326c667d2c27dac917ec55ac794297" />
-      <keyword name="addSwitchMatrix" id="RsaToolbox::Vna::addSwitchMatrix" ref="class_rsa_toolbox_1_1_vna.html#a076766d06e234da4574737c670235c55" />
-      <keyword name="deleteSwitchMatrix" id="RsaToolbox::Vna::deleteSwitchMatrix" ref="class_rsa_toolbox_1_1_vna.html#afe23b168d640debc37d36c410db63521" />
-      <keyword name="deleteSwitchMatrices" id="RsaToolbox::Vna::deleteSwitchMatrices" ref="class_rsa_toolbox_1_1_vna.html#a47a02aba98d882c20f7d7c67f7fb16ac" />
+      <keyword name="isVnaPort" id="RsaToolbox::Vna::isVnaPort" ref="class_rsa_toolbox_1_1_vna.html#a78d5b602a94575d5bba6d1caa8ed0ed6" />
+      <keyword name="vnaPort" id="RsaToolbox::Vna::vnaPort" ref="class_rsa_toolbox_1_1_vna.html#a04aba52f1d92249b793d9f6ada2573a6" />
+      <keyword name="vnaTestPorts" id="RsaToolbox::Vna::vnaTestPorts" ref="class_rsa_toolbox_1_1_vna.html#a882c285df61f01e6c63d816bdb972d79" />
+      <keyword name="testPortToVnaMap" id="RsaToolbox::Vna::testPortToVnaMap" ref="class_rsa_toolbox_1_1_vna.html#a43e19b66c422a512780e04b4f15e2c8c" />
+      <keyword name="areSwitchMatrices" id="RsaToolbox::Vna::areSwitchMatrices" ref="class_rsa_toolbox_1_1_vna.html#ac7b239ccd1d278c690380a04ccffed9e" />
+      <keyword name="switchMatrices" id="RsaToolbox::Vna::switchMatrices" ref="class_rsa_toolbox_1_1_vna.html#ae41461d8ea92b9fa2a01f2f17fb705dc" />
+      <keyword name="isSwitchMatrixPort" id="RsaToolbox::Vna::isSwitchMatrixPort" ref="class_rsa_toolbox_1_1_vna.html#a203d34896fd28eaa107f4fb9e635d63f" />
+      <keyword name="switchMatrixWithPort" id="RsaToolbox::Vna::switchMatrixWithPort" ref="class_rsa_toolbox_1_1_vna.html#a241aeb7c810e62fae6e84186f65ff9c8" />
+      <keyword name="disconnectSwitchMatrices" id="RsaToolbox::Vna::disconnectSwitchMatrices" ref="class_rsa_toolbox_1_1_vna.html#a4ce5f91ae524a459f64dd79803d22bcf" />
+      <keyword name="removeSwitchMatrices" id="RsaToolbox::Vna::removeSwitchMatrices" ref="class_rsa_toolbox_1_1_vna.html#a9e516652d2fc8e80891b01a1e0d3ede3" />
       <keyword name="switchMatrix" id="RsaToolbox::Vna::switchMatrix" ref="class_rsa_toolbox_1_1_vna.html#a4fc198802de2aa7e9f6be80185cb1369" />
       <keyword name="takeSwitchMatrix" id="RsaToolbox::Vna::takeSwitchMatrix" ref="class_rsa_toolbox_1_1_vna.html#a5ed3ffbc6016a6f6ed9cd25daecaa065" />
       <keyword name="isCalUnit" id="RsaToolbox::Vna::isCalUnit" ref="class_rsa_toolbox_1_1_vna.html#a8c714fb4e1cea2802fd424370904322e" />
@@ -3005,8 +3044,8 @@
       <keyword name="binaryWrite" id="RsaToolbox::GenericInstrument::binaryWrite" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7aa8d5adf09f1b56bc9577bbddffcc42" />
       <keyword name="binaryQuery" id="RsaToolbox::GenericInstrument::binaryQuery" ref="class_rsa_toolbox_1_1_generic_instrument.html#a8bd7dd60c803759cf0ad29894f46bb68" />
       <keyword name="wait" id="RsaToolbox::GenericInstrument::wait" ref="class_rsa_toolbox_1_1_generic_instrument.html#aa3b21853f890838c88d047d6c2786917" />
-      <keyword name="pause" id="RsaToolbox::GenericInstrument::pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a7167f5c196fc5e167bfabde1a730e81d" />
-      <keyword name="pause" id="RsaToolbox::GenericInstrument::pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a8d195c195d8f25ecb428ab45b0cc7ad2" />
+      <keyword name="pause" id="RsaToolbox::GenericInstrument::pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a2853250ac5b9806e29d41f6f37b3b7f0" />
+      <keyword name="pause" id="RsaToolbox::GenericInstrument::pause" ref="class_rsa_toolbox_1_1_generic_instrument.html#a02e2de9df861e2bc948a17ae6e675de9" />
       <keyword name="initializePolling" id="RsaToolbox::GenericInstrument::initializePolling" ref="class_rsa_toolbox_1_1_generic_instrument.html#a694167390c3e8d1acb16c86d026fabb9" />
       <keyword name="isOperationComplete" id="RsaToolbox::GenericInstrument::isOperationComplete" ref="class_rsa_toolbox_1_1_generic_instrument.html#acb2283a6cb20418383f3f512caf30550" />
       <keyword name="lock" id="RsaToolbox::GenericInstrument::lock" ref="class_rsa_toolbox_1_1_generic_instrument.html#abde223cb8968835b7f8f060e505facc2" />
@@ -3247,6 +3286,8 @@
       <keyword name="manualSweepOn" id="RsaToolbox::VnaChannel::manualSweepOn" ref="class_rsa_toolbox_1_1_vna_channel.html#a6f0b64776e9418a4afbf301e476e08b4" />
       <keyword name="sweepCount" id="RsaToolbox::VnaChannel::sweepCount" ref="class_rsa_toolbox_1_1_vna_channel.html#a7eb31e101b560e353044e37e22974a61" />
       <keyword name="setSweepCount" id="RsaToolbox::VnaChannel::setSweepCount" ref="class_rsa_toolbox_1_1_vna_channel.html#a9d76e69a5df1c1a7342822721b8abc85" />
+      <keyword name="sweepTime_ms" id="RsaToolbox::VnaChannel::sweepTime_ms" ref="class_rsa_toolbox_1_1_vna_channel.html#a919adcd598ff449e735b48daa047d45b" />
+      <keyword name="calibrationSweepTime_ms" id="RsaToolbox::VnaChannel::calibrationSweepTime_ms" ref="class_rsa_toolbox_1_1_vna_channel.html#ae6f71637540648b6d9ad10d4dc3f14fa" />
       <keyword name="isFrequencySweep" id="RsaToolbox::VnaChannel::isFrequencySweep" ref="class_rsa_toolbox_1_1_vna_channel.html#aa513eb12180f9b790d01a48fc6503864" />
       <keyword name="isLinearSweep" id="RsaToolbox::VnaChannel::isLinearSweep" ref="class_rsa_toolbox_1_1_vna_channel.html#a24f561b18ffec363888f4ce780481eaf" />
       <keyword name="isLogarithmicSweep" id="RsaToolbox::VnaChannel::isLogarithmicSweep" ref="class_rsa_toolbox_1_1_vna_channel.html#ada8399238a7a4e3e8d65629e7e0c4273" />
@@ -3334,16 +3375,35 @@
       <keyword name="startFrequency_Hz" id="RsaToolbox::VnaCorrections::startFrequency_Hz" ref="class_rsa_toolbox_1_1_vna_corrections.html#a9f9ac6fbd537bac5ef248f5b53fdf279" />
       <keyword name="stopFrequency_Hz" id="RsaToolbox::VnaCorrections::stopFrequency_Hz" ref="class_rsa_toolbox_1_1_vna_corrections.html#ada869bfd357d80ea884bf7c822906329" />
       <keyword name="power_dBm" id="RsaToolbox::VnaCorrections::power_dBm" ref="class_rsa_toolbox_1_1_vna_corrections.html#aed9bf0f8af990a0e5169bcbd4c6fda0e" />
+      <keyword name="isVnaPort" id="RsaToolbox::VnaCorrections::isVnaPort" ref="class_rsa_toolbox_1_1_vna_corrections.html#a78d5b602a94575d5bba6d1caa8ed0ed6" />
+      <keyword name="vnaPort" id="RsaToolbox::VnaCorrections::vnaPort" ref="class_rsa_toolbox_1_1_vna_corrections.html#a04aba52f1d92249b793d9f6ada2573a6" />
+      <keyword name="testPortToVnaMap" id="RsaToolbox::VnaCorrections::testPortToVnaMap" ref="class_rsa_toolbox_1_1_vna_corrections.html#a43e19b66c422a512780e04b4f15e2c8c" />
+      <keyword name="areSwitchMatrices" id="RsaToolbox::VnaCorrections::areSwitchMatrices" ref="class_rsa_toolbox_1_1_vna_corrections.html#ac7b239ccd1d278c690380a04ccffed9e" />
+      <keyword name="switchMatrices" id="RsaToolbox::VnaCorrections::switchMatrices" ref="class_rsa_toolbox_1_1_vna_corrections.html#ae41461d8ea92b9fa2a01f2f17fb705dc" />
+      <keyword name="isSwitchMatrixPort" id="RsaToolbox::VnaCorrections::isSwitchMatrixPort" ref="class_rsa_toolbox_1_1_vna_corrections.html#a203d34896fd28eaa107f4fb9e635d63f" />
+      <keyword name="switchMatrix" id="RsaToolbox::VnaCorrections::switchMatrix" ref="class_rsa_toolbox_1_1_vna_corrections.html#a3e1d86358bc59d924225e5701634adf0" />
+      <keyword name="switchMatrixToVnaPortMap" id="RsaToolbox::VnaCorrections::switchMatrixToVnaPortMap" ref="class_rsa_toolbox_1_1_vna_corrections.html#ac0f772d78427ac7b4296fdf0a494f892" />
+      <keyword name="testPortToSwitchMatrixMap" id="RsaToolbox::VnaCorrections::testPortToSwitchMatrixMap" ref="class_rsa_toolbox_1_1_vna_corrections.html#a85f239af69dae512287b42088506be89" />
       <keyword name="directivity" id="RsaToolbox::VnaCorrections::directivity" ref="class_rsa_toolbox_1_1_vna_corrections.html#a38dd5aa70137810f69f129d4c0a3c9df" />
-      <keyword name="setDirectivity" id="RsaToolbox::VnaCorrections::setDirectivity" ref="class_rsa_toolbox_1_1_vna_corrections.html#a15019ba28b89e00acc11e4fc90ae23d6" />
       <keyword name="sourceMatch" id="RsaToolbox::VnaCorrections::sourceMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#a78330ff1a25e01a99647bc02cf04e90c" />
-      <keyword name="setSourceMatch" id="RsaToolbox::VnaCorrections::setSourceMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#acbe76af6d143849cf3bd3485db8be3cc" />
       <keyword name="reflectionTracking" id="RsaToolbox::VnaCorrections::reflectionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#a44b1572eea37fdcaab3eccef28ce0b0d" />
-      <keyword name="setReflectionTracking" id="RsaToolbox::VnaCorrections::setReflectionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#a781e021b20a15a5680607e90617d5e40" />
       <keyword name="loadMatch" id="RsaToolbox::VnaCorrections::loadMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#a8022002532bb645b57a7204ab705b0d1" />
-      <keyword name="setLoadMatch" id="RsaToolbox::VnaCorrections::setLoadMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#a67d65f31c357351a45d1e80520b03d66" />
       <keyword name="transmissionTracking" id="RsaToolbox::VnaCorrections::transmissionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#ad3392508fc15b93d27ba91ff16bda253" />
+      <keyword name="setDirectivity" id="RsaToolbox::VnaCorrections::setDirectivity" ref="class_rsa_toolbox_1_1_vna_corrections.html#a15019ba28b89e00acc11e4fc90ae23d6" />
+      <keyword name="setSourceMatch" id="RsaToolbox::VnaCorrections::setSourceMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#acbe76af6d143849cf3bd3485db8be3cc" />
+      <keyword name="setReflectionTracking" id="RsaToolbox::VnaCorrections::setReflectionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#a781e021b20a15a5680607e90617d5e40" />
+      <keyword name="setLoadMatch" id="RsaToolbox::VnaCorrections::setLoadMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#a67d65f31c357351a45d1e80520b03d66" />
       <keyword name="setTransmissionTracking" id="RsaToolbox::VnaCorrections::setTransmissionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#ace87f8f0c756763e9ce50324b9e62acb" />
+      <keyword name="directivity" id="RsaToolbox::VnaCorrections::directivity" ref="class_rsa_toolbox_1_1_vna_corrections.html#a13792555c538c221fa117a8dc6571293" />
+      <keyword name="sourceMatch" id="RsaToolbox::VnaCorrections::sourceMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#ab45a204ab93a5aeff1fabf9a7fa488a6" />
+      <keyword name="reflectionTracking" id="RsaToolbox::VnaCorrections::reflectionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#afdf9d63225c3f14f94bb9d673d3a7de0" />
+      <keyword name="loadMatch" id="RsaToolbox::VnaCorrections::loadMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#a0801b7f297b3734886aeb8f54a7c9b02" />
+      <keyword name="transmissionTracking" id="RsaToolbox::VnaCorrections::transmissionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#a8bc1a551fe1c560a5ade23da987228bb" />
+      <keyword name="setDirectivity" id="RsaToolbox::VnaCorrections::setDirectivity" ref="class_rsa_toolbox_1_1_vna_corrections.html#a1569cc0d20ba4716295145c4165b776f" />
+      <keyword name="setSourceMatch" id="RsaToolbox::VnaCorrections::setSourceMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#ace4cae532a72baa7119615ddff12bafa" />
+      <keyword name="setReflectionTracking" id="RsaToolbox::VnaCorrections::setReflectionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#a2ee159ea2617a102aec23608ed73556b" />
+      <keyword name="setLoadMatch" id="RsaToolbox::VnaCorrections::setLoadMatch" ref="class_rsa_toolbox_1_1_vna_corrections.html#aac444e8f3464d04c73c91074a8c2c2d7" />
+      <keyword name="setTransmissionTracking" id="RsaToolbox::VnaCorrections::setTransmissionTracking" ref="class_rsa_toolbox_1_1_vna_corrections.html#a65a51a0f2e9e600ee0f603cd417411bd" />
       <keyword name="operator=" id="RsaToolbox::VnaCorrections::operator=" ref="class_rsa_toolbox_1_1_vna_corrections.html#a257927904d3edb1a2f78448700848dba" />
       <keyword name="RsaToolbox::VnaCwSweep" id="RsaToolbox::VnaCwSweep" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html" />
       <keyword name="VnaCwSweep" id="RsaToolbox::VnaCwSweep::VnaCwSweep" ref="class_rsa_toolbox_1_1_vna_cw_sweep.html#ab90bcae14d2901b085b895e575e9f5a3" />
@@ -3720,6 +3780,8 @@
       <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#af4ce6490daf5879ea81e7b749988080f" />
       <keyword name="toReceiver" id="RsaToolbox::VnaScpi::toReceiver" ref="class_rsa_toolbox_1_1_vna_scpi.html#ae401c279567ede544e8ebcdaf6da4829" />
       <keyword name="toUserDefinedPort" id="RsaToolbox::VnaScpi::toUserDefinedPort" ref="class_rsa_toolbox_1_1_vna_scpi.html#abf29c95c84ba00760dbdb51885aaa2c0" />
+      <keyword name="toMatrixString" id="RsaToolbox::VnaScpi::toMatrixString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a4ebed389e68ea2a4162b4f095396bba4" />
+      <keyword name="toMatrixConnection" id="RsaToolbox::VnaScpi::toMatrixConnection" ref="class_rsa_toolbox_1_1_vna_scpi.html#ac4930bb2a4a9d151fdbc5b31be627239" />
       <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#ad9d5041def5a764cd04311ec26e1722e" />
       <keyword name="toGenderString" id="RsaToolbox::VnaScpi::toGenderString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a9393ce1dfbd8e555c2e768255d22db60" />
       <keyword name="toString" id="RsaToolbox::VnaScpi::toString" ref="class_rsa_toolbox_1_1_vna_scpi.html#a9bab33a43921c472c3798e5098e1b5ed" />
@@ -3768,18 +3830,21 @@
       <keyword name="setSParameterGroup" id="RsaToolbox::VnaSegmentedSweep::setSParameterGroup" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#ae03d74323281e5fac2ac8c60272add1c" />
       <keyword name="clearSParameterGroup" id="RsaToolbox::VnaSegmentedSweep::clearSParameterGroup" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#af0435978efe0339d462c159ca1b00864" />
       <keyword name="readSParameterGroup" id="RsaToolbox::VnaSegmentedSweep::readSParameterGroup" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a83cd1058a5091918d294e1ba612941ae" />
-      <keyword name="isAutoSweepTimeOn" id="RsaToolbox::VnaSegmentedSweep::isAutoSweepTimeOn" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a4e1fc288463e0ad50378803d912079bc" />
-      <keyword name="isAutoSweepTimeOff" id="RsaToolbox::VnaSegmentedSweep::isAutoSweepTimeOff" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#ad192ac15485a3caf48ba9b36be2beb65" />
-      <keyword name="autoSweepTimeOn" id="RsaToolbox::VnaSegmentedSweep::autoSweepTimeOn" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a42fa6859b453c6c8004ec13da4580d28" />
-      <keyword name="autoSweepTimeOff" id="RsaToolbox::VnaSegmentedSweep::autoSweepTimeOff" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a220fef16f57b763fc04b22d35989e2dd" />
       <keyword name="sweepTime_ms" id="RsaToolbox::VnaSegmentedSweep::sweepTime_ms" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a919adcd598ff449e735b48daa047d45b" />
-      <keyword name="setSweepTime" id="RsaToolbox::VnaSegmentedSweep::setSweepTime" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#ae00e33d51b3a5c16d9c00a6cdced6f5d" />
       <keyword name="measure" id="RsaToolbox::VnaSegmentedSweep::measure" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a1139e1760db35d5c1304e8072b289f10" />
       <keyword name="measure" id="RsaToolbox::VnaSegmentedSweep::measure" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a108ba0072a55a62c6d70cfe0aa361b9f" />
       <keyword name="measure" id="RsaToolbox::VnaSegmentedSweep::measure" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a269807991452399fc4607e261d60318e" />
       <keyword name="measure" id="RsaToolbox::VnaSegmentedSweep::measure" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#ad99b8de57e97aa43fe5d0d36967389e7" />
       <keyword name="measure" id="RsaToolbox::VnaSegmentedSweep::measure" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a0adcf6cc4450039b97795779197b9792" />
       <keyword name="operator=" id="RsaToolbox::VnaSegmentedSweep::operator=" ref="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a1de61dd353557f367470fda30dc1c52e" />
+      <keyword name="RsaToolbox::VnaSet" id="RsaToolbox::VnaSet" ref="class_rsa_toolbox_1_1_vna_set.html" />
+      <keyword name="VnaSet" id="RsaToolbox::VnaSet::VnaSet" ref="class_rsa_toolbox_1_1_vna_set.html#a39a666eb8418be5411ac3387f69a8f1c" />
+      <keyword name="VnaSet" id="RsaToolbox::VnaSet::VnaSet" ref="class_rsa_toolbox_1_1_vna_set.html#aa1126a10a67211fec8909371dd9578f9" />
+      <keyword name="VnaSet" id="RsaToolbox::VnaSet::VnaSet" ref="class_rsa_toolbox_1_1_vna_set.html#ad9b079b352b12ffefad3250af5201ecd" />
+      <keyword name="~VnaSet" id="RsaToolbox::VnaSet::~VnaSet" ref="class_rsa_toolbox_1_1_vna_set.html#af5057477b544336e605d7606a65172d9" />
+      <keyword name="select" id="RsaToolbox::VnaSet::select" ref="class_rsa_toolbox_1_1_vna_set.html#ae60563c7ee9cee897adaca8bd61f17ce" />
+      <keyword name="save" id="RsaToolbox::VnaSet::save" ref="class_rsa_toolbox_1_1_vna_set.html#ab36de738538a9f38a8d82b71dcc58efe" />
+      <keyword name="operator=" id="RsaToolbox::VnaSet::operator=" ref="class_rsa_toolbox_1_1_vna_set.html#aa1ac04193685ea2d2f7d5ef09fdef0ec" />
       <keyword name="RsaToolbox::VnaSettings" id="RsaToolbox::VnaSettings" ref="class_rsa_toolbox_1_1_vna_settings.html" />
       <keyword name="VnaSettings" id="RsaToolbox::VnaSettings::VnaSettings" ref="class_rsa_toolbox_1_1_vna_settings.html#addf94e0241e4e5344797b8b81c82529c" />
       <keyword name="VnaSettings" id="RsaToolbox::VnaSettings::VnaSettings" ref="class_rsa_toolbox_1_1_vna_settings.html#a4e9edb51c6769b1e0b6069ab693bce74" />
@@ -3917,6 +3982,12 @@
       <keyword name="VnaSwitchMatrix" id="RsaToolbox::VnaSwitchMatrix::VnaSwitchMatrix" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a19870ce3c5b473569aee09138db04069" />
       <keyword name="VnaSwitchMatrix" id="RsaToolbox::VnaSwitchMatrix::VnaSwitchMatrix" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#aec91b536ba305a6951526c5e89ff4f92" />
       <keyword name="~VnaSwitchMatrix" id="RsaToolbox::VnaSwitchMatrix::~VnaSwitchMatrix" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a19afb6cc2c2080d5f336bae92cbdb4a9" />
+      <keyword name="driver" id="RsaToolbox::VnaSwitchMatrix::driver" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#ac6e1ecd8c5c309bd706a2b01d7b77c84" />
+      <keyword name="connectionType" id="RsaToolbox::VnaSwitchMatrix::connectionType" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a10abba59c249eada1acc8b335ce34ccd" />
+      <keyword name="address" id="RsaToolbox::VnaSwitchMatrix::address" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a18c505ec7f478c73d37dd059a0ce4ce6" />
+      <keyword name="hasTestPort" id="RsaToolbox::VnaSwitchMatrix::hasTestPort" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#ae8c7ea0679b300bf50e89198feebeeb5" />
+      <keyword name="switchMatrixToVnaPortMap" id="RsaToolbox::VnaSwitchMatrix::switchMatrixToVnaPortMap" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a3f633a0d224fdde2decd765ac214f5a8" />
+      <keyword name="testPortToMatrixMap" id="RsaToolbox::VnaSwitchMatrix::testPortToMatrixMap" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a7308a8f7ce85312774443f2e455db408" />
       <keyword name="operator=" id="RsaToolbox::VnaSwitchMatrix::operator=" ref="class_rsa_toolbox_1_1_vna_switch_matrix.html#a06fc446f121d1dc8b59fcccc62e63cc3" />
       <keyword name="RsaToolbox::VnaTimeDomain" id="RsaToolbox::VnaTimeDomain" ref="class_rsa_toolbox_1_1_vna_time_domain.html" />
       <keyword name="VnaTimeDomain" id="RsaToolbox::VnaTimeDomain::VnaTimeDomain" ref="class_rsa_toolbox_1_1_vna_time_domain.html#a1239cc10fc901cbadbd9c084a1463dcc" />
@@ -4232,7 +4303,6 @@
       <file>_wizard_buttons_8h_source.html</file>
       <file>_wizard_page_8h_source.html</file>
       <file>_generic_instrument_8h_source.html</file>
-      <file>_cal_dialog_8h_source.html</file>
       <file>get_channel_dialog_8h_source.html</file>
       <file>get_ports_dialog_8h_source.html</file>
       <file>_cal_groups_model_8h_source.html</file>
@@ -4263,6 +4333,7 @@
       <file>_vna_reference_marker_8h_source.html</file>
       <file>_vna_scpi_8h_source.html</file>
       <file>_vna_segmented_sweep_8h_source.html</file>
+      <file>_vna_set_8h_source.html</file>
       <file>_vna_settings_8h_source.html</file>
       <file>_vna_standard_model_8h_source.html</file>
       <file>_vna_sweep_segment_8h_source.html</file>
@@ -4288,8 +4359,6 @@
       <file>class_rsa_toolbox_1_1_balanced_port-members.html</file>
       <file>class_rsa_toolbox_1_1_bread_crumbs.html</file>
       <file>class_rsa_toolbox_1_1_bread_crumbs-members.html</file>
-      <file>class_rsa_toolbox_1_1_cal_dialog.html</file>
-      <file>class_rsa_toolbox_1_1_cal_dialog-members.html</file>
       <file>class_rsa_toolbox_1_1_cal_group_panel.html</file>
       <file>class_rsa_toolbox_1_1_cal_group_panel-members.html</file>
       <file>class_rsa_toolbox_1_1_cal_groups_model.html</file>
@@ -4402,6 +4471,8 @@
       <file>class_rsa_toolbox_1_1_vna_scpi-members.html</file>
       <file>class_rsa_toolbox_1_1_vna_segmented_sweep.html</file>
       <file>class_rsa_toolbox_1_1_vna_segmented_sweep-members.html</file>
+      <file>class_rsa_toolbox_1_1_vna_set.html</file>
+      <file>class_rsa_toolbox_1_1_vna_set-members.html</file>
       <file>class_rsa_toolbox_1_1_vna_settings.html</file>
       <file>class_rsa_toolbox_1_1_vna_settings-members.html</file>
       <file>class_rsa_toolbox_1_1_vna_standard_model.html</file>
@@ -4427,7 +4498,6 @@
       <file>namespace_rsa_toolbox_1_1_ui.html</file>
       <file>namespace_ui.html</file>
       <file>dir_aea23620b9d20c80320ef66f596f33e0.html</file>
-      <file>dir_71886fae34996f96e535901a235a2868.html</file>
       <file>dir_bad37832da9807352ecc77b37d15eb7b.html</file>
       <file>dir_a23eef33dc5f7e7c6dca16e186c5811d.html</file>
       <file>dir_50d30606eb8c95b96fc6cdbbea6bcdf4.html</file>
@@ -4507,6 +4577,7 @@
       <file>namespacemembers_vars.html</file>
       <file>namespacemembers_vars.html</file>
       <file>namespacemembers_vars.html</file>
+      <file>namespacemembers_type.html</file>
       <file>namespacemembers_type.html</file>
       <file>namespacemembers_type.html</file>
       <file>namespacemembers_type.html</file>

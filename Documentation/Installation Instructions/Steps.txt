@@ -1,0 +1,14 @@
+Installation:
+
+1. Msvc 2010 32 bit
+2. Compatible Qt
+   - Latest Qt Creator (Web installer)
+   - Msvc 2010 32 bit
+   - DirectX (not OpenGL)
+3. Windows Installer XML 3.7+
+4. RsaToolbox
+   - Templates
+   - Help menu
+5. RSA Create Installer
+   - Run installer
+   - Add Qt Creator external tools menu

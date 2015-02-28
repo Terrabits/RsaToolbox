@@ -84,8 +84,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_bread_crumbs.html">BreadCrumbs</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_cal_dialog.html">CalDialog</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_cal_group_panel.html">CalGroupPanel</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_cal_groups_model.html">CalGroupsModel</a></td></tr>
@@ -226,6 +224,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna_segmented_sweep.html">VnaSegmentedSweep</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <code>VnaSegmentedSweep</code> class configures and controls a frequency sweep with arbitrarily-defined measurement points.  <a href="class_rsa_toolbox_1_1_vna_segmented_sweep.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna_set.html">VnaSet</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna_settings.html">VnaSettings</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <code>VnaSettings</code> class configures and queries the global settings on a Rohde &amp; Schwarz VNA.  <a href="class_rsa_toolbox_1_1_vna_settings.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -276,6 +276,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a4ac77922c110de258891e9f867b98a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ba044817ed0459f04f0bc9e98f771c0"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="namespace_rsa_toolbox.html#a4ac77922c110de258891e9f867b98a53">Matrix2D</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a9ba044817ed0459f04f0bc9e98f771c0">Matrix3D</a></td></tr>
 <tr class="separator:a9ba044817ed0459f04f0bc9e98f771c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5177d61f749a5ba10aaa71a3d62f6cc2"><td class="memItemLeft" align="right" valign="top">typedef QMap&lt; uint, uint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a5177d61f749a5ba10aaa71a3d62f6cc2">PortMap</a></td></tr>
+<tr class="separator:a5177d61f749a5ba10aaa71a3d62f6cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a277781f27cd64e7b4d0728b64ace87b8"><td class="memItemLeft" align="right" valign="top">typedef QVector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a277781f27cd64e7b4d0728b64ace87b8">QRowVector</a></td></tr>
 <tr class="separator:a277781f27cd64e7b4d0728b64ace87b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3579c091e3c712a5242d147bc08b1762"><td class="memItemLeft" align="right" valign="top">typedef QVector&lt; <a class="el" href="namespace_rsa_toolbox.html#a277781f27cd64e7b4d0728b64ace87b8">QRowVector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a3579c091e3c712a5242d147bc08b1762">QMatrix2D</a></td></tr>
@@ -463,8 +465,8 @@ Functions</h2></td></tr>
 <tr class="separator:a1ff4b93281f6f785d0636ec89688d423"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c251188f7653030333b2dbca1bafe2d"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a4c251188f7653030333b2dbca1bafe2d">toString</a> (QStringList list, QString separator)</td></tr>
 <tr class="separator:a4c251188f7653030333b2dbca1bafe2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a367a66470f1261677697344ca31223b0"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a367a66470f1261677697344ca31223b0">toString</a> (<a class="el" href="namespace_rsa_toolbox.html#aeff8cbc6faa565bb58d8f7467e117ae0">ComplexRowVector</a> vector, QString list_separator, QString format=&quot;(%1, %2)&quot;)</td></tr>
-<tr class="separator:a367a66470f1261677697344ca31223b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6a771f988a19c2874b9f8152d8bbc35"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#ad6a771f988a19c2874b9f8152d8bbc35">toString</a> (<a class="el" href="namespace_rsa_toolbox.html#aeff8cbc6faa565bb58d8f7467e117ae0">ComplexRowVector</a> vector, QString separator, QString format=&quot;(%1, %2)&quot;)</td></tr>
+<tr class="separator:ad6a771f988a19c2874b9f8152d8bbc35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8b87f32bdc28e2626225c2e2f1320aa"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#ac8b87f32bdc28e2626225c2e2f1320aa">portLabels</a> (QVector&lt; uint &gt; ports)</td></tr>
 <tr class="separator:ac8b87f32bdc28e2626225c2e2f1320aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59270a806ff441a388b4abf455af0e6d"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a59270a806ff441a388b4abf455af0e6d">portString</a> (QVector&lt; uint &gt; ports)</td></tr>
@@ -485,6 +487,9 @@ Functions</h2></td></tr>
 <tr class="separator:a1d3d8cb2376dd1beb46014ac96b59b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f00ddf7ecf4d2c63237fc41036fa7db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_rsa_toolbox.html#a277781f27cd64e7b4d0728b64ace87b8">QRowVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a0f00ddf7ecf4d2c63237fc41036fa7db">parseQRowVector</a> (<a class="el" href="namespace_rsa_toolbox.html#aeff8cbc6faa565bb58d8f7467e117ae0">ComplexRowVector</a> values)</td></tr>
 <tr class="separator:a0f00ddf7ecf4d2c63237fc41036fa7db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f07c6af2a4188ae266e5f02628dab48"><td class="memTemplParams" colspan="2">template&lt;class T1 , class T2 &gt; </td></tr>
+<tr class="memitem:a4f07c6af2a4188ae266e5f02628dab48"><td class="memTemplItemLeft" align="right" valign="top">QMap&lt; T1, T2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a4f07c6af2a4188ae266e5f02628dab48">parseMap</a> (QString values, QString separator, QString ignore=&quot;&quot;, QString::SplitBehavior splitBehavior=QString::KeepEmptyParts)</td></tr>
+<tr class="separator:a4f07c6af2a4188ae266e5f02628dab48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74dbc88890beeca8ae8c7b2bb5840737"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a74dbc88890beeca8ae8c7b2bb5840737">toBlockDataFormat</a> (<a class="el" href="namespace_rsa_toolbox.html#a277781f27cd64e7b4d0728b64ace87b8">QRowVector</a> values)</td></tr>
 <tr class="separator:a74dbc88890beeca8ae8c7b2bb5840737"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ac15524e43d1d695ecd4adbeb9bd242"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_rsa_toolbox.html#a277781f27cd64e7b4d0728b64ace87b8">QRowVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a7ac15524e43d1d695ecd4adbeb9bd242">toQRowVector</a> (QByteArray blockData)</td></tr>
@@ -553,6 +558,8 @@ Functions</h2></td></tr>
 <tr class="separator:a62a922faa3d1fa360e6c10c5834ab6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb477457f800e6528ebe51e7b77388f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#acb477457f800e6528ebe51e7b77388f9">linearSpacing</a> (<a class="el" href="namespace_rsa_toolbox.html#a377a6286f7e32baef3ecb46643772d71">RowVector</a> &amp;result, double start, double stop, int points)</td></tr>
 <tr class="separator:acb477457f800e6528ebe51e7b77388f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5093a52162231404771577a1a47f3efe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_rsa_toolbox.html#a277781f27cd64e7b4d0728b64ace87b8">QRowVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a5093a52162231404771577a1a47f3efe">logSpacing</a> (double start, double stop, int points)</td></tr>
+<tr class="separator:a5093a52162231404771577a1a47f3efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6a6dc53ed0a3aeb7b13422f48a792c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#aa6a6dc53ed0a3aeb7b13422f48a792c3">logSpacing</a> (<a class="el" href="namespace_rsa_toolbox.html#a277781f27cd64e7b4d0728b64ace87b8">QRowVector</a> &amp;result, double start, double stop, int points)</td></tr>
 <tr class="separator:aa6a6dc53ed0a3aeb7b13422f48a792c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82d846558217ee9aa87a8fe9fb74024a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_rsa_toolbox.html#a82d846558217ee9aa87a8fe9fb74024a">isInfinity</a> (double value)</td></tr>
@@ -909,6 +916,18 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">typedef std::vector&lt;<a class="el" href="namespace_rsa_toolbox.html#a4ac77922c110de258891e9f867b98a53">Matrix2D</a>&gt; <a class="el" href="namespace_rsa_toolbox.html#a9ba044817ed0459f04f0bc9e98f771c0">Matrix3D</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5177d61f749a5ba10aaa71a3d62f6cc2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef QMap&lt;uint,uint&gt; <a class="el" href="namespace_rsa_toolbox.html#a5177d61f749a5ba10aaa71a3d62f6cc2">PortMap</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2621,6 +2640,38 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a5093a52162231404771577a1a47f3efe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_rsa_toolbox.html#a277781f27cd64e7b4d0728b64ace87b8">QRowVector</a> logSpacing </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>stop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>points</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="aa6a6dc53ed0a3aeb7b13422f48a792c3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -3876,6 +3927,44 @@ Variables</h2></td></tr>
           <td></td>
           <td class="paramtype">QString&#160;</td>
           <td class="paramname"><em>ignore</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4f07c6af2a4188ae266e5f02628dab48"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMap&lt;T1, T2&gt; RsaToolbox::parseMap </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>separator</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>ignore</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString::SplitBehavior&#160;</td>
+          <td class="paramname"><em>splitBehavior</em> = <code>QString::KeepEmptyParts</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -5543,7 +5632,7 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a367a66470f1261677697344ca31223b0"></a>
+<a class="anchor" id="ad6a771f988a19c2874b9f8152d8bbc35"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -5557,7 +5646,7 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>list_separator</em>, </td>
+          <td class="paramname"><em>separator</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -5933,7 +6022,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_rsa_toolbox.html">RsaToolbox</a></li>
-    <li class="footer">Generated on Mon Dec 22 2014 15:29:17 for RsaToolbox by
+    <li class="footer">Generated on Thu Feb 26 2015 11:41:16 for RsaToolbox by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

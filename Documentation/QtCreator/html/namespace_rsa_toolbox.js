@@ -2,7 +2,6 @@ var namespace_rsa_toolbox =
 [
     [ "BalancedPort", "class_rsa_toolbox_1_1_balanced_port.html", "class_rsa_toolbox_1_1_balanced_port" ],
     [ "BreadCrumbs", "class_rsa_toolbox_1_1_bread_crumbs.html", "class_rsa_toolbox_1_1_bread_crumbs" ],
-    [ "CalDialog", "class_rsa_toolbox_1_1_cal_dialog.html", "class_rsa_toolbox_1_1_cal_dialog" ],
     [ "CalGroupPanel", "class_rsa_toolbox_1_1_cal_group_panel.html", "class_rsa_toolbox_1_1_cal_group_panel" ],
     [ "CalGroupsModel", "class_rsa_toolbox_1_1_cal_groups_model.html", "class_rsa_toolbox_1_1_cal_groups_model" ],
     [ "ChannelsModel", "class_rsa_toolbox_1_1_channels_model.html", "class_rsa_toolbox_1_1_channels_model" ],
@@ -59,6 +58,7 @@ var namespace_rsa_toolbox =
     [ "VnaReferenceMarker", "class_rsa_toolbox_1_1_vna_reference_marker.html", "class_rsa_toolbox_1_1_vna_reference_marker" ],
     [ "VnaScpi", "class_rsa_toolbox_1_1_vna_scpi.html", null ],
     [ "VnaSegmentedSweep", "class_rsa_toolbox_1_1_vna_segmented_sweep.html", "class_rsa_toolbox_1_1_vna_segmented_sweep" ],
+    [ "VnaSet", "class_rsa_toolbox_1_1_vna_set.html", "class_rsa_toolbox_1_1_vna_set" ],
     [ "VnaSettings", "class_rsa_toolbox_1_1_vna_settings.html", "class_rsa_toolbox_1_1_vna_settings" ],
     [ "VnaStandardModel", "class_rsa_toolbox_1_1_vna_standard_model.html", "class_rsa_toolbox_1_1_vna_standard_model" ],
     [ "VnaSweepSegment", "class_rsa_toolbox_1_1_vna_sweep_segment.html", "class_rsa_toolbox_1_1_vna_sweep_segment" ],

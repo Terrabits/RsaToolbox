@@ -1,0 +1,16 @@
+RsaToolbox locations:
+
+Templates:
+C:\Qt\Tools\QtCreator\share\qtcreator\templates\wizards
+- RsaVnaApp
+- RsaVnaMacro
+- RsaVnaMacroNoUi
+
+Help file:
+Tools -> Options
+Help Category -> Documentation Tab -> Add...
+
+Tools -> External
+C:\Qt\Tools\QtCreator\share\qtcreator\externaltools
+- AboutRsaCreateInstaller.xml
+- RsaCreateInstaller.xml
