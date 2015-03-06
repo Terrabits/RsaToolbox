@@ -48,6 +48,7 @@ public:
     uint points();
     double startFrequency_Hz();
     double stopFrequency_Hz();
+    QRowVector frequencies_Hz();
     double power_dBm();
 
     // Physical setup
@@ -114,8 +115,8 @@ private:
     ComplexRowVector errorValues(QString term, uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort);
     void setErrorValues(QString term, ComplexRowVector corrections, uint outputPort, uint inputPort);
     void setErrorValues(QString term, ComplexRowVector corrections, uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort);
-    uint bufferSize(uint sfk = 1);
-    uint complexBufferSize(uint sfk = 1);
+    uint bufferSize();
+    uint complexBufferSize();
 };
 } // RsaToolbox
 

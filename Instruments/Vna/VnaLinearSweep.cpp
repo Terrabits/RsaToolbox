@@ -358,7 +358,7 @@ bool VnaLinearSweep::isFullyInitialized() const {
 }
 uint VnaLinearSweep::frequencyBufferSize(uint points) {
     const uint HEADER_MAX_SIZE = 11;
-    const uint SIZE_PER_POINT = 16;
+    const uint SIZE_PER_POINT = 8;
     const uint INSURANCE = 20;
     return(HEADER_MAX_SIZE + SIZE_PER_POINT * points + INSURANCE);
 }

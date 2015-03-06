@@ -174,6 +174,11 @@ double VnaCorrections::stopFrequency_Hz() {
     scpi = scpi.arg("STOP");
     return(_vna->query(scpi).trimmed().toDouble());
 }
+QRowVector VnaCorrections::frequencies_Hz() {
+    QString scpi = ":SENS%1:CORR:STIM?\n";
+    scpi = scpi.arg(_channelIndex);
+    return _vna->queryVector(scpi, bufferSize());
+}
 double VnaCorrections::power_dBm() {
     QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
@@ -432,11 +437,15 @@ void VnaCorrections::setErrorValues(QString term, ComplexRowVector corrections, 
         _vna->settings().setRead32BitBinaryFormat();
 }
 
-uint VnaCorrections::bufferSize(uint sfk) {
-    Q_UNUSED(sfk);
+uint VnaCorrections::bufferSize() {
+    const uint HEADER_MAX_SIZE = 11;
     const uint SIZE_PER_POINT = 8;
-    return(SIZE_PER_POINT * points() + 11);
+    const uint INSURANCE = 20;
+    return(HEADER_MAX_SIZE + SIZE_PER_POINT * points() + INSURANCE);
 }
-uint VnaCorrections::complexBufferSize(uint sfk) {
-    return(2 * bufferSize(sfk) - 11);
+uint VnaCorrections::complexBufferSize() {
+    const uint HEADER_MAX_SIZE = 11;
+    const uint SIZE_PER_POINT = 16;
+    const uint INSURANCE = 20;
+    return(HEADER_MAX_SIZE + SIZE_PER_POINT * points() + INSURANCE);
 }
