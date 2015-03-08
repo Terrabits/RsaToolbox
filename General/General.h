@@ -26,6 +26,7 @@
 namespace RsaToolbox {
 
 // Enum conversions
+
 double toDouble(SiPrefix prefix);
 QString toString(NetworkParameter parameter);
 QString toString(NetworkParameter parameter, uint outputPort, uint inputPort);
@@ -38,6 +39,8 @@ QString toString(SiPrefix prefix);
 QString toString(Units units);
 QString toString(SiPrefix prefix, Units units);
 SiPrefix toSiPrefix(QString prefix);
+SiPrefix toSiPrefix(QChar prefix);
+SiPrefix toSiPrefix(char prefix);
 SiPrefix getPrefix(double value);
 
 

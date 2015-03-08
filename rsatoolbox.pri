@@ -29,7 +29,8 @@ INCLUDEPATH += $$PWD \
                $$PWD/Gui/ListPanel \
                $$PWD/Gui/PortsLineEdit \
                $$PWD/Gui/Wizard \
-               $$PWD/QCustomPlot
+               $$PWD/QCustomPlot \
+               $$PWD/Server
 
 win32 {
     # C++11 enum class warnings:

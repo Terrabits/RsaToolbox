@@ -164,27 +164,46 @@ QString RsaToolbox::toString(SiPrefix prefix, Units units) {
 }
 
 SiPrefix RsaToolbox::toSiPrefix(QString prefix) {
-    if (prefix == "T")
-        return(SiPrefix::Tera);
-    if (prefix == "G")
-        return(SiPrefix::Giga);
-    if (prefix == "M")
-        return(SiPrefix::Mega);
-    if (prefix == "K")
-        return(SiPrefix::Kilo);
-    if (prefix == "m")
-        return(SiPrefix::Milli);
-    if (prefix == "u")
-        return(SiPrefix::Micro);
-    if (prefix == "n")
-        return(SiPrefix::Nano);
-    if (prefix == "p")
-        return(SiPrefix::Pico);
-    if (prefix == "f")
-        return(SiPrefix::Femto);
-    // Default
-    return(SiPrefix::None);
+    if (prefix.isEmpty())
+        return SiPrefix::None;
+
+    return toSiPrefix(prefix.at(0));
 }
+SiPrefix RsaToolbox::toSiPrefix(QChar prefix) {
+    return toSiPrefix(prefix.toLatin1());
+}
+SiPrefix RsaToolbox::toSiPrefix(char prefix) {
+    switch (prefix) {
+    case 'T':
+    case 't':
+        return SiPrefix::Tera;
+    case 'G':
+    case 'g':
+        return SiPrefix::Giga;
+    case 'M':
+        return SiPrefix::Mega;
+    case 'K':
+    case 'k':
+        return SiPrefix::Kilo;
+    case 'm':
+        return SiPrefix::Milli;
+    case 'u':
+    case 'U':
+        return SiPrefix::Micro;
+    case 'n':
+    case 'N':
+        return SiPrefix::Nano;
+    case 'p':
+    case 'P':
+        return SiPrefix::Pico;
+    case 'f':
+    case 'F':
+        return SiPrefix::Femto;
+    default:
+        return SiPrefix::None;
+    }
+}
+
 SiPrefix RsaToolbox::getPrefix(double value) {
     int decimal_places = 1;
     const int count = 10;
@@ -1030,7 +1049,7 @@ ComplexRowVector RsaToolbox::smoothPhase(ComplexRowVector x) {
         ComplexDouble current = x[i];
         ComplexDouble previous = x[i-1];
         double difference = arg(current*conj(previous));
-        if (abs(difference) > PI/2)
+        if (abs(difference) > PI/2.0)
             x[i] = -1.0*current;
     }
     return(x);

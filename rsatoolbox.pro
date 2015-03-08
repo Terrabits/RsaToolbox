@@ -11,12 +11,13 @@ CONFIG   += staticlib
 CONFIG   += debug_and_release build_all
 
 include(core.pri)
-include(Gui/gui.pri)
 include(Bus/Tcp/tcp.pri)
 include(Bus/No/no.pri)
 include(Bus/Visa/visa.pri)
+include(Gui/gui.pri)
 include(Instruments/Vna/vna.pri)
 include(QCustomPlot/qcustomplot.pri)
+include(Server/server.pri)
 OTHER_FILES += rsatoolbox.pri
 
 DESTDIR     = $$PWD
