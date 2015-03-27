@@ -1804,6 +1804,15 @@ QVector<uint> Vna::vnaTestPorts() {
  * \return \c PortMap from test port to VNA port
  */
 PortMap Vna::testPortToVnaMap() {
+    // For Zva, test port == physical Vna port?
+    if (properties().isZvaFamily()) {
+        uint _testPorts = testPorts();
+        PortMap map;
+        for (uint i = 0; i < _testPorts; i++)
+            map.insert(i, i);
+        return map;
+    }
+
     const QString scpi = ":SYST:COMM:RDEV:SMAT:CONF:TVNA?\n";
     QString result = query(scpi).trimmed();
     if (result.isEmpty())
@@ -1833,6 +1842,9 @@ bool Vna::areSwitchMatrices() {
  * \return Number of switch matrices
  */
 uint Vna::switchMatrices() {
+    if (properties().isZvaFamily())
+        return 0;
+
     return query(":SYST:COMM:RDEV:SMAT:COUN?\n").trimmed().toUInt();
 }
 
@@ -1873,10 +1885,8 @@ uint Vna::switchMatrixWithPort(uint testPort) {
  * the VNA.
  */
 void Vna::disconnectSwitchMatrices() {
-    if (properties().isZvaFamily()) {
-        print("disconnectSwitchMatrices (\"INST:SMAT [ON/OFF]\") not available on Zva\n\n");
+    if (properties().isZvaFamily())
         return;
-    }
 
     write(":INST:SMAT 0\n");
 }
@@ -1886,6 +1896,9 @@ void Vna::disconnectSwitchMatrices() {
  * from the pool of connected devices.
  */
 void Vna::removeSwitchMatrices() {
+    if (properties().isZvaFamily())
+        return;
+
     write(":SYST:COMM:RDEV:SMAT:DEL\n");
 }
 

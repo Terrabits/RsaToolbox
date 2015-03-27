@@ -194,6 +194,12 @@ uint VnaCorrections::vnaPort(uint testPort) {
     return testPortToVnaMap().value(testPort, 0);
 }
 PortMap VnaCorrections::testPortToVnaMap() {
+    // For Zva, test port == physical Vna port?
+    if (_vna->properties().isZvaFamily()) {
+        return _vna->testPortToVnaMap();
+    }
+
+
     QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("TVNA");
@@ -202,6 +208,9 @@ PortMap VnaCorrections::testPortToVnaMap() {
 }
 
 bool VnaCorrections::areSwitchMatrices() {
+    if (_vna->properties().isZvaFamily())
+        return false;
+
     _vna->isError();
     _vna->clearStatus();
     bool displayError = _vna->settings().isErrorDisplayOn();
@@ -219,6 +228,9 @@ bool VnaCorrections::areSwitchMatrices() {
     }
 }
 uint VnaCorrections::switchMatrices() {
+    if (_vna->properties().isZvaFamily())
+        return 0;
+
     _vna->isError();
     _vna->clearStatus();
     bool displayError = _vna->settings().isErrorDisplayOn();
@@ -256,6 +268,9 @@ uint VnaCorrections::switchMatrix(uint testPort) {
     return 0;
 }
 PortMap VnaCorrections::switchMatrixToVnaPortMap(uint switchMatrix) {
+    if (_vna->properties().isZvaFamily())
+        return PortMap();
+
     QString scpi = ":SENS%1:CORR:DATA:PAR? %3,%4\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("MVNA");
@@ -264,6 +279,9 @@ PortMap VnaCorrections::switchMatrixToVnaPortMap(uint switchMatrix) {
     return RsaToolbox::parseMap<uint,uint>(result, ",");
 }
 PortMap VnaCorrections::testPortToSwitchMatrixMap(uint switchMatrix) {
+    if (_vna->properties().isZvaFamily())
+        return PortMap();
+
     QString scpi = ":SENS%1:CORR:DATA:PAR? %3,%4\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg("MTES");
