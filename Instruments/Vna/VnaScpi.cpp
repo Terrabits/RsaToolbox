@@ -263,6 +263,8 @@ QString VnaScpi::toString(VnaStandardType type) {
         return "AT";
     case SYMMETRIC_NETWORK_STANDARD_TYPE:
         return "SN";
+    case ISOLATION_STANDARD_TYPE:
+        return "????";
     default:
         return "UNKNOWN_STANDARD";
     }
@@ -342,69 +344,77 @@ VnaCalStandard VnaScpi::toCalStandard(QString scpi) {
         }
     }
 
-    if (scpi.right(2).contains("OP", Qt::CaseInsensitive)) {
+    if (scpi.endsWith("OP", Qt::CaseInsensitive)) {
         std.setType(OPEN_STANDARD_TYPE);
         scpi.chop(2);
     }
-    else if (scpi.right(3).contains("OSH", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("OSH", Qt::CaseInsensitive)) {
         std.setType(OFFSET_SHORT_STANDARD_TYPE);
         scpi.chop(3);
     }
-    if (scpi.contains("OSHORT1", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("OSHORT1", Qt::CaseInsensitive)) {
         std.setType(OFFSET_SHORT_STANDARD_TYPE);
         scpi.chop(7);
     }
-    else if (scpi.contains("OSHORT2", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("OSHORT2", Qt::CaseInsensitive)) {
         std.setType(OFFSET_SHORT2_STANDARD_TYPE);
         scpi.chop(7);
     }
-    else if (scpi.contains("OSHORT3", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("OSHORT3", Qt::CaseInsensitive)) {
         std.setType(OFFSET_SHORT3_STANDARD_TYPE);
         scpi.chop(7);
     }
-    else if (scpi.right(2).contains("SH", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("SH", Qt::CaseInsensitive)) {
         std.setType(SHORT_STANDARD_TYPE);
         scpi.chop(2);
     }
-    else if (scpi.right(3).contains("MMT", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("MMT", Qt::CaseInsensitive)) {
         std.setType(MATCH_STANDARD_TYPE);
         scpi.chop(3);
     }
-    else if (scpi.right(2).contains("SM", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("SM", Qt::CaseInsensitive)) {
         std.setType(SLIDING_MATCH_STANDARD_TYPE);
         scpi.chop(2);
     }
-    else if (scpi.right(3).contains("REF", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("REF", Qt::CaseInsensitive)) {
         std.setType(REFLECT_STANDARD_TYPE);
         scpi.chop(3);
     }
-    else if (scpi.right(2).contains("TH", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("TH", Qt::CaseInsensitive)) {
         std.setType(THRU_STANDARD_TYPE);
         scpi.chop(2);
     }
-    else if (scpi.right(1).contains("L", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("L", Qt::CaseInsensitive)) {
         std.setType(LINE_STANDARD_TYPE);
         scpi.chop(1);
     }
-    else if (scpi.contains("LINE1", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("LINE1", Qt::CaseInsensitive)) {
         std.setType(LINE_STANDARD_TYPE);
         scpi.chop(5);
     }
-    else if (scpi.contains("LINE2", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("LINE2", Qt::CaseInsensitive)) {
         std.setType(LINE2_STANDARD_TYPE);
         scpi.chop(5);
     }
-    else if (scpi.contains("LINE3", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("LINE3", Qt::CaseInsensitive)) {
         std.setType(LINE3_STANDARD_TYPE);
         scpi.chop(5);
     }
-    else if (scpi.right(2).contains("AT", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("AT", Qt::CaseInsensitive)) {
         std.setType(ATTENUATION_STANDARD_TYPE);
         scpi.chop(2);
     }
-    if (scpi.right(2).contains("SN", Qt::CaseInsensitive)) {
+    else if (scpi.endsWith("SN", Qt::CaseInsensitive)) {
         std.setType(SYMMETRIC_NETWORK_STANDARD_TYPE);
         scpi.chop(2);
+    }
+    else if (scpi.endsWith("????")) {
+        std.setType(ISOLATION_STANDARD_TYPE);
+        scpi.chop(4);
+    }
+    else {
+        std.setType(UNKNOWN_STANDARD_TYPE);
+        return std;
     }
 
     if (std.isSinglePort() && scpi.size() >= 1) {

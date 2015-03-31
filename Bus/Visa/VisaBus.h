@@ -88,6 +88,8 @@ private:
     static const int MAX_PRINT = 100;
 
     // VisaBus
+    bool connectVisa(const QString &dll, const QString &resource);
+
     bool isError();
     void setDisconnected();
 };

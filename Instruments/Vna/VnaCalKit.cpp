@@ -397,6 +397,16 @@ void VnaCalKit::standardDetails(VnaCalStandard &standard, Connector type) {
     if (standard.isPortSpecific())
         return;
 
+    // Firmware error handling
+    // Isolation standards
+    // (toString(standard) undefined)
+    if (standard.type() == ISOLATION_STANDARD_TYPE)
+        return;
+
+    // Don't query unknown standards
+    if (standard.type() == UNKNOWN_STANDARD_TYPE)
+        return;
+
     QString scpi = ":CORR:CKIT:%1:WLAB? \'%2\',\'%3\',\'%4\'\n";
     scpi = scpi.arg(VnaScpi::toString(standard)); // Standard
     scpi = scpi.arg(VnaScpi::toTypeString(type)); // Connector type

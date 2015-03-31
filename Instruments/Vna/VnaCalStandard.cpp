@@ -415,6 +415,7 @@ bool VnaCalStandard::isTwoPort(VnaStandardType type) {
     case LINE3_STANDARD_TYPE:
     case ATTENUATION_STANDARD_TYPE:
     case SYMMETRIC_NETWORK_STANDARD_TYPE:
+    case ISOLATION_STANDARD_TYPE:
         return(true);
     default:
         return(false);
