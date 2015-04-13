@@ -35,6 +35,7 @@ public:
     bool isNotInterpolated();
     void on(bool isOn = true);
     void off(bool isOff = true);
+
     QString calGroup();
     void setCalGroup(QString calGroup);
     void saveToCalGroup(QString calGroup);
@@ -65,6 +66,8 @@ public:
     PortMap testPortToSwitchMatrixMap(uint switchMatrix);
 
     // Corrections:
+    void loadDefaultCorrections();
+
     // Vna ports
     ComplexRowVector directivity(uint outputPort, uint inputPort);
     ComplexRowVector sourceMatch(uint outputPort, uint inputPort);

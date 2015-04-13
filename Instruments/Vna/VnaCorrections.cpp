@@ -290,6 +290,12 @@ PortMap VnaCorrections::testPortToSwitchMatrixMap(uint switchMatrix) {
     return RsaToolbox::parseMap<uint,uint>(result, ",");
 }
 
+void VnaCorrections::loadDefaultCorrections() {
+    QString scpi = ":SENS%1:CORR:COLL:SAVE:SEL:DEF\n";
+    scpi = scpi.arg(_channelIndex);
+    _vna->write(scpi);
+}
+
 ComplexRowVector VnaCorrections::directivity(uint outputPort, uint inputPort) {
     return(errorValues("DIRECTIVITY", outputPort, inputPort));
 }
@@ -417,7 +423,7 @@ ComplexRowVector VnaCorrections::errorValues(QString term, uint outputTestPort, 
 }
 
 void VnaCorrections::setErrorValues(QString term, ComplexRowVector corrections, uint outputPort, uint inputPort) {
-    QString scpi = ":SENS%1:CORR:CDAT \'%2\',%3,%4\n";
+    QString scpi = ":SENS%1:CORR:CDAT \'%2\',%3,%4, ";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(term);
     scpi = scpi.arg(inputPort);
@@ -435,7 +441,7 @@ void VnaCorrections::setErrorValues(QString term, ComplexRowVector corrections, 
         _vna->settings().setRead32BitBinaryFormat();
 }
 void VnaCorrections::setErrorValues(QString term, ComplexRowVector corrections, uint outputTestPort, uint vnaLoadPort, uint inputTestPort, uint vnaGeneratorPort) {
-    QString scpi = ":SENS%1:CORR:SMAT:CDAT \'%2\',%3,%4,%5,%5\n";
+    QString scpi = ":SENS%1:CORR:SMAT:CDAT \'%2\',%3,%4,%5,%6, ";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(term);
     scpi = scpi.arg(inputTestPort);

@@ -10,6 +10,7 @@ using namespace RsaToolbox;
 
 // Qt includes
 #include <QDebug>
+#include <QElapsedTimer>
 
 
 /*!
@@ -18,6 +19,9 @@ using namespace RsaToolbox;
  * \brief The \c %VnaCalibrate class
  * is used to perform calibration.
  */
+
+// Static init:
+uint VnaCalibrate::_timeout_ms = 10 * 60 * 1000; // 10 min
 
 VnaCalibrate::VnaCalibrate(QObject *parent) :
     QObject(parent)
@@ -69,6 +73,7 @@ VnaCalibrate::VnaCalibrate(Vna *vna, uint channelIndex, QObject *parent) :
     _isChannelSpecific = true;
     _channel.reset(new VnaChannel(vna, channelIndex));
     _channelIndex = channelIndex;
+    _timeout_ms = 10 * 60 * 1000; // 10 mins
 }
 VnaCalibrate::~VnaCalibrate() {
 

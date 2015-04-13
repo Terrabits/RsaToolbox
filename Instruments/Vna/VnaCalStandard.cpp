@@ -1361,13 +1361,16 @@ void VnaCalStandard::clear() {
     _type = UNKNOWN_STANDARD_TYPE;
     _label.clear();
 
-    _isTouchstone = false;
-    _touchstone.clear();
-
     _port1 = 0;
     _port2 = 0;
     _connector1 = Connector();
     _connector2 = Connector();
+
+    _min_freq_Hz = 0;
+    _max_freq_Hz = 1.0E12;
+
+    _isTouchstone = false;
+    _touchstone.clear();
 
     _isModel = false;
     _model = VnaStandardModel();
