@@ -714,6 +714,10 @@ QVector<Connector> Vna::connectorTypes() {
             new_type.setCustomType(item);
         else
             new_type.setType(type);
+        if (isConnectorGenderNeutral(new_type))
+            new_type.setGender(Connector::Gender::Neutral);
+        else
+            new_type.setGender(Connector::Gender::Male);
         types.append(new_type);
     }
     return(types);
@@ -746,6 +750,24 @@ bool Vna::isConnectorType(QString userDefinedType) {
     Connector type;
     type.setCustomType(userDefinedType);
     return(isConnectorType(type));
+}
+
+/*!
+ * \brief Query if connector of type \c type is gender neutral
+ * \param type Connector type (other properties are ignored)
+ * \return \c true if gender neutral connector; \c false otherwise
+ */
+bool Vna::isConnectorGenderNeutral(Connector type) {
+    QString scpi = "CORR:CONN? \'%1\'\n";
+    scpi = scpi.arg(VnaScpi::toTypeString(type));
+    QStringList results = query(scpi).trimmed().split(",");
+    // results[0] = connector type (why?)
+    // results[1] = mode (TEM | WGUide)
+    // results[2] = gender (GENDer | NGENder)
+    // results[3] = permittivity
+    // results[4] = impedance
+
+    return results[2].toUpper() == "NGEN";
 }
 
 /*!

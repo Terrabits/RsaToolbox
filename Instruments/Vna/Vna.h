@@ -85,6 +85,7 @@ public:
     QVector<Connector> connectorTypes();
     bool isConnectorType(Connector type);
     bool isConnectorType(QString userDefinedType);
+    bool isConnectorGenderNeutral(Connector type);
     bool isCalKit(NameLabel nameLabel);
     bool isCalKit(QString name, QString label);
     bool isNotCalKit(NameLabel nameLabel);
