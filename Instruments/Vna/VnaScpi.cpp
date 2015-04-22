@@ -239,7 +239,7 @@ QString VnaScpi::toString(VnaStandardType type) {
         return "OP";
     case SHORT_STANDARD_TYPE:
         return "SH";
-    case OFFSET_SHORT_STANDARD_TYPE:
+    case OFFSET_SHORT1_STANDARD_TYPE:
         return "OSH";
     case OFFSET_SHORT2_STANDARD_TYPE:
         return "OSHORT2";
@@ -349,11 +349,11 @@ VnaCalStandard VnaScpi::toCalStandard(QString scpi) {
         scpi.chop(2);
     }
     else if (scpi.endsWith("OSH", Qt::CaseInsensitive)) {
-        std.setType(OFFSET_SHORT_STANDARD_TYPE);
+        std.setType(OFFSET_SHORT1_STANDARD_TYPE);
         scpi.chop(3);
     }
     else if (scpi.endsWith("OSHORT1", Qt::CaseInsensitive)) {
-        std.setType(OFFSET_SHORT_STANDARD_TYPE);
+        std.setType(OFFSET_SHORT1_STANDARD_TYPE);
         scpi.chop(7);
     }
     else if (scpi.endsWith("OSHORT2", Qt::CaseInsensitive)) {

@@ -232,7 +232,7 @@ QString VnaCalStandard::displayType() const {
         return("Match");
     case THRU_STANDARD_TYPE:
         return("Thru");
-    case OFFSET_SHORT_STANDARD_TYPE:
+    case OFFSET_SHORT1_STANDARD_TYPE:
         return("Offset Short 1");
     case OFFSET_SHORT2_STANDARD_TYPE:
         return("Offset Short 2");
@@ -545,6 +545,36 @@ bool VnaCalStandard::isMaleShort() const {
  */
 bool VnaCalStandard::isFemaleShort() const {
     return(isShort() && isFemale());
+}
+
+bool VnaCalStandard::isOffsetShort1() const {
+    return isType(OFFSET_SHORT1_STANDARD_TYPE);
+}
+bool VnaCalStandard::isMaleOffsetShort1() const {
+    return isOffsetShort1() && isMale();
+}
+bool VnaCalStandard::isFemaleOffsetShort1() const {
+    return isOffsetShort1() && isFemale();
+}
+
+bool VnaCalStandard::isOffsetShort2() const {
+    return isType(OFFSET_SHORT2_STANDARD_TYPE);
+}
+bool VnaCalStandard::isMaleOffsetShort2() const {
+    return isOffsetShort2() && isMale();
+}
+bool VnaCalStandard::isFemaleOffsetShort2() const {
+    return isOffsetShort2() && isFemale();
+}
+
+bool VnaCalStandard::isOffsetShort3() const {
+    return isType(OFFSET_SHORT3_STANDARD_TYPE);
+}
+bool VnaCalStandard::isMaleOffsetShort3() const {
+    return isOffsetShort3() && isMale();
+}
+bool VnaCalStandard::isFemaleOffsetShort3() const {
+    return isOffsetShort3() && isFemale();
 }
 
 /*!

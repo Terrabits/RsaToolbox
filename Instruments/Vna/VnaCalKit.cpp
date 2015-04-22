@@ -48,6 +48,10 @@ VnaCalKit::~VnaCalKit() {
 
 }
 
+NameLabel VnaCalKit::nameLabel() const {
+    return _nameLabel;
+}
+
 bool VnaCalKit::isConnectorType(Connector type) {
     return _vna->calKits(type).contains(_nameLabel);
 }
@@ -190,6 +194,90 @@ bool VnaCalKit::hasFemaleShort() {
     QVector<VnaCalStandard> standards = this->standards();
     foreach(VnaCalStandard s, standards) {
         if (s.isFemaleShort())
+            return true;
+    }
+
+    return false;
+}
+
+bool VnaCalKit::hasOffsetShort1() {
+    QVector<VnaCalStandard> standards = this->standards();
+    foreach(VnaCalStandard s, standards) {
+        if (s.isOffsetShort1())
+            return true;
+    }
+
+    return false;
+}
+bool VnaCalKit::hasMaleOffsetShort1() {
+    QVector<VnaCalStandard> standards = this->standards();
+    foreach(VnaCalStandard s, standards) {
+        if (s.isMaleOffsetShort1())
+            return true;
+    }
+
+    return false;
+}
+bool VnaCalKit::hasFemaleOffsetShort1() {
+    QVector<VnaCalStandard> standards = this->standards();
+    foreach(VnaCalStandard s, standards) {
+        if (s.isFemaleOffsetShort1())
+            return true;
+    }
+
+    return false;
+}
+
+bool VnaCalKit::hasOffsetShort2() {
+    QVector<VnaCalStandard> standards = this->standards();
+    foreach(VnaCalStandard s, standards) {
+        if (s.isOffsetShort2())
+            return true;
+    }
+
+    return false;
+}
+bool VnaCalKit::hasMaleOffsetShort2() {
+    QVector<VnaCalStandard> standards = this->standards();
+    foreach(VnaCalStandard s, standards) {
+        if (s.isMaleOffsetShort2())
+            return true;
+    }
+
+    return false;
+}
+bool VnaCalKit::hasFemaleOffsetShort2() {
+    QVector<VnaCalStandard> standards = this->standards();
+    foreach(VnaCalStandard s, standards) {
+        if (s.isFemaleOffsetShort2())
+            return true;
+    }
+
+    return false;
+}
+
+bool VnaCalKit::hasOffsetShort3() {
+    QVector<VnaCalStandard> standards = this->standards();
+    foreach(VnaCalStandard s, standards) {
+        if (s.isOffsetShort3())
+            return true;
+    }
+
+    return false;
+}
+bool VnaCalKit::hasMaleOffsetShort3() {
+    QVector<VnaCalStandard> standards = this->standards();
+    foreach(VnaCalStandard s, standards) {
+        if (s.isMaleOffsetShort3())
+            return true;
+    }
+
+    return false;
+}
+bool VnaCalKit::hasFemaleOffsetShort3() {
+    QVector<VnaCalStandard> standards = this->standards();
+    foreach(VnaCalStandard s, standards) {
+        if (s.isFemaleOffsetShort3())
             return true;
     }
 

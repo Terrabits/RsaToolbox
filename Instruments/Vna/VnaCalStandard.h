@@ -18,7 +18,7 @@ namespace RsaToolbox {
 enum VnaStandardType {
     OPEN_STANDARD_TYPE,
     SHORT_STANDARD_TYPE,
-    OFFSET_SHORT_STANDARD_TYPE,
+    OFFSET_SHORT1_STANDARD_TYPE,
     OFFSET_SHORT2_STANDARD_TYPE,
     OFFSET_SHORT3_STANDARD_TYPE,
     MATCH_STANDARD_TYPE,
@@ -74,6 +74,18 @@ public:
     bool isShort(uint port) const;
     bool isMaleShort() const;
     bool isFemaleShort() const;
+
+    bool isOffsetShort1() const;
+    bool isMaleOffsetShort1() const;
+    bool isFemaleOffsetShort1() const;
+
+    bool isOffsetShort2() const;
+    bool isMaleOffsetShort2() const;
+    bool isFemaleOffsetShort2() const;
+
+    bool isOffsetShort3() const;
+    bool isMaleOffsetShort3() const;
+    bool isFemaleOffsetShort3() const;
 
     bool isMatch() const;
     bool isMatch(uint port) const;

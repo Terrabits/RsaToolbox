@@ -27,6 +27,8 @@ public:
     VnaCalKit(Vna *vna, NameLabel nameLabel, QObject *parent = 0);
     ~VnaCalKit();
 
+    NameLabel nameLabel() const;
+
     bool isConnectorType(Connector type);
     bool has(VnaCalStandard standard);
     bool has(VnaStandardType type, Connector::Gender gender);
@@ -43,6 +45,18 @@ public:
     bool hasShort(uint port);
     bool hasMaleShort();
     bool hasFemaleShort();
+
+    bool hasOffsetShort1();
+    bool hasMaleOffsetShort1();
+    bool hasFemaleOffsetShort1();
+
+    bool hasOffsetShort2();
+    bool hasMaleOffsetShort2();
+    bool hasFemaleOffsetShort2();
+
+    bool hasOffsetShort3();
+    bool hasMaleOffsetShort3();
+    bool hasFemaleOffsetShort3();
 
     bool hasMatch();
     bool hasMatch(uint port);
