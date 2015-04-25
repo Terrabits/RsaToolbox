@@ -60,6 +60,13 @@ void VnaChannel::setName(QString name) {
     _vna->write(scpi);
 }
 
+void VnaChannel::select() {
+    // Turning on a channel that already
+    // exists selects it without
+    // modification
+    _vna->createChannel(this->_index);
+}
+
 QVector<uint> VnaChannel::diagrams() {
     return(QVector<uint>());
 }

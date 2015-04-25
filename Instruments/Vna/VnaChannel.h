@@ -55,6 +55,8 @@ public:
     QString name();
     void setName(QString name);
 
+    void select();
+
     QVector<uint> diagrams();
     QStringList traces();
 
