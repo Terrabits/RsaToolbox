@@ -90,7 +90,8 @@ void Wizard::removePage(int index) {
     page->setWizard(NULL);
     _pages.removeAt(index);
     ui->stack->removeWidget(page);
-    delete page;
+//    delete page;
+    page->deleteLater();
     restart();
     emit pageRemoved(index);
 }

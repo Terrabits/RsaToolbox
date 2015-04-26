@@ -62,7 +62,7 @@ public:
     void measureThru(uint port1, uint port2);
     void apply();
 
-    void operator=(VnaCalibrate const &other);
+    void operator=(const VnaCalibrate &other);
 
 //    void moveToThread(QThread *thread);
 

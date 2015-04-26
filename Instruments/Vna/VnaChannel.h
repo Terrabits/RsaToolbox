@@ -47,7 +47,7 @@ public:
     };
 
     explicit VnaChannel(QObject *parent = 0);
-    VnaChannel(VnaChannel const &other);
+    VnaChannel(const VnaChannel &other);
     VnaChannel(Vna *_vna, uint index, QObject *parent = 0);
     ~VnaChannel();
 
@@ -152,7 +152,7 @@ public:
     // VnaPowerCorrections &powerCorrections();
     // VnaPowerCalibrate &powerCalibrate();
 
-    void operator=(VnaChannel const &other);
+    void operator=(const VnaChannel &other);
 
 //    void moveToThread(QThread *thread);
 

@@ -25,7 +25,7 @@ VnaChannel::VnaChannel(QObject *parent) :
     _vna = placeholder.data();
     _index = 0;
 }
-VnaChannel::VnaChannel(VnaChannel const &other) {
+VnaChannel::VnaChannel(const VnaChannel &other) {
     if (other.isFullyInitialized()) {
         _vna = other._vna;
         _index = other._index;
@@ -512,10 +512,15 @@ VnaCalibrate *VnaChannel::takeCalibrate() {
     return(new VnaCalibrate(_vna, _index));
 }
 
-void VnaChannel::operator=(VnaChannel const &other) {
+void VnaChannel::operator=(const VnaChannel &other) {
     if (other.isFullyInitialized()) {
         _vna = other._vna;
         _index = other._index;
+    }
+    else {
+        placeholder.reset(new Vna());
+        _vna = placeholder.data();
+        _index = 0;
     }
 }
 

@@ -397,18 +397,22 @@ void VnaCalibrate:: apply() {
     _vna->pause(6000);
 }
 
-void VnaCalibrate::operator=(VnaCalibrate const &other) {
+void VnaCalibrate::operator=(const VnaCalibrate &other) {
     if (other.isFullyInitialized()) {
         _vna = other._vna;
         _isChannelSpecific = other._isChannelSpecific;
-        _channel.reset(new VnaChannel(*other._channel.data()));
-        _channelIndex = other._channelIndex;
+        if (_isChannelSpecific) {
+            _channel.reset(new VnaChannel(*other._channel.data()));
+            _channelIndex = other._channelIndex;
+        }
+        else {
+            _channelIndex = 0;
+        }
     }
     else {
         placeholder.reset(new Vna());
         _vna = placeholder.data();
         _isChannelSpecific = false;
-        _channel.reset(new VnaChannel());
         _channelIndex = 0;
     }
 }

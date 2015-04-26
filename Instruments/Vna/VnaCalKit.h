@@ -72,7 +72,7 @@ public:
 
     void addStandard(VnaCalStandard standard);
 
-    void operator=(VnaCalKit const &other);
+    void operator=(const VnaCalKit &other);
 
 private:
     Vna *_vna;

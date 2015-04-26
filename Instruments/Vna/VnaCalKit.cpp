@@ -431,7 +431,7 @@ void VnaCalKit::addStandard(VnaCalStandard standard) {
     }
 }
 
-void VnaCalKit::operator=(VnaCalKit const &other) {
+void VnaCalKit::operator=(const VnaCalKit &other) {
     if (other.isFullyInitialized()) {
         _vna = other._vna;
         _nameLabel = other._nameLabel;
@@ -439,7 +439,7 @@ void VnaCalKit::operator=(VnaCalKit const &other) {
     else {
         placeholder.reset(new Vna());
         _vna = placeholder.data();
-        _nameLabel = NameLabel("");
+        _nameLabel = NameLabel();
     }
 }
 
