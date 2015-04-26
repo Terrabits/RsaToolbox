@@ -31,7 +31,7 @@ VnaCalibrate::VnaCalibrate(QObject *parent) :
     _isChannelSpecific = false;
     _channelIndex = 0;
 }
-VnaCalibrate::VnaCalibrate(VnaCalibrate &other)
+VnaCalibrate::VnaCalibrate(const VnaCalibrate &other)
 {
     if (other.isFullyInitialized()) {
         _vna = other._vna;
@@ -290,6 +290,74 @@ void VnaCalibrate:: measureMatch(uint port) {
     // during calibration!
     _vna->pause(_timeout_ms * 2 + 5000 /*timeout_ms * 2 + 5000*/);
 }
+
+void VnaCalibrate::measureOffsetShort1(uint port) {
+    if (isMissingZvaCommand())
+        return;
+
+//    uint timeout_ms;
+    QString scpi;
+    if (_isChannelSpecific) {
+        scpi = ":SENS%1:CORR:COLL:SEL OSHORT1,%2\n";
+        scpi = scpi.arg(_channelIndex);
+//        timeout_ms = _channel->calibrationSweepTime_ms();
+    }
+    else {
+        scpi = ":CORR:COLL:SEL OSHORT1,%2\n";
+//        timeout_ms = _vna->calibrationSweepTime_ms();
+    }
+    scpi = scpi.arg(port);
+    _vna->write(scpi);
+
+    // Note: Cannot ask for sweep type (and therefore sweep time)
+    // during calibration!
+    _vna->pause(_timeout_ms * 2 + 5000 /*timeout_ms * 2 + 5000*/);
+}
+void VnaCalibrate::measureOffsetShort2(uint port) {
+    if (isMissingZvaCommand())
+        return;
+
+//    uint timeout_ms;
+    QString scpi;
+    if (_isChannelSpecific) {
+        scpi = ":SENS%1:CORR:COLL:SEL OSHORT2,%2\n";
+        scpi = scpi.arg(_channelIndex);
+//        timeout_ms = _channel->calibrationSweepTime_ms();
+    }
+    else {
+        scpi = ":CORR:COLL:SEL OSHORT2,%2\n";
+//        timeout_ms = _vna->calibrationSweepTime_ms();
+    }
+    scpi = scpi.arg(port);
+    _vna->write(scpi);
+
+    // Note: Cannot ask for sweep type (and therefore sweep time)
+    // during calibration!
+    _vna->pause(_timeout_ms * 2 + 5000 /*timeout_ms * 2 + 5000*/);
+}
+void VnaCalibrate::measureOffsetShort3(uint port) {
+    if (isMissingZvaCommand())
+        return;
+
+//    uint timeout_ms;
+    QString scpi;
+    if (_isChannelSpecific) {
+        scpi = ":SENS%1:CORR:COLL:SEL OSHORT3,%2\n";
+        scpi = scpi.arg(_channelIndex);
+//        timeout_ms = _channel->calibrationSweepTime_ms();
+    }
+    else {
+        scpi = ":CORR:COLL:SEL OSHORT3,%2\n";
+//        timeout_ms = _vna->calibrationSweepTime_ms();
+    }
+    scpi = scpi.arg(port);
+    _vna->write(scpi);
+
+    // Note: Cannot ask for sweep type (and therefore sweep time)
+    // during calibration!
+    _vna->pause(_timeout_ms * 2 + 5000 /*timeout_ms * 2 + 5000*/);
+}
+
 void VnaCalibrate:: measureThru(uint port1, uint port2) {
     if (isMissingZvaCommand())
         return;

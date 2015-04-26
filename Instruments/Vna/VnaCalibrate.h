@@ -29,7 +29,7 @@ public:
     };
 
     explicit VnaCalibrate(QObject *parent = 0);
-    VnaCalibrate(VnaCalibrate &other);
+    VnaCalibrate(const VnaCalibrate &other);
     VnaCalibrate(Vna *vna, QObject *parent = 0);
     VnaCalibrate(Vna *vna, VnaChannel *channel, QObject *parent = 0);
     VnaCalibrate(Vna *vna, uint channelIndex, QObject *parent = 0);
@@ -54,6 +54,11 @@ public:
     void measureOpen(uint port);
     void measureShort(uint port);
     void measureMatch(uint port);
+
+    void measureOffsetShort1(uint port);
+    void measureOffsetShort2(uint port);
+    void measureOffsetShort3(uint port);
+
     void measureThru(uint port1, uint port2);
     void apply();
 
