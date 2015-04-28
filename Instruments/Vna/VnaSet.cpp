@@ -53,7 +53,10 @@ void VnaSet::save(QString filePathName) {
 
     QString directory = _vna->fileSystem().directory();
     _vna->fileSystem().changeDirectory(VnaFileSystem::Directory::RECALL_SETS_DIRECTORY);
+
     _vna->write(scpi);
+    _vna->pause();
+
     _vna->fileSystem().changeDirectory(directory);
 }
 

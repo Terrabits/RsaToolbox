@@ -50,22 +50,15 @@ public:
     bool errors(QStringList &messages);
     bool errors(QList<int> &codes, QStringList &messages);
 
-    // Sets
-//    void SelectSet(QString name);
-//    void newSet(QString name);
-//    void openSet(QString name);
-//    void closeSet(QString name);
-//    void closeSets();
-//    void saveSet(QString name);
-//    void deleteSet(QString name);
-
     QStringList sets();
-    QString selectedSet();
+    QString activeSet();
     QString newSet();
     void newSet(const QString &name);
     void openSet(QString filePathName);
+    void closeActiveSet();
     void closeSet(const QString &name);
     void closeSets();
+    bool saveActiveSet(const QString &filePathName);
     void deleteSet(QString filePathName);
     VnaSet &set(const QString &name = "Set1");
 

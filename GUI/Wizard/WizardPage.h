@@ -38,6 +38,7 @@ public:
     // Normal Navigation
     virtual void initialize();
     virtual bool skip();
+    // Enter page
     virtual bool isReadyForNext();
     virtual int next();
 

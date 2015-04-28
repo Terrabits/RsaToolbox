@@ -443,8 +443,10 @@ QStringList Vna::sets() {
     QString scpi = ":MEM:CAT?\n";
     return query(":MEM:CAT?\n").trimmed().remove('\'').split(',', QString::SkipEmptyParts);
 }
-QString Vna::selectedSet() {
+QString Vna::activeSet() {
     QStringList setList = sets();
+    if (setList.size() == 0)
+        return QString();
     if (setList.size() == 1)
         return setList.first();
 
@@ -462,7 +464,7 @@ QString Vna::selectedSet() {
     }
 
     // Else
-    return "";
+    return QString();
 }
 QString Vna::newSet() {
     QStringList setList = sets();
@@ -497,6 +499,11 @@ void Vna::openSet(QString filePathName) {
     write(scpi);
     fileSystem().changeDirectory(directory);
 }
+void Vna::closeActiveSet() {
+    const QString _activeSet(activeSet());
+    if (!_activeSet.isEmpty())
+        closeSet(_activeSet);
+}
 void Vna::closeSet(const QString &name) {
     QString scpi = ":MEM:DEL \'%1\'\n";
     scpi = scpi.arg(name);
@@ -504,6 +511,14 @@ void Vna::closeSet(const QString &name) {
 }
 void Vna::closeSets() {
     write(":MEM:DEL:ALL\n");
+}
+bool Vna::saveActiveSet(const QString &filePathName) {
+    QString _activeSet = activeSet();
+    if (_activeSet.isEmpty())
+        return false;
+
+    set(_activeSet).save(filePathName);
+    return true;
 }
 void Vna::deleteSet(QString filePathName) {
     QString extension;
