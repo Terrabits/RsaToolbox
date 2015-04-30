@@ -35,18 +35,22 @@ public:
     bool isFinalPage() const;
     void setFinalPage(bool isFinalPage);
 
-    // Normal Navigation
+    // Enter forward
     virtual void initialize();
     virtual bool skip();
-    // Enter page
+
+    // Leave forward
     virtual bool isReadyForNext();
     virtual int next();
 
-    // Navigation Contingencies
-    virtual bool isReadyForBack();
-    virtual void back();
+    // Enter backward
     virtual bool skipBackwards() const;
     virtual void backToThis();
+
+    // Leave backward
+    virtual bool isReadyForBack();
+    virtual void back();
+
     virtual void resetContents();
 
 signals:

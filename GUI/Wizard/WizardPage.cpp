@@ -35,9 +35,9 @@ void WizardPage::setFinalPage(bool isFinalPage) {
 void WizardPage::initialize() {
 }
 bool WizardPage::skip() {
-    qDebug() << "WizardPage::skip";
     return false;
 }
+
 bool WizardPage::isReadyForNext() {
     return nextIndex() != -1;
 }

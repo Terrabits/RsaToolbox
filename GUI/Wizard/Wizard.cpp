@@ -229,9 +229,10 @@ void Wizard::resizeEvent(QResizeEvent *event) {
 void Wizard::closeEvent(QCloseEvent *event) {
     if (_current == NULL)
         QWidget::closeEvent(event);
-    if (_current->isReadyForBack())
+    else if (_current->isReadyForBack())
         QWidget::closeEvent(event);
-    // Else do nothing.
+    else
+        event->ignore();
 }
 
 
@@ -284,6 +285,7 @@ void Wizard::enterForward(int index) {
     buttons()->next()->setText("Next");
     buttons()->next()->setVisible(true);
     buttons()->next()->setEnabled(true);
+    buttons()->previous()->setText("Previous");
     buttons()->previous()->setVisible(true);
     buttons()->previous()->setEnabled(true);
 
@@ -298,6 +300,7 @@ void Wizard::enterBackward(int index) {
     buttons()->next()->setText("Next");
     buttons()->next()->setVisible(true);
     buttons()->next()->setEnabled(true);
+    buttons()->previous()->setText("Previous");
     buttons()->previous()->setVisible(true);
     buttons()->previous()->setEnabled(true);
 
