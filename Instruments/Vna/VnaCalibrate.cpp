@@ -454,14 +454,7 @@ void VnaCalibrate::selectKit(QString name, QString label, QString customConnecto
 
     selectChannels();
 
-    QString scpi;
-    if (_isChannelSpecific) {
-        scpi = ":SENS%1:CORR:CKIT:LSEL \'%2\',\'%3\',\'%4\'\n";
-        scpi = scpi.arg(_channelIndex);
-    }
-    else {
-        scpi = ":CORR:CKIT:LSEL \'%2\',\'%3\',\'%4\'\n";
-    }
+    QString scpi = ":CORR:CKIT:LSEL \'%2\',\'%3\',\'%4\'\n";
     scpi = scpi.arg(customConnector);
     scpi = scpi.arg(name);
     scpi = scpi.arg(label);
