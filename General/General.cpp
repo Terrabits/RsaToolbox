@@ -332,6 +332,8 @@ QString RsaToolbox::formatValue(double value, int decimalPlaces, Units units, Si
         if (magnitude < bound) {
             stream << (value / toDouble(prefixes[i]));
             stream.flush();
+            while (!result.isEmpty() && result.contains('.') && (result.endsWith('0') || result.endsWith('.')))
+                result.chop(1);
             if (i == 0 && result.toDouble() == 0)
                 stream << " " << units;
             else
@@ -343,6 +345,9 @@ QString RsaToolbox::formatValue(double value, int decimalPlaces, Units units, Si
 
     // else Tera or bigger
     stream << (value / toDouble(prefixes[count-1]));
+    stream.flush();
+    while (!result.isEmpty() && result.contains('.') && (result.endsWith('0') || result.endsWith('.')))
+        result.chop(1);
     stream << " " << SiPrefix::Tera << units;
     stream.flush();
     return result;

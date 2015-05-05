@@ -64,7 +64,7 @@ void WizardPage::backToThis() {
 void WizardPage::resetContents() {
 }
 
-void WizardPage::displayError(QString message) {
+void WizardPage::displayError(const QString &message) {
     Q_UNUSED(message);
 }
 

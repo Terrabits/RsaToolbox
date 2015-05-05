@@ -58,7 +58,7 @@ signals:
     void enableBack(bool isEnabled);
 
 public slots:
-    virtual void displayError(QString message);
+    virtual void displayError(const QString &message);
 
 protected:
     WizardPage *pageAt(int index);

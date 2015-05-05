@@ -174,6 +174,27 @@ VnaCalStandard::VnaCalStandard(VnaStandardType type, uint port1, uint port2) {
 }
 
 /*!
+ * \brief Copy constructor
+ * \param other Standard to copy
+ */
+VnaCalStandard::VnaCalStandard(const VnaCalStandard &other) :
+    _type(other._type),
+    _label(other._label),
+    _min_freq_Hz(other._min_freq_Hz),
+    _max_freq_Hz(other._max_freq_Hz),
+    _port1(other._port1),
+    _connector1(other._connector1),
+    _port2(other._port2),
+    _connector2(other._connector2),
+    _isTouchstone(other._isTouchstone),
+    _touchstone(other._touchstone),
+    _isModel(other._isModel),
+    _model(other._model)
+{
+
+}
+
+/*!
  * \brief Generates a user-friendly textualization of \c this
  *
  * An example is given below:

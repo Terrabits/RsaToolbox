@@ -41,6 +41,7 @@ public:
     VnaCalStandard(VnaStandardType type, uint port);
     VnaCalStandard(VnaStandardType type, Connector connector1, Connector connector2);
     VnaCalStandard(VnaStandardType type, uint port1, uint port2);
+    VnaCalStandard(const VnaCalStandard &other);
 
     QString displayText() const;
     QString displayType() const;
