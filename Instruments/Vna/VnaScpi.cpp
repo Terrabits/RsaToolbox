@@ -498,25 +498,115 @@ VnaChannel::SweepType VnaScpi::toSweepType(QString scpi) {
 // Calibrate
 QString VnaScpi::toString(VnaCalibrate::CalType type) {
     switch(type) {
+
+    // Standard calibrations:
+    case VnaCalibrate::CalType::AdapterRemoval:
+        return "ART";
+    case VnaCalibrate::CalType::ReflectionNormOpen:
+        return "REFL";
+    case VnaCalibrate::CalType::ReflectionNormShort:
+        return "RSH";
     case VnaCalibrate::CalType::Osm:
         return "FOP";
+    case VnaCalibrate::CalType::TransmitNormForward:
+        return "FTR";
+    case VnaCalibrate::CalType::TransmitNormReverse:
+        return "RTR";
+    case VnaCalibrate::CalType::TransmitNormBothDirections:
+        return "FRTR";
+    case VnaCalibrate::CalType::OnePathTwoPorts:
+        return "OPTP";
     case VnaCalibrate::CalType::Tosm:
         return "TOSM";
     case VnaCalibrate::CalType::Uosm:
         return "UOSM";
+    case VnaCalibrate::CalType::Trl:
+        return "TRL";
+    case VnaCalibrate::CalType::Tom:
+        return "TOM";
+    case VnaCalibrate::CalType::Tsm:
+        return "TSM";
+    case VnaCalibrate::CalType::Trm:
+        return "TRM";
+    case VnaCalibrate::CalType::Tna:
+        return "TNA";
+
+    // SMARTerCal (+ Power):
+    case VnaCalibrate::CalType::AdapterRemoval_SMARTerCal:
+        return "ARPT";
+    case VnaCalibrate::CalType::Tosm_SMARTerCal:
+        return "PTOS";
+    case VnaCalibrate::CalType::Uosm_SMARTerCal:
+        return "PUOS";
+    case VnaCalibrate::CalType::Trl_SMARTerCal:
+        return "PTRL";
+    case VnaCalibrate::CalType::Tom_SMARTerCal:
+        return "PTOM";
+    case VnaCalibrate::CalType::Tsm_SMARTerCal:
+        return "PTSM";
+    case VnaCalibrate::CalType::Trm_SMARTerCal:
+        return "PTRM";
+    case VnaCalibrate::CalType::Tna_SMARTerCal:
+        return "PTNA";
+
     default:
         return "UOSM";
     }
 }
 VnaCalibrate::CalType VnaScpi::toCalType(QString scpi) {
-    scpi = scpi.toUpper();
+    scpi = scpi.trimmed().toUpper();
+
+    // Standard calibrations:
+    if (scpi == "ART")
+        return VnaCalibrate::CalType::AdapterRemoval;
+    if (scpi == "REFL")
+        return VnaCalibrate::CalType::ReflectionNormOpen;
+    if (scpi == "RSH")
+        return VnaCalibrate::CalType::ReflectionNormShort;
     if (scpi == "FOP")
         return VnaCalibrate::CalType::Osm;
-    if (scpi == "UOSM")
-        return VnaCalibrate::CalType::Uosm;
+    if (scpi == "FTR")
+        return VnaCalibrate::CalType::TransmitNormForward;
+    if (scpi == "RTR")
+        return VnaCalibrate::CalType::TransmitNormReverse;
+    if (scpi == "FRTR")
+        return VnaCalibrate::CalType::TransmitNormBothDirections;
+    if (scpi == "OPTP")
+        return VnaCalibrate::CalType::OnePathTwoPorts;
     if (scpi == "TOSM")
         return VnaCalibrate::CalType::Tosm;
+    if (scpi == "UOSM")
+        return VnaCalibrate::CalType::Uosm;
+    if (scpi == "TRL")
+        return VnaCalibrate::CalType::Trl;
+    if (scpi == "TOM")
+        return VnaCalibrate::CalType::Tom;
+    if (scpi == "TSM")
+        return VnaCalibrate::CalType::Tsm;
+    if (scpi == "TRM")
+        return VnaCalibrate::CalType::Trm;
+    if (scpi == "TNA")
+        return VnaCalibrate::CalType::Tna;
 
+    // SMARTer cals (+power):
+    if (scpi == "ARPT")
+        return VnaCalibrate::CalType::AdapterRemoval_SMARTerCal;
+    if (scpi == "PTOS")
+        return VnaCalibrate::CalType::Tosm_SMARTerCal;
+    if (scpi == "PUOS")
+        return VnaCalibrate::CalType::Uosm_SMARTerCal;
+    if (scpi == "PTRL")
+        return VnaCalibrate::CalType::Trl_SMARTerCal;
+    if (scpi == "PTOM")
+        return VnaCalibrate::CalType::Tom_SMARTerCal;
+    if (scpi == "PTSM")
+        return VnaCalibrate::CalType::Tsm_SMARTerCal;
+    if (scpi == "PTRM")
+        return VnaCalibrate::CalType::Trm_SMARTerCal;
+    if (scpi == "PTNA")
+        return VnaCalibrate::CalType::Tna_SMARTerCal;
+
+    // Default:
     return VnaCalibrate::CalType::Uosm;
 }
 

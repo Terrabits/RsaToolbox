@@ -23,9 +23,30 @@ class VnaCalibrate : public QObject
 public:
 
     enum CalType {
+        AdapterRemoval,
+        ReflectionNormOpen,
+        ReflectionNormShort,
         Osm,
+        TransmitNormForward,
+        TransmitNormReverse,
+        TransmitNormBothDirections,
+        OnePathTwoPorts,
         Tosm,
-        Uosm
+        Uosm,
+        Trl,
+        Tom,
+        Tsm,
+        Trm,
+        Tna,
+        // + Power Cal
+        AdapterRemoval_SMARTerCal,
+        Tosm_SMARTerCal,
+        Uosm_SMARTerCal,
+        Trl_SMARTerCal,
+        Tom_SMARTerCal,
+        Tsm_SMARTerCal,
+        Trm_SMARTerCal,
+        Tna_SMARTerCal
     };
 
     explicit VnaCalibrate(QObject *parent = 0);

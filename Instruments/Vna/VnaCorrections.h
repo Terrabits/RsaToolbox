@@ -44,6 +44,8 @@ public:
 
     // Properties
     VnaCalibrate::CalType calibrationType();
+    bool isFull12TermErrorCorrection();
+    bool isSMARTerCal();
     VnaChannel::SweepType sweepType();
     QVector<uint> ports();
     uint points();
