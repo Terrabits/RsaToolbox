@@ -192,6 +192,19 @@ void VnaCalibrate::start(QString calibrationName,
                           CalType type,
                           QVector<uint> ports)
 {
+    if (_vna->properties().isZvaFamily() && !VnaScpi::isZvaFamilyCompatible(type)) {
+        QString msg = "Error: Calibration type \'%1\' not available on ZVA-family instrument\n\n";
+        msg = msg.arg(VnaScpi::toString(type));
+        _vna->print(msg);
+        // return; // ?
+    }
+    else if (_vna->properties().isZnbFamily() && !VnaScpi::isZnbFamilyCompatible(type)) {
+        QString msg = "Error: Calibration type \'%1\' not available on ZNB-family instrument\n\n";
+        msg = msg.arg(VnaScpi::toString(type));
+        _vna->print(msg);
+        // return; // ?
+    }
+
     // Note: Cannot ask for sweep type (and therefore sweep time)
     // during calibration!
     if (_isChannelSpecific)

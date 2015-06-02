@@ -52,8 +52,12 @@ public:
     static VnaCalStandard toCalStandard(QString scpi);
 
     // Calibration
-    static QString toString(VnaCalibrate::CalType type);
+    static QString toString(VnaCalibrate::CalType calType);
     static VnaCalibrate::CalType toCalType(QString scpi);
+    static bool isSMARTerCal(VnaCalibrate::CalType calType);
+    static bool isFull12TermErrorCorrection(VnaCalibrate::CalType calType);
+    static bool isZvaFamilyCompatible(VnaCalibrate::CalType calType);
+    static bool isZnbFamilyCompatible(VnaCalibrate::CalType calType);
 
     // Trace
     static QString toString(TraceFormat format);

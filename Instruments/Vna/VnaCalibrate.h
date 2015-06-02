@@ -34,11 +34,13 @@ public:
         Tosm,
         Uosm,
         Trl,
+        NistTrl, // ZVA Family Only
         Tom,
         Tsm,
         Trm,
         Tna,
         // + Power Cal
+        // (ZNB Family Only)
         AdapterRemoval_SMARTerCal,
         Tosm_SMARTerCal,
         Uosm_SMARTerCal,

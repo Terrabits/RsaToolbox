@@ -496,8 +496,8 @@ VnaChannel::SweepType VnaScpi::toSweepType(QString scpi) {
 }
 
 // Calibrate
-QString VnaScpi::toString(VnaCalibrate::CalType type) {
-    switch(type) {
+QString VnaScpi::toString(VnaCalibrate::CalType calType) {
+    switch(calType) {
 
     // Standard calibrations:
     case VnaCalibrate::CalType::AdapterRemoval:
@@ -522,6 +522,8 @@ QString VnaScpi::toString(VnaCalibrate::CalType type) {
         return "UOSM";
     case VnaCalibrate::CalType::Trl:
         return "TRL";
+    case VnaCalibrate::CalType::NistTrl:
+        return "NMTR";
     case VnaCalibrate::CalType::Tom:
         return "TOM";
     case VnaCalibrate::CalType::Tsm:
@@ -579,6 +581,8 @@ VnaCalibrate::CalType VnaScpi::toCalType(QString scpi) {
         return VnaCalibrate::CalType::Uosm;
     if (scpi == "TRL")
         return VnaCalibrate::CalType::Trl;
+    if (scpi == "NMTR")
+        return VnaCalibrate::CalType::NistTrl;
     if (scpi == "TOM")
         return VnaCalibrate::CalType::Tom;
     if (scpi == "TSM")
@@ -608,6 +612,58 @@ VnaCalibrate::CalType VnaScpi::toCalType(QString scpi) {
 
     // Default:
     return VnaCalibrate::CalType::Uosm;
+}
+bool VnaScpi::isSMARTerCal(VnaCalibrate::CalType calType) {
+    switch(calType) {
+    case VnaCalibrate::CalType::AdapterRemoval_SMARTerCal:
+    case VnaCalibrate::CalType::Uosm_SMARTerCal:
+    case VnaCalibrate::CalType::Tosm_SMARTerCal:
+    case VnaCalibrate::CalType::Trl_SMARTerCal:
+    case VnaCalibrate::CalType::Tom_SMARTerCal:
+    case VnaCalibrate::CalType::Tsm_SMARTerCal:
+    case VnaCalibrate::CalType::Trm_SMARTerCal:
+    case VnaCalibrate::CalType::Tna_SMARTerCal:
+        return true;
+    default:
+        return false;
+    }
+}
+bool VnaScpi::isFull12TermErrorCorrection(VnaCalibrate::CalType calType) {
+    switch(calType) {
+    case VnaCalibrate::CalType::AdapterRemoval:
+    case VnaCalibrate::CalType::Osm:
+    case VnaCalibrate::CalType::Uosm:
+    case VnaCalibrate::CalType::Tosm:
+    case VnaCalibrate::CalType::Trl:
+    case VnaCalibrate::CalType::NistTrl:
+    case VnaCalibrate::CalType::Tom:
+    case VnaCalibrate::CalType::Tsm:
+    case VnaCalibrate::CalType::Trm:
+    case VnaCalibrate::CalType::Tna:
+    case VnaCalibrate::CalType::AdapterRemoval_SMARTerCal:
+    case VnaCalibrate::CalType::Uosm_SMARTerCal:
+    case VnaCalibrate::CalType::Tosm_SMARTerCal:
+    case VnaCalibrate::CalType::Trl_SMARTerCal:
+    case VnaCalibrate::CalType::Tom_SMARTerCal:
+    case VnaCalibrate::CalType::Tsm_SMARTerCal:
+    case VnaCalibrate::CalType::Trm_SMARTerCal:
+    case VnaCalibrate::CalType::Tna_SMARTerCal:
+        return true;
+    default:
+        return false;
+    }
+}
+bool VnaScpi::isZvaFamilyCompatible(VnaCalibrate::CalType calType) {
+    if (isSMARTerCal(calType))
+        return false;
+    else
+        return true;
+}
+bool VnaScpi::isZnbFamilyCompatible(VnaCalibrate::CalType calType) {
+    if (calType == VnaCalibrate::CalType::NistTrl)
+        return false;
+    else
+        return true;
 }
 
 

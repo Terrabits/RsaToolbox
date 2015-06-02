@@ -143,45 +143,10 @@ VnaCalibrate::CalType VnaCorrections::calibrationType() {
 
 }
 bool VnaCorrections::isFull12TermErrorCorrection() {
-    const VnaCalibrate::CalType type = calibrationType();
-    switch(type) {
-    case VnaCalibrate::CalType::AdapterRemoval:
-    case VnaCalibrate::CalType::Osm:
-    case VnaCalibrate::CalType::Uosm:
-    case VnaCalibrate::CalType::Tosm:
-    case VnaCalibrate::CalType::Trl:
-    case VnaCalibrate::CalType::Tom:
-    case VnaCalibrate::CalType::Tsm:
-    case VnaCalibrate::CalType::Trm:
-    case VnaCalibrate::CalType::Tna:
-    case VnaCalibrate::CalType::AdapterRemoval_SMARTerCal:
-    case VnaCalibrate::CalType::Uosm_SMARTerCal:
-    case VnaCalibrate::CalType::Tosm_SMARTerCal:
-    case VnaCalibrate::CalType::Trl_SMARTerCal:
-    case VnaCalibrate::CalType::Tom_SMARTerCal:
-    case VnaCalibrate::CalType::Tsm_SMARTerCal:
-    case VnaCalibrate::CalType::Trm_SMARTerCal:
-    case VnaCalibrate::CalType::Tna_SMARTerCal:
-        return true;
-    default:
-        return false;
-    }
+    return VnaScpi::isFull12TermErrorCorrection(calibrationType());
 }
 bool VnaCorrections::isSMARTerCal() {
-    const VnaCalibrate::CalType type = calibrationType();
-    switch(type) {
-    case VnaCalibrate::CalType::AdapterRemoval_SMARTerCal:
-    case VnaCalibrate::CalType::Uosm_SMARTerCal:
-    case VnaCalibrate::CalType::Tosm_SMARTerCal:
-    case VnaCalibrate::CalType::Trl_SMARTerCal:
-    case VnaCalibrate::CalType::Tom_SMARTerCal:
-    case VnaCalibrate::CalType::Tsm_SMARTerCal:
-    case VnaCalibrate::CalType::Trm_SMARTerCal:
-    case VnaCalibrate::CalType::Tna_SMARTerCal:
-        return true;
-    default:
-        return false;
-    }
+    return VnaScpi::isSMARTerCal(calibrationType());
 }
 VnaChannel::SweepType VnaCorrections::sweepType() {
     QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
