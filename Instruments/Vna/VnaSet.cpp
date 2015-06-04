@@ -61,8 +61,8 @@ void VnaSet::save(QString filePathName) {
     // The firmware ignores the command.
     // I will make a small change to get past
     // this bug...
-    const uint i = _vna->createDiagram();
-    _vna->deleteDiagram(i);
+    const uint i = _vna->createChannel();
+    _vna->deleteChannel(i);
 
     _vna->write(scpi);
     _vna->pause();
