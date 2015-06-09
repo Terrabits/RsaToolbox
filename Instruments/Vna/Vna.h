@@ -50,6 +50,7 @@ public:
     bool errors(QStringList &messages);
     bool errors(QList<int> &codes, QStringList &messages);
 
+    // Sets
     QStringList sets();
     QString activeSet();
     QString newSet();

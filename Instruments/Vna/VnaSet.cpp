@@ -54,6 +54,16 @@ void VnaSet::save(QString filePathName) {
     QString directory = _vna->fileSystem().directory();
     _vna->fileSystem().changeDirectory(VnaFileSystem::Directory::RECALL_SETS_DIRECTORY);
 
+    // BUG: If you have already saved/loaded a set
+    // and it has not been changed since you
+    // last saved/loaded it, you cannot re-save it
+    // (even if it has been deleted).
+    // The firmware ignores the command.
+    // I will make a small change to get past
+    // this bug...
+    const uint i = _vna->createChannel();
+    _vna->deleteChannel(i);
+
     _vna->write(scpi);
     _vna->pause();
 
