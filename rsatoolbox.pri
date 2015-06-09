@@ -28,6 +28,7 @@ INCLUDEPATH += $$PWD \
                $$PWD/Gui/GetSnpFile \
                $$PWD/Gui/ListPanel \
                $$PWD/Gui/PortsLineEdit \
+               $$PWD/Gui/Update \
                $$PWD/Gui/Wizard \
                $$PWD/QCustomPlot \
                $$PWD/Server

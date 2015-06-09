@@ -10,6 +10,7 @@ HEADERS     += $$PWD/About/About.h \
                $$PWD/PortsLineEdit/PortsLineEdit.h \
                $$PWD/ConnectButton/ConnectButton.h \
                $$PWD/ConnectionTypeComboBox/ConnectionTypeComboBox.h \
+               $$PWD/Update/Update.h \
                $$PWD/Wizard/Wizard.h \
                $$PWD/Wizard/WizardPage.h \
                $$PWD/Wizard/BreadCrumbs.h \
@@ -23,6 +24,7 @@ INCLUDEPATH += $$PWD/About \
                $$PWD/PortsLineEdit \
                $$PWD/ConnectButton \
                $$PWD/ConnectionTypeComboBox \
+               $$PWD/Update \
                $$PWD/Wizard
 SOURCES     += $$PWD/About/About.cpp \
                $$PWD/LastPath/LastPath.cpp \
@@ -33,6 +35,7 @@ SOURCES     += $$PWD/About/About.cpp \
                $$PWD/PortsLineEdit/PortsLineEdit.cpp \
                $$PWD/ConnectButton/ConnectButton.cpp \
                $$PWD/ConnectionTypeComboBox/ConnectionTypeComboBox.cpp \
+               $$PWD/Update/Update.cpp \
                $$PWD/Wizard/Wizard.cpp \
                $$PWD/Wizard/WizardPage.cpp \
                $$PWD/Wizard/BreadCrumbs.cpp \
@@ -41,6 +44,7 @@ FORMS       += $$PWD/About/About.ui \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.ui \
                $$PWD/GetSnpFile/GetSnpFile.ui \
                $$PWD/ListPanel/ListPanel.ui \
+               $$PWD/Update/Update.ui \
                $$PWD/Wizard/Wizard.ui \
                $$PWD/Wizard/BreadCrumbs.ui \
                $$PWD/Wizard/WizardButtons.ui
