@@ -146,13 +146,13 @@ void Update::jsonFinished() {
         if (!changeLog().isEmpty())
             ui->changeLog->setEnabled(true);
         ui->download->setEnabled(true);
-        if (_isAutomaticUpdate)
+        if (_isAutomaticUpdate) {
             this->show();
+            ui->error->showMessage("*An update is available", Qt::green);
+        }
     }
     else if (!_isAutomaticUpdate) {
-        QMessageBox::information(this,
-                                 "Update",
-                                 "You are up to date!");
+        ui->error->showMessage("*Application is up to date!", Qt::green);
     }
 
     disconnect(&_manager, SIGNAL(finished(QNetworkReply*)),
