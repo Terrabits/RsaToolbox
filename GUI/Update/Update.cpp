@@ -12,6 +12,7 @@ using namespace RsaToolbox;
 #include <QDir>
 #include <QStandardPaths>
 #include <QMessageBox>
+#include <QDebug>
 
 
 Update::Update(QWidget *parent) :
@@ -52,13 +53,13 @@ bool Update::isUpdateDue() const {
     QDateTime nextUpdate(_lastUpdate);
     switch(_interval) {
     case Interval::daily:
-        nextUpdate.addDays(1);
+        nextUpdate = nextUpdate.addDays(1);
         break;
     case Interval::weekly:
-        nextUpdate.addDays(7);
+        nextUpdate = nextUpdate.addDays(7);
         break;
     case Interval::monthly:
-        nextUpdate.addMonths(1);
+        nextUpdate = nextUpdate.addMonths(1);
         break;
     }
 
@@ -69,6 +70,7 @@ Update::Interval Update::interval() const {
 }
 void Update::setInterval(Interval interval) {
     _interval = interval;
+    ui->updateFrequency->setCurrentIndex(_interval);
     saveIntervalKey();
 }
 
@@ -146,6 +148,11 @@ void Update::jsonFinished() {
         ui->download->setEnabled(true);
         if (_isAutomaticUpdate)
             this->show();
+    }
+    else if (!_isAutomaticUpdate) {
+        QMessageBox::information(this,
+                                 "Update",
+                                 "You are up to date!");
     }
 
     disconnect(&_manager, SIGNAL(finished(QNetworkReply*)),
@@ -242,6 +249,7 @@ void Update::downloadFinished() {
 void Update::initializeGui() {
     setWindowTitle("Update");
     setWindowModality(Qt::ApplicationModal);
+    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
     ui->progressBar->hide();
     connect(ui->checkForUpdates, SIGNAL(clicked()),
             this, SLOT(downloadJson()));
@@ -263,6 +271,7 @@ void Update::loadKeys() {
         uint interval;
         _keys->get("UPDATE_INTERVAL", interval);
         _interval = Interval(interval);
+        ui->updateFrequency->setCurrentIndex(interval);
     }
 
     if (_keys->exists("LAST_UPDATE")) {
