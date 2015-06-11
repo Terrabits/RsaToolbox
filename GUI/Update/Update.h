@@ -4,7 +4,6 @@
 
 // RsaToolbox
 #include "Keys.h"
-#include "LastPath.h"
 
 // Qt
 #include <QWidget>
@@ -103,7 +102,6 @@ private:
     QUrl downloadUrl() const;
 
     // Download
-//    LastPath _lastPath; // ?
     QFile _file;
 };
 } // RsaToolbox

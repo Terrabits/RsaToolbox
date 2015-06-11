@@ -89,14 +89,16 @@ void Update::setJsonUrl(const QString &url) {
 void Update::automaticUpdate() {
     _isAutomaticUpdate = true;
     ui->checkForUpdates->hide();
+    ui->changeLog->setDisabled(true);
+    ui->download->setDisabled(true);
     downloadJson();
 }
 void Update::manualUpdate() {
     _isAutomaticUpdate = false;
     ui->checkForUpdates->show();
     ui->checkForUpdates->setEnabled(true);
-    ui->changeLog->setEnabled(false);
-    ui->download->setEnabled(false);
+    ui->changeLog->setDisabled(true);
+    ui->download->setDisabled(true);
     this->show();
 }
 
@@ -146,13 +148,13 @@ void Update::jsonFinished() {
         if (!changeLog().isEmpty())
             ui->changeLog->setEnabled(true);
         ui->download->setEnabled(true);
-        if (_isAutomaticUpdate) {
+        ui->error->showMessage("*An update is available", Qt::darkGreen);
+        if (_isAutomaticUpdate)
             this->show();
-            ui->error->showMessage("*An update is available", Qt::green);
-        }
     }
-    else if (!_isAutomaticUpdate) {
-        ui->error->showMessage("*Application is up to date!", Qt::green);
+    else {
+        ui->download->setDisabled(true);
+        ui->error->showMessage("*Application is up to date", Qt::darkGreen);
     }
 
     disconnect(&_manager, SIGNAL(finished(QNetworkReply*)),
