@@ -220,7 +220,7 @@ SiPrefix RsaToolbox::getPrefix(double value) {
         SiPrefix::Tera
     };
 
-    double magnitude = abs(value);
+    double magnitude = std::abs(value);
     for (int i = 0; i < count-1; i++) {
         double bound = (1.0 - 0.5 * pow(10.0, double(-3 - decimal_places))) * toDouble(prefixes[i + 1]);
          if (magnitude < bound)
@@ -287,7 +287,7 @@ QString RsaToolbox::toEngineeringNotation(double value, int decimalPlaces, SiPre
     eNotation.append("E9");
     eNotation.append("E12");
 
-    double magnitude = abs(value * toDouble(prefix));
+    double magnitude = std::abs(value * toDouble(prefix));
     for (int i = 0; i < count; i++) {
         double bound = (1 - 0.5 * pow(10.0, (double)(-3 - decimalPlaces))) * toDouble(prefixes[i + 1]);
         if (magnitude < bound) {
@@ -326,7 +326,7 @@ QString RsaToolbox::formatValue(double value, int decimalPlaces, Units units, Si
                                  SiPrefix::Tera
                                };
 
-    double magnitude = abs(value * toDouble(prefix));
+    double magnitude = std::abs(value * toDouble(prefix));
     for (int i = 0; i < count; i++) {
         double bound = (1 - 0.5 * pow(10.0, (double)(-3 - decimalPlaces))) * toDouble(prefixes[i + 1]);
         if (magnitude < bound) {
@@ -933,7 +933,7 @@ QRowVector RsaToolbox::unwrap(QRowVector x, double bounds) {
             diffMod[i] = PI;
     QRowVector phaseCorrect = subtract(diffMod, difference);
     for (uint i = 0; i < size-1; i++)
-        if (abs(difference[i]) < bounds/2.0)
+        if (std::abs(difference[i]) < bounds/2.0)
             phaseCorrect[i] = 0;
     phaseCorrect = cumulativeSum(phaseCorrect);
     for (uint i = 1; i < size; i++)
@@ -1043,7 +1043,7 @@ ComplexRowVector RsaToolbox::smoothSqrt(ComplexRowVector x) {
         ComplexDouble current = result[i];
         ComplexDouble previous = result[i-1];
         double difference = arg(current*conj(previous));
-        if (abs(difference) > PI/2)
+        if (std::abs(difference) > PI/2)
             result[i] = -1.0*current;
     }
     return(result);
@@ -1054,7 +1054,7 @@ ComplexRowVector RsaToolbox::smoothPhase(ComplexRowVector x) {
         ComplexDouble current = x[i];
         ComplexDouble previous = x[i-1];
         double difference = arg(current*conj(previous));
-        if (abs(difference) > PI/2.0)
+        if (std::abs(difference) > PI/2.0)
             x[i] = -1.0*current;
     }
     return(x);

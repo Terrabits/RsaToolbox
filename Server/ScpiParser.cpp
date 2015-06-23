@@ -118,9 +118,14 @@ void ScpiParser::parse() {
     QRegExp regex("^(:?(?:[:*]?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*)\\??)(?:[ \\t]*)(?:(?:[ \\t]+)(?:(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*))(?:(?:,)(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)))*))?(?:[\\n;]+)", Qt::CaseInsensitive);
     QRegExpValidator validator(regex);
     if (validator.validate(bufferStr, pos) == QValidator::Invalid) {
+        pos = 0;
         int start = 1;
-        while (start < bufferStr.size()-1 && validator.validate(bufferStr.mid(start), pos) == QValidator::Invalid)
+        QString restOfBuffer = bufferStr.mid(start);
+        while (start < bufferStr.size()-1 && validator.validate(restOfBuffer, pos) == QValidator::Invalid) {
             start++;
+            pos = 0;
+            restOfBuffer.remove(0,1);
+        }
         QString msg = "Invalid command \"%1\"";
         msg = msg.arg(bufferStr.mid(0, start).trimmed());
         _buffer.remove(0, start);

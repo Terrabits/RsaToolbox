@@ -20,8 +20,8 @@ Update::Update(QWidget *parent) :
     ui(new Ui::Update),
     _keys(NULL),
     _interval(Interval::daily),
-    _reply(NULL),
-    _isAutomaticUpdate(false)
+    _isAutomaticUpdate(false),
+    _reply(NULL)
 {
     ui->setupUi(this);
     initializeGui();
@@ -32,8 +32,8 @@ Update::Update(Keys *keys, QWidget *parent) :
     ui(new Ui::Update),
     _keys(keys),
     _interval(Interval::daily),
-    _reply(NULL),
-    _isAutomaticUpdate(false)
+    _isAutomaticUpdate(false),
+    _reply(NULL)
 {
     ui->setupUi(this);
     initializeGui();
@@ -60,6 +60,8 @@ bool Update::isUpdateDue() const {
         break;
     case Interval::monthly:
         nextUpdate = nextUpdate.addMonths(1);
+        break;
+    default:
         break;
     }
 
