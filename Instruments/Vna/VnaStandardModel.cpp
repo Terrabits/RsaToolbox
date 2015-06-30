@@ -17,7 +17,7 @@ VnaStandardModel::VnaStandardModel()
 {
     eLength_m = 0;
     loss_dB_per_sqrt_Hz = 0;
-    Z0_Ohms = 0;
+    Z0_Ohms = 50;
     C0_fF = 0;
     C1_fF_per_GHz = 0;
     C2_fF_per_GHz2 = 0;

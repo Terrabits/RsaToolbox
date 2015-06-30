@@ -88,9 +88,11 @@ public:
     QVector<NameLabel> calKits(Connector type);
     QVector<NameLabel> calKits(Connector::Type type);
     QVector<NameLabel> calKits(QString userDefinedConnectorType);
+//    void createCalKit(NameLabel nameLabel, Connector connector); // Create by adding first non-port-specific standard...
+    void deleteCalKit(NameLabel calkit);
     void importCalKit(QString pathName);
     void exportCalKit(NameLabel calkit, QString pathName);
-    void deleteCalKit(NameLabel calkit);
+
     VnaCalKit &calKit(NameLabel nameLabel);
 
      // Calibration

@@ -396,10 +396,7 @@ void VnaCalKit::addStandard(VnaCalStandard standard) {
     if (standard.isSinglePort()) {
         if (standard.isPortSpecific()) {
             type = VnaScpi::toString(standard.type(), standard.gender());
-            if (R == 0)
-                addStandardByModel(type, connector, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3, standard.port());
-            else
-                addStandardByModel(type, connector, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3, R, standard.port());
+            addStandardByModel(type, connector, label, min, max, e_length,loss, Z0, C0, C1, C2, C3, L0, L1, L2, L3, R, standard.port());
         }
         else { // Not port specific
             type = VnaScpi::toString(standard.type(), standard.gender());

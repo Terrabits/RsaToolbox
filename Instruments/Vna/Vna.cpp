@@ -883,6 +883,17 @@ QVector<NameLabel> Vna::calKits(QString userDefinedConnectorType) {
 }
 
 /*!
+ * \brief Deletes a calibration kit
+ * \param calkit Name and label of the calibration
+ * kit to delete
+ */
+void Vna::deleteCalKit(NameLabel calkit) {
+    QString scpi = ":CORR:CKIT:LDEL \'%1\', \'%2\'\n";
+    scpi = scpi.arg(calkit.name()).arg(calkit.label());
+    write(scpi);
+}
+
+/*!
  * \brief Imports a calibration kit from a file
  *
  * Most calibration kits come with a
@@ -939,17 +950,6 @@ void Vna::exportCalKit(NameLabel calkit, QString pathName) {
     QString scpi = ":MMEM:STOR:CKIT:WLAB \'%1\',\'%2\',\'%3\'\n";
     scpi = scpi.arg(calkit.name()).arg(calkit.label());
     scpi = scpi.arg(pathName);
-    write(scpi);
-}
-
-/*!
- * \brief Deletes a calibration kit
- * \param calkit Name and label of the calibration
- * kit to delete
- */
-void Vna::deleteCalKit(NameLabel calkit) {
-    QString scpi = ":CORR:CKIT:LDEL \'%1\', \'%2\'\n";
-    scpi = scpi.arg(calkit.name()).arg(calkit.label());
     write(scpi);
 }
 
