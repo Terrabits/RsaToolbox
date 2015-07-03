@@ -129,11 +129,48 @@ bool VnaTrace::isNetworkParameter() {
     }
 }
 void VnaTrace::networkParameter(NetworkParameter &parameter, uint &outputPort, uint &inputPort) {
-    Q_UNUSED(parameter);
-    Q_UNUSED(outputPort);
-    Q_UNUSED(inputPort);
+    QString scpi = ":CALC%1:PAR:MEAS? \'%2\'\n";
+    scpi = scpi.arg(channel());
+    scpi = scpi.arg(_name);
+    QString result = _vna->query(scpi).remove('\'').trimmed();
+    if (result.size() < 3) {
+        return;
+    }
+
+    result = result.toUpper();
+    char c = result.at(0).toLatin1();
+    switch (c) {
+    case 'S':
+        parameter = NetworkParameter::S;
+        break;
+    case 'Y':
+        parameter = NetworkParameter::Y;
+        break;
+    case 'Z':
+        parameter = NetworkParameter::Z;
+        break;
+    case 'H':
+        parameter = NetworkParameter::H;
+        break;
+    case 'G':
+        parameter = NetworkParameter::G;
+        break;
+    default:
+        return;
+    }
+
+    result = result.mid(1);
+    if (result.at(0).isLetter()) // Balanced. Oops!
+        result = result.mid(2);
+
+    if (result.size() % 2 == 1) // Odd number
+        return;
+
+    outputPort = result.mid(0, result.size()/2).toUInt();
+    inputPort = result.mid(result.size()/2).toUInt();
 }
 void VnaTrace::networkParameter(NetworkParameter &parameter, BalancedPort &outputPort, BalancedPort &inputPort) {
+    qDebug() << "VnaTrace::networkParameter(NetworkParameter &parameter, BalancedPort &outputPort, BalancedPort &inputPort) is not finished yet!";
     Q_UNUSED(parameter);
     Q_UNUSED(outputPort);
     Q_UNUSED(inputPort);
@@ -182,6 +219,7 @@ bool VnaTrace::isWaveQuantity() {
     }
 }
 void VnaTrace::waveQuantity(WaveQuantity &wave, uint &port) {
+    qDebug() << "VnaTrace::waveQuantity(WaveQuantity &wave, uint &port) is not finished yet!";
     Q_UNUSED(wave);
     Q_UNUSED(port);
 }
@@ -207,6 +245,7 @@ bool VnaTrace::isWaveRatio() {
     }
 }
 void VnaTrace::waveRatio(WaveQuantity &outputWave, uint &outputPort, WaveQuantity &inputWave, uint &inputPort) {
+    qDebug() << "VnaTrace::waveRatio(WaveQuantity &outputWave, uint &outputPort, WaveQuantity &inputWave, uint &inputPort) is not finished yet!";
     Q_UNUSED(outputWave);
     Q_UNUSED(outputPort);
     Q_UNUSED(inputWave);
@@ -230,10 +269,12 @@ bool VnaTrace::isImpedance() {
         return(false);
 }
 void VnaTrace::impedance(uint &outputPort, uint &inputPort) {
+    qDebug() << "VnaTrace::impedance(uint &outputPort, uint &inputPort) is not finished yet!";
     Q_UNUSED(outputPort);
     Q_UNUSED(inputPort);
 }
 void VnaTrace::impedance(BalancedPort &outputPort, BalancedPort &inputPort) {
+    qDebug() << "VnaTrace::impedance(BalancedPort &outputPort, BalancedPort &inputPort) is not finished yet!";
     Q_UNUSED(outputPort);
     Q_UNUSED(inputPort);
 }
@@ -261,10 +302,12 @@ bool VnaTrace::isAdmittance() {
         return(false);
 }
 void VnaTrace::admittance(uint &outputPort, uint &inputPort) {
+    qDebug() << "VnaTrace::admittance(uint &outputPort, uint &inputPort) is not finished yet!";
     Q_UNUSED(outputPort);
     Q_UNUSED(inputPort);
 }
 void VnaTrace::admittance(BalancedPort &outputPort, BalancedPort &inputPort) {
+    qDebug() << "VnaTrace::admittance(BalancedPort &outputPort, BalancedPort &inputPort) is not finished yet!";
     Q_UNUSED(outputPort);
     Q_UNUSED(inputPort);
 }
@@ -298,6 +341,7 @@ void VnaTrace::setFormat(TraceFormat format) {
 }
 
 void VnaTrace::setDisplayProperties(int red, int green, int blue, Qt::PenStyle style, int width) {
+    qDebug() << "VnaTrace::setDisplayProperties(int red, int green, int blue, Qt::PenStyle style, int width) is not finished yet!";
     Q_UNUSED(red);
     Q_UNUSED(green);
     Q_UNUSED(blue);
@@ -305,11 +349,13 @@ void VnaTrace::setDisplayProperties(int red, int green, int blue, Qt::PenStyle s
     Q_UNUSED(width);
 }
 void VnaTrace::setDisplayProperties(QColor color, Qt::PenStyle style, int width) {
+    qDebug() << "VnaTrace::setDisplayProperties(QColor color, Qt::PenStyle style, int width) is not finished yet!";
     Q_UNUSED(color);
     Q_UNUSED(style);
     Q_UNUSED(width);
 }
 void VnaTrace::setDisplayProperties(QPen pen) {
+    qDebug() << "VnaTrace::setDisplayProperties(QPen pen) is not finished yet!";
     Q_UNUSED(pen);
 }
 
@@ -326,6 +372,7 @@ void VnaTrace::setYAxisMaximum(double max) {
     _vna->write(scpi);
 }
 void VnaTrace::setYAxis(double min, double max) {
+    qDebug() << "VnaTrace::setYAxis(double min, double max) is not finished yet!";
     Q_UNUSED(min);
     Q_UNUSED(max);
 }
@@ -366,8 +413,10 @@ void VnaTrace::y(QRowVector &y) {
         result = _vna->queryVector(scpi, bufferSize());
     }
     y = result;
+}void VnaTrace::y(ComplexRowVector &y) {
+    y = this->y();
 }
-void VnaTrace::y(ComplexRowVector &y) {
+ComplexRowVector VnaTrace::y() {
     uint channel = this->channel();
 
     QString scpi;
@@ -392,7 +441,7 @@ void VnaTrace::y(ComplexRowVector &y) {
     else {
         result = _vna->queryComplexVector(scpi, complexBufferSize());
     }
-    y = result;
+    return result;
 }
 
 void VnaTrace::toMemory(QString name) {

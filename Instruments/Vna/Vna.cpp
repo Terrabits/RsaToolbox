@@ -1054,6 +1054,19 @@ VnaCalibrate *Vna::takeCalibrate() {
  * @{*/
 
 /*!
+ * \brief Vna::deleteCalGroup
+ * \param name
+ */
+void Vna::deleteCalGroup(QString name) {
+    if (!name.endsWith(".cal", Qt::CaseInsensitive))
+        name += ".cal";
+
+    QString scpi = ":MMEM:DEL:CORR \'%1\'\n";
+    scpi = scpi.arg(name);
+    write(scpi);
+}
+
+/*!
  * \brief Retrieves saved calibrations (groups) from the calibration pool
  * \return List of cal groups (saved calibrations)
  */

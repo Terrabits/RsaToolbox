@@ -68,7 +68,6 @@ public:
 
     bool hasSourceAttenuators();
     QVector<uint> sourceAttenuations_dB();
-
     bool hasReceiverAttenuators();
     QVector<uint> receiverAttenuations_dB();
 

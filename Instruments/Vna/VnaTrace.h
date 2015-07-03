@@ -92,6 +92,7 @@ public:
 
     uint points();
     QRowVector x();
+    ComplexRowVector y();
     void y(QRowVector &y);
     void y(ComplexRowVector &y);
 

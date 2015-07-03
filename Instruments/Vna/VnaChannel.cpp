@@ -284,6 +284,54 @@ VnaTimeSweep *VnaChannel::takeTimeSweep() {
     return(new VnaTimeSweep(_vna, _index));
 }
 
+// Attenuators
+double VnaChannel::sourceAttenuation_dB(uint port) {
+    // ZVA only
+    QString scpi = ":SOUR%1:POW%2:ATT?\n";
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(port);
+    QString result = _vna->query(scpi).trimmed();
+    if (!result.isEmpty())
+        return result.toDouble();
+    else
+        return 0;
+}
+void VnaChannel::setSourceAttenuation(double attenuation_dB, uint port) {
+    // ZVA Only
+    QString scpi = ":SOUR%1:POW%2:ATT %3\n";
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(port);
+    scpi = scpi.arg(attenuation_dB);
+    _vna->write(scpi);
+}
+void VnaChannel::setSourceAttenuations(double attenuation_dB) {
+    uint ports = _vna->testPorts();
+    for (uint port = 1; port <= ports; port++)
+        setSourceAttenuation(attenuation_dB, port);
+}
+double VnaChannel::receiverAttenuation_dB(uint port) {
+    QString scpi = ":SENS%1:POW:ATT? %2\n";
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(port);
+    QString result = _vna->query(scpi).trimmed();
+    if (!result.isEmpty())
+        return result.toDouble();
+    else
+        return 0;
+}
+void VnaChannel::setReceiverAttenuation(double attenuation_dB, uint port) {
+    QString scpi = ":SENS%1:POW:ATT %2,%3\n";
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(port);
+    scpi = scpi.arg(attenuation_dB);
+    _vna->write(scpi);
+}
+void VnaChannel::setReceiverAttenuations(double attenuation_dB) {
+    uint ports = _vna->testPorts();
+    for (uint port = 1; port <= ports; port++)
+        setReceiverAttenuation(attenuation_dB, port);
+}
+
 // Balanced ports
 uint VnaChannel::numberOfLogicalPorts() {
     uint ports = _vna->testPorts();

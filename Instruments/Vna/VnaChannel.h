@@ -105,6 +105,14 @@ public:
     VnaTimeSweep &timeSweep();
     VnaTimeSweep *takeTimeSweep();
 
+    // Attenuation
+    double sourceAttenuation_dB(uint port);
+    void setSourceAttenuation(double attenuation_dB, uint port);
+    void setSourceAttenuations(double attenuation_dB);
+    double receiverAttenuation_dB(uint port);
+    void setReceiverAttenuation(double attenuation_dB, uint port);
+    void setReceiverAttenuations(double attenuation_dB);
+
     // Balanced ports
     uint numberOfLogicalPorts();
     bool isSingleEndedPort(uint logicalPort);

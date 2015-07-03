@@ -104,10 +104,8 @@ public:
 //    bool isCalGroup(QString calGroup);
 //    bool isNotCalGroup(QString calGroup);
 //    void importCalGroup(QString calGroupPathName);
-//    void deleteCalGroup(QString calGroup);
+    void deleteCalGroup(QString calGroup);
     QStringList calGroups();
-//    void applyToChannel(uint channelIndex);
-//    void applyToChannels();
     // VnaCalGroup &calGroup(QString name);
 
     // Channel

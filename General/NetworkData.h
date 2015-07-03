@@ -25,41 +25,46 @@ public:
     NetworkData();
     NetworkData(const NetworkData &other);
 
-    bool isSParameter();
-    bool isYParameter();
-    bool isZParameter();
-    bool isHParameter();
-    bool isGParameter();
-    NetworkParameter parameter();
+    bool isSParameter() const;
+    bool isYParameter() const;
+    bool isZParameter() const;
+    bool isHParameter() const;
+    bool isGParameter() const;
+    NetworkParameter parameter() const;
     void setParameter(NetworkParameter parameter);
 
-    QString comment();
-    void setComment(QString comment);
-    QString timestamp();
+    QString comment() const;
+    void setComment(const QString &comment);
+    QString timestamp() const;
+    void setTimestamp(const QDateTime &dateTime = QDateTime::currentDateTime());
 
-    uint numberOfPorts();
-    void setNumberOfPorts(uint ports);
-    QString portComment(uint port);
-    void setPortComment(uint port, QString comment);
+    uint ports() const;
+    void setPorts(uint ports);
+    QString portComment(uint port) const;
+    void setPortComment(uint port, const QString &comment);
 
-    double referenceImpedance_Ohms();
+    double referenceImpedance_Ohms() const;
     void setReferenceImpedance(double Ohms);
 
-    Units xUnits();
-    SiPrefix xPrefix();
+    Units xUnits() const;
+    SiPrefix xPrefix() const;
     void setXUnits(Units units, SiPrefix prefix = SiPrefix::None);
 
-    uint points();
+    uint points() const;
     QRowVector &x();
     ComplexMatrix3D &y();
-    ComplexRowVector y(uint outputPort, uint inputPort);
-    QRowVector y_dB(uint outputPort, uint inputPort);
-    QRowVector y_magnitude(uint outputPort, uint inputPort);
-    QRowVector y_phase_deg(uint outputPort, uint inputPort);
-    QRowVector y_phase_rad(uint outputPort, uint inputPort);
-    QRowVector y_vswr(uint port);
-    QRowVector y_real(uint outputPort, uint inputPort);
-    QRowVector y_imaginary(uint outputPort, uint inputPort);
+    ComplexRowVector y(uint outputPort, uint inputPort) const;
+    QRowVector y_dB(uint outputPort, uint inputPort) const;
+    QRowVector y_magnitude(uint outputPort, uint inputPort) const;
+    QRowVector y_phase_deg(uint outputPort, uint inputPort) const;
+    QRowVector y_phase_rad(uint outputPort, uint inputPort) const;
+    QRowVector y_vswr(uint port) const;
+    QRowVector y_real(uint outputPort, uint inputPort) const;
+    QRowVector y_imaginary(uint outputPort, uint inputPort) const;
+
+    void clear();
+    void resize(uint ports, uint points);
+    void setPoints(uint points);
     void setData(QRowVector const &x, ComplexMatrix3D const &y);
 
     // Operators

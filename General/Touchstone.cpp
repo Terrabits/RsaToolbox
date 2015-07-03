@@ -79,7 +79,7 @@ bool Touchstone::write(NetworkData &network, QString filename) {
 bool Touchstone::write(NetworkData &network, QTextStream &stream) {
     writeComments(network, stream);
     writeOptions(network, stream);
-    if (network.numberOfPorts() == 2) {
+    if (network.ports() == 2) {
         NetworkData copyNetwork = network;
         flip2Ports(copyNetwork);
         write2PortData(copyNetwork, stream);
@@ -99,7 +99,7 @@ const int Touchstone::PRECISION = 10;
 
 // Fix 2port touchstone issue
 void Touchstone::flip2Ports(NetworkData &network) {
-    if (network.numberOfPorts() != 2)
+    if (network.ports() != 2)
         return;
 
     const int PORT1 = 0;
@@ -136,8 +136,8 @@ void Touchstone::removeComment(QString &line) {
 
 // Read ports, options line
 bool Touchstone::readPorts(NetworkData &network, QString filename) {
-    network.setNumberOfPorts(ports(filename));
-    return network.numberOfPorts() != 0;
+    network.setPorts(ports(filename));
+    return network.ports() != 0;
 }
 bool Touchstone::readOptions(NetworkData &network, QTextStream &stream) {
     QStringList words;
@@ -236,17 +236,17 @@ bool Touchstone::readData(NetworkData &network, QTextStream &stream) {
         }
     }
 
-    uint ports = network.numberOfPorts();
+    uint ports = network.ports();
     network.setData(freqs, data);
-    if (network.numberOfPorts() != ports || network.points() == 0)
+    if (network.ports() != ports || network.points() == 0)
     return false;
-    if (network.numberOfPorts() == 2)
+    if (network.ports() == 2)
         flip2Ports(network);
     return true;
 }
 bool Touchstone::readRow(NetworkData &network, QTextStream &stream, ComplexMatrix2D &dataRow, double &frequencyPoint) {
     // Begin to read data values
-    double wordsToRead = pow(double(network.numberOfPorts()), 2) * 2 + 1;
+    double wordsToRead = pow(double(network.ports()), 2) * 2 + 1;
     QStringList allWords;
     while (wordsToRead > 0 && !stream.atEnd()) {
         QStringList words;
@@ -262,9 +262,9 @@ bool Touchstone::readRow(NetworkData &network, QTextStream &stream, ComplexMatri
     // Process data
     frequencyPoint = allWords[0].toDouble();
     QStringList::iterator wordIndex = allWords.begin() + 1;
-    dataRow.resize(network.numberOfPorts());
+    dataRow.resize(network.ports());
     for (ComplexMatrix2D::iterator rowIndex = dataRow.begin(); rowIndex != dataRow.end(); rowIndex++) {
-        (*rowIndex).resize(network.numberOfPorts());
+        (*rowIndex).resize(network.ports());
         ComplexRowVector::iterator columnIndex = (*rowIndex).begin();
         for (; columnIndex != (*rowIndex).end(); columnIndex++) {
             *columnIndex = (*readDatum)(wordIndex->toDouble(), (wordIndex + 1)->toDouble());
@@ -298,7 +298,7 @@ void Touchstone::createFile(QFile &file, QString filename, NetworkData &network)
         int dotPosition = filename.lastIndexOf(".");
         filename.truncate(dotPosition);
     }
-    filename = filename + ".s" + QString::number(network.numberOfPorts()) + "p";
+    filename = filename + ".s" + QString::number(network.ports()) + "p";
     file.setFileName(filename);
     file.open(QFile::WriteOnly);
 }
@@ -306,7 +306,7 @@ void Touchstone::writeComments(NetworkData &network, QTextStream &stream) {
     stream << "! RsaToolbox (C) 2015 Rohde & Schwarz America" << endl;
     stream << "! " << endl;
     stream << "! Number of points: " << network.points() << endl;
-    stream << "! Number of ports: " << network.numberOfPorts() << endl;
+    stream << "! Number of ports: " << network.ports() << endl;
     stream << "! Balanced ports?: " << "No" << endl;
     stream << "! " << endl << "! " << endl;
 }

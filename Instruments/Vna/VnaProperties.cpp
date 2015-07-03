@@ -244,97 +244,101 @@ double VnaProperties::maximumPower_dBm() {
 }
 
 bool VnaProperties::hasSourceAttenuators() {
-//    const uint port1 = 1;
-//    uint channel = _vna->createChannel();
-//    _vna->clearStatus();
-//     _vna->settings().errorDisplayOff();
-//     _vna->settings().rfOff(); // turn back on?
+    // ZVA Only
+    const uint port1 = 1;
+    uint channel = _vna->createChannel();
+    bool isErrorDisplayOn = _vna->settings().isErrorDisplayOn();
+    bool isRfOn = _vna->settings().isRfOutputPowerOn();
+    _vna->settings().errorDisplayOff();
+    _vna->settings().rfOutputPowerOff();
 
-     bool isSourceAttenuation = false;
-//    _vna->channel(channel).setSourceAttenuation(port1, 0);
-//    if (_vna->isError())
-//        isSourceAttenuation = false;
-//    else
-//        isSourceAttenuation = true;
+    _vna->isError();
+    _vna->clearStatus();
+    _vna->channel(channel).setSourceAttenuation(0, port1);
+    bool isSourceAttenuation = !_vna->isError();
 
-//    _vna->clearStatus();
-//    _vna->deleteChannel(channel);
-//    _vna->settings().errorDisplayOn();
-//    _vna->settings().rfOn(); // should I?
-    return(isSourceAttenuation);
+    _vna->clearStatus();
+    _vna->deleteChannel(channel);
+    _vna->settings().errorDisplayOn(isErrorDisplayOn);
+    _vna->settings().rfOutputPowerOn(isRfOn);
+    return isSourceAttenuation;
 }
 QVector<uint> VnaProperties::sourceAttenuations_dB() {
-    const uint port1 = 1; Q_UNUSED(port1);
+    // ZVA Only
+    const uint port1 = 1;
     QVector<uint> attenuations;
-//    attenuations << 0;
-//    uint channel = _vna->createChannel();
+    attenuations << 0;
+    uint channel = _vna->createChannel();
 
-//    _vna->clearStatus();
-//     _vna->settings().errorDisplayOff();
-//     _vna->settings().rfOff(); // turn back on?
-//    _vna->channel(channel).setSourceAttenuation(port1, 0);
-//    if (_vna->isError()) {
-//        _vna->clearStatus();
-//    }
-//    else {
-//        for (double i = 1; i <= 100; i++) {
-//            _vna->channel(channel).setSourceAttenuation(port1, i);
-//            double attenuation = _vna->channel(channel).sourceAttenuation_dB(port1);
-//            if (attenuation == i)
-//                attenuations << attenuation;
-//        }
-//    }
+    bool isErrorDisplayOn = _vna->settings().isErrorDisplayOn();
+    bool isRfOn = _vna->settings().isRfOutputPowerOn();
+    _vna->clearStatus();
+    _vna->settings().errorDisplayOff();
+    _vna->settings().rfOutputPowerOff();
+    _vna->channel(channel).setSourceAttenuation(0, port1);
+    if (!_vna->isError()) {
+        for (double i = 1; i <= 100; i++) {
+            _vna->channel(channel).setSourceAttenuation(i, port1);
+            double attenuation = _vna->channel(channel).sourceAttenuation_dB(port1);
+            if (attenuation == i)
+                attenuations << attenuation;
+        }
+    }
 
-//    _vna->settings().errorDisplayOn();
-//    _vna->deleteChannel(channel);
-    return(attenuations);
+    _vna->isError();
+    _vna->clearStatus();
+    _vna->deleteChannel(channel);
+    _vna->settings().errorDisplayOn(isErrorDisplayOn);
+    _vna->settings().rfOutputPowerOn(isRfOn);
+    return attenuations;
 }
 
 bool VnaProperties::hasReceiverAttenuators() {
-    //    const uint port1 = 1;
-    //    uint channel = _vna->createChannel();
-    //    _vna->clearStatus();
-    //     _vna->settings().errorDisplayOff();
-    //     _vna->settings().rfOff(); // turn back on?
+    const uint port1 = 1;
+    uint channel = _vna->createChannel();
+    bool isErrorDisplayOn = _vna->settings().isErrorDisplayOn();
+    bool isRfOn = _vna->settings().isRfOutputPowerOn();
+    _vna->settings().errorDisplayOff();
+    _vna->settings().rfOutputPowerOff();
 
-         bool isReceiverAttenuation = false;
-    //    _vna->channel(channel).setReceiverAttenuation(port1, 0);
-    //    if (_vna->isError())
-    //        isReceiverAttenuation = false;
-    //    else
-    //        isReceiverAttenuation = true;
+    _vna->isError();
+    _vna->clearStatus();
+    _vna->channel(channel).setReceiverAttenuation(0, port1);
+    bool isReceiverAttenuation = !_vna->isError();
 
-    //    _vna->clearStatus();
-    //    _vna->deleteChannel(channel);
-    //    _vna->settings().errorDisplayOn();
-    //    _vna->settings().rfOn(); // should I?
-        return(isReceiverAttenuation);
+    _vna->clearStatus();
+    _vna->deleteChannel(channel);
+    _vna->settings().errorDisplayOn(isErrorDisplayOn);
+    _vna->settings().rfOutputPowerOn(isRfOn);
+    return(isReceiverAttenuation);
 }
 QVector<uint> VnaProperties::receiverAttenuations_dB() {
     const uint port1 = 1;
     QVector<uint> attenuations;
-//    attenuations << 0;
-//    uint channel = _vna->createChannel();
+    attenuations << 0;
+    uint channel = _vna->createChannel();
 
-//    _vna->clearStatus();
-//     _vna->settings().errorDisplayOff();
-//     _vna->settings().rfOff(); // turn back on?
-//    _vna->channel(channel).setReceiverAttenuation(port1, 0);
-//    if (_vna->isError()) {
-//        _vna->clearStatus();
-//    }
-//    else {
-//        for (double i = 1; i <= 100; i++) {
-//            _vna->channel(channel).setReceiverAttenuation(port1, i);
-//            double attenuation = _vna->channel(channel).receiverAttenuation_dB(port1);
-//            if (attenuation == i)
-//                attenuations << attenuation;
-//        }
-//    }
+    bool isErrorDisplayOn = _vna->settings().isErrorDisplayOn();
+    bool isRfOn = _vna->settings().isRfOutputPowerOn();
+    _vna->clearStatus();
+    _vna->settings().errorDisplayOff();
+    _vna->settings().rfOutputPowerOff();
+    _vna->channel(channel).setReceiverAttenuation(0, port1);
+    if (!_vna->isError()) {
+        for (double i = 1; i <= 100; i++) {
+            _vna->channel(channel).setReceiverAttenuation(i, port1);
+            double attenuation = _vna->channel(channel).receiverAttenuation_dB(port1);
+            if (attenuation == i)
+                attenuations << attenuation;
+        }
+    }
 
-//    _vna->settings().errorDisplayOn();
-//    _vna->deleteChannel(channel);
-    return(attenuations);
+    _vna->isError();
+    _vna->clearStatus();
+    _vna->deleteChannel(channel);
+    _vna->settings().errorDisplayOn(isErrorDisplayOn);
+    _vna->settings().rfOutputPowerOn(isRfOn);
+    return attenuations;
 }
 uint VnaProperties::maximumPoints() {
     if (isZnbFamily())
