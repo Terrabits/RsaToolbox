@@ -160,10 +160,15 @@ void VnaCalUnit::frequencyRange(QString calName, double &min_Hz, double &max_Hz)
 }
 
 void VnaCalUnit::exportFactoryCal(QString path) {
-    exportCalibration("Factory", path);
+    exportCalibration("", path);
 }
 void VnaCalUnit::exportLatestCal(QString path) {
-    exportCalibration("", path);
+    QString scpi = ":MMEM:AKAL:USER:CONV \'%1\'\n";
+    scpi = scpi.arg(path);
+
+    select();
+    _vna->write(scpi);
+    _vna->pause(5000);
 }
 void VnaCalUnit::exportCalibration(QString calName, QString path) {
     QString scpi = ":MMEM:AKAL:USER:CONV \'%1\',\'%2\'\n";
