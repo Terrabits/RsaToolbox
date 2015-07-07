@@ -959,7 +959,7 @@ QRowVector RsaToolbox::addPropagate(QRowVector x, int startIndex, double value) 
     return(x);
 }
 QRowVector RsaToolbox::subtractPropagate(QRowVector x, int startIndex, double value) {
-    return(addPropagate(x, startIndex, -1*value));
+    return(addPropagate(x, startIndex, -1.0 * value));
 }
 
 ComplexRowVector RsaToolbox::sqrt(ComplexRowVector x) {
