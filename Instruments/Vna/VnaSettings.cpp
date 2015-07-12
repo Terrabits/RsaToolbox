@@ -384,7 +384,7 @@ void VnaSettings::rfOutputPowerOff(bool isOff) {
 bool VnaSettings::isDynamicIfBandwidthOn() {
     if (_vna->properties().isZnbFamily()) {
         *_vna->log()
-                << "WARNING: isDynamicIfBandwidthOn() not available on ZVA-family instrument.\n\n";
+                << "WARNING: isDynamicIfBandwidthOn() not available on ZNB-family instrument.\n\n";
         return(false);
     }
 
@@ -395,7 +395,7 @@ bool VnaSettings::isDynamicIfBandwidthOff() {
 }
 void VnaSettings::dynamicIfBandwidthOn(bool isOn) {
     if (_vna->properties().isZnbFamily()) {
-        *_vna->log() << "WARNING: dynamicIfBandwidthOn() not available on ZVA-family instrument.\n\n";
+        *_vna->log() << "WARNING: dynamicIfBandwidthOn() not available on ZNB-family instrument.\n\n";
         return;
     }
 
