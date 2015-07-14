@@ -372,9 +372,9 @@ void VnaTrace::setYAxisMaximum(double max) {
     _vna->write(scpi);
 }
 void VnaTrace::setYAxis(double min, double max) {
-    qDebug() << "VnaTrace::setYAxis(double min, double max) is not finished yet!";
-    Q_UNUSED(min);
-    Q_UNUSED(max);
+    setYAxisMaximum(max);
+    setYAxisMinimum(min);
+    setYAxisMaximum(max);
 }
 
 uint VnaTrace::points() {
