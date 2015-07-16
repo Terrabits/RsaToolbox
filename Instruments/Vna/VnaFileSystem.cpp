@@ -191,7 +191,7 @@ QStringList VnaFileSystem::directories(QString path) {
     return(returnValue);
 }
 
-void VnaFileSystem:: changeDirectory(QString path) {
+void VnaFileSystem::changeDirectory(QString path) {
     QString scpi = ":MMEM:CDIR \'%1\'\n";
     scpi = scpi.arg(path);
     _vna->write(scpi);

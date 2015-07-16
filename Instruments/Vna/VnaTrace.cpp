@@ -413,7 +413,8 @@ void VnaTrace::y(QRowVector &y) {
         result = _vna->queryVector(scpi, bufferSize());
     }
     y = result;
-}void VnaTrace::y(ComplexRowVector &y) {
+}
+void VnaTrace::y(ComplexRowVector &y) {
     y = this->y();
 }
 ComplexRowVector VnaTrace::y() {
