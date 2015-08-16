@@ -68,10 +68,11 @@ void Figure::setColumns(uint columns) {
     _setMinimumSizes();
 }
 void Figure::select(uint row, uint column) {
-    if (row > 0 && row <= _rows)
-            if (column > 0 && column <= _columns) {
-        _i = row-1;
-        _j = column-1;
+    if (row > 0 && row <= _rows) {
+        if (column > 0 && column <= _columns) {
+            _i = row-1;
+            _j = column-1;
+        }
     }
 }
 

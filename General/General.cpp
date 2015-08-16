@@ -816,6 +816,7 @@ void RsaToolbox::roundAxis(QRowVector values, double interval, double &axis_min,
 void RsaToolbox::roundAxis(RowVector values, double interval, double &axis_min, double &axis_max) {
     roundAxis(min(values), max(values), interval, axis_min, axis_max);
 }
+
 double RsaToolbox::linearInterpolateX(double x1, double y1, double x2, double y2, double y_desired) {
     double invSlope = (x2 - x1)/(y2 - y1);
     return(x1 + invSlope*(y_desired - y1));
@@ -828,6 +829,25 @@ ComplexDouble RsaToolbox::linearInterpolateY(double x1, ComplexDouble y1, double
     ComplexDouble slope = (y2 - y1)/(x2 - x1);
     return(y1 + slope*(x_desired - x1));
 }
+ComplexDouble RsaToolbox::linearInterpolateYMagPhase(double x1, ComplexDouble y1, double x2, ComplexDouble y2, double x_desired) {
+    double mag1 = abs(y1);
+    double phase1 = angle_deg(y1);
+    double mag2 = abs(y2);
+    double phase2 = angle_deg(y2);
+    if (abs(phase2 - phase1) > 90.0) {
+        if (phase2 > phase1)
+            phase2 -= 360.0;
+        else
+            phase2 += 360.0;
+    }
+
+    double mag_desired
+            = linearInterpolateY(x1, mag1, x2, mag2, x_desired);
+    double phase_desired
+            = linearInterpolateY(x1, phase1, x2, phase2, x_desired);
+    return fromMagDegrees(mag_desired, phase_desired);
+}
+
 ComplexRowVector RsaToolbox::linearInterpolateReIm(QRowVector x, ComplexRowVector y, QRowVector xDesired) {
     int newPoints = xDesired.size();
     ComplexRowVector result(newPoints);

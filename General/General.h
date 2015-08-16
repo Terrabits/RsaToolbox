@@ -168,6 +168,7 @@ void roundAxis(RowVector values, double interval, double &axis_min, double &axis
 double linearInterpolateX(double x1, double y1, double x2, double y2, double y_desired);
 double linearInterpolateY(double x1, double y1, double x2, double y2, double x_desired);
 ComplexDouble linearInterpolateY(double x1, ComplexDouble y1, double x2, ComplexDouble y2, double x_desired);
+ComplexDouble linearInterpolateYMagPhase(double x1, ComplexDouble y1, double x2, ComplexDouble y2, double x_desired);
 ComplexRowVector linearInterpolateReIm(QRowVector x, ComplexRowVector y, QRowVector xDesired);
 ComplexRowVector linearInterpolateMagPhase(QRowVector x, ComplexRowVector y, QRowVector xDesired);
 

@@ -4,6 +4,7 @@ QT          += widgets
 HEADERS     += $$PWD/About/About.h \
                $$PWD/LastPath/LastPath.h \
                $$PWD/ErrorLabel/ErrorLabel.h \
+               $$PWD/Figure/Figure.h \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.h \
                $$PWD/GetSnpFile/GetSnpFile.h \
                $$PWD/ListPanel/ListPanel.h \
@@ -18,6 +19,7 @@ HEADERS     += $$PWD/About/About.h \
 INCLUDEPATH += $$PWD/About \
                $$PWD/LastPath \
                $$PWD/ErrorLabel \
+               $$PWD/Figure \
                $$PWD/getSaveFileNameWidget \
                $$PWD/GetSnpFile \
                $$PWD/ListPanel \
@@ -29,6 +31,7 @@ INCLUDEPATH += $$PWD/About \
 SOURCES     += $$PWD/About/About.cpp \
                $$PWD/LastPath/LastPath.cpp \
                $$PWD/ErrorLabel/ErrorLabel.cpp \
+               $$PWD/Figure/Figure.cpp \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.cpp \
                $$PWD/GetSnpFile/GetSnpFile.cpp \
                $$PWD/ListPanel/ListPanel.cpp \
@@ -41,6 +44,7 @@ SOURCES     += $$PWD/About/About.cpp \
                $$PWD/Wizard/BreadCrumbs.cpp \
                $$PWD/Wizard/WizardButtons.cpp
 FORMS       += $$PWD/About/About.ui \
+               $$PWD/Figure/Figure.ui \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.ui \
                $$PWD/GetSnpFile/GetSnpFile.ui \
                $$PWD/ListPanel/ListPanel.ui \
