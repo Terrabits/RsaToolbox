@@ -816,6 +816,35 @@ void RsaToolbox::roundAxis(QRowVector values, double interval, double &axis_min,
 void RsaToolbox::roundAxis(RowVector values, double interval, double &axis_min, double &axis_max) {
     roundAxis(min(values), max(values), interval, axis_min, axis_max);
 }
+void RsaToolbox::prettyAxis(double &min, double &max, double &tickStep, int &subTickCount) {
+    tickStep = 1;
+    subTickCount = 4;
+    double range = max - min;
+    if (range <= 0)
+        return;
+
+    double magnitude = 1;
+    while (range < 1) {
+        // Scale up
+        magnitude *= 1.0E-1;
+        range *= 1.0E1;
+    }
+    while (range >= 10) {
+        // Scale down
+        magnitude *= 1.0E1;
+        range *= 1.0E-1;
+    }
+
+    double normalizedMin = min/magnitude;
+    double normalizedMax = max/magnitude;
+    roundAxis(normalizedMin, normalizedMax, 5.0, normalizedMin, normalizedMax);
+    if (normalizedMax - normalizedMin <= 5)
+        tickStep = 1.0*magnitude;
+    else
+        tickStep = 2.0*magnitude;
+    min = normalizedMin * magnitude;
+    max = normalizedMax * magnitude;
+}
 
 double RsaToolbox::linearInterpolateX(double x1, double y1, double x2, double y2, double y_desired) {
     double invSlope = (x2 - x1)/(y2 - y1);

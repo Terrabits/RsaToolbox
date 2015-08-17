@@ -164,6 +164,7 @@ double ceiling(double value, double interval);
 void roundAxis(double min, double max, double interval, double &axis_min, double &axis_max);
 void roundAxis(QRowVector values, double interval, double &axis_min, double &axis_max);
 void roundAxis(RowVector values, double interval, double &axis_min, double &axis_max);
+void prettyAxis(double &min, double &max, double &tickStep, int &subTickCount);
 
 double linearInterpolateX(double x1, double y1, double x2, double y2, double y_desired);
 double linearInterpolateY(double x1, double y1, double x2, double y2, double x_desired);
