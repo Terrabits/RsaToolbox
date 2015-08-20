@@ -143,10 +143,7 @@ void GenericInstrument::resetBus(ConnectionType type, QString address) {
  * \c false otherwise
  */
 bool GenericInstrument::isConnected() const {
-    if (_bus.isNull())
-        return(false);
-    // else
-    return(_bus->isOpen());
+    return !_bus.isNull() && _bus->isOpen();
 }
 /*!
  * \brief Checks for no connection to an instrument
@@ -158,7 +155,7 @@ bool GenericInstrument::isDisconnected() const {
 }
 
 bool GenericInstrument::isLogOpen() const {
-    return(_log->isOpen());
+    return _log->isOpen();
 }
 /*!
  * \brief Checks if log is in use
