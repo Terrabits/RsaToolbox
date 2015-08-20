@@ -255,8 +255,11 @@ bool Log::printHeader() {
     if (isClosed())
         return false;
 
+    QString date(__DATE__);
+    date.remove(0, date.size()-4);
+
     _stream << _appName << " Version " << _version << endl;
-    _stream << "(C) 2014 Rohde & Schwarz America" << endl << endl;
+    _stream << "(C) " + date + " Rohde & Schwarz North America" << endl << endl;
     _stream << QDateTime::currentDateTime().toString() << endl << endl;
     return true;
 }
