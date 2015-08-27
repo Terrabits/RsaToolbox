@@ -42,7 +42,8 @@ HEADERS += $$PWD/VnaSet.h \
            $$PWD/VnaTimeDomain.h \
            $$PWD/VnaDiagram.h \
            $$PWD/VnaScpi.h \
-           $$PWD/Vna.h
+           $$PWD/Vna.h \
+           $$PWD/VnaUndo.h
 INCLUDEPATH += $$PWD
 SOURCES += $$PWD/VnaSet.cpp \
            $$PWD/VnaUserDefinedPort.cpp \
@@ -75,4 +76,5 @@ SOURCES += $$PWD/VnaSet.cpp \
            $$PWD/VnaTimeDomain.cpp \
            $$PWD/VnaDiagram.cpp \
            $$PWD/VnaScpi.cpp \
-           $$PWD/Vna.cpp
+           $$PWD/Vna.cpp \
+           $$PWD/VnaUndo.cpp
