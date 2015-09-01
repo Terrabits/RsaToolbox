@@ -861,22 +861,37 @@ void RsaToolbox::prettyAxis(double &min, double &max, double &tickStep, int &sub
     min = minMantissa * minMagnitude;
     max = maxMantissa * maxMagnitude;
     double range = max - min;
-    tickStep = int(range / 5);
-    if (int(tickStep) == 1)
-        subTickCount = 4;
-    else if (int(tickStep) == 2)
-        subTickCount = 3;
-    else if (int(tickStep) > 2 || int(tickStep) <= 5)
-        subTickCount = int(tickStep) - 1;
-    else {
-        // > 5
+    if (range <= 5.0) {
+        tickStep = 1.0;
         subTickCount = 4;
     }
-//    qDebug() << "  returning...";
-//    qDebug() << "  max: " << max;
-//    qDebug() << "  min: " << min;
-//    qDebug() << "  tickStep: " << tickStep;
-//    qDebug() << "  subTickCount: " << subTickCount;
+    else if (range <= 10) {
+        tickStep = 2.0;
+        subTickCount = 3;
+    }
+    else if (range <= 20) {
+        tickStep = 5.0;
+        subTickCount = 4;
+    }
+    else if (range <= 50) {
+        tickStep = 10.0;
+        subTickCount = 4;
+    }
+    else {
+        tickStep = 20.0;
+        subTickCount = 3;
+    }
+//    tickStep = int(range / 5);
+//    if (int(tickStep) == 1)
+//        subTickCount = 4;
+//    else if (int(tickStep) == 2)
+//        subTickCount = 3;
+//    else if (int(tickStep) > 2 || int(tickStep) <= 5)
+//        subTickCount = int(tickStep) - 1;
+//    else {
+//        // > 5
+//        subTickCount = 4;
+//    }
 }
 
 double RsaToolbox::linearInterpolateX(double x1, double y1, double x2, double y2, double y_desired) {
