@@ -442,6 +442,21 @@ void VnaSettings::remoteLogOff(bool isOff) {
     remoteLogOn(!isOff);
 }
 
+void VnaSettings::servicePassword(const QString &password) {
+    QString scpi = ":SYST:PASS \'%1\'\n";
+    scpi = scpi.arg(password);
+    _vna->write(scpi);
+}
+void VnaSettings::serviceFunction(const QString &function) {
+    QString scpi = ":DIAG:SERV:SFUN \'%1\'\n";
+    scpi = scpi.arg(function);
+    _vna->write(scpi);
+}
+void VnaSettings::serviceFunction(const QString &function, const QString &password) {
+    servicePassword(password);
+    serviceFunction(function);
+}
+
 // Private
 QString VnaSettings::toScpi(EmulationMode mode) {
     switch(mode) {

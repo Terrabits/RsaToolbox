@@ -137,6 +137,10 @@ public:
     void remoteLogOn(bool isOn = true);
     void remoteLogOff(bool isOff = true);
 
+    void servicePassword(const QString &password);
+    void serviceFunction(const QString &function);
+    void serviceFunction(const QString &function, const QString &password);
+
     void operator=(VnaSettings const &other);
 
 private:
