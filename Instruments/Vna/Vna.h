@@ -96,6 +96,8 @@ public:
     VnaCalKit &calKit(NameLabel nameLabel);
 
      // Calibration
+    void multiChannelCalibrationOn(bool isOn = true);
+    void multiChannelCalibrationOff(bool isOff = true);
     QVector<uint> calibratedChannels();
     VnaCalibrate &calibrate();
     VnaCalibrate *takeCalibrate();

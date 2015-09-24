@@ -222,7 +222,7 @@ void VnaCalibrate:: keepRawData(bool isKept) {
     selectChannels();
 
     QString scpi;
-    if (!_vna->properties().isZvaFamily() && _isChannelSpecific) {
+    if (_isChannelSpecific) {
        scpi = ":SENS%1:CORR:COLL:RSAV %2\n";
        scpi = scpi.arg(_channelIndex);
     }

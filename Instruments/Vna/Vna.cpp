@@ -985,6 +985,27 @@ VnaCalKit &Vna::calKit(NameLabel nameLabel) {
  * @{*/
 
 // Calibration
+void Vna::multiChannelCalibrationOn(bool isOn) {
+    if (properties().isZvaFamily()) {
+        if (isOn)
+            emit print("Note:\nMulti-channel calibration enabled by default on ZVA.\n\n");
+        else
+            emit print("Note:\nCannot disable multi-channel calibration on ZVA.\n\n");
+
+        return;
+    }
+
+    QString scpi = ":CORR:COLL:CHAN:MCTY %1\n";
+    if (isOn)
+        scpi = scpi.arg(1);
+    else
+        scpi = scpi.arg(0);
+    write(scpi);
+}
+void Vna::multiChannelCalibrationOff(bool isOff) {
+    multiChannelCalibrationOn(!isOff);
+}
+
 QVector<uint> Vna::calibratedChannels() {
     QVector<uint> _channels = channels();
     QVector<uint> _calibratedChannels;
