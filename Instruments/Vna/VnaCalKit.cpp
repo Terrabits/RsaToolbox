@@ -476,12 +476,6 @@ QVector<VnaCalStandard> VnaCalKit::standardsSummary() {
     return standards;
 }
 void VnaCalKit::standardDetails(VnaCalStandard &standard, Connector type) {
-    // No details provided for
-    // port specific standards???
-    // (Touchstone?)
-    if (standard.isPortSpecific())
-        return;
-
     // Firmware error handling
     // Isolation standards
     // (toString(standard) undefined)
@@ -492,11 +486,34 @@ void VnaCalKit::standardDetails(VnaCalStandard &standard, Connector type) {
     if (standard.type() == UNKNOWN_STANDARD_TYPE)
         return;
 
-    QString scpi = ":CORR:CKIT:%1:WLAB? \'%2\',\'%3\',\'%4\'\n";
-    scpi = scpi.arg(VnaScpi::toString(standard)); // Standard
-    scpi = scpi.arg(VnaScpi::toTypeString(type)); // Connector type
-    scpi = scpi.arg(_nameLabel.name()); // name
-    scpi = scpi.arg(_nameLabel.label()); // label
+    QString scpi;
+    if (!standard.isPortSpecific()) {
+        scpi = ":CORR:CKIT:%1:WLAB? \'%2\',\'%3\',\'%4\'\n";
+        scpi = scpi.arg(VnaScpi::toString(standard)); // Standard
+        scpi = scpi.arg(VnaScpi::toTypeString(type)); // Connector type
+        scpi = scpi.arg(_nameLabel.name()); // name
+        scpi = scpi.arg(_nameLabel.label()); // label
+    }
+    else {
+        // Port specific standard
+        if (standard.isSinglePort()) {
+            scpi = ":CORR:CKIT:%1:WLAB? \'%2\',\'%3\',\'%4\',%5\n";
+            scpi = scpi.arg(VnaScpi::toString(standard)); // Standard
+            scpi = scpi.arg(VnaScpi::toTypeString(type)); // Connector type
+            scpi = scpi.arg(_nameLabel.name()); // name
+            scpi = scpi.arg(_nameLabel.label()); // label
+            scpi = scpi.arg(standard.port()); // Port
+        }
+        else {
+            scpi = ":CORR:CKIT:%1:WLAB? \'%2\',\'%3\',\'%4\',%5,%6\n";
+            scpi = scpi.arg(VnaScpi::toString(standard)); // Standard
+            scpi = scpi.arg(VnaScpi::toTypeString(type)); // Connector type
+            scpi = scpi.arg(_nameLabel.name()); // name
+            scpi = scpi.arg(_nameLabel.label()); // label
+            scpi = scpi.arg(standard.port1()); // Port 1
+            scpi = scpi.arg(standard.port2()); // Port 2
+        }
+    }
     parse(standard, _vna->query(scpi, 1000));
 }
 void VnaCalKit::parse(VnaCalStandard &standard, QString scpi) {
