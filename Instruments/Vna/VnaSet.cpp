@@ -37,7 +37,7 @@ void VnaSet::select() {
     scpi = scpi.arg(_name);
     _vna->write(scpi);
 }
-void VnaSet::save(QString filePathName) {
+void VnaSet::save(QString &filePathName) {
     select();
 
     QString extension;

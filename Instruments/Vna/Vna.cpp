@@ -512,7 +512,7 @@ void Vna::closeSet(const QString &name) {
 void Vna::closeSets() {
     write(":MEM:DEL:ALL\n");
 }
-bool Vna::saveActiveSet(const QString &filePathName) {
+bool Vna::saveActiveSet(QString &filePathName) {
     QString _activeSet = activeSet();
     if (_activeSet.isEmpty())
         return false;

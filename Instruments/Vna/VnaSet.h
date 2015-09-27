@@ -25,7 +25,7 @@ public:
     ~VnaSet();
 
     void select();
-    void save(QString filePathName);
+    void save(QString &filePathName);
 
     void operator=(VnaSet const &other);
 

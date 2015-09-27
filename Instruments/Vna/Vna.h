@@ -59,7 +59,7 @@ public:
     void closeActiveSet();
     void closeSet(const QString &name);
     void closeSets();
-    bool saveActiveSet(const QString &filePathName);
+    bool saveActiveSet(QString &filePathName);
     void deleteSet(QString filePathName);
     VnaSet &set(const QString &name = "Set1");
 
