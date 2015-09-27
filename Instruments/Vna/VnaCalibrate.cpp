@@ -167,19 +167,21 @@ void VnaCalibrate:: selectKit(QString name, QString label) {
 
 NameLabel VnaCalibrate:: selectedKit(Connector type) {
     // This is not channel specific. Period.
+    // But it might get updated...
 
-//    if (isMissingZvaCommand())
-//        return NameLabel();
+    if (isMissingZvaCommand())
+        return NameLabel();
 
-
+    // ...This currently does not work per channel,
+    // but I'm adding it anyway...
     QString scpi;
-//    if (_isChannelSpecific) {
-//        scpi = ":SENS%1:CORR:CKIT:LSEL? \'%2\'\n";
-//        scpi = scpi.arg(_channelIndex);
-//    }
-//    else {
+    if (_isChannelSpecific) {
+        scpi = ":SENS%1:CORR:CKIT:LSEL? \'%2\'\n";
+        scpi = scpi.arg(_channelIndex);
+    }
+    else {
         scpi = ":CORR:CKIT:LSEL? \'%2\'\n";
-//    }
+    }
     scpi = scpi.arg(VnaScpi::toTypeString(type));
 
     QString result = _vna->query(scpi).trimmed();
@@ -470,10 +472,20 @@ void VnaCalibrate::selectKit(QString name, QString label, QString customConnecto
 
     selectChannels();
 
-    QString scpi = ":CORR:CKIT:LSEL \'%2\',\'%3\',\'%4\'\n";
-    scpi = scpi.arg(customConnector);
-    scpi = scpi.arg(name);
-    scpi = scpi.arg(label);
+    QString scpi;
+    if (_isChannelSpecific) {
+        scpi = ":SENS%1:CORR:CKIT:LSEL \'%2\',\'%3\',\'%4\'\n";
+        scpi = scpi.arg(_channelIndex);
+        scpi = scpi.arg(customConnector);
+        scpi = scpi.arg(name);
+        scpi = scpi.arg(label);
+    }
+    else {
+        scpi = ":CORR:CKIT:LSEL \'%2\',\'%3\',\'%4\'\n";
+        scpi = scpi.arg(customConnector);
+        scpi = scpi.arg(name);
+        scpi = scpi.arg(label);
+    }
     _vna->write(scpi);
 }
 void VnaCalibrate::selectKit(QString name, QString label, Connector::Type type) {

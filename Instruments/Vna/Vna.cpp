@@ -498,6 +498,7 @@ void Vna::openSet(QString filePathName) {
     fileSystem().changeDirectory(VnaFileSystem::Directory::RECALL_SETS_DIRECTORY);
     write(scpi);
     fileSystem().changeDirectory(directory);
+    pause();
 }
 void Vna::closeActiveSet() {
     const QString _activeSet(activeSet());

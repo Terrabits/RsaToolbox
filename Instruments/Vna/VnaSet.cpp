@@ -65,9 +65,8 @@ void VnaSet::save(QString &filePathName) {
     _vna->deleteChannel(i);
 
     _vna->write(scpi);
-    _vna->pause();
-
     _vna->fileSystem().changeDirectory(directory);
+    _vna->pause();
 }
 
 void VnaSet::operator=(const VnaSet &other) {
