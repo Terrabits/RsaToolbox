@@ -166,17 +166,20 @@ void VnaCalibrate:: selectKit(QString name, QString label) {
 }
 
 NameLabel VnaCalibrate:: selectedKit(Connector type) {
-    if (isMissingZvaCommand())
-        return NameLabel();
+    // This is not channel specific. Period.
+
+//    if (isMissingZvaCommand())
+//        return NameLabel();
+
 
     QString scpi;
-    if (_isChannelSpecific) {
-        scpi = ":SENS%1:CORR:CKIT:LSEL? \'%2\'\n";
-        scpi = scpi.arg(_channelIndex);
-    }
-    else {
+//    if (_isChannelSpecific) {
+//        scpi = ":SENS%1:CORR:CKIT:LSEL? \'%2\'\n";
+//        scpi = scpi.arg(_channelIndex);
+//    }
+//    else {
         scpi = ":CORR:CKIT:LSEL? \'%2\'\n";
-    }
+//    }
     scpi = scpi.arg(VnaScpi::toTypeString(type));
 
     QString result = _vna->query(scpi).trimmed();
