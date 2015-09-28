@@ -46,9 +46,7 @@ public:
     static QString toString(const VnaCalStandard &standard);
     static QString toString(VnaStandardType type);
     static QString toString(VnaStandardType type, Connector::Gender gender);
-    static QString toString(VnaStandardType type, Connector::Gender gender, uint port);
     static QString toString(VnaStandardType type, Connector::Gender gender1, Connector::Gender gender2);
-    static QString toString(VnaStandardType type, Connector::Gender gender1, uint port1, Connector::Gender gender2, uint port2);
     static VnaCalStandard toCalStandard(QString scpi);
 
     // Calibration

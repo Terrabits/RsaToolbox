@@ -221,16 +221,10 @@ Connector::Type VnaScpi::toConnectorType(QString scpi) {
 // Calibration Standards
 QString VnaScpi::toString(const VnaCalStandard &standard) {
     if (standard.isSinglePort()) {
-        if (standard.isNotPortSpecific())
-            return(toString(standard.type(), standard.gender()));
-        else
-            return(toString(standard.type(), standard.gender(), standard.port()));
+        return(toString(standard.type(), standard.gender()));
     }
     else {
-        if (standard.isNotPortSpecific())
-            return(toString(standard.type(), standard.gender1(), standard.gender2()));
-        else
-            return(toString(standard.type(), standard.gender1(), standard.port1(), standard.gender2(), standard.port2()));
+        return(toString(standard.type(), standard.gender1(), standard.gender2()));
     }
 }
 QString VnaScpi::toString(VnaStandardType type) {
@@ -280,18 +274,6 @@ QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender) {
         scpi = scpi.arg("M");
     return scpi.arg(toString(type));
 }
-QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender, uint port) {
-    if (!VnaCalStandard::isSinglePort(type))
-        return "";
-
-    QString scpi = "%1%2(P%3)";
-    if (gender == Connector::Gender::Female)
-        scpi = scpi.arg("F");
-    else
-        scpi = scpi.arg("M");
-    scpi = scpi.arg(toString(type));
-    return scpi.arg(port);
-}
 QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender1, Connector::Gender gender2) {
     if (!VnaCalStandard::isTwoPort(type))
         return "";
@@ -308,25 +290,7 @@ QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender1, Conne
         scpi = scpi.arg("M");
     return scpi.arg(toString(type));
 }
-QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender1, uint port1, Connector::Gender gender2, uint port2) {
-    if (!VnaCalStandard::isTwoPort(type))
-        return "";
 
-//    sort(gender1, gender2);
-//    sort(port1, port2);
-    QString scpi = "%1%2%3(P%4P%5)";
-    if (gender1 == Connector::Gender::Female)
-        scpi = scpi.arg("F");
-    else
-        scpi = scpi.arg("M");
-    if (gender2 == Connector::Gender::Female)
-        scpi = scpi.arg("F");
-    else
-        scpi = scpi.arg("M");
-    scpi = scpi.arg(toString(type));
-    scpi = scpi.arg(port1);
-    return scpi.arg(port2);
-}
 
 VnaCalStandard VnaScpi::toCalStandard(QString scpi) {
     VnaCalStandard std;
