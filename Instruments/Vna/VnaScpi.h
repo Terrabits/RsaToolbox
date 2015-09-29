@@ -35,12 +35,15 @@ public:
     static ConnectionType toMatrixConnection(QString scpi);
 
     // Connector
-    static QString toString(Connector::Gender gender);
-    static QString toGenderString(Connector connector);
     static QString toString(Connector::Type type);
     static QString toTypeString(Connector connector);
-    static Connector::Gender toConnectorGender(QString scpi);
     static Connector::Type toConnectorType(QString scpi);
+    static QString toString(Connector::Gender gender);
+    static QString toGenderString(Connector connector);
+    static Connector::Gender toConnectorGender(QString scpi);
+    static QString toString(Connector::Mode mode);
+    static Connector::Mode toConnectorMode(QString scpi);
+
 
     // Calibration Standards
     static QString toString(const VnaCalStandard &standard);

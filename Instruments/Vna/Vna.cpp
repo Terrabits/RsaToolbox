@@ -718,25 +718,68 @@ VnaFileSystem *Vna::takeFileSystem() {
  * \brief Retrieve all valid connector types
  * \return QVector containing all connector types
  */
+void Vna::defineCustomConnector(const Connector &connector) {
+    QString scpi = ":CORR:CONN \'%1\',%2,%3,%4,%5\n";
+    scpi = scpi.arg(VnaScpi::toTypeString(connector));
+    scpi = scpi.arg(VnaScpi::toString(connector.mode()));
+    if (connector.isGenderSpecific())
+        scpi = scpi.arg("GEND");
+    else
+        scpi = scpi.arg("NGEN");
+    scpi = scpi.arg(connector.permittivity());
+    if (connector.isTemMode())
+        scpi = scpi.arg(connector.impedance_Ohms());
+    else
+        scpi = scpi.arg(connector.cutoffFrequency_Hz());
+    write(scpi);
+}
+void Vna::deleteConnector(const QString &name) {
+    // [SENSe<Ch>:]CORRection:CONNection:DELete '<conn_name>'
+    QString scpi = ":CORR:CONN:DEL \'%1\'\n";
+    scpi = scpi.arg(name);
+    write(scpi);
+}
+void Vna::deleteConnector(const Connector &connector) {
+    deleteConnector(VnaScpi::toTypeString(connector));
+}
+
 QVector<Connector> Vna::connectorTypes() {
     QString scpi = ":CORR:CONN:CAT?\n";
-    QStringList list =
+    QStringList typeList =
             query(scpi).trimmed().remove('\'').split(',');
     QVector<Connector> types;
-    foreach (QString item, list) {
-        Connector::Type type = VnaScpi::toConnectorType(item);
-        Connector new_type;
-        if (type == Connector::CUSTOM_CONNECTOR)
-            new_type.setCustomType(item);
-        else
-            new_type.setType(type);
-        if (isConnectorGenderNeutral(new_type))
-            new_type.setGender(Connector::Gender::Neutral);
-        else
-            new_type.setGender(Connector::Gender::Male);
-        types.append(new_type);
+    foreach (QString type, typeList) {
+        Connector c;
+        c.setType(VnaScpi::toConnectorType(type));
+        if (c.isCustomType())
+            c.setCustomType(type);
+        types.append(c);
     }
-    return(types);
+
+    for (int i = 0; i < types.size(); i++) {
+        scpi = ":CORR:CONN? \'%1\'\n";
+        scpi = scpi.arg(VnaScpi::toTypeString(types[i]));
+        QStringList results = query(scpi).trimmed().split(",");
+        if (results.size() < 5)
+            continue;
+
+        // results[0] = connector type (why?)
+        // results[1] = mode (TEM | WGUide)
+        // results[2] = gender (GENDer | NGENder)
+        // results[3] = permittivity
+        // results[4] = impedance | cutoff freq (Hz)
+        if (results[2].startsWith("NGEN", Qt::CaseInsensitive))
+            types[i].setGender(Connector::Gender::Neutral);
+        else
+            types[i].setGender(Connector::Gender::Male);
+        types[i].setPermittivity(results[3].toDouble());
+        if (VnaScpi::toConnectorMode(results[1]) == Connector::Mode::Waveguide)
+            types[i].setWaveguideMode(results[4].toDouble());
+        else
+            types[i].setTemMode(results[4].toDouble());
+    }
+
+    return types;
 }
 
 /*!
@@ -745,10 +788,10 @@ QVector<Connector> Vna::connectorTypes() {
  * \return \c true if \c type exists;
  * \c false otherwise
  */
-bool Vna::isConnectorType(Connector type) {
+bool Vna::isConnectorType(const Connector &type) {
     QVector<Connector> types = connectorTypes();
-    foreach (Connector thisType, types) {
-        if (type.isType(thisType))
+    foreach (Connector _type, types) {
+        if (type.isType(_type))
             return(true);
     }
     // else
@@ -762,7 +805,7 @@ bool Vna::isConnectorType(Connector type) {
  * \return \c true if \c userDefinedType exists;
  * \c false otherwise
  */
-bool Vna::isConnectorType(QString userDefinedType) {
+bool Vna::isConnectorType(const QString &userDefinedType) {
     Connector type;
     type.setCustomType(userDefinedType);
     return(isConnectorType(type));
@@ -781,9 +824,11 @@ bool Vna::isConnectorGenderNeutral(Connector type) {
     // results[1] = mode (TEM | WGUide)
     // results[2] = gender (GENDer | NGENder)
     // results[3] = permittivity
-    // results[4] = impedance
-
-    return results[2].toUpper() == "NGEN";
+    // results[4] = impedance | cutoff freq (Hz)
+    if (results.size() < 3)
+        return false;
+    else
+        return results[2].toUpper() == "NGEN";
 }
 
 /*!
@@ -876,9 +921,9 @@ QVector<NameLabel> Vna::calKits(Connector::Type type) {
  * connector type
  * \return Cal kits of connector \c type
  */
-QVector<NameLabel> Vna::calKits(QString userDefinedConnectorType) {
+QVector<NameLabel> Vna::calKits(QString customType) {
     QString scpi = ":CORR:CKIT:LCAT? \'%1\'\n";
-    scpi = scpi.arg(userDefinedConnectorType);
+    scpi = scpi.arg(customType);
     QString result = query(scpi, 2000).trimmed();
     return NameLabel::parse(result, ",", "\'");
 }

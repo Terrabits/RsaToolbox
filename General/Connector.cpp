@@ -33,9 +33,14 @@ using namespace RsaToolbox;
  * \c RsaToolbox::UNKNOWN_CONNECTOR type and
  * \c RsaToolbox::NEUTRAL_GENDER.
  */
-Connector::Connector() {
-    _type = UNKNOWN_CONNECTOR;
-    _gender = Gender::Neutral;
+Connector::Connector() :
+    _type(Type::UNKNOWN_CONNECTOR),
+    _gender(Gender::Neutral),
+    _mode(Mode::Tem),
+    _impedance_Ohms(50.0),
+    _cutoffFrequency_Hz(0.0)
+{
+
 }
 
 /*!
@@ -47,10 +52,15 @@ Connector::Connector() {
  *
  * \param other %Connector to copy
  */
-Connector::Connector(const Connector &other) {
-    _type = other._type;
-    _customType = other._customType;
-    _gender = other._gender;
+Connector::Connector(const Connector &other) :
+    _type(other._type),
+    _customType(other._customType),
+    _gender(other._gender),
+    _mode(other._mode),
+    _impedance_Ohms(other._impedance_Ohms),
+    _cutoffFrequency_Hz(other._cutoffFrequency_Hz)
+{
+
 }
 
 /*!
@@ -66,9 +76,14 @@ Connector::Connector(const Connector &other) {
  * \param type Connector type
  * \param gender Connector gender
  */
-Connector::Connector(Type type, Gender gender) {
-    _type = type;
-    _gender = gender;
+Connector::Connector(Type type, Gender gender) :
+    _type(type),
+    _gender(gender),
+    _mode(Mode::Tem),
+    _impedance_Ohms(50.0),
+    _cutoffFrequency_Hz(0.0)
+{
+
 }
 
 /*!
@@ -83,10 +98,15 @@ Connector::Connector(Type type, Gender gender) {
  * \param customType User-defined connector type
  * \param gender Connector gender
  */
-Connector::Connector(QString customType, Gender gender) {
-    _type = CUSTOM_CONNECTOR;
-    _customType = customType;
-    _gender = gender;
+Connector::Connector(QString customType, Gender gender) :
+    _type(Type::CUSTOM_CONNECTOR),
+    _customType(customType),
+    _gender(gender),
+    _mode(Mode::Tem),
+    _impedance_Ohms(50.0),
+    _cutoffFrequency_Hz(0.0)
+{
+
 }
 
 /*!
@@ -168,7 +188,7 @@ QString Connector::genderAbbreviation() const {
  * \return Result of connector type comparison
  * \sa isNotType()
  */
-bool Connector::isType(Connector &other) const {
+bool Connector::isType(const Connector &other) const {
     if (isNotCustomType())
         return(type() == other.type());
     else if (other.isNotCustomType())
@@ -313,18 +333,55 @@ Connector::Gender Connector::gender() const {
  * \return Mate-able connector type
  */
 Connector Connector::getMatingConnector() const {
-    Connector mate;
-    mate.setType(*this);
-    if (isGenderNeutral()) {
-        mate.setGender(Gender::Neutral);
-    }
-    else {
-        if (isMale())
-            mate.setGender(Gender::Female);
-        else
-            mate.setGender(Gender::Male);
-    }
-    return(mate);
+    Connector mate(*this);
+    if (isGenderNeutral())
+        return mate;
+    if (isMale())
+        mate.setGender(Gender::Female);
+    else
+        mate.setGender(Gender::Male);
+    return mate;
+}
+
+double Connector::permittivity() const {
+    return _permittivity;
+}
+void Connector::setPermittivity(double permittivity) {
+    _permittivity = permittivity;
+}
+
+bool Connector::isTemMode() const {
+    return _mode == Mode::Tem;
+}
+bool Connector::isWaveguideMode() const {
+    return _mode == Mode::Waveguide;
+}
+Connector::Mode Connector::mode() const {
+    return _mode;
+}
+void Connector::setTemMode(double impedance_Ohms) {
+    _mode = Mode::Tem;
+    _impedance_Ohms = impedance_Ohms;
+    _cutoffFrequency_Hz = 0;
+}
+void Connector::setWaveguideMode(double cutoffFrequency_Hz) {
+    _mode = Mode::Waveguide;
+    _cutoffFrequency_Hz = cutoffFrequency_Hz;
+    _impedance_Ohms = 50.0;
+}
+
+double Connector::impedance_Ohms() const {
+    return _impedance_Ohms;
+}
+void Connector::setImpedance(double ohms) {
+    _impedance_Ohms = ohms;
+}
+
+double Connector::cutoffFrequency_Hz() const {
+    return _cutoffFrequency_Hz;
+}
+void Connector::setCutoffFrequency(double frequency_Hz) {
+    _cutoffFrequency_Hz = frequency_Hz;
 }
 
 /*!
@@ -350,6 +407,8 @@ void Connector::setType(const Connector &type) {
  */
 void Connector::setType(Type type) {
     _type = type;
+    if (_type != Type::CUSTOM_CONNECTOR)
+        _customType.clear();
 }
 
 /*!
@@ -362,7 +421,7 @@ void Connector::setType(Type type) {
  * \sa RsaToolbox::Connector::Type, setType(Connector type), setCustomType()
  */
 void Connector::setCustomType(QString type) {
-    _type = CUSTOM_CONNECTOR;
+    _type = Type::CUSTOM_CONNECTOR;
     _customType = type;
 }
 
@@ -373,6 +432,12 @@ void Connector::setCustomType(QString type) {
 void Connector::setGender(Gender gender) {
     _gender = gender;
 }
+void Connector::setGenderNeutral() {
+    _gender = Gender::Neutral;
+}
+void Connector::setGenderSpecific() {
+    _gender = Gender::Male;
+}
 
 /*!
  * \brief Sets the properties of \c this to those of \c other
@@ -382,10 +447,13 @@ void Connector::setGender(Gender gender) {
  * \param other \c Connector with properties to be used
  * \sa setType(Connector type), setGender()
  */
-void Connector::operator =(const Connector &other) {
+void Connector::operator=(const Connector &other) {
     _type = other._type;
     _customType = other._customType;
     _gender = other._gender;
+    _mode = other._mode;
+    _impedance_Ohms = other._impedance_Ohms;
+    _cutoffFrequency_Hz = other._cutoffFrequency_Hz;
 }
 
 /*!
@@ -595,7 +663,7 @@ bool RsaToolbox::operator==(const Connector &right, const Connector &left) {
  * \return \c true if objects are unequal, false otherwise
  ** \sa operator==(const Connector &right, const Connector &left)
  */
-bool RsaToolbox::operator !=(const Connector &right, const Connector &left) {
+bool RsaToolbox::operator!=(const Connector &right, const Connector &left) {
     return(!(right == left));
 }
 
@@ -603,24 +671,39 @@ QDataStream& RsaToolbox::operator<<(QDataStream &stream, const Connector &connec
     stream << qint32(connector.type());
     stream << connector.customType();
     stream << qint32(connector.gender());
+    stream << connector.permittivity();
+    stream << qint32(connector.mode());
+    stream << connector.impedance_Ohms();
+    stream << connector.cutoffFrequency_Hz();
     return stream;
 }
 QDataStream& RsaToolbox::operator>>(QDataStream &stream, Connector &connector) {
-    qint32 number;
-    stream >> number;
-    Connector::Type type = Connector::Type(number);
+    qint32 _qint32;
+    double _double;
+    QString _string;
 
-    QString customType;
-    stream >> customType;
+    stream >> _qint32;
+    connector.setType(Connector::Type(_qint32));
 
-    stream >> number;
-    Connector::Gender gender = Connector::Gender(number);
+    stream >> _string;
+    if (connector.isCustomType())
+        connector.setCustomType(_string);
 
-    connector.setCustomType(customType);
-    if (type != Connector::Type::CUSTOM_CONNECTOR)
-        connector.setType(type);
-    connector.setGender(gender);
+    stream >> _qint32;
+    connector.setGender(Connector::Gender(_qint32));
+
+    stream >> _double;
+    connector.setPermittivity(_double);
+
+    stream >> _qint32;
+    stream >> _double;
+    if (Connector::Mode(_qint32) == Connector::Mode::Tem)
+        connector.setTemMode(_double);
+
+    stream >> _double;
+    if (Connector::Mode(_qint32) == Connector::Mode::Waveguide)
+        connector.setWaveguideMode(_double);
+
     return stream;
 }
-
 

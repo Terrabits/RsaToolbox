@@ -75,11 +75,17 @@ public:
     VnaFileSystem &fileSystem();
     VnaFileSystem *takeFileSystem();
 
-    // Cal Kit
-    QVector<Connector> connectorTypes();
-    bool isConnectorType(Connector type);
-    bool isConnectorType(QString userDefinedType);
+    // Connectors
+    bool isConnectorType(const Connector &type);
+    bool isConnectorType(const QString &userDefinedType);
     bool isConnectorGenderNeutral(Connector type);
+    QVector<Connector> connectorTypes();
+    void defineCustomConnector(const Connector &connector); //
+    void deleteConnector(const QString &name);
+    void deleteConnector(const Connector &connector);
+
+
+    // Cal Kits
     bool isCalKit(NameLabel nameLabel);
     bool isCalKit(QString name, QString label);
     bool isNotCalKit(NameLabel nameLabel);
@@ -87,7 +93,7 @@ public:
     QVector<NameLabel> calKits();
     QVector<NameLabel> calKits(Connector type);
     QVector<NameLabel> calKits(Connector::Type type);
-    QVector<NameLabel> calKits(QString userDefinedConnectorType);
+    QVector<NameLabel> calKits(QString customType);
 //    void createCalKit(NameLabel nameLabel, Connector connector); // Create by adding first non-port-specific standard...
     void deleteCalKit(NameLabel calkit);
     void importCalKit(QString pathName);

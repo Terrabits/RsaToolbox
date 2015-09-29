@@ -356,9 +356,27 @@ Connector VnaCalKit::connectorType() {
         if (calkits.contains(_nameLabel))
             return(connector);
     }
-    // else
+
+    // Default:
     return(Connector());
 }
+void VnaCalKit::setConnectorType(const Connector &connector) {
+    QVector<VnaCalStandard> _standards = standards();
+    for (int i = 0; i < _standards.size(); i++) {
+        if (_standards[i].isSinglePort()) {
+            _standards[i].connector().setType(connector);
+        }
+        else {
+            _standards[i].connector1().setType(connector);
+            _standards[i].connector2().setType(connector);
+        }
+    }
+    _vna->deleteCalKit(_nameLabel);
+    for (int i = 0; i < _standards.size(); i++) {
+        addStandard(_standards[i]);
+    }
+}
+
 QVector<VnaCalStandard> VnaCalKit::standards() {
     Connector type = connectorType();
     QVector<VnaCalStandard> standards = standardsSummary();

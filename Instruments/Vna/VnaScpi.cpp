@@ -217,6 +217,25 @@ Connector::Type VnaScpi::toConnectorType(QString scpi) {
     else
         return Connector::Type::UNKNOWN_CONNECTOR;
 }
+QString VnaScpi::toString(Connector::Mode mode) {
+    if (mode == Connector::Mode::Tem)
+        return "TEM";
+    if (mode == Connector::Mode::Waveguide)
+        return "WGU";
+
+    // Default:
+    return "";
+}
+Connector::Mode VnaScpi::toConnectorMode(QString scpi) {
+    scpi = scpi.toUpper();
+    if (scpi == "TEM")
+        return Connector::Mode::Tem;
+    if (scpi.startsWith("WGU"))
+        return Connector::Mode::Waveguide;
+
+    // Default:
+    return Connector::Mode::Tem;
+}
 
 // Calibration Standards
 QString VnaScpi::toString(const VnaCalStandard &standard) {

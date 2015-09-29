@@ -68,8 +68,9 @@ public:
     bool hasThru(Connector::Gender gender1, Connector::Gender gender2);
 
     Connector connectorType();
-    QVector<VnaCalStandard> standards();
+    void setConnectorType(const Connector &connector);
 
+    QVector<VnaCalStandard> standards();
     void addStandard(VnaCalStandard standard);
 
     void operator=(const VnaCalKit &other);
