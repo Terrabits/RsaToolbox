@@ -1171,8 +1171,7 @@ QStringList Vna::calGroups() {
  * \c false otherwise
  */
 bool Vna::isChannel(uint index) {
-    QVector<uint> channelList = channels();
-    return(channelList.contains(index));
+    return channels().contains(index);
 }
 /*!
  * \brief Queries existence of channel \c name
@@ -1184,7 +1183,7 @@ bool Vna::isChannel(QString name) {
     QString result = query(":CONF:CHAN:CAT?\n", 5000).trimmed();
     QVector<IndexName> indexNames;
     indexNames = IndexName::parse(result, ",", "\'");
-    return(IndexName::names(indexNames).contains(name));
+    return IndexName::names(indexNames).contains(name);
 }
 
 /*!

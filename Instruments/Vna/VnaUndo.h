@@ -30,7 +30,7 @@ private:
     QString _setName;
     bool _recallOnDestruction;
 
-    QString generateUniqueName() const;
+    static QString generateUniqueName();
     bool isVna();
     bool isSet();
 };

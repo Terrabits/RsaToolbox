@@ -63,7 +63,7 @@ void VnaUndo::discard() {
     _setName.clear();
 }
 
-QString VnaUndo::generateUniqueName() const {
+QString VnaUndo::generateUniqueName() {
     return QUuid::createUuid().toString().remove('{').remove('}').remove('-');
 }
 bool VnaUndo::isVna() {

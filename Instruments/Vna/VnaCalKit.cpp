@@ -377,6 +377,14 @@ void VnaCalKit::setConnectorType(const Connector &connector) {
     }
 }
 
+void VnaCalKit::copy(const NameLabel &newNameLabel) {
+    QVector<VnaCalStandard> _standards = standards();
+    VnaCalKit newCalKit = _vna->calKit(newNameLabel);
+    for (int i = 0; i < _standards.size(); i++) {
+        newCalKit.addStandard(_standards[i]);
+    }
+}
+
 QVector<VnaCalStandard> VnaCalKit::standards() {
     Connector type = connectorType();
     QVector<VnaCalStandard> standards = standardsSummary();

@@ -69,6 +69,11 @@ QString NameLabel::displayText() const {
         display = _name + " (" + _label + ")";
     return(display);
 }
+
+bool NameLabel::isEmpty() const {
+    return _name.isEmpty() && _label.isEmpty();
+}
+
 /*!
  * \brief Returns name of NameLabel object
  * \return name
@@ -97,6 +102,11 @@ void NameLabel::setName(QString name) {
  */
 void NameLabel::setLabel(QString label) {
     _label = label;
+}
+
+void NameLabel::clear() {
+    _name.clear();
+    _label.clear();
 }
 
 /*!

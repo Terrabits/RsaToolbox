@@ -17,12 +17,14 @@ public:
     NameLabel();
     NameLabel(QString name, QString label = "");
 
-    QString displayText() const;
+    bool isEmpty() const;
     QString name() const;
     QString label() const;
-
     void setName(QString name);
     void setLabel(QString label);
+    void clear();
+
+    QString displayText() const;
 
     operator QString() const;
     void operator=(const NameLabel &other);

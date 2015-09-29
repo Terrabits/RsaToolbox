@@ -36,6 +36,7 @@ using namespace RsaToolbox;
 Connector::Connector() :
     _type(Type::UNKNOWN_CONNECTOR),
     _gender(Gender::Neutral),
+    _permittivity(1.0),
     _mode(Mode::Tem),
     _impedance_Ohms(50.0),
     _cutoffFrequency_Hz(0.0)
@@ -56,6 +57,7 @@ Connector::Connector(const Connector &other) :
     _type(other._type),
     _customType(other._customType),
     _gender(other._gender),
+    _permittivity(other._permittivity),
     _mode(other._mode),
     _impedance_Ohms(other._impedance_Ohms),
     _cutoffFrequency_Hz(other._cutoffFrequency_Hz)
@@ -79,6 +81,7 @@ Connector::Connector(const Connector &other) :
 Connector::Connector(Type type, Gender gender) :
     _type(type),
     _gender(gender),
+    _permittivity(1.0),
     _mode(Mode::Tem),
     _impedance_Ohms(50.0),
     _cutoffFrequency_Hz(0.0)
@@ -102,6 +105,7 @@ Connector::Connector(QString customType, Gender gender) :
     _type(Type::CUSTOM_CONNECTOR),
     _customType(customType),
     _gender(gender),
+    _permittivity(1.0),
     _mode(Mode::Tem),
     _impedance_Ohms(50.0),
     _cutoffFrequency_Hz(0.0)
@@ -451,6 +455,7 @@ void Connector::operator=(const Connector &other) {
     _type = other._type;
     _customType = other._customType;
     _gender = other._gender;
+    _permittivity = other._permittivity;
     _mode = other._mode;
     _impedance_Ohms = other._impedance_Ohms;
     _cutoffFrequency_Hz = other._cutoffFrequency_Hz;

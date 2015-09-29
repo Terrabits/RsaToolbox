@@ -67,11 +67,13 @@ public:
     bool hasThru(uint port1, uint port2);
     bool hasThru(Connector::Gender gender1, Connector::Gender gender2);
 
+    QVector<VnaCalStandard> standards();
+    void addStandard(VnaCalStandard standard);
+
     Connector connectorType();
     void setConnectorType(const Connector &connector);
 
-    QVector<VnaCalStandard> standards();
-    void addStandard(VnaCalStandard standard);
+    void copy(const NameLabel &newNameLabel);
 
     void operator=(const VnaCalKit &other);
 
