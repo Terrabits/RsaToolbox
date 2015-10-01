@@ -961,12 +961,12 @@ void Vna::importCalKit(QString pathName) {
         filename = fileSystem().directory(VnaFileSystem::CAL_KIT_DIRECTORY);
         filename += file_info.fileName();
     }
-    else {
-        filename = QDir::toNativeSeparators(file_info.filePath());
-    }
+    if (!filename.endsWith(".calkit", Qt::CaseInsensitive))
+        filename += ".calkit";
+    filename = QDir::toNativeSeparators(file_info.filePath());
 
     QString scpi = ":MMEM:LOAD:CKIT \'%1\'\n";
-    scpi = scpi.arg(pathName);
+    scpi = scpi.arg(filename);
     write(scpi);
 }
 

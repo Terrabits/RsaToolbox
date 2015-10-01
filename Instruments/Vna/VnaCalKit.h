@@ -30,6 +30,8 @@ public:
     NameLabel nameLabel() const;
 
     bool isConnectorType(Connector type);
+    bool isAgilentModel();
+
     bool has(VnaCalStandard standard);
     bool has(VnaStandardType type, Connector::Gender gender);
     bool has(VnaStandardType type, uint port);
@@ -66,6 +68,9 @@ public:
     bool hasThru();
     bool hasThru(uint port1, uint port2);
     bool hasThru(Connector::Gender gender1, Connector::Gender gender2);
+
+    void useAgilentModel();
+    void useRohdeModel();
 
     QVector<VnaCalStandard> standards();
     void addStandard(VnaCalStandard standard);

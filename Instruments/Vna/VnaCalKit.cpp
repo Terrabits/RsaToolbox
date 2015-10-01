@@ -55,6 +55,14 @@ NameLabel VnaCalKit::nameLabel() const {
 bool VnaCalKit::isConnectorType(Connector type) {
     return _vna->calKits(type).contains(_nameLabel);
 }
+bool VnaCalKit::isAgilentModel() {
+    QString scpi = ":CORR:CKIT:DMOD? \'%1\',\'%2\',\'%3\'\n";
+    scpi = scpi.arg(VnaScpi::toTypeString(connectorType()));
+    scpi = scpi.arg(_nameLabel.name());
+    scpi = scpi.arg(_nameLabel.label());
+    return _vna->query(scpi).trimmed() == "DEL";
+}
+
 bool VnaCalKit::has(VnaCalStandard standard) {
     if (standard.isSinglePort()) {
         if (standard.isPortSpecific())
@@ -349,6 +357,21 @@ bool VnaCalKit::hasThru(Connector::Gender gender1, Connector::Gender gender2) {
     return false;
 }
 
+void VnaCalKit::useAgilentModel() {
+    QString scpi = ":CORR:CKIT:DMOD \'%1\',\'%2\',\'%3\',DEL\n";
+    scpi = scpi.arg(VnaScpi::toTypeString(connectorType()));
+    scpi = scpi.arg(_nameLabel.name());
+    scpi = scpi.arg(_nameLabel.label());
+    _vna->write(scpi);
+}
+void VnaCalKit::useRohdeModel() {
+    QString scpi = ":CORR:CKIT:DMOD \'%1\',\'%2\',\'%3\',ELEN\n";
+    scpi = scpi.arg(VnaScpi::toTypeString(connectorType()));
+    scpi = scpi.arg(_nameLabel.name());
+    scpi = scpi.arg(_nameLabel.label());
+    _vna->write(scpi);
+}
+
 Connector VnaCalKit::connectorType() {
     QVector<Connector> connectors = _vna->connectorTypes();
     foreach (Connector connector, connectors) {
@@ -361,6 +384,7 @@ Connector VnaCalKit::connectorType() {
     return(Connector());
 }
 void VnaCalKit::setConnectorType(const Connector &connector) {
+    bool _isAgilentModel = isAgilentModel();
     QVector<VnaCalStandard> _standards = standards();
     for (int i = 0; i < _standards.size(); i++) {
         if (_standards[i].isSinglePort()) {
@@ -375,6 +399,10 @@ void VnaCalKit::setConnectorType(const Connector &connector) {
     for (int i = 0; i < _standards.size(); i++) {
         addStandard(_standards[i]);
     }
+    if (_isAgilentModel)
+        useAgilentModel();
+    else
+        useRohdeModel();
 }
 
 void VnaCalKit::copy(const NameLabel &newNameLabel) {
@@ -383,6 +411,10 @@ void VnaCalKit::copy(const NameLabel &newNameLabel) {
     for (int i = 0; i < _standards.size(); i++) {
         newCalKit.addStandard(_standards[i]);
     }
+    if (isAgilentModel())
+        newCalKit.useAgilentModel();
+    else
+        newCalKit.useRohdeModel();
 }
 
 QVector<VnaCalStandard> VnaCalKit::standards() {
