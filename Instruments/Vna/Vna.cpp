@@ -1041,11 +1041,11 @@ void Vna::multiChannelCalibrationOn(bool isOn) {
         return;
     }
 
-    QString scpi = ":CORR:COLL:CHAN:MCTY %1\n";
+    QString scpi;
     if (isOn)
-        scpi = scpi.arg(1);
+        scpi = ":CORR:COLL:CHAN:MCTY 1\n";
     else
-        scpi = scpi.arg(0);
+        scpi = ":CORR:COLL:CHAN:MCTY 0\n";
     write(scpi);
 }
 void Vna::multiChannelCalibrationOff(bool isOff) {
