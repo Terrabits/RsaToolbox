@@ -492,6 +492,8 @@ QString VnaScpi::toString(VnaCalStandard::Type type, VnaStandardModel &model) {
 
     if (type == VnaCalStandard::Type::SlidingMatch)
         return frequency;
+    if (type == VnaCalStandard::Type::Attenuation)
+        return frequency;
 
     QString transmission = ",%1,%2,%3";
     transmission = transmission.arg(model.eLength_m);
@@ -567,14 +569,21 @@ VnaStandardModel VnaScpi::toStandardModel(VnaCalStandard::Type type, const QStri
     if (type == VnaCalStandard::Type::SlidingMatch)
         return model;
 
-    if (scpi.size() < 5) {
-        // Not enough parameters for
-        // remaining model
+    if (scpi.size() < 2) {
+        // Not enough parameters
         return model;
     }
-
     model.minimumFrequency_Hz = scpi[MINIMUM_FREQUENCY].toDouble();
     model.maximumFrequency_Hz = scpi[MAXIMUM_FREQUENCY].toDouble();
+    if (type == VnaCalStandard::Type::SlidingMatch)
+        return model;
+    if (type == VnaCalStandard::Type::Attenuation)
+        return model;
+
+    if (scpi.size() < 5) {
+        // Not enough parameters
+        return model;
+    }
     model.eLength_m = scpi[ELECTRICAL_LENGTH].toDouble();
     model.loss_dB_per_sqrt_Hz = scpi[LOSS].toDouble();
     model.Z0_Ohms = scpi[IMPEDANCE].toDouble();

@@ -427,6 +427,12 @@ QVector<VnaCalStandard> VnaCalKit::standards() {
     return standards;
 }
 void VnaCalKit::addStandard(VnaCalStandard standard) {
+    if (standard.type() == VnaCalStandard::Type::Isolation) {
+        _vna->print("There is an error in the ZNB firmware for the Isolation standard SCPI command\n\n");
+        return;
+    }
+
+
     if (standard.isTouchstone())
         addStandardByTouchstone(standard);
     else
