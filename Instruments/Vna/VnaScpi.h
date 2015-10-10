@@ -47,10 +47,17 @@ public:
 
     // Calibration Standards
     static QString toString(const VnaCalStandard &standard);
-    static QString toString(VnaStandardType type);
-    static QString toString(VnaStandardType type, Connector::Gender gender);
-    static QString toString(VnaStandardType type, Connector::Gender gender1, Connector::Gender gender2);
+    static QString toString(VnaCalStandard::Type type);
+    static QString toString(VnaCalStandard::Type type, Connector::Gender gender);
+    static QString toString(VnaCalStandard::Type type, Connector::Gender gender1, Connector::Gender gender2);
     static VnaCalStandard toCalStandard(QString scpi);
+
+    static bool isThruModel(VnaCalStandard::Type type);
+    static bool defaultModelIsOpen(VnaCalStandard::Type type);
+    static bool defaultModelIsShort(VnaCalStandard::Type type);
+    static bool defaultModelIsMatch(VnaCalStandard::Type type);
+    static QString toString(VnaCalStandard::Type type, VnaStandardModel &model);
+    static VnaStandardModel toStandardModel(VnaCalStandard::Type type, const QStringList &scpi);
 
     // Calibration
     static QString toString(VnaCalibrate::CalType calType);

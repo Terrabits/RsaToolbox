@@ -15,39 +15,40 @@
 namespace RsaToolbox {
 
 
-enum VnaStandardType {
-    OPEN_STANDARD_TYPE,
-    SHORT_STANDARD_TYPE,
-    OFFSET_SHORT1_STANDARD_TYPE,
-    OFFSET_SHORT2_STANDARD_TYPE,
-    OFFSET_SHORT3_STANDARD_TYPE,
-    MATCH_STANDARD_TYPE,
-    SLIDING_MATCH_STANDARD_TYPE,
-    REFLECT_STANDARD_TYPE,
-    THRU_STANDARD_TYPE,
-    LINE_STANDARD_TYPE,
-    LINE2_STANDARD_TYPE,
-    LINE3_STANDARD_TYPE,
-    ATTENUATION_STANDARD_TYPE,
-    SYMMETRIC_NETWORK_STANDARD_TYPE,
-    ISOLATION_STANDARD_TYPE,
-    UNKNOWN_STANDARD_TYPE
-};
-
 class VnaCalStandard {
 public:
+
+    enum /*class*/  Type {
+        Open,
+        Short,
+        OffsetShort1,
+        OffsetShort2,
+        OffsetShort3,
+        Match,
+        SlidingMatch,
+        Reflect,
+        Thru,
+        Line1,
+        Line2,
+        Line3,
+        Attenuation,
+        SymmetricNetwork,
+        Isolation,
+        Unknown
+    };
+
     VnaCalStandard();
-    VnaCalStandard(VnaStandardType type, Connector connector);
-    VnaCalStandard(VnaStandardType type, uint port);
-    VnaCalStandard(VnaStandardType type, Connector connector1, Connector connector2);
-    VnaCalStandard(VnaStandardType type, uint port1, uint port2);
+    VnaCalStandard(Type type, Connector connector);
+    VnaCalStandard(Type type, uint port);
+    VnaCalStandard(Type type, Connector connector1, Connector connector2);
+    VnaCalStandard(Type type, uint port1, uint port2);
     VnaCalStandard(const VnaCalStandard &other);
 
     QString displayText() const;
     QString displayType() const;
 
-    bool isType(VnaStandardType type) const;
-    bool isNotType(VnaStandardType type) const;
+    bool isType(Type type) const;
+    bool isNotType(Type type) const;
     bool isGender(Connector::Gender gender) const;
     bool isGender(Connector::Gender gender1, Connector::Gender gender2) const;
 
@@ -60,9 +61,9 @@ public:
     bool isNotPortSpecific() const;
 
     bool isSinglePort() const;
-    static bool isSinglePort(VnaStandardType type);
+    static bool isSinglePort(Type type);
     bool isTwoPort() const;
-    static bool isTwoPort(VnaStandardType type);
+    static bool isTwoPort(Type type);
 
     bool isSameStandardAs(VnaCalStandard other) const;
 
@@ -105,7 +106,7 @@ public:
     bool isSameModel(const VnaCalStandard &other) const;
 
 
-    VnaStandardType type() const;
+    Type type() const;
 
     double minimumFrequency_Hz() const;
     double maximumFrequency_Hz() const;
@@ -126,10 +127,7 @@ public:
     QString touchstone() const;
 
 
-    void setType(VnaStandardType type);
-
-    void setMinimumFrequency(double frequency_Hz);
-    void setMaximumFrequency(double frequency_Hz);
+    void setType(Type type);
 
     void setPort(uint port);
     void setPorts(uint port1, uint port2);
@@ -141,40 +139,9 @@ public:
 
     void setTouchstoneFile(QString path);
 
+    VnaStandardModel &model();
     VnaStandardModel model() const;
-    void setModel(VnaStandardModel model);
-    void setModel(double eLength_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3, double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3, double R_Ohms);
-
-    void setOpenModel(VnaStandardModel model);
-    void setOpenModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3);
-    void setOpenModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3, double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3, double R_Ohms);
-
-    void setShortModel(VnaStandardModel model);
-    void setShortModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3);
-    void setShortModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3, double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3, double R_Ohms);
-
-    void setMatchModel(VnaStandardModel model);
-    void setMatchModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms);
-    void setMatchModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3, double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3, double R_Ohms);
-
-    void setReflectModel(VnaStandardModel model);
-    void setReflectModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3, double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3, double R_Ohms);
-
-    void setThruModel(VnaStandardModel model);
-    void setThruModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms);
-
-    void setLineModel(VnaStandardModel model);
-    void setLineModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms);
-    void setLine2Model(VnaStandardModel model);
-    void setLine2Model(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms);
-    void setLine3Model(VnaStandardModel model);
-    void setLine3Model(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms);
-
-    void setSymmetricNetworkModel(VnaStandardModel model);
-    void setSymmetricNetworkModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms);
-    void setSymmetricNetworkModel(double e_length_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3, double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3);
-
-    void setDirectConnection(double Z0_Ohms);
+    void setModel(const VnaStandardModel &model);
 
     void clear();
     void clearPorts();
@@ -185,11 +152,8 @@ public:
     static QStringList displayText(const QVector<VnaCalStandard> &standards);
 
 private:
-    VnaStandardType _type;
+    Type _type;
     QString _label;
-
-    double _min_freq_Hz;
-    double _max_freq_Hz;
 
     uint _port1;
     Connector _connector1;
@@ -215,7 +179,7 @@ bool operator==(const VnaCalStandard &right, const VnaCalStandard &left);
 bool operator!=(const VnaCalStandard &right, const VnaCalStandard &left);
 }
 Q_DECLARE_METATYPE(RsaToolbox::VnaCalStandard)
-Q_DECLARE_METATYPE(RsaToolbox::VnaStandardType)
+Q_DECLARE_METATYPE(RsaToolbox::VnaCalStandard::Type)
 
 #endif // VNACALSTANDARD_H
 

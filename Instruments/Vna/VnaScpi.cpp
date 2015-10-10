@@ -246,43 +246,43 @@ QString VnaScpi::toString(const VnaCalStandard &standard) {
         return(toString(standard.type(), standard.gender1(), standard.gender2()));
     }
 }
-QString VnaScpi::toString(VnaStandardType type) {
+QString VnaScpi::toString(VnaCalStandard::Type type) {
     switch(type) {
-    case OPEN_STANDARD_TYPE:
+    case VnaCalStandard::Type::Open:
         return "OP";
-    case SHORT_STANDARD_TYPE:
+    case VnaCalStandard::Type::Short:
         return "SH";
-    case OFFSET_SHORT1_STANDARD_TYPE:
-        return "OSH";
-    case OFFSET_SHORT2_STANDARD_TYPE:
+    case VnaCalStandard::Type::OffsetShort1:
+        return "OSHORT1";
+    case VnaCalStandard::Type::OffsetShort2:
         return "OSHORT2";
-    case OFFSET_SHORT3_STANDARD_TYPE:
+    case VnaCalStandard::Type::OffsetShort3:
         return "OSHORT3";
-    case MATCH_STANDARD_TYPE:
+    case VnaCalStandard::Type::Match:
         return "MTC";
-    case SLIDING_MATCH_STANDARD_TYPE:
+    case VnaCalStandard::Type::SlidingMatch:
         return "SM";
-    case REFLECT_STANDARD_TYPE:
+    case VnaCalStandard::Type::Reflect:
         return "REF";
-    case THRU_STANDARD_TYPE:
+    case VnaCalStandard::Type::Thru:
         return "TH";
-    case LINE_STANDARD_TYPE:
+    case VnaCalStandard::Type::Line1:
         return "LINE1";
-    case LINE2_STANDARD_TYPE:
+    case VnaCalStandard::Type::Line2:
         return "LINE2";
-    case LINE3_STANDARD_TYPE:
+    case VnaCalStandard::Type::Line3:
         return "LINE3";
-    case ATTENUATION_STANDARD_TYPE:
+    case VnaCalStandard::Type::Attenuation:
         return "AT";
-    case SYMMETRIC_NETWORK_STANDARD_TYPE:
+    case VnaCalStandard::Type::SymmetricNetwork:
         return "SN";
-    case ISOLATION_STANDARD_TYPE:
+    case VnaCalStandard::Type::Isolation:
         return "????";
     default:
         return "UNKNOWN_STANDARD";
     }
 }
-QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender) {
+QString VnaScpi::toString(VnaCalStandard::Type type, Connector::Gender gender) {
     if (!VnaCalStandard::isSinglePort(type))
         return "";
 
@@ -293,7 +293,7 @@ QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender) {
         scpi = scpi.arg("M");
     return scpi.arg(toString(type));
 }
-QString VnaScpi::toString(VnaStandardType type, Connector::Gender gender1, Connector::Gender gender2) {
+QString VnaScpi::toString(VnaCalStandard::Type type, Connector::Gender gender1, Connector::Gender gender2) {
     if (!VnaCalStandard::isTwoPort(type))
         return "";
 
@@ -328,75 +328,75 @@ VnaCalStandard VnaScpi::toCalStandard(QString scpi) {
     }
 
     if (scpi.endsWith("OP", Qt::CaseInsensitive)) {
-        std.setType(OPEN_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::Open);
         scpi.chop(2);
     }
     else if (scpi.endsWith("OSH", Qt::CaseInsensitive)) {
-        std.setType(OFFSET_SHORT1_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::OffsetShort1);
         scpi.chop(3);
     }
     else if (scpi.endsWith("OSHORT1", Qt::CaseInsensitive)) {
-        std.setType(OFFSET_SHORT1_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::OffsetShort1);
         scpi.chop(7);
     }
     else if (scpi.endsWith("OSHORT2", Qt::CaseInsensitive)) {
-        std.setType(OFFSET_SHORT2_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::OffsetShort2);
         scpi.chop(7);
     }
     else if (scpi.endsWith("OSHORT3", Qt::CaseInsensitive)) {
-        std.setType(OFFSET_SHORT3_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::OffsetShort3);
         scpi.chop(7);
     }
     else if (scpi.endsWith("SH", Qt::CaseInsensitive)) {
-        std.setType(SHORT_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::Short);
         scpi.chop(2);
     }
     else if (scpi.endsWith("MMT", Qt::CaseInsensitive)) {
-        std.setType(MATCH_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::Match);
         scpi.chop(3);
     }
     else if (scpi.endsWith("SM", Qt::CaseInsensitive)) {
-        std.setType(SLIDING_MATCH_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::SlidingMatch);
         scpi.chop(2);
     }
     else if (scpi.endsWith("REF", Qt::CaseInsensitive)) {
-        std.setType(REFLECT_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::Reflect);
         scpi.chop(3);
     }
     else if (scpi.endsWith("TH", Qt::CaseInsensitive)) {
-        std.setType(THRU_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::Thru);
         scpi.chop(2);
     }
     else if (scpi.endsWith("L", Qt::CaseInsensitive)) {
-        std.setType(LINE_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::Line1);
         scpi.chop(1);
     }
     else if (scpi.endsWith("LINE1", Qt::CaseInsensitive)) {
-        std.setType(LINE_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::Line1);
         scpi.chop(5);
     }
     else if (scpi.endsWith("LINE2", Qt::CaseInsensitive)) {
-        std.setType(LINE2_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::Line2);
         scpi.chop(5);
     }
     else if (scpi.endsWith("LINE3", Qt::CaseInsensitive)) {
-        std.setType(LINE3_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::Line3);
         scpi.chop(5);
     }
     else if (scpi.endsWith("AT", Qt::CaseInsensitive)) {
-        std.setType(ATTENUATION_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::Attenuation);
         scpi.chop(2);
     }
     else if (scpi.endsWith("SN", Qt::CaseInsensitive)) {
-        std.setType(SYMMETRIC_NETWORK_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::SymmetricNetwork);
         scpi.chop(2);
     }
     else if (scpi.endsWith("????")) {
-        std.setType(ISOLATION_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::Isolation);
         scpi.chop(4);
     }
     else {
-        std.setType(UNKNOWN_STANDARD_TYPE);
+        std.setType(VnaCalStandard::Type::Unknown);
         return std;
     }
 
@@ -439,6 +439,188 @@ VnaCalStandard VnaScpi::toCalStandard(QString scpi) {
     }
 
     return(std);
+}
+
+bool VnaScpi::isThruModel(VnaCalStandard::Type type) {
+    if (type == VnaCalStandard::Type::Thru)
+        return true;
+    if (type == VnaCalStandard::Type::Line1)
+        return true;
+    if (type == VnaCalStandard::Type::Line2)
+        return true;
+    if (type == VnaCalStandard::Type::Line3)
+        return true;
+    if (type == VnaCalStandard::Type::Attenuation)
+        return true;
+    if (type == VnaCalStandard::Type::Isolation)
+        return true;
+
+    return false;
+}
+bool VnaScpi::defaultModelIsOpen(VnaCalStandard::Type type) {
+    if (type == VnaCalStandard::Type::Open)
+        return true;
+    if (type == VnaCalStandard::Type::Reflect)
+        return true;
+    if (type == VnaCalStandard::Type::SymmetricNetwork)
+        return true;
+
+    return false;
+}
+bool VnaScpi::defaultModelIsShort(VnaCalStandard::Type type) {
+    if (type == VnaCalStandard::Type::Short)
+        return true;
+    if (type == VnaCalStandard::Type::OffsetShort1)
+        return true;
+    if (type == VnaCalStandard::Type::OffsetShort2)
+        return true;
+    if (type == VnaCalStandard::Type::OffsetShort3)
+        return true;
+
+    return false;
+}
+bool VnaScpi::defaultModelIsMatch(VnaCalStandard::Type type) {
+    if (type == VnaCalStandard::Type::Match)
+        return true;
+
+    return false;
+}
+QString VnaScpi::toString(VnaCalStandard::Type type, VnaStandardModel &model) {
+    QString frequency = "%1,%2";
+    frequency = frequency.arg(model.minimumFrequency_Hz);
+    frequency = frequency.arg(model.maximumFrequency_Hz);
+
+    if (type == VnaCalStandard::Type::SlidingMatch)
+        return frequency;
+
+    QString transmission = ",%1,%2,%3";
+    transmission = transmission.arg(model.eLength_m);
+    transmission = transmission.arg(model.loss_dB_per_sqrt_Hz);
+    transmission = transmission.arg(model.Z0_Ohms);
+
+    if (isThruModel(type))
+        return frequency + transmission;
+
+    QString capacitance = ",%1,%2,%3,%4";
+    if (model.hasCapacitanceValues()) {
+        capacitance = capacitance.arg(model.C0_fF);
+        capacitance = capacitance.arg(model.C1_fF_per_GHz);
+        capacitance = capacitance.arg(model.C2_fF_per_GHz2);
+        capacitance = capacitance.arg(model.C3_fF_per_GHz3);
+    }
+    else {
+        capacitance = capacitance.arg(0);
+        capacitance = capacitance.arg(0);
+        capacitance = capacitance.arg(0);
+        capacitance = capacitance.arg(0);
+    }
+
+    QString inductance = ",%1,%2,%3,%4";
+    if (model.hasInductanceValues()) {
+        inductance = inductance.arg(model.L0_pH);
+        inductance = inductance.arg(model.L1_pH_per_GHz);
+        inductance = inductance.arg(model.L2_pH_per_GHz2);
+        inductance = inductance.arg(model.L3_pH_per_GHz3);
+    }
+    else {
+        inductance = inductance.arg(0);
+        inductance = inductance.arg(0);
+        inductance = inductance.arg(0);
+        inductance = inductance.arg(0);
+    }
+
+    QString scpi = frequency + transmission + capacitance + inductance;
+
+    QString r = ",%1";
+    r = r.arg(model.R_Ohms);
+    if (model.hasRValue()) {
+        return scpi + r;
+    }
+
+    QString typeString = ",%1";
+    if (model.type == VnaStandardModel::Type::Open)
+        typeString = typeString.arg("OPEN");
+    if (model.type == VnaStandardModel::Type::Short)
+        typeString = typeString.arg("SHORT");
+    if (model.type == VnaStandardModel::Type::Match)
+        typeString = typeString.arg("MATCH");
+    return scpi + typeString;
+}
+VnaStandardModel VnaScpi::toStandardModel(VnaCalStandard::Type type, const QStringList &scpi) {
+    // Index:
+    const int MINIMUM_FREQUENCY = 0;
+    const int MAXIMUM_FREQUENCY = 1;
+    const int ELECTRICAL_LENGTH = 2;
+    const int LOSS = 3;
+    const int IMPEDANCE = 4;
+    const int C0 = 5;
+    const int C1 = 6;
+    const int C2 = 7;
+    const int C3 = 8;
+    const int L0 = 9;
+    const int L1 = 10;
+    const int L2 = 11;
+    const int L3 = 12;
+    const int R = 13;
+
+    VnaStandardModel model;
+    if (type == VnaCalStandard::Type::SlidingMatch)
+        return model;
+
+    if (scpi.size() < 5) {
+        // Not enough parameters for
+        // remaining model
+        return model;
+    }
+
+    model.minimumFrequency_Hz = scpi[MINIMUM_FREQUENCY].toDouble();
+    model.maximumFrequency_Hz = scpi[MAXIMUM_FREQUENCY].toDouble();
+    model.eLength_m = scpi[ELECTRICAL_LENGTH].toDouble();
+    model.loss_dB_per_sqrt_Hz = scpi[LOSS].toDouble();
+    model.Z0_Ohms = scpi[IMPEDANCE].toDouble();
+    if (isThruModel(type)) {
+        model.type = VnaStandardModel::Type::Thru;
+        return model;
+    }
+
+    if (scpi.size() < 13) {
+        // Not enough parameters for
+        // remaining models
+        return model;
+    }
+
+    // Default models
+    if (defaultModelIsOpen(type))
+        model.type = VnaStandardModel::Type::Open;
+    if (defaultModelIsShort(type))
+        model.type = VnaStandardModel::Type::Short;
+    if (defaultModelIsMatch(type))
+        model.type = VnaStandardModel::Type::Match;
+
+    // Check for specific model
+    // (Overrides default)
+    if (scpi.last() == "OPEN")
+        model.type = VnaStandardModel::Type::Open;
+    else if (scpi.last() == "SHORT")
+        model.type = VnaStandardModel::Type::Short;
+    else if (scpi.last() == "MATCH")
+        model.type = VnaStandardModel::Type::Match;
+    else if (scpi.size() == 14) {
+        model.type = VnaStandardModel::Type::R;
+    }
+
+    model.C0_fF = scpi[C0].toDouble();
+    model.C1_fF_per_GHz = scpi[C1].toDouble();
+    model.C2_fF_per_GHz2 = scpi[C2].toDouble();
+    model.C3_fF_per_GHz3 = scpi[C3].toDouble();
+    model.L0_pH = scpi[L0].toDouble();
+    model.L1_pH_per_GHz = scpi[L1].toDouble();
+    model.L2_pH_per_GHz2 = scpi[L2].toDouble();
+    model.L3_pH_per_GHz3 = scpi[L3].toDouble();
+    if (model.hasRValue())
+        model.R_Ohms = scpi[R].toDouble();
+
+    return model;
 }
 
 // Channel

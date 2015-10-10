@@ -33,10 +33,10 @@ public:
     bool isAgilentModel();
 
     bool has(VnaCalStandard standard);
-    bool has(VnaStandardType type, Connector::Gender gender);
-    bool has(VnaStandardType type, uint port);
-    bool has(VnaStandardType type, Connector::Gender gender1, Connector::Gender gender2);
-    bool has(VnaStandardType type, uint port1, uint port2);
+    bool has(VnaCalStandard::Type type, Connector::Gender gender);
+    bool has(VnaCalStandard::Type type, uint port);
+    bool has(VnaCalStandard::Type type, Connector::Gender gender1, Connector::Gender gender2);
+    bool has(VnaCalStandard::Type type, uint port1, uint port2);
 
     bool hasOpen();
     bool hasOpen(uint port);
@@ -95,14 +95,7 @@ private:
     void parse(VnaCalStandard &standard, QString scpi);
 
     void addStandardByTouchstone(VnaCalStandard &standard);
-
-    void addStandardByModel(QString type_scpi, QString connector, QString label, double min_Hz, double max_Hz, double length, double loss, double Z0, double C0, double C1, double C2, double C3, double L0, double L1, double L2, double L3);
-    void addStandardByModel(QString type_scpi, QString connector, QString label, double min_Hz, double max_Hz, double length, double loss, double Z0, double C0, double C1, double C2, double C3, double L0, double L1, double L2, double L3, double R); // OSM, SymmN
-    void addStandardByModel(QString type_scpi, QString connector, QString label, double min_Hz, double max_Hz, double length, double loss, double Z0, double C0, double C1, double C2, double C3, double L0, double L1, double L2, double L3, double R, uint port);
-
-    void addStandardByModel(QString type_scpi, QString connector, QString label, double min_Hz, double max_Hz, double length, double loss, double Z0);
-    void addStandardByModel(QString type_scpi, QString connector, QString label, double min_Hz, double max_Hz, double length, double loss, double Z0, uint port1, uint port2);
-    void addStandardByModel(QString type_scpi, QString connector, QString label, double min_Hz, double max_Hz, double length, double loss, double Z0, double C0, double C1, double C2, double C3, double L0, double L1, double L2, double L3, uint port1, uint port2); // Symm Network
+    void addStandardByModel(VnaCalStandard &standard);
 };
 }
 

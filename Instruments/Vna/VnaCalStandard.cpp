@@ -75,7 +75,7 @@ VnaCalStandard::VnaCalStandard() {
  * \param connector Connector type and gender
  * \sa CalStandard::CalStandard(CalStandardType type, uint port)
  */
-VnaCalStandard::VnaCalStandard(VnaStandardType type, Connector connector) {
+VnaCalStandard::VnaCalStandard(Type type, Connector connector) {
     clear();
     _type = type;
     _connector1 = connector;
@@ -106,7 +106,7 @@ VnaCalStandard::VnaCalStandard(VnaStandardType type, Connector connector) {
  * \param port Intended VNA port
  * \sa CalStandard::CalStandard(CalStandardType type, Connector connector)
  */
-VnaCalStandard::VnaCalStandard(VnaStandardType type, uint port) {
+VnaCalStandard::VnaCalStandard(Type type, uint port) {
     clear();
     _type = type;
     _port1 = port;
@@ -136,7 +136,7 @@ VnaCalStandard::VnaCalStandard(VnaStandardType type, uint port) {
  * \param connector2 Second connector type and gender
  * \sa CalStandard::CalStandard(CalStandardType type, uint port1, uint port2)
  */
-VnaCalStandard::VnaCalStandard(VnaStandardType type, Connector connector1, Connector connector2) {
+VnaCalStandard::VnaCalStandard(Type type, Connector connector1, Connector connector2) {
     clear();
     _type = type;
     _connector1 = connector1;
@@ -166,7 +166,7 @@ VnaCalStandard::VnaCalStandard(VnaStandardType type, Connector connector1, Conne
  * \param port1 Intended VNA port 1 connection
  * \param port2 Intended VNA port 2 connection
  */
-VnaCalStandard::VnaCalStandard(VnaStandardType type, uint port1, uint port2) {
+VnaCalStandard::VnaCalStandard(Type type, uint port1, uint port2) {
     clear();
     _type = type;
     _port1 = port1;
@@ -180,8 +180,6 @@ VnaCalStandard::VnaCalStandard(VnaStandardType type, uint port1, uint port2) {
 VnaCalStandard::VnaCalStandard(const VnaCalStandard &other) :
     _type(other._type),
     _label(other._label),
-    _min_freq_Hz(other._min_freq_Hz),
-    _max_freq_Hz(other._max_freq_Hz),
     _port1(other._port1),
     _connector1(other._connector1),
     _port2(other._port2),
@@ -245,33 +243,33 @@ QString VnaCalStandard::displayText() const {
  */
 QString VnaCalStandard::displayType() const {
     switch(_type) {
-    case OPEN_STANDARD_TYPE:
+    case Type::Open:
         return("Open");
-    case SHORT_STANDARD_TYPE:
+    case Type::Short:
         return("Short");
-    case MATCH_STANDARD_TYPE:
+    case Type::Match:
         return("Match");
-    case THRU_STANDARD_TYPE:
+    case Type::Thru:
         return("Thru");
-    case OFFSET_SHORT1_STANDARD_TYPE:
+    case Type::OffsetShort1:
         return("Offset Short 1");
-    case OFFSET_SHORT2_STANDARD_TYPE:
+    case Type::OffsetShort2:
         return("Offset Short 2");
-    case OFFSET_SHORT3_STANDARD_TYPE:
+    case Type::OffsetShort3:
         return("Offset Short 3");
-    case SLIDING_MATCH_STANDARD_TYPE:
+    case Type::SlidingMatch:
         return("Sliding Match");
-    case REFLECT_STANDARD_TYPE:
+    case Type::Reflect:
         return("Reflection");
-    case LINE_STANDARD_TYPE:
+    case Type::Line1:
         return("Line");
-    case LINE2_STANDARD_TYPE:
+    case Type::Line2:
         return("Line 2");
-    case LINE3_STANDARD_TYPE:
+    case Type::Line3:
         return("Line 3");
-    case ATTENUATION_STANDARD_TYPE:
+    case Type::Attenuation:
         return("Attenuation");
-    case SYMMETRIC_NETWORK_STANDARD_TYPE:
+    case Type::SymmetricNetwork:
         return("Symmetric Network");
     default:
         return("Unknown Standard");
@@ -284,7 +282,7 @@ QString VnaCalStandard::displayType() const {
  * \return \c true if \c this is a standard of type \c type,
  * returns \c false otherwise
  */
-bool VnaCalStandard::isType(VnaStandardType type) const {
+bool VnaCalStandard::isType(Type type) const {
     return(_type == type);
 }
 
@@ -294,7 +292,7 @@ bool VnaCalStandard::isType(VnaStandardType type) const {
  * \return \c true if \c this is not a standard of type \c type,
  * returns \c false otherwise
  */
-bool VnaCalStandard::isNotType(VnaStandardType type) const {
+bool VnaCalStandard::isNotType(Type type) const {
     return(!isType(type));
 }
 
@@ -306,7 +304,7 @@ bool VnaCalStandard::isNotType(VnaStandardType type) const {
  */
 bool VnaCalStandard::isGender(Connector::Gender gender) const {
     if (isPortSpecific())
-        return(false);
+        return false;
     else
         return(isSinglePort() && _connector1.gender() == gender);
 }
@@ -320,7 +318,7 @@ bool VnaCalStandard::isGender(Connector::Gender gender) const {
  */
 bool VnaCalStandard::isGender(Connector::Gender gender1, Connector::Gender gender2) const {
     if(isSinglePort() || isPortSpecific())
-        return(false);
+        return false;
 
     if (_connector1.isGender(gender1) && _connector2.isGender(gender2))
         return true;
@@ -356,13 +354,13 @@ bool VnaCalStandard::isFemale() const {
  */
 bool VnaCalStandard::isPortSpecific() const {
     if (isSinglePort() && _port1 != 0)
-        return(true);
+        return true;
 
     if (isTwoPort() && _port1 != 0 && _port2 != 0)
-        return(true);
+        return true;
 
     //else
-    return(false);
+    return false;
 }
 
 /*!
@@ -372,10 +370,10 @@ bool VnaCalStandard::isPortSpecific() const {
  */
 bool VnaCalStandard::isPortSpecific(uint port) const {
     if (isSinglePort() && _port1 == port)
-        return(true);
+        return true;
 
     //else
-    return(false);
+    return false;
 }
 
 /*!
@@ -395,7 +393,7 @@ bool VnaCalStandard::isPortSpecific(uint port1, uint port2) const {
     if (_port1 == port2 && _port2 == port1)
         return true;
 
-    return(false);
+    return false;
 }
 
 /*!
@@ -415,8 +413,8 @@ bool VnaCalStandard::isNotPortSpecific() const {
 bool VnaCalStandard::isSinglePort() const {
     return isSinglePort(_type);
 }
-bool VnaCalStandard::isSinglePort(VnaStandardType type) {
-    return (type != UNKNOWN_STANDARD_TYPE)
+bool VnaCalStandard::isSinglePort(Type type) {
+    return (type != Type::Unknown)
             && !isTwoPort(type);
 }
 
@@ -428,18 +426,18 @@ bool VnaCalStandard::isSinglePort(VnaStandardType type) {
 bool VnaCalStandard::isTwoPort() const {
     return isTwoPort(_type);
 }
-bool VnaCalStandard::isTwoPort(VnaStandardType type) {
+bool VnaCalStandard::isTwoPort(Type type) {
     switch(type) {
-    case THRU_STANDARD_TYPE:
-    case LINE_STANDARD_TYPE:
-    case LINE2_STANDARD_TYPE:
-    case LINE3_STANDARD_TYPE:
-    case ATTENUATION_STANDARD_TYPE:
-    case SYMMETRIC_NETWORK_STANDARD_TYPE:
-    case ISOLATION_STANDARD_TYPE:
-        return(true);
+    case Type::Thru:
+    case Type::Line1:
+    case Type::Line2:
+    case Type::Line3:
+    case Type::Attenuation:
+    case Type::SymmetricNetwork:
+    case Type::Isolation:
+        return true;
     default:
-        return(false);
+        return false;
     }
 }
 
@@ -457,45 +455,45 @@ bool VnaCalStandard::isTwoPort(VnaStandardType type) {
  */
 bool VnaCalStandard::isSameStandardAs(VnaCalStandard other) const {
     if (isNotType(other.type()))
-        return(false);
+        return false;
 
     if (isSinglePort()) {
         if (other.isTwoPort())
-            return(false);
+            return false;
 
         if (isPortSpecific()) {
             if (other.isNotPortSpecific())
-                return(false);
+                return false;
             if (port() != other.port())
-                return(false);
+                return false;
         }
         else {
             if (other.isPortSpecific())
-                return(false);
+                return false;
             if (gender() != other.gender())
-                return(false);
+                return false;
         }
     }
     else {
         if (other.isSinglePort())
-            return(false);
+            return false;
 
         if (isPortSpecific()) {
             if (other.isNotPortSpecific())
-                return(false);
+                return false;
             if (other.isPortSpecific(port1(), port2()) == false)
-                return(false);
+                return false;
         }
         else {
             if (other.isPortSpecific())
-                return(false);
+                return false;
             if (other.isGender(gender1(), gender2()) == false)
-                return(false);
+                return false;
         }
     }
 
     // else
-    return(true);
+    return true;
 }
 
 /*!
@@ -503,7 +501,7 @@ bool VnaCalStandard::isSameStandardAs(VnaCalStandard other) const {
  * \return \c true if is an open standard, \c false otherwise
  */
 bool VnaCalStandard::isOpen() const {
-    return(isType(OPEN_STANDARD_TYPE));
+    return(isType(Type::Open));
 }
 
 /*!
@@ -538,7 +536,7 @@ bool VnaCalStandard::isFemaleOpen() const {
  * \return \c true if is a short standard, false otherwise
  */
 bool VnaCalStandard::isShort() const {
-    return(isType(SHORT_STANDARD_TYPE));
+    return(isType(Type::Short));
 }
 
 /*!
@@ -569,7 +567,7 @@ bool VnaCalStandard::isFemaleShort() const {
 }
 
 bool VnaCalStandard::isOffsetShort1() const {
-    return isType(OFFSET_SHORT1_STANDARD_TYPE);
+    return isType(Type::OffsetShort1);
 }
 bool VnaCalStandard::isMaleOffsetShort1() const {
     return isOffsetShort1() && isMale();
@@ -579,7 +577,7 @@ bool VnaCalStandard::isFemaleOffsetShort1() const {
 }
 
 bool VnaCalStandard::isOffsetShort2() const {
-    return isType(OFFSET_SHORT2_STANDARD_TYPE);
+    return isType(Type::OffsetShort2);
 }
 bool VnaCalStandard::isMaleOffsetShort2() const {
     return isOffsetShort2() && isMale();
@@ -589,7 +587,7 @@ bool VnaCalStandard::isFemaleOffsetShort2() const {
 }
 
 bool VnaCalStandard::isOffsetShort3() const {
-    return isType(OFFSET_SHORT3_STANDARD_TYPE);
+    return isType(Type::OffsetShort3);
 }
 bool VnaCalStandard::isMaleOffsetShort3() const {
     return isOffsetShort3() && isMale();
@@ -603,7 +601,7 @@ bool VnaCalStandard::isFemaleOffsetShort3() const {
  * \return \c true if is a match standard, false otherwise
  */
 bool VnaCalStandard::isMatch() const {
-    return(isType(MATCH_STANDARD_TYPE));
+    return(isType(Type::Match));
 }
 
 /*!
@@ -638,7 +636,7 @@ bool VnaCalStandard::isFemaleMatch() const {
  * \return \c true if is a thru standard, false otherwise
  */
 bool VnaCalStandard::isThru() const {
-    return(isType(THRU_STANDARD_TYPE));
+    return(isType(Type::Thru));
 }
 
 /*!
@@ -722,47 +720,21 @@ bool VnaCalStandard::isModel() const {
  * lumped element model, \c false otherwise
  */
 bool VnaCalStandard::isSameModel(const VnaCalStandard &other) const {
-    if (isType(other.type()) == false)
-        return(false);
-    if (isModel() == false)
-        return(false);
-    if (other.isModel() == false)
-        return(false);
+    if (!isType(other.type()))
+        return false;
+    if (!isModel() || !other.isModel())
+        return false;
+    if (_model != other.model())
+        return false;
 
-    if (_model.eLength_m != other._model.eLength_m)
-        return(false);
-    if (_model.loss_dB_per_sqrt_Hz != other._model.loss_dB_per_sqrt_Hz)
-        return(false);
-    if (_model.Z0_Ohms != other._model.Z0_Ohms)
-        return(false);
-    if (_model.C0_fF != other._model.C0_fF)
-        return(false);
-    if (_model.C1_fF_per_GHz != other._model.C1_fF_per_GHz)
-        return(false);
-    if (_model.C2_fF_per_GHz2 != other._model.C2_fF_per_GHz2)
-        return(false);
-    if (_model.C3_fF_per_GHz3 != other._model.C3_fF_per_GHz3)
-        return(false);
-    if (_model.L0_pH != other._model.L0_pH)
-        return(false);
-    if (_model.L1_pH_per_GHz != other._model.L1_pH_per_GHz)
-        return(false);
-    if (_model.L2_pH_per_GHz2 != other._model.L2_pH_per_GHz2)
-        return(false);
-    if (_model.L3_pH_per_GHz3 != other._model.L3_pH_per_GHz3)
-        return(false);
-    if (_model.R_Ohms != other._model.R_Ohms)
-        return(false);
-
-    // else
-    return(true);
+    return true;
 }
 
 /*!
  * \brief Returns the \c type of the calibration standard
  * \return standard type
  */
-VnaStandardType VnaCalStandard::type() const {
+VnaCalStandard::Type VnaCalStandard::type() const {
     return(_type);
 }
 
@@ -772,7 +744,7 @@ VnaStandardType VnaCalStandard::type() const {
  * \return Minimum frequency in Hertz
  */
 double VnaCalStandard::minimumFrequency_Hz() const {
-    return(_min_freq_Hz);
+    return _model.minimumFrequency_Hz;
 }
 
 /*!
@@ -781,7 +753,7 @@ double VnaCalStandard::minimumFrequency_Hz() const {
  * \return Maximum frequency in Hertz
  */
 double VnaCalStandard::maximumFrequency_Hz() const {
-    return(_max_freq_Hz);
+    return _model.maximumFrequency_Hz;
 }
 
 /*!
@@ -887,28 +859,8 @@ QString VnaCalStandard::touchstone() const {
  * \param type Calibration type
  * \sa RsaToolbox::CalStandardType
  */
-void VnaCalStandard::setType(VnaStandardType type) {
+void VnaCalStandard::setType(Type type) {
     _type = type;
-}
-
-/*!
- * \brief Sets the minimum frequency of the calibration
- * standard
- * \param freq_Hz Minimum frequency in Hertz
- * \sa minimumFrequency_Hz()
- */
-void VnaCalStandard::setMinimumFrequency(double freq_Hz) {
-    _min_freq_Hz = freq_Hz;
-}
-
-/*!
- * \brief Sets the maximum frequency of the calibration
- * standard
- * \param freq_Hz Maximum frequency in Hertz
- * \sa maximumFrequency_Hz()
- */
-void VnaCalStandard::setMaximumFrequency(double freq_Hz) {
-    _max_freq_Hz = freq_Hz;
 }
 
 /*!
@@ -992,413 +944,16 @@ void VnaCalStandard::setTouchstoneFile(QString path) {
     _touchstone = path;
 }
 
+VnaStandardModel &VnaCalStandard::model() {
+    return _model;
+}
 VnaStandardModel VnaCalStandard::model() const {
     return _model;
 }
-
-void VnaCalStandard::setModel(VnaStandardModel model) {
+void VnaCalStandard::setModel(const VnaStandardModel &model) {
     _isTouchstone = false;
     _isModel = true;
     _model = model;
-}
-void VnaCalStandard::setModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms,
-                           double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3,
-                           double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3,
-                           double R_Ohms)
-{
-    _isTouchstone = false;
-    _isModel = true;
-
-    _model.eLength_m = eLength_m_m;
-    _model.loss_dB_per_sqrt_Hz = loss_dB_per_Sqrt_Hz;
-    _model.Z0_Ohms = Z0_Ohms;
-    _model.C0_fF = C0_fF;
-    _model.C1_fF_per_GHz = C1_fF_per_GHz;
-    _model.C2_fF_per_GHz2 = C2_fF_per_GHz2;
-    _model.C3_fF_per_GHz3 = C3_fF_per_GHz3;
-    _model.L0_pH = L0_pH;
-    _model.L1_pH_per_GHz = L1_pH_per_GHz;
-    _model.L2_pH_per_GHz2 = L2_pH_per_GHz2;
-    _model.L3_pH_per_GHz3 = L3_pH_per_GHz3;
-    _model.R_Ohms = R_Ohms;
-}
-
-/*!
- * \brief Sets the standard to type open with a lumped element model definition.
- * \param model Lumped element model for the cal standard.
- */
-void VnaCalStandard::setOpenModel(VnaStandardModel model) {
-    setType(OPEN_STANDARD_TYPE);
-    setModel(model);
-}
-
-/*!
- * \brief Sets the standard to type open with a lumped element model definition.
- * \param eLength_m_m Electrical length, in meters
- * \param loss_dB_per_Sqrt_Hz Loss, in dB/sqrt(Hz)
- * \param Z0_Ohms Characteristic impedance, in Ohms
- * \param C0_fF 0th order capacitance, in femtoFarads
- * \param C1_fF_per_GHz 1st order capacitance, in fF/GHz
- * \param C2_fF_per_GHz2 2nd order capacitance, in fF/GHz<SUP>2</SUP>
- * \param C3_fF_per_GHz3 3rd order capacitance, in fF/GHz<SUP>3</SUP>
- */
-void VnaCalStandard::setOpenModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms,
-                               double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3)
-{
-    setType(OPEN_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             C0_fF, C1_fF_per_GHz, C2_fF_per_GHz2, C3_fF_per_GHz3,
-             0,0,0,0, // L
-             0); // R
-}
-
-/*!
- * \brief Sets object to an open standard and sets the lumped
- * element model
- * \param eLength_m_m Electrical length, in meters
- * \param loss_dB_per_Sqrt_Hz attenuation, in dB/sqrt(Hz)
- * \param Z0_Ohms Characteristic impedance, in Ohms
- * \param C0_fF 0th order capacitance, in femtofarads
- * \param C1_fF_per_GHz 1st order capacitance, in fF/GHz
- * \param C2_fF_per_GHz2 2nd order capacitance, in fF/GHz<SUP>2</SUP>
- * \param C3_fF_per_GHz3 3rd order capacitance, in fF/GHz<SUP>3</SUP>
- * \param L0_pH 0th order inductance, in picohenrys
- * \param L1_pH_per_GHz 1st order inductance, in pH/GHz
- * \param L2_pH_per_GHz2 2nd order inductance, in pH/GHz<SUP>2</SUP>
- * \param L3_pH_per_GHz3 3rd order inductance, in pH/GHz<SUP>3</SUP>
- * \param R_Ohms Resistance, in Ohms
- */
-void VnaCalStandard::setOpenModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms,
-                               double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3,
-                               double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3,
-                               double R_Ohms)
-{
-    setType(OPEN_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             C0_fF, C1_fF_per_GHz, C2_fF_per_GHz2, C3_fF_per_GHz3,
-             L0_pH, L1_pH_per_GHz, L2_pH_per_GHz2, L3_pH_per_GHz3,
-             R_Ohms);
-}
-
-/*!
- * \brief Sets the standard to type short with a lumped element model definition.
- * \param model Lumped element model for the cal standard.
- */
-void VnaCalStandard::setShortModel(VnaStandardModel model) {
-    setType(SHORT_STANDARD_TYPE);
-    setModel(model);
-}
-
-/*!
- * \brief Sets object to a short standard and sets the lumped
- * element model
- * \param eLength_m_m Electrical length, in meters
- * \param loss_dB_per_Sqrt_Hz attenuation, in dB/sqrt(Hz)
- * \param Z0_Ohms Characteristic impedance, in Ohms
- * \param L0_pH 0th order inductance, in picohenrys
- * \param L1_pH_per_GHz 1st order inductance, in pH/GHz
- * \param L2_pH_per_GHz2 2nd order inductance, in pH/GHz<SUP>2</SUP>
- * \param L3_pH_per_GHz3 3rd order inductance, in pH/GHz<SUP>3</SUP>
- */
-void VnaCalStandard::setShortModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms,
-                                double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3)
-{
-    setType(SHORT_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             0,0,0,0, // C
-             L0_pH, L1_pH_per_GHz, L2_pH_per_GHz2, L3_pH_per_GHz3,
-             0); // R
-}
-
-/*!
- * \brief Sets object to a short standard and sets the lumped
- * element model
- * \param eLength_m_m Electrical length, in meters
- * \param loss_dB_per_Sqrt_Hz attenuation, in dB/sqrt(Hz)
- * \param Z0_Ohms Characteristic impedance, in Ohms
- * \param C0_fF 0th order capacitance, in femtofarads
- * \param C1_fF_per_GHz 1st order capacitance, in fF/GHz
- * \param C2_fF_per_GHz2 2nd order capacitance, in fF/GHz<SUP>2</SUP>
- * \param C3_fF_per_GHz3 3rd order capacitance, in fF/GHz<SUP>3</SUP>
- * \param L0_pH 0th order inductance, in picohenrys
- * \param L1_pH_per_GHz 1st order inductance, in pH/GHz
- * \param L2_pH_per_GHz2 2nd order inductance, in pH/GHz<SUP>2</SUP>
- * \param L3_pH_per_GHz3 3rd order inductance, in pH/GHz<SUP>3</SUP>
- * \param R_Ohms Resistance, in Ohms
- */
-void VnaCalStandard::setShortModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms,
-                                double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3,
-                                double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3,
-                                double R_Ohms)
-{
-    setType(SHORT_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             C0_fF, C1_fF_per_GHz, C2_fF_per_GHz2, C3_fF_per_GHz3,
-             L0_pH, L1_pH_per_GHz, L2_pH_per_GHz2, L3_pH_per_GHz3,
-             R_Ohms);
-}
-
-/*!
- * \brief Sets the standard to type match with a lumped element model definition.
- * \param model Lumped element model for the cal standard.
- */
-void VnaCalStandard::setMatchModel(VnaStandardModel model) {
-    setType(MATCH_STANDARD_TYPE);
-    setModel(model);
-}
-
-/*!
- * \brief Sets object to a match standard and sets the lumped
- * element model
- * \param eLength_m_m Electrical length, in meters
- * \param loss_dB_per_Sqrt_Hz attenuation, in dB/sqrt(Hz)
- * \param Z0_Ohms Characteristic impedance, in Ohms
- */
-void VnaCalStandard::setMatchModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms)
-{
-    setType(MATCH_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             0,0,0,0, // C
-             0,0,0,0, // L
-             0); // R
-}
-
-/*!
- * \brief Sets object to a match standard and sets the lumped
- * element model
- * \param eLength_m_m Electrical length, in meters
- * \param loss_dB_per_Sqrt_Hz attenuation, in dB/sqrt(Hz)
- * \param Z0_Ohms Characteristic impedance, in Ohms
- * \param C0_fF 0th order capacitance, in femtofarads
- * \param C1_fF_per_GHz 1st order capacitance, in fF/GHz
- * \param C2_fF_per_GHz2 2nd order capacitance, in fF/GHz<SUP>2</SUP>
- * \param C3_fF_per_GHz3 3rd order capacitance, in fF/GHz<SUP>3</SUP>
- * \param L0_pH 0th order inductance, in picohenrys
- * \param L1_pH_per_GHz 1st order inductance, in pH/GHz
- * \param L2_pH_per_GHz2 2nd order inductance, in pH/GHz<SUP>2</SUP>
- * \param L3_pH_per_GHz3 3rd order inductance, in pH/GHz<SUP>3</SUP>
- * \param R_Ohms Resistance, in Ohms
- */
-void VnaCalStandard::setMatchModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms,
-                                double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3,
-                                double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3,
-                                double R_Ohms)
-{
-    setType(MATCH_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             C0_fF, C1_fF_per_GHz, C2_fF_per_GHz2, C3_fF_per_GHz3,
-             L0_pH, L1_pH_per_GHz, L2_pH_per_GHz2, L3_pH_per_GHz3,
-             R_Ohms);
-}
-
-/*!
- * \brief Sets the standard to type reflect with a lumped element model definition.
- * \param model Lumped element model for the cal standard.
- */
-void VnaCalStandard::setReflectModel(VnaStandardModel model) {
-    setType(REFLECT_STANDARD_TYPE);
-    setModel(model);
-}
-
-/*!
- * \brief Sets object to a reflection standard and sets the lumped
- * element model
- * \param eLength_m_m Electrical length, in meters
- * \param loss_dB_per_Sqrt_Hz attenuation, in dB/sqrt(Hz)
- * \param Z0_Ohms Characteristic impedance, in Ohms
- * \param C0_fF 0th order capacitance, in femtofarads
- * \param C1_fF_per_GHz 1st order capacitance, in fF/GHz
- * \param C2_fF_per_GHz2 2nd order capacitance, in fF/GHz<SUP>2</SUP>
- * \param C3_fF_per_GHz3 3rd order capacitance, in fF/GHz<SUP>3</SUP>
- * \param L0_pH 0th order inductance, in picohenrys
- * \param L1_pH_per_GHz 1st order inductance, in pH/GHz
- * \param L2_pH_per_GHz2 2nd order inductance, in pH/GHz<SUP>2</SUP>
- * \param L3_pH_per_GHz3 3rd order inductance, in pH/GHz<SUP>3</SUP>
- * \param R_Ohms Resistance, in Ohms
- */
-void VnaCalStandard::setReflectModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms,
-                                  double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3,
-                                  double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3,
-                                  double R_Ohms)
-{
-    setType(REFLECT_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             C0_fF, C1_fF_per_GHz, C2_fF_per_GHz2, C3_fF_per_GHz3,
-             L0_pH, L1_pH_per_GHz, L2_pH_per_GHz2, L3_pH_per_GHz3,
-             R_Ohms);
-}
-
-/*!
- * \brief Sets the standard to type thru with a lumped element model definition.
- * \param model Lumped element model for the cal standard.
- */
-void VnaCalStandard::setThruModel(VnaStandardModel model) {
-    setType(THRU_STANDARD_TYPE);
-    setModel(model.eLength_m, model.loss_dB_per_sqrt_Hz, model.Z0_Ohms,
-             0,0,0,0, // C
-             0,0,0,0, // L
-             0); // R
-}
-
-/*!
- * \brief Sets object to a thru standard and sets the lumped
- * element model
- * \param eLength_m_m Electrical length, in meters
- * \param loss_dB_per_Sqrt_Hz attenuation, in dB/sqrt(Hz)
- * \param Z0_Ohms Characteristic impedance, in Ohms
- */
-void VnaCalStandard::setThruModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms)
-{
-    setType(THRU_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             0,0,0,0, // C
-             0,0,0,0, // L
-             0); // R
-}
-
-/*!
- * \brief Sets the standard to type line with a lumped element model definition.
- * \param model Lumped element model for the cal standard.
- */
-void VnaCalStandard::setLineModel(VnaStandardModel model) {
-    setType(LINE_STANDARD_TYPE);
-    setModel(model.eLength_m, model.loss_dB_per_sqrt_Hz, model.Z0_Ohms,
-             0,0,0,0, // C
-             0,0,0,0, // L
-             0); // R
-}
-
-/*!
- * \brief Sets object to a line standard and sets the lumped
- * element model
- * \param eLength_m_m Electrical length, in meters
- * \param loss_dB_per_Sqrt_Hz attenuation, in dB/sqrt(Hz)
- * \param Z0_Ohms Characteristic impedance, in Ohms
- */
-void VnaCalStandard::setLineModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms)
-{
-    setType(LINE_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             0,0,0,0, // C
-             0,0,0,0, // L
-             0); // R
-}
-
-/*!
- * \brief Sets the standard to type line2 with a lumped element model definition.
- * \param model Lumped element model for the cal standard.
- */
-void VnaCalStandard::setLine2Model(VnaStandardModel model) {
-    setType(LINE2_STANDARD_TYPE);
-    setModel(model.eLength_m, model.loss_dB_per_sqrt_Hz, model.Z0_Ohms,
-             0,0,0,0, // C
-             0,0,0,0, // L
-             0); // R
-}
-/*!
- * \brief Sets object to a line2 standard and sets the lumped
- * element model
- * \param eLength_m_m Electrical length, in meters
- * \param loss_dB_per_Sqrt_Hz attenuation, in dB/sqrt(Hz)
- * \param Z0_Ohms Characteristic impedance, in Ohms
- */
-void VnaCalStandard::setLine2Model(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms)
-{
-    setType(LINE2_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             0,0,0,0, // C
-             0,0,0,0, // L
-             0); // R
-}
-
-/*!
- * \brief Sets the standard to type line3 with a lumped element model definition.
- * \param model Lumped element model for the cal standard.
- */
-void VnaCalStandard::setLine3Model(VnaStandardModel model) {
-    setType(LINE3_STANDARD_TYPE);
-    setModel(model.eLength_m, model.loss_dB_per_sqrt_Hz, model.Z0_Ohms,
-             0,0,0,0, // C
-             0,0,0,0, // L
-             0); // R
-}
-/*!
- * \brief Sets object to a line3 standard and sets the lumped
- * element model
- * \param eLength_m_m Electrical length, in meters
- * \param loss_dB_per_Sqrt_Hz attenuation, in dB/sqrt(Hz)
- * \param Z0_Ohms Characteristic impedance, in Ohms
- */
-void VnaCalStandard::setLine3Model(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms)
-{
-    setType(LINE3_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             0,0,0,0, // C
-             0,0,0,0, // L
-             0); // R
-}
-
-/*!
- * \brief Sets object to a direct connection
- *
- * A direct connection is only available when calibrating
- * to mateable connectors. Rather than using a thru standard
- * to calibrate, the two connectors may be mated directly.
- *
- * \param Z0_Ohms Characteristic impedance, in Ohms
- */
-void VnaCalStandard::setDirectConnection(double Z0_Ohms)
-{
-    setType(THRU_STANDARD_TYPE);
-    setModel(0, 0, Z0_Ohms,
-             0,0,0,0, // C
-             0,0,0,0, // L
-             0); // R
-}
-
-/*!
- * \brief Sets the standard to type symmetric network model with a lumped element model definition.
- * \param model Lumped element model for the cal standard.
- */
-void VnaCalStandard::setSymmetricNetworkModel(VnaStandardModel model) {
-    setType(SYMMETRIC_NETWORK_STANDARD_TYPE);
-    model.R_Ohms = 0;
-    setModel(model);
-}
-/*!
- * \brief CalStandard::setSymmetricNetworkModel
- * \param eLength_m_m
- * \param loss_dB_per_Sqrt_Hz
- * \param Z0_Ohms
- */
-void VnaCalStandard::setSymmetricNetworkModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms) {
-    setType(SYMMETRIC_NETWORK_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             0,0,0,0, // C
-             0,0,0,0, // L
-             0); // R
-}
-
-/*!
- * \brief CalStandard::setSymmetricNetworkModel
- * \param eLength_m_m
- * \param loss_dB_per_Sqrt_Hz
- * \param Z0_Ohms
- * \param C0_fF
- * \param C1_fF_per_GHz
- * \param C2_fF_per_GHz2
- * \param C3_fF_per_GHz3
- * \param L0_pH
- * \param L1_pH_per_GHz
- * \param L2_pH_per_GHz2
- * \param L3_pH_per_GHz3
- */
-void VnaCalStandard::setSymmetricNetworkModel(double eLength_m_m, double loss_dB_per_Sqrt_Hz, double Z0_Ohms, double C0_fF, double C1_fF_per_GHz, double C2_fF_per_GHz2, double C3_fF_per_GHz3, double L0_pH, double L1_pH_per_GHz, double L2_pH_per_GHz2, double L3_pH_per_GHz3) {
-    setType(SYMMETRIC_NETWORK_STANDARD_TYPE);
-    setModel(eLength_m_m, loss_dB_per_Sqrt_Hz, Z0_Ohms,
-             C0_fF, C1_fF_per_GHz, C2_fF_per_GHz2, C3_fF_per_GHz3,
-             L0_pH, L1_pH_per_GHz, L2_pH_per_GHz2, L3_pH_per_GHz3,
-             0); // R
 }
 
 /*!
@@ -1409,7 +964,7 @@ void VnaCalStandard::setSymmetricNetworkModel(double eLength_m_m, double loss_dB
  *
  */
 void VnaCalStandard::clear() {
-    _type = UNKNOWN_STANDARD_TYPE;
+    _type = Type::Unknown;
     _label.clear();
 
     _port1 = 0;
@@ -1417,14 +972,11 @@ void VnaCalStandard::clear() {
     _connector1 = Connector();
     _connector2 = Connector();
 
-    _min_freq_Hz = 0;
-    _max_freq_Hz = 1.0E12;
+    _isModel = false;
+    _model = VnaStandardModel();
 
     _isTouchstone = false;
     _touchstone.clear();
-
-    _isModel = false;
-    _model = VnaStandardModel();
 }
 
 /*!
@@ -1454,9 +1006,6 @@ void VnaCalStandard::clearConnectors() {
 void VnaCalStandard::operator =(const VnaCalStandard &other) {
     _type = other._type;
     _label = other._label;
-
-    _min_freq_Hz = other._min_freq_Hz;
-    _max_freq_Hz = other._max_freq_Hz;
 
     _port1 = other._port1;
     _connector1 = other._connector1;
@@ -1587,28 +1136,20 @@ void RsaToolbox::sort(uint &port1, uint &port2) {
  * \return \c true if objects are equal; \c false otherwise
  * \sa RsaToolbox::operator!=(const CalStandard &right, const CalStandard &left)
  */
-bool RsaToolbox::operator ==(const VnaCalStandard &right, const VnaCalStandard &left) {
+bool RsaToolbox::operator==(const VnaCalStandard &right, const VnaCalStandard &left) {
     if (right.isSameStandardAs(left) == false)
-        return(false);
-
-    if (right.minimumFrequency_Hz() != left.minimumFrequency_Hz())
-        return(false);
-
-    if (right.maximumFrequency_Hz() != left.maximumFrequency_Hz())
-        return(false);
+        return false;
 
     if (right.isTouchstone() != left.isTouchstone())
-        return(false);
+        return false;
 
     if (left.isModel() != left.isModel())
-        return(false);
+        return false;
 
-    if (right.isModel()
-            && right.isSameModel(left) == false)
-        return(false);
+    if (right.model() != left.model())
+        return false;
 
-    // else
-    return(true);
+    return true;
 }
 
 /*!
