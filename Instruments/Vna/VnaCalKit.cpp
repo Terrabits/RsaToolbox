@@ -406,15 +406,20 @@ void VnaCalKit::setConnectorType(const Connector &connector) {
 }
 
 void VnaCalKit::copy(const NameLabel &newNameLabel) {
+    bool _isAgilentModel = isAgilentModel();
+    NameLabel originalNameLabel = this->_nameLabel;
     QVector<VnaCalStandard> _standards = standards();
+
     VnaCalKit newCalKit = _vna->calKit(newNameLabel);
     for (int i = 0; i < _standards.size(); i++) {
         newCalKit.addStandard(_standards[i]);
     }
-    if (isAgilentModel())
+    if (_isAgilentModel)
         newCalKit.useAgilentModel();
     else
         newCalKit.useRohdeModel();
+
+    this->_nameLabel = originalNameLabel;
 }
 
 QVector<VnaCalStandard> VnaCalKit::standards() {
