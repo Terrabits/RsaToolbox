@@ -1137,9 +1137,18 @@ void RsaToolbox::sort(uint &port1, uint &port2) {
  * \sa RsaToolbox::operator!=(const CalStandard &right, const CalStandard &left)
  */
 bool RsaToolbox::operator==(const VnaCalStandard &right, const VnaCalStandard &left) {
-    if (right.isSameStandardAs(left) == false)
+    if (!right.isSameStandardAs(left))
         return false;
 
+    // Sliding match has no values...?
+    if (right.isType(VnaCalStandard::Type::SlidingMatch))
+        return true;
+
+    // Attenuator has no values...?
+    if (right.isType(VnaCalStandard::Type::Attenuation))
+        return true;
+
+    // I don't think this is how touchstone works...
     if (right.isTouchstone() != left.isTouchstone())
         return false;
 
