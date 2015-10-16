@@ -96,7 +96,10 @@ protected:
 private:
     Ui::Wizard *ui;
     QLabel *_loadingImage;
-};
+
+    void backWithoutAsking();
+    int leaveBackwardWithoutAsking();
+}; // Wizard
 } // RsaToolbox
 
 

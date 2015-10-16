@@ -34,6 +34,7 @@ Wizard::Wizard(QWidget *parent) :
 
 Wizard::~Wizard()
 {
+    qDebug() << "~Wizard, pages: " << numberOfPages();
     while (numberOfPages() > 0)
         removePage(numberOfPages()-1);
     delete ui;
@@ -63,8 +64,9 @@ void Wizard::addPage(WizardPage *page) {
     ui->stack->addWidget(page);
     _pages.append(page);
     page->setWizard(this);
-    if (_start == NULL)
+    if (!_current) {
         setStartPage();
+    }
     emit pageAdded(numberOfPages()-1);
 }
 void Wizard::insertPage(int index, WizardPage *page) {
@@ -79,27 +81,52 @@ void Wizard::insertPage(int index, WizardPage *page) {
 void Wizard::removePage(int index) {
     qDebug() << "Wizard::removePage " << index;
     WizardPage *page = this->page(index);
-    if (_start == page) {
-        _start = NULL;
+    if (page == _start) {
+        if (!page->isFinalPage()
+                && page->nextIndex() >= 0
+                && page->nextIndex() < _pages.size())
+        {
+            const int next = page->nextIndex();
+            _start = this->page(next);
+        }
+        else {
+            _start = NULL;
+        }
     }
-    if (_current == page) {
-        disconnectPage();
-        _current->back();
-        _current = NULL;
+
+    if (page == _current) {
+        back();
     }
+    else if (_history.contains(page)) {
+        _history.removeAll(page);
+        page->back();
+    }
+
     page->setWizard(NULL);
     _pages.removeAt(index);
     ui->stack->removeWidget(page);
-//    delete page;
     page->deleteLater();
-    restart();
     emit pageRemoved(index);
 }
 
 void Wizard::setStartPage(int index) {
     qDebug() << "Wizard::setStartPage " << index;
-    _start = page(index);
     restart();
+
+    buttons()->next()->setText("Next");
+    buttons()->next()->setVisible(true);
+    buttons()->next()->setEnabled(true);
+    buttons()->previous()->setText("Previous");
+    buttons()->previous()->setVisible(false);
+    buttons()->previous()->setEnabled(false);
+
+    _start = page(index);
+    _current = page(index);
+    connectPage();
+    _current->initialize();
+    ui->stack->setCurrentWidget(_current);
+    emit currentPageChanged(currentIndex());
+    updateHistory();
 }
 int Wizard::numberOfPages() const {
     return _pages.size();
@@ -139,6 +166,7 @@ void Wizard::back(int count) {
     else if (_current->skipBackwards())
         back(1);
 }
+
 void Wizard::next() {
     qDebug() << "Wizard::next";
     int index = leaveForward();
@@ -156,17 +184,16 @@ void Wizard::restart() {
     qDebug() << "Wizard::restart";
     if (_pages.isEmpty())
         return;
-    if (_start == NULL)
+    if (!_start)
+        return;
+    if (!_current)
         return;
 
-    disconnectPage();
-    qDebug() << "pages: " << _pages;
-    foreach(WizardPage *page, _pages)
-        page->resetContents();
-
-    enterForward(index(_start));
-    if (_current->skip())
-        next();
+    while (_current && _start
+           && _current != _start)
+    {
+        backWithoutAsking();
+    }
 }
 
 void Wizard::setEnabled() {
@@ -227,12 +254,13 @@ void Wizard::resizeEvent(QResizeEvent *event) {
     QWidget::resizeEvent(event);
 }
 void Wizard::closeEvent(QCloseEvent *event) {
-    if (_current == NULL)
+    if (!_current || _current->isReadyForBack()) {
+        restart();
         QWidget::closeEvent(event);
-    else if (_current->isReadyForBack())
-        QWidget::closeEvent(event);
-    else
+    }
+    else {
         event->ignore();
+    }
 }
 
 
@@ -281,6 +309,7 @@ int Wizard::leaveBackward() {
     _current = NULL;
     return index(popFromHistory());
 }
+
 void Wizard::enterForward(int index) {
     buttons()->next()->setText("Next");
     buttons()->next()->setVisible(true);
@@ -342,4 +371,24 @@ WizardPage *Wizard::popFromHistory() {
         return NULL;
 
     return _history.takeFirst();
+}
+
+
+// Private
+
+void Wizard::backWithoutAsking() {
+    qDebug() << "Wizard::backWithoutAsking";
+    int index = leaveBackwardWithoutAsking();
+    if (index == -1)
+        return;
+    enterBackward(index);
+}
+int Wizard::leaveBackwardWithoutAsking() {
+    if (_current == NULL)
+        return -1;
+
+    disconnectPage();
+    _current->back();
+    _current = NULL;
+    return index(popFromHistory());
 }
