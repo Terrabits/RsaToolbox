@@ -5,6 +5,7 @@ HEADERS     += $$PWD/About/About.h \
                $$PWD/LastPath/LastPath.h \
                $$PWD/ErrorLabel/ErrorLabel.h \
                $$PWD/Figure/Figure.h \
+               $$PWD/FrequencyEdit/FrequencyEdit.h \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.h \
                $$PWD/GetSnpFile/GetSnpFile.h \
                $$PWD/ListPanel/ListPanel.h \
@@ -20,6 +21,7 @@ INCLUDEPATH += $$PWD/About \
                $$PWD/LastPath \
                $$PWD/ErrorLabel \
                $$PWD/Figure \
+               $$PWD/FrequencyEdit \
                $$PWD/getSaveFileNameWidget \
                $$PWD/GetSnpFile \
                $$PWD/ListPanel \
@@ -32,6 +34,7 @@ SOURCES     += $$PWD/About/About.cpp \
                $$PWD/LastPath/LastPath.cpp \
                $$PWD/ErrorLabel/ErrorLabel.cpp \
                $$PWD/Figure/Figure.cpp \
+               $$PWD/FrequencyEdit/FrequencyEdit.cpp \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.cpp \
                $$PWD/GetSnpFile/GetSnpFile.cpp \
                $$PWD/ListPanel/ListPanel.cpp \
@@ -45,6 +48,7 @@ SOURCES     += $$PWD/About/About.cpp \
                $$PWD/Wizard/WizardButtons.cpp
 FORMS       += $$PWD/About/About.ui \
                $$PWD/Figure/Figure.ui \
+               $$PWD/FrequencyEdit/FrequencyEdit.ui \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.ui \
                $$PWD/GetSnpFile/GetSnpFile.ui \
                $$PWD/ListPanel/ListPanel.ui \

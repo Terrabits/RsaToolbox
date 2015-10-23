@@ -25,6 +25,7 @@ INCLUDEPATH += $$PWD \
                $$PWD/Gui/ConnectionTypeComboBox \
                $$PWD/Gui/ErrorLabel \
                $$PWD/Gui/Figure \
+               $$PWD/FrequencyEdit \
                $$PWD/Gui/getSaveFileNameWidget \
                $$PWD/Gui/GetSnpFile \
                $$PWD/Gui/ListPanel \
