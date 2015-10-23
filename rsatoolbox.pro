@@ -16,6 +16,7 @@ include(Bus/No/no.pri)
 include(Bus/Visa/visa.pri)
 include(Gui/gui.pri)
 include(Instruments/Vna/vna.pri)
+include(Test/test.pri)
 include(QCustomPlot/qcustomplot.pri)
 include(Server/server.pri)
 OTHER_FILES += rsatoolbox.pri
