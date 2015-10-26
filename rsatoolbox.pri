@@ -32,7 +32,7 @@ INCLUDEPATH += $$PWD \
                $$PWD/Gui/PortsLineEdit \
                $$PWD/Gui/Update \
                $$PWD/Gui/Wizard \
-               ##PWD/Test
+               ##PWD/Test \
                $$PWD/QCustomPlot \
                $$PWD/Server
 
