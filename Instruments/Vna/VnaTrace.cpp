@@ -334,6 +334,7 @@ TraceFormat VnaTrace::format() {
     return(VnaScpi::toTraceFormat(result));
 }
 void VnaTrace::setFormat(TraceFormat format) {
+    select();
     QString scpi = ":CALC%1:FORM %2\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(VnaScpi::toString(format));

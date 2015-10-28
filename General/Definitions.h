@@ -114,10 +114,12 @@ typedef std::vector<Matrix2D> Matrix3D;
 
 // Qt data types
 typedef QMap<uint,uint> PortMap;
+typedef QVector<uint> Ports;
 typedef QVector<double> QRowVector;
 typedef QVector<QRowVector> QMatrix2D;
 typedef QVector<QMatrix2D> QMatrix3D;
 }
+
 
 Q_DECLARE_METATYPE(RsaToolbox::NetworkParameter)
 Q_DECLARE_METATYPE(RsaToolbox::WaveQuantity)

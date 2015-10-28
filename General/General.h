@@ -157,9 +157,10 @@ bool isNotNaN(double value);
 double roundInf(double value, double toValue = DBL_MAX);
 QRowVector roundInf(QRowVector values, double toValue = DBL_MAX);
 double round(double value);
-double round(double value, uint decimal_places);
+double round(double value, uint decimals = 0);
 double floor(double value, double interval);
 double ceiling(double value, double interval);
+double findClosest(double value, QRowVector values);
 
 void roundAxis(double min, double max, double interval, double &axis_min, double &axis_max);
 void roundAxis(QRowVector values, double interval, double &axis_min, double &axis_max);

@@ -133,7 +133,7 @@ double VnaProperties::maximumFrequency_Hz() {
     return(_vna->query(":SYST:FREQ? MAX\n").trimmed().toDouble());
 }
 
-QVector<double> VnaProperties::ifBandwidthMantissa_Hz() {
+QRowVector VnaProperties::ifBandwidthMantissa_Hz() {
     QVector<double> mantissaValues;
     if (isZnbFamily()) {
         mantissaValues << 1
@@ -168,7 +168,7 @@ QVector<double> VnaProperties::ifBandwidthMantissa_Hz() {
     }
     return(mantissaValues);
 }
-QVector<double> VnaProperties::ifBandwidthMantissa_KHz() {
+QRowVector VnaProperties::ifBandwidthMantissa_KHz() {
     QVector<double> mantissaValues;
     if (isZnbFamily()) {
         mantissaValues << 1
@@ -203,7 +203,7 @@ QVector<double> VnaProperties::ifBandwidthMantissa_KHz() {
     }
     return(mantissaValues);
 }
-QVector<double> VnaProperties::ifBandwidthMantissa_MHz() {
+QRowVector VnaProperties::ifBandwidthMantissa_MHz() {
     QVector<double> mantissaValues;
     if (isZnbFamily()) {
 

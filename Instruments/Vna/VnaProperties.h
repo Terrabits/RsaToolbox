@@ -59,9 +59,9 @@ public:
     double minimumFrequency_Hz();
     double maximumFrequency_Hz();
 
-    QVector<double> ifBandwidthMantissa_Hz();
-    QVector<double> ifBandwidthMantissa_KHz();
-    QVector<double> ifBandwidthMantissa_MHz();
+    QRowVector ifBandwidthMantissa_Hz();
+    QRowVector ifBandwidthMantissa_KHz();
+    QRowVector ifBandwidthMantissa_MHz();
 
     double minimumPower_dBm();
     double maximumPower_dBm();

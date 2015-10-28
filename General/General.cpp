@@ -795,10 +795,10 @@ double RsaToolbox::round(double value) {
     else
         return(ceil(value - 0.5));
 }
-double RsaToolbox::round(double value, uint decimal_places) {
-    value *= pow(10.0, (int)decimal_places);
+double RsaToolbox::round(double value, uint decimals) {
+    value *= pow(10.0, (int)decimals);
     value = round(value);
-    return(value * pow(10.0, -1 * (int)decimal_places));
+    return(value * pow(10.0, -1 * (int)decimals));
 }
 double RsaToolbox::floor(double value, double interval) {
     return(std::floor(value/interval)*interval);
@@ -806,6 +806,22 @@ double RsaToolbox::floor(double value, double interval) {
 double RsaToolbox::ceiling(double value, double interval) {
     return(std::ceil(value/interval)*interval);
 }
+double RsaToolbox::findClosest(double value, QRowVector values) {
+    if (values.isEmpty())
+        return 0;
+
+    double closestValue = values.first();
+    double difference = abs(value - values[0]);
+    for (int i = i; i < values.size(); i++) {
+        const double thisDifference = abs(value - values[i]);
+        if (thisDifference < difference) {
+            closestValue = values[i];
+            difference = thisDifference;
+        }
+    }
+    return closestValue;
+}
+
 void RsaToolbox::roundAxis(double min, double max, double interval, double &axis_min, double &axis_max) {
     axis_min = floor(min, interval);
     axis_max = ceiling(max, interval);
