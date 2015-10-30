@@ -9,31 +9,103 @@
 using namespace RsaToolbox;
 
 // Qt
+#include <QApplication>
 #include <QRegExp>
 #include <QRegExpValidator>
+#include <QHBoxLayout>
+#include <QLineEdit>
+#include <QComboBox>
 #include <QDebug>
+
+
 
 FrequencyEdit::FrequencyEdit(QWidget *parent) :
     QWidget(parent),
-    ui(new RsaToolbox::Ui::FrequencyEdit)
+    ui(new Ui::FrequencyEdit),
+    _name("Frequency"),
+    _isMinimum(false),
+    _minimum_Hz(0),
+    _isMaximum(false),
+    _maximum_Hz(DBL_INF)
 {
     ui->setupUi(this);
 
-    QRegExp regex("[0-9]+\\.?[0-9]*[GMK]?", Qt::CaseInsensitive);
+    clear();
+    QRegExp regex("(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))[GMK]?", Qt::CaseInsensitive);
     QRegExpValidator * validator = new QRegExpValidator(regex, ui->value);
     ui->value->setValidator(validator);
     connect(ui->value, SIGNAL(textEdited(QString)),
-            this, SLOT(processEdit()));
+            this, SLOT(valueEdited(QString)));
+    connect(ui->value, SIGNAL(lostFocus()),
+            this, SLOT(childLostFocus()));
+    connect(ui->units, SIGNAL(lostFocus()),
+            this, SLOT(childLostFocus()));
 }
 
 FrequencyEdit::~FrequencyEdit()
 {
-    delete ui;
+
 }
 
 // Public:
+void FrequencyEdit::setParameterName(const QString &name) {
+    _name = name;
+}
+
+bool FrequencyEdit::hasAcceptableInput() const {
+    if (!ui->value->hasAcceptableInput())
+        return false;
+    const double freq_Hz = displayedFrequency();
+    if (_isMinimum && freq_Hz < _minimum_Hz)
+        return false;
+    if (_isMaximum && freq_Hz > _maximum_Hz)
+        return false;
+    if (isMantissaValues() && !_mantissaValues_Hz.contains(freq_Hz))
+        return false;
+
+    return true;
+}
+
 double FrequencyEdit::frequency_Hz() const {
-    return _frequency_Hz;
+    return displayedFrequency();
+}
+
+void FrequencyEdit::clearMinimum() {
+    _isMinimum = false;
+    _minimum_Hz = 0;
+}
+void FrequencyEdit::clearMaximum() {
+    _isMaximum = false;
+    _maximum_Hz = 1.0E15;
+}
+void FrequencyEdit::setMinimum(double frequency_Hz) {
+    if (frequency_Hz < 0)
+        frequency_Hz = 0;
+    _isMinimum = true;
+    _minimum_Hz = frequency_Hz;
+}
+void FrequencyEdit::setMinimum(double value, SiPrefix prefix) {
+    setMinimum(value * toDouble(prefix));
+}
+void FrequencyEdit::setMaximum(double frequency_Hz) {
+    if (frequency_Hz < 0)
+        frequency_Hz = 0;
+    _isMaximum = true;
+    _maximum_Hz = frequency_Hz;
+}
+void FrequencyEdit::setMaximum(double value, SiPrefix prefix) {
+    setMaximum(value * toDouble(prefix));
+}
+
+void FrequencyEdit::clearMantissaValues() {
+    _mantissaValues_Hz.clear();
+}
+void FrequencyEdit::setMantissaValues(QRowVector frequencies_Hz) {
+    _mantissaValues_Hz = frequencies_Hz;
+    for (int i = 0; i < _mantissaValues_Hz.size(); i++) {
+        if (_mantissaValues_Hz[i] < 0)
+            _mantissaValues_Hz.removeAt(i);
+    }
 }
 
 // Slots:
@@ -42,14 +114,21 @@ void FrequencyEdit::clear() {
     ui->value->clear();
     ui->units->setCurrentText("GHz");
     blockSignals(isBlocked);
-    processChange();
+    _frequency_Hz = 0;
 }
 void FrequencyEdit::selectAll() {
     ui->value->selectAll();
 }
 void FrequencyEdit::setFrequency(double frequency_Hz) {
     if (frequency_Hz < 0)
-        return;
+        frequency_Hz = 0;
+    if (_isMinimum && frequency_Hz < _minimum_Hz)
+        frequency_Hz = _minimum_Hz;
+    if (_isMaximum && frequency_Hz > _maximum_Hz)
+        frequency_Hz = _maximum_Hz;
+    if (isMantissaValues())
+        frequency_Hz = findClosest(frequency_Hz, _mantissaValues_Hz);
+
     if (frequency_Hz == _frequency_Hz)
         return;
 
@@ -58,61 +137,98 @@ void FrequencyEdit::setFrequency(double frequency_Hz) {
     emit frequencyChanged(_frequency_Hz);
 }
 void FrequencyEdit::setFrequency(double value, SiPrefix prefix) {
-    if (value < 0)
-        return;
+    double frequency_Hz = value * toDouble(prefix);
+    if (frequency_Hz < 0)
+        frequency_Hz = 0;
+    if (_isMinimum && frequency_Hz < _minimum_Hz)
+        frequency_Hz = _minimum_Hz;
+    if (_isMaximum && frequency_Hz > _maximum_Hz)
+        frequency_Hz = _maximum_Hz;
+    if (isMantissaValues())
+        frequency_Hz = findClosest(frequency_Hz, _mantissaValues_Hz);
 
-    const double frequency_Hz = value * toDouble(prefix);
-    if (_frequency_Hz == frequency_Hz)
+    if (frequency_Hz == _frequency_Hz)
         return;
 
     _frequency_Hz = frequency_Hz;
-    displayFrequency(value, prefix);
+    if (_frequency_Hz == value * toDouble(prefix))
+        displayFrequency(value, prefix);
+    else
+        displayFrequency(_frequency_Hz);
     emit frequencyChanged(_frequency_Hz);
 }
 
 // Private slots:
-void FrequencyEdit::processEdit() {
-    if (!ui->value->text().isEmpty()) {
-        const int last = ui->value->text().size()-1;
-        if (ui->value->text().at(last).isLetter()) {
-            QChar letter = ui->value->text().at(last).toUpper().toLatin1();
-            QString value = ui->value->text();
-            value.chop(1);
+void FrequencyEdit::childLostFocus() {
+    if (ui->value->hasFocus() || ui->units->hasFocus())
+        return;
+    if (!ui->value->hasAcceptableInput())
+        return;
 
-            bool isBlocked = blockSignals(true);
-            displayPrefix(letter);
-            ui->value->setText(value);
-            blockSignals(isBlocked);
+    // Add leading zero if number
+    // starts with '.'
+    QString text = ui->value->text();
+    if (text[0].isPunct()) {
+        text.prepend("0");
+        ui->value->setText(text);
+    }
+
+    // Remove unnecessary trailing '.'
+    const int last = text.size()-1;
+    if (text[last].isPunct()) {
+        text.chop(1);
+        ui->value->setText(text);
+    }
+
+    double freq_Hz = displayedFrequency();
+    if (_isMinimum && freq_Hz < _minimum_Hz) {
+        freq_Hz = _minimum_Hz;
+        displayFrequency(freq_Hz);
+
+        // Emit error
+        QString msg = "*%1 must be greater than %2";
+        msg = msg.arg(_name);
+        msg = msg.arg(formatValue(_minimum_Hz, 3, Units::Hertz));
+        emit outOfRange(msg);
+    }
+    else if (_isMaximum && freq_Hz > _maximum_Hz) {
+        freq_Hz = _maximum_Hz;
+        displayFrequency(freq_Hz);
+
+        // Emit error
+        QString msg = "*%1 must be less than %2";
+        msg = msg.arg(_name);
+        msg = msg.arg(formatValue(_maximum_Hz, 3, Units::Hertz));
+        emit outOfRange(msg);
+    }
+    else if (isMantissaValues()) {
+        // Round to mantissa value quietly
+        double closestFreq_Hz = findClosest(freq_Hz, _mantissaValues_Hz);
+        if (freq_Hz != closestFreq_Hz) {
+            freq_Hz = closestFreq_Hz;
+            displayFrequency(freq_Hz);
         }
     }
-    double frequency = displayedFrequency();
-    if (frequency == _frequency_Hz)
-        return;
-    if (_isMinimum && frequency < _minimum_Hz) {
-        setFrequency(_minimum_Hz);
-        emit frequencyEdited(_frequency_Hz);
-        return;
-    }
-    if (_isMaximum && frequency > _maximum_Hz) {
-        setFrequency(_maximum_Hz);
-        emit frequencyEdited(_frequency_Hz);
-        return;
-    }
-    if (isMantissaValues()) {
-        setFrequency(findClosest(frequency, _mantissaValues()));
-        emit frequencyEdited(_frequency_Hz);
-    }
 
-    _frequency_Hz = frequency;
+    if (freq_Hz == _frequency_Hz)
+        return;
+
+    _frequency_Hz = freq_Hz;
     emit frequencyChanged(_frequency_Hz);
     emit frequencyEdited(_frequency_Hz);
 }
-void FrequencyEdit::processChange() {
-    double frequency_Hz = displayedFrequency();
-    if (frequency_Hz != _frequency_Hz) {
-        _frequency_Hz = frequency_Hz;
-        emit frequencyChanged(_frequency_Hz);
-    }
+void FrequencyEdit::valueEdited(QString value) {
+    if (value.isEmpty())
+        return;
+
+    const int last = value.size()-1;
+    if (!value[last].isLetter())
+        return;
+
+    QChar letter = value[last].toUpper();
+    value.chop(1);
+    ui->value->setText(value);
+    displayPrefix(letter);
 }
 
 // Private:
@@ -142,28 +258,28 @@ void FrequencyEdit::parseDisplay(double &value, SiPrefix &prefix) {
     else
         prefix = SiPrefix::None;
 }
-void FrequencyEdit::displayFrequency(double frequency_Hz) {
+void FrequencyEdit::displayFrequency(const double &frequency_Hz) {
     double value;
     SiPrefix prefix;
     parseFrequency(frequency_Hz, value, prefix);
     displayFrequency(value, prefix);
 }
-void FrequencyEdit::displayFrequency(double value, SiPrefix prefix) {
+void FrequencyEdit::displayFrequency(const double &value, const SiPrefix &prefix) {
     bool isBlocked = blockSignals(true);
     displayValue(value);
     displayPrefix(prefix);
     blockSignals(isBlocked);
 }
-void FrequencyEdit::displayValue(double value) {
+void FrequencyEdit::displayValue(const double &value) {
     displayValue(QVariant(value).toString());
 }
 void FrequencyEdit::displayValue(const QString &value) {
     ui->value->setText(value);
 }
-void FrequencyEdit::displayPrefix(const QChar prefix) {
+void FrequencyEdit::displayPrefix(const QChar &prefix) {
     displayPrefix(toSiPrefix(prefix));
 }
-void FrequencyEdit::displayPrefix(const SiPrefix prefix) {
+void FrequencyEdit::displayPrefix(const SiPrefix &prefix) {
     QString units;
     switch(prefix) {
     case SiPrefix::Tera:
@@ -183,6 +299,11 @@ void FrequencyEdit::displayPrefix(const SiPrefix prefix) {
     }
     ui->units->setCurrentText(units);
 }
+
+bool FrequencyEdit::isMantissaValues() const {
+    return !_mantissaValues_Hz.isEmpty();
+}
+
 double FrequencyEdit::displayedFrequency() const {
     if (ui->value->text().isEmpty())
         return 0;

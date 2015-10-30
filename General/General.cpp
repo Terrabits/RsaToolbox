@@ -812,7 +812,7 @@ double RsaToolbox::findClosest(double value, QRowVector values) {
 
     double closestValue = values.first();
     double difference = abs(value - values[0]);
-    for (int i = i; i < values.size(); i++) {
+    for (int i = 1; i < values.size(); i++) {
         const double thisDifference = abs(value - values[i]);
         if (thisDifference < difference) {
             closestValue = values[i];

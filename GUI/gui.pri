@@ -8,7 +8,6 @@ HEADERS     += $$PWD/About/About.h \
                $$PWD/FrequencyEdit/FrequencyEdit.h \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.h \
                $$PWD/GetSnpFile/GetSnpFile.h \
-               $$PWD/IfBwEdit/IfBwEdit.h \
                $$PWD/ListPanel/ListPanel.h \
                $$PWD/PortsLineEdit/PortsLineEdit.h \
                $$PWD/ConnectButton/ConnectButton.h \
@@ -25,7 +24,6 @@ INCLUDEPATH += $$PWD/About \
                $$PWD/FrequencyEdit \
                $$PWD/getSaveFileNameWidget \
                $$PWD/GetSnpFile \
-               $$PWD/IfBwEdit \
                $$PWD/ListPanel \
                $$PWD/PortsLineEdit \
                $$PWD/ConnectButton \
@@ -39,7 +37,6 @@ SOURCES     += $$PWD/About/About.cpp \
                $$PWD/FrequencyEdit/FrequencyEdit.cpp \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.cpp \
                $$PWD/GetSnpFile/GetSnpFile.cpp \
-               $$PWD/IfBwEdit/IfBwEdit.cpp \
                $$PWD/ListPanel/ListPanel.cpp \
                $$PWD/PortsLineEdit/PortsLineEdit.cpp \
                $$PWD/ConnectButton/ConnectButton.cpp \
@@ -54,7 +51,6 @@ FORMS       += $$PWD/About/About.ui \
                $$PWD/FrequencyEdit/FrequencyEdit.ui \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.ui \
                $$PWD/GetSnpFile/GetSnpFile.ui \
-               $$PWD/IfBwEdit/IfBwEdit.ui \
                $$PWD/ListPanel/ListPanel.ui \
                $$PWD/Update/Update.ui \
                $$PWD/Wizard/Wizard.ui \

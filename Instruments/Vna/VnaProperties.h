@@ -62,6 +62,7 @@ public:
     QRowVector ifBandwidthMantissa_Hz();
     QRowVector ifBandwidthMantissa_KHz();
     QRowVector ifBandwidthMantissa_MHz();
+    QRowVector ifBandwidthValues_Hz();
 
     double minimumPower_dBm();
     double maximumPower_dBm();

@@ -28,7 +28,6 @@ INCLUDEPATH += $$PWD \
                $$PWD/Gui/FrequencyEdit \
                $$PWD/Gui/getSaveFileNameWidget \
                $$PWD/Gui/GetSnpFile \
-               $$PWD/Gui/IfBwEdit \
                $$PWD/Gui/ListPanel \
                $$PWD/Gui/PortsLineEdit \
                $$PWD/Gui/Update \

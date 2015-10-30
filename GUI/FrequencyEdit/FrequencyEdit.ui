@@ -6,9 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>180</width>
+    <width>221</width>
     <height>20</height>
    </rect>
+  </property>
+  <property name="FrequencyEdit" stdset="0">
+   <string>Form</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="leftMargin">
@@ -24,13 +27,10 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QLineEdit" name="value"/>
+    <widget class="FocusAwareLineEdit" name="value"/>
    </item>
    <item>
-    <widget class="QComboBox" name="units">
-     <property name="currentIndex">
-      <number>1</number>
-     </property>
+    <widget class="FocusAwareComboBox" name="units">
      <item>
       <property name="text">
        <string>THz</string>
@@ -60,7 +60,18 @@
    </item>
   </layout>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>FocusAwareLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>FocusAwareLineEdit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FocusAwareComboBox</class>
+   <extends>QComboBox</extends>
+   <header>FocusAwareComboBox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

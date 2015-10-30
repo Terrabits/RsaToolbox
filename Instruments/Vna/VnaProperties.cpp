@@ -225,6 +225,13 @@ QRowVector VnaProperties::ifBandwidthMantissa_MHz() {
     }
     return(mantissaValues);
 }
+QRowVector VnaProperties::ifBandwidthValues_Hz() {
+    QRowVector values;
+    values << ifBandwidthMantissa_Hz();
+    values << multiply(ifBandwidthMantissa_KHz(), 1.0E3);
+    values << multiply(ifBandwidthMantissa_MHz(), 1.0E6);
+    return values;
+}
 
 double VnaProperties::minimumPower_dBm() {
     if (isZvaFamily())
