@@ -256,6 +256,23 @@ QString RsaToolbox::GetAppDataPath(QString manufacturerFolder, QString applicati
 }
 
 // Formatting
+void RsaToolbox::chopTrailingZeros(QString &text) {
+    if (!text.contains('.'))
+        return;
+
+    int last = text.size() - 1;
+    while(!text.isEmpty() && text[last] == '0')
+    {
+        text.chop(1);
+        last = text.size() - 1;
+    }
+    if (!text.isEmpty() && text[last] == '.') {
+        text.chop(1);
+        if (text.isEmpty())
+            text = "0";
+    }
+}
+
 QString RsaToolbox::toEngineeringNotation(double value, int decimalPlaces, SiPrefix prefix) {
     QString result;
     QTextStream stream(&result);
@@ -332,8 +349,8 @@ QString RsaToolbox::formatValue(double value, int decimalPlaces, Units units, Si
         if (magnitude < bound) {
             stream << (value / toDouble(prefixes[i]));
             stream.flush();
-            while (!result.isEmpty() && result.contains('.') && (result.endsWith('0') || result.endsWith('.')))
-                result.chop(1);
+            chopTrailingZeros(result);
+
             if (i == 0 && result.toDouble() == 0)
                 stream << " " << units;
             else
@@ -346,8 +363,8 @@ QString RsaToolbox::formatValue(double value, int decimalPlaces, Units units, Si
     // else Tera or bigger
     stream << (value / toDouble(prefixes[count-1]));
     stream.flush();
-    while (!result.isEmpty() && result.contains('.') && (result.endsWith('0') || result.endsWith('.')))
-        result.chop(1);
+    chopTrailingZeros(result);
+
     stream << " " << SiPrefix::Tera << units;
     stream.flush();
     return result;
@@ -359,6 +376,7 @@ QString RsaToolbox::formatDouble(double value, int decimalPlaces) {
     stream.setRealNumberNotation(QTextStream::FixedNotation);
     stream << value;
     stream.flush();
+    chopTrailingZeros(string);
     return(string);
 }
 QString RsaToolbox::toString(QStringList list, QString separator) {

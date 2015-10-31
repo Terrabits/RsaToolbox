@@ -235,19 +235,19 @@ QRowVector VnaProperties::ifBandwidthValues_Hz() {
 
 double VnaProperties::minimumPower_dBm() {
     if (isZvaFamily())
-        return(-150);
+        return(-150.0);
     else if (isZnbFamily())
-        return(-40);
-    // Default:
-    return(-40);
+        return(-40.0);
+    else
+        return(-40.0);
 }
 double VnaProperties::maximumPower_dBm() {
     if (isZvaFamily())
-        return(100);
+        return(100.0);
     else if (isZnbFamily())
-        return(10);
-    // Default:
-    return(10);
+        return(10.0);
+    else
+        return(10.0);
 }
 
 bool VnaProperties::hasSourceAttenuators() {

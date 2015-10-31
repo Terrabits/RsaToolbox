@@ -20,16 +20,20 @@ INCLUDEPATH += $$PWD \
                $$PWD/Instruments/Vna/Views/VnaForm \
                $$PWD/Instruments/Vna/Views/CalGroupPanel \
                $$PWD/Gui/About \
-               $$PWD/Gui/LastPath \
+               $$PWD/Gui/DecibelEdit \
                $$PWD/Gui/ConnectButton \
                $$PWD/Gui/ConnectionTypeComboBox \
+               $$PWD/Gui/DecibelEdit \
                $$PWD/Gui/ErrorLabel \
                $$PWD/Gui/Figure \
                $$PWD/Gui/FrequencyEdit \
                $$PWD/Gui/getSaveFileNameWidget \
                $$PWD/Gui/GetSnpFile \
+               $$PWD/Gui/LastPath \
                $$PWD/Gui/ListPanel \
+               $$PWD/Gui/PointsEdit \
                $$PWD/Gui/PortsLineEdit \
+               $$PWD/Gui/PowerEdit \
                $$PWD/Gui/Update \
                $$PWD/Gui/Wizard \
                $$PWD/Test \

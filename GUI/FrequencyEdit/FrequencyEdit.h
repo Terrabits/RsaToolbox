@@ -6,18 +6,13 @@
 #include "Definitions.h"
 
 // Qt
-#include <QWidget>
-#include <QApplication>
+#include <QLineEdit>
 
 
 namespace RsaToolbox {
 
 
-namespace Ui {
-    class FrequencyEdit;
-}
-
-class FrequencyEdit : public QWidget
+class FrequencyEdit : public QLineEdit
 {
     Q_OBJECT
 
@@ -27,7 +22,6 @@ public:
 
     void setParameterName(const QString &name);
 
-    bool hasAcceptableInput() const;
     double frequency_Hz() const;
 
     void clearMinimum();
@@ -37,12 +31,11 @@ public:
     void setMaximum(double frequency_Hz);
     void setMaximum(double value, SiPrefix prefix);
 
-    void clearMantissaValues();
-    void setMantissaValues(QRowVector frequencies_Hz);
+    void clearAcceptedValues();
+    void setAcceptedValues(QRowVector frequencies_Hz);
 
 public slots:
-    void clear();
-    void selectAll();
+    void setText(const QString &text); // Override?
     void setFrequency(double frequency_Hz);
     void setFrequency(double value, SiPrefix prefix);
 
@@ -51,36 +44,36 @@ signals:
     void frequencyChanged(double frequency_Hz);
     void frequencyEdited(double frequency_Hz);
 
+protected:
+    virtual void keyPressEvent(QKeyEvent *event);
+    virtual void focusInEvent(QFocusEvent *event);
+    virtual void focusOutEvent(QFocusEvent *event);
+
 private slots:
-    void childLostFocus();
-    void valueEdited(QString value);
+    void handleReturnPressed();
 
 private:
-    Ui::FrequencyEdit *ui;
-
     QString _name;
     double _frequency_Hz;
 
-    static void parseFrequency(double frequency_Hz, double &value, SiPrefix &prefix);
-    void parseDisplay(double &value, SiPrefix &prefix);
-    double displayedFrequency() const;
-
-    void displayFrequency(const double &frequency_Hz);
-    void displayFrequency(const double &value, const SiPrefix &prefix);
-    void displayValue(const double &value);
-    void displayValue(const QString &value);
-    void displayPrefix(const QChar &prefix);
-    void displayPrefix(const SiPrefix &prefix);
+    static bool containsT(const QString &text);
+    static bool containsG(const QString &text);
+    static bool containsM(const QString &text);
+    static bool containsK(const QString &text);
+    static QString chopNonDigits(QString text);
+    void updateText();
+    void updateText(const double &frequency_Hz);
+    void processText();
 
     bool _isMinimum;
     bool _isMaximum;
     double _minimum_Hz;
     double _maximum_Hz;
 
-    bool isMantissaValues() const;
-    QRowVector _mantissaValues_Hz;
-}; // FrequencyEdit
+    bool isAcceptedValues() const;
+    QRowVector _acceptedValues_Hz;
 
+}; // FrequencyEdit
 } // RsaToolbox
 
 
