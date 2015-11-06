@@ -26,19 +26,19 @@ public:
     VnaPowerCorrections(Vna *vna, uint channelIndex, QObject *parent = 0);
     ~VnaPowerCorrections();
 
-    bool isOn(uint port);
-    bool isOff(uint port);
-    bool isPresent(uint port);
-    bool isNotPresent(uint port);
-    bool isInterpolated(uint port);
-    bool isNotInterpolated(uint port);
-    void on(uint port, bool isOn = true);
-    void off(uint port, bool isOff = true);
+//    bool isOn(uint port);
+//    bool isPresent(uint port);
+//    bool isInterpolated(uint port);
+//    void on(uint port, bool isOn = true);
+//    void off(uint port, bool isOff = true);
+    QRowVector corrections_dB(QChar wave, uint port);
+    void setCorrections(QChar wave, uint port, QRowVector corrections_dB);
+//    void clear(); // How?
+
     QString calGroup();
     void setCalGroup(QString calGroup);
     void saveToCalGroup(QString calGroup);
     void dissolveCalGroupLink();
-    void clear(); //?
 
     void operator=(VnaPowerCorrections const &other);
 
@@ -47,16 +47,8 @@ private:
     QScopedPointer<Vna> placeholder;
     QScopedPointer<VnaChannel> _channel;
     uint _channelIndex;
-
-    enum CorrectionState {
-        APPLIED_CORRECTIONS,
-        INTERPOLATED_CORRECTIONS,
-        DISABLED_CORRECTIONS,
-        NO_CORRECTIONS };
     
     bool isFullyInitialized() const;
-    CorrectionState correctionState(uint port);
-    CorrectionState toCorrectionState(QString scpi);
 };
 }
 

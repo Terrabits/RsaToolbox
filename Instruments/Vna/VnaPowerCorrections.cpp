@@ -48,7 +48,6 @@ VnaPowerCorrections::VnaPowerCorrections(Vna *vna, VnaChannel *channel, QObject 
     _channel.reset(new VnaChannel(*channel));
     _channelIndex = channel->index();
 }
-
 VnaPowerCorrections::VnaPowerCorrections(Vna *vna, uint channelIndex, QObject *parent) :
     QObject(parent)
 {
@@ -61,35 +60,29 @@ VnaPowerCorrections::~VnaPowerCorrections() {
 }
 
 
-// Calibrated corrections
-bool VnaPowerCorrections::isOn(uint port) {
-    Q_UNUSED(port);
-    return(false);
+// Corrections
+QRowVector VnaPowerCorrections::corrections_dB(QChar wave, uint port) {
+    QString scpi = "SENS%1:CORR:POW:DATA? \'%2%3\'";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(wave.toUpper());
+    scpi = scpi.arg(port);
+
+    // Don't know size a priori!
+    return _vna->queryVector(scpi, 10001*8);
 }
-bool VnaPowerCorrections::isOff(uint port) {
-    return(!isOn(port));
+void VnaPowerCorrections::setCorrections(QChar wave, uint port, QRowVector values_dB) {
+    QString scpi = "SENS%1:CORR:POW:DATA \'%2%3\',";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(wave.toUpper());
+    scpi = scpi.arg(port);
+
+    QByteArray _scpi = scpi.toLocal8Bit();
+    _scpi.append(toBlockDataFormat(values_dB));
+    _vna->binaryWrite(_scpi);
 }
-bool VnaPowerCorrections::isPresent(uint port) {
-    Q_UNUSED(port);
-    return(false);
-}
-bool VnaPowerCorrections::isNotPresent(uint port) {
-    return(!isPresent(port));
-}
-bool VnaPowerCorrections::isInterpolated(uint port) {
-    Q_UNUSED(port);
-    return(false);
-}
-bool VnaPowerCorrections::isNotInterpolated(uint port) {
-    return(!isInterpolated(port));
-}
-void VnaPowerCorrections::on(uint port, bool isOn) {
-    Q_UNUSED(port);
-    Q_UNUSED(isOn);
-}
-void VnaPowerCorrections::off(uint port, bool isOff) {
-    on(port, !isOff);
-}
+
+
+// Cal group
 QString VnaPowerCorrections::calGroup() {
     QString scpi = ":MMEM:LOAD:CORR? %1\n";
     scpi = scpi.arg(_channelIndex);
@@ -116,13 +109,7 @@ void VnaPowerCorrections::dissolveCalGroupLink() {
     scpi = scpi.arg(_channelIndex);
     _vna->write(scpi);
 }
-void VnaPowerCorrections::clear() {
-//    _vna->fileSystem().uploadFile();
-//    _vna->importCalGroup("DELETE");
-//    setCalGroup("DELETE");
-//    dissolveCalGroupLink();
-//    _vna->deleteCalGroup("DELETE");
-} //?
+
 
 
 void VnaPowerCorrections::operator=(VnaPowerCorrections const &other) {
@@ -141,19 +128,11 @@ void VnaPowerCorrections::operator=(VnaPowerCorrections const &other) {
 
 // Private
 bool VnaPowerCorrections::isFullyInitialized() const {
-    if (_vna == NULL)
-        return(false);
+    if (!_vna)
+        return false;
     if (_vna == placeholder.data())
-        return(false);
+        return false;
 
     //else
-    return(true);
-}
-VnaPowerCorrections::CorrectionState VnaPowerCorrections::correctionState(uint port) {
-    Q_UNUSED(port);
-    return(NO_CORRECTIONS);
-}
-VnaPowerCorrections::CorrectionState VnaPowerCorrections::toCorrectionState(QString scpi) {
-    Q_UNUSED(scpi);
-    return(NO_CORRECTIONS);
+    return true;
 }

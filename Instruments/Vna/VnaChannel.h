@@ -6,15 +6,22 @@
 #include "Definitions.h"
 #include "BalancedPort.h"
 
-#include "VnaUserDefinedPort.h"
 #include "VnaLinearSweep.h"
 #include "VnaLogSweep.h"
 #include "VnaSegmentedSweep.h"
 #include "VnaPowerSweep.h"
 #include "VnaCwSweep.h"
 #include "VnaTimeSweep.h"
+
+#include "VnaUserDefinedPort.h"
 #include "VnaAveraging.h"
 #include "VnaCalibrate.h"
+
+// This should probably be rolled into
+// VnaCorrections.h (a lot of the same
+// commands apply here).
+#include "VnaPowerCorrections.h"
+
 // * #include "VnaCorrections.h"
 // * See note at end of file
 
@@ -156,9 +163,9 @@ public:
     VnaCalibrate *takeCalibrate();
 
     // Power corrections
-    // bool isPowerCalibrated();
-    // VnaPowerCorrections &powerCorrections();
-    // VnaPowerCalibrate &powerCalibrate();
+//     bool isPowerCalibrated();
+     VnaPowerCorrections &powerCorrections();
+//     VnaPowerCalibrate &powerCalibrate();
 
     void operator=(const VnaChannel &other);
 
@@ -176,6 +183,7 @@ private:
     QScopedPointer<VnaTimeSweep> _timeSweep;
     QScopedPointer<VnaAveraging> _averaging;
     QScopedPointer<VnaCorrections> _corrections;
+    QScopedPointer<VnaPowerCorrections> _powerCorrections;
     QScopedPointer<VnaCalibrate> _calibrate;
 
     bool isFullyInitialized() const;

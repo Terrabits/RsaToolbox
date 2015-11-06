@@ -557,7 +557,13 @@ VnaCalibrate &VnaChannel::calibrate() {
     return(*_calibrate);
 }
 VnaCalibrate *VnaChannel::takeCalibrate() {
-    return(new VnaCalibrate(_vna, _index));
+    return new VnaCalibrate(_vna, _index);
+}
+
+// Power calibration
+VnaPowerCorrections &VnaChannel::powerCorrections() {
+    _powerCorrections.reset(new VnaPowerCorrections(_vna, this));
+    return *_powerCorrections;
 }
 
 void VnaChannel::operator=(const VnaChannel &other) {

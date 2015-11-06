@@ -936,6 +936,39 @@ double RsaToolbox::linearInterpolateY(double x1, double y1, double x2, double y2
     double slope = (y2 - y1)/(x2 - x1);
     return(y1 + slope*(x_desired - x1));
 }
+QRowVector RsaToolbox::linearInterpolateY(QRowVector x, QRowVector y, QRowVector xDesired) {
+    int i = 0;
+    int oldPoints = x.size();
+
+    int j = 1;
+    int newPoints = xDesired.size();
+
+    // First two points to interpolate from
+    double x1 = x[j-1];
+    double x2 = x[j];
+    double y1 = y[j-1];
+    double y2 = y[j];
+
+    // Interpolate xDesired[i] <= x.last()
+    QRowVector result(newPoints);
+    for (; j < oldPoints; j++) {
+        while (i < newPoints && xDesired[i] <= x2) {
+            result[i] = linearInterpolateY(x1, y1, x2, y2, xDesired[i]);
+            i++;
+        }
+        if (i >= newPoints)
+            break;
+    }
+
+    // Interpolate xDesired[i] > x.last()
+    // Using last two x, y points
+    while (i < newPoints) {
+        result[i] = linearInterpolateY(x1, y1, x2, y2, xDesired[i]);
+        i++;
+    }
+
+    return result;
+}
 ComplexDouble RsaToolbox::linearInterpolateY(double x1, ComplexDouble y1, double x2, ComplexDouble y2, double x_desired) {
     ComplexDouble slope = (y2 - y1)/(x2 - x1);
     return(y1 + slope*(x_desired - x1));
@@ -980,21 +1013,24 @@ ComplexRowVector RsaToolbox::linearInterpolateReIm(QRowVector x, ComplexRowVecto
     return result;
 }
 ComplexRowVector RsaToolbox::linearInterpolateMagPhase(QRowVector x, ComplexRowVector y, QRowVector xDesired) {
-    int newPoints = xDesired.size();
-    ComplexRowVector result(newPoints);
-
     int i = 0;
     int oldPoints = x.size();
-    for (int j = 1; j < oldPoints; j++) {
-        double x1 = x[j-1];
-        double x2 = x[j];
-        double mag1 = abs(y[j-1]);
-        double phase1 = angle_rad(y[j-1]);
-        double mag2 = abs(y[j]);
-        double phase2 = angle_rad(y[j]);
 
-        // Assume no aliasing
-        // Take shortest path between points
+    int j = 1;
+    int newPoints = xDesired.size();
+
+    // First two points to interpolate from
+    double x1 = x[j-1];
+    double x2 = x[j];
+    double mag1 = abs(y[j-1]);
+    double phase1 = angle_rad(y[j-1]);
+    double mag2 = abs(y[j]);
+    double phase2 = angle_rad(y[j]);
+
+    // Interpolate xDesired[i] <= x.last()
+    ComplexRowVector result(newPoints);
+    for (; j < oldPoints; j++) {
+        // Assume no aliasing, "unwrap"
         if (phase2 - phase1 > PI)
             phase1 += 2*PI;
         else if (phase1 - phase2 > PI)
@@ -1009,6 +1045,16 @@ ComplexRowVector RsaToolbox::linearInterpolateMagPhase(QRowVector x, ComplexRowV
         if (i >= newPoints)
             break;
     }
+
+    // Interpolate xDesired[i] > x.last()
+    // Using last two x, y points
+    while (i < newPoints) {
+        double mag = linearInterpolateY(x1, mag1, x2, mag2, xDesired[i]);
+        double phase = linearInterpolateY(x1, phase1, x2, phase2, xDesired[i]);
+        result[i] = std::polar(mag, phase);
+        i++;
+    }
+
     return result;
 }
 
