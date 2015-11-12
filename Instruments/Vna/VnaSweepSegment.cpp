@@ -124,6 +124,22 @@ void VnaSweepSegment::setSingleFrequency(double frequency, SiPrefix prefix) {
     setStop(frequency, prefix);
 }
 
+double VnaSweepSegment::power_dBm() {
+    // [SENSe<Ch>:]SEGMent<Seg>:POWer[:LEVel] <IntSourcePow>
+    QString scpi = "SENS%1:SEGM%2:POW?";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(_segmentIndex);
+    return _vna->query(scpi).trimmed().toDouble();
+}
+void VnaSweepSegment::setPower(double power_dBm) {
+    // [SENSe<Ch>:]SEGMent<Seg>:POWer[:LEVel] <IntSourcePow>
+    QString scpi = "SENS%1:SEGM%2:POW %3";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(_segmentIndex);
+    scpi = scpi.arg(power_dBm);
+    _vna->write(scpi);
+}
+
 void VnaSweepSegment::operator=(VnaSweepSegment const &other) {
     if (other.isFullyInitialized()) {
         _vna = other._vna;

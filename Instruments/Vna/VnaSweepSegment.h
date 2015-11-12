@@ -31,13 +31,18 @@ public:
     bool isOff();
     void on();
     void off();
+
     uint points();
     void setPoints(uint numberOfPoints);
+
     double start_Hz();
     void setStart(double frequency, SiPrefix prefix = SiPrefix::None);
     double stop_Hz();
     void setStop(double frequency, SiPrefix prefix = SiPrefix::None);
     void setSingleFrequency(double frequency, SiPrefix prefix = SiPrefix::None);
+
+    double power_dBm();
+    void setPower(double power_dBm);
 
     void operator=(VnaSweepSegment const &other);
 
