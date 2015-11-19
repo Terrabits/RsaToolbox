@@ -18,6 +18,7 @@ ErrorLabel::ErrorLabel(QWidget *parent) :
 void ErrorLabel::showMessage(const QString &message, int timeout) {
     QPalette _palette = palette();
     _palette.setColor(QPalette::WindowText, Qt::red);
+    setPalette(_palette);
     QStatusBar::showMessage(message, timeout);
 }
 void ErrorLabel::showMessage(const QString &message, Qt::GlobalColor color, int timeout) {

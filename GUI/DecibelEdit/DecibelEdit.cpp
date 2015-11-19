@@ -62,7 +62,7 @@ void DecibelEdit::setMinimum(double value_dB) {
 
     // Check for validity
     if (!text().isEmpty())
-        setPower(_value_dB);
+        setValue(_value_dB);
 }
 void DecibelEdit::setMaximum(double value_dB) {
     value_dB = round(value_dB, 2);
@@ -71,11 +71,11 @@ void DecibelEdit::setMaximum(double value_dB) {
 
     // Check for validity
     if (!text().isEmpty())
-        setPower(_value_dB);
+        setValue(_value_dB);
 }
 
 // Slots:
-void DecibelEdit::setPower(double value_dB) {
+void DecibelEdit::setValue(double value_dB) {
     value_dB = round(value_dB, 2);
     if (_isMinimum && value_dB < _minimum_dB)
         value_dB = _minimum_dB;
@@ -85,7 +85,7 @@ void DecibelEdit::setPower(double value_dB) {
     if (value_dB == _value_dB)
         return;
 
-    value_dB = value_dB;
+    _value_dB = value_dB;
     updateText();
     emit valueChanged(value_dB);
 }

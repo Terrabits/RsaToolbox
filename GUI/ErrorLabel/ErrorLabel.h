@@ -14,7 +14,7 @@ public:
 signals:
 
 public slots:
-    void showMessage(const QString & message, int timeout = 5000);
+    void showMessage(const QString &message, int timeout = 5000);
     void showMessage(const QString &message, Qt::GlobalColor color, int timeout = 5000);
     void showMessage(const QString &message, QColor color, int timeout = 5000);
 

@@ -89,7 +89,7 @@ void PointsEdit::setPoints(uint points) {
     if (points == _points)
         return;
 
-    points = points;
+    _points = points;
     updateText();
     emit pointsChanged(points);
 }

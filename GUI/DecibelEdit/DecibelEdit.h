@@ -31,7 +31,7 @@ public:
 
 public slots:
     void setText(const QString &text); // Override?
-    void setPower(double value_dB);
+    void setValue(double value_dB);
 
 signals:
     void outOfRange(const QString &message);

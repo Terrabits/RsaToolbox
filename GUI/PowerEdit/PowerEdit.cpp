@@ -86,7 +86,7 @@ void PowerEdit::setPower(double power_dBm) {
     if (power_dBm == _power_dBm)
         return;
 
-    power_dBm = power_dBm;
+    _power_dBm = power_dBm;
     updateText();
     emit powerChanged(power_dBm);
 }
