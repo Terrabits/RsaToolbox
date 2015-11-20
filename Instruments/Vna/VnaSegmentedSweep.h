@@ -68,6 +68,7 @@ private:
 
     bool isFullyInitialized() const;
     static uint frequencyBufferSize(uint points);
+    static uint dataBufferSize(uint ports, uint points);
 };
 }
 

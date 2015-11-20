@@ -67,14 +67,14 @@ uint VnaSegmentedSweep::points() {
     for (uint i = 1; i <= numberOfSegments; i++) {
         points += segment(i).points();
     }
-    return(points);
+    return points;
 }
 
 double VnaSegmentedSweep::start_Hz() {
-    return(min(frequencies_Hz()));
+    return min(frequencies_Hz());
 }
 double VnaSegmentedSweep::stop_Hz() {
-    return(max(frequencies_Hz()));
+    return max(frequencies_Hz());
 }
 QRowVector VnaSegmentedSweep::frequencies_Hz() {
     QString scpi = ":CALC%1:DATA:STIM?\n";
@@ -85,7 +85,7 @@ QRowVector VnaSegmentedSweep::frequencies_Hz() {
 double VnaSegmentedSweep::power_dBm() {
     QString scpi = ":SOUR%1:POW?\n";
     scpi = scpi.arg(_channelIndex);
-    return(_vna->query(scpi).trimmed().toDouble());
+    return _vna->query(scpi).trimmed().toDouble();
 }
 void VnaSegmentedSweep::setPower(double power_dBm) {
     QString scpi = ":SOUR%1:POW %2\n";
@@ -94,7 +94,7 @@ void VnaSegmentedSweep::setPower(double power_dBm) {
 }
 double VnaSegmentedSweep::ifBandwidth_Hz() {
     QString scpi = QString("SENS%1:BAND?\n").arg(_channelIndex);
-    return(_vna->query(scpi).trimmed().toDouble());
+    return _vna->query(scpi).trimmed().toDouble();
 }
 void VnaSegmentedSweep::setIfbandwidth(double bandwidth, SiPrefix prefix) {
     QString scpi = "SENS%1:BAND %2%3\n";
@@ -107,7 +107,7 @@ void VnaSegmentedSweep::setIfbandwidth(double bandwidth, SiPrefix prefix) {
 uint VnaSegmentedSweep::segments() {
     QString scpi = ":SENS%1:SEGM:COUN?\n";
     scpi = scpi.arg(_channelIndex);
-    return(_vna->query(scpi).trimmed().toUInt());
+    return _vna->query(scpi).trimmed().toUInt();
 }
 uint VnaSegmentedSweep::addSegment() {
     uint index = segments() + 1;
@@ -115,7 +115,7 @@ uint VnaSegmentedSweep::addSegment() {
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(index);
     _vna->write(scpi);
-    return(index);
+    return index;
 }
 void VnaSegmentedSweep::deleteSegment(uint index) {
     QString scpi = ":SENS%1:SEGM%2:DEL\n";
@@ -130,11 +130,11 @@ void VnaSegmentedSweep::deleteSegments() {
 }
 VnaSweepSegment &VnaSegmentedSweep::segment(uint index) {
     _segment.reset(new VnaSweepSegment(_vna, _channel.data(), index));
-    return(*_segment.data());
+    return *_segment.data();
 }
 
 QVector<uint> VnaSegmentedSweep::sParameterGroup() {
-    return(_channel->linearSweep().sParameterGroup());
+    return _channel->linearSweep().sParameterGroup();
 }
 void VnaSegmentedSweep::setSParameterGroup(QVector<uint> ports) {
     _channel->linearSweep().setSParameterGroup(ports);
@@ -143,8 +143,27 @@ void VnaSegmentedSweep::clearSParameterGroup() {
     _channel->linearSweep().clearSParameterGroup();
 }
 ComplexMatrix3D VnaSegmentedSweep::readSParameterGroup() {
-    return(_channel->linearSweep().readSParameterGroup());
+    QString scpi = ":CALC%1:DATA:SGR? SDAT\n";
+    scpi = scpi.arg(_channelIndex);
+
+    ComplexMatrix3D sParameters;
+    uint ports = sParameterGroup().size();
+    uint points = this->points();
+    if (ports <= 0)
+        return sParameters;
+    uint bufferSize = dataBufferSize(ports, points);
+
+    bool isContinuousSweep = _channel->isContinuousSweep();
+    if (isContinuousSweep)
+        _channel->manualSweepOn();
+    _channel->startSweep();
+    _vna->pause(sweepTime_ms() * _channel->sweepCount());
+    ComplexRowVector data = _vna->queryComplexVector(scpi, bufferSize);
+    if (isContinuousSweep)
+        _channel->continuousSweepOn();
+    return toComplexMatrix3D(data, points, ports, ports);
 }
+
 uint VnaSegmentedSweep::sweepTime_ms() {
     QString scpi = ":SENS%1:SEGM:SWE:TIME:SUM?\n";
     scpi = scpi.arg(_channelIndex);
@@ -155,25 +174,37 @@ uint VnaSegmentedSweep::sweepTime_ms() {
 NetworkData VnaSegmentedSweep::measure(uint port1) {
     QVector<uint> ports;
     ports << port1;
-    return(measure(ports));
+    return measure(ports);
 }
 NetworkData VnaSegmentedSweep::measure(uint port1, uint port2) {
     QVector<uint> ports;
     ports << port1 << port2;
-    return(measure(ports));
+    return measure(ports);
 }
 NetworkData VnaSegmentedSweep::measure(uint port1, uint port2, uint port3) {
     QVector<uint> ports;
     ports << port1 << port2 << port3;
-    return(measure(ports));
+    return measure(ports);
 }
 NetworkData VnaSegmentedSweep::measure(uint port1, uint port2, uint port3, uint port4) {
     QVector<uint> ports;
     ports << port1 << port2 << port3 << port4;
-    return(measure(ports));
+    return measure(ports);
 }
 NetworkData VnaSegmentedSweep::measure(QVector<uint> ports) {
-    return(_channel->linearSweep().measure(ports));
+    NetworkData network;
+
+    if (ports.size() <= 0)
+        return network;
+    if (_channel->isCwSweep() || _channel->isTimeSweep())
+        return network;
+
+    setSParameterGroup(ports);
+    network.setParameter(NetworkParameter::S);
+    network.setReferenceImpedance(50);
+    network.setXUnits(Units::Hertz);
+    network.setData(frequencies_Hz(), readSParameterGroup());
+    return network;
 }
 
 
@@ -201,14 +232,20 @@ void VnaSegmentedSweep::operator=(VnaSegmentedSweep const &other) {
 // Private
 bool VnaSegmentedSweep::isFullyInitialized() const {
     if (_vna == NULL)
-        return(false);
+        return false;
     if (_vna == placeholder.data())
-        return(false);
+        return false;
 
     //else
-    return(true);
+    return true;
 }
 uint VnaSegmentedSweep::frequencyBufferSize(uint points) {
     const uint SIZE_PER_POINT = 20;
-    return(SIZE_PER_POINT * points);
+    return SIZE_PER_POINT * points;
+}
+uint VnaSegmentedSweep::dataBufferSize(uint ports, uint points) {
+    const uint HEADER_MAX_SIZE = 11;
+    const uint SIZE_PER_POINT = 16;
+    const uint INSURANCE = 20;
+    return HEADER_MAX_SIZE + SIZE_PER_POINT*points*pow(double(ports), 2.0) + INSURANCE;
 }
