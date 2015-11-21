@@ -108,20 +108,21 @@ void VnaDiagram::setTitle(QString title) {
 }
 
 void VnaDiagram::autoscale() {
-
+    qDebug() << "ERROR: VnaDiagram::autoscale not written...";
+    _vna->print("SCPI Error: VnaDiagram::autoscale not written...\n\n");
 }
 void VnaDiagram::setYAxisMinimum(double min) {
-    QStringList traces = _vna->traces();
+    QStringList traces = this->traces();
     foreach (QString trace, traces)
         _vna->trace(trace).setYAxisMinimum(min);
 }
 void VnaDiagram::setYAxisMaximum(double max) {
-    QStringList traces = _vna->traces();
+    QStringList traces = this->traces();
     foreach (QString trace, traces)
         _vna->trace(trace).setYAxisMaximum(max);
 }
 void VnaDiagram::setYAxis(double min, double max) {
-    QStringList traces = _vna->traces();
+    QStringList traces = this->traces();
     foreach (QString trace, traces)
         _vna->trace(trace).setYAxis(min, max);
 }
