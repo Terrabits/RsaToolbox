@@ -23,6 +23,7 @@ public:
     void showPercentage();
     void hidePercentage();
 
+public slots:
     void start(uint stopTime_ms);
     void start(const QString &caption, uint stopTime_ms);
     void stop();

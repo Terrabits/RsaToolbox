@@ -34,7 +34,7 @@ INCLUDEPATH += $$PWD \
                $$PWD/Gui/PointsEdit \
                $$PWD/Gui/PortsLineEdit \
                $$PWD/Gui/PowerEdit \
-               $$PWD/TimedProgressBar \
+               $$PWD/Gui/TimedProgressBar \
                $$PWD/Gui/Update \
                $$PWD/Gui/Wizard \
                $$PWD/Test \
