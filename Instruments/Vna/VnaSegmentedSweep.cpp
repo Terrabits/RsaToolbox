@@ -165,10 +165,13 @@ ComplexMatrix3D VnaSegmentedSweep::readSParameterGroup() {
 }
 
 uint VnaSegmentedSweep::sweepTime_ms() {
+    // Is this fixed as of ZNB firmware v2.60 beta,
+    // ZVA firmware v3.50?
+    // It appears to be working now...
     QString scpi = ":SENS%1:SEGM:SWE:TIME:SUM?\n";
     scpi = scpi.arg(_channelIndex);
-//    return _vna->query(scpi).trimmed().toDouble() * 1000;
-    return 600000; // 10 minutes!
+    return ceil(_vna->query(scpi).trimmed().toDouble() * 1000);
+//    return 600000; // 10 minutes!
 }
 
 NetworkData VnaSegmentedSweep::measure(uint port1) {

@@ -2,6 +2,8 @@
 
 QT          += widgets
 HEADERS     += $$PWD/About/About.h \
+               $$PWD/ConnectButton/ConnectButton.h \
+               $$PWD/ConnectionTypeComboBox/ConnectionTypeComboBox.h \
                $$PWD/DecibelEdit/DecibelEdit.h \
                $$PWD/ErrorLabel/ErrorLabel.h \
                $$PWD/Figure/Figure.h \
@@ -13,14 +15,15 @@ HEADERS     += $$PWD/About/About.h \
                $$PWD/PointsEdit/PointsEdit.h \
                $$PWD/PortsLineEdit/PortsLineEdit.h \
                $$PWD/PowerEdit/PowerEdit.h \
-               $$PWD/ConnectButton/ConnectButton.h \
-               $$PWD/ConnectionTypeComboBox/ConnectionTypeComboBox.h \
+               $$PWD/TimedProgressBar/TimedProgressBar.h \
                $$PWD/Update/Update.h \
                $$PWD/Wizard/Wizard.h \
                $$PWD/Wizard/WizardPage.h \
                $$PWD/Wizard/BreadCrumbs.h \
                $$PWD/Wizard/WizardButtons.h
 INCLUDEPATH += $$PWD/About \
+               $$PWD/ConnectButton \
+               $$PWD/ConnectionTypeComboBox \
                $$PWD/DecibelEdit \
                $$PWD/ErrorLabel \
                $$PWD/Figure \
@@ -32,11 +35,12 @@ INCLUDEPATH += $$PWD/About \
                $$PWD/PointsEdit \
                $$PWD/PortsLineEdit \
                $$PWD/PowerEdit \
-               $$PWD/ConnectButton \
-               $$PWD/ConnectionTypeComboBox \
+               $$PWD/TimedProgressBar \
                $$PWD/Update \
                $$PWD/Wizard
 SOURCES     += $$PWD/About/About.cpp \
+               $$PWD/ConnectButton/ConnectButton.cpp \
+               $$PWD/ConnectionTypeComboBox/ConnectionTypeComboBox.cpp \
                $$PWD/DecibelEdit/DecibelEdit.cpp \
                $$PWD/ErrorLabel/ErrorLabel.cpp \
                $$PWD/Figure/Figure.cpp \
@@ -48,8 +52,7 @@ SOURCES     += $$PWD/About/About.cpp \
                $$PWD/PointsEdit/PointsEdit.cpp \
                $$PWD/PortsLineEdit/PortsLineEdit.cpp \
                $$PWD/PowerEdit/PowerEdit.cpp \
-               $$PWD/ConnectButton/ConnectButton.cpp \
-               $$PWD/ConnectionTypeComboBox/ConnectionTypeComboBox.cpp \
+               $$PWD/TimedProgressBar/TimedProgressBar.cpp \
                $$PWD/Update/Update.cpp \
                $$PWD/Wizard/Wizard.cpp \
                $$PWD/Wizard/WizardPage.cpp \
@@ -60,6 +63,7 @@ FORMS       += $$PWD/About/About.ui \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.ui \
                $$PWD/GetSnpFile/GetSnpFile.ui \
                $$PWD/ListPanel/ListPanel.ui \
+               $$PWD/TimedProgressBar/TimedProgressBar.ui \
                $$PWD/Update/Update.ui \
                $$PWD/Wizard/Wizard.ui \
                $$PWD/Wizard/BreadCrumbs.ui \
