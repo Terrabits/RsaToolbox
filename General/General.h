@@ -173,6 +173,7 @@ double linearInterpolateY(double x1, double y1, double x2, double y2, double x_d
 QRowVector linearInterpolateY(QRowVector x, QRowVector y, QRowVector xDesired);
 ComplexDouble linearInterpolateY(double x1, ComplexDouble y1, double x2, ComplexDouble y2, double x_desired);
 ComplexDouble linearInterpolateYMagPhase(double x1, ComplexDouble y1, double x2, ComplexDouble y2, double x_desired);
+ComplexMatrix2D linearInterpolateYMagPhase(double x1, ComplexMatrix2D y1, double x2, ComplexMatrix2D y2, double x_desired);
 ComplexRowVector linearInterpolateReIm(QRowVector x, ComplexRowVector y, QRowVector xDesired);
 ComplexRowVector linearInterpolateMagPhase(QRowVector x, ComplexRowVector y, QRowVector xDesired);
 

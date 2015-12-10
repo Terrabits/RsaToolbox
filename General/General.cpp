@@ -991,6 +991,16 @@ ComplexDouble RsaToolbox::linearInterpolateYMagPhase(double x1, ComplexDouble y1
             = linearInterpolateY(x1, phase1, x2, phase2, x_desired);
     return fromMagDegrees(mag_desired, phase_desired);
 }
+ComplexMatrix2D RsaToolbox::linearInterpolateYMagPhase(double x1, ComplexMatrix2D y1, double x2, ComplexMatrix2D y2, double x_desired) {
+    ComplexMatrix2D result(y1.size());
+    for (uint i = 0; i < y1.size(); i++) {
+        result[i].resize(y1[i].size());
+        for (uint j = 0; j < y1[i].size(); j++) {
+            result[i][j] = linearInterpolateYMagPhase(x1, y1[i][j], x2, y2[i][j], x_desired);
+        }
+    }
+    return result;
+}
 
 ComplexRowVector RsaToolbox::linearInterpolateReIm(QRowVector x, ComplexRowVector y, QRowVector xDesired) {
     int newPoints = xDesired.size();
