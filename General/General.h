@@ -140,6 +140,7 @@ QRowVector real(ComplexRowVector complexValues);
 QRowVector imaginary(ComplexRowVector complexValues);
 
 ComplexDouble fromRealImag(double real, double imag);
+ComplexDouble fromMagRadians(double magnitude, double angle_rad);
 ComplexDouble fromMagDegrees(double magnitude, double angle_deg);
 ComplexDouble fromDbDegrees(double dB, double angle_deg);
 

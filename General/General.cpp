@@ -562,14 +562,14 @@ double RsaToolbox::toDb(double magnitude) {
     return(20.0 * log10(magnitude));
 }
 QRowVector RsaToolbox::toDb(QRowVector magnitudes) {
-    int size = magnitudes.size();
-    QRowVector dB(size);
+    const int size = magnitudes.size();
+    QRowVector result(size);
     for (int i = 0; i < size; i++)
-        dB[i] = toDb(magnitudes[i]);
-    return(dB);
+        result[i] = toDb(magnitudes[i]);
+    return result;
 }
 double RsaToolbox::toDb(ComplexDouble complexValue) {
-    return(toDb(std::abs(complexValue)));
+    return toDb(std::abs(complexValue));
 }
 QRowVector RsaToolbox::toDb(ComplexRowVector complexValues) {
     int points = int(complexValues.size());
@@ -676,16 +676,19 @@ QRowVector RsaToolbox::imaginary(ComplexRowVector complexValues) {
 }
 
 ComplexDouble RsaToolbox::fromRealImag(double real, double imag) {
-    return(ComplexDouble(real, imag));
+    return ComplexDouble(real, imag);
+}
+ComplexDouble RsaToolbox::fromMagRadians(double magnitude, double angle_rad) {
+    const double real = magnitude * std::cos(angle_rad);
+    const double imag = magnitude * std::sin(angle_rad);
+    return ComplexDouble(real, imag);
 }
 ComplexDouble RsaToolbox::fromMagDegrees(double magnitude, double angle_deg) {
-    double real = magnitude * std::cos(radians(angle_deg));
-    double imag = magnitude * std::sin(radians(angle_deg));
-    return(ComplexDouble(real, imag));
+    return fromMagRadians(magnitude, radians(angle_deg));
 }
 ComplexDouble RsaToolbox::fromDbDegrees(double dB, double angle_deg) {
-    double mag = toMagnitude(dB);
-    return(fromMagDegrees(mag, angle_deg));
+    const double magnitude = toMagnitude(dB);
+    return fromMagDegrees(magnitude, angle_deg);
 }
 
 
@@ -930,11 +933,11 @@ void RsaToolbox::prettyAxis(double &min, double &max, double &tickStep, int &sub
 
 double RsaToolbox::linearInterpolateX(double x1, double y1, double x2, double y2, double y_desired) {
     double invSlope = (x2 - x1)/(y2 - y1);
-    return(x1 + invSlope*(y_desired - y1));
+    return x1 + invSlope * (y_desired - y1);
 }
 double RsaToolbox::linearInterpolateY(double x1, double y1, double x2, double y2, double x_desired) {
     double slope = (y2 - y1)/(x2 - x1);
-    return(y1 + slope*(x_desired - x1));
+    return y1 + slope * (x_desired - x1);
 }
 QRowVector RsaToolbox::linearInterpolateY(QRowVector x, QRowVector y, QRowVector xDesired) {
     int i = 0;
@@ -974,22 +977,22 @@ ComplexDouble RsaToolbox::linearInterpolateY(double x1, ComplexDouble y1, double
     return(y1 + slope*(x_desired - x1));
 }
 ComplexDouble RsaToolbox::linearInterpolateYMagPhase(double x1, ComplexDouble y1, double x2, ComplexDouble y2, double x_desired) {
-    double mag1 = abs(y1);
-    double phase1 = angle_deg(y1);
-    double mag2 = abs(y2);
-    double phase2 = angle_deg(y2);
-    if (abs(phase2 - phase1) > 90.0) {
+    const double mag1 = abs(y1);
+    const double phase1 = angle_rad(y1);
+    const double mag2 = abs(y2);
+    double phase2 = angle_rad(y2);
+    if (abs(phase2 - phase1) > PI) {
         if (phase2 > phase1)
-            phase2 -= 360.0;
+            phase2 -= 2.0*PI;
         else
-            phase2 += 360.0;
+            phase2 += 2.0*PI;
     }
 
-    double mag_desired
+    const double mag_desired
             = linearInterpolateY(x1, mag1, x2, mag2, x_desired);
-    double phase_desired
+    const double phase_desired
             = linearInterpolateY(x1, phase1, x2, phase2, x_desired);
-    return fromMagDegrees(mag_desired, phase_desired);
+    return fromMagRadians(mag_desired, phase_desired);
 }
 ComplexMatrix2D RsaToolbox::linearInterpolateYMagPhase(double x1, ComplexMatrix2D y1, double x2, ComplexMatrix2D y2, double x_desired) {
     ComplexMatrix2D result(y1.size());
