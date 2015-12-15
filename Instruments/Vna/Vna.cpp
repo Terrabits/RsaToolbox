@@ -297,7 +297,7 @@ QRowVector Vna::readVector(uint bufferSize_B, uint timeout_ms) {
  */
 ComplexRowVector Vna::readComplexVector(uint bufferSize_B, uint timeout_ms) {
     QRowVector result = readVector(bufferSize_B, timeout_ms);
-    return(parseComplex(result));
+    return parseComplex(result);
 }
 
 /*!

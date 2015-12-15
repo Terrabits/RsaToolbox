@@ -38,6 +38,8 @@ INCLUDEPATH += $$PWD \
                $$PWD/Gui/Update \
                $$PWD/Gui/Wizard \
                $$PWD/Test \
+               $$PWD/Test/TestRunner \
+               $$PWD/Test/SpeedTracker \
                $$PWD/QCustomPlot \
                $$PWD/Server
 
