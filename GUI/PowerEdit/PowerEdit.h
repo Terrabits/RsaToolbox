@@ -29,6 +29,10 @@ public:
     void setMinimum(double power_dBm);
     void setMaximum(double power_dBm);
 
+    // Add
+    void clearAcceptedValues();
+    void setAcceptedValues(const QRowVector &powers_dBm);
+
 public slots:
     void setText(const QString &text); // Override?
     void setPower(double power_dBm);
@@ -58,6 +62,10 @@ private:
     bool _isMaximum;
     double _minimum_dBm;
     double _maximum_dBm;
+
+    // Add
+    bool isAcceptedValues() const;
+    QRowVector _acceptedValues_dBm;
 
 }; // PowerEdit
 } // RsaToolbox

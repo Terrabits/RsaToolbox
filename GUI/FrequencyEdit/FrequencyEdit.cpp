@@ -88,7 +88,7 @@ void FrequencyEdit::setMaximum(double value, SiPrefix prefix) {
 void FrequencyEdit::clearAcceptedValues() {
     _acceptedValues_Hz.clear();
 }
-void FrequencyEdit::setAcceptedValues(QRowVector frequencies_Hz) {
+void FrequencyEdit::setAcceptedValues(const QRowVector &frequencies_Hz) {
     clearMinimum();
     clearMaximum();
 

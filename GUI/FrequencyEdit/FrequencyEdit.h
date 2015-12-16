@@ -32,7 +32,7 @@ public:
     void setMaximum(double value, SiPrefix prefix);
 
     void clearAcceptedValues();
-    void setAcceptedValues(QRowVector frequencies_Hz);
+    void setAcceptedValues(const QRowVector &frequencies_Hz);
 
 public slots:
     void setText(const QString &text); // Override?

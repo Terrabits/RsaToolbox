@@ -57,6 +57,8 @@ void PowerEdit::clearMaximum() {
     _maximum_dBm = 150.0;
 }
 void PowerEdit::setMinimum(double power_dBm) {
+    clearAcceptedValues();
+
     power_dBm = round(power_dBm, 2);
     _isMinimum = true;
     _minimum_dBm = power_dBm;
@@ -66,6 +68,8 @@ void PowerEdit::setMinimum(double power_dBm) {
         setPower(_power_dBm);
 }
 void PowerEdit::setMaximum(double power_dBm) {
+    clearAcceptedValues();
+
     power_dBm = round(power_dBm, 2);
     _isMaximum = true;
     _maximum_dBm = power_dBm;
@@ -73,6 +77,19 @@ void PowerEdit::setMaximum(double power_dBm) {
     // Check for validity
     if (!text().isEmpty())
         setPower(_power_dBm);
+}
+
+void PowerEdit::clearAcceptedValues() {
+    _acceptedValues_dBm.clear();
+}
+void PowerEdit::setAcceptedValues(const QRowVector &powers_dBm) {
+    clearMinimum();
+    clearMaximum();
+
+    _acceptedValues_dBm = powers_dBm;
+    if (!text().isEmpty()) {
+        setPower(_power_dBm);
+    }
 }
 
 // Slots:
@@ -161,6 +178,9 @@ void PowerEdit::processText() {
         emit outOfRange(msg);
         power_dBm = _maximum_dBm;
     }
+    else if (isAcceptedValues() && !_acceptedValues_dBm.contains(power_dBm)) {
+        power_dBm = findClosest(power_dBm, _acceptedValues_dBm);
+    }
 
     // If value is unchanged, clean up
     // display and return
@@ -176,3 +196,6 @@ void PowerEdit::processText() {
     emit PowerEdited(_power_dBm);
 }
 
+bool PowerEdit::isAcceptedValues() const {
+    return !_acceptedValues_dBm.isEmpty();
+}
