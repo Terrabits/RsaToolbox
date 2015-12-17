@@ -86,8 +86,10 @@ void PointsEdit::setPoints(uint points) {
     if (_isMaximum && points > _maximum)
         points = _maximum;
 
-    if (points == _points)
+    if (points == _points) {
+        updateText();
         return;
+    }
 
     _points = points;
     updateText();

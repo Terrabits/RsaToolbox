@@ -100,8 +100,10 @@ void PowerEdit::setPower(double power_dBm) {
     if (_isMaximum && power_dBm > _maximum_dBm)
         power_dBm = _maximum_dBm;
 
-    if (power_dBm == _power_dBm)
+    if (power_dBm == _power_dBm) {
+        updateText();
         return;
+    }
 
     _power_dBm = power_dBm;
     updateText();

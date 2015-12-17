@@ -82,8 +82,10 @@ void DecibelEdit::setValue(double value_dB) {
     if (_isMaximum && value_dB > _maximum_dB)
         value_dB = _maximum_dB;
 
-    if (value_dB == _value_dB)
+    if (value_dB == _value_dB) {
+        updateText();
         return;
+    }
 
     _value_dB = value_dB;
     updateText();

@@ -112,8 +112,10 @@ void FrequencyEdit::setFrequency(double frequency_Hz) {
     if (isAcceptedValues())
         frequency_Hz = findClosest(frequency_Hz, _acceptedValues_Hz);
 
-    if (frequency_Hz == _frequency_Hz)
+    if (frequency_Hz == _frequency_Hz) {
+        updateText();
         return;
+    }
 
     _frequency_Hz = frequency_Hz;
     updateText();
