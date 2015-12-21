@@ -1006,7 +1006,7 @@ ComplexMatrix2D RsaToolbox::linearInterpolateYMagPhase(double x1, ComplexMatrix2
 }
 
 ComplexRowVector RsaToolbox::linearInterpolateReIm(QRowVector x, ComplexRowVector y, QRowVector xDesired) {
-    int newPoints = xDesired.size();
+    const int newPoints = xDesired.size();
     ComplexRowVector result(newPoints);
 
     int i = 0;
@@ -1026,46 +1026,72 @@ ComplexRowVector RsaToolbox::linearInterpolateReIm(QRowVector x, ComplexRowVecto
     return result;
 }
 ComplexRowVector RsaToolbox::linearInterpolateMagPhase(QRowVector x, ComplexRowVector y, QRowVector xDesired) {
-    int i = 0;
-    int oldPoints = x.size();
+    ComplexRowVector result;
 
-    int j = 1;
-    int newPoints = xDesired.size();
+    // Handle corner cases
+    // - No values
+    if (x.isEmpty())
+        return result;
+    if (y.size() == 0)
+        return result;
+    if (xDesired.isEmpty())
+        return result;
 
-    // First two points to interpolate from
-    double x1 = x[j-1];
-    double x2 = x[j];
-    double mag1 = abs(y[j-1]);
-    double phase1 = angle_rad(y[j-1]);
-    double mag2 = abs(y[j]);
-    double phase2 = angle_rad(y[j]);
+    // - Invalid
+    if (x.size() != y.size())
+        return result;
 
-    // Interpolate xDesired[i] <= x.last()
-    ComplexRowVector result(newPoints);
-    for (; j < oldPoints; j++) {
-        // Assume no aliasing, "unwrap"
-        if (phase2 - phase1 > PI)
-            phase1 += 2*PI;
-        else if (phase1 - phase2 > PI)
-            phase2 += 2*PI;
-
-        while (i < newPoints && xDesired[i] <= x2) {
-            double mag = linearInterpolateY(x1, mag1, x2, mag2, xDesired[i]);
-            double phase = linearInterpolateY(x1, phase1, x2, phase2, xDesired[i]);
-            result[i] = std::polar(mag, phase);
-            i++;
-        }
-        if (i >= newPoints)
-            break;
+    // Only one (x,y) point
+    if (x.size() == 1) {
+        result = ComplexRowVector(xDesired.size(), y[0]);
+        return result;
     }
 
-    // Interpolate xDesired[i] > x.last()
-    // Using last two x, y points
-    while (i < newPoints) {
-        double mag = linearInterpolateY(x1, mag1, x2, mag2, xDesired[i]);
-        double phase = linearInterpolateY(x1, phase1, x2, phase2, xDesired[i]);
-        result[i] = std::polar(mag, phase);
-        i++;
+    // Setup for first point
+    int iOld = 1;
+    double x1 = x[iOld-1];
+    ComplexDouble y1 = y[iOld-1];
+    double x2 = x[iOld];
+    ComplexDouble y2 = y[iOld];
+
+    int iNew = 0;
+
+    // Set xDesired points below x range
+    // to first value of y
+    // (No interpolation)
+    while (xDesired[iNew] < x1) {
+        result.push_back(y1);
+        iNew++;
+    }
+
+    // Interpolate xDesired points
+    // within range of x
+    while (iNew < xDesired.size()) {
+        // Find points to interpolate between
+        const double xNew = xDesired[iNew];
+        while (xNew > x2 && iOld+1 < x.size()) {
+            iOld++;
+            x1 = x[iOld-1];
+            y1 = y[iOld-1];
+            x2 = x[iOld];
+            y2 = y[iOld];
+        }
+
+        // break if greater than x range
+        if (xNew > x2)
+            break;
+
+        const ComplexDouble yNew = linearInterpolateYMagPhase(x1, y1, x2, y2, xNew);
+        result.push_back(yNew);
+        iNew++;
+    }
+
+    // Set xDesired points above x range
+    // to last value of y
+    // (No interpolation)
+    while (iNew < xDesired.size()) {
+        result.push_back(y2);
+        iNew++;
     }
 
     return result;
