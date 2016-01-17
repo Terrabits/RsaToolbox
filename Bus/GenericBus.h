@@ -18,6 +18,7 @@ namespace RsaToolbox {
 
 enum /*class*/ ConnectionType {
     TCPIP_CONNECTION,
+    HISLIP_CONNECTION,
     GPIB_CONNECTION,
     USB_CONNECTION,
     NO_CONNECTION

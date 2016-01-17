@@ -96,6 +96,10 @@ VisaBus::VisaBus(ConnectionType connectionType, QString address,
         resource = resource.arg(toString(connectionType));
         resource = resource.arg(address);
         break;
+    case HISLIP_CONNECTION:
+        resource = "TCPIP::%1::hislip0";
+        resource = resource.arg(address);
+        break;
     default:
         return;
     }
