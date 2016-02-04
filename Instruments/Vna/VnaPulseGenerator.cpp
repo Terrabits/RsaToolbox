@@ -8,7 +8,7 @@
 using namespace RsaToolbox;
 
 // Qt includes
-// #include <Qt>
+#include <QString>
 
 
 VnaPulseGenerator::VnaPulseGenerator(QObject *parent) :
@@ -53,8 +53,65 @@ VnaPulseGenerator::~VnaPulseGenerator() {
 
 }
 
+bool VnaPulseGenerator::isOn() {
+    QString scpi = ":SENS%1:PULS:GEN1?\n";
+    scpi = scpi.arg(_channelIndex);
+    return _vna->query(scpi).trimmed() == "1";
+}
+void VnaPulseGenerator::on(bool isOn) {
+    QString scpi;
+    if (isOn)
+        scpi = ":SENS%1:PULS:GEN1 1\n";
+    else
+        scpi = ":SENS%1:PULS:GEN1 0\n";
+    scpi = scpi.arg(_channelIndex);
+    _vna->write(scpi);
+}
+void VnaPulseGenerator::off(bool isOff) {
+    on(!isOff);
+}
 
+double VnaPulseGenerator::delay_s() {
+    QString scpi = ":SENS%1:PULS:GEN1:DEL?\n";
+    scpi = scpi.arg(_channelIndex);
+    return _vna->query(scpi).trimmed().toDouble();
+}
+void VnaPulseGenerator::setDelay(double value, SiPrefix prefix) {
+    QString scpi = ":SENS%1:PULS:GEN1:DEL %2\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(value);
+    if (prefix != SiPrefix::None)
+        scpi = scpi + " " + toString(prefix, Units::Seconds);
+    _vna->write(scpi);
+}
 
+double VnaPulseGenerator::pulseWidth_s() {
+    QString scpi = ":SENS%1:PULS:GEN1:WIDT?\n";
+    scpi = scpi.arg(_channelIndex);
+    return _vna->query(scpi).trimmed().toDouble();
+}
+void VnaPulseGenerator::setPulseWidth(double value, SiPrefix prefix) {
+    QString scpi = ":SENS%1:PULS:GEN1:WIDT %2\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(value);
+    if (prefix != SiPrefix::None)
+        scpi = scpi + " " + toString(prefix, Units::Seconds);
+    _vna->write(scpi);
+}
+
+double VnaPulseGenerator::period_s() {
+    QString scpi = ":SENS%1:PULS:GEN1:PER?\n";
+    scpi = scpi.arg(_channelIndex);
+    return _vna->query(scpi).trimmed().toDouble();
+}
+void VnaPulseGenerator::setPeriod(double value, SiPrefix prefix) {
+    QString scpi = ":SENS%1:PULS:GEN1:PER %2\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(value);
+    if (prefix != SiPrefix::None)
+        scpi = scpi + " " + toString(prefix, Units::Seconds);
+    _vna->write(scpi);
+}
 
 void VnaPulseGenerator::operator=(VnaPulseGenerator const &other) {
     if (other.isFullyInitialized()) {

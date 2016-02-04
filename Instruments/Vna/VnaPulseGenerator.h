@@ -26,7 +26,18 @@ public:
     VnaPulseGenerator(Vna *vna, uint channelIndex, QObject *parent = 0);
     ~VnaPulseGenerator();
 
-    // Methods
+    bool isOn();
+    void on(bool isOn = true);
+    void off(bool isOff = true);
+
+    double delay_s();
+    void setDelay(double value, SiPrefix prefix = SiPrefix::None);
+
+    double pulseWidth_s();
+    void setPulseWidth(double value, SiPrefix prefix = SiPrefix::None);
+
+    double period_s();
+    void setPeriod(double value, SiPrefix prefix = SiPrefix::None);
 
     void operator=(VnaPulseGenerator const &other);
 

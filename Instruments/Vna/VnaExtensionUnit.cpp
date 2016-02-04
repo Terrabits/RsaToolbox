@@ -53,7 +53,34 @@ VnaExtensionUnit::~VnaExtensionUnit() {
 
 }
 
+QString VnaExtensionUnit::idString() {
+    QString scpi = ":SYST:COMM:RDEV:TEUN:IDN?\n";
+    return _vna->query(scpi).trimmed();
+}
+QStringList VnaExtensionUnit::options() {
+    QString scpi = ":SYST:COMM:RDEV:TEUN:OPT?\n";
+    return _vna->query(scpi).trimmed().split(",", QString::SkipEmptyParts);
+}
 
+bool VnaExtensionUnit::isPulseModulatorOn(uint path) {
+    QString scpi = ":SENS%1:PULS:GEN%2?\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(path);
+    return _vna->query(scpi).trimmed() == "1";
+}
+void VnaExtensionUnit::pulseModulatorOn(uint path, bool isOn) {
+    QString scpi;
+    if (isOn)
+        scpi = ":SENS%1:PULS:GEN%2 1\n";
+    else
+        scpi = ":SENS%1:PULS:GEN%2 0\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(path);
+    _vna->write(scpi);
+}
+void VnaExtensionUnit::pulseModulatorOff(uint path, bool isOff) {
+    pulseModulatorOn(path, !isOff);
+}
 
 void VnaExtensionUnit::operator=(VnaExtensionUnit const &other) {
     if (other.isFullyInitialized()) {

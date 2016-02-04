@@ -2142,6 +2142,15 @@ VnaCalUnit *Vna::takeCalUnit(QString id) {
     return(new VnaCalUnit(this, id));
 }
 
+// Extension Units
+bool Vna::isExtensionUnit() {
+    // Does this query ZVAX-TRM only?
+    // Or ZVAX24, 40?
+    QString scpi = ":SYST:COMM:RDEV:TEUN:COUN?\n";
+    return query(scpi).trimmed().toUInt() >= 1;
+}
+
+// Global Limits
 bool Vna::isGlobalLimitsPass() {
     return !isGlobalLimitsFail();
 }

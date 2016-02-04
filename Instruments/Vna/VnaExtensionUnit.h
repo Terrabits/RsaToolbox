@@ -9,6 +9,8 @@
 // Qt
 #include <QObject>
 #include <QScopedPointer>
+#include <QString>
+#include <QStringList>
 
 
 namespace RsaToolbox {
@@ -26,7 +28,13 @@ public:
     VnaExtensionUnit(Vna *vna, uint channelIndex, QObject *parent = 0);
     ~VnaExtensionUnit();
 
-    // Methods
+    QString idString();
+    QStringList options();
+
+    bool isPulseModulatorOn(uint path = 1);
+    void pulseModulatorOn(uint path = 1, bool isOn = true);
+    void pulseModulatorOff(uint path = 1, bool isOff = true);
+
 
     void operator=(VnaExtensionUnit const &other);
 
