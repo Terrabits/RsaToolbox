@@ -435,11 +435,6 @@ void VnaCalibrate::operator=(const VnaCalibrate &other) {
     }
 }
 
-//void VnaCalibrate::moveToThread(QThread *thread) {
-//    QObject::moveToThread(thread);
-//    if (_channel.isNull() == false)
-//        _channel->moveToThread(thread);
-//}
 
 // Private
 bool VnaCalibrate::isFullyInitialized() const {

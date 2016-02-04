@@ -12,10 +12,11 @@
 #include "VnaPowerSweep.h"
 #include "VnaCwSweep.h"
 #include "VnaTimeSweep.h"
-
 #include "VnaUserDefinedPort.h"
 #include "VnaAveraging.h"
 #include "VnaCalibrate.h"
+#include "VnaExtensionUnit.h"
+#include "VnaPulseGenerator.h"
 
 // This should probably be rolled into
 // VnaCorrections.h (a lot of the same
@@ -67,7 +68,7 @@ public:
     QVector<uint> diagrams();
     QStringList traces();
 
-    // Triggering
+    // Sweep control
     void startSweep();
     uint numberOfSweeps();
     void setNumberOfSweeps(uint sweeps);
@@ -87,7 +88,7 @@ public:
     uint sweepTime_ms();
     uint calibrationSweepTime_ms();
 
-    // Sweep
+    // Sweep type
     bool isFrequencySweep();
     bool isLinearSweep();
     bool isLogarithmicSweep();
@@ -167,6 +168,24 @@ public:
      VnaPowerCorrections &powerCorrections();
 //     VnaPowerCalibrate &powerCalibrate();
 
+     // Pulse Modulator
+     VnaExtensionUnit &extensionUnit();
+//     bool VnaExtensionUnit::isPulseModulatorOn(uint path);
+//     void VnaExtensionUnit::pulseModulatorOn(uint path, bool isOn = true);
+//     void VnaExtensionUnit::pulseModulatorOff(uint path, bool isOff = true);
+
+     // Pulse Generator signal
+     VnaPulseGenerator &pulseGenerator();
+//     bool VnaPulseGenerator::isOn();
+//     void VnaPulseGenerator::on(bool isOn = true);
+//     void VnaPulseGenerator::off(bool isOff = true);
+//     double VnaPulseGenerator::delay_s();
+//     void VnaPulseGenerator::setDelay(double value, SiPrefix prefix = SiPrefix::None);
+//     double VnaPulseGenerator::pulseWidth_s();
+//     void VnaPulseGenerator::setPulseWidth(double value, SiPrefix prefix = SiPrefix::None);
+//     double VnaPulseGenerator::period_s();
+//     void VnaPulseGenerator::setPeriod(double value, SiPrefix prefix = SiPrefix::None);
+
     void operator=(const VnaChannel &other);
 
 //    void moveToThread(QThread *thread);
@@ -185,6 +204,8 @@ private:
     QScopedPointer<VnaCorrections> _corrections;
     QScopedPointer<VnaPowerCorrections> _powerCorrections;
     QScopedPointer<VnaCalibrate> _calibrate;
+    QScopedPointer<VnaExtensionUnit> _extensionUnit;
+    QScopedPointer<VnaPulseGenerator> _pulseGenerator;
 
     bool isFullyInitialized() const;
     QStringList zvaTraces();

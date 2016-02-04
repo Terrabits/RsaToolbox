@@ -566,6 +566,18 @@ VnaPowerCorrections &VnaChannel::powerCorrections() {
     return *_powerCorrections;
 }
 
+// Extension Unit
+VnaExtensionUnit &VnaChannel::extensionUnit() {
+    _extensionUnit.reset(new VnaExtensionUnit(_vna, this));
+    return *_extensionUnit;
+}
+
+// Pulse Generator Signal
+VnaPulseGenerator &VnaChannel::pulseGenerator() {
+    _pulseGenerator.reset(new VnaPulseGenerator(_vna, this));
+    return *_pulseGenerator;
+}
+
 void VnaChannel::operator=(const VnaChannel &other) {
     if (other.isFullyInitialized()) {
         _vna = other._vna;

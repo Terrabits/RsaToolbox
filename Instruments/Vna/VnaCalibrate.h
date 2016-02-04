@@ -87,8 +87,6 @@ public:
 
     void operator=(const VnaCalibrate &other);
 
-//    void moveToThread(QThread *thread);
-
 private:
     Vna *_vna;
     QScopedPointer<Vna> placeholder;

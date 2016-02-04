@@ -84,7 +84,6 @@ public:
     void deleteConnector(const QString &name);
     void deleteConnector(const Connector &connector);
 
-
     // Cal Kits
     bool isCalKit(NameLabel nameLabel);
     bool isCalKit(QString name, QString label);
@@ -190,6 +189,10 @@ public:
     QStringList calUnits();
     VnaCalUnit &calUnit(QString id);
     VnaCalUnit *takeCalUnit(QString id);
+
+    // Extension Unit
+    // (ZVAX24, ZVAX40, ZVAX-TRM)
+    bool isExtensionUnit();
 
     // Pass/Fail
     bool isGlobalLimitsPass();
