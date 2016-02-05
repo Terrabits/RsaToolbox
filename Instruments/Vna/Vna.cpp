@@ -219,7 +219,7 @@ void Vna::printInfo(QString &info) {
             stream << "Min Frequency:    " << formatValue(_properties.minimumFrequency_Hz(), 1, Units::Hertz) << endl;
             stream << "Max Frequency:    " << formatValue(_properties.maximumFrequency_Hz(), 1, Units::Hertz) << endl;
             stream << "Number of Ports:  " << _properties.physicalPorts() << endl;
-            if (optionsString().size() > 0) {
+            if (!optionsString().isEmpty()) {
                 stream << "Options:          ";
                 stream << toString(_properties.optionsList(), "\n                  ");
                 stream << endl;

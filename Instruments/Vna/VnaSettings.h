@@ -117,6 +117,11 @@ public:
     void setPortPowerLimit(uint physicalPort, double limit_dBm);
     void setPortPowerLimits(double limit_dBm);
 
+    bool isPowerReductionBetweenSweepsOn();
+    void powerReductionBetweenSweepsOn(bool isOn = true);
+    void powerReductionBetweenSweepsOff(bool isOff = true);
+
+
     bool isRfOutputPowerOn();
     bool isRfOutputPowerOff();
     void rfOutputPowerOn(bool isOn = true);

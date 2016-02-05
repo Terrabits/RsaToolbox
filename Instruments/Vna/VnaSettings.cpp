@@ -364,6 +364,22 @@ void VnaSettings::setPortPowerLimits(double limit_dBm) {
         _vna->write(scpi.arg(port));
 }
 
+bool VnaSettings::isPowerReductionBetweenSweepsOn() {
+    const QString scpi = ":SOUR:POW:RED?\n";
+    return _vna->query(scpi).trimmed() == "1";
+}
+void VnaSettings::powerReductionBetweenSweepsOn(bool isOn) {
+    QString scpi;
+    if (isOn)
+        scpi = ":SOUR:POW:RED 1\n";
+    else
+        scpi = ":SOUR:POW:RED 0\n";
+    _vna->write(scpi);
+}
+void VnaSettings::powerReductionBetweenSweepsOff(bool isOff) {
+    powerReductionBetweenSweepsOn(!isOff);
+}
+
 bool VnaSettings::isRfOutputPowerOn() {
     return(_vna->query(":OUTP?\n").trimmed()
            == "1");
