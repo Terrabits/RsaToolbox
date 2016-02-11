@@ -2144,6 +2144,10 @@ VnaCalUnit *Vna::takeCalUnit(QString id) {
 
 // Extension Units
 bool Vna::isExtensionUnit() {
+    // Extension units on ZVA Only
+    if (!properties().isZvaFamily())
+        return false;
+
     // Does this query ZVAX-TRM only?
     // Or ZVAX24, 40?
     QString scpi = ":SYST:COMM:RDEV:TEUN:COUN?\n";

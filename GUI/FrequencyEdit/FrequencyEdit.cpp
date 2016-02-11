@@ -255,7 +255,15 @@ void FrequencyEdit::processText() {
         frequency_Hz = _maximum_Hz;
     }
     else if (isAcceptedValues() && !_acceptedValues_Hz.contains(frequency_Hz)) {
-        frequency_Hz = findClosest(frequency_Hz, _acceptedValues_Hz);
+        double newFrequency_Hz = findClosest(frequency_Hz, _acceptedValues_Hz);
+        if (newFrequency_Hz != frequency_Hz) {
+            QString msg = "*%1 Rounded to closest value: %2";
+            msg = msg.arg(formatValue(frequency_Hz, 3, Units::Hertz));
+            msg = msg.arg(formatValue(newFrequency_Hz, 3, Units::Hertz));
+            emit outOfRange(msg);
+
+            frequency_Hz = newFrequency_Hz;
+        }
     }
 
     // If value is unchanged, clean up

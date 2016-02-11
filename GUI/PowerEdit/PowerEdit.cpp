@@ -99,6 +99,8 @@ void PowerEdit::setPower(double power_dBm) {
         power_dBm = _minimum_dBm;
     if (_isMaximum && power_dBm > _maximum_dBm)
         power_dBm = _maximum_dBm;
+    if (isAcceptedValues())
+        power_dBm = findClosest(power_dBm, _acceptedValues_dBm);
 
     if (power_dBm == _power_dBm) {
         updateText();
@@ -181,7 +183,15 @@ void PowerEdit::processText() {
         power_dBm = _maximum_dBm;
     }
     else if (isAcceptedValues() && !_acceptedValues_dBm.contains(power_dBm)) {
-        power_dBm = findClosest(power_dBm, _acceptedValues_dBm);
+        double newPower_dBm = findClosest(power_dBm, _acceptedValues_dBm);
+        if (newPower_dBm != power_dBm) {
+            QString msg = "*%1 Rounded to closest value: %2";
+            msg = msg.arg(formatValue(power_dBm, 2, Units::dBm));
+            msg = msg.arg(formatValue(power_dBm, 2, Units::dBm));
+            emit outOfRange(msg);
+
+            power_dBm = newPower_dBm;
+        }
     }
 
     // If value is unchanged, clean up
