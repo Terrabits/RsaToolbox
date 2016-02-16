@@ -165,7 +165,7 @@ void VnaCalUnit::exportFactoryCal(QString path) {
 
     select();
     _vna->write(scpi);
-    _vna->pause(5000);
+    _vna->pause(10000);
 }
 void VnaCalUnit::exportLatestCal(QString path) {
     QString scpi = ":MMEM:AKAL:USER:CONV \'%1\'\n";
@@ -173,7 +173,7 @@ void VnaCalUnit::exportLatestCal(QString path) {
 
     select();
     _vna->write(scpi);
-    _vna->pause(5000);
+    _vna->pause(10000);
 }
 void VnaCalUnit::exportCalibration(QString calName, QString path) {
     QString scpi = ":MMEM:AKAL:USER:CONV \'%1\',\'%2\'\n";
@@ -182,7 +182,7 @@ void VnaCalUnit::exportCalibration(QString calName, QString path) {
 
     select();
     _vna->write(scpi);
-    _vna->pause(5000);
+    _vna->pause(10000);
 }
 
 bool VnaCalUnit::isWarmedUp() {
