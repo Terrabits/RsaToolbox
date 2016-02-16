@@ -146,7 +146,7 @@ QVector<uint> VnaCalUnit::portsOfType(QString calName, Connector connector) {
 QStringList VnaCalUnit::calibrations() {
     select();
     QString scpi = ":SYST:COMM:RDEV:AKAL:CKIT:CAT?\n";
-    return _vna->query(scpi).trimmed().split(",", QString::SkipEmptyParts);
+    return _vna->query(scpi).trimmed().remove('\'').split(",", QString::SkipEmptyParts);
 }
 void VnaCalUnit::frequencyRange(QString calName, double &min_Hz, double &max_Hz) {
     QString scpi = ":SYST:COMM:RDEV:AKAL:FRAN? \'%1\'\n";
@@ -160,7 +160,12 @@ void VnaCalUnit::frequencyRange(QString calName, double &min_Hz, double &max_Hz)
 }
 
 void VnaCalUnit::exportFactoryCal(QString path) {
-    exportCalibration("", path);
+    QString scpi = ":MMEM:AKAL:FACT:CONV \'%1\'\n";
+    scpi = scpi.arg(path);
+
+    select();
+    _vna->write(scpi);
+    _vna->pause(5000);
 }
 void VnaCalUnit::exportLatestCal(QString path) {
     QString scpi = ":MMEM:AKAL:USER:CONV \'%1\'\n";
