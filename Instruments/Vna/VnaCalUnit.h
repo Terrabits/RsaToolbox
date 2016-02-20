@@ -24,6 +24,7 @@ public:
     VnaCalUnit(Vna *vna, QString id, QObject *parent = 0);
     ~VnaCalUnit();
 
+    QString id() const;
 
     double minimunFrequency_Hz();
     double maximumFrequency_Hz();

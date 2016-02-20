@@ -50,6 +50,9 @@ VnaCalUnit::~VnaCalUnit() {
 
 }
 
+QString VnaCalUnit::id() const {
+    return _id;
+}
 
 double VnaCalUnit::minimunFrequency_Hz() {
     select();
