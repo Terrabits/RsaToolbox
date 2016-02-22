@@ -2148,10 +2148,21 @@ bool Vna::isExtensionUnit() {
     if (!properties().isZvaFamily())
         return false;
 
-    // Does this query ZVAX-TRM only?
-    // Or ZVAX24, 40?
-    QString scpi = ":SYST:COMM:RDEV:TEUN:COUN?\n";
-    return query(scpi).trimmed().toUInt() >= 1;
+    // ZVAX 24/40
+    isError();
+    clearStatus();
+    settings().errorDisplayOff();
+    QString scpi = ":SYST:COMM:RDEV:EUN:IDN?\n";
+    bool isZvax = !query(scpi).trimmed().isEmpty();
+    isError();
+    clearStatus();
+    settings().errorDisplayOn();
+
+    // ZVAX-TRM
+    scpi = ":SYST:COMM:RDEV:TEUN:COUN?\n";
+    bool isZvaxTrm = query(scpi).trimmed().toUInt() >= 1;
+
+    return isZvax || isZvaxTrm;
 }
 
 // Global Limits
