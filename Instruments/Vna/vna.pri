@@ -36,6 +36,7 @@ HEADERS += $$PWD/VnaSet.h \
            $$PWD/VnaPowerCorrections.h \
            $$PWD/VnaExtensionUnit.h \
            $$PWD/VnaPulseGenerator.h \
+           $$PWD/VnaTrigger.h \
            $$PWD/VnaTrace.h \
            $$PWD/VnaMarker.h \
            $$PWD/VnaReferenceMarker.h \
@@ -72,6 +73,7 @@ SOURCES += $$PWD/VnaSet.cpp \
            $$PWD/VnaPowerCorrections.cpp \
            $$PWD/VnaExtensionUnit.cpp \
            $$PWD/VnaPulseGenerator.cpp \
+           $$PWD/VnaTrigger.cpp \
            $$PWD/VnaTrace.cpp \
            $$PWD/VnaMarker.cpp \
            $$PWD/VnaReferenceMarker.cpp \

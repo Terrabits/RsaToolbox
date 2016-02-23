@@ -194,8 +194,9 @@ ComplexMatrix3D VnaLinearSweep::readSParameterGroup() {
     bool isContinuousSweep = _channel->isContinuousSweep();
     if (isContinuousSweep)
         _channel->manualSweepOn();
+    const uint timeout_ms = sweepTime_ms() * _channel->sweepCount();
     _channel->startSweep();
-    _vna->pause(sweepTime_ms() * _channel->sweepCount());
+    _vna->pause(timeout_ms);
     ComplexRowVector data = _vna->queryComplexVector(scpi, bufferSize);
     if (isContinuousSweep)
         _channel->continuousSweepOn();

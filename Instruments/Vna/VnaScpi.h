@@ -3,6 +3,7 @@
 
 
 #include "VnaChannel.h"
+#include "VnaTrigger.h"
 #include "BalancedPort.h"
 #include "VnaUserDefinedPort.h"
 #include "VnaCalStandard.h"
@@ -19,6 +20,10 @@ public:
     // Channel
     static QString toString(VnaChannel::SweepType type);
     static VnaChannel::SweepType toSweepType(QString scpi);
+
+    // Trigger
+    static QString toString(VnaTrigger::Source source);
+    static VnaTrigger::Source toTriggerSource(QString scpi);
 
     // Balanced Port
     static QString toString(BalancedPort::Type type);

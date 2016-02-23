@@ -578,6 +578,12 @@ VnaPulseGenerator &VnaChannel::pulseGenerator() {
     return *_pulseGenerator;
 }
 
+// Trigger
+VnaTrigger &VnaChannel::trigger() {
+    _trigger.reset(new VnaTrigger(_vna, this));
+    return *_trigger;
+}
+
 void VnaChannel::operator=(const VnaChannel &other) {
     if (other.isFullyInitialized()) {
         _vna = other._vna;

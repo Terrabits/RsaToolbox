@@ -669,6 +669,36 @@ VnaChannel::SweepType VnaScpi::toSweepType(QString scpi) {
     return VnaChannel::SweepType::Linear;
 }
 
+// Trigger
+QString VnaScpi::toString(VnaTrigger::Source source) {
+    switch(source) {
+    case VnaTrigger::Source::FreeRun:
+        return "IMM";
+    case VnaTrigger::Source::External:
+        return "EXT";
+    case VnaTrigger::Source::Manual:
+        return "MAN";
+    case VnaTrigger::Source::Multiple:
+        return "MULT";
+    default:
+        return "IMM";
+    }
+}
+VnaTrigger::Source VnaScpi::toTriggerSource(QString scpi) {
+    scpi = scpi.trimmed().toUpper();
+    if (scpi == "IMM")
+        return VnaTrigger::Source::FreeRun;
+    if (scpi == "EXT")
+        return VnaTrigger::Source::External;
+    if (scpi == "MAN")
+        return VnaTrigger::Source::Manual;
+    if (scpi == "MULT")
+        return VnaTrigger::Source::Multiple;
+
+    // Else
+    return VnaTrigger::Source::FreeRun;
+}
+
 // Calibrate
 QString VnaScpi::toString(VnaCalibrate::CalType calType) {
     switch(calType) {

@@ -17,6 +17,7 @@
 #include "VnaCalibrate.h"
 #include "VnaExtensionUnit.h"
 #include "VnaPulseGenerator.h"
+#include "VnaTrigger.h"
 
 // This should probably be rolled into
 // VnaCorrections.h (a lot of the same
@@ -170,21 +171,12 @@ public:
 
      // Pulse Modulator
      VnaExtensionUnit &extensionUnit();
-//     bool VnaExtensionUnit::isPulseModulatorOn(uint path);
-//     void VnaExtensionUnit::pulseModulatorOn(uint path, bool isOn = true);
-//     void VnaExtensionUnit::pulseModulatorOff(uint path, bool isOff = true);
 
      // Pulse Generator signal
      VnaPulseGenerator &pulseGenerator();
-//     bool VnaPulseGenerator::isOn();
-//     void VnaPulseGenerator::on(bool isOn = true);
-//     void VnaPulseGenerator::off(bool isOff = true);
-//     double VnaPulseGenerator::delay_s();
-//     void VnaPulseGenerator::setDelay(double value, SiPrefix prefix = SiPrefix::None);
-//     double VnaPulseGenerator::pulseWidth_s();
-//     void VnaPulseGenerator::setPulseWidth(double value, SiPrefix prefix = SiPrefix::None);
-//     double VnaPulseGenerator::period_s();
-//     void VnaPulseGenerator::setPeriod(double value, SiPrefix prefix = SiPrefix::None);
+
+     // Trigger
+     VnaTrigger &trigger();
 
     void operator=(const VnaChannel &other);
 
@@ -206,6 +198,7 @@ private:
     QScopedPointer<VnaCalibrate> _calibrate;
     QScopedPointer<VnaExtensionUnit> _extensionUnit;
     QScopedPointer<VnaPulseGenerator> _pulseGenerator;
+    QScopedPointer<VnaTrigger> _trigger;
 
     bool isFullyInitialized() const;
     QStringList zvaTraces();
