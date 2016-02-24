@@ -1048,18 +1048,18 @@ ComplexRowVector RsaToolbox::linearInterpolateMagPhase(QRowVector x, ComplexRowV
     }
 
     // Setup for first point
+    int iNew = 0;
+    double xNew = xDesired[iNew];
+
     int iOld = 1;
     double x1 = x[iOld-1];
     ComplexDouble y1 = y[iOld-1];
     double x2 = x[iOld];
     ComplexDouble y2 = y[iOld];
 
-    int iNew = 0;
-
-    // Set xDesired points below x range
-    // to first value of y
-    // (No interpolation)
     while (xDesired[iNew] < x1) {
+        // Below range
+        xNew = xDesired[iNew];
         result.push_back(y1);
         iNew++;
     }
@@ -1068,8 +1068,8 @@ ComplexRowVector RsaToolbox::linearInterpolateMagPhase(QRowVector x, ComplexRowV
     // within range of x
     while (iNew < xDesired.size()) {
         // Find points to interpolate between
-        const double xNew = xDesired[iNew];
-        while (xNew > x2 && iOld+1 < x.size()) {
+        xNew = xDesired[iNew];
+        while (x2 < xNew && iOld < x.size()-1) {
             iOld++;
             x1 = x[iOld-1];
             y1 = y[iOld-1];
@@ -1078,18 +1078,27 @@ ComplexRowVector RsaToolbox::linearInterpolateMagPhase(QRowVector x, ComplexRowV
         }
 
         // break if greater than x range
-        if (xNew > x2)
+        if (x2 < xNew)
             break;
 
+        // Calculate point
         const ComplexDouble yNew = linearInterpolateYMagPhase(x1, y1, x2, y2, xNew);
         result.push_back(yNew);
         iNew++;
     }
 
-    // Set xDesired points above x range
-    // to last value of y
-    // (No interpolation)
+    // Last point:
+    if (iOld < x.size()) {
+        x1 = x[iOld-1];
+        y1 = y[iOld-1];
+        x2 = x[iOld];
+        y2 = y[iOld];
+    }
+
+    // Above X range
+    // No interpolation
     while (iNew < xDesired.size()) {
+        xNew = xDesired[iNew];
         result.push_back(y2);
         iNew++;
     }
