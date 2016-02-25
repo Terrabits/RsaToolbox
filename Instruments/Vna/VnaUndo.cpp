@@ -21,7 +21,7 @@ VnaUndo::VnaUndo(Vna *vna, bool recallOnDestruction) :
     save();
 }
 VnaUndo::~VnaUndo() {
-    if (!isVna() || !isSet())
+    if (!isSet() || !isVna())
         return;
 
     if (_recallOnDestruction)
@@ -47,7 +47,7 @@ void VnaUndo::save() {
     _vna->saveActiveSet(_setName);
 }
 void VnaUndo::recall() {
-    if (!isVna() || !isSet())
+    if (!isSet() || !isVna())
         return;
 
     _vna->closeActiveSet();
@@ -56,7 +56,7 @@ void VnaUndo::recall() {
     _setName.clear();
 }
 void VnaUndo::discard() {
-    if (!isVna() || !isSet())
+    if (!isSet() || !isVna())
         return;
 
     _vna->deleteSet(_setName);
