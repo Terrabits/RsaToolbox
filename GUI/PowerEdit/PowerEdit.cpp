@@ -187,7 +187,7 @@ void PowerEdit::processText() {
         if (newPower_dBm != power_dBm) {
             QString msg = "*%1 Rounded to closest value: %2";
             msg = msg.arg(formatValue(power_dBm, 2, Units::dBm));
-            msg = msg.arg(formatValue(power_dBm, 2, Units::dBm));
+            msg = msg.arg(formatValue(newPower_dBm, 2, Units::dBm));
             emit outOfRange(msg);
 
             power_dBm = newPower_dBm;

@@ -39,8 +39,8 @@ public:
 
     void sendManualTrigger();
 
-    uint delay_ms();
-    void setDelay(uint time_ms);
+    uint delay_s();
+    void setDelay(double time_s);
 
     void operator=(VnaTrigger const &other);
 
