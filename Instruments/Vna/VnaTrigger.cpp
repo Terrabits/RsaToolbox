@@ -69,7 +69,7 @@ void VnaTrigger::sendManualTrigger() {
     _vna->write(scpi);
 }
 
-uint VnaTrigger::delay_s() {
+double VnaTrigger::delay_s() {
     QString scpi = ":TRIG%1:HOLD?\n";
     scpi = scpi.arg(_channelIndex);
     const double time_s = _vna->query(scpi).trimmed().toDouble();
