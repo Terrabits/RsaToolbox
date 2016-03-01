@@ -48,6 +48,12 @@ public:
     void setOptionsString(QString options);
     void resetOptionsString();
 
+    ImageFormat imageFormat();
+    void setImageFormat(ImageFormat format);
+
+//    QString fileDestination();
+    void setFileDestination(const QString &filename);
+
     bool isRead32BitBinaryFormat();
     bool isRead64BitBinaryFormat();
     bool isReadAsciiFormat();

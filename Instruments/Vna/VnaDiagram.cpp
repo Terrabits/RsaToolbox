@@ -1,6 +1,7 @@
 
 
-// RsaToolbox includes
+// RsaToolbox
+#include "General.h"
 #include "IndexName.h"
 #include "VnaDiagram.h"
 #include "Vna.h"
@@ -45,6 +46,19 @@ VnaDiagram::VnaDiagram(Vna *vna, uint index, QObject *parent) :
 }
 VnaDiagram::~VnaDiagram() {
 
+}
+
+void VnaDiagram::select() {
+    // No SCPI command to make diagram
+    // active (select)
+    if (isMaximized()) {
+        normalSize();
+        maximize();
+    }
+    else {
+        maximize();
+        normalSize();
+    }
 }
 
 QVector<uint> VnaDiagram::channels() {
@@ -107,6 +121,22 @@ void VnaDiagram::setTitle(QString title) {
     _vna->write(scpi);
 }
 
+bool VnaDiagram::isMaximized() {
+    QString scpi = ":DISP:WIND%1:MAX?\n";
+    scpi = scpi.arg(_index);
+    return _vna->query(scpi).trimmed() == "1";
+}
+void VnaDiagram::maximize() {
+    QString scpi = ":DISP:WIND%1:MAX 1\n";
+    scpi = scpi.arg(_index);
+    _vna->write(scpi);
+}
+void VnaDiagram::normalSize() {
+    QString scpi = ":DISP:WIND%1:MAX 0\n";
+    scpi = scpi.arg(_index);
+    _vna->write(scpi);
+}
+
 void VnaDiagram::autoscale() {
     qDebug() << "ERROR: VnaDiagram::autoscale not written...";
     _vna->print("SCPI Error: VnaDiagram::autoscale not written...\n\n");
@@ -125,6 +155,30 @@ void VnaDiagram::setYAxis(double min, double max) {
     QStringList traces = this->traces();
     foreach (QString trace, traces)
         _vna->trace(trace).setYAxis(min, max);
+}
+
+void VnaDiagram::saveScreenshot(QString filename, ImageFormat format) {
+    _vna->settings().setImageFormat(format);
+
+    QString extension = "." + toString(format);
+    if (!filename.endsWith(extension, Qt::CaseInsensitive))
+        filename += extension;
+    _vna->settings().setFileDestination(filename);
+
+    select();
+    _vna->write(":HCOP:PAGE:WIND ACT\n");
+    _vna->write(":HCOP\n");
+    _vna->pause();
+}
+void VnaDiagram::saveScreenshotLocally(QString filename, ImageFormat format) {
+    QString extension = "." + toString(format);
+    QString tempFilename = uniqueAlphanumericString() + extension;
+    if (!filename.endsWith(extension, Qt::CaseInsensitive))
+        filename += extension;
+
+    saveScreenshot(tempFilename);
+    _vna->fileSystem().downloadFile(tempFilename, filename);
+    _vna->fileSystem().deleteFile(tempFilename);
 }
 
 void VnaDiagram::operator=(VnaDiagram const &other) {

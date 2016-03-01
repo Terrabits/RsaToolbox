@@ -6,12 +6,17 @@
 using namespace RsaToolbox;
 
 // Qt
+#include <QUuid>
 #include <QStandardPaths>
 #include <QCoreApplication>
 
 // C++ std lib
 #include <cmath>
 
+
+QString RsaToolbox::uniqueAlphanumericString() {
+    return QUuid::createUuid().toString().remove('{').remove('}').remove('-');
+}
 
 // Enum Conversions
 double RsaToolbox::toDouble(SiPrefix prefix) {
@@ -105,6 +110,38 @@ QString RsaToolbox::toString(WaveQuantity wave) {
     default:
         return "a";
     }
+}
+QString RsaToolbox::toString(ImageFormat format) {
+    switch(format) {
+    case ImageFormat::Bmp:
+        return "bmp";
+    case ImageFormat::Jpg:
+        return "jpg";
+    case ImageFormat::Png:
+        return "png";
+    case ImageFormat::Pdf:
+        return "pdf";
+    case ImageFormat::Svg:
+        return "svg";
+    default:
+        return "png";
+    }
+}
+ImageFormat RsaToolbox::toImageFormat(QString s) {
+    s.trimmed().toLower();
+    if (s == toString(ImageFormat::Bmp))
+        return ImageFormat::Bmp;
+    if (s == toString(ImageFormat::Jpg))
+        return ImageFormat::Jpg;
+    if (s == toString(ImageFormat::Png))
+        return ImageFormat::Png;
+    if (s == toString(ImageFormat::Pdf))
+        return ImageFormat::Pdf;
+    if (s == toString(ImageFormat::Svg))
+        return ImageFormat::Svg;
+
+    // Default
+    return ImageFormat::Png;
 }
 
 QString RsaToolbox::toString(SiPrefix prefix) {

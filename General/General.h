@@ -25,14 +25,17 @@
 
 namespace RsaToolbox {
 
-// Enum conversions
+QString uniqueAlphanumericString();
 
+// Enum conversions
 double toDouble(SiPrefix prefix);
 QString toString(NetworkParameter parameter);
 QString toString(NetworkParameter parameter, uint outputPort, uint inputPort);
 QString toString(WaveQuantity wave);
-
 QString toString(ComplexFormat format);
+
+QString toString(ImageFormat format);
+ImageFormat toImageFormat(QString s);
 
 
 QString toString(SiPrefix prefix);
