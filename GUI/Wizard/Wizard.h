@@ -64,6 +64,8 @@ public slots:
     void enableLoadingImage();
     void disableLoadingImage();
 
+    void shake();
+
 protected:
     void keyPressEvent(QKeyEvent *event);
     void resizeEvent(QResizeEvent *event);

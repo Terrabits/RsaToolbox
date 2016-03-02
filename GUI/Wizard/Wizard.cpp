@@ -3,6 +3,7 @@
 using namespace RsaToolbox;
 
 
+#include <QPropertyAnimation>
 #include <QKeyEvent>
 #include <QStringList>
 #include <QMovie>
@@ -231,6 +232,22 @@ void Wizard::disableLoadingImage() {
         _loadingImage->deleteLater();
         _loadingImage = NULL;
     }
+}
+
+void Wizard::shake() {
+    QRect _geometry = geometry();
+    _geometry.moveRight(_geometry.right() + 10);
+
+    QEasingCurve curve(QEasingCurve::OutElastic);
+    curve.setAmplitude(2);
+    curve.setPeriod(0.3);
+
+    QPropertyAnimation *animation = new QPropertyAnimation(this, "geometry");
+    animation->setStartValue(_geometry);
+    animation->setEndValue(geometry());
+    animation->setDuration(500);
+    animation->setEasingCurve(curve);
+    animation->start();
 }
 
 void Wizard::keyPressEvent(QKeyEvent *event) {

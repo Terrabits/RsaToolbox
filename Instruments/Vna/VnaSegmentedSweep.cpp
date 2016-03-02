@@ -109,6 +109,12 @@ uint VnaSegmentedSweep::segments() {
     scpi = scpi.arg(_channelIndex);
     return _vna->query(scpi).trimmed().toUInt();
 }
+void VnaSegmentedSweep::addSegment(uint index) {
+    QString scpi = ":SENS%1:SEGM%2:ADD\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(index);
+    _vna->write(scpi);
+}
 uint VnaSegmentedSweep::addSegment() {
     uint index = segments() + 1;
     QString scpi = ":SENS%1:SEGM%2:ADD\n";

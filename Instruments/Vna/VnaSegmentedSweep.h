@@ -37,6 +37,7 @@ public:
     void setIfbandwidth(double bandwidth, SiPrefix prefix = SiPrefix::None);
 
     uint segments();
+    void addSegment(uint index);
     uint addSegment();
     void deleteSegment(uint index);
     void deleteSegments();
