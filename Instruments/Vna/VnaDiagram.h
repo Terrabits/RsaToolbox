@@ -24,6 +24,8 @@ public:
     VnaDiagram(Vna *vna, uint index, QObject *parent = 0);
     ~VnaDiagram();
 
+    void select();
+
     QVector<uint> channels();
 
     QStringList traces();
@@ -36,10 +38,17 @@ public:
     QString title();
     void setTitle(QString title);
 
+    bool isMaximized();
+    void maximize();
+    void normalSize();
+
     void autoscale();
     void setYAxisMinimum(double min);
     void setYAxisMaximum(double max);
     void setYAxis(double min, double max);
+
+    void saveScreenshot(QString filename, ImageFormat format = ImageFormat::Png);
+    void saveScreenshotLocally(QString filename, ImageFormat format = ImageFormat::Png);
 
     void operator=(VnaDiagram const &other);
 

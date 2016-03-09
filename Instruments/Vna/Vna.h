@@ -198,6 +198,9 @@ public:
     bool isGlobalLimitsPass();
     bool isGlobalLimitsFail();
 
+    void saveScreenshot(QString filename, ImageFormat format = ImageFormat::Png);
+    void saveScreenshotLocally(QString filename, ImageFormat format = ImageFormat::Png);
+
 private:
     VnaProperties _properties;
     VnaSettings _settings;

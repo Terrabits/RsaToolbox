@@ -233,11 +233,13 @@ void VnaChannel::setSweepType(VnaChannel::SweepType sweepType) {
 void VnaChannel::setFrequencies(QRowVector values, SiPrefix prefix) {
     VnaSegmentedSweep sweep = segmentedSweep();
     sweep.deleteSegments();
-    int points = values.size();
+    const int points = values.size();
     for (int i = 0; i < points; i++) {
-        uint s = segmentedSweep().addSegment();
-        sweep.segment(s).setPoints(1);
-        sweep.segment(s).setStop(values[i], prefix);
+        const uint s = i + 1;
+        sweep.addSegment(s);
+        VnaSweepSegment segment = sweep.segment(s);
+        segment.setPoints(1);
+        segment.setStop(values[i], prefix);
     }
     setSweepType(SweepType::Segmented);
 }

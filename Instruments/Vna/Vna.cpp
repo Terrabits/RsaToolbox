@@ -2172,3 +2172,25 @@ bool Vna::isGlobalLimitsPass() {
 bool Vna::isGlobalLimitsFail() {
     return query(":CALC:CLIM:FAIL?\n").trimmed() == "1";
 }
+
+// Screenshots
+void Vna::saveScreenshot(QString filename, ImageFormat format) {
+    settings().setImageFormat(format);
+    QString extension = "." + toString(format);
+    if (!filename.endsWith(extension, Qt::CaseInsensitive))
+        filename += extension;
+    settings().setFileDestination(filename);
+
+    write(":HCOP:PAGE:WIND HARD\n");
+    write(":HCOP\n");
+}
+void Vna::saveScreenshotLocally(QString filename, ImageFormat format) {
+    QString extension = "." + toString(format);
+    QString tempFilename = uniqueAlphanumericString() + extension;
+    if (!filename.endsWith(extension, Qt::CaseInsensitive))
+        filename += extension;
+
+    saveScreenshot(tempFilename, format);
+    fileSystem().downloadFile(tempFilename, filename);
+    fileSystem().deleteFile(tempFilename);
+}

@@ -80,6 +80,27 @@ void VnaSettings::resetOptionsString() {
     _vna->write(":SYST:OPT:FACT\n");
 }
 
+ImageFormat VnaSettings::imageFormat() {
+    QString scpi = ":HCOP:DEV:LANG?\n";
+    QString result = _vna->query(scpi);
+    return toImageFormat(result);
+}
+void VnaSettings::setImageFormat(ImageFormat format) {
+    QString scpi = ":HCOP:DEV:LANG %1\n";
+    scpi = scpi.arg(toString(format).toUpper());
+    _vna->write(scpi);
+}
+
+//QString VnaSettings::fileDestination() {
+//    QString scpi = ":\n";
+//}
+void VnaSettings::setFileDestination(const QString &filename) {
+    QString scpi = ":MMEM:NAME \'%1\'\n";
+    scpi = scpi.arg(filename);
+    _vna->write(scpi);
+    _vna->write(":HCOP:DEST \'MMEM\'");
+}
+
 bool VnaSettings::isRead32BitBinaryFormat() {
     QStringList result
             = _vna->query(":FORM?\n").trimmed().toUpper().split(",");

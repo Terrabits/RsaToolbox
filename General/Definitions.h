@@ -56,6 +56,14 @@ enum /*class*/ TraceFormat {
     Delay
 };
 
+enum /*class*/ ImageFormat {
+    Bmp,
+    Jpg,
+    Png,
+    Pdf,
+    Svg
+};
+
 //enum /*class*/ CsvFormat {
 //    DecibelDegrees,
 //    DecibelRadians,
