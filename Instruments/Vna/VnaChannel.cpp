@@ -85,6 +85,7 @@ QStringList VnaChannel::traces() {
 
 // Trigger
 void VnaChannel::startSweep() {
+    _vna->write(":INIT:SCOP SING\n");
     QString scpi = QString(":INIT%1\n").arg(_index);
     _vna->write(scpi);
 }
