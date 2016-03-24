@@ -17,16 +17,16 @@ namespace RsaToolbox {
 
 
 enum /*class*/ ConnectionType {
-    TCPIP_CONNECTION,
-    HISLIP_CONNECTION,
-    GPIB_CONNECTION,
-    USB_CONNECTION,
-    NO_CONNECTION
+    VisaTcpConnection,
+    VisaTcpSocketConnection,
+    VisaHiSlipConnection,
+    VisaGpibConnection,
+    VisaUsbConnection,
+    TcpSocketConnection,
+    UsbConnection,
+    NoConnection
 };
 QString toString(ConnectionType connectionType);
-ConnectionType toConnectionType(QString scpi);
-QString toVisaInstrumentResource(ConnectionType type, QString address);
-void nullTerminate(char *buffer, uint bufferSize_B, uint bytesUsed);
 
 
 class GenericBus : public QObject {
@@ -78,6 +78,11 @@ protected:
     static const int MAX_PRINT = 100;
     void printRead(char *buffer, uint bytesRead) const;
     void printWrite(QString scpi) const;
+
+    void setConnectionType(ConnectionType type);
+    void setAddress(const QString &address);
+
+    static void nullTerminate(char *buffer, uint bufferSize_B, uint bytesUsed);
 
 private:
     ConnectionType _connectionType;

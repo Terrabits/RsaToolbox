@@ -70,7 +70,7 @@ TcpBus::TcpBus(ConnectionType type, QString address,
                  parent)
 {
     _blockSize = 0;
-    if (type != TCPIP_CONNECTION)
+    if (type != ConnectionType::VisaTcpConnection)
         return;
 
     _tcp.connectToHost(address, PORT);

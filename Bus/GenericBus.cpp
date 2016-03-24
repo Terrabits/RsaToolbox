@@ -27,82 +27,20 @@ using namespace RsaToolbox;
  * \relates VisaBus
  */
 QString RsaToolbox::toString(ConnectionType connectionType) {
-    if (connectionType == TCPIP_CONNECTION)
-        return("TCPIP");
-    if (connectionType == GPIB_CONNECTION)
-        return("GPIB");
-    if (connectionType == USB_CONNECTION)
-        return("USB");
-    // Else
-    return("No Connection");
-}
-
-/*!
- * \brief Converts connection type string to \c ConnectionType
- *
- * Assumes input is VISA compatible.
- * Defaults to \c NO_CONNECTION for unknown strings.
- *
- * \param scpi Connection type string
- * \return \c ConnectionType
- * \relates GenericBus
- * \relates VisaBus
- */
-ConnectionType RsaToolbox::toConnectionType(QString scpi) {
-    if (scpi.contains("TCPIP", Qt::CaseInsensitive))
-        return(TCPIP_CONNECTION);
-    if (scpi.contains("GPIB", Qt::CaseInsensitive))
-        return(GPIB_CONNECTION);
-    if (scpi.contains("USB", Qt::CaseInsensitive))
-        return(USB_CONNECTION);
-    //else
-    return(NO_CONNECTION);
-}
-
-/*!
- * \brief Creates VISA instrument resource string
- *
- * If \c type is \c NO_CONNECTION, an empty string is
- * returned. No other value checking is done. Make sure
- * the address string has a meaningful value.
- *
- * Example:
- * \c toVisaInstrumentResource(TCPIP_BUS, "127.0.0.1")
- * returns \c "TCPIP::127.0.0.1::INSTR"
- *
- * \param type ConnectionType
- * \param address Well-formed address
- * \return VISA resource string
- * \relates GenericBus
- * \relates VisaBus
- */
-QString RsaToolbox::toVisaInstrumentResource(ConnectionType type, QString address) {
-    if (type == NO_CONNECTION)
-        return "";
-
-    QString result = "%1::%2::INSTR";
-    result = result.arg(toString(type));
-    result = result.arg(address);
-    return result;
-}
-
-/*!
- * \brief Safely null-character-terminates a
- * c-style string
- *
- * \note If the entire buffer is full (\c bytesUsed equals
- * \c bufferSize_B) no null termination is added.
- * This is to prevent loss of data.
- *
- * \param buffer C-style string
- * \param bufferSize_B String buffer size, in bytes
- * \param bytesUsed Portion of string that contains data, in bytes
- */
-void RsaToolbox::nullTerminate(char *buffer, uint bufferSize_B, uint bytesUsed) {
-    // Do not null terminate if it means
-    // data will be overwritten
-    if (bytesUsed < bufferSize_B)
-        buffer[bytesUsed] = '\0';
+    switch(connectionType) {
+    case ConnectionType::VisaTcpConnection:
+    case ConnectionType::VisaTcpSocketConnection:
+    case ConnectionType::VisaHiSlipConnection:
+    case ConnectionType::TcpSocketConnection:
+        return "TCPIP";
+    case ConnectionType::VisaGpibConnection:
+        return "GPIB";
+    case ConnectionType::VisaUsbConnection:
+    case ConnectionType::UsbConnection:
+        return "USB";
+    default:
+        return "No Connection";
+    }
 }
 
 /*!
@@ -178,7 +116,7 @@ void RsaToolbox::nullTerminate(char *buffer, uint bufferSize_B, uint bytesUsed) 
 GenericBus::GenericBus(QObject *parent) :
     QObject(parent)
 {
-    _connectionType = NO_CONNECTION;
+    _connectionType = ConnectionType::NoConnection;
     _address.clear();
     _bufferSize_B = 0;
     _timeout_ms = 0;
@@ -212,16 +150,8 @@ GenericBus::GenericBus(ConnectionType connectionType,
 {
     _connectionType = connectionType;
     _address = address;
-
-    if (timeout_ms > 0)
-        _timeout_ms = timeout_ms;
-    else
-        _timeout_ms = 1000;
-
-    if (bufferSize_B > 0)
-        setBufferSize(bufferSize_B);
-    else
-        setBufferSize(500);
+    _timeout_ms = ((timeout_ms   > 0) ? timeout_ms   : 1000);
+    (bufferSize_B > 0) ? setBufferSize(bufferSize_B) : setBufferSize(500);
 }
 
 /*! \fn bool GenericBus::isOpen()
@@ -641,4 +571,30 @@ void GenericBus::printWrite(QString scpi) const {
     text += status();
     text += "\n";
     emit print(text);
+}
+
+void GenericBus::setConnectionType(ConnectionType type) {
+    _connectionType = type;
+}
+void GenericBus::setAddress(const QString &address) {
+    _address = address;
+}
+
+/*!
+ * \brief Safely null-character-terminates a
+ * c-style string
+ *
+ * \note If the entire buffer is full (\c bytesUsed equals
+ * \c bufferSize_B) no null termination is added.
+ * This is to prevent loss of data.
+ *
+ * \param buffer C-style string
+ * \param bufferSize_B String buffer size, in bytes
+ * \param bytesUsed Portion of string that contains data, in bytes
+ */
+void GenericBus::nullTerminate(char *buffer, uint bufferSize_B, uint bytesUsed) {
+    // Do not null terminate if it means
+    // data will be overwritten
+    if (bytesUsed < bufferSize_B)
+        buffer[bytesUsed] = '\0';
 }

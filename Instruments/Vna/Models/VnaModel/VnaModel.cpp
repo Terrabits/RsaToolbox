@@ -12,7 +12,7 @@ VnaModel::VnaModel(QObject *parent) :
     QAbstractTableModel(parent)
 {
     _vna = NULL;
-    _connectionType = RsaToolbox::TCPIP_CONNECTION;
+    _connectionType = ConnectionType::VisaTcpConnection;
     _address.clear();
 }
 
@@ -28,7 +28,7 @@ void VnaModel::setVna(RsaToolbox::Vna *vna) {
         _address = _vna->address();
     }
     else {
-        _connectionType = RsaToolbox::TCPIP_CONNECTION;
+        _connectionType = ConnectionType::VisaTcpConnection;
         _address.clear();
     }
     endResetModel();
@@ -172,13 +172,8 @@ bool VnaModel::toggleConnection() {
         return false;
     }
 
-    using namespace RsaToolbox;
     bool isVisa = VisaBus::isVisaInstalled();
-    if (!isVisa && _connectionType == GPIB_CONNECTION) {
-        emit error("*VISA is required for GPIB connections.");
-        return false;
-    }
-    if (!isVisa && _connectionType == GPIB_CONNECTION) {
+    if (!isVisa && _connectionType == ConnectionType::VisaGpibConnection) {
         emit error("*VISA is required for GPIB connections.");
         return false;
     }

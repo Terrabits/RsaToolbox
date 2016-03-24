@@ -13,23 +13,23 @@ ConnectionTypeComboBox::ConnectionTypeComboBox(QWidget *parent) :
 ConnectionType ConnectionTypeComboBox::currentType() {
     QString text = currentText();
     if (text == "TCPIP")
-        return TCPIP_CONNECTION;
+        return ConnectionType::VisaTcpConnection;
     if (text == "GPIB")
-        return GPIB_CONNECTION;
+        return ConnectionType::VisaGpibConnection;
     if (text == "USB")
-        return USB_CONNECTION;
+        return ConnectionType::VisaUsbConnection;
     // Else
-    return NO_CONNECTION;
+    return ConnectionType::NoConnection;
 }
 void ConnectionTypeComboBox::setCurrentType(ConnectionType type) {
     if (type == currentType())
         return;
 
-    if (type == TCPIP_CONNECTION)
+    if (type == ConnectionType::VisaTcpConnection)
         setCurrentText("TCPIP");
-    else if (type == GPIB_CONNECTION)
+    else if (type == ConnectionType::VisaGpibConnection)
         setCurrentText("GPIB");
-    else if (type == USB_CONNECTION)
+    else if (type == ConnectionType::VisaUsbConnection)
         setCurrentText("USB");
     else
         setCurrentIndex(-1); // UNKNOWN

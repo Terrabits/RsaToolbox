@@ -59,7 +59,7 @@ QString VnaSwitchMatrix::driver() {
 ConnectionType VnaSwitchMatrix::connectionType() {
     QStringList result = defineQuery();
     if (result.size() < 4)
-        return NO_CONNECTION;
+        return ConnectionType::NoConnection;
 
     return VnaScpi::toMatrixConnection(result[2]);
 }

@@ -88,21 +88,9 @@ VisaBus::VisaBus(ConnectionType connectionType, QString address,
 {
     setDisconnected();
 
-    QString resource = "%1::%2::INSTR";
-    switch (connectionType) {
-    case TCPIP_CONNECTION:
-    case GPIB_CONNECTION:
-    case USB_CONNECTION:
-        resource = resource.arg(toString(connectionType));
-        resource = resource.arg(address);
-        break;
-    case HISLIP_CONNECTION:
-        resource = "TCPIP::%1::hislip0";
-        resource = resource.arg(address);
-        break;
-    default:
+    QString resource = resourceString(connectionType, address);
+    if (resource.isEmpty())
         return;
-    }
 
     if (!connectVisa(VISA32, resource))
         connectVisa(RSVISA32, resource);
@@ -413,7 +401,84 @@ bool VisaBus::connectVisa(const QString &dll, const QString &resource) {
     }
 
     setTimeout(timeout_ms());
+    if (connectionType() == ConnectionType::VisaTcpSocketConnection) {
+        _viSetAttribute(_instrument, VI_ATTR_SEND_END_EN,     0);
+        _viSetAttribute(_instrument, VI_ATTR_SUPPRESS_END_EN, 0);
+        _viSetAttribute(_instrument, VI_ATTR_TERMCHAR_EN,     0);
+    }
     return true;
+}
+QString VisaBus::resourceString(ConnectionType type, QString address) {
+    QString string = "%1::%2::%3";
+    switch (type) {
+    case ConnectionType::VisaTcpConnection:
+    case ConnectionType::VisaGpibConnection:
+    case ConnectionType::VisaUsbConnection:
+        string = string.arg(toString(type));
+        string = string.arg(address);
+        string = string.arg("INSTR");
+        return string;
+    case ConnectionType::VisaTcpSocketConnection:
+        string = string.arg("TCPIP");
+        string = string.arg(address);
+        string = string.arg("SOCKET");
+        return string;
+    case ConnectionType::VisaHiSlipConnection:
+        string = string.arg(toString(type));
+        string = string.arg(address);
+        string = string.arg("hislip0");
+        return string;
+    default:
+        return QString();
+    }
+    return string;
+}
+bool VisaBus::parseResourceString(QString resourceString) {
+    resourceString = resourceString.toUpper();
+    QStringList parts = resourceString.split("::");
+    if (resourceString.isEmpty() || parts.size() <= 1) {
+        return false;
+    }
+
+    if (resourceString.contains("HISLIP")) {
+        setConnectionType(ConnectionType::VisaHiSlipConnection);
+        setAddress(parts[1]);
+        return true;
+    }
+    else if (resourceString.contains("SOCKET")) {
+        setConnectionType(ConnectionType::VisaTcpConnection);
+        QString address = "%1::%2";
+        address = address.arg(parts[1]);
+        address = address.arg(parts[2]);
+        setAddress(address);
+        return true;
+    }
+    else if (resourceString.contains("TCPIP")) {
+        setConnectionType(ConnectionType::VisaTcpConnection);
+        setAddress(parts[1]);
+        return true;
+    }
+    else if (resourceString.contains("GPIB")) {
+        setConnectionType(ConnectionType::VisaGpibConnection);
+        setAddress(parts[1]);
+        return true;
+    }
+    else if (resourceString.contains("USB")) {
+        if (parts.size() < 4)
+            return false;
+        setConnectionType(ConnectionType::VisaUsbConnection);
+        QString address = "%1::%2::%3";
+        address = address.arg(parts[1]);
+        address = address.arg(parts[2]);
+        address = address.arg(parts[3]);
+        setAddress(address);
+        return true;
+    }
+    else {
+        setConnectionType(ConnectionType::VisaTcpConnection);
+        setAddress(parts[1]);
+        return true;
+    }
 }
 
 bool VisaBus::isError() {

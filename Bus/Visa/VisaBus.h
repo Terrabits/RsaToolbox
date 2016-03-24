@@ -89,6 +89,8 @@ private:
 
     // VisaBus
     bool connectVisa(const QString &dll, const QString &resource);
+    static QString resourceString(ConnectionType type, QString address);
+    bool parseResourceString(QString resourceString);
 
     bool isError();
     void setDisconnected();

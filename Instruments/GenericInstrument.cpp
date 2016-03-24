@@ -302,7 +302,7 @@ ConnectionType GenericInstrument::connectionType() const {
     if (isConnected())
         return(_bus->connectionType());
     //else
-    return(NO_CONNECTION);
+    return(ConnectionType::NoConnection);
 }
 
 /*!
