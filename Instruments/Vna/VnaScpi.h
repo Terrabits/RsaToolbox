@@ -79,7 +79,7 @@ public:
     static QString toString(NetworkParameter parameter, uint outputPort, uint inputPort);
     static QString toString(NetworkParameter parameter, const BalancedPort &output, const BalancedPort &input);
     static QString toString(WaveQuantity wave);
-    static QString toString(WaveQuantity wave, uint port);
+    static QString toString(WaveQuantity wave, uint wavePort, uint sourcePort);
     static QString toPortPair(uint outputPort, uint inputPort);
 
     // Time Domain

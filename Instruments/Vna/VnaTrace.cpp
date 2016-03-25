@@ -71,7 +71,7 @@ void VnaTrace::autoscale() {
     _vna->write(scpi);
 }
 void VnaTrace::show(bool isVisible) {
-    QString scpi = ":DISP:TRAC:SHOW \'%1\',%2";
+    QString scpi = ":DISP:TRAC:SHOW \'%1\',%2\n";
     scpi = scpi.arg(_name);
     if (isVisible)
         scpi = scpi.arg(1);
@@ -218,16 +218,11 @@ bool VnaTrace::isWaveQuantity() {
     default: return(false);
     }
 }
-void VnaTrace::waveQuantity(WaveQuantity &wave, uint &port) {
-    qDebug() << "VnaTrace::waveQuantity(WaveQuantity &wave, uint &port) is not finished yet!";
-    Q_UNUSED(wave);
-    Q_UNUSED(port);
-}
-void VnaTrace::setWaveQuantity(WaveQuantity wave, uint port) {
+void VnaTrace::setWaveQuantity(WaveQuantity wave, uint wavePort, uint sourcePort) {
     QString scpi = ":CALC%1:PAR:MEAS \'%2\',\'%3\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
-    scpi = scpi.arg(VnaScpi::toString(wave, port));
+    scpi = scpi.arg(VnaScpi::toString(wave, wavePort, sourcePort));
     _vna->write(scpi);
 }
 
@@ -244,19 +239,12 @@ bool VnaTrace::isWaveRatio() {
     default: return(false);
     }
 }
-void VnaTrace::waveRatio(WaveQuantity &outputWave, uint &outputPort, WaveQuantity &inputWave, uint &inputPort) {
-    qDebug() << "VnaTrace::waveRatio(WaveQuantity &outputWave, uint &outputPort, WaveQuantity &inputWave, uint &inputPort) is not finished yet!";
-    Q_UNUSED(outputWave);
-    Q_UNUSED(outputPort);
-    Q_UNUSED(inputWave);
-    Q_UNUSED(inputPort);
-}
-void VnaTrace::setWaveRatio(WaveQuantity numeratorWave, uint numeratorPort, WaveQuantity denominatorWave, uint denominatorPort) {
+void VnaTrace::setWaveRatio(WaveQuantity numeratorWave, uint numeratorWavePort, uint numeratorSourcePort, WaveQuantity denominatorWave, uint denominatorWavePort, uint denominatorSourcePort) {
     QString scpi = ":CALC%1:PAR:MEAS \'%2\',\'%3/%4\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
-    scpi = scpi.arg(VnaScpi::toString(numeratorWave, numeratorPort));
-    scpi = scpi.arg(VnaScpi::toString(denominatorWave, denominatorPort));
+    scpi = scpi.arg(VnaScpi::toString(numeratorWave, numeratorWavePort, numeratorSourcePort));
+    scpi = scpi.arg(VnaScpi::toString(denominatorWave, denominatorWavePort, denominatorSourcePort));
     _vna->write(scpi);
 }
 

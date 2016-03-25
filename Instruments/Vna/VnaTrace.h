@@ -52,13 +52,13 @@ public:
     void measure(NetworkTraceData &data);
 
     bool isWaveQuantity();
-    void waveQuantity(WaveQuantity &wave, uint &port);
-    void setWaveQuantity(WaveQuantity wave, uint port);
+//    void waveQuantity(WaveQuantity &wave, uint &port);
+    void setWaveQuantity(WaveQuantity wave, uint wavePort, uint sourcePort);
     // void measure(WaveTraceData &data);
 
     bool isWaveRatio();
-    void waveRatio(WaveQuantity &numeratorWave, uint &numeratorPort, WaveQuantity &denominatorWave, uint &denominatorPort);
-    void setWaveRatio(WaveQuantity outputWave, uint outputPort, WaveQuantity inputWave, uint inputPort);
+//    void waveRatio(WaveQuantity &numeratorWave, uint &numeratorPort, WaveQuantity &denominatorWave, uint &denominatorPort);
+    void setWaveRatio(WaveQuantity numeratorWave, uint numeratorWavePort, uint numeratorSourcePort, WaveQuantity denominatorWave, uint denominatorWavePort, uint denominatorSourcePort);
     // void measure(WaveRatioTraceData &data);
 
     bool isImpedance();

@@ -1648,7 +1648,7 @@ QVector<uint> Vna::diagrams() {
     QVector<uint> diagrams;
     QVector<IndexName> indexNames
             = IndexName::parse(result, ",", "\'");
-    return(IndexName::indices(indexNames));
+    return IndexName::indices(indexNames);
 }
 
 /*!

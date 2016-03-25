@@ -956,8 +956,12 @@ QString VnaScpi::toString(WaveQuantity wave) {
         return "a";
     }
 }
-QString VnaScpi::toString(WaveQuantity wave, uint port) {
-    return toString(wave) + QVariant(port).toString();
+QString VnaScpi::toString(WaveQuantity wave, uint wavePort, uint sourcePort) {
+    QString scpi = "%1%2D%3";
+    scpi = scpi.arg(toString(wave).toUpper());
+    scpi = scpi.arg(wavePort);
+    scpi = scpi.arg(sourcePort);
+    return scpi;
 }
 QString VnaScpi::toPortPair(uint outputPort, uint inputPort) {
     QString out = QVariant(outputPort).toString();

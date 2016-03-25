@@ -240,8 +240,17 @@ void VnaChannel::setFrequencies(QRowVector values, SiPrefix prefix) {
         VnaSweepSegment segment = sweep.segment(s);
         segment.setPoints(1);
         segment.setStop(values[i], prefix);
+        if (i % 1000 == 0) {
+            // Adding sweep segments gets slower as
+            // the number of segments goes up.
+            // This can cause timeouts in later
+            // commands unless we pause periodically
+            // here.
+            _vna->pause(5000);
+        }
     }
     setSweepType(SweepType::Segmented);
+    _vna->pause(5000); // For good measure
 }
 
 VnaLinearSweep &VnaChannel::linearSweep() {
