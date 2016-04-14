@@ -1120,6 +1120,10 @@ VnaCalibrate *Vna::takeCalibrate() {
  * \sa VnaCalibrate, VnaChannel::calibrate()
  * @{*/
 
+bool Vna::isCalGroup(QString calGroup) {
+    return calGroups().contains(calGroup, Qt::CaseInsensitive);
+}
+
 /*!
  * \brief Vna::deleteCalGroup
  * \param name

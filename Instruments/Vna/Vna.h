@@ -108,9 +108,8 @@ public:
     VnaCalibrate *takeCalibrate();
 
     // Cal Group
-//    bool isCalGroup(QString calGroup);
-//    bool isNotCalGroup(QString calGroup);
-//    void importCalGroup(QString calGroupPathName);
+    bool isCalGroup(QString calGroup);
+//    void importCalGroup(QString filename);
     void deleteCalGroup(QString calGroup);
     QStringList calGroups();
     // VnaCalGroup &calGroup(QString name);
