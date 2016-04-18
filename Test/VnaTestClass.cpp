@@ -25,7 +25,7 @@ VnaTestClass::~VnaTestClass() {
 void VnaTestClass::init() {
     _vna.reset(new Vna(_connectionType, _address));
     const QString logFilename = _logDir.filePath(_logFilenames.takeFirst());
-    _log.reset(new Log(_logFilenames.takeFirst(), "", "0.0"));
+    _log.reset(new Log(logFilename, "", "0.0"));
 
     _log->printHeader();
     _vna->useLog(_log.data());
