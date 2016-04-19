@@ -1,1 +1,47 @@
-Move this to repo markdown page?
+Short term:
+- Add about screen accessed through start menu
+- Dumb down to VS2010 for Windows XP :-(
+  *Change enum class back to enum :-/
+- Fix newline in touchstone file
+  (s2p files have extra newline, outside spec)
+
+Applications with priority:
+- RSA S2P Extractor
+  * Touchstone format issue (one point per line in S2P)
+  * Handle OSP Matrix in single executable
+- RSA PA Compression Test
+
+- vna.rs-us.net
+- App documentation
+- Update past projects:
+? RSA Attenuator Cal (Rsc)
+  RSA Autocal
+  RSA Cal Unit Sim (add VnaCalUnit class. 24 port cal?)
+  RSA Delete Corrections
+  RSA Display Delay Offset
+  RSA Emulation Demo
+X RSA File Transfer
+  RSA PA Compression Test
+  RSA Preset
+  RSA Remove Cal
+  RSA Remove Matrix
+? RSA TDR Wizard
+  RSA Save State
+? RSA Scpi Script
+  RSA Spec An (Josh)
+  RSA User Defined Ports
+  RSA Verify Cal
+  RSA VNA Remote Logger
+
+Medium term:
+- Update Qt Creator project templates
+
+Long term:
+- Add FrequencyLineEdit ('g' changes units to "GHz" etc. Validator: "\d+\.*\d*[GgMKkmunp]")
+- Design widgets so that they don't crash if uninitialized
+- Qt Designer plugins for widgets
+  Automatically include RsaToolbox dependencies?
+  Win: C:\Qt\Tools\QtCreator\bin\plugins\designer
+  Mac: ?
+  Linux: ?
+- Installer/Installation directions
