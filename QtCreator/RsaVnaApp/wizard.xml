@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/****************************************************************************
+** 
+** RsaToolbox
+** Qt Creator Project Template
+** 
+** Nick Lalic
+** VNA Software Developer
+** Cupertino, CA
+** nick.lalic@rsa.rohde-schwarz.com
+** +1 424 200 2846
+** 
+** Copyright (C) 2015 Rohde & Schwarz America
+****************************************************************************/
+-->
+
+<wizard version="1" kind="project" class="qmakeproject" firstpage="10" id="A.VnaApp" category="B.Rohde-Schwarz">
+    <icon>RS.png</icon>
+    <displayname>Vna Application</displayname>;
+    <displaycategory>Rohde &amp; Schwarz America</displaycategory>
+    <description>Creates a Vna application with a connection tab</description>
+    <files>
+        <!-- RsaToolbox -->
+        <file source="RsaToolbox/rsatoolbox.pri" target="RsaToolbox/rsatoolbox.pri" openeditor="false" />
+        <file source="RsaToolbox/RsaToolbox.lib" target="RsaToolbox/RsaToolbox.lib" openeditor="false" binary="true" />
+        <file source="RsaToolbox/RsaToolboxd.lib" target="RsaToolbox/RsaToolboxd.lib" openeditor="false" binary="true" />
+        <file source="RsaToolbox/rsatoolboxd.pdb" target="RsaToolbox/rsatoolboxd.pdb" openeditor="false" binary="true" />
+        <file source="RsaToolbox/core.pri" target="RsaToolbox/core.pri" openeditor="false" />
+        <file source="RsaToolbox/rsatoolbox.pro" target="RsaToolbox/rsatoolbox.pro" openeditor="false" />
+        <file source="RsaToolbox/rebuild_all.pro" target="RsaToolbox/rebuild_all.pro" openeditor="false" />
+
+        <!-- RsaToolbox::Licenses -->
+        <file source="RsaToolbox/Licenses/Microsoft Visual C++ 2010 License.txt" target="RsaToolbox/Licenses/Microsoft Visual C++ 2010 License.txt" openeditor="false" />
+        <file source="RsaToolbox/Licenses/QCustomPlot - GNU General Public License Version 3.txt" target="RsaToolbox/Licenses/QCustomPlot - GNU General Public License Version 3.txt" openeditor="false" />
+        <file source="RsaToolbox/Licenses/Qt 5 - GNU Lesser General Public License Version 2.1.txt" target="RsaToolbox/Licenses/Qt 5 - GNU Lesser General Public License Version 2.1.txt" openeditor="false" />
+        <file source="RsaToolbox/Licenses/QuaZip - GNU General Public License v2.1.txt" target="RsaToolbox/Licenses/QuaZip - GNU General Public License v2.1.txt" openeditor="false" />
+        <file source="RsaToolbox/Licenses/R&amp;S Terms and Conditions for Royalty-Free Products.txt" target="RsaToolbox/Licenses/R&amp;S Terms and Conditions for Royalty-Free Products.txt" openeditor="false" />
+        <file source="RsaToolbox/Licenses/ZLib Copyright and Terms and Conditions.txt" target="RsaToolbox/Licenses/ZLib Copyright and Terms and Conditions.txt" openeditor="false" />
+
+        <!-- RsaToolbox::Icons -->
+        <file source="RS.ico" openeditor="false" binary="true" />
+        <file source="Resources.qrc" openeditor="false" />
+        <file source="VS2010Resources.rc" openeditor="false" />
+
+        <!-- RsaToolbox::General -->
+        <file source="RsaToolbox/General/BalancedPort.h" target="RsaToolbox/General/BalancedPort.h" openeditor="false" />
+        <file source="RsaToolbox/General/BalancedPort.cpp" target="RsaToolbox/General/BalancedPort.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/Connector.h" target="RsaToolbox/General/Connector.h" openeditor="false" />
+        <file source="RsaToolbox/General/Connector.cpp" target="RsaToolbox/General/Connector.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/Definitions.h" target="RsaToolbox/General/Definitions.h" openeditor="false" />
+        <file source="RsaToolbox/General/General.h" target="RsaToolbox/General/General.h" openeditor="false" />
+        <file source="RsaToolbox/General/General.cpp" target="RsaToolbox/General/General.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/IndexName.h" target="RsaToolbox/General/IndexName.h" openeditor="false" />
+        <file source="RsaToolbox/General/IndexName.cpp" target="RsaToolbox/General/IndexName.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/Keys.h" target="RsaToolbox/General/Keys.h" openeditor="false" />
+        <file source="RsaToolbox/General/Keys.cpp" target="RsaToolbox/General/Keys.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/NameLabel.h" target="RsaToolbox/General/NameLabel.h" openeditor="false" />
+        <file source="RsaToolbox/General/NameLabel.cpp" target="RsaToolbox/General/NameLabel.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/FormattedComplex.cpp" target="RsaToolbox/General/FormattedComplex.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/FormattedComplex.h" target="RsaToolbox/General/FormattedComplex.h" openeditor="false" />
+        <file source="RsaToolbox/General/FormattedNetworkData.cpp" target="RsaToolbox/General/FormattedNetworkData.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/FormattedNetworkData.h" target="RsaToolbox/General/FormattedNetworkData.h" openeditor="false" />
+        <file source="RsaToolbox/General/FormattedTouchstone.cpp" target="RsaToolbox/General/FormattedTouchstone.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/FormattedTouchstone.h" target="RsaToolbox/General/FormattedTouchstone.h" openeditor="false" />
+        <file source="RsaToolbox/General/NetworkTraceData.h" target="RsaToolbox/General/NetworkTraceData.h" openeditor="false" />
+        <file source="RsaToolbox/General/NetworkTraceData.cpp" target="RsaToolbox/General/NetworkTraceData.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/NetworkData.h" target="RsaToolbox/General/NetworkData.h" openeditor="false" />
+        <file source="RsaToolbox/General/NetworkData.cpp" target="RsaToolbox/General/NetworkData.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/SnpStreamReader.h" target="RsaToolbox/General/SnpStreamReader.h" openeditor="false" />
+        <file source="RsaToolbox/General/SnpStreamReader.cpp" target="RsaToolbox/General/SnpStreamReader.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/SnpStreamWriter.h" target="RsaToolbox/General/SnpStreamWriter.h" openeditor="false" />
+        <file source="RsaToolbox/General/SnpStreamWriter.cpp" target="RsaToolbox/General/SnpStreamWriter.cpp" openeditor="false" />
+        <file source="RsaToolbox/General/Touchstone.h" target="RsaToolbox/General/Touchstone.h" openeditor="false" />
+        <file source="RsaToolbox/General/Touchstone.cpp" target="RsaToolbox/General/Touchstone.cpp" openeditor="false" />
+
+        <!-- RsaToolbox::Gui -->
+        <file source="RsaToolbox/Gui/gui.pri" target="RsaToolbox/Gui/gui.pri" openeditor="false" />
+        <file source="RsaToolbox/Gui/About/About.h" target="RsaToolbox/Gui/About/About.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/About/About.cpp" target="RsaToolbox/Gui/About/About.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/About/About.ui" target="RsaToolbox/Gui/About/About.ui" openeditor="false" />
+        <file source="RsaToolbox/Gui/ConnectButton/ConnectButton.cpp" target="RsaToolbox/Gui/ConnectButton/ConnectButton.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/ConnectButton/ConnectButton.h" target="RsaToolbox/Gui/ConnectButton/ConnectButton.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/ConnectionTypeComboBox/ConnectionTypeComboBox.cpp" target="RsaToolbox/Gui/ConnectionTypeComboBox/ConnectionTypeComboBox.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/ConnectionTypeComboBox/ConnectionTypeComboBox.h" target="RsaToolbox/Gui/ConnectionTypeComboBox/ConnectionTypeComboBox.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/DecibelEdit/DecibelEdit.h" target="RsaToolbox/Gui/DecibelEdit/DecibelEdit.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/DecibelEdit/DecibelEdit.cpp" target="RsaToolbox/Gui/DecibelEdit/DecibelEdit.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/ErrorLabel/ErrorLabel.cpp" target="RsaToolbox/Gui/ErrorLabel/ErrorLabel.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/ErrorLabel/ErrorLabel.h" target="RsaToolbox/Gui/ErrorLabel/ErrorLabel.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/Figure/Figure.h" target="RsaToolbox/Gui/Figure/Figure.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/Figure/Figure.cpp" target="RsaToolbox/Gui/Figure/Figure.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/Figure/Figure.ui" target="RsaToolbox/Gui/Figure/Figure.ui" openeditor="false" />
+        <file source="RsaToolbox/Gui/FrequencyEdit/FrequencyEdit.h" target="RsaToolbox/Gui/FrequencyEdit/FrequencyEdit.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/FrequencyEdit/FrequencyEdit.cpp" target="RsaToolbox/Gui/FrequencyEdit/FrequencyEdit.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/GetSnpFile/GetSnpFile.cpp" target="RsaToolbox/Gui/GetSnpFile/GetSnpFile.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/GetSnpFile/GetSnpFile.h" target="RsaToolbox/Gui/GetSnpFile/GetSnpFile.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/GetSnpFile/GetSnpFile.ui" target="RsaToolbox/Gui/GetSnpFile/GetSnpFile.ui" openeditor="false" />
+        <file source="RsaToolbox/Gui/LastPath/LastPath.cpp" target="RsaToolbox/Gui/LastPath/LastPath.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/LastPath/LastPath.h" target="RsaToolbox/Gui/LastPath/LastPath.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/ListPanel/ListPanel.cpp" target="RsaToolbox/Gui/ListPanel/ListPanel.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/ListPanel/ListPanel.h" target="RsaToolbox/Gui/ListPanel/ListPanel.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/ListPanel/ListPanel.ui" target="RsaToolbox/Gui/ListPanel/ListPanel.ui" openeditor="false" />
+        <file source="RsaToolbox/Gui/PointsEdit/PointsEdit.h" target="RsaToolbox/Gui/PointsEdit/PointsEdit.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/PointsEdit/PointsEdit.cpp" target="RsaToolbox/Gui/PointsEdit/PointsEdit.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/PortsLineEdit/PortsLineEdit.cpp" target="RsaToolbox/Gui/PortsLineEdit/PortsLineEdit.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/PortsLineEdit/PortsLineEdit.h" target="RsaToolbox/Gui/PortsLineEdit/PortsLineEdit.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/PowerEdit/PowerEdit.h" target="RsaToolbox/Gui/PowerEdit/PowerEdit.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/PowerEdit/PowerEdit.cpp" target="RsaToolbox/Gui/PowerEdit/PowerEdit.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/Update/Update.h" target="RsaToolbox/Gui/Update/Update.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/Update/Update.cpp" target="RsaToolbox/Gui/Update/Update.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/Update/Update.ui" target="RsaToolbox/Gui/Update/Update.ui" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/BreadCrumbs.cpp" target="RsaToolbox/Gui/Wizard/BreadCrumbs.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/BreadCrumbs.h" target="RsaToolbox/Gui/Wizard/BreadCrumbs.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/BreadCrumbs.ui" target="RsaToolbox/Gui/Wizard/BreadCrumbs.ui" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/Wizard.cpp" target="RsaToolbox/Gui/Wizard/Wizard.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/Wizard.h" target="RsaToolbox/Gui/Wizard/Wizard.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/Wizard.ui" target="RsaToolbox/Gui/Wizard/Wizard.ui" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/WizardButtons.cpp" target="RsaToolbox/Gui/Wizard/WizardButtons.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/WizardButtons.h" target="RsaToolbox/Gui/Wizard/WizardButtons.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/WizardButtons.ui" target="RsaToolbox/Gui/Wizard/WizardButtons.ui" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/WizardPage.cpp" target="RsaToolbox/Gui/Wizard/WizardPage.cpp" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/WizardPage.h" target="RsaToolbox/Gui/Wizard/WizardPage.h" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/RS.ico" target="RsaToolbox/Gui/Wizard/RS.ico" openeditor="false" />
+        <file source="RsaToolbox/Gui/Wizard/WizardResources.qrc" target="RsaToolbox/Gui/Wizard/WizardResources.qrc" openeditor="false" />
+
+        <!-- RsaToolbox::Log -->
+        <file source="RsaToolbox/Log/Log.h" target="RsaToolbox/Log/Log.h" openeditor="false" />
+        <file source="RsaToolbox/Log/Log.cpp" target="RsaToolbox/Log/Log.cpp" openeditor="false" />
+
+        <!-- RsaToolbox::GenericBus -->
+        <file source="RsaToolbox/Bus/GenericBus.h" target="RsaToolbox/Bus/GenericBus.h" openeditor="false" />
+        <file source="RsaToolbox/Bus/GenericBus.cpp" target="RsaToolbox/Bus/GenericBus.cpp" openeditor="false" />
+
+        <!-- RsaToolbox::TcpBus -->
+        <file source="RsaToolbox/Bus/Tcp/tcp.pri" target="RsaToolbox/Bus/Tcp/tcp.pri" openeditor="false" />
+        <file source="RsaToolbox/Bus/Tcp/TcpBus.h" target="RsaToolbox/Bus/Tcp/TcpBus.h" openeditor="false" />
+        <file source="RsaToolbox/Bus/Tcp/TcpBus.cpp" target="RsaToolbox/Bus/Tcp/TcpBus.cpp" openeditor="false" />
+
+        <!-- RsaToolbox::VisaBus -->
+        <file source="RsaToolbox/Bus/Visa/visa.pri" target="RsaToolbox/Bus/Visa/visa.pri" openeditor="false" />
+        <file source="RsaToolbox/Bus/Visa/visa.h" target="RsaToolbox/Bus/Visa/visa.h" openeditor="false" />
+        <file source="RsaToolbox/Bus/Visa/visatype.h" target="RsaToolbox/Bus/Visa/visatype.h" openeditor="false" />
+        <file source="RsaToolbox/Bus/Visa/VisaBus.h" target="RsaToolbox/Bus/Visa/VisaBus.h" openeditor="false" />
+        <file source="RsaToolbox/Bus/Visa/VisaBus.cpp" target="RsaToolbox/Bus/Visa/VisaBus.cpp" openeditor="false" />
+        <file source="RsaToolbox/Bus/Visa/RsVisa32.dll" target="RsaToolbox/Bus/Visa/RsVisa32.dll" openeditor="false" binary="true" />
+
+        <!-- RsaToolbox::GenericInstrument -->
+        <file source="RsaToolbox/Instruments/GenericInstrument.h" target="RsaToolbox/Instruments/GenericInstrument.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/GenericInstrument.cpp" target="RsaToolbox/Instruments/GenericInstrument.cpp" openeditor="false" />
+
+        <!-- RsaToolbox::Vna -->
+        <file source="RsaToolbox/Instruments/Vna/vna.pri" target="RsaToolbox/Instruments/Vna/vna.pri" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Vna.h" target="RsaToolbox/Instruments/Vna/Vna.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Vna.cpp" target="RsaToolbox/Instruments/Vna/Vna.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaAveraging.h" target="RsaToolbox/Instruments/Vna/VnaAveraging.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaAveraging.cpp" target="RsaToolbox/Instruments/Vna/VnaAveraging.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaCalibrate.h" target="RsaToolbox/Instruments/Vna/VnaCalibrate.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaCalibrate.cpp" target="RsaToolbox/Instruments/Vna/VnaCalibrate.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaCalKit.h" target="RsaToolbox/Instruments/Vna/VnaCalKit.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaCalKit.cpp" target="RsaToolbox/Instruments/Vna/VnaCalKit.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaCalStandard.h" target="RsaToolbox/Instruments/Vna/VnaCalStandard.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaCalStandard.cpp" target="RsaToolbox/Instruments/Vna/VnaCalStandard.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaCalUnit.h" target="RsaToolbox/Instruments/Vna/VnaCalUnit.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaCalUnit.cpp" target="RsaToolbox/Instruments/Vna/VnaCalUnit.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaChannel.h" target="RsaToolbox/Instruments/Vna/VnaChannel.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaChannel.cpp" target="RsaToolbox/Instruments/Vna/VnaChannel.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaCorrections.h" target="RsaToolbox/Instruments/Vna/VnaCorrections.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaCorrections.cpp" target="RsaToolbox/Instruments/Vna/VnaCorrections.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaCwSweep.h" target="RsaToolbox/Instruments/Vna/VnaCwSweep.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaCwSweep.cpp" target="RsaToolbox/Instruments/Vna/VnaCwSweep.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaDiagram.h" target="RsaToolbox/Instruments/Vna/VnaDiagram.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaDiagram.cpp" target="RsaToolbox/Instruments/Vna/VnaDiagram.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaFileSystem.h" target="RsaToolbox/Instruments/Vna/VnaFileSystem.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaFileSystem.cpp" target="RsaToolbox/Instruments/Vna/VnaFileSystem.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaLimits.h" target="RsaToolbox/Instruments/Vna/VnaLimits.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaLimits.cpp" target="RsaToolbox/Instruments/Vna/VnaLimits.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaLinearSweep.h" target="RsaToolbox/Instruments/Vna/VnaLinearSweep.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaLinearSweep.cpp" target="RsaToolbox/Instruments/Vna/VnaLinearSweep.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaLogSweep.h" target="RsaToolbox/Instruments/Vna/VnaLogSweep.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaLogSweep.cpp" target="RsaToolbox/Instruments/Vna/VnaLogSweep.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaMarker.h" target="RsaToolbox/Instruments/Vna/VnaMarker.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaMarker.cpp" target="RsaToolbox/Instruments/Vna/VnaMarker.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaMath.h" target="RsaToolbox/Instruments/Vna/VnaMath.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaMath.cpp" target="RsaToolbox/Instruments/Vna/VnaMath.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaPowerCalibrate.h" target="RsaToolbox/Instruments/Vna/VnaPowerCalibrate.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaPowerCalibrate.cpp" target="RsaToolbox/Instruments/Vna/VnaPowerCalibrate.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaPowerCorrections.h" target="RsaToolbox/Instruments/Vna/VnaPowerCorrections.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaPowerCorrections.cpp" target="RsaToolbox/Instruments/Vna/VnaPowerCorrections.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaPowerSweep.h" target="RsaToolbox/Instruments/Vna/VnaPowerSweep.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaPowerSweep.cpp" target="RsaToolbox/Instruments/Vna/VnaPowerSweep.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaProperties.h" target="RsaToolbox/Instruments/Vna/VnaProperties.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaProperties.cpp" target="RsaToolbox/Instruments/Vna/VnaProperties.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaReferenceMarker.h" target="RsaToolbox/Instruments/Vna/VnaReferenceMarker.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaReferenceMarker.cpp" target="RsaToolbox/Instruments/Vna/VnaReferenceMarker.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaScpi.h" target="RsaToolbox/Instruments/Vna/VnaScpi.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaScpi.cpp" target="RsaToolbox/Instruments/Vna/VnaScpi.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaSegmentedSweep.h" target="RsaToolbox/Instruments/Vna/VnaSegmentedSweep.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaSegmentedSweep.cpp" target="RsaToolbox/Instruments/Vna/VnaSegmentedSweep.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaSet.h" target="RsaToolbox/Instruments/Vna/VnaSet.h" openeditor="false" />
+<file source="RsaToolbox/Instruments/Vna/VnaSet.cpp" target="RsaToolbox/Instruments/Vna/VnaSet.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaSettings.h" target="RsaToolbox/Instruments/Vna/VnaSettings.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaSettings.cpp" target="RsaToolbox/Instruments/Vna/VnaSettings.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaStandardModel.h" target="RsaToolbox/Instruments/Vna/VnaStandardModel.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaStandardModel.cpp" target="RsaToolbox/Instruments/Vna/VnaStandardModel.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaSweepSegment.h" target="RsaToolbox/Instruments/Vna/VnaSweepSegment.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaSweepSegment.cpp" target="RsaToolbox/Instruments/Vna/VnaSweepSegment.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaSwitchMatrix.h" target="RsaToolbox/Instruments/Vna/VnaSwitchMatrix.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaSwitchMatrix.cpp" target="RsaToolbox/Instruments/Vna/VnaSwitchMatrix.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaTimeDomain.h" target="RsaToolbox/Instruments/Vna/VnaTimeDomain.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaTimeDomain.cpp" target="RsaToolbox/Instruments/Vna/VnaTimeDomain.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaTimeSweep.h" target="RsaToolbox/Instruments/Vna/VnaTimeSweep.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaTimeSweep.cpp" target="RsaToolbox/Instruments/Vna/VnaTimeSweep.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaTrace.h" target="RsaToolbox/Instruments/Vna/VnaTrace.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaTrace.cpp" target="RsaToolbox/Instruments/Vna/VnaTrace.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaUserDefinedPort.h" target="RsaToolbox/Instruments/Vna/VnaUserDefinedPort.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/VnaUserDefinedPort.cpp" target="RsaToolbox/Instruments/Vna/VnaUserDefinedPort.cpp" openeditor="false" />
+
+        <!-- RsaToolbox::Vna/Dialogs -->
+        <file source="RsaToolbox/Instruments/Vna/Dialogs/vnadialogs.pri" target="RsaToolbox/Instruments/Vna/Dialogs/vnadialogs.pri" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Dialogs/getCalGroupDialog/getCalGroupDialog.h" target="RsaToolbox/Instruments/Vna/Dialogs/getCalGroupDialog/getCalGroupDialog.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Dialogs/getCalGroupDialog/getCalGroupDialog.cpp" target="RsaToolbox/Instruments/Vna/Dialogs/getCalGroupDialog/getCalGroupDialog.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Dialogs/getCalGroupDialog/getCalGroupDialog.ui" target="RsaToolbox/Instruments/Vna/Dialogs/getCalGroupDialog/getCalGroupDialog.ui" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Dialogs/getChannelDialog/getChannelDialog.h" target="RsaToolbox/Instruments/Vna/Dialogs/getChannelDialog/getChannelDialog.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Dialogs/getChannelDialog/getChannelDialog.cpp" target="RsaToolbox/Instruments/Vna/Dialogs/getChannelDialog/getChannelDialog.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Dialogs/getChannelDialog/getChannelDialog.ui" target="RsaToolbox/Instruments/Vna/Dialogs/getChannelDialog/getChannelDialog.ui" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Dialogs/getPortsDialog/getPortsDialog.h" target="RsaToolbox/Instruments/Vna/Dialogs/getPortsDialog/getPortsDialog.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Dialogs/getPortsDialog/getPortsDialog.cpp" target="RsaToolbox/Instruments/Vna/Dialogs/getPortsDialog/getPortsDialog.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Dialogs/getPortsDialog/getPortsDialog.ui" target="RsaToolbox/Instruments/Vna/Dialogs/getPortsDialog/getPortsDialog.ui" openeditor="false" />
+
+        <!-- RsaToolbox::Vna/Files -->
+        <file source="RsaToolbox/Instruments/Vna/Files/ZNB_DELETE.cal" target="RsaToolbox/Instruments/Vna/Files/ZNB_DELETE.cal" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Files/ZVA_DELETE.cal" target="RsaToolbox/Instruments/Vna/Files/ZVA_DELETE.cal" openeditor="false" />
+
+        <!-- RsaToolbox::Vna/Models -->
+        <file source="RsaToolbox/Instruments/Vna/Models/vnamodels.pri" target="RsaToolbox/Instruments/Vna/Models/vnamodels.pri" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Models/VnaModel/VnaModel.h" target="RsaToolbox/Instruments/Vna/Models/VnaModel/VnaModel.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Models/VnaModel/VnaModel.cpp" target="RsaToolbox/Instruments/Vna/Models/VnaModel/VnaModel.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Models/ChannelsModel/ChannelsModel.h" target="RsaToolbox/Instruments/Vna/Models/ChannelsModel/ChannelsModel.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Models/ChannelsModel/ChannelsModel.cpp" target="RsaToolbox/Instruments/Vna/Models/ChannelsModel/ChannelsModel.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Models/CalGroupsModel/CalGroupsModel.h" target="RsaToolbox/Instruments/Vna/Models/CalGroupsModel/CalGroupsModel.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Models/CalGroupsModel/CalGroupsModel.cpp" target="RsaToolbox/Instruments/Vna/Models/CalGroupsModel/CalGroupsModel.cpp" openeditor="false" />
+
+        <!-- RsaToolbox::Vna/Views -->
+        <file source="RsaToolbox/Instruments/Vna/Views/vnaviews.pri" target="RsaToolbox/Instruments/Vna/Views/vnaviews.pri" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Views/VnaForm/VnaForm.h" target="RsaToolbox/Instruments/Vna/Views/VnaForm/VnaForm.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Views/VnaForm/VnaForm.cpp" target="RsaToolbox/Instruments/Vna/Views/VnaForm/VnaForm.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Views/VnaForm/VnaForm.ui" target="RsaToolbox/Instruments/Vna/Views/VnaForm/VnaForm.ui" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Views/CalGroupPanel/CalGroupPanel.h" target="RsaToolbox/Instruments/Vna/Views/CalGroupPanel/CalGroupPanel.h" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Views/CalGroupPanel/CalGroupPanel.cpp" target="RsaToolbox/Instruments/Vna/Views/CalGroupPanel/CalGroupPanel.cpp" openeditor="false" />
+        <file source="RsaToolbox/Instruments/Vna/Views/CalGroupPanel/CalGroupPanel.ui" target="RsaToolbox/Instruments/Vna/Views/CalGroupPanel/CalGroupPanel.ui" openeditor="false" />
+
+        <!-- RsaToolbox::Test -->
+        <file source="RsaToolbox/Test/test.pri" target="RsaToolbox/Test/test.pri" openeditor="false" />
+        <file source="RsaToolbox/Test/TestRunner/TestRunner.h" target="RsaToolbox/Test/TestRunner/TestRunner.h" openeditor="false" />
+        <file source="RsaToolbox/Test/TestRunner/TestRunner.cpp" target="RsaToolbox/Test/TestRunner/TestRunner.cpp" openeditor="false" />
+        <file source="RsaToolbox/Test/SpeedTracker/SpeedTracker.h" target="RsaToolbox/Test/SpeedTracker/SpeedTracker.h" openeditor="false" />
+        <file source="RsaToolbox/Test/SpeedTracker/SpeedTracker.cpp" target="RsaToolbox/Test/SpeedTracker/SpeedTracker.cpp" openeditor="false" />
+
+        <!-- QCustomPlot -->
+        <file source="RsaToolbox/QCustomPlot/qcustomplot.pri" target="RsaToolbox/QCustomPlot/qcustomplot.pri" openeditor="false" />
+        <file source="RsaToolbox/QCustomPlot/qcustomplot.pro" target="RsaToolbox/QCustomPlot/qcustomplot.pro" openeditor="false" />
+        <file source="RsaToolbox/QCustomPlot/qcustomplot.h" target="RsaToolbox/QCustomPlot/qcustomplot.h" openeditor="false" />
+        <file source="RsaToolbox/QCustomPlot/qcustomplot.lib" target="RsaToolbox/QCustomPlot/qcustomplot.lib" openeditor="false" binary="true" />
+        <file source="RsaToolbox/QCustomPlot/qcustomplotd.lib" target="RsaToolbox/QCustomPlot/qcustomplotd.lib" openeditor="false" binary="true" />
+        <file source="RsaToolbox/QCustomPlot/qcustomplotd.pdb" target="RsaToolbox/QCustomPlot/qcustomplotd.pdb" openeditor="false" binary="true" />
+        <file source="RsaToolbox/QCustomPlot/qcustomplot.dll" target="RsaToolbox/QCustomPlot/qcustomplot.dll" openeditor="false" binary="true" />
+        <file source="RsaToolbox/QCustomPlot/qcustomplotd.dll" target="RsaToolbox/QCustomPlot/qcustomplotd.dll" openeditor="false" binary="true" />
+        <file source="RsaToolbox/QCustomPlot/changelog.txt" target="RsaToolbox/QCustomPlot/changelog.txt" openeditor="false" />
+        <file source="RsaToolbox/QCustomPlot/LICENSE.txt" target="RsaToolbox/QCustomPlot/LICENSE.txt" openeditor="false" />
+
+        <!-- QuaZIP -->
+        <file source="RsaToolbox/QuaZIP/quazip.pri" target="RsaToolbox/QuaZIP/quazip.pri" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazip.pro" target="RsaToolbox/QuaZIP/quazip.pro" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/crypt.h" target="RsaToolbox/QuaZIP/crypt.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/ioapi.h" target="RsaToolbox/QuaZIP/ioapi.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/JlCompress.cpp" target="RsaToolbox/QuaZIP/JlCompress.cpp" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/JlCompress.h" target="RsaToolbox/QuaZIP/JlCompress.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/qioapi.cpp" target="RsaToolbox/QuaZIP/qioapi.cpp" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quaadler32.cpp" target="RsaToolbox/QuaZIP/quaadler32.cpp" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quaadler32.h" target="RsaToolbox/QuaZIP/quaadler32.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quachecksum32.h" target="RsaToolbox/QuaZIP/quachecksum32.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quacrc32.cpp" target="RsaToolbox/QuaZIP/quacrc32.cpp" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quacrc32.h" target="RsaToolbox/QuaZIP/quacrc32.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quagzipfile.cpp" target="RsaToolbox/QuaZIP/quagzipfile.cpp" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quagzipfile.h" target="RsaToolbox/QuaZIP/quagzipfile.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quaziodevice.cpp" target="RsaToolbox/QuaZIP/quaziodevice.cpp" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quaziodevice.h" target="RsaToolbox/QuaZIP/quaziodevice.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazip.cpp" target="RsaToolbox/QuaZIP/quazip.cpp" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazip.h" target="RsaToolbox/QuaZIP/quazip.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazipdir.cpp" target="RsaToolbox/QuaZIP/quazipdir.cpp" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazipdir.h" target="RsaToolbox/QuaZIP/quazipdir.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazipfile.cpp" target="RsaToolbox/QuaZIP/quazipfile.cpp" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazipfile.h" target="RsaToolbox/QuaZIP/quazipfile.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazipfileinfo.cpp" target="RsaToolbox/QuaZIP/quazipfileinfo.cpp" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazipfileinfo.h" target="RsaToolbox/QuaZIP/quazipfileinfo.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazipnewinfo.cpp" target="RsaToolbox/QuaZIP/quazipnewinfo.cpp" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazipnewinfo.h" target="RsaToolbox/QuaZIP/quazipnewinfo.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazip_global.h" target="RsaToolbox/QuaZIP/quazip_global.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/unzip.c" target="RsaToolbox/QuaZIP/unzip.c" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/unzip.h" target="RsaToolbox/QuaZIP/unzip.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/zip.c" target="RsaToolbox/QuaZIP/zip.c" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/zip.h" target="RsaToolbox/QuaZIP/zip.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/quazip.dll" target="RsaToolbox/QuaZIP/quazip.dll" openeditor="false" binary="true" />
+        <file source="RsaToolbox/QuaZIP/quazip.lib" target="RsaToolbox/QuaZIP/quazip.lib" openeditor="false" binary="true" />
+        <file source="RsaToolbox/QuaZIP/quazipd.dll" target="RsaToolbox/QuaZIP/quazipd.dll" openeditor="false" binary="true" />
+        <file source="RsaToolbox/QuaZIP/quazipd.lib" target="RsaToolbox/QuaZIP/quazipd.lib" openeditor="false" binary="true" />
+        <file source="RsaToolbox/QuaZIP/quazipd.pdb" target="RsaToolbox/QuaZIP/quazipd.pdb" openeditor="false" binary="true" />
+        <file source="RsaToolbox/QuaZIP/Example.txt" target="RsaToolbox/QuaZIP/Example.txt" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/LICENSE.txt" target="RsaToolbox/QuaZIP/LICENSE.txt" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/ZLib/zconf.h" target="RsaToolbox/QuaZIP/ZLib/zconf.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/ZLib/zdll.lib" target="RsaToolbox/QuaZIP/ZLib/zdll.lib" openeditor="false" binary="true" />
+        <file source="RsaToolbox/QuaZIP/ZLib/zlib.h" target="RsaToolbox/QuaZIP/ZLib/zlib.h" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/ZLib/zlib.pri" target="RsaToolbox/QuaZIP/ZLib/zlib.pri" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/ZLib/zlib1.dll" target="RsaToolbox/QuaZIP/ZLib/zlib1.dll" openeditor="false" binary="true" />
+        <file source="RsaToolbox/QuaZIP/ZLib/DLL_FAQ.txt" target="RsaToolbox/QuaZIP/ZLib/DLL_FAQ.txt" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/ZLib/README.txt" target="RsaToolbox/QuaZIP/ZLib/README.txt" openeditor="false" />
+        <file source="RsaToolbox/QuaZIP/ZLib/USAGE.txt" target="RsaToolbox/QuaZIP/ZLib/USAGE.txt" openeditor="false" />
+
+        <!-- Rsa Create Installer (WiX) -->
+        <file source="Installer/Keys/Installer Keys go here" target="Installer/Keys/Installer keys go here" openeditor="false" />
+
+        <!-- Project source -->
+        <file source="Keys/Debug keys go here" target="Keys/Debug keys go here" openeditor="false" binary="true" />
+        <file source="DEBUG_LOGFILE.txt" openeditor="false" />
+        <file source="Settings.h" openeditor="true" />
+        <file source="main.cpp" />
+        <file source="MeasureThread.h" />
+        <file source="MeasureThread.cpp" />
+        <file source="mainwindow.h" />
+        <file source="mainwindow.cpp" />
+        <file source="mainwindow.ui" openeditor="true" />
+        <file source="project.pro" target="%ProjectName%.pro" openproject="true" />
+    </files>
+    
+    <!-- Create a 2nd wizard page with parameters -->
+    <fieldpagetitle>RsaToolbox Settings</fieldpagetitle>
+    <fields>
+        <field mandatory="true" name="APPLICATION_NAME">
+            <fieldcontrol class="QLineEdit" validator='^[^"]+$' defaulttext="My RSA App" />
+            <fielddescription>Application Name:</fielddescription>
+        </field>
+        <field mandatory="true" name="APP_FOLDER">
+            <fieldcontrol class="QLineEdit" validator='^[^"]+$' defaulttext="My RSA App" />
+            <fielddescription>Installation folder name:</fielddescription>
+        </field>
+        <field mandatory="true" name="LOG_FILENAME">
+            <fieldcontrol class="QLineEdit" validator='^[^"]+$' defaulttext="My RSA App Log.txt" />
+            <fielddescription>Log filename:</fielddescription>
+        </field>
+    </fields>
+</wizard>

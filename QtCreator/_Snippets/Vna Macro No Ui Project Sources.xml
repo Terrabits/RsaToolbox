@@ -1,0 +1,8 @@
+
+
+<!-- Project source -->
+<file source="./Keys/Debug keys go here" target="./Keys/Debug keys go here" openeditor="false" binary="true" />
+<file source="DEBUG_LOGFILE.txt" openeditor="false" />
+<file source="Settings.h" openeditor="true" />
+<file source="main.cpp" openeditor="true" />
+<file source="project.pro" target="%ProjectName%.pro" openproject="true" />

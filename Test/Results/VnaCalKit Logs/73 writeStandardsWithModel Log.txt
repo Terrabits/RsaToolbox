@@ -1,0 +1,787 @@
+test_VnaCalKit Version 0
+(C) 2015 Rohde & Schwarz North America
+
+Mon Oct 12 16:01:41 2015
+
+VNA INSTRUMENT INFO
+Connection:       TCPIP
+Address:          127.0.0.1
+Make:             Rohde & Schwarz
+Model:            ZNB
+Serial No:        1311601044100104
+Firmware Version: 2.60.1.226
+Min Frequency:    9 KHz
+Max Frequency:    8.5 GHz
+Number of Ports:  4
+Options:          ZNB-K2
+                  ZNB-K4
+                  ZNB-K14
+                  ZNB-K17
+                  ZNB-K19
+                  ZNB8-B24
+                  ZNB8-B31
+                  ZNB8-B32
+                  ZNB8-B33
+                  ZNB8-B34
+                  ZNB-B81
+                  ZNB-B2
+                  ZNB-B12
+                  ZN-B15
+
+
+Write:    ":CORR:CKIT:MOSHORT3:WLAB 'N 50 Ohm','New Cal Kit','New Label','',9000,8.5e+09,3,1,2,4,5,6,7,8,9,10,1..."
+Bytes: 106
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA,Boe..."
+Bytes: 105
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'N 50 Ohm'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'N 75 Ohm'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '7 mm'"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '3.5 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '2.92 mm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '2.4 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '1.85 mm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '7-16'"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'Type F (75)'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Type F (75)',TEM,GEND,1.00062,75"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'BNC 50 Ohm'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'BNC 75 Ohm'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'SMA'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'Boeing'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Boeing',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 131
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '7 mm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 124
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '2.92 mm'"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm Ideal Kit,,3652-1,,ZV-Z129,,ZV-Z34 typical,,ZV-Z35 typical,'"
+Bytes: 70
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '2.4 mm'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm Ideal Kit,,85056A,,85056D,,85056K,'"
+Bytes: 44
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '1.85 mm'"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm Ideal Kit,,85058B Poly,,85058EP,'"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '7-16'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16 Ideal Kit,,85038A,'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'Type F (75)'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Type F (75) Ideal Kit,,85039B,'"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'BNC 50 Ohm'"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 50 Ohm Ideal Kit,'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'BNC 75 Ohm'"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 75 Ohm Ideal Kit,'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'SMA'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA Ideal Kit,'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'Boeing'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Boeing Ideal Kit,,HighBand,Boeing,LowBand,Boeing'"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA,Boe..."
+Bytes: 105
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'N 50 Ohm'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'N 75 Ohm'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '7 mm'"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '3.5 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '2.92 mm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '2.4 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '1.85 mm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '7-16'"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'Type F (75)'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Type F (75)',TEM,GEND,1.00062,75"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'BNC 50 Ohm'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'BNC 75 Ohm'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'SMA'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'Boeing'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Boeing',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 131
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA,Boe..."
+Bytes: 105
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'N 50 Ohm'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'N 75 Ohm'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '7 mm'"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '3.5 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '2.92 mm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '2.4 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '1.85 mm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '7-16'"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'Type F (75)'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Type F (75)',TEM,GEND,1.00062,75"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'BNC 50 Ohm'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'BNC 75 Ohm'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'SMA'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'Boeing'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Boeing',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 131
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? 'New Cal Kit','New Label'"
+Bytes: 48
+Status: 0x0 Operation completed successfully.
+
+Read:     "'MOSHORT3(P2)'"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOSHORT3:WLAB? 'N 50 Ohm','New Cal Kit','New Label',2"
+Bytes: 65
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm','New Cal Kit','New Label','',9000,8500000000,3.00000004319,1,2,4,5,6,7,8,9,10,11,0,2"
+Bytes: 96
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA,Boe..."
+Bytes: 105
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'N 50 Ohm'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'N 75 Ohm'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '7 mm'"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '3.5 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '2.92 mm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '2.4 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '1.85 mm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '7-16'"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'Type F (75)'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Type F (75)',TEM,GEND,1.00062,75"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'BNC 50 Ohm'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'BNC 75 Ohm'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'SMA'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'Boeing'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Boeing',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 131
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA,Boe..."
+Bytes: 105
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'N 50 Ohm'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'N 75 Ohm'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '7 mm'"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '3.5 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '2.92 mm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '2.4 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '1.85 mm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? '7-16'"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'Type F (75)'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Type F (75)',TEM,GEND,1.00062,75"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'BNC 50 Ohm'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'BNC 75 Ohm'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'SMA'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN? 'Boeing'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Boeing',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 131
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? 'New Cal Kit','New Label'"
+Bytes: 48
+Status: 0x0 Operation completed successfully.
+
+Read:     "'MOSHORT3(P2)'"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOSHORT3:WLAB? 'N 50 Ohm','New Cal Kit','New Label',2"
+Bytes: 65
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm','New Cal Kit','New Label','',9000,8500000000,3.00000004319,1,2,4,5,6,7,8,9,10,11,0,2"
+Bytes: 96
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
