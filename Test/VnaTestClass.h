@@ -35,7 +35,7 @@ protected:
 
 private slots:
     // Once
-    // virtual void initTestCase();
+     virtual void initTestCase();
     // virtual void cleanupTestCase();
 
     // Per test

@@ -8,6 +8,7 @@
 #include "VnaUserDefinedPort.h"
 #include "VnaCalStandard.h"
 #include "VnaTimeDomain.h"
+#include "VnaSwitchMatrix.h"
 #include "GenericBus.h"
 
 namespace RsaToolbox {
@@ -16,6 +17,9 @@ namespace RsaToolbox {
 class VnaScpi
 {
 public:
+
+    // General
+    static QString toString(PortMap map);
 
     // Channel
     static QString toString(VnaChannel::SweepType type);
@@ -36,8 +40,10 @@ public:
     static VnaUserDefinedPort toUserDefinedPort(QString scpi);
 
     // Switch Matrix
-    static QString toMatrixString(ConnectionType type);
-    static ConnectionType toMatrixConnection(QString scpi);
+    static QString toString(VnaSwitchMatrix::ConnectionType type);
+    static QString toString(VnaSwitchMatrix::Driver driver);
+    static VnaSwitchMatrix::ConnectionType toSwitchMatrixConnectionType(QString scpi);
+//    static VnaSwitchMatrix::Driver toSwitchMatrixDriver(QString scpi);
 
     // Connector
     static QString toString(Connector::Type type);

@@ -4,6 +4,7 @@
 // RsaToolbox includes
 #include "General.h"
 #include "Vna.h"
+#include "VnaScpi.h"
 using namespace RsaToolbox;
 
 // Qt
@@ -56,12 +57,12 @@ QString VnaSwitchMatrix::driver() {
 
     return result[1];
 }
-ConnectionType VnaSwitchMatrix::connectionType() {
+VnaSwitchMatrix::ConnectionType VnaSwitchMatrix::connectionType() {
     QStringList result = defineQuery();
     if (result.size() < 4)
-        return ConnectionType::NoConnection;
+        return VnaSwitchMatrix::ConnectionType::Usb;
 
-    return VnaScpi::toMatrixConnection(result[2]);
+    return VnaScpi::toSwitchMatrixConnectionType(result[2]);
 }
 QString VnaSwitchMatrix::address() {
     QStringList result = defineQuery();
@@ -86,6 +87,19 @@ PortMap VnaSwitchMatrix::testPortToMatrixMap() {
     scpi = scpi.arg(_index);
     QString result = _vna->query(scpi).trimmed();
     return RsaToolbox::parseMap<uint,uint>(result, ",");
+}
+
+void VnaSwitchMatrix::setConnectionsToVna(PortMap matrixToVnaPortMap) {
+    QString scpi = ":SYST:COMM:RDEV:SMAT%1:CONF:MVNA %2\n";
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(VnaScpi::toString(matrixToVnaPortMap));
+    _vna->write(scpi);
+}
+void VnaSwitchMatrix::setTestPorts(PortMap matrixToTestPortMap) {
+    QString scpi = ":SYST:COMM:RDEV:SMAT%1:CONF:MTES %2\n";
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(VnaScpi::toString(matrixToTestPortMap));
+    _vna->write(scpi);
 }
 
 void VnaSwitchMatrix::operator=(VnaSwitchMatrix const &other) {

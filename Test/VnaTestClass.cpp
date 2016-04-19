@@ -22,6 +22,22 @@ VnaTestClass::~VnaTestClass() {
     _log.reset();
 }
 
+void VnaTestClass::initTestCase() {
+    if (_logDir == QDir())
+        return;
+
+    if (!_logDir.exists()) {
+        QDir dir(_logDir);
+        dir.cdUp();
+        dir.mkpath(_logDir.dirName());
+    }
+    else {
+        foreach (QString file, _logDir.entryList(QDir::Files)) {
+            _logDir.remove(file);
+        }
+    }
+}
+
 void VnaTestClass::init() {
     _vna.reset(new Vna(_connectionType, _address));
     const QString logFilename = _logDir.filePath(_logFilenames.takeFirst());

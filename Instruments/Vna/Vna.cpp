@@ -2004,18 +2004,48 @@ uint Vna::switchMatrixWithPort(uint testPort) {
  * \brief Disconnects all switch matrices from
  * the VNA.
  */
-void Vna::disconnectSwitchMatrices() {
+void Vna::excludeAllSwitchMatricesFromSetup() {
     if (properties().isZvaFamily())
         return;
 
     write(":INST:SMAT 0\n");
 }
 
+void Vna::includeAllSwitchMatricesInSetup() {
+    if (properties().isZvaFamily())
+        return;
+
+    write(":INST:SMAT 1\n");
+}
+
+void Vna::beginSwitchMatrixSetup() {
+    write(":SYST:COMM:RDEV:SMAT:CONF:STAR\n");
+}
+
+void Vna::endSwitchMatrixSetup() {
+    write(":SYST:COMM:RDEV:SMAT:CONF:END\n");
+}
+void Vna::setVnaTestPorts(PortMap vnaToTestPortMap) {
+    QString scpi = ":SYST:COMM:RDEV:SMAT:CONF:TVNA %1\n";
+    scpi = scpi.arg(VnaScpi::toString(vnaToTestPortMap));
+    write(scpi);
+}
+void Vna::registerSwitchMatrix(VnaSwitchMatrix::Driver driver, VnaSwitchMatrix::ConnectionType type, QString address) {
+    const uint index = switchMatrices() + 1;
+
+    QString scpi = ":SYST:COMM:RDEV:SMAT%1:DEF \'\',\'%2\',\'%3\',\'%4\'\n";
+    scpi = scpi.arg(index);
+    scpi = scpi.arg(VnaScpi::toString(driver));
+    scpi = scpi.arg(VnaScpi::toString(type));
+    scpi = scpi.arg(address);
+    write(scpi);
+}
+
 /*!
  * \brief Removes all switch matrices
  * from the pool of connected devices.
  */
-void Vna::removeSwitchMatrices() {
+void Vna::unregisterAllSwitchMatrices() {
     if (properties().isZvaFamily())
         return;
 

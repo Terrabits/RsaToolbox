@@ -178,8 +178,17 @@ public:
     uint switchMatrices();
     bool isSwitchMatrixPort(uint testPort);
     uint switchMatrixWithPort(uint testPort);
-    void disconnectSwitchMatrices();
-    void removeSwitchMatrices();
+
+    void registerSwitchMatrix(VnaSwitchMatrix::Driver driver, VnaSwitchMatrix::ConnectionType type, QString address);
+    void unregisterAllSwitchMatrices();
+
+    void excludeAllSwitchMatricesFromSetup();
+    void includeAllSwitchMatricesInSetup();
+
+    void beginSwitchMatrixSetup(); // Finish
+    void setVnaTestPorts(PortMap vnaToTestPortMap); // Finish
+    void endSwitchMatrixSetup(); // Finish
+
     VnaSwitchMatrix &switchMatrix(uint index = 1);
     VnaSwitchMatrix *takeSwitchMatrix(uint index = 1);
 

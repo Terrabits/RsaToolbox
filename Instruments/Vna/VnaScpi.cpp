@@ -15,6 +15,16 @@ using namespace RsaToolbox;
  * \brief Provides Vna SCPI conversions
  */
 
+QString VnaScpi::toString(PortMap map) {
+    QString string;
+    foreach (uint key, map.keys()) {
+        string += QString("%1,%2,").arg(key).arg(map[key]);
+    }
+    if (string.endsWith(','))
+        string.chop(1);
+    return string;
+}
+
 /*!
  * \brief Maps \c BalancedPort::Type to
  * SCPI
@@ -111,25 +121,68 @@ VnaUserDefinedPort VnaScpi::toUserDefinedPort(QString scpi) {
     return port;
 }
 
-QString VnaScpi::toMatrixString(ConnectionType type) {
+QString VnaScpi::toString(VnaSwitchMatrix::ConnectionType type) {
     switch(type) {
-    case ConnectionType::TcpSocketConnection:
+    case VnaSwitchMatrix::ConnectionType::Lan:
         return "LAN";
-    case ConnectionType::UsbConnection:
+    case VnaSwitchMatrix::ConnectionType::Usb:
         return "USB";
+    case VnaSwitchMatrix::ConnectionType::DirectControl:
+        return "DIRECTCTRL";
     default:
         return "";
     }
 }
-ConnectionType VnaScpi::toMatrixConnection(QString scpi) {
+QString VnaScpi::toString(VnaSwitchMatrix::Driver driver) {
+    switch(driver) {
+    case VnaSwitchMatrix::Driver::ZN_Z84_02:
+        return "ZN-Z84-02";
+    case VnaSwitchMatrix::Driver::ZN_Z84_22:
+        return "ZN-Z84-22";
+    case VnaSwitchMatrix::Driver::ZN_Z84_24:
+        return "ZN-Z84-24";
+    case VnaSwitchMatrix::Driver::ZN_Z84_32:
+        return "ZN-Z84-32";
+    case VnaSwitchMatrix::Driver::ZN_Z84_34:
+        return "ZN-Z84-34";
+    case VnaSwitchMatrix::Driver::ZN_Z84_42:
+        return "ZN-Z84-42";
+    case VnaSwitchMatrix::Driver::ZN_Z84_44:
+        return "ZN-Z84-44";
+    case VnaSwitchMatrix::Driver::ZN_Z85_02:
+        return "ZN-Z85-02";
+    case VnaSwitchMatrix::Driver::ZN_Z85_24:
+        return "ZN-Z85-24";
+    case VnaSwitchMatrix::Driver::ZN_Z81_05:
+        return "ZN-Z81-05";
+    case VnaSwitchMatrix::Driver::ZN_Z81_09:
+        return "ZN-Z81-09";
+    case VnaSwitchMatrix::Driver::ZN_Z81_29:
+        return "ZN-Z81-29";
+    case VnaSwitchMatrix::Driver::ZN_Z81_66:
+        return "ZN-Z81-66";
+    case VnaSwitchMatrix::Driver::ZN_Z82_10:
+        return "ZN-Z82-10";
+    case VnaSwitchMatrix::Driver::ZN_Z82_16:
+        return "ZN-Z82-16";
+    case VnaSwitchMatrix::Driver::ZN_Z82_30:
+        return "ZN-Z82-30";
+    default:
+        return "";
+    }
+}
+
+VnaSwitchMatrix::ConnectionType VnaScpi::toSwitchMatrixConnectionType(QString scpi) {
     scpi = scpi.trimmed().toUpper();
     if (scpi == "LAN")
-        return ConnectionType::TcpSocketConnection;
+        return VnaSwitchMatrix::ConnectionType::Lan;
     if (scpi == "USB")
-        return ConnectionType::UsbConnection;
+        return VnaSwitchMatrix::ConnectionType::Usb;
+    if (scpi == "DIRECTCTRL")
+        return VnaSwitchMatrix::ConnectionType::DirectControl;
 
     // default:
-    return ConnectionType::NoConnection;
+    return VnaSwitchMatrix::ConnectionType::Usb;
 }
 
 // Connector
