@@ -17,8 +17,8 @@ include(Bus/Visa/visa.pri)
 include(Gui/gui.pri)
 include(Instruments/Vna/vna.pri)
 include(Test/test.pri)
-include(QCustomPlot/qcustomplot.pri)
 include(Server/server.pri)
+include(../QCustomPlot/qcustomplot.pri)
 OTHER_FILES += rsatoolbox.pri
 
 DESTDIR     = $$PWD/..

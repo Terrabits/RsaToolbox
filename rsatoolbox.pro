@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 SUBDIRS  = QuaZIP \
-           QCustomPlot #\
-           #RsaToolbox \
-           Test
+           QCustomPlot \
+           RsaToolbox #\
+           #Test
 CONFIG  += ordered
