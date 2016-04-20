@@ -1,2 +1,2 @@
-# Some crappy file I get when I compile QCustomPlot:
-*.dll_manifest.rc
+_build/
+_install/

@@ -17,7 +17,7 @@ win32 {
 macx {
     QMAKE_CXXFLAGS += -std=c++11 -stdlib=libc++
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.7
-    LIBS += -stdlib=libc++
+    LIBS += -stdlib=libc++ # Redundant?
     CONFIG(debug, release|debug) {
         LIBS += $$PWD/Library/libRsaToolboxd.a
     }

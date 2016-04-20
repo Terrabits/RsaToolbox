@@ -18,14 +18,10 @@ include(Gui/gui.pri)
 include(Instruments/Vna/vna.pri)
 include(Test/test.pri)
 include(Server/server.pri)
-include(../QCustomPlot/qcustomplot.pri)
-OTHER_FILES += rsatoolbox.pri
 
-DESTDIR     = $$PWD/..
 DEFINES     += SOURCE_DIR=\\\"$$PWD\\\"
 CONFIG(debug, debug|release) {
     TARGET  = RsaToolboxd
-    DEFINES += DEBUG_MODE
 }
 else {
     TARGET  = RsaToolbox
