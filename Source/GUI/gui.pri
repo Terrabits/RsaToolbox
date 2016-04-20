@@ -6,7 +6,6 @@ HEADERS     += $$PWD/About/About.h \
                $$PWD/ConnectionTypeComboBox/ConnectionTypeComboBox.h \
                $$PWD/DecibelEdit/DecibelEdit.h \
                $$PWD/ErrorLabel/ErrorLabel.h \
-               $$PWD/Figure/Figure.h \
                $$PWD/FrequencyEdit/FrequencyEdit.h \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.h \
                $$PWD/GetSnpFile/GetSnpFile.h \
@@ -26,7 +25,6 @@ INCLUDEPATH += $$PWD/About \
                $$PWD/ConnectionTypeComboBox \
                $$PWD/DecibelEdit \
                $$PWD/ErrorLabel \
-               $$PWD/Figure \
                $$PWD/FrequencyEdit \
                $$PWD/getSaveFileNameWidget \
                $$PWD/GetSnpFile \
@@ -43,7 +41,6 @@ SOURCES     += $$PWD/About/About.cpp \
                $$PWD/ConnectionTypeComboBox/ConnectionTypeComboBox.cpp \
                $$PWD/DecibelEdit/DecibelEdit.cpp \
                $$PWD/ErrorLabel/ErrorLabel.cpp \
-               $$PWD/Figure/Figure.cpp \
                $$PWD/FrequencyEdit/FrequencyEdit.cpp \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.cpp \
                $$PWD/GetSnpFile/GetSnpFile.cpp \
@@ -59,7 +56,6 @@ SOURCES     += $$PWD/About/About.cpp \
                $$PWD/Wizard/BreadCrumbs.cpp \
                $$PWD/Wizard/WizardButtons.cpp
 FORMS       += $$PWD/About/About.ui \
-               $$PWD/Figure/Figure.ui \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.ui \
                $$PWD/GetSnpFile/GetSnpFile.ui \
                $$PWD/ListPanel/ListPanel.ui \
