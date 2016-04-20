@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/****************************************************************************
+** 
+** RsaToolbox
+** Qt Creator VnaScript Project Template
+** 
+** Nick Lalic
+** VNA Software Developer
+** Rohde & Schwarz North America
+** nick.lalic@rsa.rohde-schwarz.com
+** +1 424 200 2846
+** 
+** Copyright (C) 2016 Rohde & Schwarz America
+****************************************************************************/
+-->
+
+<wizard version="1" kind="project"
+    class="qmakeproject" firstpage="10"
+    id="C.VnaScript" category="B.Rohde-Schwarz">
+    <icon>console.png</icon>
+    <displayname>Vna Script</displayname>;
+    <displaycategory>Rohde &amp; Schwarz America</displaycategory>
+    <description>Creates a VNA script that is deployable onto the instrument.</description>
+    <files>
+        <!-- RsaToolbox -->
+
+        <!-- Project source -->
+        <!-- But note: -->
+        <file source="project.pro" target="%ProjectName%.pro" openproject="true" />
+    </files>
+    
+    <!-- Create a 2nd wizard page with parameters -->
+    <fieldpagetitle>RsaToolbox Settings</fieldpagetitle>
+    <fields>
+        <field mandatory="true" name="ApplicationName">
+            <fieldcontrol class="QLineEdit" validator='^[^"]+$' defaulttext="My App Name" />
+            <fielddescription>Application Name:</fielddescription>
+        </field>
+        <field mandatory="true" name="AppFolder">
+            <fieldcontrol class="QLineEdit" validator='^[^"]+$' defaulttext="My App Name" />
+            <fielddescription>Installation folder name:</fielddescription>
+        </field>
+        <field mandatory="true" name="LogFilename">
+            <fieldcontrol class="QLineEdit" validator='^[^"]+$' defaulttext="My Application Log.txt" />
+            <fielddescription>Log filename:</fielddescription>
+        </field>
+    </fields>
+</wizard>

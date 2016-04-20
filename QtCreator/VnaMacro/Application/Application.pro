@@ -1,14 +1,17 @@
 #-------------------------------------------------
-# 
-# Project  : %ProjectName%
-# App name : %APPLICATION_NAME%
-# 
-# 
 # RsaToolbox
-# Template : Rsa Vna Macro Without Ui
-#            Version 2.0.0
-# 
-# (C) Rohde & Schwarz America
+# Qt Creator Project Template
+# Copyright (C) 2016 Rohde & Schwarz America 
+#
+# Author:
+# Nick Lalic
+# VNA Software Developer
+# Rohde & Schwarz North America
+# https://vna.rs-us.net/rsatoolbox.html
+#
+# Project  : %ProjectName%
+# App name : %ApplicationName%
+# Template : Vna Macro
 # 
 #-------------------------------------------------
 
@@ -19,9 +22,12 @@ TEMPLATE     = app
 
 include(RsaToolbox/rsatoolbox.pri)
 #include(RsaToolbox/QuaZip/quazip.pri)
-HEADERS     += Settings.h
+HEADERS     += Settings.h \
+               mainwindow.h
 INCLUDEPATH += $$PWD
-SOURCES     += main.cpp
+SOURCES     += main.cpp \
+               mainwindow.cpp
+FORMS       += mainwindow.ui
 RESOURCES   += Resources.qrc
 OTHER_FILES += DEBUG_LOGFILE.txt
 
