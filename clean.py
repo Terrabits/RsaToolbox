@@ -1,14 +1,17 @@
+import sys
 import os
-import shutil
+from scripts.general import delete_all_except_keep
 
-[root, dirs, files] = next(os.walk('./_build/'))
-for dir in dirs:
-    dir = os.path.join(root, dir)
-    shutil.rmtree(dir)
-for file in files:
-    if file == ".keep":
-        break;
-    file = os.path.join(root, file)
-    shutil.rmfile(file)
-    
-exit(0)
+args = [arg.lower() for arg in sys.argv]
+
+# Paths
+clean_root   = os.path.dirname(os.path.abspath(__file__))
+build_path   = os.path.join(clean_root, '_build')   + os.path.sep
+install_path = os.path.join(clean_root, '_install') + os.path.sep
+
+# clean _install
+if "--skip-build" not in args:
+    delete_except(build_path,   ['.keep'])
+
+if "--skip-install" not in args:
+    delete_except(install_path, ['.keep'])
