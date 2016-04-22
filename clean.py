@@ -1,6 +1,6 @@
 import sys
 import os
-from scripts.general import delete_all_except_keep
+from scripts.general import *
 
 args = [arg.lower() for arg in sys.argv]
 
@@ -11,7 +11,9 @@ install_path = os.path.join(clean_root, '_install') + os.path.sep
 
 # clean _install
 if "--skip-build" not in args:
-    delete_except(build_path,   ['.keep'])
+    delete_except(build_path,   [])
+    touch(os.path.join(build_path, '.keep'))
 
 if "--skip-install" not in args:
-    delete_except(install_path, ['.keep'])
+    delete_except(install_path, [], [])
+    touch(os.path.join(install_path, '.keep'))
