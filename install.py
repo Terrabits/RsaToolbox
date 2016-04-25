@@ -9,8 +9,6 @@ destination  = os.path.join(project_root, '_install')
 install_excludes = ['*.keep']
 install_path  = os.path.join(project_root, 'Install')
 install_files = files_excluding(install_path, install_excludes)
-print("Install files:")
-print(install_files)
 copy_files(install_files, install_path, destination)
 
 # Copy Includes (*.h)
