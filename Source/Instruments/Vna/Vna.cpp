@@ -434,11 +434,6 @@ bool Vna::errors(QStringList &messages) {
  * \sa VnaSet
  * @{*/
 
-/*!
- * \brief Retrieve interface to set \c name
- * \param name Name of set
- * \return \c VnaSet object for \c name
- */
 QStringList Vna::sets() {
     QString scpi = ":MEM:CAT?\n";
     return query(":MEM:CAT?\n").trimmed().remove('\'').split(',', QString::SkipEmptyParts);
@@ -914,13 +909,6 @@ QVector<NameLabel> Vna::calKits(Connector::Type type) {
     return(calKits(VnaScpi::toString(type)));
 }
 
-/*!
- * \brief Returns a list of all calibration kits
- * of a particular user-defined connector type
- * \param userDefinedConnectorType User-defined
- * connector type
- * \return Cal kits of connector \c type
- */
 QVector<NameLabel> Vna::calKits(QString customType) {
     QString scpi = ":CORR:CKIT:LCAT? \'%1\'\n";
     scpi = scpi.arg(customType);

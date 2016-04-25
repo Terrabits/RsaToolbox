@@ -14,7 +14,7 @@ using namespace RsaToolbox;
  * SCPI conventions to parse incoming data.
  *
  * Most SCPI commands have the following format:
- * "<Menu1><Index1>:...:<MenuN><IndexN> <Parameter1>,...,<ParameterM><EOL>"
+ * `<Menu1><Index1>:...:<MenuN><IndexN> <Parameter1>,...,<ParameterM><EOL>`
  *
  * The characters '\n' and ';' are
  * designated as End of Line (EOL) terminations.
@@ -23,15 +23,15 @@ using namespace RsaToolbox;
  * reserved and may not be used except in
  * a raw binary data transfer (see below).
  *
- * <Menu> corresponds to a particular
+ * `<Menu>` corresponds to a particular
  * SCPI command menu, and menus are nested.
- * The <Index> is an optional feature of
+ * The `<Index>` is an optional feature of
  * some menus.
  *
  * Menus are separated from parameters by one or
  * more spaces ' '.
  *
- * <Parameter>s are separated by commas. They
+ * `<Parameter>`s are separated by commas. They
  * may not contain whitespace unless quotes
  * are used. EOL characters or the '#' character.
  * The '#' character is reserved for binary
@@ -39,14 +39,16 @@ using namespace RsaToolbox;
  *
  * For binary (IEEE 488.2 block data format)
  * transfer, the SCPI format is:
- * "<Menu1><Index1>:...:<MenuN><IndexN> #Xnnn<Data>"
- * Where nnn is the size of <Data>, in bytes,
- * X is the number of digits of nnn, and <Data>
+ * \code
+ * <Menu1><Index1>:...:<MenuN><IndexN> \#Xnnn<Data>
+ * \endcode
+ * Where nnn is the size of `<Data>`, in bytes,
+ * X is the number of digits of nnn, and `<Data>`
  * is the binary data as a c style character
  * array (char []).
  *
  * There is no restriction on the values of
- * <Data>. A binary data transfer does not
+ * `<Data>`. A binary data transfer does not
  * require EOL character termination.
  * Trailing EOL characters will be ignored.
  *

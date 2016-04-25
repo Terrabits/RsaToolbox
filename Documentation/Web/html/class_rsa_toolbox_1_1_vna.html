@@ -78,7 +78,6 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>VNA Sets </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_rsa_toolbox_1_1_vna_set.html">VnaSet</a> </dd></dl>
 </div></td></tr>
 <tr class="memitem:a058442cc8713072634ac38dda9a9ec69"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a058442cc8713072634ac38dda9a9ec69">sets</a> ()</td></tr>
-<tr class="memdesc:a058442cc8713072634ac38dda9a9ec69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve interface to set <code>name</code>.  <a href="#a058442cc8713072634ac38dda9a9ec69">More...</a><br /></td></tr>
 <tr class="separator:a058442cc8713072634ac38dda9a9ec69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5693163a9c80e15ed87e8038778c2480"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a5693163a9c80e15ed87e8038778c2480">activeSet</a> ()</td></tr>
 <tr class="separator:a5693163a9c80e15ed87e8038778c2480"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -94,8 +93,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a28fb02649a6dd4191c10c84c59236911"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e3dcc127707ee0cb045559c15f9c5bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a6e3dcc127707ee0cb045559c15f9c5bf">closeSets</a> ()</td></tr>
 <tr class="separator:a6e3dcc127707ee0cb045559c15f9c5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab16800512f4c2a0b6770764dfc20c463"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ab16800512f4c2a0b6770764dfc20c463">saveActiveSet</a> (const QString &amp;filePathName)</td></tr>
-<tr class="separator:ab16800512f4c2a0b6770764dfc20c463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8da54989ab487fc43404bbd41d340b46"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a8da54989ab487fc43404bbd41d340b46">saveActiveSet</a> (QString &amp;filePathName)</td></tr>
+<tr class="separator:a8da54989ab487fc43404bbd41d340b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a738754f0b66c03d016acff17aeb58423"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a738754f0b66c03d016acff17aeb58423">deleteSet</a> (QString filePathName)</td></tr>
 <tr class="separator:a738754f0b66c03d016acff17aeb58423"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4243b8f437e3db4b8a383b4155184f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rsa_toolbox_1_1_vna_set.html">VnaSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ac4243b8f437e3db4b8a383b4155184f6">set</a> (const QString &amp;name=&quot;Set1&quot;)</td></tr>
@@ -130,18 +129,24 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Calibration Kits</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Queries and manipulates calibration kits </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_rsa_toolbox_1_1_vna_cal_kit.html" title="The VnaCalKit class manipulates a calibration kit. ">VnaCalKit</a> </dd></dl>
 </div></td></tr>
-<tr class="memitem:ad67ace0c386c3deb2e841fdad13f448e"><td class="memItemLeft" align="right" valign="top">QVector&lt; <a class="el" href="class_rsa_toolbox_1_1_connector.html">Connector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ad67ace0c386c3deb2e841fdad13f448e">connectorTypes</a> ()</td></tr>
-<tr class="memdesc:ad67ace0c386c3deb2e841fdad13f448e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve all valid connector types.  <a href="#ad67ace0c386c3deb2e841fdad13f448e">More...</a><br /></td></tr>
-<tr class="separator:ad67ace0c386c3deb2e841fdad13f448e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace47065a2e5e9845e4e86ff76a999b16"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ace47065a2e5e9845e4e86ff76a999b16">isConnectorType</a> (<a class="el" href="class_rsa_toolbox_1_1_connector.html">Connector</a> type)</td></tr>
-<tr class="memdesc:ace47065a2e5e9845e4e86ff76a999b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for the presense of connector <code>type</code>.  <a href="#ace47065a2e5e9845e4e86ff76a999b16">More...</a><br /></td></tr>
-<tr class="separator:ace47065a2e5e9845e4e86ff76a999b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d35e35d7d6b23d93a53228f5d7ca011"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a8d35e35d7d6b23d93a53228f5d7ca011">isConnectorType</a> (QString userDefinedType)</td></tr>
-<tr class="memdesc:a8d35e35d7d6b23d93a53228f5d7ca011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for the presense of user-defined connector <code>userDefinedType</code>.  <a href="#a8d35e35d7d6b23d93a53228f5d7ca011">More...</a><br /></td></tr>
-<tr class="separator:a8d35e35d7d6b23d93a53228f5d7ca011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b06eda16db008948cb49cc3c86b6005"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a5b06eda16db008948cb49cc3c86b6005">isConnectorType</a> (const <a class="el" href="class_rsa_toolbox_1_1_connector.html">Connector</a> &amp;type)</td></tr>
+<tr class="memdesc:a5b06eda16db008948cb49cc3c86b6005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for the presense of connector <code>type</code>.  <a href="#a5b06eda16db008948cb49cc3c86b6005">More...</a><br /></td></tr>
+<tr class="separator:a5b06eda16db008948cb49cc3c86b6005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afacab5891a9db61442e2e44aca25ea89"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#afacab5891a9db61442e2e44aca25ea89">isConnectorType</a> (const QString &amp;userDefinedType)</td></tr>
+<tr class="memdesc:afacab5891a9db61442e2e44aca25ea89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for the presense of user-defined connector <code>userDefinedType</code>.  <a href="#afacab5891a9db61442e2e44aca25ea89">More...</a><br /></td></tr>
+<tr class="separator:afacab5891a9db61442e2e44aca25ea89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e5ff1cca733822f7a664351e9f6edd3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a1e5ff1cca733822f7a664351e9f6edd3">isConnectorGenderNeutral</a> (<a class="el" href="class_rsa_toolbox_1_1_connector.html">Connector</a> type)</td></tr>
 <tr class="memdesc:a1e5ff1cca733822f7a664351e9f6edd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query if connector of type <code>type</code> is gender neutral.  <a href="#a1e5ff1cca733822f7a664351e9f6edd3">More...</a><br /></td></tr>
 <tr class="separator:a1e5ff1cca733822f7a664351e9f6edd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad67ace0c386c3deb2e841fdad13f448e"><td class="memItemLeft" align="right" valign="top">QVector&lt; <a class="el" href="class_rsa_toolbox_1_1_connector.html">Connector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ad67ace0c386c3deb2e841fdad13f448e">connectorTypes</a> ()</td></tr>
+<tr class="separator:ad67ace0c386c3deb2e841fdad13f448e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af932996e8768a61b4cd419c8b280f24c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#af932996e8768a61b4cd419c8b280f24c">defineCustomConnector</a> (const <a class="el" href="class_rsa_toolbox_1_1_connector.html">Connector</a> &amp;connector)</td></tr>
+<tr class="memdesc:af932996e8768a61b4cd419c8b280f24c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve all valid connector types.  <a href="#af932996e8768a61b4cd419c8b280f24c">More...</a><br /></td></tr>
+<tr class="separator:af932996e8768a61b4cd419c8b280f24c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5f098543542f7f5443383ddca29f39b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ad5f098543542f7f5443383ddca29f39b">deleteConnector</a> (const QString &amp;name)</td></tr>
+<tr class="separator:ad5f098543542f7f5443383ddca29f39b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc6732944e8593f43f633d1a8f7c0fe3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#afc6732944e8593f43f633d1a8f7c0fe3">deleteConnector</a> (const <a class="el" href="class_rsa_toolbox_1_1_connector.html">Connector</a> &amp;connector)</td></tr>
+<tr class="separator:afc6732944e8593f43f633d1a8f7c0fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae99b92b85ffd250a767e8f083f21415a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ae99b92b85ffd250a767e8f083f21415a">isCalKit</a> (<a class="el" href="class_rsa_toolbox_1_1_name_label.html">NameLabel</a> nameLabel)</td></tr>
 <tr class="memdesc:ae99b92b85ffd250a767e8f083f21415a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for presence of a Calibration Kit.  <a href="#ae99b92b85ffd250a767e8f083f21415a">More...</a><br /></td></tr>
 <tr class="separator:ae99b92b85ffd250a767e8f083f21415a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,18 +168,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af330be008c72a182bc8008deabcbd9fc"><td class="memItemLeft" align="right" valign="top">QVector&lt; <a class="el" href="class_rsa_toolbox_1_1_name_label.html">NameLabel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#af330be008c72a182bc8008deabcbd9fc">calKits</a> (<a class="el" href="class_rsa_toolbox_1_1_connector.html#a1d1cfd8ffb84e947f82999c682b666a7">Connector::Type</a> type)</td></tr>
 <tr class="memdesc:af330be008c72a182bc8008deabcbd9fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of all calibration kits of a particular connector <code>type</code>.  <a href="#af330be008c72a182bc8008deabcbd9fc">More...</a><br /></td></tr>
 <tr class="separator:af330be008c72a182bc8008deabcbd9fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac931fd9d6c89be8445746ddd63a76490"><td class="memItemLeft" align="right" valign="top">QVector&lt; <a class="el" href="class_rsa_toolbox_1_1_name_label.html">NameLabel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ac931fd9d6c89be8445746ddd63a76490">calKits</a> (QString userDefinedConnectorType)</td></tr>
-<tr class="memdesc:ac931fd9d6c89be8445746ddd63a76490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of all calibration kits of a particular user-defined connector type.  <a href="#ac931fd9d6c89be8445746ddd63a76490">More...</a><br /></td></tr>
-<tr class="separator:ac931fd9d6c89be8445746ddd63a76490"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90262f141c9ce9b748c5b8a3cbd3bae2"><td class="memItemLeft" align="right" valign="top">QVector&lt; <a class="el" href="class_rsa_toolbox_1_1_name_label.html">NameLabel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a90262f141c9ce9b748c5b8a3cbd3bae2">calKits</a> (QString customType)</td></tr>
+<tr class="separator:a90262f141c9ce9b748c5b8a3cbd3bae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e12c9a6636124f2beb6bca04c28054f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a7e12c9a6636124f2beb6bca04c28054f">deleteCalKit</a> (<a class="el" href="class_rsa_toolbox_1_1_name_label.html">NameLabel</a> calkit)</td></tr>
+<tr class="memdesc:a7e12c9a6636124f2beb6bca04c28054f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a calibration kit.  <a href="#a7e12c9a6636124f2beb6bca04c28054f">More...</a><br /></td></tr>
+<tr class="separator:a7e12c9a6636124f2beb6bca04c28054f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1cb02a44b48bed030b04cfe9bbfbcf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ab1cb02a44b48bed030b04cfe9bbfbcf2">importCalKit</a> (QString pathName)</td></tr>
 <tr class="memdesc:ab1cb02a44b48bed030b04cfe9bbfbcf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imports a calibration kit from a file.  <a href="#ab1cb02a44b48bed030b04cfe9bbfbcf2">More...</a><br /></td></tr>
 <tr class="separator:ab1cb02a44b48bed030b04cfe9bbfbcf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e8e199ac870aa517ce5cf4b44ba3452"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a1e8e199ac870aa517ce5cf4b44ba3452">exportCalKit</a> (<a class="el" href="class_rsa_toolbox_1_1_name_label.html">NameLabel</a> calkit, QString pathName)</td></tr>
 <tr class="memdesc:a1e8e199ac870aa517ce5cf4b44ba3452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports a calibration kit to a file.  <a href="#a1e8e199ac870aa517ce5cf4b44ba3452">More...</a><br /></td></tr>
 <tr class="separator:a1e8e199ac870aa517ce5cf4b44ba3452"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e12c9a6636124f2beb6bca04c28054f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a7e12c9a6636124f2beb6bca04c28054f">deleteCalKit</a> (<a class="el" href="class_rsa_toolbox_1_1_name_label.html">NameLabel</a> calkit)</td></tr>
-<tr class="memdesc:a7e12c9a6636124f2beb6bca04c28054f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a calibration kit.  <a href="#a7e12c9a6636124f2beb6bca04c28054f">More...</a><br /></td></tr>
-<tr class="separator:a7e12c9a6636124f2beb6bca04c28054f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a1ae54c95fdba0b0dbfd4ac450c10c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rsa_toolbox_1_1_vna_cal_kit.html">VnaCalKit</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a9a1ae54c95fdba0b0dbfd4ac450c10c4">calKit</a> (<a class="el" href="class_rsa_toolbox_1_1_name_label.html">NameLabel</a> nameLabel)</td></tr>
 <tr class="memdesc:a9a1ae54c95fdba0b0dbfd4ac450c10c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an interface to the calibration kit specified by <code>nameLabel</code>.  <a href="#a9a1ae54c95fdba0b0dbfd4ac450c10c4">More...</a><br /></td></tr>
 <tr class="separator:a9a1ae54c95fdba0b0dbfd4ac450c10c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,6 +186,10 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Performs calibration on all channels </p><dl class="section note"><dt>Note</dt><dd>The ZVA-family of instruments does not support this feature. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_rsa_toolbox_1_1_vna_calibrate.html" title="The VnaCalibrate class is used to perform calibration. ">VnaCalibrate</a>, <a class="el" href="class_rsa_toolbox_1_1_vna_channel.html#a85ef0d9299e04b6ad4c9448c444fc206">VnaChannel::calibrate()</a> </dd></dl>
 </div></td></tr>
+<tr class="memitem:ae596d5adc55914279e3eb2703f1decd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ae596d5adc55914279e3eb2703f1decd4">multiChannelCalibrationOn</a> (bool isOn=true)</td></tr>
+<tr class="separator:ae596d5adc55914279e3eb2703f1decd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af301a488be193cf7f0acc450871058fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#af301a488be193cf7f0acc450871058fb">multiChannelCalibrationOff</a> (bool isOff=true)</td></tr>
+<tr class="separator:af301a488be193cf7f0acc450871058fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a522defb3438d3aaac8dd6fd71de04a52"><td class="memItemLeft" align="right" valign="top">QVector&lt; uint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a522defb3438d3aaac8dd6fd71de04a52">calibratedChannels</a> ()</td></tr>
 <tr class="separator:a522defb3438d3aaac8dd6fd71de04a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85ef0d9299e04b6ad4c9448c444fc206"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rsa_toolbox_1_1_vna_calibrate.html">VnaCalibrate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a85ef0d9299e04b6ad4c9448c444fc206">calibrate</a> ()</td></tr>
@@ -193,6 +201,11 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Calibration Groups</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Addresses calibration groups </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_rsa_toolbox_1_1_vna_calibrate.html" title="The VnaCalibrate class is used to perform calibration. ">VnaCalibrate</a>, <a class="el" href="class_rsa_toolbox_1_1_vna_channel.html#a85ef0d9299e04b6ad4c9448c444fc206">VnaChannel::calibrate()</a> </dd></dl>
 </div></td></tr>
+<tr class="memitem:a3119a120dbbd5b79ac9c3d060a738c45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a3119a120dbbd5b79ac9c3d060a738c45">isCalGroup</a> (QString calGroup)</td></tr>
+<tr class="separator:a3119a120dbbd5b79ac9c3d060a738c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22a784cb34daad99c8dd88e02df1187f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a22a784cb34daad99c8dd88e02df1187f">deleteCalGroup</a> (QString calGroup)</td></tr>
+<tr class="memdesc:a22a784cb34daad99c8dd88e02df1187f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a22a784cb34daad99c8dd88e02df1187f" title="Vna::deleteCalGroup. ">Vna::deleteCalGroup</a>.  <a href="#a22a784cb34daad99c8dd88e02df1187f">More...</a><br /></td></tr>
+<tr class="separator:a22a784cb34daad99c8dd88e02df1187f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bb813257723c4e0c670b5fe0759a1fb"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a9bb813257723c4e0c670b5fe0759a1fb">calGroups</a> ()</td></tr>
 <tr class="memdesc:a9bb813257723c4e0c670b5fe0759a1fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves saved calibrations (groups) from the calibration pool.  <a href="#a9bb813257723c4e0c670b5fe0759a1fb">More...</a><br /></td></tr>
 <tr class="separator:a9bb813257723c4e0c670b5fe0759a1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -369,12 +382,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a241aeb7c810e62fae6e84186f65ff9c8"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a241aeb7c810e62fae6e84186f65ff9c8">switchMatrixWithPort</a> (uint testPort)</td></tr>
 <tr class="memdesc:a241aeb7c810e62fae6e84186f65ff9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns switch matrix assigned to port <code>testPort</code>.  <a href="#a241aeb7c810e62fae6e84186f65ff9c8">More...</a><br /></td></tr>
 <tr class="separator:a241aeb7c810e62fae6e84186f65ff9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ce5f91ae524a459f64dd79803d22bcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a4ce5f91ae524a459f64dd79803d22bcf">disconnectSwitchMatrices</a> ()</td></tr>
-<tr class="memdesc:a4ce5f91ae524a459f64dd79803d22bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disconnects all switch matrices from the VNA.  <a href="#a4ce5f91ae524a459f64dd79803d22bcf">More...</a><br /></td></tr>
-<tr class="separator:a4ce5f91ae524a459f64dd79803d22bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e516652d2fc8e80891b01a1e0d3ede3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a9e516652d2fc8e80891b01a1e0d3ede3">removeSwitchMatrices</a> ()</td></tr>
-<tr class="memdesc:a9e516652d2fc8e80891b01a1e0d3ede3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all switch matrices from the pool of connected devices.  <a href="#a9e516652d2fc8e80891b01a1e0d3ede3">More...</a><br /></td></tr>
-<tr class="separator:a9e516652d2fc8e80891b01a1e0d3ede3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1cb79932fb0d453a09eaf892d313a71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ac1cb79932fb0d453a09eaf892d313a71">registerSwitchMatrix</a> (<a class="el" href="class_rsa_toolbox_1_1_vna_switch_matrix.html#a814d748eac6199d8c23c35761d2d4919">VnaSwitchMatrix::Driver</a> driver, <a class="el" href="class_rsa_toolbox_1_1_vna_switch_matrix.html#aa1f0e2efd52935fd01bfece0fbead81f">VnaSwitchMatrix::ConnectionType</a> type, QString <a class="el" href="class_rsa_toolbox_1_1_generic_instrument.html#a45ed6612500c0973f68b103afb02e9b5">address</a>)</td></tr>
+<tr class="separator:ac1cb79932fb0d453a09eaf892d313a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af92faeaafaa8e53fd6ee02ed66daa2dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#af92faeaafaa8e53fd6ee02ed66daa2dd">unregisterAllSwitchMatrices</a> ()</td></tr>
+<tr class="memdesc:af92faeaafaa8e53fd6ee02ed66daa2dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all switch matrices from the pool of connected devices.  <a href="#af92faeaafaa8e53fd6ee02ed66daa2dd">More...</a><br /></td></tr>
+<tr class="separator:af92faeaafaa8e53fd6ee02ed66daa2dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2804d667794b24a060044722cf775a4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a2804d667794b24a060044722cf775a4e">excludeAllSwitchMatricesFromSetup</a> ()</td></tr>
+<tr class="memdesc:a2804d667794b24a060044722cf775a4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disconnects all switch matrices from the VNA.  <a href="#a2804d667794b24a060044722cf775a4e">More...</a><br /></td></tr>
+<tr class="separator:a2804d667794b24a060044722cf775a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7517ba8960e501176be461089b1d1381"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a7517ba8960e501176be461089b1d1381">includeAllSwitchMatricesInSetup</a> ()</td></tr>
+<tr class="separator:a7517ba8960e501176be461089b1d1381"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af716910d626f9036697f5b5f402323ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#af716910d626f9036697f5b5f402323ff">beginSwitchMatrixSetup</a> ()</td></tr>
+<tr class="separator:af716910d626f9036697f5b5f402323ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad90064bdab180cf6f502842e805e94e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ad90064bdab180cf6f502842e805e94e8">setVnaTestPorts</a> (<a class="el" href="namespace_rsa_toolbox.html#a5177d61f749a5ba10aaa71a3d62f6cc2">PortMap</a> vnaToTestPortMap)</td></tr>
+<tr class="separator:ad90064bdab180cf6f502842e805e94e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3233672db24bf8b7d4d5cf3f75dfad11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a3233672db24bf8b7d4d5cf3f75dfad11">endSwitchMatrixSetup</a> ()</td></tr>
+<tr class="separator:a3233672db24bf8b7d4d5cf3f75dfad11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fc198802de2aa7e9f6be80185cb1369"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rsa_toolbox_1_1_vna_switch_matrix.html">VnaSwitchMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a4fc198802de2aa7e9f6be80185cb1369">switchMatrix</a> (uint index=1)</td></tr>
 <tr class="memdesc:a4fc198802de2aa7e9f6be80185cb1369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an interface to switch matrix <code>index</code>.  <a href="#a4fc198802de2aa7e9f6be80185cb1369">More...</a><br /></td></tr>
 <tr class="separator:a4fc198802de2aa7e9f6be80185cb1369"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -396,10 +419,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a64df6113e20ed16eb1aa386d47582f5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rsa_toolbox_1_1_vna_cal_unit.html">VnaCalUnit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a64df6113e20ed16eb1aa386d47582f5f">takeCalUnit</a> (QString id)</td></tr>
 <tr class="memdesc:a64df6113e20ed16eb1aa386d47582f5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to a dynamically- allocated <code><a class="el" href="class_rsa_toolbox_1_1_vna_cal_unit.html" title="The VnaCalUnit class manipulates a Calibration Unit connected to a Vna. ">VnaCalUnit</a></code> object.  <a href="#a64df6113e20ed16eb1aa386d47582f5f">More...</a><br /></td></tr>
 <tr class="separator:a64df6113e20ed16eb1aa386d47582f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeacaf759e8170a8214ee7ac4db4db3ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#aeacaf759e8170a8214ee7ac4db4db3ee">isExtensionUnit</a> ()</td></tr>
+<tr class="separator:aeacaf759e8170a8214ee7ac4db4db3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a419e2de8806e2abfe3edbcbf1f2a383c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a419e2de8806e2abfe3edbcbf1f2a383c">isGlobalLimitsPass</a> ()</td></tr>
 <tr class="separator:a419e2de8806e2abfe3edbcbf1f2a383c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7bbe5b111f9b6c3e37428332954fef1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ae7bbe5b111f9b6c3e37428332954fef1">isGlobalLimitsFail</a> ()</td></tr>
 <tr class="separator:ae7bbe5b111f9b6c3e37428332954fef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad76d89b1a99aab0f24f0a9c6193dbb61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#ad76d89b1a99aab0f24f0a9c6193dbb61">saveScreenshot</a> (QString filename, <a class="el" href="namespace_rsa_toolbox.html#a22f6b18e781e3c412e7d243f7de6aa5c">ImageFormat</a> format=ImageFormat::Png)</td></tr>
+<tr class="separator:ad76d89b1a99aab0f24f0a9c6193dbb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a359633df363026a78dc6e5e50ae69a62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_vna.html#a359633df363026a78dc6e5e50ae69a62">saveScreenshotLocally</a> (QString filename, <a class="el" href="namespace_rsa_toolbox.html#a22f6b18e781e3c412e7d243f7de6aa5c">ImageFormat</a> format=ImageFormat::Png)</td></tr>
+<tr class="separator:a359633df363026a78dc6e5e50ae69a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_rsa_toolbox_1_1_generic_instrument"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_rsa_toolbox_1_1_generic_instrument')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_rsa_toolbox_1_1_generic_instrument.html">GenericInstrument</a></td></tr>
 <tr class="memitem:a83b74205cd1cba0e321f9a4c00e4ef08 inherit pub_methods_class_rsa_toolbox_1_1_generic_instrument"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rsa_toolbox_1_1_generic_instrument.html#a83b74205cd1cba0e321f9a4c00e4ef08">GenericInstrument</a> (QObject *parent=0)</td></tr>
 <tr class="memdesc:a83b74205cd1cba0e321f9a4c00e4ef08 inherit pub_methods_class_rsa_toolbox_1_1_generic_instrument"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a83b74205cd1cba0e321f9a4c00e4ef08">More...</a><br /></td></tr>
@@ -712,6 +741,21 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="af716910d626f9036697f5b5f402323ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void beginSwitchMatrixSetup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a9bb813257723c4e0c670b5fe0759a1fb"></a>
 <div class="memitem">
 <div class="memproto">
@@ -882,7 +926,7 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac931fd9d6c89be8445746ddd63a76490"></a>
+<a class="anchor" id="a90262f141c9ce9b748c5b8a3cbd3bae2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -890,20 +934,11 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">QVector&lt; <a class="el" href="class_rsa_toolbox_1_1_name_label.html">NameLabel</a> &gt; calKits </td>
           <td>(</td>
           <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>userDefinedConnectorType</em></td><td>)</td>
+          <td class="paramname"><em>customType</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns a list of all calibration kits of a particular user-defined connector type. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">userDefinedConnectorType</td><td>User-defined connector type </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Cal kits of connector <code>type</code> </dd></dl>
 
 </div>
 </div>
@@ -1083,9 +1118,6 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retrieve all valid connector types. </p>
-<dl class="section return"><dt>Returns</dt><dd>QVector containing all connector types </dd></dl>
-
 </div>
 </div>
 <a class="anchor" id="a22d2792c50b5919d1ed4939a707f42a8"></a>
@@ -1238,6 +1270,49 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="af932996e8768a61b4cd419c8b280f24c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void defineCustomConnector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_rsa_toolbox_1_1_connector.html">Connector</a> &amp;&#160;</td>
+          <td class="paramname"><em>connector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieve all valid connector types. </p>
+<dl class="section return"><dt>Returns</dt><dd>QVector containing all connector types </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a22a784cb34daad99c8dd88e02df1187f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deleteCalGroup </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_rsa_toolbox_1_1_vna.html#a22a784cb34daad99c8dd88e02df1187f" title="Vna::deleteCalGroup. ">Vna::deleteCalGroup</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a7e12c9a6636124f2beb6bca04c28054f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1349,6 +1424,38 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Deletes all active channels. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad5f098543542f7f5443383ddca29f39b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deleteConnector </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afc6732944e8593f43f633d1a8f7c0fe3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deleteConnector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_rsa_toolbox_1_1_connector.html">Connector</a> &amp;&#160;</td>
+          <td class="paramname"><em>connector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1532,20 +1639,18 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4ce5f91ae524a459f64dd79803d22bcf"></a>
+<a class="anchor" id="a3233672db24bf8b7d4d5cf3f75dfad11"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void disconnectSwitchMatrices </td>
+          <td class="memname">void endSwitchMatrixSetup </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Disconnects all switch matrices from the VNA. </p>
 
 </div>
 </div>
@@ -1588,6 +1693,23 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2804d667794b24a060044722cf775a4e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void excludeAllSwitchMatricesFromSetup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disconnects all switch matrices from the VNA. </p>
 
 </div>
 </div>
@@ -1672,6 +1794,37 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a7517ba8960e501176be461089b1d1381"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void includeAllSwitchMatricesInSetup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3119a120dbbd5b79ac9c3d060a738c45"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isCalGroup </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>calGroup</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1835,14 +1988,14 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ace47065a2e5e9845e4e86ff76a999b16"></a>
+<a class="anchor" id="a5b06eda16db008948cb49cc3c86b6005"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool isConnectorType </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_rsa_toolbox_1_1_connector.html">Connector</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_rsa_toolbox_1_1_connector.html">Connector</a> &amp;&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1860,14 +2013,14 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8d35e35d7d6b23d93a53228f5d7ca011"></a>
+<a class="anchor" id="afacab5891a9db61442e2e44aca25ea89"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool isConnectorType </td>
           <td>(</td>
-          <td class="paramtype">QString&#160;</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
           <td class="paramname"><em>userDefinedType</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1927,6 +2080,21 @@ Additional Inherited Members</h2></td></tr>
 <p>Malformed or inappropriate commands will generate an error with the instrument. It can be helpful to periodically call <code><a class="el" href="class_rsa_toolbox_1_1_vna.html#af0c21ff963e9cdf07e3f0412f38de4e4" title="Checks the instrument for a command error. ">isError()</a></code> to catch and to handle such errors. To retrieve the specific error(s) that occured (if any), see isError(QStringList &amp;errors)</p>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if there is a SCPI error; <code>false</code> otherwise </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>Vna::isError(QStringList &amp;errors) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aeacaf759e8170a8214ee7ac4db4db3ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isExtensionUnit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -2171,6 +2339,38 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="af301a488be193cf7f0acc450871058fb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void multiChannelCalibrationOff </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isOff</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae596d5adc55914279e3eb2703f1decd4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void multiChannelCalibrationOn </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isOn</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ad35ec6fce0d2df13d1b71d948d37e176"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2338,7 +2538,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Prints instrument info to the log file. </p>
-<p>Below is an example result of a call to <code><a class="el" href="class_rsa_toolbox_1_1_generic_instrument.html#a2dbaf5580b5305d54cff6848ae7deb30">printInfo()</a></code> with a ZNB connected: <code>VNA INSTRUMENT INFO Connection: TCPIP Address: 192.168.0.1 Make: Rohde &amp; Schwarz Model: ZNB Serial No: 12345678901234 Firmware Version: 1.93.2.45 Min Frequency: 9.0 KHz Max Frequency: 8.5 GHz Number of Ports: 4 Options: ZNB-K2 ZNB-K4 ZNB-K14 ZNB-K17 ZNB-K19 ZNB8-B24 ZNB8-B31 ZNB8-B32 ZNB8-B33 ZNB8-B34 ZNB-B81 ZNB-B2 ZN-B12</code> </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_rsa_toolbox_1_1_generic_instrument.html#ab3a9f1bec710e3bdc3e65e4e555b6a70" title="Connects GenericInstrument to a log. ">Vna::useLog()</a> </dd></dl>
+<p>Below is an example result of a call to <code><a class="el" href="class_rsa_toolbox_1_1_generic_instrument.html#a2dbaf5580b5305d54cff6848ae7deb30">printInfo()</a></code> with a ZNB connected: <code>VNA INSTRUMENT INFO Connection: TCPIP Address: 192.168.0.1 Make: Rohde &amp; Schwarz Model: ZNB Serial No: 12345678901234 Firmware <a class="el" href="class_rsa_toolbox_1_1_version.html">Version</a>: 1.93.2.45 Min Frequency: 9.0 KHz Max Frequency: 8.5 GHz Number of Ports: 4 Options: ZNB-K2 ZNB-K4 ZNB-K14 ZNB-K17 ZNB-K19 ZNB8-B24 ZNB8-B31 ZNB8-B32 ZNB8-B33 ZNB8-B34 ZNB-B81 ZNB-B2 ZN-B12</code> </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_rsa_toolbox_1_1_generic_instrument.html#ab3a9f1bec710e3bdc3e65e4e555b6a70" title="Connects GenericInstrument to a log. ">Vna::useLog()</a> </dd></dl>
 
 <p>Reimplemented from <a class="el" href="class_rsa_toolbox_1_1_generic_instrument.html#a0acb62c30f35ef05de9ec8554920cf36">GenericInstrument</a>.</p>
 
@@ -2527,33 +2727,100 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9e516652d2fc8e80891b01a1e0d3ede3"></a>
+<a class="anchor" id="ac1cb79932fb0d453a09eaf892d313a71"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void removeSwitchMatrices </td>
+          <td class="memname">void registerSwitchMatrix </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_rsa_toolbox_1_1_vna_switch_matrix.html#a814d748eac6199d8c23c35761d2d4919">VnaSwitchMatrix::Driver</a>&#160;</td>
+          <td class="paramname"><em>driver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="class_rsa_toolbox_1_1_vna_switch_matrix.html#aa1f0e2efd52935fd01bfece0fbead81f">VnaSwitchMatrix::ConnectionType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>address</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Removes all switch matrices from the pool of connected devices. </p>
-
 </div>
 </div>
-<a class="anchor" id="ab16800512f4c2a0b6770764dfc20c463"></a>
+<a class="anchor" id="a8da54989ab487fc43404bbd41d340b46"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool saveActiveSet </td>
           <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramtype">QString &amp;&#160;</td>
           <td class="paramname"><em>filePathName</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad76d89b1a99aab0f24f0a9c6193dbb61"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saveScreenshot </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_rsa_toolbox.html#a22f6b18e781e3c412e7d243f7de6aa5c">ImageFormat</a>&#160;</td>
+          <td class="paramname"><em>format</em> = <code>ImageFormat::Png</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a359633df363026a78dc6e5e50ae69a62"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saveScreenshotLocally </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_rsa_toolbox.html#a22f6b18e781e3c412e7d243f7de6aa5c">ImageFormat</a>&#160;</td>
+          <td class="paramname"><em>format</em> = <code>ImageFormat::Png</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2589,15 +2856,6 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retrieve interface to set <code>name</code>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Name of set </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="class_rsa_toolbox_1_1_vna_set.html">VnaSet</a></code> object for <code>name</code> </dd></dl>
-
 </div>
 </div>
 <a class="anchor" id="affcacca0956ef82c5b28506a036498e8"></a>
@@ -2622,6 +2880,22 @@ Additional Inherited Members</h2></td></tr>
 <p>See <a class="el" href="class_rsa_toolbox_1_1_vna_settings.html" title="The VnaSettings class configures and queries the global settings on a Rohde & Schwarz VNA...">VnaSettings</a></p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_rsa_toolbox_1_1_vna_settings.html" title="The VnaSettings class configures and queries the global settings on a Rohde & Schwarz VNA...">VnaSettings</a> interface </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_rsa_toolbox_1_1_vna_settings.html" title="The VnaSettings class configures and queries the global settings on a Rohde & Schwarz VNA...">VnaSettings</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad90064bdab180cf6f502842e805e94e8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setVnaTestPorts </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_rsa_toolbox.html#a5177d61f749a5ba10aaa71a3d62f6cc2">PortMap</a>&#160;</td>
+          <td class="paramname"><em>vnaToTestPortMap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -3093,6 +3367,23 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Returns a list of all traces. </p>
 <dl class="section return"><dt>Returns</dt><dd>List of names of all traces </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af92faeaafaa8e53fd6ee02ed66daa2dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void unregisterAllSwitchMatrices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes all switch matrices from the pool of connected devices. </p>
 
 </div>
 </div>

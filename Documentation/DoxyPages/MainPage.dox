@@ -2,18 +2,18 @@
 /*!
  * \mainpage notitle
  * <h1>Welcome!</h1>
- * %RsaToolbox is a framework for test
- * automation with Rohde \& Schwarz
- * instruments. %RsaToolbox
+ * %RsaToolbox is a library for controlling
+ * Rohde \& Schwarz instruments.
+ * %RsaToolbox
  * provides a simple yet fully
  * functional starting point for any
  * test automation application. The
- * primary objectives are ease of use
- * and code legibility, and minimalism;
+ * primary objectives are ease of use,
+ * code legibility, and minimalism;
  * these tenets allow you to concentrate on
  * creating the best application possible.
  *
- * <h2>%RsaToolbox consists of five major parts:</h2>
+ * <h2>%RsaToolbox consists of three major parts:</h2>
  * 
  * \ref Log "Log" \n
  * Log, appropriately enough, provides a
@@ -24,11 +24,15 @@
  * a Log class to an instrument or bus
  * instance. The user can also print
  * additional text to the log for clarity.
+ * Having a SCPI command log helps
+ * troubleshoot programs when they are
+ * not working.
  *
  * \ref Bus "Bus" <br>
  * Bus provides interchangeable interfaces
  * for the most common instrument busses,
- * such as VISA and RSIB. Interchangeability
+ * such as VISA and direct Tcp sockets.
+ * Interchangeability
  * allows your application to work with
  * any arbitrary connection method(s) without
  * rewriting your code.
@@ -44,25 +48,8 @@
  * Appropriate enums, data
  * types and operators are provided to
  * help you complete your application
- * quickly, reliably and legibly.
+ * quickly and reliably.
  * Instruments are compatible with
  * the Log and Bus classes mentioned
  * above.
- *
- * \ref Templates "Qt Creator Templates" <br>
- * The %RsaToolbox Qt Creator templates
- * provide well organized starting points
- * for common applications.
- * You get a log file, instrument connection,
- * and an installer framework, all of which
- * will compile and just work, out of the box.
- *
- * \ref Installer "Rsa Create Installer" <br>
- * Rsa Create Installer is a tool
- * for creating installers from
- * %RsaToolbox Qt Creator project
- * templates. You provide some
- * basic information like application
- * name and version and it an installer
- * with your executable and all dependencies.
  */

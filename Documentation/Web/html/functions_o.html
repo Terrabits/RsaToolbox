@@ -26,7 +26,7 @@
 , <a class="el" href="class_rsa_toolbox_1_1_vna_corrections.html#a785abb1dda82d2aa86dca3b47ad8c5db">VnaCorrections</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_limits.html#a785abb1dda82d2aa86dca3b47ad8c5db">VnaLimits</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_math.html#a785abb1dda82d2aa86dca3b47ad8c5db">VnaMath</a>
-, <a class="el" href="class_rsa_toolbox_1_1_vna_power_corrections.html#aa36c589566af7344ab5b63c362589539">VnaPowerCorrections</a>
+, <a class="el" href="class_rsa_toolbox_1_1_vna_pulse_generator.html#a785abb1dda82d2aa86dca3b47ad8c5db">VnaPulseGenerator</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_reference_marker.html#a785abb1dda82d2aa86dca3b47ad8c5db">VnaReferenceMarker</a>
 </li>
 <li>Off
@@ -36,12 +36,21 @@
 : <a class="el" href="class_rsa_toolbox_1_1_vna_sweep_segment.html#a2f241b422ebdbd7a570178ceaebdd2fa">VnaSweepSegment</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_time_domain.html#a785abb1dda82d2aa86dca3b47ad8c5db">VnaTimeDomain</a>
 </li>
+<li>OffsetShort1
+: <a class="el" href="class_rsa_toolbox_1_1_vna_cal_standard.html#a1d1cfd8ffb84e947f82999c682b666a7a4a15b0434157340970ac420bc802f788">VnaCalStandard</a>
+</li>
+<li>OffsetShort2
+: <a class="el" href="class_rsa_toolbox_1_1_vna_cal_standard.html#a1d1cfd8ffb84e947f82999c682b666a7aeffc5b60124344339b4e15972ae0279d">VnaCalStandard</a>
+</li>
+<li>OffsetShort3
+: <a class="el" href="class_rsa_toolbox_1_1_vna_cal_standard.html#a1d1cfd8ffb84e947f82999c682b666a7ad42a7a72103334fe8f4858ea6d0a3cf5">VnaCalStandard</a>
+</li>
 <li>on()
 : <a class="el" href="class_rsa_toolbox_1_1_vna_averaging.html#af5ab223c4aa62b4fc1bcc3a166bc2517">VnaAveraging</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_corrections.html#af5ab223c4aa62b4fc1bcc3a166bc2517">VnaCorrections</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_limits.html#af5ab223c4aa62b4fc1bcc3a166bc2517">VnaLimits</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_math.html#af5ab223c4aa62b4fc1bcc3a166bc2517">VnaMath</a>
-, <a class="el" href="class_rsa_toolbox_1_1_vna_power_corrections.html#aaeb2fcc63f08a520f03b966cb825c704">VnaPowerCorrections</a>
+, <a class="el" href="class_rsa_toolbox_1_1_vna_pulse_generator.html#af5ab223c4aa62b4fc1bcc3a166bc2517">VnaPulseGenerator</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_reference_marker.html#af5ab223c4aa62b4fc1bcc3a166bc2517">VnaReferenceMarker</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_sweep_segment.html#af5a2f93105e0a24634af5793d2c5c5b8">VnaSweepSegment</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_time_domain.html#af5ab223c4aa62b4fc1bcc3a166bc2517">VnaTimeDomain</a>
@@ -53,6 +62,10 @@
 : <a class="el" href="class_rsa_toolbox_1_1_log.html#adb20eae91802d6ad6366cdee0220c280">Log</a>
 , <a class="el" href="class_rsa_toolbox_1_1_snp_stream_reader.html#adb20eae91802d6ad6366cdee0220c280">SnpStreamReader</a>
 , <a class="el" href="class_rsa_toolbox_1_1_snp_stream_writer.html#adb20eae91802d6ad6366cdee0220c280">SnpStreamWriter</a>
+</li>
+<li>Open
+: <a class="el" href="class_rsa_toolbox_1_1_vna_cal_standard.html#a1d1cfd8ffb84e947f82999c682b666a7ac8e6944e998ac466c3cc4a648dde8291">VnaCalStandard</a>
+, <a class="el" href="class_rsa_toolbox_1_1_vna_standard_model.html#a1d1cfd8ffb84e947f82999c682b666a7ac8e6944e998ac466c3cc4a648dde8291">VnaStandardModel</a>
 </li>
 <li>opened()
 : <a class="el" href="class_rsa_toolbox_1_1_log.html#a0fb61747d3f8a3fdc9e593cdc23b0f85">Log</a>
@@ -85,11 +98,14 @@
 : <a class="el" href="class_rsa_toolbox_1_1_log.html#a84e5e02749f37aa0f05ef64ea3b8bb93">Log</a>
 </li>
 <li>operator=()
-: <a class="el" href="class_rsa_toolbox_1_1_connector.html#a65b079a3d13e3033981fa14f302d2685">Connector</a>
+: <a class="el" href="class_action.html#a7a546d6af3a19d0618f3551f3ab5c682">Action</a>
+, <a class="el" href="class_rsa_toolbox_1_1_command.html#a370938e2e6f4cd6807ad1c8e90498fae">Command</a>
+, <a class="el" href="class_rsa_toolbox_1_1_connector.html#a65b079a3d13e3033981fa14f302d2685">Connector</a>
 , <a class="el" href="class_rsa_toolbox_1_1_formatted_complex.html#a42f90286f148a2e9d254962e77c9327d">FormattedComplex</a>
 , <a class="el" href="class_rsa_toolbox_1_1_formatted_network_data.html#a013dcab740397fbdd3c194cb8bf762b9">FormattedNetworkData</a>
 , <a class="el" href="class_rsa_toolbox_1_1_index_name.html#a376d9fda7125f2e9ed719598997f373b">IndexName</a>
 , <a class="el" href="class_rsa_toolbox_1_1_last_path.html#a9b1042b9608e4444ed1cabf7a744fdf9">LastPath</a>
+, <a class="el" href="class_rsa_toolbox_1_1_menu.html#af1da306c28b9fc92168b20f199cbf0ae">Menu</a>
 , <a class="el" href="class_rsa_toolbox_1_1_name_label.html#ac68b0ea1c139eb137c1dc7d27c4f3fbb">NameLabel</a>
 , <a class="el" href="class_rsa_toolbox_1_1_network_data.html#ab1b1fa63017bf3f4284656b972e820a1">NetworkData</a>
 , <a class="el" href="class_rsa_toolbox_1_1_network_trace_data.html#aa7e50a1cae50dfd5feafc3c0ed00a76e">NetworkTraceData</a>
@@ -102,6 +118,7 @@
 , <a class="el" href="class_rsa_toolbox_1_1_vna_corrections.html#a257927904d3edb1a2f78448700848dba">VnaCorrections</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_cw_sweep.html#ae655a51737c2ea518b957abb3890f28a">VnaCwSweep</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_diagram.html#aba0e3a4507353cfc8c3ad70981971279">VnaDiagram</a>
+, <a class="el" href="class_rsa_toolbox_1_1_vna_extension_unit.html#a6758253b257758eefe5c62e61ebac4df">VnaExtensionUnit</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_file_system.html#a4c1dbf3639064ce227c971e2a99740f8">VnaFileSystem</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_limits.html#a2ca43e107fa71d933178222bef506a3c">VnaLimits</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_linear_sweep.html#a8d62eeccf3f5b70164a58d66e57356df">VnaLinearSweep</a>
@@ -112,6 +129,7 @@
 , <a class="el" href="class_rsa_toolbox_1_1_vna_power_corrections.html#ac25543ec857fd9982250165c0d132511">VnaPowerCorrections</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_power_sweep.html#a1f5f2be1f565026726526f05685f8bb8">VnaPowerSweep</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_properties.html#aae55792bb41fa712e646031dad560941">VnaProperties</a>
+, <a class="el" href="class_rsa_toolbox_1_1_vna_pulse_generator.html#ad6d9afd5696ca27667b51e45e247ed7b">VnaPulseGenerator</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_reference_marker.html#a64c5b63227cdd72bf355ef881893dab1">VnaReferenceMarker</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_segmented_sweep.html#a1de61dd353557f367470fda30dc1c52e">VnaSegmentedSweep</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_set.html#aa1ac04193685ea2d2f7d5ef09fdef0ec">VnaSet</a>
@@ -122,12 +140,16 @@
 , <a class="el" href="class_rsa_toolbox_1_1_vna_time_domain.html#a3ea85afd3ab94fd36d5669b62a3d12ac">VnaTimeDomain</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_time_sweep.html#af84a44722ca908cd8fb6f4660de83e89">VnaTimeSweep</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_trace.html#ad35ccc78eaee07b5f5762ecb7094684b">VnaTrace</a>
+, <a class="el" href="class_rsa_toolbox_1_1_vna_trigger.html#a0f1bf43249e9827602f8c03b2d92909b">VnaTrigger</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_user_defined_port.html#ab8a6cba6ef7380b15442e0929e3ada3f">VnaUserDefinedPort</a>
 </li>
 <li>operator==()
 : <a class="el" href="class_rsa_toolbox_1_1_connector.html#a75aebc1f06692c300a43366c89526e8b">Connector</a>
 , <a class="el" href="class_rsa_toolbox_1_1_name_label.html#ac81edb84e781d0af1ce64de2dc8e565e">NameLabel</a>
 , <a class="el" href="class_rsa_toolbox_1_1_vna_cal_standard.html#a6888f1003222efc185fc962a6786d9af">VnaCalStandard</a>
+</li>
+<li>options()
+: <a class="el" href="class_rsa_toolbox_1_1_vna_extension_unit.html#afe2ebfa51d88860f23348826bee6ec7d">VnaExtensionUnit</a>
 </li>
 <li>optionsList()
 : <a class="el" href="class_rsa_toolbox_1_1_vna_properties.html#a72f467a4b9e4a75841461dd920590758">VnaProperties</a>
@@ -137,6 +159,12 @@
 </li>
 <li>Osm
 : <a class="el" href="class_rsa_toolbox_1_1_vna_calibrate.html#a2cfb64854a6456046e752dd5e5c34e9da4cd3c1afe4e83a5762507a670e1c0e62">VnaCalibrate</a>
+</li>
+<li>outOfRange()
+: <a class="el" href="class_rsa_toolbox_1_1_decibel_edit.html#a10a1a4eca404713fd8a82cca03be66c8">DecibelEdit</a>
+, <a class="el" href="class_rsa_toolbox_1_1_frequency_edit.html#a10a1a4eca404713fd8a82cca03be66c8">FrequencyEdit</a>
+, <a class="el" href="class_rsa_toolbox_1_1_points_edit.html#a10a1a4eca404713fd8a82cca03be66c8">PointsEdit</a>
+, <a class="el" href="class_rsa_toolbox_1_1_power_edit.html#a10a1a4eca404713fd8a82cca03be66c8">PowerEdit</a>
 </li>
 <li>outputPort()
 : <a class="el" href="class_rsa_toolbox_1_1_network_trace_data.html#ab4c696032924ae056ac23fe1a5687489">NetworkTraceData</a>

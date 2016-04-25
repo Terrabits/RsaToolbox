@@ -3,6 +3,7 @@
 
 
 // Qt
+#include <QString>
 #include <QMetaType>
 #include <QVector>
 #include <QMap>
@@ -11,19 +12,21 @@
 #include <complex>
 #include <vector>
 #include <limits>
-#include <climits>
 
 
 namespace RsaToolbox {
 
-const char RSATOOLBOX_VERSION[] = "0.9.0";
-const char COMPANY_FOLDER[] = "Rohde-Schwarz";
+// Constants
+const QString RSATOOLBOX_VERSION = "0.10.0";
+const QString COMPANY_FOLDER = "Rohde-Schwarz";
 const double PI = 3.14159265358979323846264338327950288419716939937510;
 const double  E = 2.71828182845904523536028747135266249775724709369995;
 const double DBL_INF = std::numeric_limits<double>::infinity();
 const double DBL_NEG_INF = -DBL_INF;
 const double DBL_NAN = std::numeric_limits<double>::quiet_NaN();
 
+// Enums
+// To be enum class with C++ 11
 enum /*class*/ NetworkParameter {
     S = 0,
     Y,
