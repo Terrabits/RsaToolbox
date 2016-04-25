@@ -36,6 +36,14 @@ void VnaTestClass::initTestCase() {
             _logDir.remove(file);
         }
     }
+
+    _vna.reset(new Vna(_connectionType, _address));
+    QVERIFY(_vna->isConnected());
+    _vna.reset();
+}
+void VnaTestClass::cleanupTestCase() {
+    _vna.reset();
+    _log.reset();
 }
 
 void VnaTestClass::init() {
