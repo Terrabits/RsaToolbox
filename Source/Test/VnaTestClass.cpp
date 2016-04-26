@@ -64,6 +64,7 @@ void VnaTestClass::init() {
 void VnaTestClass::cleanup() {
     _vna->isError();
     _vna->clearStatus();
+    _vna->local();
     _vna.reset();
 
     _log->close();
