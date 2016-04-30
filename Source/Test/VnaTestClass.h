@@ -3,9 +3,10 @@
 
 
 // RsaToolbox
+#include "Log.h"
 #include "TestClass.h"
 #include "Vna.h"
-#include "Log.h"
+#include "VnaProperties.h"
 
 // Qt
 #include <QScopedPointer>
@@ -32,6 +33,10 @@ protected:
     ConnectionType _connectionType;
     QString _address;
     QScopedPointer<Vna> _vna;
+
+    bool isZnbFamily();
+    bool isZvaFamily();
+    VnaProperties::Model model();
 
 private slots:
     // Once

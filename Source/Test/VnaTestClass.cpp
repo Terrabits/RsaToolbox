@@ -22,6 +22,50 @@ VnaTestClass::~VnaTestClass() {
     _log.reset();
 }
 
+bool VnaTestClass::isZnbFamily() {
+    bool isNullPointer = _vna.isNull();
+    if (isNullPointer) {
+        _vna.reset(new Vna(_connectionType, _address));
+    }
+
+    bool isZnx = false;
+    if (_vna->isConnected())
+        isZnx = _vna->properties().isZnbFamily();
+
+    if (isNullPointer)
+        _vna.reset();
+    return isZnx;
+}
+bool VnaTestClass::isZvaFamily() {
+    bool isNullPointer = _vna.isNull();
+    if (isNullPointer) {
+        _vna.reset(new Vna(_connectionType, _address));
+    }
+
+    bool isZvx = false;
+    if (_vna->isConnected())
+        isZvx = _vna->properties().isZvaFamily();
+
+    if (isNullPointer)
+        _vna.reset();
+    return isZvx;
+}
+
+VnaProperties::Model VnaTestClass::model() {
+    bool isNullPointer = _vna.isNull();
+    if (isNullPointer) {
+        _vna.reset(new Vna(_connectionType, _address));
+    }
+
+    VnaProperties::Model model = VnaProperties::Model::Unknown;
+    if (_vna->isConnected())
+        model = _vna->properties().model();
+
+    if (isNullPointer)
+        _vna.reset();
+    return model;
+}
+
 void VnaTestClass::initTestCase() {
     if (_logDir == QDir())
         return;
