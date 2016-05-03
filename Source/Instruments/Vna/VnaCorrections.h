@@ -36,11 +36,9 @@ public:
     void on(bool isOn = true);
     void off(bool isOff = true);
 
-    QString calGroup();
-    void setCalGroup(QString calGroup);
-    void saveToCalGroup(QString calGroup);
-    void dissolveCalGroupLink();
-    void clear(); //?
+    // Clear corrections
+    // (How?)
+    // void clear();
 
     // Properties
     VnaCalibrate::CalType calibrationType();

@@ -484,10 +484,10 @@ bool VnaChannel::isCalibrated() {
     return(_vna->query(scpi).trimmed().toInt() > 0);
 }
 bool VnaChannel::isCalGroup() {
-    return(calGroup().isEmpty() == false);
+    return(!calGroup().isEmpty());
 }
 void VnaChannel::saveCalibration(QString calGroup) {
-    if (calGroup.contains(".cal", Qt::CaseInsensitive) == false)
+    if (!calGroup.contains(".cal", Qt::CaseInsensitive))
         calGroup += ".cal";
 
     QString scpi = ":MMEM:STOR:CORR %1,\'%2\'\n";
@@ -496,7 +496,7 @@ void VnaChannel::saveCalibration(QString calGroup) {
     _vna->write(scpi);
 }
 void VnaChannel::setCalGroup(QString calGroup) {
-    if (calGroup.endsWith(".cal", Qt::CaseInsensitive) == false)
+    if (!calGroup.endsWith(".cal", Qt::CaseInsensitive))
         calGroup += ".cal";
 
     QString scpi = ":MMEM:LOAD:CORR %1,\'%2\'\n";
@@ -516,7 +516,7 @@ QString VnaChannel::calGroupFile() {
     filePathName = _vna->fileSystem().directory(VnaFileSystem::CAL_GROUP_DIRECTORY) + "\\" + filePathName;
     return(filePathName);
 }
-void VnaChannel::dissolveCalGroup() {
+void VnaChannel::dissolveCalGroupLink() {
     QString scpi = ":MMEM:LOAD:CORR:RES %1\n";
     scpi = scpi.arg(_index);
     _vna->write(scpi);
@@ -607,26 +607,6 @@ void VnaChannel::operator=(const VnaChannel &other) {
         _index = 0;
     }
 }
-
-//void VnaChannel::moveToThread(QThread *thread) {
-//    if (_frequencySweep.isNull() == false)
-//        _frequencySweep->moveToThread(thread);
-//    if (_logSweep.isNull() == false)
-//        _logSweep->moveToThread(thread);
-//    if (_segmentedSweep.isNull() == false)
-//        _segmentedSweep->moveToThread(thread);
-//    if (_powerSweep.isNull() == false)
-//        _powerSweep->moveToThread(thread);
-//    if (_timeSweep.isNull() == false)
-//        _timeSweep->moveToThread(thread);
-//    if (_cwSweep.isNull() == false)
-//        _cwSweep->moveToThread(thread);
-//    if (_corrections.isNull() == false)
-//        _corrections->moveToThread(thread);
-//    if (_calibrate.isNull() == false)
-//        _calibrate->moveToThread(thread);
-
-//}
 
 // Private
 bool VnaChannel::isFullyInitialized() const {

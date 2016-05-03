@@ -159,7 +159,7 @@ public:
     void setCalGroup(QString calGroup);
     QString calGroup();
     QString calGroupFile();
-    void dissolveCalGroup();
+    void dissolveCalGroupLink();
     VnaCorrections &corrections();
     VnaCalibrate &calibrate();
     VnaCalibrate *takeCalibrate();
@@ -179,8 +179,6 @@ public:
      VnaTrigger &trigger();
 
     void operator=(const VnaChannel &other);
-
-//    void moveToThread(QThread *thread);
 
 private:
     Vna *_vna;

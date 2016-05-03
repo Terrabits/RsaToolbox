@@ -4,9 +4,6 @@
 // RsaToolbox
 using namespace RsaToolbox;
 
-// Qt
-#include <QTest>
-
 
 VnaTestClass::VnaTestClass(QObject *parent) :
     TestClass(parent),
@@ -88,6 +85,14 @@ void VnaTestClass::initTestCase() {
 void VnaTestClass::cleanupTestCase() {
     _vna.reset();
     _log.reset();
+
+    _vna.reset(new Vna(_connectionType, _address));
+    if (_vna->isConnected()) {
+        _vna->preset();
+        _vna->pause();
+        _vna->local();
+    }
+    _vna.reset();
 }
 
 void VnaTestClass::init() {
@@ -108,7 +113,6 @@ void VnaTestClass::init() {
 void VnaTestClass::cleanup() {
     _vna->isError();
     _vna->clearStatus();
-    _vna->local();
     _vna.reset();
 
     _log->close();

@@ -98,40 +98,6 @@ void VnaCorrections::on(bool isOn) {
 void VnaCorrections::off(bool isOff) {
     on(!isOff);
 }
-QString VnaCorrections::calGroup() {
-    QString scpi = ":MMEM:LOAD:CORR? %1\n";
-    scpi = scpi.arg(_channelIndex);
-    return(_vna->query(scpi).trimmed().remove("\'"));
-}
-void VnaCorrections::setCalGroup(QString calGroup) {
-    if (calGroup.contains(".cal", Qt::CaseInsensitive) == false)
-        calGroup = calGroup + ".cal";
-    QString scpi = ":MMEM:LOAD:CORR %1,\'%2\'\n";
-    scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(calGroup);
-    _vna->write(scpi);
-}
-void VnaCorrections::saveToCalGroup(QString calGroup) {
-    if (calGroup.contains(".cal", Qt::CaseInsensitive) == false)
-        calGroup = calGroup + ".cal";
-    QString scpi = ":MMEM:STOR:CORR %1,\'%2\'\n";
-    scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(calGroup);
-    _vna->write(scpi);
-}
-void VnaCorrections::dissolveCalGroupLink() {
-    QString scpi = ":MMEM:LOAD:CORR:RES %1\n";
-    scpi = scpi.arg(_channelIndex);
-    _vna->write(scpi);
-}
-void VnaCorrections::clear() {
-//    _vna->fileSystem().uploadFile();
-//    _vna->importCalGroup("DELETE");
-//    setCalGroup("DELETE");
-//    dissolveCalGroupLink();
-//    _vna->deleteCalGroup("DELETE");
-} //?
-
 
 // Properties
 VnaCalibrate::CalType VnaCorrections::calibrationType() {

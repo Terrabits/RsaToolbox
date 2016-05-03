@@ -9,8 +9,9 @@
 #include "VnaProperties.h"
 
 // Qt
-#include <QScopedPointer>
 #include <QDir>
+#include <QScopedPointer>
+#include <QTest>
 
 
 namespace RsaToolbox {

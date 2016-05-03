@@ -4,6 +4,7 @@
 
 // Qt
 #include <QObject>
+#include <QTest>
 
 
 namespace RsaToolbox {
