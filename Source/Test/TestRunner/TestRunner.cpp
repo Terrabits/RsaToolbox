@@ -40,7 +40,7 @@ bool TestRunner::runTests() {
 
 void TestRunner::run() {
     doRunTests();
-    QCoreApplication::instance()->quit();
+    QApplication::instance()->quit();
 }
 
 void TestRunner::doRunTests() {
