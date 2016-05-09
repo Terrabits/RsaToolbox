@@ -92,6 +92,12 @@ void PowerEdit::setAcceptedValues(const QRowVector &powers_dBm) {
     }
 }
 
+void PowerEdit::clearLimits() {
+    clearMinimum();
+    clearMaximum();
+    clearAcceptedValues();
+}
+
 // Slots:
 void PowerEdit::setPower(double power_dBm) {
     power_dBm = round(power_dBm, 2);

@@ -29,6 +29,8 @@ public:
     void setMinimum(uint points);
     void setMaximum(uint points);
 
+    void clearLimits();
+
 public slots:
     void setText(const QString &text); // Override?
     void setPoints(uint points);

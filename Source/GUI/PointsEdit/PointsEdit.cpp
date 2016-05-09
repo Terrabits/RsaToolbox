@@ -77,6 +77,11 @@ void PointsEdit::setMaximum(uint points) {
         setPoints(_points);
 }
 
+void PointsEdit::clearLimits() {
+    clearMinimum();
+    clearMaximum();
+}
+
 // Slots:
 void PointsEdit::setPoints(uint points) {
     if (points < 1)

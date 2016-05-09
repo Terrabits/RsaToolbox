@@ -101,6 +101,12 @@ void FrequencyEdit::setAcceptedValues(const QRowVector &frequencies_Hz) {
         setFrequency(_frequency_Hz);
 }
 
+void FrequencyEdit::clearLimits() {
+    clearMinimum();
+    clearMaximum();
+    clearAcceptedValues();
+}
+
 // Slots:
 void FrequencyEdit::setFrequency(double frequency_Hz) {
     if (frequency_Hz < 1)

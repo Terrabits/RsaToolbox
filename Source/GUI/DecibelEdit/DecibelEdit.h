@@ -29,6 +29,8 @@ public:
     void setMinimum(double value_dB);
     void setMaximum(double value_dB);
 
+    void clearLimits();
+
 public slots:
     void setText(const QString &text); // Override?
     void setValue(double value_dB);

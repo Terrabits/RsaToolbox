@@ -24,7 +24,7 @@ QVector<uint> PortsLineEdit::ports() {
     QStringList words = text.split(",");
     foreach(QString word, words)
         parsePortEntry(word);
-    //qSort(_ports);
+    //qSort(_ports); // Why'd I remove this?
     return(_ports);
 }
 QVector<uint> PortsLineEdit::sortedPorts() {

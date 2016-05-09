@@ -74,6 +74,12 @@ void DecibelEdit::setMaximum(double value_dB) {
         setValue(_value_dB);
 }
 
+void DecibelEdit::clearLimits() {
+    clearMinimum();
+    clearMaximum();
+    //clearAcceptableValues();
+}
+
 // Slots:
 void DecibelEdit::setValue(double value_dB) {
     value_dB = round(value_dB, 2);

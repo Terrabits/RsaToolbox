@@ -34,6 +34,8 @@ public:
     void clearAcceptedValues();
     void setAcceptedValues(const QRowVector &frequencies_Hz);
 
+    void clearLimits();
+
 public slots:
     void setText(const QString &text); // Override?
     void setFrequency(double frequency_Hz);

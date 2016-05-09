@@ -29,9 +29,10 @@ public:
     void setMinimum(double power_dBm);
     void setMaximum(double power_dBm);
 
-    // Add
     void clearAcceptedValues();
     void setAcceptedValues(const QRowVector &powers_dBm);
+
+    void clearLimits();
 
 public slots:
     void setText(const QString &text); // Override?
