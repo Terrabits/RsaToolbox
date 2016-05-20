@@ -63,7 +63,7 @@ VnaProperties::Model VnaTestClass::model() {
     return model;
 }
 
-void VnaTestClass::initTestCase() {
+void VnaTestClass::_initTestCase() {
     if (_logDir == QDir())
         return;
 
@@ -82,7 +82,7 @@ void VnaTestClass::initTestCase() {
     QVERIFY(_vna->isConnected());
     _vna.reset();
 }
-void VnaTestClass::cleanupTestCase() {
+void VnaTestClass::_cleanupTestCase() {
     _vna.reset();
     _log.reset();
 
@@ -95,7 +95,7 @@ void VnaTestClass::cleanupTestCase() {
     _vna.reset();
 }
 
-void VnaTestClass::init() {
+void VnaTestClass::_init() {
     _vna.reset(new Vna(_connectionType, _address));
     const QString logFilename = _logDir.filePath(_logFilenames.takeFirst());
     _log.reset(new Log(logFilename, "", "0.0"));
@@ -110,11 +110,25 @@ void VnaTestClass::init() {
     _vna->preset();
     _vna->pause();
 }
-void VnaTestClass::cleanup() {
+void VnaTestClass::_cleanup() {
     _vna->isError();
     _vna->clearStatus();
     _vna.reset();
 
     _log->close();
     _log.reset();
+}
+
+void VnaTestClass::initTestCase() {
+    _initTestCase();
+}
+void VnaTestClass::cleanupTestCase() {
+    _cleanupTestCase();
+}
+
+void VnaTestClass::init() {
+    _init();
+}
+void VnaTestClass::cleanup() {
+    _cleanup();
 }

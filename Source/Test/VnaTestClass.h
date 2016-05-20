@@ -39,6 +39,17 @@ protected:
     bool isZvaFamily();
     VnaProperties::Model model();
 
+    // Expose init and cleanup
+    // methods
+
+    // Once
+    void _initTestCase();
+    void _cleanupTestCase();
+
+    // Per Test
+    void _init();
+    void _cleanup();
+
 private slots:
     // Once
      virtual void initTestCase();

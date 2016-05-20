@@ -92,9 +92,9 @@ public:
 
     uint points();
     QRowVector x();
-    ComplexRowVector y();
-    void y(QRowVector &y);
-    void y(ComplexRowVector &y);
+    ComplexRowVector y(); // SDAT
+    void y(QRowVector &y); // FDAT
+    void y(ComplexRowVector &y); // SDAT
 
     void toMemory(QString name);
     void write(QRowVector data);
