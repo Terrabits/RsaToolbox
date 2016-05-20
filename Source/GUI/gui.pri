@@ -19,7 +19,8 @@ HEADERS     += $$PWD/About/About.h \
                $$PWD/Wizard/Wizard.h \
                $$PWD/Wizard/WizardPage.h \
                $$PWD/Wizard/BreadCrumbs.h \
-               $$PWD/Wizard/WizardButtons.h
+               $$PWD/Wizard/WizardButtons.h \
+               $$PWD/Shake.h
 INCLUDEPATH += $$PWD/About \
                $$PWD/ConnectButton \
                $$PWD/ConnectionTypeComboBox \
@@ -54,7 +55,8 @@ SOURCES     += $$PWD/About/About.cpp \
                $$PWD/Wizard/Wizard.cpp \
                $$PWD/Wizard/WizardPage.cpp \
                $$PWD/Wizard/BreadCrumbs.cpp \
-               $$PWD/Wizard/WizardButtons.cpp
+               $$PWD/Wizard/WizardButtons.cpp \
+               $$PWD/Shake.cpp
 FORMS       += $$PWD/About/About.ui \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.ui \
                $$PWD/GetSnpFile/GetSnpFile.ui \
