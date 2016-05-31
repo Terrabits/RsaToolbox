@@ -21,7 +21,11 @@ class VnaTestClass : public TestClass
     Q_OBJECT
 public:
     explicit VnaTestClass(QObject *parent = 0);
+    explicit VnaTestClass(ConnectionType type, const QString &address, QObject *parent = 0);
     ~VnaTestClass();
+
+    void setConnectionType(ConnectionType type);
+    void setAddress(const QString &address);
 
 protected:
     QString _applicationName;

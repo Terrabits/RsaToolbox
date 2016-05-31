@@ -14,9 +14,25 @@ VnaTestClass::VnaTestClass(QObject *parent) :
 {
     //
 }
+VnaTestClass::VnaTestClass(ConnectionType type, const QString &address, QObject *parent) :
+    TestClass(parent),
+    _applicationName("Test"),
+    _version("0.0"),
+    _connectionType(type),
+    _address(address)
+{
+    //
+}
 VnaTestClass::~VnaTestClass() {
     _vna.reset();
     _log.reset();
+}
+
+void VnaTestClass::setConnectionType(ConnectionType type) {
+    _connectionType = type;
+}
+void VnaTestClass::setAddress(const QString &address) {
+    _address = address;
 }
 
 bool VnaTestClass::isZnbFamily() {
