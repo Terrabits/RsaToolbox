@@ -46,7 +46,8 @@ HEADERS += $$PWD/VnaSet.h \
            $$PWD/VnaDiagram.h \
            $$PWD/VnaScpi.h \
            $$PWD/Vna.h \
-           $$PWD/VnaUndo.h
+           $$PWD/VnaUndo.h \
+           $$PWD/VnaPauseSweeps.h
 INCLUDEPATH += $$PWD
 SOURCES += $$PWD/VnaSet.cpp \
            $$PWD/VnaUserDefinedPort.cpp \
@@ -83,4 +84,5 @@ SOURCES += $$PWD/VnaSet.cpp \
            $$PWD/VnaDiagram.cpp \
            $$PWD/VnaScpi.cpp \
            $$PWD/Vna.cpp \
-           $$PWD/VnaUndo.cpp
+           $$PWD/VnaUndo.cpp \
+           $$PWD/VnaPauseSweeps.cpp

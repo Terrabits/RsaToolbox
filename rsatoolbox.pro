@@ -1,4 +1,4 @@
 TEMPLATE = subdirs
-SUBDIRS  = Source #\
-           #Test
+SUBDIRS  = Source \
+           Test
 CONFIG  += ordered
