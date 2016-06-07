@@ -722,6 +722,30 @@ VnaChannel::SweepType VnaScpi::toSweepType(QString scpi) {
     return VnaChannel::SweepType::Linear;
 }
 
+// Trace
+QString VnaScpi::toString(VnaTrace::Side side) {
+    switch(side) {
+    case VnaTrace::Side::Lower:
+        return "L";
+    case VnaTrace::Side::Upper:
+        return "U";
+    case VnaTrace::Side::Major:
+        return "M";
+    default:
+        return "L";
+    }
+}
+QString VnaScpi::toString(VnaTrace::At at) {
+    switch(at) {
+    case VnaTrace::At::Input:
+        return "I";
+    case VnaTrace::At::Output:
+        return "O";
+    default:
+        return "I";
+    }
+}
+
 // Trigger
 QString VnaScpi::toString(VnaTrigger::Source source) {
     switch(source) {

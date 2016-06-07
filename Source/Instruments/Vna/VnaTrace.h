@@ -44,6 +44,10 @@ public:
     uint diagram();
     void setDiagram(uint index);
 
+    // Parameter (general)
+    QString parameter();
+    void setParameter(const QString &parameter);
+
     bool isNetworkParameter();
     void networkParameter(NetworkParameter &parameter, uint &outputPort, uint &inputPort);
     void networkParameter(NetworkParameter &parameter, BalancedPort &outputPort, BalancedPort &inputPort);
@@ -74,6 +78,25 @@ public:
     void setAdmittance(uint outputPort, uint inputPort);
     void setAdmittance(BalancedPort outputPort, BalancedPort inputPort);
     // void measure(ImpedanceTraceData &data);
+
+    // Should I add? I think this
+    // pattern of having separate methods isn't so great :-/
+    enum /*class*/ Side {
+        Lower,
+        Upper,
+        Major
+    };
+    enum /*class*/ At {
+        Input,
+        Output
+    };
+
+//    bool isIntermod();
+//    void intermod(uint &order, Side &side);
+    void setIntermod(uint order, Side side);
+//    bool isIntermodTone();
+//    void intermodTone(Side &side, At &location);
+    void setIntermodTone(Side side, At &location);
 
     bool isTimeDomain();
     bool isNotTimeDomain();
@@ -138,7 +161,6 @@ private:
     bool isFullyInitialized() const;
 
     // Scpi
-    QString measurementString();
     uint bufferSize();
     uint complexBufferSize();
     void parseParameters(QString scpi);

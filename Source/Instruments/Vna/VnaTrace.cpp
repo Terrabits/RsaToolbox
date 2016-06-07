@@ -114,8 +114,23 @@ void VnaTrace::setDiagram(uint index) {
     _vna->write(scpi);
 }
 
+// Parameter (generally)
+QString VnaTrace::parameter() {
+    QString scpi = ":CALC%1:PAR:MEAS? \'%2\'\n";
+    scpi = scpi.arg(channel());
+    scpi = scpi.arg(_name);
+    return(_vna->query(scpi).trimmed().remove("\'"));
+}
+void VnaTrace::setParameter(const QString &parameter) {
+    QString scpi = ":CALC%1:PAR:MEAS? \'%2\',\'%3\'\n";
+    scpi = scpi.arg(channel());
+    scpi = scpi.arg(_name);
+    scpi = scpi.arg(parameter);
+    _vna->write(scpi);
+}
+
 bool VnaTrace::isNetworkParameter() {
-    QString result = measurementString();
+    QString result = parameter();
     result = result.toUpper();
     switch(result.at(0).toLatin1()) {
     case 'S': return(true);
@@ -206,7 +221,7 @@ void VnaTrace::measure(NetworkTraceData &data) {
 }
 
 bool VnaTrace::isWaveQuantity() {
-    QString result = measurementString();
+    QString result = parameter();
     result = result.toUpper();
     switch(result.at(0).toLatin1()) {
     case 'A':
@@ -227,7 +242,7 @@ void VnaTrace::setWaveQuantity(WaveQuantity wave, uint wavePort, uint sourcePort
 }
 
 bool VnaTrace::isWaveRatio() {
-    QString result = measurementString();
+    QString result = parameter();
     result = result.toUpper();
     switch(result.at(0).toLatin1()) {
     case 'A':
@@ -249,7 +264,7 @@ void VnaTrace::setWaveRatio(WaveQuantity numeratorWave, uint numeratorWavePort, 
 }
 
 bool VnaTrace::isImpedance() {
-    QString result = measurementString();
+    QString result = parameter();
     result = result.toUpper();
     if (result.at(0) == 'Z' && result.contains("-"))
         return(true);
@@ -282,7 +297,7 @@ void VnaTrace::setImpedance(BalancedPort outputPort, BalancedPort inputPort) {
 }
 
 bool VnaTrace::isAdmittance() {
-    QString result = measurementString();
+    QString result = parameter();
     result = result.toUpper();
     if (result.at(0) == 'Y' && result.contains("-"))
         return(true);
@@ -312,6 +327,20 @@ void VnaTrace::setAdmittance(BalancedPort outputPort, BalancedPort inputPort) {
     scpi = scpi.arg(_name);
     scpi = scpi.arg(VnaScpi::toString(NetworkParameter::S, outputPort, inputPort));
     _vna->write(scpi);
+}
+
+// Intermod
+void VnaTrace::setIntermod(uint order, Side side) {
+    QString scpi = "IM%3%4O";
+    scpi = scpi.arg(order);
+    scpi = scpi.arg(VnaScpi::toString(side));
+    setParameter(scpi);
+}
+void VnaTrace::setIntermodTone(Side side, At &location) {
+    QString scpi = "%1T%2";
+    scpi = scpi.arg(VnaScpi::toString(side));
+    scpi = scpi.arg(VnaScpi::toString(location));
+    setParameter(scpi);
 }
 
 TraceFormat VnaTrace::format() {
@@ -626,12 +655,6 @@ bool VnaTrace::isFullyInitialized() const {
     return(true);
 }
 
-QString VnaTrace::measurementString() {
-    QString scpi = ":CALC%1:PAR:MEAS? \'%2\'\n";
-    scpi = scpi.arg(channel());
-    scpi = scpi.arg(_name);
-    return(_vna->query(scpi).trimmed().remove("\'"));
-}
 uint VnaTrace::bufferSize() {
     const uint SIZE_PER_POINT = 8;
     return(SIZE_PER_POINT * points() + 11);
