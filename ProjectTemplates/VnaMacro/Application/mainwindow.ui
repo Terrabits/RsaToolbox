@@ -5,24 +5,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>792</width>
-    <height>567</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
-  <property name="windowTitle">
+  <property name="windowTitle" >
    <string>MainWindow</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="Resources.qrc">
-    <normaloff>:/new/icon_resource/RS.ico</normaloff>
-    <normalon>:/new/icon_resource/RS.ico</normalon>:/new/icon_resource/RS.ico</iconset>
-  </property>
+  <widget class="QMenuBar" name="menuBar" />
+  <widget class="QToolBar" name="mainToolBar" />
   <widget class="QWidget" name="centralWidget" />
+  <widget class="QStatusBar" name="statusBar" />
  </widget>
  <layoutDefault spacing="6" margin="11" />
  <pixmapfunction></pixmapfunction>
- <resources>
-  <include location="Resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

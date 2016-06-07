@@ -9,18 +9,21 @@
 #-------------------------------------------------
 
 # Project Settings
-QT          += core gui widgets
-TARGET       = <%= Name %>
-TEMPLATE     = app
+QT           += core gui widgets
+TEMPLATE      = lib
+CONFIG       += staticlib
+DESTDIR       = $$PWD/Library
+win32: TARGET = Core
+macx:  TARGET = libCore
+CONFIG(debug, debug|release) {
+       TARGET = $$join(TARGET,,,d)
+}
 
 # Files
-include(../Core/core.pri)
-SOURCES     += main.cpp\
-               mainwindow.cpp
-HEADERS     += mainwindow.h
-FORMS       += mainwindow.ui
-RESOURCES   += Resources.qrc
-OTHER_FILES += ./_Debug/Log.txt
+include(../RsaToolbox/rsatoolbox.pri)
+HEADERS += Example.h \
+           Settings.h
+SOURCES += Example.cpp
 
 # Defines
 DEFINES += SOURCE_DIR=\\\"$$PWD\\\"

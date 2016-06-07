@@ -1,0 +1,11 @@
+
+Debug Log
+=========
+
+## Default release locations:
+
+### Windows 7
+C:\ProgramData\Rohde-Schwarz\<%= app_folder>\
+
+### Windows XP
+C:\Documents and Settings\All Users\Application Data\Rohde-Schwarz\<%= app_folder %>\
