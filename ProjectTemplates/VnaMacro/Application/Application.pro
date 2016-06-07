@@ -10,7 +10,7 @@
 
 # Project Settings
 QT          += core gui widgets
-TARGET       = <%= Name %>
+TARGET       = VnaMacro # <%= app.name %>
 TEMPLATE     = app
 
 # Files

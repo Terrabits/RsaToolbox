@@ -1,11 +1,25 @@
+R&S <%= app.name %> Version <%= app.version %>
+(C) 2016 Rohde & Schwarz North America
 
-Debug Log
-=========
+Tue Jun 7 15:08:00 2016
 
-## Default release locations:
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
 
-### Windows 7
-C:\ProgramData\Rohde-Schwarz\<%= app_folder>\
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
+Status: 0x0 Operation completed successfully.
 
-### Windows XP
-C:\Documents and Settings\All Users\Application Data\Rohde-Schwarz\<%= app_folder %>\
+Write:    ":SYST:LANG 'SCPI'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
+Status: 0x0 Operation completed successfully.
+

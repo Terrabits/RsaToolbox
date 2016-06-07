@@ -37,7 +37,7 @@ CONFIG(release, debug|release) {
 # OS Specific
 ## Windows
 win32 {
-    RC_FILE = MsvcResources.rc
+    # Windows macros
 }
 
 ## Mac

@@ -8,8 +8,8 @@
 class ExampleTest : public RsaToolbox::TestClass
 {
 public:
-    TestClass();
-    ~TestClass();
+    ExampleTest();
+    ~ExampleTest();
 
 private slots:
     void test1();
