@@ -128,6 +128,14 @@ QVector<uint> VnaCorrections::ports() {
     QString result = _vna->query(scpi).trimmed();
     return(parseUints(result, ","));
 }
+QMap<uint, Connector> VnaCorrections::connectors() {
+    QMap<uint, Connector> connectors;
+
+    // Do work
+
+    return connectors;
+}
+
 uint VnaCorrections::points() {
     QString scpi = ":SENS%1:CORR:DATA:PAR? %3\n";
     scpi = scpi.arg(_channelIndex);

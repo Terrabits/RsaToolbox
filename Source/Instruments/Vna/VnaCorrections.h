@@ -3,13 +3,17 @@
 
 
 // RsaToolbox
+#include "Connector.h"
 #include "Definitions.h"
 #include "VnaChannel.h"
 //#include "VnaCalibrate.h"
 
 // Qt
+#include <QMap>
 #include <QObject>
 #include <QScopedPointer>
+#include <QString>
+#include <QVector>
 
 
 namespace RsaToolbox {
@@ -46,6 +50,7 @@ public:
     bool isSMARTerCal();
     VnaChannel::SweepType sweepType();
     QVector<uint> ports();
+    QMap<uint, Connector> connectors();
     uint points();
     double startFrequency_Hz();
     double stopFrequency_Hz();
