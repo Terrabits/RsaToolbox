@@ -336,7 +336,7 @@ void VnaTrace::setIntermod(uint order, Side side) {
     scpi = scpi.arg(VnaScpi::toString(side));
     setParameter(scpi);
 }
-void VnaTrace::setIntermodTone(Side side, At &location) {
+void VnaTrace::setIntermodTone(Side side, At location) {
     QString scpi = "%1T%2";
     scpi = scpi.arg(VnaScpi::toString(side));
     scpi = scpi.arg(VnaScpi::toString(location));

@@ -20,7 +20,8 @@ public:
 private slots:
     virtual void initTestCase();
 
-    void basicTest();
+    void settings();
+    void traces();
 
 };
 

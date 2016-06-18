@@ -92,11 +92,11 @@ public:
     };
 
 //    bool isIntermod();
-//    void intermod(uint &order, Side &side);
+//    void intermod(uint &order, Side side);
     void setIntermod(uint order, Side side);
 //    bool isIntermodTone();
-//    void intermodTone(Side &side, At &location);
-    void setIntermodTone(Side side, At &location);
+//    void intermodTone(Side &side, At location);
+    void setIntermodTone(Side side, At location);
 
     bool isTimeDomain();
     bool isNotTimeDomain();
