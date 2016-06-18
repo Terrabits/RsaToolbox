@@ -32,10 +32,8 @@ public:
     void on(bool isOn = true);
     void off(bool isOff = true);
     void reset();
-    void setNumber(uint numberOfAverages);
-    uint number();
-
-
+    void setCount(uint count);
+    uint count();
 
     void operator=(VnaAveraging const &other);
 

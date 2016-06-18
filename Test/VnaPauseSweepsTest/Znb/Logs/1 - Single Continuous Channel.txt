@@ -1,7 +1,7 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Tue May 31 23:23:54 2016
+Fri Jun 17 17:57:15 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -54,31 +54,7 @@ Read:     "'1,Ch1'"
 Bytes: 8
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CONF:CHAN2 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CONF:CHAN3 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CONF:CHAN4 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
 Write:    ":INIT1:CONT 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT 1"
 Bytes: 14
 Status: 0x0 Operation completed successfully.
 
@@ -86,8 +62,8 @@ Write:    ":CONF:CHAN:CAT?"
 Bytes: 16
 Status: 0x0 Operation completed successfully.
 
-Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4'"
-Bytes: 26
+Read:     "'1,Ch1'"
+Bytes: 8
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -102,42 +78,6 @@ Write:    ":INIT1:CONT 0"
 Bytes: 14
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT2:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT 0"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT 0"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT 0"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
 Write:    ":INIT1:CONT?"
 Bytes: 13
 Status: 0x0 Operation completed successfully.
@@ -146,59 +86,23 @@ Read:     "0"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT2:CONT?"
-Bytes: 13
+Write:    ":CONF:CHAN:CAT?"
+Bytes: 16
 Status: 0x0 Operation completed successfully.
 
-Read:     "0"
-Bytes: 2
+Read:     "'1,Ch1'"
+Bytes: 8
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT3:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
+Write:    ":INIT1:CONT 1"
+Bytes: 14
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
 Bytes: 13
 Status: 0x0 Operation completed successfully.
 
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
+Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 

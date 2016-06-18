@@ -80,13 +80,13 @@ void VnaAveraging::reset() {
     scpi = scpi.arg(_channelIndex);
     _vna->write(scpi);
 }
-void VnaAveraging::setNumber(uint numberOfAverages) {
+void VnaAveraging::setCount(uint count) {
     QString scpi = ":SENS%1:AVER:COUN %2\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(numberOfAverages);
+    scpi = scpi.arg(count);
     _vna->write(scpi);
 }
-uint VnaAveraging::number() {
+uint VnaAveraging::count() {
     QString scpi = ":SENS%1:AVER:COUN?\n";
     scpi = scpi.arg(_channelIndex);
     return(_vna->query(scpi).trimmed().toUInt());

@@ -14,6 +14,7 @@
 #include "VnaTimeSweep.h"
 #include "VnaUserDefinedPort.h"
 #include "VnaAveraging.h"
+#include "VnaIntermod.h"
 #include "VnaCalibrate.h"
 #include "VnaExtensionUnit.h"
 #include "VnaPulseGenerator.h"
@@ -54,6 +55,10 @@ public:
         Cw,
         Time
     };
+    enum /*class*/ IfSelectivity {
+        Normal,
+        High
+    };
 
     explicit VnaChannel(QObject *parent = 0);
     VnaChannel(const VnaChannel &other);
@@ -71,8 +76,6 @@ public:
 
     // Sweep control
     void startSweep();
-    uint numberOfSweeps();
-    void setNumberOfSweeps(uint sweeps);
     bool isSweepOn();
     bool isSweepOff();
     void sweepOn(bool isOn = true);
@@ -87,7 +90,11 @@ public:
 
     // Timing
     uint sweepTime_ms();
-    uint calibrationSweepTime_ms();
+    uint totalSweepTime_ms();
+
+    // IF Selectivity
+    IfSelectivity ifSelectivity();
+    void setIfSelectivity(IfSelectivity s);
 
     // Sweep type
     bool isFrequencySweep();
@@ -152,6 +159,9 @@ public:
     void clearDelayOffset(uint port);
     void clearDelayOffsets();
 
+    VnaIntermod &intermod();
+    VnaIntermod *takeIntermod();
+
     // Corrections
     bool isCalibrated();
     bool isCalGroup();
@@ -184,19 +194,20 @@ private:
     Vna *_vna;
     QScopedPointer<Vna> placeholder;
     uint _index;
-    QScopedPointer<VnaLinearSweep> _frequencySweep;
-    QScopedPointer<VnaLogSweep> _logSweep;
-    QScopedPointer<VnaSegmentedSweep> _segmentedSweep;
-    QScopedPointer<VnaPowerSweep> _powerSweep;
-    QScopedPointer<VnaCwSweep> _cwSweep;
-    QScopedPointer<VnaTimeSweep> _timeSweep;
-    QScopedPointer<VnaAveraging> _averaging;
-    QScopedPointer<VnaCorrections> _corrections;
+    QScopedPointer<VnaLinearSweep>      _frequencySweep;
+    QScopedPointer<VnaLogSweep>         _logSweep;
+    QScopedPointer<VnaSegmentedSweep>   _segmentedSweep;
+    QScopedPointer<VnaPowerSweep>       _powerSweep;
+    QScopedPointer<VnaCwSweep>          _cwSweep;
+    QScopedPointer<VnaTimeSweep>        _timeSweep;
+    QScopedPointer<VnaAveraging>        _averaging;
+    QScopedPointer<VnaIntermod>         _intermod;
+    QScopedPointer<VnaCorrections>      _corrections;
     QScopedPointer<VnaPowerCorrections> _powerCorrections;
-    QScopedPointer<VnaCalibrate> _calibrate;
-    QScopedPointer<VnaExtensionUnit> _extensionUnit;
-    QScopedPointer<VnaPulseGenerator> _pulseGenerator;
-    QScopedPointer<VnaTrigger> _trigger;
+    QScopedPointer<VnaCalibrate>        _calibrate;
+    QScopedPointer<VnaExtensionUnit>    _extensionUnit;
+    QScopedPointer<VnaPulseGenerator>   _pulseGenerator;
+    QScopedPointer<VnaTrigger>          _trigger;
 
     bool isFullyInitialized() const;
     QStringList zvaTraces();

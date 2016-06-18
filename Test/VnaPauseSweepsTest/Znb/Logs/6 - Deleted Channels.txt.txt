@@ -1,7 +1,7 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Tue May 31 23:23:51 2016
+Fri Jun 17 17:57:18 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -70,11 +70,11 @@ Write:    ":INIT1:CONT 0"
 Bytes: 14
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT2:CONT 0"
+Write:    ":INIT2:CONT 1"
 Bytes: 14
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT3:CONT 0"
+Write:    ":INIT3:CONT 1"
 Bytes: 14
 Status: 0x0 Operation completed successfully.
 
@@ -106,7 +106,7 @@ Write:    ":INIT2:CONT?"
 Bytes: 13
 Status: 0x0 Operation completed successfully.
 
-Read:     "0"
+Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
@@ -118,7 +118,7 @@ Write:    ":INIT3:CONT?"
 Bytes: 13
 Status: 0x0 Operation completed successfully.
 
-Read:     "0"
+Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
@@ -170,35 +170,39 @@ Read:     "0"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
+Write:    ":CONF:CHAN5 1"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":INIT5:CONT 1"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN1 0"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN3 0"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
 Write:    ":CONF:CHAN:CAT?"
 Bytes: 16
 Status: 0x0 Operation completed successfully.
 
-Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4'"
-Bytes: 26
+Read:     "'2,Ch2,4,Ch4,5,Ch5'"
+Bytes: 20
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT1:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
+Write:    ":INIT2:CONT 1"
+Bytes: 14
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
 Bytes: 13
 Status: 0x0 Operation completed successfully.
 
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
+Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
@@ -207,6 +211,14 @@ Bytes: 13
 Status: 0x0 Operation completed successfully.
 
 Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":INIT5:CONT?"
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 

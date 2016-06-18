@@ -331,7 +331,7 @@ void VnaTrace::setAdmittance(BalancedPort outputPort, BalancedPort inputPort) {
 
 // Intermod
 void VnaTrace::setIntermod(uint order, Side side) {
-    QString scpi = "IM%3%4O";
+    QString scpi = "IM%1%2O";
     scpi = scpi.arg(order);
     scpi = scpi.arg(VnaScpi::toString(side));
     setParameter(scpi);

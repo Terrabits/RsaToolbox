@@ -89,17 +89,6 @@ void VnaChannel::startSweep() {
     QString scpi = QString(":INIT%1\n").arg(_index);
     _vna->write(scpi);
 }
-uint VnaChannel::numberOfSweeps() {
-    QString scpi = ":SENS%1:SWE:COUN?\n";
-    scpi = scpi.arg(_index);
-    QString result = _vna->query(scpi);
-    return(result.trimmed().toUInt());
-}
-void VnaChannel::setNumberOfSweeps(uint sweeps) {
-    QString scpi = ":SENS%1:SWE:COUN %2\n";
-    scpi = scpi.arg(_index).arg(sweeps);
-    _vna->write(scpi);
-}
 bool VnaChannel::isSweepOn() {
     if (_vna->properties().isZvaFamily()) {
         if (_vna->isLogConnected())
@@ -183,11 +172,25 @@ uint VnaChannel::sweepTime_ms() {
         return linearSweep().sweepTime_ms();
     }
 }
-uint VnaChannel::calibrationSweepTime_ms() {
+uint VnaChannel::totalSweepTime_ms() {
     if (averaging().isOff())
         return sweepTime_ms();
 
-    return sweepTime_ms() * averaging().number();
+    return sweepTime_ms() * averaging().count();
+}
+
+VnaChannel::IfSelectivity VnaChannel::ifSelectivity() {
+    QString scpi = "SENS%1BAND:SEL?\n";
+    scpi = scpi.arg(_index);
+    scpi = _vna->query(scpi).trimmed();
+    return VnaScpi::toIfSelectivity(scpi);
+
+}
+void VnaChannel::setIfSelectivity(IfSelectivity s) {
+    QString scpi = "SENS%1BAND:SEL %2\n";
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(VnaScpi::toString(s));
+    _vna->write(scpi);
 }
 
 // Sweep
@@ -557,6 +560,15 @@ void VnaChannel::clearDelayOffset(uint port) {
 void VnaChannel::clearDelayOffsets() {
     for (uint i = 1; i <= _vna->testPorts(); i++)
         clearDelayOffset(i);
+}
+
+// Intermod
+VnaIntermod &VnaChannel::intermod() {
+    _intermod.reset(new VnaIntermod(_vna, this));
+    return(*_intermod);
+}
+VnaIntermod *VnaChannel::takeIntermod() {
+    return new VnaIntermod(_vna, _index);
 }
 
 // Corrections

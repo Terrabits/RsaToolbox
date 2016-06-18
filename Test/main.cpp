@@ -1,6 +1,7 @@
 
 
 // Tests
+#include "VnaIntermodTest.h"
 #include "VnaPauseSweepsTest.h"
 
 // RsaToolbox
@@ -20,6 +21,7 @@ int main()
     QString address = "127.0.0.1::5025";
 
     TestRunner testRunner;
+    testRunner.addTest(new    VnaIntermodTest(connectionType, address));
     testRunner.addTest(new VnaPauseSweepsTest(connectionType, address));
 
     qDebug() << "Global result: " << (testRunner.runTests() ? "PASS" : "FAIL");

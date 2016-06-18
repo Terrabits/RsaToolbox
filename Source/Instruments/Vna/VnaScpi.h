@@ -3,6 +3,7 @@
 
 
 #include "VnaChannel.h"
+#include "VnaIntermod.h"
 #include "VnaTrace.h"
 #include "VnaTrigger.h"
 #include "BalancedPort.h"
@@ -25,6 +26,8 @@ public:
     // Channel
     static QString toString(VnaChannel::SweepType type);
     static VnaChannel::SweepType toSweepType(QString scpi);
+    static VnaChannel::IfSelectivity toIfSelectivity(QString scpi);
+    static QString toString(VnaChannel::IfSelectivity s);
 
     // Trace
     static QString toString(VnaTrace::Side side);
@@ -96,6 +99,10 @@ public:
     // Time Domain
     static QString toString(VnaTimeDomain::Window window);
     static VnaTimeDomain::Window toTimeDomainWindow(QString scpi);
+
+    // Intermod
+    static QString toString(VnaIntermod::ToneSource::Type type);
+    static VnaIntermod::ToneSource::Type toToneSourceType(QString scpi);
 
 private:
     VnaScpi();

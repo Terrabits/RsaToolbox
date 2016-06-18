@@ -213,7 +213,7 @@ void VnaCalibrate::start(QString calibrationName,
     // Note: Cannot ask for sweep type (and therefore sweep time)
     // during calibration!
     if (_isChannelSpecific)
-        _timeout_ms = _channel->calibrationSweepTime_ms();
+        _timeout_ms = _channel->totalSweepTime_ms();
     else
         _timeout_ms = _vna->calibrationSweepTime_ms();
 

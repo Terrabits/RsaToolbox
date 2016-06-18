@@ -1833,7 +1833,7 @@ uint Vna::calibrationSweepTime_ms() {
     QVector<uint> cList = channels();
     uint totalTime = 0;
     foreach (uint c, cList)
-        totalTime += channel(c).calibrationSweepTime_ms();
+        totalTime += channel(c).totalSweepTime_ms();
     return totalTime;
 }
 

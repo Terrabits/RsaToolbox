@@ -721,6 +721,27 @@ VnaChannel::SweepType VnaScpi::toSweepType(QString scpi) {
 
     return VnaChannel::SweepType::Linear;
 }
+VnaChannel::IfSelectivity VnaScpi::toIfSelectivity(QString scpi) {
+    scpi = scpi.trimmed().toUpper();
+    if (scpi.startsWith("NORM")) {
+        return VnaChannel::IfSelectivity::Normal;
+    }
+    if (scpi == "HIGH") {
+        return VnaChannel::IfSelectivity::High;
+    }
+    // Else
+    return VnaChannel::IfSelectivity::Normal;
+}
+QString VnaScpi::toString(VnaChannel::IfSelectivity s) {
+    switch(s) {
+    case VnaChannel::IfSelectivity::Normal:
+        return "NORM";
+    case VnaChannel::IfSelectivity::High:
+        return "HIGH";
+    default:
+        return "NORM";
+    }
+}
 
 // Trace
 QString VnaScpi::toString(VnaTrace::Side side) {
@@ -1085,6 +1106,34 @@ VnaTimeDomain::Window VnaScpi::toTimeDomainWindow(QString scpi) {
         return VnaTimeDomain::Window::DolphChebychev;
 
     return VnaTimeDomain::Window::Regular;
+}
+
+// Intermod
+QString VnaScpi::toString(VnaIntermod::ToneSource::Type type) {
+    switch(type) {
+    case VnaIntermod::ToneSource::Type::Port:
+        return "PORT";
+    case VnaIntermod::ToneSource::Type::Generator:
+        return "GEN";
+    case VnaIntermod::ToneSource::Type::None:
+        return "NONE";
+    default:
+        return "NONE";
+    }
+}
+VnaIntermod::ToneSource::Type VnaScpi::toToneSourceType(QString scpi) {
+    scpi = scpi.trimmed().toUpper();
+    if (scpi == "PORT") {
+        return VnaIntermod::ToneSource::Type::Port;
+    }
+    if (scpi.startsWith("GEN")) {
+        return VnaIntermod::ToneSource::Type::Generator;
+    }
+    if (scpi == "NONE") {
+        return VnaIntermod::ToneSource::Type::None;
+    }
+    // default
+    return VnaIntermod::ToneSource::Type::None;
 }
 
 // Private

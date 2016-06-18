@@ -37,12 +37,12 @@ void VnaPauseSweepsTest::initTestCase() {
     _logDir.cd("VnaPauseSweepsTest");
     if (isZvaFamily()) {
         QString logpath = SOURCE_DIR;
-        logpath += "/VnaPauseSweepTest/Zva/Logs";
+        logpath += "/VnaPauseSweepsTest/Zva/Logs";
         _logDir.setPath(logpath);
     }
     else if (isZnbFamily()) {
         QString logpath = SOURCE_DIR;
-        logpath += "/VnaPauseSweepTest/Znb/Logs";
+        logpath += "/VnaPauseSweepsTest/Znb/Logs";
         _logDir.setPath(logpath);
     }
 
