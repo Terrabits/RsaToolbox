@@ -122,7 +122,7 @@ QString VnaTrace::parameter() {
     return(_vna->query(scpi).trimmed().remove("\'"));
 }
 void VnaTrace::setParameter(const QString &parameter) {
-    QString scpi = ":CALC%1:PAR:MEAS? \'%2\',\'%3\'\n";
+    QString scpi = ":CALC%1:PAR:MEAS \'%2\',\'%3\'\n";
     scpi = scpi.arg(channel());
     scpi = scpi.arg(_name);
     scpi = scpi.arg(parameter);
@@ -330,16 +330,28 @@ void VnaTrace::setAdmittance(BalancedPort outputPort, BalancedPort inputPort) {
 }
 
 // Intermod
+void VnaTrace::setIntermodTone(Side side, At location) {
+    QString scpi = "%1T%2";
+    scpi = scpi.arg(VnaScpi::toString(side));
+    scpi = scpi.arg(VnaScpi::toString(location));
+    setParameter(scpi);
+}
 void VnaTrace::setIntermod(uint order, Side side) {
     QString scpi = "IM%1%2O";
     scpi = scpi.arg(order);
     scpi = scpi.arg(VnaScpi::toString(side));
     setParameter(scpi);
 }
-void VnaTrace::setIntermodTone(Side side, At location) {
-    QString scpi = "%1T%2";
+void VnaTrace::setIntermodRejection(uint order, Side side) {
+    QString scpi = "IM%1%2OR";
+    scpi = scpi.arg(order);
     scpi = scpi.arg(VnaScpi::toString(side));
-    scpi = scpi.arg(VnaScpi::toString(location));
+    setParameter(scpi);
+}
+void VnaTrace::setIntermodIntercept(uint order, Side side) {
+    QString scpi = "IP%1%2O";
+    scpi = scpi.arg(order);
+    scpi = scpi.arg(VnaScpi::toString(side));
     setParameter(scpi);
 }
 

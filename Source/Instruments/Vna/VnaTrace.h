@@ -91,12 +91,13 @@ public:
         Output
     };
 
-//    bool isIntermod();
-//    void intermod(uint &order, Side side);
-    void setIntermod(uint order, Side side);
-//    bool isIntermodTone();
-//    void intermodTone(Side &side, At location);
+    // Note: Leaving out "symmetric" commands
+    // that I'm not currently using
     void setIntermodTone(Side side, At location);
+    void setIntermod(uint order, Side side);
+    void setIntermodRejection(uint order, Side side);
+    void setIntermodIntercept(uint order, Side side);
+
 
     bool isTimeDomain();
     bool isNotTimeDomain();

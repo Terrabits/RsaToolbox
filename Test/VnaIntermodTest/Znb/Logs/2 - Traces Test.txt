@@ -1,7 +1,7 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Tue Jun 21 23:54:15 2016
+Tue Jun 21 23:54:08 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -41,360 +41,48 @@ Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CONF:CHAN:CAT?"
+Write:    ":SENS1:FREQ:STAR 1GHz"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:FREQ:STOP 2GHz"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    "SENS1:BAND 1KHz"
 Bytes: 16
 Status: 0x0 Operation completed successfully.
 
-Read:     "'1,Ch1'"
-Bytes: 8
+Write:    ":SENS1:FREQ:IMOD:TDIS 1 MHz"
+Bytes: 28
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CONF:CHAN2 1"
-Bytes: 14
+Write:    ":SENS1:FREQ:IMOD:LTON PORT,1"
+Bytes: 29
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CONF:CHAN3 1"
-Bytes: 14
+Write:    ":SENS1:FREQ:IMOD:UTON PORT,3"
+Bytes: 29
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CONF:CHAN4 1"
-Bytes: 14
+Write:    ":SENS1:FREQ:IMOD:REC 2"
+Bytes: 23
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT1:CONT 1"
-Bytes: 14
+Write:    ":SENS1:FREQ:IMOD:ORD3 1"
+Bytes: 24
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT2:CONT 1"
-Bytes: 14
+Write:    ":SENS1:FREQ:IMOD:ORD5 1"
+Bytes: 24
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT3:CONT 1"
-Bytes: 14
+Write:    ":SENS1:FREQ:IMOD:ORD7 1"
+Bytes: 24
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT4:CONT 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CONF:CHAN:CAT?"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4'"
-Bytes: 26
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT 0"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT 0"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT 0"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT 0"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CONF:CHAN:CAT?"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4'"
-Bytes: 26
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CONF:CHAN:CAT?"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4'"
-Bytes: 26
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT 0"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT 0"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT 0"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT 0"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CONF:CHAN:CAT?"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4'"
-Bytes: 26
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT 1"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT2:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT3:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT4:CONT?"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
+Write:    ":SENS1:FREQ:IMOD:ORD9 1"
+Bytes: 24
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SYST:ERR?"
@@ -403,6 +91,370 @@ Status: 0x0 Operation completed successfully.
 
 Read:     "0,"No error""
 Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','LTI'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'LTI'"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','LTO'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'LTO'"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','UTI'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'UTI'"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','UTO'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'UTO'"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IM3LO'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IM3LO'"
+Bytes: 8
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IM5UO'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IM5UO'"
+Bytes: 8
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IM7MO'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IM7MO'"
+Bytes: 8
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IM5LOR'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IM5LOR'"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IM7UOR'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IM7UOR'"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IM9MOR'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IM9MOR'"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IP3LO'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IP3LO'"
+Bytes: 8
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IP5UO'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IP5UO'"
+Bytes: 8
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IP7MO'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IP7MO'"
+Bytes: 8
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SYST:ERR?"

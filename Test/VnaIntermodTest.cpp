@@ -162,4 +162,20 @@ void VnaIntermodTest::traces() {
     QCOMPARE(trc1.parameter(), QString("IM5UO"));
     trc1.setIntermod(7, VnaTrace::Side::Major);
     QCOMPARE(trc1.parameter(), QString("IM7MO"));
+
+    // Intermod rejection
+    trc1.setIntermodRejection(5, VnaTrace::Side::Lower);
+    QCOMPARE(trc1.parameter(), QString("IM5LOR"));
+    trc1.setIntermodRejection(7, VnaTrace::Side::Upper);
+    QCOMPARE(trc1.parameter(), QString("IM7UOR"));
+    trc1.setIntermodRejection(9, VnaTrace::Side::Major);
+    QCOMPARE(trc1.parameter(), QString("IM9MOR"));
+
+    // Intercept Point
+    trc1.setIntermodIntercept(3, VnaTrace::Side::Lower);
+    QCOMPARE(trc1.parameter(), QString("IP3LO"));
+    trc1.setIntermodIntercept(5, VnaTrace::Side::Upper);
+    QCOMPARE(trc1.parameter(), QString("IP5UO"));
+    trc1.setIntermodIntercept(7, VnaTrace::Side::Major);
+    QCOMPARE(trc1.parameter(), QString("IP7MO"));
 }
