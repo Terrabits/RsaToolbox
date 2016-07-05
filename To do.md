@@ -13,6 +13,8 @@ Improve
 - VnaScpi should be namespace, not class
 - RsaToolbox -> rohdeschwarz ?
 - lowercase folders and file names
+- reorder includes per Google c++ style guide
+- Reconsider everything in relation to Google style guide!
 - granular namespaces?
   * rohdeschwarz::general
   * rohdeschwarz::instruments (GenericBus, vna namespace etc)
