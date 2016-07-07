@@ -180,14 +180,14 @@ uint VnaChannel::totalSweepTime_ms() {
 }
 
 VnaChannel::IfSelectivity VnaChannel::ifSelectivity() {
-    QString scpi = "SENS%1BAND:SEL?\n";
+    QString scpi = "SENS%1:BAND:SEL?\n";
     scpi = scpi.arg(_index);
     scpi = _vna->query(scpi).trimmed();
     return VnaScpi::toIfSelectivity(scpi);
 
 }
 void VnaChannel::setIfSelectivity(IfSelectivity s) {
-    QString scpi = "SENS%1BAND:SEL %2\n";
+    QString scpi = "SENS%1:BAND:SEL %2\n";
     scpi = scpi.arg(_index);
     scpi = scpi.arg(VnaScpi::toString(s));
     _vna->write(scpi);
