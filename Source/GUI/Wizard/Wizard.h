@@ -39,9 +39,13 @@ public:
     void insertPage(int index, WizardPage *page);
     void removePage(int index);
 
+    void setRestartOnCancel(bool restart);
     void setStartPage(int index = 0);
     int startPageIndex() const;
     int numberOfPages() const;
+
+    void showBreadcrumbs();
+    void hideBreadcrumbs();
 
     QList<int> history() const;
 
@@ -98,6 +102,7 @@ protected:
 private:
     Ui::Wizard *ui;
     QLabel *_loadingImage;
+    bool _isRestart;
 
     void backWithoutAsking();
     int leaveBackwardWithoutAsking();

@@ -12,7 +12,8 @@ using namespace RsaToolbox;
 
 Wizard::Wizard(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Wizard)
+    ui(new Ui::Wizard),
+    _isRestart(true)
 {
     ui->setupUi(this);
     _start = NULL;
@@ -110,6 +111,9 @@ void Wizard::removePage(int index) {
     emit pageRemoved(index);
 }
 
+void Wizard::setRestartOnCancel(bool restart) {
+
+}
 void Wizard::setStartPage(int index) {
     qDebug() << "Wizard::setStartPage " << index;
     restart();
@@ -131,6 +135,14 @@ void Wizard::setStartPage(int index) {
 }
 int Wizard::numberOfPages() const {
     return _pages.size();
+}
+
+void Wizard::showBreadcrumbs() {
+    ui->breadCrumbs->show();
+}
+
+void Wizard::hideBreadcrumbs() {
+    ui->breadCrumbs->hide();
 }
 
 //bool Wizard::validateCurrentPage() {
@@ -183,6 +195,11 @@ void Wizard::next() {
 }
 void Wizard::restart() {
     qDebug() << "Wizard::restart";
+    if (!_isRestart) {
+        close();
+        return;
+    }
+
     if (_pages.isEmpty())
         return;
     if (!_start)
