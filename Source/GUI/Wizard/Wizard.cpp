@@ -112,7 +112,7 @@ void Wizard::removePage(int index) {
 }
 
 void Wizard::setRestartOnCancel(bool restart) {
-
+    _isRestart = restart;
 }
 void Wizard::setStartPage(int index) {
     qDebug() << "Wizard::setStartPage " << index;
