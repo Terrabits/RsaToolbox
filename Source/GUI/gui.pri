@@ -21,7 +21,8 @@ HEADERS     += $$PWD/About/About.h \
                $$PWD/Wizard/BreadCrumbs.h \
                $$PWD/Wizard/WizardButtons.h \
                $$PWD/Shake.h
-INCLUDEPATH += $$PWD/About \
+INCLUDEPATH += $$PWD/ \
+               $$PWD/About \
                $$PWD/ConnectButton \
                $$PWD/ConnectionTypeComboBox \
                $$PWD/DecibelEdit \

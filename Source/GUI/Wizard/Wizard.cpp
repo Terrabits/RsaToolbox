@@ -3,6 +3,10 @@
 using namespace RsaToolbox;
 
 
+// RsaToolbox
+#include "Shake.h"
+
+// Qt
 #include <QPropertyAnimation>
 #include <QKeyEvent>
 #include <QStringList>
@@ -252,19 +256,7 @@ void Wizard::disableLoadingImage() {
 }
 
 void Wizard::shake() {
-    QRect _geometry = geometry();
-    _geometry.moveRight(_geometry.right() + 10);
-
-    QEasingCurve curve(QEasingCurve::OutElastic);
-    curve.setAmplitude(2);
-    curve.setPeriod(0.3);
-
-    QPropertyAnimation *animation = new QPropertyAnimation(this, "geometry");
-    animation->setStartValue(_geometry);
-    animation->setEndValue(geometry());
-    animation->setDuration(500);
-    animation->setEasingCurve(curve);
-    animation->start();
+    RsaToolbox::shake(this);
 }
 
 void Wizard::keyPressEvent(QKeyEvent *event) {
