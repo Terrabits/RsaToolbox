@@ -20,8 +20,8 @@ FrequencyEdit::FrequencyEdit(QWidget *parent) :
     _name("Value"),
     _frequency_Hz(-1),
     _isMinimum(true),
-    _minimum_Hz(1),
     _isMaximum(true),
+    _minimum_Hz(1),
     _maximum_Hz(1.0E12)
 {
     QRegExp regex("(([0-9]+\\.?[0-9]*)|(\\.0*[1-9]+0*))(\\s?[TGMK]?Hz)?", Qt::CaseInsensitive);

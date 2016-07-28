@@ -22,8 +22,8 @@ DecibelEdit::DecibelEdit(QWidget *parent) :
     _name("Value"),
     _value_dB(0),
     _isMinimum(true),
-    _minimum_dB(-200.0),
     _isMaximum(true),
+    _minimum_dB(-200.0),
     _maximum_dB(200.0)
 {
     QRegExp regex("-?(([0-9]+\\.?[0-9]*)|(\\.0*[1-9]+0*))(\\s?dB)?", Qt::CaseInsensitive);

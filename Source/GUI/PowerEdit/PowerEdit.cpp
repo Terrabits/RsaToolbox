@@ -22,8 +22,8 @@ PowerEdit::PowerEdit(QWidget *parent) :
     _name("Value"),
     _power_dBm(0),
     _isMinimum(true),
-    _minimum_dBm(-150.0),
     _isMaximum(true),
+    _minimum_dBm(-150.0),
     _maximum_dBm(150.0)
 {
     QRegExp regex("-?(([0-9]+\\.?[0-9]*)|(\\.0*[1-9]+0*))(\\s?dBm)?", Qt::CaseInsensitive);

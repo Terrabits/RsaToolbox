@@ -130,7 +130,7 @@ void GenericInstrument::resetBus(ConnectionType type, QString address) {
 #else
     if (VisaBus::isVisaInstalled())
         resetBus(new VisaBus(type, address));
-    else if (type == ConnectionType::TCPIP_CONNECTION)
+    else if (type == ConnectionType::VisaTcpConnection)
         resetBus(new TcpBus(type, address));
     else
         resetBus(new NoBus());

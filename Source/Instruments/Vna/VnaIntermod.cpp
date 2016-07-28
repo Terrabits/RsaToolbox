@@ -101,6 +101,9 @@ VnaIntermod::VnaIntermod(Vna *vna, uint channelIndex, QObject *parent) :
     _channel.reset(new VnaChannel(vna, channelIndex, this));
     _channelIndex = channelIndex;
 }
+VnaIntermod::~VnaIntermod() {
+    // De nada
+}
 
 double VnaIntermod::toneDistance_Hz() {
     QString scpi = ":SENS%1:FREQ:IMOD:TDIS?\n";

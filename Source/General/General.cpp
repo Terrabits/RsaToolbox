@@ -869,9 +869,9 @@ double RsaToolbox::findClosest(double value, QRowVector values) {
         return 0;
 
     double closestValue = values.first();
-    double difference = abs(value - values[0]);
+    double difference = std::abs(value - values[0]);
     for (int i = 1; i < values.size(); i++) {
-        const double thisDifference = abs(value - values[i]);
+        const double thisDifference = std::abs(value - values[i]);
         if (thisDifference < difference) {
             closestValue = values[i];
             difference = thisDifference;
@@ -895,7 +895,7 @@ void RsaToolbox::prettyAxis(double &min, double &max, double &tickStep, int &sub
     tickStep = 1.0;
     subTickCount = 4;
 
-    double maxMantissa = abs(max);
+    double maxMantissa = std::abs(max);
     double maxMagnitude = 1.0;
     while (maxMantissa != 0.0 && maxMantissa < 1.0) {
         maxMantissa *= 1.0E1;
@@ -908,7 +908,7 @@ void RsaToolbox::prettyAxis(double &min, double &max, double &tickStep, int &sub
     if (max < 0)
         maxMantissa *= -1.0;
 
-    double minMantissa = abs(min);
+    double minMantissa = std::abs(min);
     double minMagnitude = 1.0;
     while (minMantissa != 0.0 && minMantissa < 1.0) {
         minMantissa *= 1.0E1;
@@ -1018,7 +1018,7 @@ ComplexDouble RsaToolbox::linearInterpolateYMagPhase(double x1, ComplexDouble y1
     const double phase1 = angle_rad(y1);
     const double mag2 = abs(y2);
     double phase2 = angle_rad(y2);
-    if (abs(phase2 - phase1) > PI) {
+    if (std::abs(phase2 - phase1) > PI) {
         if (phase2 > phase1)
             phase2 -= 2.0*PI;
         else
@@ -1075,7 +1075,7 @@ ComplexRowVector RsaToolbox::linearInterpolateMagPhase(QRowVector x, ComplexRowV
         return result;
 
     // - Invalid
-    if (x.size() != y.size())
+    if (x.size() != int(y.size()))
         return result;
 
     // Only one (x,y) point

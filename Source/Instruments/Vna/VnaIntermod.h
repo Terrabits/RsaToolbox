@@ -27,7 +27,7 @@ public:
         ToneSource();
         ~ToneSource();
 
-        enum /**/ Type {
+        enum /*class*/ Type {
             Port,
             Generator,
             None
@@ -56,6 +56,7 @@ public:
     VnaIntermod(const VnaIntermod &other);
     VnaIntermod(Vna *vna, VnaChannel *channel, QObject *parent = 0);
     VnaIntermod(Vna *vna, uint channelIndex, QObject *parent = 0);
+    ~VnaIntermod();
 
     // Methods
     double toneDistance_Hz();

@@ -22,8 +22,8 @@ PointsEdit::PointsEdit(QWidget *parent) :
     _name("Value"),
     _points(0),
     _isMinimum(true),
-    _minimum(1),
     _isMaximum(true),
+    _minimum(1),
     _maximum(1000000000)
 {
     QRegExp regex("[1-9][0-9]*", Qt::CaseInsensitive);

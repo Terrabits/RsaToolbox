@@ -8,6 +8,9 @@ using namespace RsaToolbox;
 // Qt
 #include <QDebug>
 
+// std lib
+#include <cmath>
+
 
 TimedProgressBar::TimedProgressBar(QWidget *parent) :
     QWidget(parent),
@@ -65,7 +68,7 @@ void TimedProgressBar::tick() {
 }
 
 double TimedProgressBar::value() const {
-    return 1000.0 * (1 - exp(-30.0 * double(_ticks) / double(_stopTime_ms+1000)));
+    return 1000.0 * (1 - std::exp(-30.0 * double(_ticks) / double(_stopTime_ms+1000)));
 }
 void TimedProgressBar::reset() {
     if (_timer.isActive())

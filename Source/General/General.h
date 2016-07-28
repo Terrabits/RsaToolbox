@@ -395,17 +395,30 @@ T min(std::vector<T> vector, T &minimum, int &index) {
 
 // Using templates:
 template <class T>
-QDataStream& operator<<(QDataStream &stream, const T &t) {
+QDataStream& operator<<(QDataStream &stream, const T &t) { // Enums
     static_assert(std::is_enum<T>::value, "Template type is not enum.");
     stream << qint32(t);
     return stream;
 }
+template<>
+QDataStream& operator<<(QDataStream &stream, const QStringList &t) { // QStringList
+    stream << t.toVector().toList();
+    return stream;
+}
+
 template <class T>
-QDataStream& operator>>(QDataStream &stream, T &t) {
+QDataStream& operator>>(QDataStream &stream, T &t) { // Enums
     static_assert(std::is_enum<T>::value, "Template type is not enum.");
     qint32 value;
     stream >> value;
     t = T(value);
+    return stream;
+}
+template<>
+QDataStream& operator>>(QDataStream &stream, QStringList &t) { // QStringList
+    QList<QString>  stringList;
+    stream      >>  stringList;
+    t = QStringList(stringList);
     return stream;
 }
 

@@ -31,6 +31,7 @@ win32 {
     QMAKE_CXXFLAGS += /wd4482
 }
 macx {
-    QMAKE_CXXFLAGS += -std=c++11 -stdlib=libc++
+    # I have a feeling -std=c++11 is being overridden by a -std=gnu++11 flag...
+    QMAKE_CXXFLAGS += -std=c++11 -stdlib=libc++ -Wno-trigraphs
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.7
 }
