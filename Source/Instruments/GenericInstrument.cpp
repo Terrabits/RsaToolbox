@@ -125,13 +125,15 @@ void GenericInstrument::resetBus(GenericBus *bus) {
  * \param address Address of the instrument (e.g. "127.0.0.1")
  */
 void GenericInstrument::resetBus(ConnectionType type, QString address) {
-#ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN
     resetBus(new VisaBus(type, address));
 #else
-    if (VisaBus::isVisaInstalled())
+    if (type == ConnectionType::TcpSocketConnection)
+        resetBus(new TcpBus(type, address));
+    else if (VisaBus::isVisaInstalled())
         resetBus(new VisaBus(type, address));
     else if (type == ConnectionType::VisaTcpConnection)
-        resetBus(new TcpBus(type, address));
+        resetBus(new TcpBus(ConnectionType::TcpSocketConnection, address));
     else
         resetBus(new NoBus());
 #endif

@@ -1809,39 +1809,49 @@ void RsaToolbox::insert(ComplexMatrix2D &matrix, ComplexMatrix2D data, QVector<u
 
 
 // Data type stream operators
-QDataStream& operator<<(QDataStream &stream, ComplexDouble value) {
+QDataStream& operator<<(QDataStream &stream, const QStringList &t) {
+    stream << t.toVector().toList();
+    return stream;
+}
+QDataStream& operator<<(QDataStream &stream, const ComplexDouble &value) {
     stream << value.real();
     stream << value.imag();
-    return(stream);
+    return stream;
 }
-QDataStream& operator<<(QDataStream &stream, RsaToolbox::ComplexRowVector vector) {
+QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexRowVector &vector) {
     quint64 size = vector.size();
     stream << size;
     for (ComplexRowVector::size_type i = 0; i < size; i++)
         stream << vector[i];
-    return(stream);
+    return stream;
 }
-QDataStream& operator<<(QDataStream &stream, RsaToolbox::ComplexMatrix2D matrix) {
+QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexMatrix2D &matrix) {
     quint64 size = matrix.size();
     stream << size;
     for (ComplexMatrix2D::size_type i = 0; i < size; i++)
         stream << matrix[i];
-    return(stream);
+    return stream;
 }
-QDataStream& operator<<(QDataStream &stream, RsaToolbox::ComplexMatrix3D matrix) {
+QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexMatrix3D &matrix) {
     quint64 size = matrix.size();
     stream << size;
     for (ComplexMatrix3D::size_type i = 0; i < size; i++)
         stream << matrix[i];
-    return(stream);
+    return stream;
 }
 
+QDataStream& operator>>(QDataStream &stream, QStringList &t) {
+    QList<QString>  stringList;
+    stream      >>  stringList;
+    t = QStringList(stringList);
+    return stream;
+}
 QDataStream& operator>>(QDataStream &stream, ComplexDouble &value) {
     double real, imag;
     stream >> real;
     stream >> imag;
     value = ComplexDouble(real, imag);
-    return(stream);
+    return stream;
 }
 QDataStream& operator>>(QDataStream &stream, RsaToolbox::ComplexRowVector &vector) {
     quint64 size;
@@ -1849,7 +1859,7 @@ QDataStream& operator>>(QDataStream &stream, RsaToolbox::ComplexRowVector &vecto
     vector.resize(size);
     for (ComplexRowVector::size_type i = 0; i < size; i++)
         stream >> vector[i];
-    return(stream);
+    return stream;
 }
 QDataStream& operator>>(QDataStream &stream, RsaToolbox::ComplexMatrix2D &matrix) {
     quint64 size;
@@ -1857,7 +1867,7 @@ QDataStream& operator>>(QDataStream &stream, RsaToolbox::ComplexMatrix2D &matrix
     matrix.resize(size);
     for (ComplexMatrix2D::size_type i = 0; i < size; i++)
         stream >> matrix[i];
-    return(stream);
+    return stream;
 }
 QDataStream& operator>>(QDataStream &stream, RsaToolbox::ComplexMatrix3D &matrix) {
     quint64 size;
@@ -1865,5 +1875,5 @@ QDataStream& operator>>(QDataStream &stream, RsaToolbox::ComplexMatrix3D &matrix
     matrix.resize(size);
     for (ComplexMatrix3D::size_type i = 0; i < size; i++)
         stream >> matrix[i];
-    return(stream);
+    return stream;
 }

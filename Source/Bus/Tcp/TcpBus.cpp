@@ -70,9 +70,10 @@ TcpBus::TcpBus(ConnectionType type, QString address,
                  parent)
 {
     _blockSize = 0;
-    if (type != ConnectionType::VisaTcpConnection)
+    if (type != ConnectionType::TcpSocketConnection)
         return;
-
+    if (address.endsWith("::5025"))
+        address.chop(6);
     _tcp.connectToHost(address, PORT);
     _tcp.waitForConnected(timeout_ms);
 }

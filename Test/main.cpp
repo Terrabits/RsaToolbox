@@ -17,8 +17,13 @@ using namespace RsaToolbox;
 
 int main()
 {
-    ConnectionType connectionType = ConnectionType::VisaTcpSocketConnection;
+    ConnectionType connectionType;
     QString address = "127.0.0.1::5025";
+#ifdef Q_OS_WIN
+    connectionType = ConnectionType::VisaTcpSocketConnection;
+#else
+    connectionType = ConnectionType::TcpSocketConnection;
+#endif
 
     TestRunner testRunner;
     testRunner.addTest(new    VnaIntermodTest(connectionType, address));
