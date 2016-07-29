@@ -128,7 +128,7 @@ QString RsaToolbox::toString(ImageFormat format) {
     }
 }
 ImageFormat RsaToolbox::toImageFormat(QString s) {
-    s.trimmed().toLower();
+    s = s.trimmed().toLower();
     if (s == toString(ImageFormat::Bmp))
         return ImageFormat::Bmp;
     if (s == toString(ImageFormat::Jpg))
@@ -1809,10 +1809,10 @@ void RsaToolbox::insert(ComplexMatrix2D &matrix, ComplexMatrix2D data, QVector<u
 
 
 // Data type stream operators
-QDataStream& operator<<(QDataStream &stream, const QStringList &t) {
-    stream << t.toVector().toList();
-    return stream;
-}
+//QDataStream& operator<<(QDataStream &stream, const QStringList &t) {
+//    stream << t.toVector().toList();
+//    return stream;
+//}
 QDataStream& operator<<(QDataStream &stream, const ComplexDouble &value) {
     stream << value.real();
     stream << value.imag();
@@ -1840,12 +1840,12 @@ QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexMatrix3D &
     return stream;
 }
 
-QDataStream& operator>>(QDataStream &stream, QStringList &t) {
-    QList<QString>  stringList;
-    stream      >>  stringList;
-    t = QStringList(stringList);
-    return stream;
-}
+//QDataStream& operator>>(QDataStream &stream, QStringList &t) {
+//    QList<QString>  stringList;
+//    stream      >>  stringList;
+//    t = QStringList(stringList);
+//    return stream;
+//}
 QDataStream& operator>>(QDataStream &stream, ComplexDouble &value) {
     double real, imag;
     stream >> real;

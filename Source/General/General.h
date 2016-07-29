@@ -416,15 +416,19 @@ QTextStream& operator<<(QTextStream &stream, const T &t) {
     return stream;
 }
 
+//////////////////////////////////////////////////////////
+// Note: QStringList serialization exists in Qt 5.2.1 but
+//       disappears at some point on/before 5.6. Why???
+//////////////////////////////////////////////////////////
 
 // Data type stream operators
-QDataStream& operator<<(QDataStream &stream, const QStringList                  &t     );
+//QDataStream& operator<<(QDataStream &stream, const QStringList                  &t     );
 QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexDouble    &value );
 QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexRowVector &vector);
 QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexMatrix2D  &matrix);
 QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexMatrix3D  &matrix);
 
-QDataStream& operator>>(QDataStream &stream,       QStringList                  &t     );
+//QDataStream& operator>>(QDataStream &stream,       QStringList                  &t     );
 QDataStream& operator>>(QDataStream &stream,       RsaToolbox::ComplexDouble    &value );
 QDataStream& operator>>(QDataStream &stream,       RsaToolbox::ComplexRowVector &vector);
 QDataStream& operator>>(QDataStream &stream,       RsaToolbox::ComplexMatrix2D  &matrix);
