@@ -6,6 +6,7 @@
 #include "Definitions.h"
 #include "BalancedPort.h"
 
+#include "VnaArbitraryFrequency.h"
 #include "VnaLinearSweep.h"
 #include "VnaLogSweep.h"
 #include "VnaSegmentedSweep.h"
@@ -147,6 +148,20 @@ public:
     void setUserDefinedPort(uint physicalPort, VnaUserDefinedPort userDefinedPort);
     void deleteUserDefinedPort(uint physicalPort);
     void deleteUserDefinedPorts();
+
+    // Arbitrary Frequency
+    bool isGeneratorPort (uint physicalPort);
+    void generatorPortOn (uint physicalPort, bool isOn = true);
+    void generatorPortOff(uint physicalPort, bool isOff = true);
+
+    bool isRfOff(uint physicalPort);
+    void rfOn (uint physicalPort, bool isOn  = true);
+    void rfOff(uint physicalPort, bool isOff = true);
+
+    bool isArbitraryFrequencyOn(uint physicalPort);
+    VnaArbitraryFrequency arbitraryFrequency(uint physicalPort);
+    void setArbitraryFrequency(uint physicalPort, const VnaArbitraryFrequency &arbitraryFreq);
+    void arbitraryFrequencyOff(uint physicalPort);
 
     // Averaging
     VnaAveraging &averaging();

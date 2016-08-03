@@ -1,17 +1,17 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Tue Jun 21 23:54:10 2016
+Wed Aug 3 15:35:48 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
 Address:          127.0.0.1::5025
 Make:             Rohde & Schwarz
 Model:            ZNB
-Serial No:        1311601064100104
+Serial No:        1311601044100104
 Firmware Version: 2.70
-Min Frequency:    100 KHz
-Max Frequency:    20 GHz
+Min Frequency:    9 KHz
+Max Frequency:    8.5 GHz
 Number of Ports:  4
 Options:          ZNB-K2
                   ZNB-K4
@@ -19,10 +19,15 @@ Options:          ZNB-K2
                   ZNB-K17
                   ZNB-K19
                   ZNB-K20
-                  ZNB20-B24
+                  ZNB8-B24
+                  ZNB8-B31
+                  ZNB8-B32
+                  ZNB8-B33
+                  ZNB8-B34
                   ZNB-B81
-                  ZNB-B1
-                  ZNB20-B2
+                  ZNB-B2
+                  ZNB-B12
+                  ZN-B15
 
 
 Write:    "*CLS"

@@ -1,6 +1,7 @@
 
 
 // Tests
+#include "VnaArbitraryFrequencyTest.h"
 #include "VnaIntermodTest.h"
 #include "VnaPauseSweepsTest.h"
 
@@ -17,17 +18,18 @@ using namespace RsaToolbox;
 
 int main()
 {
-    ConnectionType connectionType;
+    ConnectionType type;
     QString address = "127.0.0.1::5025";
 #ifdef Q_OS_WIN
-    connectionType = ConnectionType::VisaTcpSocketConnection;
+    type = ConnectionType::VisaTcpSocketConnection;
 #else
-    connectionType = ConnectionType::TcpSocketConnection;
+    type = ConnectionType::TcpSocketConnection;
 #endif
 
     TestRunner testRunner;
-    testRunner.addTest(new    VnaIntermodTest(connectionType, address));
-    testRunner.addTest(new VnaPauseSweepsTest(connectionType, address));
+    testRunner.addTest(new VnaArbitraryFrequencyTest(type, address));
+    testRunner.addTest(new VnaIntermodTest          (type, address));
+    testRunner.addTest(new VnaPauseSweepsTest       (type, address));
 
     qDebug() << "Global result: " << (testRunner.runTests() ? "PASS" : "FAIL");
     return 0;

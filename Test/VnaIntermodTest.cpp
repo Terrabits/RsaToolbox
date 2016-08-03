@@ -134,9 +134,9 @@ void VnaIntermodTest::traces() {
     intermod.setToneDistance(1, SiPrefix::Mega);
 
     VnaIntermod::ToneSource upperSource;
-    intermod.setLowerTonePort(1);
     upperSource.setPort(3);
     intermod.setUpperToneSource(upperSource);
+    intermod.setLowerTonePort(1);
     intermod.setReceivingPort(2);
     intermod.order3On();
     intermod.order5On();
