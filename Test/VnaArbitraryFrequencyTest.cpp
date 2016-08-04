@@ -2,7 +2,9 @@
 
 
 // RsaToolbox
+#include "Definitions.h"
 #include "VnaArbitraryFrequency.h"
+#include "VnaChannel.h"
 using namespace RsaToolbox;
 
 
@@ -103,11 +105,65 @@ void VnaArbitraryFrequencyTest::structTest() {
     QVERIFY(!af.isOn ());
 }
 void VnaArbitraryFrequencyTest::rfOff() {
+    // Create 2nd channel
+    // Make sure it doesn't change
+    create2ndChannel();
 
+    const uint port = 1;
+    VnaChannel c1   = _vna->channel(1);
+    VnaChannel c2   = _vna->channel(2);
+    QVERIFY(!c1.isRfOff(port));
+    QVERIFY(!c2.isRfOff(port));
+    c1.rfOff(port);
+    QVERIFY( c1.isRfOff(port));
+    QVERIFY(!c2.isRfOff(port));
+    c1.rfOn(port);
+    QVERIFY(!c1.isRfOff(port));
+    QVERIFY(!c2.isRfOff(port));
 }
 void VnaArbitraryFrequencyTest::generator() {
+    // Create 2nd channel
+    // Make sure it doesn't change
+    create2ndChannel();
 
+    const uint port = 1;
+    VnaChannel c1   = _vna->channel(1);
+    VnaChannel c2   = _vna->channel(2);
+    QVERIFY(!c1.isGeneratorPort(port));
+    QVERIFY(!c2.isGeneratorPort(port));
+    c1.generatorPortOn(port);
+    QVERIFY( c1.isGeneratorPort(port));
+    QVERIFY(!c2.isGeneratorPort(port));
+    c1.generatorPortOff(port);
+    QVERIFY(!c1.isGeneratorPort(port));
+    QVERIFY(!c2.isGeneratorPort(port));
 }
 void VnaArbitraryFrequencyTest::accessors() {
+    // Create 2nd channel
+    // Make sure it doesn't change
+    create2ndChannel();
 
+    VnaArbitraryFrequency af;
+    af.setGeneratorPort(true);
+    af.rfOff           (true);
+    af.setNumerator    (2.0 );
+    af.setDenominator  (3.0 );
+    af.setOffset       (4.0 , SiPrefix::Mega);
+
+    const uint port = 1;
+    VnaChannel c1   = _vna->channel(1);
+    c1.setArbitraryFrequency(port, af);
+    QVERIFY(c1.isGeneratorPort(port));
+    QVERIFY(c1.isRfOff(port));
+    VnaArbitraryFrequency _af = c1.arbitraryFrequency(port);
+    QVERIFY(af == _af);
+
+    VnaChannel c2 = _vna->channel(2);
+    QVERIFY(!c2.arbitraryFrequency(port).isOn());
+}
+
+void VnaArbitraryFrequencyTest::create2ndChannel() {
+    _vna->createChannel(2);
+    _vna->createTrace("Trc2", 2);
+    _vna->trace("Trc2").setDiagram(1);
 }

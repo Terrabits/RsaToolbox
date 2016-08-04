@@ -5,6 +5,9 @@
 #include "General.h"
 using namespace RsaToolbox;
 
+// Qt
+#include <QDebug>
+
 
 VnaArbitraryFrequency::VnaArbitraryFrequency() :
     _isGeneratorPort(false),
@@ -86,4 +89,23 @@ void VnaArbitraryFrequency::setDenominator(double denominator) {
 }
 void VnaArbitraryFrequency::setOffset     (double offset, RsaToolbox::SiPrefix prefix) {
     _offset_Hz = offset * toDouble(prefix);
+}
+
+bool operator==(const VnaArbitraryFrequency &l, const VnaArbitraryFrequency &r) {
+    if (l.isGeneratorPort() != r.isGeneratorPort())
+        return false;
+    if (l.isRfOff()         != r.isRfOff())
+        return false;
+    if (l.numerator()       != r.numerator())
+        return false;
+    if (l.denominator()     != r.denominator())
+        return false;
+    if (l.offset_Hz()       != r.offset_Hz())
+        return false;
+
+    // Else
+    return true;
+}
+bool operator!=(const VnaArbitraryFrequency &l, const VnaArbitraryFrequency &r) {
+    return !(l == r);
 }

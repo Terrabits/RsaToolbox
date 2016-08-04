@@ -26,6 +26,9 @@ private slots:
     void generator ();
     void accessors ();
 
+private:
+    void create2ndChannel();
+
 };
 
 #endif // VNAARBITRARYFREQUENCYTEST_H

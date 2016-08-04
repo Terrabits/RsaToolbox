@@ -539,7 +539,7 @@ VnaArbitraryFrequency VnaChannel::arbitraryFrequency(uint physicalPort) {
     af.setNumerator  (results[0].toDouble());
     af.setDenominator(results[1].toDouble());
     af.setOffset     (results[2].toDouble());
-    //                results[3] -> SweepType
+    //                results[3] -> formula type (SWE)
     return af;
 }
 void VnaChannel::setArbitraryFrequency(uint physicalPort, const VnaArbitraryFrequency &af) {
@@ -552,7 +552,7 @@ void VnaChannel::setArbitraryFrequency(uint physicalPort, const VnaArbitraryFreq
     scpi = scpi.arg(af.numerator  ());
     scpi = scpi.arg(af.denominator());
     scpi = scpi.arg(af.offset_Hz  ());
-    scpi = scpi.arg(VnaScpi::toString( sweepType ()));
+    scpi = scpi.arg("SWE"); // apply formula
     _vna->write(scpi);
 }
 void VnaChannel::arbitraryFrequencyOff(uint physicalPort) {

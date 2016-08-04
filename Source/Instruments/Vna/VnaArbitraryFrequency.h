@@ -38,7 +38,11 @@ private:
     double _denominator;
     double _offset_Hz  ;
 };
+
 } // RsaToolbox
+
+bool operator==(const RsaToolbox::VnaArbitraryFrequency &left, const RsaToolbox::VnaArbitraryFrequency &right);
+bool operator!=(const RsaToolbox::VnaArbitraryFrequency &left, const RsaToolbox::VnaArbitraryFrequency &right);
 
 
 #endif // VNAARBITRARYFREQUENCY_H

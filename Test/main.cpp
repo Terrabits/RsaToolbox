@@ -28,8 +28,8 @@ int main()
 
     TestRunner testRunner;
     testRunner.addTest(new VnaArbitraryFrequencyTest(type, address));
-    testRunner.addTest(new VnaIntermodTest          (type, address));
-    testRunner.addTest(new VnaPauseSweepsTest       (type, address));
+//    testRunner.addTest(new VnaIntermodTest          (type, address));
+//    testRunner.addTest(new VnaPauseSweepsTest       (type, address));
 
     qDebug() << "Global result: " << (testRunner.runTests() ? "PASS" : "FAIL");
     return 0;
