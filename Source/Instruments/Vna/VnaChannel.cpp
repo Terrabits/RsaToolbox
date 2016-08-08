@@ -75,7 +75,7 @@ QStringList VnaChannel::traces() {
     if (_vna->properties().isZvaFamily())
         return(zvaTraces());
 
-    QString scpi = ":CONF:CHAN%1:TRAC:CAT?";
+    QString scpi = ":CONF:CHAN%1:TRAC:CAT?\n";
     scpi = scpi.arg(_index);
     QString result = _vna->query(scpi, 1000, 1000).trimmed();
     QVector<IndexName> indexNames;
