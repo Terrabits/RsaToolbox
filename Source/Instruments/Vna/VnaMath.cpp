@@ -79,6 +79,26 @@ void VnaMath::on(bool isOn) {
 void VnaMath::off(bool isOff) {
     on(!isOff);
 }
+
+bool VnaMath::isWaveQuantity() {
+    QString scpi = ":CALC%1:MATH:WUN?\n";
+    scpi = scpi.arg(_trace->channel());
+
+    _trace->select();
+    return _vna->query(scpi).trimmed() == "1";
+}
+void VnaMath::setWaveQuantity(bool isOn) {
+    QString scpi = ":CALC%1:MATH:WUN %2\n";
+    scpi = scpi.arg(_trace->channel());
+    if (isOn)
+        scpi = scpi.arg(1);
+    else
+        scpi = scpi.arg(0);
+
+    _trace->select();
+    _vna->write(scpi);
+}
+
 QString VnaMath::expression() {
     QString scpi = ":CALC%1:MATH:SDEF?\n";
     scpi = scpi.arg(_channel);

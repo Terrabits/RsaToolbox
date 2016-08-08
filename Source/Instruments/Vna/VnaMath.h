@@ -30,6 +30,10 @@ public:
     bool isOff();
     void on(bool isOn = true);
     void off(bool isOff = true);
+
+    bool isWaveQuantity();
+    void setWaveQuantity(bool isOn = true);
+
     QString expression();
     void setExpression(QString expression);
 
