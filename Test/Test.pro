@@ -6,10 +6,12 @@ CONFIG  += testcase
 include(../_install/rsatoolbox.pri)
 HEADERS += VnaIntermodTest.h \
            VnaPauseSweepsTest.h \
-    VnaArbitraryFrequencyTest.h
+    VnaArbitraryFrequencyTest.h \
+    VnaSweepTest.h
 SOURCES += main.cpp \
            VnaIntermodTest.cpp \
            VnaPauseSweepsTest.cpp \
-    VnaArbitraryFrequencyTest.cpp
+    VnaArbitraryFrequencyTest.cpp \
+    VnaSweepTest.cpp
 
 DEFINES += SOURCE_DIR=\\\"$$PWD/\\\"

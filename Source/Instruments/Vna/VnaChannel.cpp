@@ -85,8 +85,11 @@ QStringList VnaChannel::traces() {
 
 // Trigger
 void VnaChannel::startSweep() {
-    _vna->write(":INIT:SCOP SING\n");
-    QString scpi = QString(":INIT%1\n").arg(_index);
+    // "INIT:SCOP SING"
+    // for ZVA compatibilty
+    QString scpi;
+    scpi = ":INIT:SCOP SING;:INIT%1\n";
+    scpi = scpi.arg(_index);
     _vna->write(scpi);
 }
 bool VnaChannel::isSweepOn() {
@@ -122,6 +125,13 @@ void VnaChannel::sweepOff(bool isOff) {
     sweepOn(!isOff);
 }
 bool VnaChannel::isContinuousSweep() {
+    if (_vna->properties().isZvaFamily()) {
+        if (_vna->isLogConnected()) {
+            *_vna->log() << "WARNING:\n"
+                            "  ZVA cannot put individual channels\n"
+                            "  into manual/continuous sweep mode!\n";
+        }
+    }
     QString scpi = ":INIT%1:CONT?\n";
     scpi = scpi.arg(_index);
     return(_vna->query(scpi).trimmed() == "1");
@@ -130,6 +140,14 @@ bool VnaChannel::isManualSweep() {
     return(!isContinuousSweep());
 }
 void VnaChannel::continuousSweepOn(bool isOn) {
+    if (_vna->properties().isZvaFamily()) {
+        if (_vna->isLogConnected()) {
+            *_vna->log() << "WARNING:\n"
+                            "  ZVA cannot put individual channels\n"
+                            "  into manual/continuous sweep mode!\n";
+        }
+    }
+
     QString scpi = QString(":INIT%1:CONT %2\n");
     scpi = scpi.arg(_index);
     if (isOn)

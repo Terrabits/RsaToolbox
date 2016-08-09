@@ -1,7 +1,7 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Wed Aug 3 18:11:49 2016
+Mon Aug 8 19:25:31 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -54,6 +54,14 @@ Read:     "'1,Ch1'"
 Bytes: 8
 Status: 0x0 Operation completed successfully.
 
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
 Write:    ":INIT1:CONT 1"
 Bytes: 14
 Status: 0x0 Operation completed successfully.
@@ -66,6 +74,14 @@ Read:     "'1,Ch1'"
 Bytes: 8
 Status: 0x0 Operation completed successfully.
 
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
 Write:    ":INIT1:CONT?"
 Bytes: 13
 Status: 0x0 Operation completed successfully.
@@ -74,8 +90,24 @@ Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
 Write:    ":INIT1:CONT 0"
 Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
+Bytes: 47
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -94,8 +126,24 @@ Read:     "'1,Ch1'"
 Bytes: 8
 Status: 0x0 Operation completed successfully.
 
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
 Write:    ":INIT1:CONT 1"
 Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
+Bytes: 47
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"

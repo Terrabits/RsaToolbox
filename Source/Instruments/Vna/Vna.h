@@ -166,6 +166,11 @@ public:
     uint calibrationSweepTime_ms();
     void startSweeps();
 
+    bool isContinuousSweep();
+    bool isManualSweep    ();
+    void continuousSweepOn(bool isOn = true);
+    void manualSweepOn    (bool isOn = true);
+
     // Test ports
     uint testPorts();
     bool isVnaPort(uint testPort);

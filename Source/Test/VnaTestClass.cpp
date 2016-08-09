@@ -50,8 +50,8 @@ bool VnaTestClass::isZnbFamily() {
     return isZnx;
 }
 bool VnaTestClass::isZvaFamily() {
-    bool isNullPointer = _vna.isNull();
-    if (isNullPointer) {
+    bool isNull = _vna.isNull();
+    if (isNull) {
         _vna.reset(new Vna(_connectionType, _address));
     }
 
@@ -59,14 +59,14 @@ bool VnaTestClass::isZvaFamily() {
     if (_vna->isConnected())
         isZvx = _vna->properties().isZvaFamily();
 
-    if (isNullPointer)
+    if (isNull)
         _vna.reset();
     return isZvx;
 }
 
 VnaProperties::Model VnaTestClass::model() {
-    bool isNullPointer = _vna.isNull();
-    if (isNullPointer) {
+    bool isNull = _vna.isNull();
+    if (isNull) {
         _vna.reset(new Vna(_connectionType, _address));
     }
 
@@ -74,7 +74,7 @@ VnaProperties::Model VnaTestClass::model() {
     if (_vna->isConnected())
         model = _vna->properties().model();
 
-    if (isNullPointer)
+    if (isNull)
         _vna.reset();
     return model;
 }

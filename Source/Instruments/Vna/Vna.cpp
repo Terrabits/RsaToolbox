@@ -1841,9 +1841,36 @@ uint Vna::calibrationSweepTime_ms() {
  * \brief Starts a sweep in all available channels
  */
 void Vna::startSweeps() {
-    write(":INIT:SCOP ALL\n");
-    write(":INIT\n");
+    if (properties().isZvaFamily())
+        write(":INIT:SCOP ALL;:INIT\n");
+    else
+        write(":INIT:ALL\n");
 }
+
+bool Vna::isContinuousSweep() {
+    QString scpi;
+    if (properties().isZvaFamily())
+        scpi = ":INIT:CONT?\n";
+    else
+        scpi = ":INIT:CONT:ALL?\n";
+    return query(scpi).trimmed() == "1";
+}
+bool Vna::isManualSweep() {
+    return !isContinuousSweep();
+}
+void Vna::continuousSweepOn(bool isOn) {
+    QString scpi;
+    if (properties().isZvaFamily())
+        scpi = ":INIT:CONT %1\n";
+    else
+        scpi = ":INIT:CONT:ALL %1\n";
+    scpi = scpi.arg(isOn? 1 : 0);
+    write(scpi);
+}
+void Vna::manualSweepOn(bool isOn) {
+    continuousSweepOn(!isOn);
+}
+
 
 /** @} */
 

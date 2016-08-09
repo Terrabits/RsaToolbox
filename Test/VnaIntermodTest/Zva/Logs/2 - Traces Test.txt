@@ -1,0 +1,163 @@
+ Version 0.0
+(C) 2016 Rohde & Schwarz North America
+
+Mon Aug 8 19:27:18 2016
+
+VNA INSTRUMENT INFO
+Connection:       TCPIP
+Address:          127.0.0.1::5025
+Make:             Rohde & Schwarz
+Model:            ZVA
+Serial No:        1145101099999999
+Firmware Version: 3.60
+Min Frequency:    300 KHz
+Max Frequency:    8 GHz
+Number of Ports:  4
+Options:          ZVA-K7
+                  ZVA-K17
+                  ZVAB-SIM
+                  ZVT8-B63
+                  ZVT8-B64
+                  ZVT8-B65
+                  ZVT8-B66
+                  ZVT8-B68
+                  ZVA8-B16
+                  ZVA8-B21
+                  ZVA8-B22
+                  ZVA8-B23
+                  ZVA8-B24
+                  ZVA8-B31
+                  ZVA8-B32
+                  ZVA8-B33
+                  ZVA8-B34
+                  ZVT8-B67
+                  ZVA-B7
+
+
+Write:    "*CLS"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    "*RST"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:FREQ:STAR 1GHz"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:FREQ:STOP 2GHz"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    "SENS1:BAND 1KHz"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:FREQ:IMOD:TDIS 1 MHz"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:FREQ:IMOD:UTON PORT,3"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:FREQ:IMOD:LTON PORT,1"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:FREQ:IMOD:REC 2"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:FREQ:IMOD:ORD3 1"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:FREQ:IMOD:ORD5 1"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:FREQ:IMOD:ORD7 1"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:FREQ:IMOD:ORD9 1"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "-200,"Execution error;Function not available;:SENS1:FREQ:IMOD:TDIS 1 MHz""
+Bytes: 74
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "-200,"Execution error;Function not available;:SENS1:FREQ:IMOD:UTON PORT,3""
+Bytes: 75
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "-200,"Execution error;Function not available;:SENS1:FREQ:IMOD:LTON PORT,1""
+Bytes: 75
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "-200,"Execution error;Function not available;:SENS1:FREQ:IMOD:REC 2""
+Bytes: 69
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "-350,"Queue overflow""
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+SCPI Errors:
+-200: Execution error;Function not available;:SENS1:FREQ:IMOD:TDIS 1 MHz
+-200: Execution error;Function not available;:SENS1:FREQ:IMOD:UTON PORT,3
+-200: Execution error;Function not available;:SENS1:FREQ:IMOD:LTON PORT,1
+-200: Execution error;Function not available;:SENS1:FREQ:IMOD:REC 2
+-350: Queue overflow
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*CLS"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+

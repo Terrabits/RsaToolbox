@@ -4,6 +4,7 @@
 #include "VnaArbitraryFrequencyTest.h"
 #include "VnaIntermodTest.h"
 #include "VnaPauseSweepsTest.h"
+#include "VnaSweepTest.h"
 
 // RsaToolbox
 #include "GenericBus.h"
@@ -28,8 +29,9 @@ int main()
 
     TestRunner testRunner;
     testRunner.addTest(new VnaArbitraryFrequencyTest(type, address));
-//    testRunner.addTest(new VnaIntermodTest          (type, address));
-//    testRunner.addTest(new VnaPauseSweepsTest       (type, address));
+    testRunner.addTest(new VnaIntermodTest          (type, address));
+    testRunner.addTest(new VnaPauseSweepsTest       (type, address));
+    testRunner.addTest(new VnaSweepTest             (type, address));
 
     qDebug() << "Global result: " << (testRunner.runTests() ? "PASS" : "FAIL");
     return 0;

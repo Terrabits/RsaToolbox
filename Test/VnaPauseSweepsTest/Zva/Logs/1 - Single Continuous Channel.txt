@@ -1,33 +1,37 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Mon Aug 8 19:25:32 2016
+Mon Aug 8 19:27:19 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
 Address:          127.0.0.1::5025
 Make:             Rohde & Schwarz
-Model:            ZNB
-Serial No:        1311601044100104
-Firmware Version: 2.70
-Min Frequency:    9 KHz
-Max Frequency:    8.5 GHz
+Model:            ZVA
+Serial No:        1145101099999999
+Firmware Version: 3.60
+Min Frequency:    300 KHz
+Max Frequency:    8 GHz
 Number of Ports:  4
-Options:          ZNB-K2
-                  ZNB-K4
-                  ZNB-K14
-                  ZNB-K17
-                  ZNB-K19
-                  ZNB-K20
-                  ZNB8-B24
-                  ZNB8-B31
-                  ZNB8-B32
-                  ZNB8-B33
-                  ZNB8-B34
-                  ZNB-B81
-                  ZNB-B2
-                  ZNB-B12
-                  ZN-B15
+Options:          ZVA-K7
+                  ZVA-K17
+                  ZVAB-SIM
+                  ZVT8-B63
+                  ZVT8-B64
+                  ZVT8-B65
+                  ZVT8-B66
+                  ZVT8-B68
+                  ZVA8-B16
+                  ZVA8-B21
+                  ZVA8-B22
+                  ZVA8-B23
+                  ZVA8-B24
+                  ZVA8-B31
+                  ZVA8-B32
+                  ZVA8-B33
+                  ZVA8-B34
+                  ZVT8-B67
+                  ZVA-B7
 
 
 Write:    "*CLS"
@@ -58,11 +62,14 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.60"
 Bytes: 47
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT1:CONT 0"
+WARNING:
+  ZVA cannot put individual channels
+  into manual/continuous sweep mode!
+Write:    ":INIT1:CONT 1"
 Bytes: 14
 Status: 0x0 Operation completed successfully.
 
@@ -78,15 +85,18 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.60"
 Bytes: 47
 Status: 0x0 Operation completed successfully.
 
+WARNING:
+  ZVA cannot put individual channels
+  into manual/continuous sweep mode!
 Write:    ":INIT1:CONT?"
 Bytes: 13
 Status: 0x0 Operation completed successfully.
 
-Read:     "0"
+Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
@@ -94,10 +104,13 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.60"
 Bytes: 47
 Status: 0x0 Operation completed successfully.
 
+WARNING:
+  ZVA cannot put individual channels
+  into manual/continuous sweep mode!
 Write:    ":INIT1:CONT 0"
 Bytes: 14
 Status: 0x0 Operation completed successfully.
@@ -106,10 +119,13 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.60"
 Bytes: 47
 Status: 0x0 Operation completed successfully.
 
+WARNING:
+  ZVA cannot put individual channels
+  into manual/continuous sweep mode!
 Write:    ":INIT1:CONT?"
 Bytes: 13
 Status: 0x0 Operation completed successfully.
@@ -130,15 +146,33 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.60"
 Bytes: 47
 Status: 0x0 Operation completed successfully.
 
+WARNING:
+  ZVA cannot put individual channels
+  into manual/continuous sweep mode!
+Write:    ":INIT1:CONT 1"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.60"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+WARNING:
+  ZVA cannot put individual channels
+  into manual/continuous sweep mode!
 Write:    ":INIT1:CONT?"
 Bytes: 13
 Status: 0x0 Operation completed successfully.
 
-Read:     "0"
+Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
