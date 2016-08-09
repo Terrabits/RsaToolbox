@@ -597,6 +597,20 @@ void VnaTrace::deleteMarkers() {
         deleteMarker(i);
     }
 }
+void VnaTrace::coupleMarkers() {
+    QString scpi = ":CALC%1:MARK:COUP 1\n";
+    scpi = scpi.arg(channel());
+
+    select();
+    _vna->write(scpi);
+}
+void VnaTrace::uncoupleMarkers() {
+    QString scpi = ":CALC%1:MARK:COUP 0\n";
+    scpi = scpi.arg(channel());
+
+    select();
+    _vna->write(scpi);
+}
 VnaMarker &VnaTrace::marker(uint index) {
     _marker.reset(new VnaMarker(_vna, this, index));
     return(*_marker.data());

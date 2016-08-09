@@ -136,6 +136,8 @@ public:
     uint createMarker();
     void deleteMarker(uint index);
     void deleteMarkers();
+    void coupleMarkers();
+    void uncoupleMarkers();
     VnaMarker &marker(uint index);
 
     // Reference Marker
