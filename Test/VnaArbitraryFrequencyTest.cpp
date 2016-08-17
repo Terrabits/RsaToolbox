@@ -40,7 +40,8 @@ void VnaArbitraryFrequencyTest::initTestCase() {
     _logFilenames << "1 - Struct Test.txt"
                   << "2 - RF Off Test.txt"
                   << "3 - Generator Test.txt"
-                  << "4 - Accessors.txt";
+                  << "4 - Source Accessors.txt"
+                  << "5 - Receiver Accessors.txt";
 
     _initTestCase();
 }
@@ -138,7 +139,7 @@ void VnaArbitraryFrequencyTest::generator() {
     QVERIFY(!c1.isGeneratorPort(port));
     QVERIFY(!c2.isGeneratorPort(port));
 }
-void VnaArbitraryFrequencyTest::accessors() {
+void VnaArbitraryFrequencyTest::sourceAccessors() {
     // Create 2nd channel
     // Make sure it doesn't change
     create2ndChannel();
@@ -152,14 +153,37 @@ void VnaArbitraryFrequencyTest::accessors() {
 
     const uint port = 1;
     VnaChannel c1   = _vna->channel(1);
-    c1.setArbitraryFrequency(port, af);
+    c1.setSourceArbitraryFreq(port, af);
     QVERIFY(c1.isGeneratorPort(port));
     QVERIFY(c1.isRfOff(port));
-    VnaArbitraryFrequency _af = c1.arbitraryFrequency(port);
+    VnaArbitraryFrequency _af = c1.sourceArbitraryFreq(port);
     QVERIFY(af == _af);
 
     VnaChannel c2 = _vna->channel(2);
-    QVERIFY(!c2.arbitraryFrequency(port).isOn());
+    QVERIFY(!c2.sourceArbitraryFreq(port).isOn());
+}
+void VnaArbitraryFrequencyTest::receiverAccessors() {
+    if (!_vna->properties().isZvaFamily()) {
+        qDebug() << "ZVA ONLY";
+        return;
+    }
+
+    // Create 2nd channel
+    // Make sure it doesn't change
+    create2ndChannel();
+
+    VnaArbitraryFrequency af;
+    af.setNumerator    (2.0 );
+    af.setDenominator  (3.0 );
+    af.setOffset       (4.0 , SiPrefix::Mega);
+
+    VnaChannel c1   = _vna->channel(1);
+    c1.setReceiverArbitraryFreq(af);
+    VnaArbitraryFrequency _af = c1.receiverArbitraryFreq();
+    QVERIFY(af == _af);
+
+    VnaChannel c2 = _vna->channel(2);
+    QVERIFY(!c2.receiverArbitraryFreq().isOn());
 }
 
 void VnaArbitraryFrequencyTest::create2ndChannel() {

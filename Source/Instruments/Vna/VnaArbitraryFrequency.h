@@ -19,14 +19,16 @@ public:
     bool   isOn() const;
     void   clear();
 
+    // Source only
     bool   isGeneratorPort() const;
     bool   isRfOff    () const;
-    double numerator  () const;
-    double denominator() const;
-    double offset_Hz  () const;
     void   setGeneratorPort(bool isGenerator  );
     void   rfOn            (bool isOn  = true );
     void   rfOff           (bool isOff = true );
+
+    double numerator  () const;
+    double denominator() const;
+    double offset_Hz  () const;
     void   setNumerator    (double numerator  );
     void   setDenominator  (double denominator);
     void   setOffset       (double offset, RsaToolbox::SiPrefix prefix = RsaToolbox::SiPrefix::None);

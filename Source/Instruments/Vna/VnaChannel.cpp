@@ -537,10 +537,11 @@ void VnaChannel::rfOff(uint physicalPort, bool isOff) {
     rfOn(physicalPort, !isOff);
 }
 
-bool VnaChannel::isArbitraryFrequencyOn(uint physicalPort) {
-    return arbitraryFrequency(physicalPort).isOn();
+// Source arbitrary freq
+bool VnaChannel::isSourceArbitraryFreqOn(uint physicalPort) {
+    return sourceArbitraryFreq(physicalPort).isOn();
 }
-VnaArbitraryFrequency VnaChannel::arbitraryFrequency(uint physicalPort) {
+VnaArbitraryFrequency VnaChannel::sourceArbitraryFreq(uint physicalPort) {
     VnaArbitraryFrequency af;
     af.setGeneratorPort(isGeneratorPort(physicalPort));
     af.rfOff           (isRfOff        (physicalPort));
@@ -560,7 +561,7 @@ VnaArbitraryFrequency VnaChannel::arbitraryFrequency(uint physicalPort) {
     //                results[3] -> formula type (SWE)
     return af;
 }
-void VnaChannel::setArbitraryFrequency(uint physicalPort, const VnaArbitraryFrequency &af) {
+void VnaChannel::setSourceArbitraryFreq(uint physicalPort, const VnaArbitraryFrequency &af) {
     generatorPortOn(physicalPort, af.isGeneratorPort());
     rfOff          (physicalPort, af.isRfOff        ());
 
@@ -573,14 +574,82 @@ void VnaChannel::setArbitraryFrequency(uint physicalPort, const VnaArbitraryFreq
     scpi = scpi.arg("SWE"); // apply formula
     _vna->write(scpi);
 }
-void VnaChannel::arbitraryFrequencyOff(uint physicalPort) {
+void VnaChannel::sourceArbitraryFreqOff(uint physicalPort) {
     VnaArbitraryFrequency af;
     af.setGeneratorPort(false);
-    af.rfOn            (     );
+    af.rfOn            (true );
     af.setNumerator    ( 1.0 );
     af.setDenominator  ( 1.0 );
     af.setOffset       ( 0.0 );
-    setArbitraryFrequency(physicalPort, af);
+    setSourceArbitraryFreq(physicalPort, af);
+}
+
+// Receiver arbitrary freq
+// (ZVA only)
+bool VnaChannel::isReceiverArbitraryFreqOn() {
+    if (!_vna->properties().isZvaFamily()) {
+        _vna->printLine("*************************************************");
+        _vna->printLine("WARNING: NO RECEIVER ARBITRARY FREQUENCY COMMAND!");
+        _vna->printLine("*************************************************\n");
+        return false;
+    }
+
+    return receiverArbitraryFreq().isOn();
+}
+VnaArbitraryFrequency VnaChannel::receiverArbitraryFreq() {
+    VnaArbitraryFrequency af;
+    if (!_vna->properties().isZvaFamily()) {
+        _vna->printLine("*************************************************");
+        _vna->printLine("WARNING: NO RECEIVER ARBITRARY FREQUENCY COMMAND!");
+        _vna->printLine("*************************************************\n");
+        return af;
+    }
+
+    QString scpi = ":SENS%1:FREQ:CONV:ARB?\n";
+    scpi = scpi.arg(_index);
+    QStringList results = _vna->query(scpi).trimmed().split(",");
+    if (results.size() != 4) {
+        // Error
+        return af;
+    }
+
+    af.setNumerator  (results[0].toDouble());
+    af.setDenominator(results[1].toDouble());
+    af.setOffset     (results[2].toDouble());
+    //                results[3] -> formula type (SWE)
+    return af;
+}
+void VnaChannel::setReceiverArbitraryFreq(const VnaArbitraryFrequency &af) {
+    if (!_vna->properties().isZvaFamily()) {
+        _vna->printLine("*************************************************");
+        _vna->printLine("WARNING: NO RECEIVER ARBITRARY FREQUENCY COMMAND!");
+        _vna->printLine("*************************************************\n");
+        return;
+    }
+
+    QString scpi = ":SENS%1:FREQ:CONV:ARB %3,%4,%5,%6\n";
+    scpi = scpi.arg(_index          );
+    scpi = scpi.arg(af.numerator  ());
+    scpi = scpi.arg(af.denominator());
+    scpi = scpi.arg(af.offset_Hz  ());
+    scpi = scpi.arg("SWE"); // apply formula
+    _vna->write(scpi);
+}
+void VnaChannel::receiverArbitraryFreqOff() {
+    if (!_vna->properties().isZvaFamily()) {
+        _vna->printLine("*************************************************");
+        _vna->printLine("WARNING: NO RECEIVER ARBITRARY FREQUENCY COMMAND!");
+        _vna->printLine("*************************************************\n");
+        return;
+    }
+
+    VnaArbitraryFrequency af;
+    af.setGeneratorPort(false);
+    af.rfOn            (true );
+    af.setNumerator    ( 1.0 );
+    af.setDenominator  ( 1.0 );
+    af.setOffset       ( 0.0 );
+    setReceiverArbitraryFreq(af);
 }
 
 // Averaging

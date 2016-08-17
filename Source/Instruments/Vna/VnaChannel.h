@@ -158,10 +158,21 @@ public:
     void rfOn (uint physicalPort, bool isOn  = true);
     void rfOff(uint physicalPort, bool isOff = true);
 
-    bool isArbitraryFrequencyOn(uint physicalPort);
-    VnaArbitraryFrequency arbitraryFrequency(uint physicalPort);
-    void setArbitraryFrequency(uint physicalPort, const VnaArbitraryFrequency &arbitraryFreq);
-    void arbitraryFrequencyOff(uint physicalPort);
+    // Source Arbitrary Frequency
+    // Note: This command sets both the source
+    //       and receiver on the ZNB
+    bool isSourceArbitraryFreqOn(uint physicalPort);
+    VnaArbitraryFrequency sourceArbitraryFreq(uint physicalPort);
+    void setSourceArbitraryFreq(uint physicalPort, const VnaArbitraryFrequency &arbitraryFreq);
+    void sourceArbitraryFreqOff(uint physicalPort);
+
+    // Receiver Arbitrary Frequency
+    // Note: ZVA only
+    bool isReceiverArbitraryFreqOn();
+    VnaArbitraryFrequency receiverArbitraryFreq();
+    void setReceiverArbitraryFreq(const VnaArbitraryFrequency &arbitraryFreq);
+    void receiverArbitraryFreqOff();
+
 
     // Averaging
     VnaAveraging &averaging();

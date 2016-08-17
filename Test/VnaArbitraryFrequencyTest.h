@@ -24,7 +24,8 @@ private slots:
     void structTest();
     void rfOff     ();
     void generator ();
-    void accessors ();
+    void sourceAccessors  ();
+    void receiverAccessors();
 
 private:
     void create2ndChannel();
