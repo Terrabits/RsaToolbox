@@ -381,54 +381,12 @@ T min(std::vector<T> vector, T &minimum, int &index) {
 }
 }
 
-// Enum serialization
-//QDataStream &operator<<(QDataStream &stream, const RsaToolbox::Units &units);
-//QDataStream &operator<<(QDataStream &stream, const RsaToolbox::SiPrefix &prefix);
-
-//QDataStream &operator>>(QDataStream &stream, RsaToolbox::Units &units);
-//QDataStream &operator>>(QDataStream &stream, RsaToolbox::SiPrefix &prefix);
-
-//// Enum text stream operators
-//QTextStream &operator<<(QTextStream &stream, const RsaToolbox::Units &units);
-//QTextStream &operator<<(QTextStream &stream, const RsaToolbox::SiPrefix &prefix);
-
-
-// Using templates:
-template <class T>
-QDataStream& operator<<(QDataStream &stream, const T &t) { // Enums
-    static_assert(std::is_enum<T>::value, "Template type is not enum.");
-    stream << qint32(t);
-    return stream;
-}
-template <class T>
-QDataStream& operator>>(QDataStream &stream, T &t) { // Enums
-    static_assert(std::is_enum<T>::value, "Template type is not enum.");
-    qint32 value;
-    stream >> value;
-    t = T(value);
-    return stream;
-}
-
-template <class T>
-QTextStream& operator<<(QTextStream &stream, const T &t) {
-    static_assert(std::is_enum<T>::value, "Template type is not enum.");
-    stream << toString(t);
-    return stream;
-}
-
-//////////////////////////////////////////////////////////
-// Note: QStringList serialization exists in Qt 5.2.1 but
-//       disappears at some point on/before 5.6. Why???
-//////////////////////////////////////////////////////////
 
 // Data type stream operators
-//QDataStream& operator<<(QDataStream &stream, const QStringList                  &t     );
 QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexDouble    &value );
 QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexRowVector &vector);
 QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexMatrix2D  &matrix);
 QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexMatrix3D  &matrix);
-
-//QDataStream& operator>>(QDataStream &stream,       QStringList                  &t     );
 QDataStream& operator>>(QDataStream &stream,       RsaToolbox::ComplexDouble    &value );
 QDataStream& operator>>(QDataStream &stream,       RsaToolbox::ComplexRowVector &vector);
 QDataStream& operator>>(QDataStream &stream,       RsaToolbox::ComplexMatrix2D  &matrix);
