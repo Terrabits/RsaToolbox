@@ -1,0 +1,10 @@
+/*!
+ * \page Instrument Instrument Interfaces
+ * This is the Instrument landing page.
+ * It should contain examples for using the
+ * GenericInstrument to control an instrument
+ * via SCPI, as well as an example of how to
+ * subclass it for a specific instrument.
+ *
+ * \ref InstrumentGroup "Instrument" <br>
+ */

@@ -2,46 +2,47 @@
 # Requires Qt 5
 QT += core gui widgets network printsupport
 
-INCLUDEPATH += $$PWD \
-               $$PWD/General \
-               $$PWD/Log \
-               $$PWD/Bus \
-               $$PWD/Bus/Tcp \
-               $$PWD/Bus/No \
-               $$PWD/Bus/Visa \
-               $$PWD/Instruments \
-               $$PWD/Instruments/Vna \
-               $$PWD/Instruments/Vna/Dialogs/getCalGroupDialog \
-               $$PWD/Instruments/Vna/Dialogs/getChannelDialog \
-               $$PWD/Instruments/Vna/Dialogs/getPortsDialog \
-               $$PWD/Instruments/Vna/Models/VnaModel \
-               $$PWD/Instruments/Vna/Models/ChannelsModel \
-               $$PWD/Instruments/Vna/Models/CalGroupsModel \
-               $$PWD/Instruments/Vna/Views/VnaForm \
-               $$PWD/Instruments/Vna/Views/CalGroupPanel \
-               $$PWD/Gui/About \
-               $$PWD/Gui/DecibelEdit \
-               $$PWD/Gui/ConnectButton \
-               $$PWD/Gui/ConnectionTypeComboBox \
-               $$PWD/Gui/DecibelEdit \
-               $$PWD/Gui/ErrorLabel \
-               $$PWD/Gui/Figure \
-               $$PWD/Gui/FrequencyEdit \
-               $$PWD/Gui/getSaveFileNameWidget \
-               $$PWD/Gui/GetSnpFile \
-               $$PWD/Gui/LastPath \
-               $$PWD/Gui/ListPanel \
-               $$PWD/Gui/PointsEdit \
-               $$PWD/Gui/PortsLineEdit \
-               $$PWD/Gui/PowerEdit \
-               $$PWD/Gui/TimedProgressBar \
-               $$PWD/Gui/Update \
-               $$PWD/Gui/Wizard \
-               $$PWD/Test \
-               $$PWD/Test/TestRunner \
-               $$PWD/Test/SpeedTracker \
-               $$PWD/QCustomPlot \
-               $$PWD/Server
+INCLUDEPATH += $$PWD/RsaToolbox \
+               $$PWD/RsaToolbox/General \
+               $$PWD/RsaToolbox/Log \
+               $$PWD/RsaToolbox/Bus \
+               $$PWD/RsaToolbox/Bus/Tcp \
+               $$PWD/RsaToolbox/Bus/No \
+               $$PWD/RsaToolbox/Bus/Visa \
+               $$PWD/RsaToolbox/Instruments \
+               $$PWD/RsaToolbox/Instruments/Vna \
+               $$PWD/RsaToolbox/Instruments/Vna/Dialogs/getCalGroupDialog \
+               $$PWD/RsaToolbox/Instruments/Vna/Dialogs/getChannelDialog \
+               $$PWD/RsaToolbox/Instruments/Vna/Dialogs/getPortsDialog \
+               $$PWD/RsaToolbox/Instruments/Vna/Models/VnaModel \
+               $$PWD/RsaToolbox/Instruments/Vna/Models/ChannelsModel \
+               $$PWD/RsaToolbox/Instruments/Vna/Models/CalGroupsModel \
+               $$PWD/RsaToolbox/Instruments/Vna/Views/VnaForm \
+               $$PWD/RsaToolbox/Instruments/Vna/Views/CalGroupPanel \
+               $$PWD/RsaToolbox/Gui/About \
+               $$PWD/RsaToolbox/Gui/DecibelEdit \
+               $$PWD/RsaToolbox/Gui/ConnectButton \
+               $$PWD/RsaToolbox/Gui/ConnectionTypeComboBox \
+               $$PWD/RsaToolbox/Gui/DecibelEdit \
+               $$PWD/RsaToolbox/Gui/ErrorLabel \
+               $$PWD/RsaToolbox/Gui/Figure \
+               $$PWD/RsaToolbox/Gui/FrequencyEdit \
+               $$PWD/RsaToolbox/Gui/getSaveFileNameWidget \
+               $$PWD/RsaToolbox/Gui/GetSnpFile \
+               $$PWD/RsaToolbox/Gui/LastPath \
+               $$PWD/RsaToolbox/Gui/ListPanel \
+               $$PWD/RsaToolbox/Gui/PointsEdit \
+               $$PWD/RsaToolbox/Gui/PortsLineEdit \
+               $$PWD/RsaToolbox/Gui/PowerEdit \
+               $$PWD/RsaToolbox/Gui/TimedProgressBar \
+               $$PWD/RsaToolbox/Gui/Update \
+               $$PWD/RsaToolbox/Gui/Wizard \
+               $$PWD/RsaToolbox/Test \
+               $$PWD/RsaToolbox/Test/TestRunner \
+               $$PWD/RsaToolbox/Test/SpeedTracker \
+               $$PWD/RsaToolbox/Server \
+               $$PWD/QCustomPlot
+               
 
 win32 {
     # C++11 enum class warnings:
@@ -51,11 +52,11 @@ win32 {
     LIBS += -L$$PWD
     LIBS += -L$$PWD/QCustomPlot/
     CONFIG(debug, release|debug) {
-        LIBS += -l$$PWD/RsaToolboxd
+        LIBS += -l$$PWD/RsaToolbox/RsaToolboxd
         LIBS += -l$$PWD/QCustomPlot/qcustomplotd
     }
     else {
-        LIBS += -l$$PWD/RsaToolbox
+        LIBS += -l$$PWD/RsaToolbox/RsaToolbox
         LIBS += -l$$PWD/QCustomPlot/qcustomplot
     }
 }
@@ -63,12 +64,12 @@ macx {
     QMAKE_CXXFLAGS += -std=c++11 -stdlib=libc++
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.7
     LIBS += -stdlib=libc++
-    LIBS += -L$$PWD \
+    LIBS += -L$$PWD/RsaToolbox \
             -L$$PWD/QCustomPlot
     CONFIG(debug, release|debug) {
-        LIBS += $$PWD/libRsaToolboxd.a
+        LIBS += $$PWD/RsaToolbox/libRsaToolboxd.a
     }
     else {
-        LIBS += $$PWD/libRsaToolbox.a
+        LIBS += $$PWD/RsaToolbox/libRsaToolbox.a
     }
 }
