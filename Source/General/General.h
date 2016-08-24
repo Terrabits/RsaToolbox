@@ -382,7 +382,11 @@ T min(std::vector<T> vector, T &minimum, int &index) {
 }
 
 
-// Data type stream operators
+// Text stream operators
+QTextStream& operator<<(QTextStream &stream, const RsaToolbox::SiPrefix &prefix);
+QTextStream& operator<<(QTextStream &stream, const RsaToolbox::Units &units);
+
+// Data stream operators
 QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexDouble    &value );
 QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexRowVector &vector);
 QDataStream& operator<<(QDataStream &stream, const RsaToolbox::ComplexMatrix2D  &matrix);

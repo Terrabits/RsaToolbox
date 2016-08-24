@@ -22,36 +22,26 @@ QString RsaToolbox::uniqueAlphanumericString() {
 double RsaToolbox::toDouble(SiPrefix prefix) {
     switch(prefix) {
     case SiPrefix::Tera:
-        return(1E12);
-        break;
+        return 1.0E12;
     case SiPrefix::Giga:
-        return(1E9);
-        break;
+        return 1.0E9;
     case SiPrefix::Mega:
-        return(1E6);
-        break;
+        return 1.0E6;
     case SiPrefix::Kilo:
-        return(1E3);
-        break;
+        return 1.0E3;
     case SiPrefix::Milli:
-        return(1E-3);
-        break;
+        return 1.0E-3;
     case SiPrefix::Micro:
-        return(1E-6);
-        break;
+        return 1.0E-6;
     case SiPrefix::Nano:
-        return(1E-9);
-        break;
+        return 1.0E-9;
     case SiPrefix::Pico:
-        return(1E-12);
-        break;
+        return 1.0E-12;
     case SiPrefix::Femto:
-        return(1E-15);
-        break;
+        return 1.0E-15;
     default:
         // NO_PREFIX
-        return(1);
-        break;
+        return 1.0;
     }
 }
 
@@ -382,23 +372,23 @@ QString RsaToolbox::formatValue(double value, int decimalPlaces, Units units, Si
 
     double magnitude = std::abs(value * toDouble(prefix));
     for (int i = 0; i < count; i++) {
-        double bound = (1 - 0.5 * pow(10.0, (double)(-3 - decimalPlaces))) * toDouble(prefixes[i + 1]);
+        double bound = (1.0 - 0.5 * pow(10.0, double(-3.0 - decimalPlaces))) * toDouble(prefixes[i + 1]);
         if (magnitude < bound) {
-            stream << (value / toDouble(prefixes[i]));
+            stream << (value * toDouble(prefix) / toDouble(prefixes[i]));
             stream.flush();
             chopTrailingZeros(result);
 
-            if (i == 0 && result.toDouble() == 0)
+            if (result == "0")
                 stream << " " << units;
             else
                 stream << " " << prefixes[i] << units;
             stream.flush();
-            return(result);
+            return result;
         }
     }
 
     // else Tera or bigger
-    stream << (value / toDouble(prefixes[count-1]));
+    stream << (value * toDouble(prefix) / toDouble(prefixes[count-1]));
     stream.flush();
     chopTrailingZeros(result);
 
@@ -1808,11 +1798,17 @@ void RsaToolbox::insert(ComplexMatrix2D &matrix, ComplexMatrix2D data, QVector<u
 }
 
 
-// Data type stream operators
-//QDataStream& operator<<(QDataStream &stream, const QStringList &t) {
-//    stream << t.toVector().toList();
-//    return stream;
-//}
+// Text stream operators
+QTextStream& operator<<(QTextStream &stream, const RsaToolbox::SiPrefix &prefix) {
+    stream << toString(prefix);
+    return stream;
+}
+QTextStream& operator<<(QTextStream &stream, const RsaToolbox::Units &units) {
+    stream << toString(units);
+    return stream;
+}
+
+// Data stream operators
 QDataStream& operator<<(QDataStream &stream, const ComplexDouble &value) {
     stream << value.real();
     stream << value.imag();

@@ -812,9 +812,9 @@ bool VnaChannel::isFullyInitialized() const {
 QStringList VnaChannel::zvaTraces() {
     QStringList traces = _vna->traces();
     QStringList result;
-//    foreach(QString trace, traces) {
-//        if (_vna->trace(trace).channel() == _index)
-//            result << trace;
-//    }
+    foreach(QString trace, traces) {
+        if (_vna->trace(trace).channel() == _index)
+            result << trace;
+    }
     return(result);
 }
