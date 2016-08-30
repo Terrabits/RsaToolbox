@@ -2214,6 +2214,20 @@ bool Vna::isExtensionUnit() {
     return isZvax || isZvaxTrm;
 }
 
+// Generators
+bool Vna::isGenerator() {
+    return generators().size() > 0;
+}
+
+QVector<uint> Vna::generators() {
+    QString scpi = ":SYST:COMM:RDEV:GEN:CAT?\n";
+    QString result = query(scpi).remove("\'").trimmed();
+    if (result.isEmpty())
+        return QVector<uint>();
+
+    return toVector<uint>(result.split(","));
+}
+
 // Global Limits
 bool Vna::isGlobalLimitsPass() {
     return !isGlobalLimitsFail();

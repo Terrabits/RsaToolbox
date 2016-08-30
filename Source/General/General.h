@@ -64,6 +64,15 @@ QStringList toStringList(QVector<T> vector) {
     return(string_list);
 }
 template <class T>
+QVector<T> toVector(QStringList list) {
+    QVector<T> result(list.size());
+    for (int i = 0; i < list.size(); i++) {
+        result[i] = QVariant(list[i]).value<T>();
+    }
+    return result;
+}
+
+template <class T>
 QString toString(QVector<T> vector, QString separator) {
     int size = vector.size();
     if (size == 0)

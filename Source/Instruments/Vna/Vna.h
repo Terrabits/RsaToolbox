@@ -207,6 +207,10 @@ public:
     // (ZVAX24, ZVAX40, ZVAX-TRM)
     bool isExtensionUnit();
 
+    // Generators
+    bool isGenerator();
+    QVector<uint> generators();
+
     // Pass/Fail
     bool isGlobalLimitsPass();
     bool isGlobalLimitsFail();
