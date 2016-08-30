@@ -79,7 +79,8 @@ double VnaLinearSweep::start_Hz() {
 void VnaLinearSweep::setStart(double frequency, SiPrefix prefix) {
     QString scpi = ":SENS%1:FREQ:STAR %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequency).arg(toString(prefix, Units::Hertz));
+    scpi = scpi.arg(formatDouble(frequency, 12));
+    scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaLinearSweep::stop_Hz() {
@@ -90,7 +91,8 @@ double VnaLinearSweep::stop_Hz() {
 void VnaLinearSweep::setStop(double frequency, SiPrefix prefix) {
     QString scpi = ":SENS%1:FREQ:STOP %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequency).arg(toString(prefix, Units::Hertz));
+    scpi = scpi.arg(formatDouble(frequency, 12));
+    scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaLinearSweep::center_Hz() {
@@ -101,7 +103,8 @@ double VnaLinearSweep::center_Hz() {
 void VnaLinearSweep::setCenter(double frequency, SiPrefix prefix) {
     QString scpi = ":SENS%1:FREQ:CENT %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequency).arg(toString(prefix, Units::Hertz));
+    scpi = scpi.arg(formatDouble(frequency, 12));
+    scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaLinearSweep::span_Hz() {
@@ -112,7 +115,8 @@ double VnaLinearSweep::span_Hz() {
 void VnaLinearSweep::setSpan(double frequencyRange, SiPrefix prefix) {
     QString scpi = ":SENS%1:FREQ:SPAN %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequencyRange).arg(toString(prefix, Units::Hertz));
+    scpi = scpi.arg(formatDouble(frequencyRange, 12));
+    scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaLinearSweep::spacing_Hz() {
@@ -123,7 +127,7 @@ double VnaLinearSweep::spacing_Hz() {
 void VnaLinearSweep::setSpacing(double frequencySpacing, SiPrefix prefix) {
     QString scpi = ":SENS%1:SWE:STEP %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequencySpacing);
+    scpi = scpi.arg(formatDouble(frequencySpacing, 12));
     scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }

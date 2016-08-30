@@ -79,7 +79,8 @@ double VnaCwSweep::frequency_Hz() {
 void VnaCwSweep::setFrequency(double frequency, SiPrefix prefix) {
     QString scpi = ":SOUR%1:FREQ %2%3\n";
     scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(frequency).arg(toString(prefix, Units::Hertz));
+    scpi = scpi.arg(formatDouble(frequency, 12));
+    scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
 double VnaCwSweep::power_dBm() {

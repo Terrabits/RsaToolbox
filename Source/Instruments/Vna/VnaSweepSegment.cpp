@@ -100,7 +100,7 @@ void VnaSweepSegment::setStart(double frequency, SiPrefix prefix) {
     QString scpi = ":SENS%1:SEGM%2:FREQ:STAR %3%4\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(_segmentIndex);
-    scpi = scpi.arg(frequency);
+    scpi = scpi.arg(formatDouble(frequency, 12));
     scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
@@ -114,7 +114,7 @@ void VnaSweepSegment::setStop(double frequency, SiPrefix prefix) {
     QString scpi = ":SENS%1:SEGM%2:FREQ:STOP %3%4\n";
     scpi = scpi.arg(_channelIndex);
     scpi = scpi.arg(_segmentIndex);
-    scpi = scpi.arg(frequency);
+    scpi = scpi.arg(formatDouble(frequency, 12)); // Do not truncate!
     scpi = scpi.arg(toString(prefix, Units::Hertz));
     _vna->write(scpi);
 }
