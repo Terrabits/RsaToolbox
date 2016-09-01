@@ -3,7 +3,7 @@
 
 
 // RsaToolbox
-#include "Vna.h"
+#include "VnaArbitraryFrequency.h"
 
 
 // Qt
@@ -12,11 +12,11 @@
 
 
 namespace RsaToolbox {
+class Vna;
 
-class VnaPortSettings
+class VnaPortSettings : public QObject
 {
     Q_OBJECT
-
 public:
     explicit VnaPortSettings(QObject *parent = 0);
     VnaPortSettings(const VnaPortSettings &other);

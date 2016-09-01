@@ -21,11 +21,13 @@ public:
     virtual void initTestCase();
 
 private slots:
-    void structTest();
-    void rfOff     ();
-    void generator ();
-    void sourceAccessors  ();
-    void receiverAccessors();
+    void structTest     ();
+    void portRfOff      ();
+    void portAsGenerator();
+    void portSourceArbFreq();
+    void receiverArbFreq();
+    void generatorRfOff ();
+    void generatorPerm  ();
 
 private:
     void create2ndChannel();

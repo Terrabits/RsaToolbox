@@ -2,14 +2,15 @@
 
 
 // RsaToolbox
+#include "Vna.h"
 using namespace RsaToolbox;
 
 
 VnaPortSettings::VnaPortSettings(QObject *parent) :
     QObject(parent)
 {
-    placeholder.reset(new Vna());
-    _vna = placeholder.data();
+    _placeholder.reset(new Vna());
+    _vna = _placeholder.data();
     _channel = 0;
     _port    = 0;
 }
@@ -83,19 +84,16 @@ bool VnaPortSettings::isArbitrarySourceFrequencyOn() {
     return arbitrarySourceFrequency().isOn();
 }
 VnaArbitraryFrequency VnaPortSettings::arbitrarySourceFrequency() {
-    VnaArbitraryFrequency af;
-    af.setGeneratorPort(isGenerator());
-    af.rfOff           (isRfOff());
-
     QString scpi = ":SOUR%1:FREQ%2:CONV:ARB:IFR?\n";
     scpi = scpi.arg(_channel);
     scpi = scpi.arg(_port);
     QStringList results = _vna->query(scpi).trimmed().split(",");
     if (results.size() != 4) {
         // Error
-        return af;
+        return VnaArbitraryFrequency();
     }
 
+    VnaArbitraryFrequency af;
     af.setNumerator  (results[0].toDouble());
     af.setDenominator(results[1].toDouble());
     af.setOffset     (results[2].toDouble());
@@ -103,9 +101,6 @@ VnaArbitraryFrequency VnaPortSettings::arbitrarySourceFrequency() {
     return af;
 }
 void VnaPortSettings::setArbitrarySourceFrequency(VnaArbitraryFrequency af) {
-    setGenerator(af.isGeneratorPort());
-    rfOff       (af.isRfOff        ());
-
     QString scpi = ":SOUR%1:FREQ%2:CONV:ARB:IFR %3,%4,%5,%6\n";
     scpi = scpi.arg(_channel          );
     scpi = scpi.arg(_port    );
@@ -117,12 +112,8 @@ void VnaPortSettings::setArbitrarySourceFrequency(VnaArbitraryFrequency af) {
 }
 void VnaPortSettings::arbitrarySourceFrequencyOff() {
     VnaArbitraryFrequency af;
-    af.setGeneratorPort(false);
-    af.rfOn            (true );
-    af.setNumerator    ( 1.0 );
-    af.setDenominator  ( 1.0 );
-    af.setOffset       ( 0.0 );
-    setSourceArbitraryFreq(af);
+    af.clear();
+    setArbitrarySourceFrequency(af);
 }
 
 // private

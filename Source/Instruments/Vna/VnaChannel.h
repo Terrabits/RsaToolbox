@@ -15,6 +15,7 @@
 #include "VnaTimeSweep.h"
 #include "VnaUserDefinedPort.h"
 #include "VnaPortSettings.h"
+#include "VnaGeneratorSettings.h"
 #include "VnaAveraging.h"
 #include "VnaIntermod.h"
 #include "VnaCalibrate.h"
@@ -151,15 +152,18 @@ public:
     void deleteUserDefinedPorts();
 
     // Port settings
-    VnaPortSettings& portSettings(uint physicalPort);
+    VnaPortSettings& port(uint physicalPort);
 
     // Receiver Arbitrary Frequency
     // - Applies to all ports -
     // Note: ZVA only
-    bool isArbitraryReceiverFreqOn();
-    VnaArbitraryFrequency arbitraryReceiverFreq();
-    void setArbitraryReceiverFreq(const VnaArbitraryFrequency &arbitraryFreq);
-    void arbitraryReceiverFreqOff();
+    bool isArbitraryReceiverFrequencyOn();
+    VnaArbitraryFrequency arbitraryReceiverFrequency();
+    void setArbitraryReceiverFrequency(const VnaArbitraryFrequency &arbitraryFreq);
+    void arbitraryReceiverFrequencyOff();
+
+    // External Generators
+     VnaGeneratorSettings& generator(uint i);
 
     // Averaging
     VnaAveraging &averaging();
@@ -214,6 +218,7 @@ private:
     QScopedPointer<VnaCwSweep>          _cwSweep;
     QScopedPointer<VnaTimeSweep>        _timeSweep;
     QScopedPointer<VnaPortSettings>     _portSettings;
+    QScopedPointer<VnaGeneratorSettings>     _generatorSettings;
     QScopedPointer<VnaAveraging>        _averaging;
     QScopedPointer<VnaIntermod>         _intermod;
     QScopedPointer<VnaCorrections>      _corrections;

@@ -1,7 +1,7 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Tue Aug 30 12:05:13 2016
+Thu Sep 1 15:32:50 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -66,19 +66,7 @@ Write:    ":DISP:WIND1:TRAC:EFE 'Trc2'"
 Bytes: 28
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR1:POW1:PERM 1"
-Bytes: 19
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:STAT 0"
-Bytes: 19
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:FREQ1:CONV:ARB:IFR 2,3,4e+06,SWE"
-Bytes: 40
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:PERM?"
+Write:    ":SOUR1:POW1:STAT?"
 Bytes: 18
 Status: 0x0 Operation completed successfully.
 
@@ -86,43 +74,11 @@ Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR1:POW1:STAT?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:PERM?"
+Write:    ":SOUR1:POW2:STAT?"
 Bytes: 18
 Status: 0x0 Operation completed successfully.
 
 Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:STAT?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:FREQ1:CONV:ARB:IFR?"
-Bytes: 27
-Status: 0x0 Operation completed successfully.
-
-Read:     "2,3,4000000,SWE"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR2:POW1:PERM?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
@@ -134,12 +90,84 @@ Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR2:FREQ1:CONV:ARB:IFR?"
-Bytes: 27
+Write:    ":SOUR2:POW2:STAT?"
+Bytes: 18
 Status: 0x0 Operation completed successfully.
 
-Read:     "1,1,0,SWE"
-Bytes: 10
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR1:POW1:STAT 0"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR1:POW1:STAT?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR1:POW2:STAT?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR2:POW1:STAT?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR2:POW2:STAT?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR1:POW1:STAT 1"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR1:POW1:STAT?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR1:POW2:STAT?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR2:POW1:STAT?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR2:POW2:STAT?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SYST:ERR?"

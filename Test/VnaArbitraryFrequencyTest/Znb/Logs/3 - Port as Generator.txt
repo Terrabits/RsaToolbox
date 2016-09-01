@@ -1,7 +1,7 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Thu Sep 1 15:33:00 2016
+Thu Sep 1 15:32:51 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -46,120 +46,128 @@ Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CONF:CHAN:CAT?"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Read:     "'1,Ch1'"
-Bytes: 8
-Status: 0x0 Operation completed successfully.
-
-Write:    "*IDN?"
-Bytes: 6
-Status: 0x0 Operation completed successfully.
-
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
-Bytes: 47
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT 1"
+Write:    ":CONF:CHAN2 1"
 Bytes: 14
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CONF:CHAN:CAT?"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Read:     "'1,Ch1'"
-Bytes: 8
-Status: 0x0 Operation completed successfully.
-
-Write:    "*IDN?"
-Bytes: 6
-Status: 0x0 Operation completed successfully.
-
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
-Bytes: 47
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT?"
-Bytes: 13
+Write:    ":SOUR2:LPOR1?"
+Bytes: 14
 Status: 0x0 Operation completed successfully.
 
 Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    "*IDN?"
-Bytes: 6
+Write:    ":CALC2:PAR:SDEF 'Trc2', 'S11'"
+Bytes: 30
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
-Bytes: 47
+Write:    ":DISP:WIND1:TRAC:EFE 'Trc2'"
+Bytes: 28
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT1:CONT 0"
-Bytes: 14
-Status: 0x0 Operation completed successfully.
-
-Write:    "*IDN?"
-Bytes: 6
-Status: 0x0 Operation completed successfully.
-
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
-Bytes: 47
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INIT1:CONT?"
-Bytes: 13
+Write:    ":SOUR1:POW1:PERM?"
+Bytes: 18
 Status: 0x0 Operation completed successfully.
 
 Read:     "0"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CONF:CHAN:CAT?"
-Bytes: 16
+Write:    ":SOUR1:POW2:PERM?"
+Bytes: 18
 Status: 0x0 Operation completed successfully.
 
-Read:     "'1,Ch1'"
-Bytes: 8
+Read:     "0"
+Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    "*IDN?"
-Bytes: 6
+Write:    ":SOUR2:POW1:PERM?"
+Bytes: 18
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
-Bytes: 47
+Read:     "0"
+Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT1:CONT 1"
-Bytes: 14
+Write:    ":SOUR2:POW2:PERM?"
+Bytes: 18
 Status: 0x0 Operation completed successfully.
 
-Write:    "*IDN?"
-Bytes: 6
+Read:     "0"
+Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
-Bytes: 47
+Write:    ":SOUR1:POW1:PERM 1"
+Bytes: 19
 Status: 0x0 Operation completed successfully.
 
-Write:    ":INIT1:CONT?"
-Bytes: 13
+Write:    ":SOUR1:POW1:PERM?"
+Bytes: 18
 Status: 0x0 Operation completed successfully.
 
 Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SYST:ERR?"
-Bytes: 11
+Write:    ":SOUR1:POW2:PERM?"
+Bytes: 18
 Status: 0x0 Operation completed successfully.
 
-Read:     "0,"No error""
-Bytes: 13
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR2:POW1:PERM?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR2:POW2:PERM?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR1:POW1:PERM 0"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR1:POW1:PERM?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR1:POW2:PERM?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR2:POW1:PERM?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR2:POW2:PERM?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SYST:ERR?"

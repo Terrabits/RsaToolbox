@@ -1,7 +1,7 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Tue Aug 30 12:05:11 2016
+Thu Sep 1 15:32:52 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -46,6 +46,14 @@ Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
+Write:    ":SYST:COMM:RDEV:GEN:CAT?"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1'"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
 Write:    ":CONF:CHAN2 1"
 Bytes: 14
 Status: 0x0 Operation completed successfully.
@@ -66,56 +74,41 @@ Write:    ":DISP:WIND1:TRAC:EFE 'Trc2'"
 Bytes: 28
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR1:POW1:STAT?"
-Bytes: 18
+Write:    ":SOUR1:POW:GEN1:STAT 0"
+Bytes: 23
 Status: 0x0 Operation completed successfully.
 
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR2:POW1:STAT?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:STAT 0"
-Bytes: 19
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:STAT?"
-Bytes: 18
+Write:    ":SOUR1:POW:GEN1:STAT?"
+Bytes: 22
 Status: 0x0 Operation completed successfully.
 
 Read:     "0"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR2:POW1:STAT?"
-Bytes: 18
+Write:    ":SOUR2:POW:GEN1:STAT?"
+Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Read:     "1"
-Bytes: 2
+Read:     ""
+Bytes: 0
+Status: 0x-4000ffeb Timeout expired before operation completed.
+
+Write:    ":SOUR1:POW:GEN1:STAT 1"
+Bytes: 23
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR1:POW1:STAT 1"
-Bytes: 19
+Write:    ":SOUR1:POW:GEN1:STAT?"
+Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR1:POW1:STAT?"
-Bytes: 18
+Read:     "1
+1"
+Bytes: 4
 Status: 0x0 Operation completed successfully.
 
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR2:POW1:STAT?"
-Bytes: 18
+Write:    ":SOUR2:POW:GEN1:STAT?"
+Bytes: 22
 Status: 0x0 Operation completed successfully.
 
 Read:     "1"

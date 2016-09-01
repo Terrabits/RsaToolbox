@@ -50,7 +50,8 @@ HEADERS += $$PWD/VnaSet.h \
            $$PWD/VnaPauseSweeps.h \
            $$PWD/VnaIntermod.h \
            $$PWD/VnaArbitraryFrequency.h \
-           $$PWD/VnaPortSettings.h
+           $$PWD/VnaPortSettings.h \
+    $$PWD/VnaGeneratorSettings.h
 INCLUDEPATH += $$PWD
 SOURCES += $$PWD/VnaSet.cpp \
            $$PWD/VnaUserDefinedPort.cpp \
@@ -91,4 +92,5 @@ SOURCES += $$PWD/VnaSet.cpp \
            $$PWD/VnaPauseSweeps.cpp \
            $$PWD/VnaIntermod.cpp \
            $$PWD/VnaArbitraryFrequency.cpp \
-           $$PWD/VnaPortSettings.cpp
+           $$PWD/VnaPortSettings.cpp \
+    $$PWD/VnaGeneratorSettings.cpp

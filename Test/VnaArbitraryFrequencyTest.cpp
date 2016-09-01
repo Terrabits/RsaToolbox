@@ -3,6 +3,7 @@
 
 // RsaToolbox
 #include "Definitions.h"
+#include "Test.h"
 #include "VnaArbitraryFrequency.h"
 #include "VnaChannel.h"
 using namespace RsaToolbox;
@@ -38,10 +39,12 @@ void VnaArbitraryFrequencyTest::initTestCase() {
     }
 
     _logFilenames << "1 - Struct Test.txt"
-                  << "2 - RF Off Test.txt"
-                  << "3 - Generator Test.txt"
-                  << "4 - Source Accessors.txt"
-                  << "5 - Receiver Accessors.txt";
+                  << "2 - Port RF Off.txt"
+                  << "3 - Port as Generator.txt"
+                  << "4 - Port Source Arbitrary Freq.txt"
+                  << "5 - Receiver Arbitrary Freq.txt"
+                  << "6 - Generator RF Off.txt"
+                  << "7 - Generator Perm On.txt";
 
     _initTestCase();
 }
@@ -52,25 +55,7 @@ void VnaArbitraryFrequencyTest::structTest() {
     QCOMPARE( af.numerator  (), 1.0);
     QCOMPARE( af.denominator(), 1.0);
     QCOMPARE( af.offset_Hz  (), 0.0);
-    QVERIFY (!af.isGeneratorPort());
-    QVERIFY (!af.isRfOff        ());
     QVERIFY (!af.isOn           ());
-
-    // generator
-    af.setGeneratorPort(true);
-    QVERIFY( af.isGeneratorPort());
-    QVERIFY( af.isOn           ());
-    af.setGeneratorPort(false);
-    QVERIFY(!af.isGeneratorPort());
-    QVERIFY(!af.isOn           ());
-
-    // rf off
-    af.rfOff(true);
-    QVERIFY( af.isRfOff());
-    QVERIFY( af.isOn   ());
-    af.rfOn(true);
-    QVERIFY(!af.isRfOff());
-    QVERIFY(!af.isOn   ());
 
     // numerator
     af.setNumerator(2.0);
@@ -96,8 +81,6 @@ void VnaArbitraryFrequencyTest::structTest() {
     QCOMPARE( af.offset_Hz(),   0.0);
     QVERIFY (!af.isOn     ());
 
-    af.setGeneratorPort(true);
-    af.rfOff         (true);
     af.setNumerator  (2.0 );
     af.setDenominator(2.0 );
     af.setOffset     (1.0 );
@@ -105,64 +88,74 @@ void VnaArbitraryFrequencyTest::structTest() {
     af.clear         () ;
     QVERIFY(!af.isOn ());
 }
-void VnaArbitraryFrequencyTest::rfOff() {
+void VnaArbitraryFrequencyTest::portRfOff() {
     // Create 2nd channel
     // Make sure it doesn't change
     create2ndChannel();
 
-    const uint port = 1;
+    const uint port1 = 1;
+    const uint port2 = 2;
     VnaChannel c1   = _vna->channel(1);
     VnaChannel c2   = _vna->channel(2);
-    QVERIFY(!c1.isRfOff(port));
-    QVERIFY(!c2.isRfOff(port));
-    c1.rfOff(port);
-    QVERIFY( c1.isRfOff(port));
-    QVERIFY(!c2.isRfOff(port));
-    c1.rfOn(port);
-    QVERIFY(!c1.isRfOff(port));
-    QVERIFY(!c2.isRfOff(port));
+    QVERIFY(!c1.port(port1).isRfOff());
+    QVERIFY(!c1.port(port2).isRfOff());
+    QVERIFY(!c2.port(port1).isRfOff());
+    QVERIFY(!c2.port(port2).isRfOff());
+    c1.port(port1).rfOff();
+    QVERIFY( c1.port(port1).isRfOff());
+    QVERIFY(!c1.port(port2).isRfOff());
+    QVERIFY(!c2.port(port1).isRfOff());
+    QVERIFY(!c2.port(port2).isRfOff());
+    c1.port(port1).rfOff(false);
+    QVERIFY(!c1.port(port1).isRfOff());
+    QVERIFY(!c1.port(port2).isRfOff());
+    QVERIFY(!c2.port(port1).isRfOff());
+    QVERIFY(!c2.port(port2).isRfOff());
 }
-void VnaArbitraryFrequencyTest::generator() {
+void VnaArbitraryFrequencyTest::portAsGenerator() {
     // Create 2nd channel
     // Make sure it doesn't change
     create2ndChannel();
 
-    const uint port = 1;
+    const uint port1 = 1;
+    const uint port2 = 2;
     VnaChannel c1   = _vna->channel(1);
     VnaChannel c2   = _vna->channel(2);
-    QVERIFY(!c1.isGeneratorPort(port));
-    QVERIFY(!c2.isGeneratorPort(port));
-    c1.generatorPortOn(port);
-    QVERIFY( c1.isGeneratorPort(port));
-    QVERIFY(!c2.isGeneratorPort(port));
-    c1.generatorPortOff(port);
-    QVERIFY(!c1.isGeneratorPort(port));
-    QVERIFY(!c2.isGeneratorPort(port));
+    QVERIFY(!c1.port(port1).isGenerator());
+    QVERIFY(!c1.port(port2).isGenerator());
+    QVERIFY(!c2.port(port1).isGenerator());
+    QVERIFY(!c2.port(port2).isGenerator());
+    c1.port(port1).setGenerator();
+    QVERIFY( c1.port(port1).isGenerator());
+    QVERIFY(!c1.port(port2).isGenerator());
+    QVERIFY(!c2.port(port1).isGenerator());
+    QVERIFY(!c2.port(port2).isGenerator());
+    c1.port(port1).setGenerator(false);
+    QVERIFY(!c1.port(port1).isGenerator());
+    QVERIFY(!c1.port(port2).isGenerator());
+    QVERIFY(!c2.port(port1).isGenerator());
+    QVERIFY(!c2.port(port2).isGenerator());
 }
-void VnaArbitraryFrequencyTest::sourceAccessors() {
+void VnaArbitraryFrequencyTest::portSourceArbFreq() {
     // Create 2nd channel
     // Make sure it doesn't change
     create2ndChannel();
 
     VnaArbitraryFrequency af;
-    af.setGeneratorPort(true);
-    af.rfOff           (true);
     af.setNumerator    (2.0 );
     af.setDenominator  (3.0 );
     af.setOffset       (4.0 , SiPrefix::Mega);
 
     const uint port = 1;
     VnaChannel c1   = _vna->channel(1);
-    c1.setSourceArbitraryFreq(port, af);
-    QVERIFY(c1.isGeneratorPort(port));
-    QVERIFY(c1.isRfOff(port));
-    VnaArbitraryFrequency _af = c1.sourceArbitraryFreq(port);
+    c1.port(port).setArbitrarySourceFrequency(af);
+    VnaArbitraryFrequency _af = c1.port(port).arbitrarySourceFrequency();
     QVERIFY(af == _af);
 
     VnaChannel c2 = _vna->channel(2);
-    QVERIFY(!c2.sourceArbitraryFreq(port).isOn());
+    QVERIFY(!c2.port(port).arbitrarySourceFrequency().isOn());
 }
-void VnaArbitraryFrequencyTest::receiverAccessors() {
+void VnaArbitraryFrequencyTest::receiverArbFreq() {
     if (!_vna->properties().isZvaFamily()) {
         qDebug() << "ZVA ONLY";
         return;
@@ -178,14 +171,46 @@ void VnaArbitraryFrequencyTest::receiverAccessors() {
     af.setOffset       (4.0 , SiPrefix::Mega);
 
     VnaChannel c1   = _vna->channel(1);
-    c1.setReceiverArbitraryFreq(af);
-    VnaArbitraryFrequency _af = c1.receiverArbitraryFreq();
+    c1.setArbitraryReceiverFrequency(af);
+    VnaArbitraryFrequency _af = c1.arbitraryReceiverFrequency();
     QVERIFY(af == _af);
 
     VnaChannel c2 = _vna->channel(2);
-    QVERIFY(!c2.receiverArbitraryFreq().isOn());
+    QVERIFY(!c2.arbitraryReceiverFrequency().isOn());
 }
+void VnaArbitraryFrequencyTest::generatorRfOff() {
+    if (_vna->generators().isEmpty()) {
+        qDebug() << "REQUIRES GENERATOR";
+        return;
+    }
 
+    create2ndChannel();
+    VnaChannel c1 = _vna->channel(1);
+    VnaChannel c2 = _vna->channel(2);
+
+    c1.generator(1).setRfOff(true);
+    QVERIFY( c1.generator(1).isRfOff());
+    QVERIFY(!c2.generator(1).isRfOff());
+    c1.generator(1).setRfOff(false);
+    QVERIFY(!c1.generator(1).isRfOff());
+    QVERIFY(!c2.generator(1).isRfOff());
+}
+void VnaArbitraryFrequencyTest::generatorPerm() {
+    if (_vna->generators().isEmpty()) {
+        qDebug() << "REQUIRES GENERATOR";
+        return;
+    }
+
+    create2ndChannel();
+    VnaChannel c1 = _vna->channel(1);
+    VnaChannel c2 = _vna->channel(2);
+    c1.generator(1).setPermanentlyOn();
+    QVERIFY( c1.generator(1).isPermanentlyOn());
+    QVERIFY(!c2.generator(1).isPermanentlyOn());
+    c1.generator(1).setPermanentlyOn(false);
+    QVERIFY(!c1.generator(1).isPermanentlyOn());
+    QVERIFY(!c2.generator(1).isPermanentlyOn());
+}
 void VnaArbitraryFrequencyTest::create2ndChannel() {
     _vna->createChannel(2);
     _vna->createTrace("Trc2", 2);
