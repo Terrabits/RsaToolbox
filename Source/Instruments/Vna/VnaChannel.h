@@ -14,6 +14,7 @@
 #include "VnaCwSweep.h"
 #include "VnaTimeSweep.h"
 #include "VnaUserDefinedPort.h"
+#include "VnaPortSettings.h"
 #include "VnaAveraging.h"
 #include "VnaIntermod.h"
 #include "VnaCalibrate.h"
@@ -149,30 +150,16 @@ public:
     void deleteUserDefinedPort(uint physicalPort);
     void deleteUserDefinedPorts();
 
-    // Arbitrary Frequency
-    bool isGeneratorPort (uint physicalPort);
-    void generatorPortOn (uint physicalPort, bool isOn = true);
-    void generatorPortOff(uint physicalPort, bool isOff = true);
-
-    bool isRfOff(uint physicalPort);
-    void rfOn (uint physicalPort, bool isOn  = true);
-    void rfOff(uint physicalPort, bool isOff = true);
-
-    // Source Arbitrary Frequency
-    // Note: This command sets both the source
-    //       and receiver on the ZNB
-    bool isSourceArbitraryFreqOn(uint physicalPort);
-    VnaArbitraryFrequency sourceArbitraryFreq(uint physicalPort);
-    void setSourceArbitraryFreq(uint physicalPort, const VnaArbitraryFrequency &arbitraryFreq);
-    void sourceArbitraryFreqOff(uint physicalPort);
+    // Port settings
+    VnaPortSettings& portSettings(uint physicalPort);
 
     // Receiver Arbitrary Frequency
+    // - Applies to all ports -
     // Note: ZVA only
-    bool isReceiverArbitraryFreqOn();
-    VnaArbitraryFrequency receiverArbitraryFreq();
-    void setReceiverArbitraryFreq(const VnaArbitraryFrequency &arbitraryFreq);
-    void receiverArbitraryFreqOff();
-
+    bool isArbitraryReceiverFreqOn();
+    VnaArbitraryFrequency arbitraryReceiverFreq();
+    void setArbitraryReceiverFreq(const VnaArbitraryFrequency &arbitraryFreq);
+    void arbitraryReceiverFreqOff();
 
     // Averaging
     VnaAveraging &averaging();
@@ -226,6 +213,7 @@ private:
     QScopedPointer<VnaPowerSweep>       _powerSweep;
     QScopedPointer<VnaCwSweep>          _cwSweep;
     QScopedPointer<VnaTimeSweep>        _timeSweep;
+    QScopedPointer<VnaPortSettings>     _portSettings;
     QScopedPointer<VnaAveraging>        _averaging;
     QScopedPointer<VnaIntermod>         _intermod;
     QScopedPointer<VnaCorrections>      _corrections;
