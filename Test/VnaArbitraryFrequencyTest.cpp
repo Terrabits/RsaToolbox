@@ -188,10 +188,10 @@ void VnaArbitraryFrequencyTest::generatorRfOff() {
     VnaChannel c1 = _vna->channel(1);
     VnaChannel c2 = _vna->channel(2);
 
-    c1.generator(1).setRfOff(true);
+    c1.generator(1).rfOff(true);
     QVERIFY( c1.generator(1).isRfOff());
     QVERIFY(!c2.generator(1).isRfOff());
-    c1.generator(1).setRfOff(false);
+    c1.generator(1).rfOff(false);
     QVERIFY(!c1.generator(1).isRfOff());
     QVERIFY(!c2.generator(1).isRfOff());
 }

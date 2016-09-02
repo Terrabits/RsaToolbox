@@ -25,10 +25,11 @@ public:
     bool isPermanentlyOn();
     bool isRfOff();
     void setPermanentlyOn(bool isOn = true);
-    void setRfOff(bool isOff = true);
+    void rfOff(bool isOff = true);
 
     VnaArbitraryFrequency arbitraryFrequency();
     void setArbitraryFrequency(const VnaArbitraryFrequency &af);
+    void arbitraryFrequencyOff();
 
 private:
     Vna *_vna;

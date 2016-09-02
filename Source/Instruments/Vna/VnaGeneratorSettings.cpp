@@ -60,7 +60,7 @@ void VnaGeneratorSettings::setPermanentlyOn(bool isOn) {
     scpi = scpi.arg(isOn ? 1 : 0);
     _vna->write(scpi);
 }
-void VnaGeneratorSettings::setRfOff(bool isOff) {
+void VnaGeneratorSettings::rfOff(bool isOff) {
     QString scpi = ":SOUR%1:POW:GEN%2:STAT %3\n";
     scpi = scpi.arg(_channel);
     scpi = scpi.arg(_index);
@@ -95,6 +95,11 @@ void VnaGeneratorSettings::setArbitraryFrequency(const VnaArbitraryFrequency &af
     scpi = scpi.arg(af.denominator());
     scpi = scpi.arg(af.offset_Hz());
     _vna->write(scpi);
+}
+void VnaGeneratorSettings::arbitraryFrequencyOff() {
+    VnaArbitraryFrequency af;
+    af.clear();
+    setArbitraryFrequency(af);
 }
 
 
