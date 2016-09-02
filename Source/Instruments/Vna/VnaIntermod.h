@@ -8,6 +8,7 @@
 
 // Qt
 #include <Qt> // uint
+#include <QDataStream>
 #include <QObject>
 #include <QScopedPointer>
 
@@ -92,5 +93,8 @@ private:
 
 bool operator!=(const RsaToolbox::VnaIntermod::ToneSource &lsrc, const RsaToolbox::VnaIntermod::ToneSource &rsrc);
 bool operator==(const RsaToolbox::VnaIntermod::ToneSource &lsrc, const RsaToolbox::VnaIntermod::ToneSource &rsrc);
+
+QDataStream &operator<<(QDataStream &stream, const RsaToolbox::VnaIntermod::ToneSource &source);
+QDataStream &operator>>(QDataStream &stream, RsaToolbox::VnaIntermod::ToneSource &source);
 
 #endif // VnaIntermod_H

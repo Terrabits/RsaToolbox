@@ -247,3 +247,30 @@ bool operator!=(const RsaToolbox::VnaIntermod::ToneSource &lsrc, const RsaToolbo
 bool operator==(const RsaToolbox::VnaIntermod::ToneSource &lsrc, const RsaToolbox::VnaIntermod::ToneSource &rsrc) {
     return !(lsrc != rsrc);
 }
+
+QDataStream &operator<<(QDataStream &stream, const RsaToolbox::VnaIntermod::ToneSource &source) {
+    stream << source.isPort()
+           << source.isGenerator()
+           << quint32(source.port())
+           << quint32(source.generator());
+    return stream;
+}
+QDataStream &operator>>(QDataStream &stream, RsaToolbox::VnaIntermod::ToneSource &source) {
+    bool isPort;
+    bool isGenerator;
+    quint32 port;
+    quint32 generator;
+    stream >> isPort
+           >> isGenerator
+           >> port
+           >> generator;
+
+    if (isPort)
+        source.setPort(port);
+    else if (isGenerator)
+        source.setGenerator(generator);
+    else
+        source.clear();
+
+    return stream;
+}

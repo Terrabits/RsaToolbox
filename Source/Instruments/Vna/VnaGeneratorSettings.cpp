@@ -87,7 +87,7 @@ VnaArbitraryFrequency VnaGeneratorSettings::arbitraryFrequency() {
     return af;
 }
 void VnaGeneratorSettings::setArbitraryFrequency(const VnaArbitraryFrequency &af) {
-    QString scpi = ":SOUR%1:FREQ:CONV:ARB:EFR%2 %3,%4,%5,%6?\n";
+    QString scpi = ":SOUR%1:FREQ:CONV:ARB:EFR%2 %3,%4,%5,%6,SWE\n";
     scpi = scpi.arg(_channel);
     scpi = scpi.arg(_index);
     scpi = scpi.arg(!isRfOff());
