@@ -1,4 +1,4 @@
 TEMPLATE = subdirs
-SUBDIRS  = Source \
-           Test
+SUBDIRS  = src \
+           test
 CONFIG  += ordered
