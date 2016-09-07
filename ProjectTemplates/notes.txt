@@ -1,1 +1,0 @@
-This should be spun off into an R&S internal library
