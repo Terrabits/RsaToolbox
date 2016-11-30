@@ -1,33 +1,37 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Thu Sep 1 17:04:17 2016
+Wed Nov 30 14:20:27 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
 Address:          127.0.0.1::5025
 Make:             Rohde & Schwarz
-Model:            ZNB
-Serial No:        1311601044100104
+Model:            ZNBT
+Serial No:        1318700624100104
 Firmware Version: 2.70
 Min Frequency:    9 KHz
 Max Frequency:    8.5 GHz
-Number of Ports:  4
-Options:          ZNB-K2
-                  ZNB-K4
-                  ZNB-K14
-                  ZNB-K17
-                  ZNB-K19
-                  ZNB-K20
-                  ZNB8-B24
-                  ZNB8-B31
-                  ZNB8-B32
-                  ZNB8-B33
-                  ZNB8-B34
-                  ZNB-B81
-                  ZNB-B2
-                  ZNB-B12
-                  ZN-B15
+Number of Ports:  16
+Options:          ZNBT-K2
+                  ZNBT-K4
+                  ZNBT-K14
+                  ZNBT-K17
+                  ZNBT-K19
+                  ZNBT-K20
+                  ZNBT-B108
+                  ZNBT-B112
+                  ZNBT-B116
+                  ZNBT-B21
+                  ZNBT-B22
+                  ZNBT-B23
+                  ZNBT-B24
+                  ZNBT-B361
+                  ZNBT-B362
+                  ZNBT-B363
+                  ZNBT-B364
+                  ZNBT-B81
+                  ZNBT8-B12
 
 
 Write:    "*CLS"
@@ -58,8 +62,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
-Bytes: 47
+Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
+Bytes: 49
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT 1"
@@ -78,8 +82,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
-Bytes: 47
+Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
+Bytes: 49
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -94,8 +98,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
-Bytes: 47
+Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
+Bytes: 49
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT 0"
@@ -106,8 +110,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
-Bytes: 47
+Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
+Bytes: 49
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -130,8 +134,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
-Bytes: 47
+Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
+Bytes: 49
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT 1"
@@ -142,8 +146,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.70"
-Bytes: 47
+Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
+Bytes: 49
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
