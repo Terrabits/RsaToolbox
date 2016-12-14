@@ -1,6 +1,6 @@
 
 
-QT          += widgets
+QT          += core gui widgets
 HEADERS     += $$PWD/About/About.h \
                $$PWD/ConnectButton/ConnectButton.h \
                $$PWD/ConnectionTypeComboBox/ConnectionTypeComboBox.h \

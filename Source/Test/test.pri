@@ -1,6 +1,6 @@
 
 
-QT          += testlib
+QT          += core testlib
 HEADERS     += $$PWD/TestRunner/TestRunner.h \
                $$PWD/SpeedTracker/SpeedTracker.h \
                $$PWD/SpeedTracker/SpeedTrackerChild.h \

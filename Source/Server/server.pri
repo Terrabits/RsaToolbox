@@ -1,6 +1,6 @@
 
 
-QT          += network gui
+QT          += core network gui
 HEADERS     += $$PWD/Command.h \
                $$PWD/Menu.h \
                $$PWD/Parser.h \

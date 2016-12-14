@@ -6,6 +6,8 @@
 # Note: Requires core.pri
 #
 
+QT += core
+
 HEADERS     += $$PWD/NoBus.h
 INCLUDEPATH += $$PWD
 SOURCES     += $$PWD/NoBus.cpp

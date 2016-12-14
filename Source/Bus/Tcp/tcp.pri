@@ -1,7 +1,7 @@
 # RsaToolbox::TcpBus Requirements
 # Note: Requires base.pri
 
-QT += network
+QT += core network
 
 HEADERS     += $$PWD/TcpBus.h
 INCLUDEPATH += $$PWD
