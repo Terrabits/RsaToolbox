@@ -93,6 +93,20 @@ uint VnaCalUnit::ports() {
 
     return uint(physicalConnectors().size());
 }
+QVector<uint> VnaCalUnit::connectedToPorts() {
+    select();
+
+    QString scpi = "SENS:CORR:COLL:AUTO:PORT:CONN?";
+    QStringList response = _vna->query(scpi).trimmed().split(",");
+    QVector<uint> ports;
+    for (int i = 0; i < response.size(); i+=2) {
+        const uint unitPort = response[1].toUInt();
+        const uint vnaPort  = response[0].toUInt();
+        if (unitPort)
+            ports << vnaPort;
+    }
+    return ports;
+}
 
 bool VnaCalUnit::hasConnector(Connector connector) {
     return hasConnector("Factory", connector);
