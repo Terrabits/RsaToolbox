@@ -2125,6 +2125,10 @@ VnaSwitchMatrix *Vna::takeSwitchMatrix(uint index) {
  * \sa VnaCalUnit
  * @{*/
 
+bool Vna::isCalUnit() {
+    return !calUnits().isEmpty();
+}
+
 /*!
  * \brief Queries the presense of
  * calibration unit \c id
