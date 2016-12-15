@@ -8,8 +8,9 @@ using namespace RsaToolbox;
 #include <cstdio>
 
 // Qt
-#include <QDebug>
 #include <QByteArray>
+#include <QDebug>
+#include <QStringList>
 
 
 /*!

@@ -1714,7 +1714,7 @@ void Vna::deleteDiagrams() {
     if (numberOfDiagrams <= 1)
         return;
 
-    diagramList.removeLast();
+    diagramList.pop_back();
     deleteDiagrams(diagramList);
 }
 

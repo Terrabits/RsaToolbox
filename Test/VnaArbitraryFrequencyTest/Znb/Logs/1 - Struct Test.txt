@@ -1,7 +1,7 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Wed Nov 30 14:20:26 2016
+Wed Dec 14 17:52:52 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -12,7 +12,7 @@ Serial No:        1318700624100104
 Firmware Version: 2.70
 Min Frequency:    9 KHz
 Max Frequency:    8.5 GHz
-Number of Ports:  16
+Number of Ports:  8
 Options:          ZNBT-K2
                   ZNBT-K4
                   ZNBT-K14
@@ -20,16 +20,10 @@ Options:          ZNBT-K2
                   ZNBT-K19
                   ZNBT-K20
                   ZNBT-B108
-                  ZNBT-B112
-                  ZNBT-B116
                   ZNBT-B21
                   ZNBT-B22
-                  ZNBT-B23
-                  ZNBT-B24
                   ZNBT-B361
                   ZNBT-B362
-                  ZNBT-B363
-                  ZNBT-B364
                   ZNBT-B81
                   ZNBT8-B12
 

@@ -8,6 +8,9 @@
 #include "VnaChannel.h"
 using namespace RsaToolbox;
 
+// Qt
+#include <QDebug>
+
 
 VnaArbitraryFrequencyTest::VnaArbitraryFrequencyTest(ConnectionType type, QString address, QObject *parent) :
     VnaTestClass(type, address, parent)
