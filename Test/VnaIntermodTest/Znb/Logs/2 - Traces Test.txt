@@ -1,37 +1,28 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Wed Nov 30 14:20:27 2016
+Thu Dec 15 17:06:59 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
 Address:          127.0.0.1::5025
 Make:             Rohde & Schwarz
-Model:            ZNBT
-Serial No:        1318700624100104
+Model:            ZNB
+Serial No:        1311601064100104
 Firmware Version: 2.70
-Min Frequency:    9 KHz
-Max Frequency:    8.5 GHz
-Number of Ports:  16
-Options:          ZNBT-K2
-                  ZNBT-K4
-                  ZNBT-K14
-                  ZNBT-K17
-                  ZNBT-K19
-                  ZNBT-K20
-                  ZNBT-B108
-                  ZNBT-B112
-                  ZNBT-B116
-                  ZNBT-B21
-                  ZNBT-B22
-                  ZNBT-B23
-                  ZNBT-B24
-                  ZNBT-B361
-                  ZNBT-B362
-                  ZNBT-B363
-                  ZNBT-B364
-                  ZNBT-B81
-                  ZNBT8-B12
+Min Frequency:    100 KHz
+Max Frequency:    20 GHz
+Number of Ports:  4
+Options:          ZNB-K2
+                  ZNB-K4
+                  ZNB-K14
+                  ZNB-K17
+                  ZNB-K19
+                  ZNB-K20
+                  ZNB20-B24
+                  ZNB-B81
+                  ZNB-B1
+                  ZNB20-B2
 
 
 Write:    "*CLS"
@@ -126,16 +117,344 @@ Write:    ":CALC1:PAR:MEAS? 'Trc1'"
 Bytes: 24
 Status: 0x0 Operation completed successfully.
 
-Read:     "'S21'"
+Read:     "'LTI'"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SYST:ERR?"
-Bytes: 11
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
 Status: 0x0 Operation completed successfully.
 
-Read:     "-200,"Execution error;Function not available;:CALC1:PAR:MEAS 'Trc1','LTI';Function not available""
-Bytes: 98
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','LTO'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'LTO'"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','UTI'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'UTI'"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','UTO'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'UTO'"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IM3LO'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IM3LO'"
+Bytes: 8
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IM5UO'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IM5UO'"
+Bytes: 8
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IM7MO'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IM7MO'"
+Bytes: 8
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IM5LOR'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IM5LOR'"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IM7UOR'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IM7UOR'"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IM9MOR'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IM9MOR'"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IP3LO'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IP3LO'"
+Bytes: 8
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IP5UO'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IP5UO'"
+Bytes: 8
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS 'Trc1','IP7MO'"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CHAN:NAME:ID? 'Trc1'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:PAR:MEAS? 'Trc1'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'IP7MO'"
+Bytes: 8
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SYST:ERR?"
@@ -145,9 +464,6 @@ Status: 0x0 Operation completed successfully.
 Read:     "0,"No error""
 Bytes: 13
 Status: 0x0 Operation completed successfully.
-
-SCPI Errors:
--200: Execution error;Function not available;:CALC1:PAR:MEAS 'Trc1','LTI';Function not available
 
 Write:    "*CLS"
 Bytes: 5

@@ -1,28 +1,38 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Thu Dec 15 17:06:58 2016
+Thu Dec 15 17:24:52 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
-Address:          127.0.0.1::5025
+Address:          192.168.1.111::5025
 Make:             Rohde & Schwarz
-Model:            ZNB
-Serial No:        1311601064100104
-Firmware Version: 2.70
-Min Frequency:    100 KHz
-Max Frequency:    20 GHz
+Model:            ZVA
+Serial No:        1145111042100314
+Firmware Version: 3.80
+Min Frequency:    10 MHz
+Max Frequency:    43.5 GHz
 Number of Ports:  4
-Options:          ZNB-K2
-                  ZNB-K4
-                  ZNB-K14
-                  ZNB-K17
-                  ZNB-K19
-                  ZNB-K20
-                  ZNB20-B24
-                  ZNB-B81
-                  ZNB-B1
-                  ZNB20-B2
+Options:          ZVAB-K2
+                  ZVB-K3
+                  ZVA-K4
+                  ZVA-K5
+                  ZVA-K6
+                  ZVA-K7
+                  ZVA-K8
+                  ZVA-K9
+                  ZVA-K10
+                  ZVA-K17
+                  ZVA-K27
+                  ZVA-K30
+                  ZVA-K31
+                  ZVAB-B4
+                  ZVA40-B16
+                  ZVAB-B18
+                  ZVA40-B21
+                  ZVA40-B23
+                  ZVA40-B32
+                  ZVA40-B34
 
 
 Write:    "*CLS"
@@ -49,12 +59,12 @@ Write:    ":SOUR2:LPOR1?"
 Bytes: 14
 Status: 0x0 Operation completed successfully.
 
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
+Read:     ""
+Bytes: 0
+Status: 0x-4000ffeb Timeout expired before operation completed.
 
-Write:    ":CALC2:PAR:SDEF 'Trc2', 'S11'"
-Bytes: 30
+Write:    ":CALC2:PAR:SDEF 'Trc2', 'Sdd11'"
+Bytes: 32
 Status: 0x0 Operation completed successfully.
 
 Write:    ":DISP:WIND1:TRAC:EFE 'Trc2'"
@@ -101,66 +111,6 @@ Write:    ":SOUR1:POW1:STAT?"
 Bytes: 18
 Status: 0x0 Operation completed successfully.
 
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW2:STAT?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR2:POW1:STAT?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR2:POW2:STAT?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:STAT 1"
-Bytes: 19
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:STAT?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW2:STAT?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR2:POW1:STAT?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR2:POW2:STAT?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
 Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
@@ -169,8 +119,8 @@ Write:    ":SYST:ERR?"
 Bytes: 11
 Status: 0x0 Operation completed successfully.
 
-Read:     "0,"No error""
-Bytes: 13
+Read:     "0"
+Bytes: 2
 Status: 0x0 Operation completed successfully.
 
 Write:    "*CLS"

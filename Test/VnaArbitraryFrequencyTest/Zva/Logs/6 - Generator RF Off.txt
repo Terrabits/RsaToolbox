@@ -1,7 +1,7 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Thu Dec 15 17:25:14 2016
+Thu Dec 15 17:24:58 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -51,12 +51,12 @@ Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    "*IDN?"
-Bytes: 6
+Write:    ":SYST:COMM:RDEV:GEN:CAT?"
+Bytes: 25
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde&Schwarz,ZVA40-4Port,1145111042100314,3.80"
-Bytes: 48
+Read:     "''"
+Bytes: 3
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SYST:ERR?"

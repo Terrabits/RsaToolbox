@@ -25,6 +25,7 @@ public:
     ~VnaCalUnit();
 
     QString id() const;
+    void select();
 
     double minimunFrequency_Hz();
     double maximumFrequency_Hz();
@@ -67,8 +68,6 @@ private:
     QScopedPointer<Vna> placeholder;
     QString _id;
     bool isFullyInitialized() const;
-
-    void select();
     
 };
 }

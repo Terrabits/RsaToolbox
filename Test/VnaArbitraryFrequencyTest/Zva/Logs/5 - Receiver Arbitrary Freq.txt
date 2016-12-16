@@ -1,15 +1,15 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Tue Aug 23 18:00:54 2016
+Thu Dec 15 17:24:56 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
-Address:          192.168.183.227::5025
+Address:          192.168.1.111::5025
 Make:             Rohde & Schwarz
 Model:            ZVA
-Serial No:        1145111042100311
-Firmware Version: 3.70
+Serial No:        1145111042100314
+Firmware Version: 3.80
 Min Frequency:    10 MHz
 Max Frequency:    43.5 GHz
 Number of Ports:  4
@@ -33,7 +33,6 @@ Options:          ZVAB-K2
                   ZVA40-B23
                   ZVA40-B32
                   ZVA40-B34
-                  ZVA-B7
 
 
 Write:    "*CLS"
@@ -50,6 +49,14 @@ Status: 0x0 Operation completed successfully.
 
 Read:     "1"
 Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA40-4Port,1145111042100314,3.80"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CONF:CHAN2 1"
@@ -72,60 +79,48 @@ Write:    ":DISP:WIND1:TRAC:EFE 'Trc2'"
 Bytes: 28
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR1:POW1:STAT?"
-Bytes: 18
+Write:    "*IDN?"
+Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "1"
-Bytes: 2
+Read:     "Rohde&Schwarz,ZVA40-4Port,1145111042100314,3.80"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR2:POW1:STAT?"
-Bytes: 18
+Write:    ":SENS1:FREQ:CONV:ARB 2,3,4e+06,SWE"
+Bytes: 35
 Status: 0x0 Operation completed successfully.
 
-Read:     "1"
-Bytes: 2
+Write:    "*IDN?"
+Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR1:POW1:STAT 0"
-Bytes: 19
+Read:     "Rohde&Schwarz,ZVA40-4Port,1145111042100314,3.80"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR1:POW1:STAT?"
-Bytes: 18
+Write:    ":SENS1:FREQ:CONV:ARB?"
+Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Read:     "0"
-Bytes: 2
+Read:     "2,3,4000000,SWE"
+Bytes: 16
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR2:POW1:STAT?"
-Bytes: 18
+Write:    "*IDN?"
+Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "1"
-Bytes: 2
+Read:     "Rohde&Schwarz,ZVA40-4Port,1145111042100314,3.80"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR1:POW1:STAT 1"
-Bytes: 19
+Write:    ":SENS2:FREQ:CONV:ARB?"
+Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR1:POW1:STAT?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR2:POW1:STAT?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
+Read:     "1,1,0,SWE"
+Bytes: 10
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SYST:ERR?"

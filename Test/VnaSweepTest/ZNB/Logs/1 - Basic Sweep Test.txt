@@ -1,37 +1,28 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Wed Nov 30 14:20:29 2016
+Thu Dec 15 17:06:59 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
 Address:          127.0.0.1::5025
 Make:             Rohde & Schwarz
-Model:            ZNBT
-Serial No:        1318700624100104
+Model:            ZNB
+Serial No:        1311601064100104
 Firmware Version: 2.70
-Min Frequency:    9 KHz
-Max Frequency:    8.5 GHz
-Number of Ports:  16
-Options:          ZNBT-K2
-                  ZNBT-K4
-                  ZNBT-K14
-                  ZNBT-K17
-                  ZNBT-K19
-                  ZNBT-K20
-                  ZNBT-B108
-                  ZNBT-B112
-                  ZNBT-B116
-                  ZNBT-B21
-                  ZNBT-B22
-                  ZNBT-B23
-                  ZNBT-B24
-                  ZNBT-B361
-                  ZNBT-B362
-                  ZNBT-B363
-                  ZNBT-B364
-                  ZNBT-B81
-                  ZNBT8-B12
+Min Frequency:    100 KHz
+Max Frequency:    20 GHz
+Number of Ports:  4
+Options:          ZNB-K2
+                  ZNB-K4
+                  ZNB-K14
+                  ZNB-K17
+                  ZNB-K19
+                  ZNB-K20
+                  ZNB20-B24
+                  ZNB-B81
+                  ZNB-B1
+                  ZNB20-B2
 
 
 Write:    "*CLS"
@@ -114,8 +105,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT:CONT:ALL 0"
@@ -142,16 +133,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -234,16 +225,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -326,16 +317,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -418,16 +409,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -510,16 +501,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -602,16 +593,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -694,16 +685,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -786,16 +777,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -890,16 +881,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -982,16 +973,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -1074,16 +1065,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -1166,16 +1157,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -1258,16 +1249,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -1350,16 +1341,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -1442,16 +1433,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -1534,16 +1525,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -1618,8 +1609,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT:CONT:ALL 1"
@@ -1638,16 +1629,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -1662,8 +1653,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT 0"
@@ -1742,8 +1733,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT 1"
@@ -1762,16 +1753,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -1786,8 +1777,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 0"
@@ -1866,8 +1857,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 1"
@@ -1886,16 +1877,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -1910,8 +1901,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT 0"
@@ -1990,8 +1981,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT 1"
@@ -2010,16 +2001,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -2034,8 +2025,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT 0"
@@ -2114,8 +2105,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT 1"
@@ -2134,16 +2125,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -2158,8 +2149,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT 0"
@@ -2238,8 +2229,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT 1"
@@ -2258,16 +2249,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -2282,8 +2273,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 0"
@@ -2351,11 +2342,7 @@ Bytes: 30
 Status: 0x0 Operation completed successfully.
 
 Read:     "#43216..."
-Bytes: 2920
-Status: 0x0 Operation completed successfully.
-
-Read:     "..."
-Bytes: 303
+Bytes: 3223
 Status: 0x0 Operation completed successfully.
 
 Write:    ":FORM ASC"
@@ -2366,8 +2353,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 1"
@@ -2386,16 +2373,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -2410,8 +2397,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT 0"
@@ -2490,8 +2477,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT 1"
@@ -2510,16 +2497,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -2534,8 +2521,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT 0"
@@ -2614,8 +2601,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT 1"
@@ -2634,16 +2621,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -2658,8 +2645,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT 0"
@@ -2738,8 +2725,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT 1"
@@ -2758,16 +2745,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -2782,8 +2769,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 0"
@@ -2862,8 +2849,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 1"
@@ -2882,16 +2869,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -2906,8 +2893,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT 0"
@@ -2986,8 +2973,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT 1"
@@ -3006,16 +2993,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -3030,8 +3017,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT 0"
@@ -3110,8 +3097,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT 1"
@@ -3122,8 +3109,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT:CONT:ALL 0"
@@ -3150,16 +3137,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -3242,16 +3229,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -3334,16 +3321,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -3426,16 +3413,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -3518,16 +3505,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -3610,16 +3597,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -3702,16 +3689,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -3794,16 +3781,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -3878,8 +3865,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT:ALL"
@@ -3906,16 +3893,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -3998,16 +3985,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -4090,16 +4077,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -4182,16 +4169,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -4274,16 +4261,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -4366,16 +4353,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -4458,16 +4445,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -4550,16 +4537,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -4642,16 +4629,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -4734,16 +4721,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -4826,16 +4813,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -4918,16 +4905,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -5002,16 +4989,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 1"
@@ -5030,16 +5017,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -5122,16 +5109,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -5146,8 +5133,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 0"
@@ -5226,8 +5213,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 1"
@@ -5246,16 +5233,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -5338,16 +5325,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -5430,16 +5417,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -5522,16 +5509,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -5546,8 +5533,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 0"
@@ -5626,8 +5613,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 1"
@@ -5646,16 +5633,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -5738,16 +5725,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"
@@ -5830,16 +5817,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT1:CONT?"
@@ -5922,16 +5909,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT?"
@@ -5946,8 +5933,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 0"
@@ -6026,8 +6013,8 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT2:CONT 1"
@@ -6046,16 +6033,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT3:CONT?"
@@ -6138,16 +6125,16 @@ Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
 Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "Rohde-Schwarz,ZNBT8-16Port,1318700624100104,2.70"
-Bytes: 49
+Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":INIT4:CONT?"

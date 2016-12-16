@@ -159,6 +159,25 @@ void VnaLinearSweep::setIfbandwidth(double bandwidth, SiPrefix prefix) {
     _vna->write(scpi);
 }
 
+void VnaLinearSweep::createHarmonicGrid(double stopFrequency_Hz, double spacing_Hz) {
+    setStart(_vna->properties().minimumFrequency_Hz());
+    setStop(stopFrequency_Hz);
+    setSpacing(spacing_Hz);
+
+    QString scpi = ":CALC%1:TRAN:TIME:LPAS KSD\n";
+    scpi = scpi.arg(_channelIndex);
+    _vna->write(scpi);
+}
+void VnaLinearSweep::createHarmonicGrid(double stopFrequency_Hz, uint points) {
+    setStart(_vna->properties().minimumFrequency_Hz());
+    setStop(stopFrequency_Hz);
+    setPoints(points);
+
+    QString scpi = ":CALC%1:TRAN:TIME:KFST KFST\n";
+    scpi = scpi.arg(_channelIndex);
+    _vna->write(scpi);
+}
+
 QVector<uint> VnaLinearSweep::sParameterGroup() {
     QString scpi = ":CALC%1:PAR:DEF:SGR?\n";
     scpi = scpi.arg(_channelIndex);

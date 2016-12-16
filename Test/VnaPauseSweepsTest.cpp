@@ -128,6 +128,11 @@ void VnaPauseSweepsTest::manyManualChannels() {
     QVERIFY(!_vna->isError());
 }
 void VnaPauseSweepsTest::mixedChannels() {
+    if (_vna->properties().isZvaFamily()) {
+        qDebug() << "ZVA doesn\'t support mixed manual sweep mode";
+        return;
+    }
+
     if (!_vna->isChannel(1))
         _vna->createChannel(1);
     _vna->createChannel(2);
@@ -152,6 +157,11 @@ void VnaPauseSweepsTest::mixedChannels() {
     QVERIFY(!_vna->isError());
 }
 void VnaPauseSweepsTest::deletedChannels() {
+    if (_vna->properties().isZvaFamily()) {
+        qDebug() << "ZVA doesn\'t support mixed manual sweep mode";
+        return;
+    }
+
     if (!_vna->isChannel(1))
         _vna->createChannel(1);
     _vna->createChannel(2);

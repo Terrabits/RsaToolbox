@@ -1,15 +1,15 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Tue Aug 23 18:00:56 2016
+Thu Dec 15 17:34:17 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
-Address:          192.168.183.227::5025
+Address:          192.168.1.111::5025
 Make:             Rohde & Schwarz
 Model:            ZVA
-Serial No:        1145111042100311
-Firmware Version: 3.70
+Serial No:        1145111042100314
+Firmware Version: 3.80
 Min Frequency:    10 MHz
 Max Frequency:    43.5 GHz
 Number of Ports:  4
@@ -33,7 +33,6 @@ Options:          ZVAB-K2
                   ZVA40-B23
                   ZVA40-B32
                   ZVA40-B34
-                  ZVA-B7
 
 
 Write:    "*CLS"
@@ -52,79 +51,107 @@ Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CONF:CHAN2 1"
-Bytes: 14
+Write:    ":SYST:COMM:RDEV:AKAL:ADDR:ALL?"
+Bytes: 31
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR2:LPOR1?"
-Bytes: 14
+Read:     "'ZV-Z51::101498'"
+Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Read:     "1"
-Bytes: 2
+Write:    ":SYST:COMM:RDEV:AKAL:ADDR:ALL?"
+Bytes: 31
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CALC2:PAR:SDEF 'Trc2', 'S11'"
+Read:     "'ZV-Z51::101498'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:COMM:RDEV:AKAL:ADDR 'ZV-Z51::101498'"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Write:    "SENS:CORR:COLL:AUTO:PORT:CONN?"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Read:     "1,1,2,2,3,0,4,0"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:COMM:RDEV:AKAL:ADDR 'ZV-Z51::101498'"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Write:    "SENS:CORR:COLL:AUTO:PORT:CONN?"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Read:     "1,1,2,2,3,0,4,0"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:COMM:RDEV:AKAL:ADDR:ALL?"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Read:     "'ZV-Z51::101498'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:COMM:RDEV:AKAL:ADDR:ALL?"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Read:     "'ZV-Z51::101498'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:COMM:RDEV:AKAL:ADDR 'ZV-Z51::101498'"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:SWE:TYPE?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:SWE:TIME?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "0.027135"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA40-4Port,1145111042100314,3.80"
+Bytes: 48
+Status: 0x0 Operation completed successfully.
+
+Write:    "SENS1:CORR:COLL:AUTO '', 1, 2"
 Bytes: 30
 Status: 0x0 Operation completed successfully.
 
-Write:    ":DISP:WIND1:TRAC:EFE 'Trc2'"
-Bytes: 28
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:PERM?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR2:POW1:PERM?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:PERM 1"
-Bytes: 19
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:PERM?"
-Bytes: 18
+Write:    "*OPC?"
+Bytes: 6
 Status: 0x0 Operation completed successfully.
 
 Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SOUR2:POW1:PERM?"
-Bytes: 18
+Write:    ":SENS1:CORR:DATA:PAR:COUN?"
+Bytes: 27
 Status: 0x0 Operation completed successfully.
 
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:PERM 0"
-Bytes: 19
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR1:POW1:PERM?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SOUR2:POW1:PERM?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
+Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 

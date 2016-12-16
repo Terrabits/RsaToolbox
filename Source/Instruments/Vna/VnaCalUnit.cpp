@@ -96,12 +96,12 @@ uint VnaCalUnit::ports() {
 QVector<uint> VnaCalUnit::connectedToPorts() {
     select();
 
-    QString scpi = "SENS:CORR:COLL:AUTO:PORT:CONN?";
+    QString scpi = "SENS:CORR:COLL:AUTO:PORT:CONN?\n";
     QStringList response = _vna->query(scpi).trimmed().split(",");
     QVector<uint> ports;
     for (int i = 0; i < response.size(); i+=2) {
-        const uint unitPort = response[1].toUInt();
-        const uint vnaPort  = response[0].toUInt();
+        const uint unitPort = response[i+1].toUInt();
+        const uint vnaPort  = response[i].toUInt();
         if (unitPort)
             ports << vnaPort;
     }

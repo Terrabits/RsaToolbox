@@ -44,6 +44,10 @@ public:
     double ifBandwidth_Hz();
     void setIfbandwidth(double bandwidth, SiPrefix prefix = SiPrefix::None);
 
+    // Harmonic grids for time domain traces
+    void createHarmonicGrid(double stopFrequency_Hz, double spacing_Hz);
+    void createHarmonicGrid(double stopFrequency_Hz, uint points);
+
     QVector<uint> sParameterGroup();
     void setSParameterGroup(QVector<uint> ports);
     void clearSParameterGroup();
