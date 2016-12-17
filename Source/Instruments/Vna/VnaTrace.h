@@ -53,6 +53,8 @@ public:
     void networkParameter(NetworkParameter &parameter, BalancedPort &outputPort, BalancedPort &inputPort);
     void setNetworkParameter(NetworkParameter parameter, uint outputPort, uint inputPort);
     void setNetworkParameter(NetworkParameter parameter, BalancedPort outputPort, BalancedPort inputPort);
+    void setSParameter(uint outputPort, uint inputPort);
+    void setSParameter(BalancedPort outputPort, BalancedPort inputPort);
     void measure(NetworkTraceData &data);
 
     bool isWaveQuantity();

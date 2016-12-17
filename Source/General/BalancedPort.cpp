@@ -56,6 +56,11 @@ BalancedPort::BalancedPort(uint logicalPort) {
     _type = BalancedPort::Type::SingleEnded;
 }
 
+BalancedPort::BalancedPort(uint logicalPort, Type type) {
+    _port = logicalPort;
+    _type = type;
+}
+
 /*!
  * \brief Returns the port balance type
  *

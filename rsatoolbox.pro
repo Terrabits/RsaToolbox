@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
 SUBDIRS  = Source \
-           Test
+           Test \
+           Examples
 CONFIG  += ordered

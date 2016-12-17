@@ -214,15 +214,7 @@ ComplexMatrix3D VnaLinearSweep::readSParameterGroup() {
         return(sParameters);
     uint bufferSize = dataBufferSize(ports, points);
 
-    bool isContinuousSweep = _channel->isContinuousSweep();
-    if (isContinuousSweep)
-        _channel->manualSweepOn();
-    const uint timeout_ms = sweepTime_ms() * _channel->sweepCount();
-    _channel->startSweep();
-    _vna->pause(timeout_ms);
     ComplexRowVector data = _vna->queryComplexVector(scpi, bufferSize);
-    if (isContinuousSweep)
-        _channel->continuousSweepOn();
     return(toComplexMatrix3D(data, points, ports, ports));
 }
 
@@ -304,7 +296,21 @@ NetworkData VnaLinearSweep::measure(QVector<uint> ports) {
     network.setParameter(NetworkParameter::S);
     network.setReferenceImpedance(50);
     network.setXUnits(Units::Hertz);
+
+    // Sweep
+    bool isContinuousSweep = _channel->isContinuousSweep();
+    if (isContinuousSweep)
+        _channel->manualSweepOn();
+    const uint timeout_ms = sweepTime_ms() * _channel->sweepCount();
+    _channel->startSweep();
+    _vna->pause(timeout_ms);
+
+    // Get data
     network.setData(frequencies_Hz(), readSParameterGroup());
+
+    // Return
+    if (isContinuousSweep)
+        _channel->continuousSweepOn();
     return(network);
 }
 
@@ -335,7 +341,6 @@ bool VnaLinearSweep::saveSnp(QString filePathName, uint port1, uint port2, uint 
     return(saveSnp(filePathName, ports, format));
 }
 bool VnaLinearSweep::saveSnp(QString filePathName, QVector<uint> ports, ComplexFormat format) {
-
     QString extension = ".s%1p";
     extension = extension.arg(ports.size());
     if (filePathName.endsWith(extension, Qt::CaseInsensitive) == false)
@@ -348,7 +353,117 @@ bool VnaLinearSweep::saveSnp(QString filePathName, QVector<uint> ports, ComplexF
     scpi = scpi.arg(toString(ports, ","));
 
     _vna->write(scpi);
+    _vna->pause();
     return(_vna->fileSystem().isFile(filePathName));
+}
+
+// measureToSnp
+bool VnaLinearSweep::measureToSnp(QString filePathName, uint port1, ComplexFormat format) {
+    QVector<uint> ports;
+    ports << port1;
+    return(measureToSnp(filePathName, ports, format));
+}
+bool VnaLinearSweep::measureToSnp(QString filePathName, uint port1, uint port2, ComplexFormat format) {
+    QVector<uint> ports;
+    ports << port1;
+    ports << port2;
+    return(measureToSnp(filePathName, ports, format));
+}
+bool VnaLinearSweep::measureToSnp(QString filePathName, uint port1, uint port2, uint port3, ComplexFormat format) {
+    QVector<uint> ports;
+    ports << port1;
+    ports << port2;
+    ports << port3;
+    return(measureToSnp(filePathName, ports, format));
+}
+bool VnaLinearSweep::measureToSnp(QString filePathName, uint port1, uint port2, uint port3, uint port4, ComplexFormat format) {
+    QVector<uint> ports;
+    ports << port1;
+    ports << port2;
+    ports << port3;
+    ports << port4;
+    return(measureToSnp(filePathName, ports, format));
+}
+bool VnaLinearSweep::measureToSnp(QString filePathName, QVector<uint> ports, ComplexFormat format) {
+    if (ports.size() <= 0)
+        return false;
+    if (_channel->isCwSweep() || _channel->isTimeSweep())
+        return false;
+
+    // Sweep
+    bool isContinuousSweep = _channel->isContinuousSweep();
+    if (isContinuousSweep)
+        _channel->manualSweepOn();
+    const uint timeout_ms = sweepTime_ms() * _channel->sweepCount();
+    setSParameterGroup(ports);
+    _channel->startSweep();
+    _vna->pause(timeout_ms);
+
+    // File extention
+    QString extension = ".s%1p";
+    extension = extension.arg(ports.size());
+    if (filePathName.endsWith(extension, Qt::CaseInsensitive) == false)
+        filePathName += extension;
+
+    // Save
+    QString scpi = ":MMEM:STOR:TRAC:PORT %1,\'%2\',%3,%4\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(filePathName);
+    scpi = scpi.arg(toScpi(format));
+    scpi = scpi.arg(toString(ports, ","));
+    _vna->write(scpi);
+    _vna->pause(5000);
+
+    // Return
+    if (isContinuousSweep)
+        _channel->continuousSweepOn();
+    return(_vna->fileSystem().isFile(filePathName));
+}
+
+// measureToSnpLocally
+bool VnaLinearSweep::measureToSnpLocally(QString filePathName, uint port1, ComplexFormat format) {
+    QVector<uint> ports;
+    ports << port1;
+    return(measureToSnpLocally(filePathName, ports, format));
+}
+bool VnaLinearSweep::measureToSnpLocally(QString filePathName, uint port1, uint port2, ComplexFormat format) {
+    QVector<uint> ports;
+    ports << port1;
+    ports << port2;
+    return(measureToSnpLocally(filePathName, ports, format));
+}
+bool VnaLinearSweep::measureToSnpLocally(QString filePathName, uint port1, uint port2, uint port3, ComplexFormat format) {
+    QVector<uint> ports;
+    ports << port1;
+    ports << port2;
+    ports << port3;
+    return(measureToSnpLocally(filePathName, ports, format));
+}
+bool VnaLinearSweep::measureToSnpLocally(QString filePathName, uint port1, uint port2, uint port3, uint port4, ComplexFormat format) {
+    QVector<uint> ports;
+    ports << port1;
+    ports << port2;
+    ports << port3;
+    ports << port4;
+    return(measureToSnpLocally(filePathName, ports, format));
+}
+bool VnaLinearSweep::measureToSnpLocally(QString filePathName, QVector<uint> ports, ComplexFormat format) {
+    // Check file extention
+    QString extension = ".s%1p";
+    extension = extension.arg(ports.size());
+    if (filePathName.endsWith(extension, Qt::CaseInsensitive) == false)
+        filePathName += extension;
+
+    // Measure, save temp.snp to VNA
+    QString temp = uniqueAlphanumericString() + extension;
+    if (!measureToSnp(temp, ports, format))
+        return false;
+
+    // Transfer file
+    _vna->fileSystem().downloadFile(temp, filePathName);
+    _vna->fileSystem().deleteFile(temp);
+    _vna->pause();
+    return true;
 }
 
 void VnaLinearSweep::operator=(VnaLinearSweep const &other) {

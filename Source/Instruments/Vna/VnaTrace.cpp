@@ -208,6 +208,12 @@ void VnaTrace::setNetworkParameter(NetworkParameter parameter, BalancedPort outp
     scpi = scpi.arg(VnaScpi::toString(parameter, outputPort, inputPort));
     _vna->write(scpi);
 }
+void VnaTrace::setSParameter(uint outputPort, uint inputPort) {
+    setNetworkParameter(NetworkParameter::S, outputPort, inputPort);
+}
+void VnaTrace::setSParameter(BalancedPort outputPort, BalancedPort inputPort) {
+    setNetworkParameter(NetworkParameter::S, outputPort, inputPort);
+}
 void VnaTrace::measure(NetworkTraceData &data) {
     NetworkParameter parameter;
     BalancedPort outputPort, inputPort;
