@@ -66,23 +66,23 @@ public:
     NetworkData measure(uint port1, uint port2, uint port3, uint port4);
     NetworkData measure(QVector<uint> ports);
 
-    bool saveSnp(QString filePathName, uint port1, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool saveSnp(QString filePathName, uint port1, uint port2, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool saveSnp(QString filePathName, uint port1, uint port2, uint port3, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool saveSnp(QString filePathName, uint port1, uint port2, uint port3, uint port4, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool saveSnp(QString filePathName, QVector<uint> ports, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool saveSnp(QString filePathName, uint testPort1, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool saveSnp(QString filePathName, uint testPort1, uint testPort2, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool saveSnp(QString filePathName, uint testPort1, uint testPort2, uint testPort3, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool saveSnp(QString filePathName, uint testPort1, uint testPort2, uint testPort3, uint testPort4, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool saveSnp(QString filePathName, QVector<uint> testPorts, ComplexFormat format = ComplexFormat::RealImaginary);
 
-    bool measureToSnp(QString filePathName, uint port1, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool measureToSnp(QString filePathName, uint port1, uint port2, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool measureToSnp(QString filePathName, uint port1, uint port2, uint port3, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool measureToSnp(QString filePathName, uint port1, uint port2, uint port3, uint port4, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool measureToSnp(QString filePathName, QVector<uint> ports, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnp(QString filePathName, uint testPort1, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnp(QString filePathName, uint testPort1, uint testPort2, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnp(QString filePathName, uint testPort1, uint testPort2, uint testPort3, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnp(QString filePathName, uint testPort1, uint testPort2, uint testPort3, uint testPort4, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnp(QString filePathName, QVector<uint> testPorts, ComplexFormat format = ComplexFormat::RealImaginary);
 
-    bool measureToSnpLocally(QString filePathName, uint port1, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool measureToSnpLocally(QString filePathName, uint port1, uint port2, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool measureToSnpLocally(QString filePathName, uint port1, uint port2, uint port3, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool measureToSnpLocally(QString filePathName, uint port1, uint port2, uint port3, uint port4, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool measureToSnpLocally(QString filePathName, QVector<uint> ports, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnpLocally(QString filePathName, uint testPort1, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnpLocally(QString filePathName, uint testPort1, uint testPort2, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnpLocally(QString filePathName, uint testPort1, uint testPort2, uint testPort3, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnpLocally(QString filePathName, uint testPort1, uint testPort2, uint testPort3, uint testPort4, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnpLocally(QString filePathName, QVector<uint> testPorts, ComplexFormat format = ComplexFormat::RealImaginary);
 
     void operator=(VnaLinearSweep const &other);
 

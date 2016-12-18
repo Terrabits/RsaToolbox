@@ -1,27 +1,29 @@
-#include "VnaChannelTest.h"
+#include "VnaTraceTest.h"
 
 
 // RsaToolbox
 using namespace RsaToolbox;
 
 
-VnaChannelTest::VnaChannelTest(QObject *parent) : VnaTestClass(parent)
+VnaTraceTest::VnaTraceTest(QObject *parent) :
+    VnaTestClass(parent)
 {
 
 }
-VnaChannelTest::VnaChannelTest(ConnectionType type, const QString &address, QObject *parent) :
+VnaTraceTest::VnaTraceTest(RsaToolbox::ConnectionType type, const QString &address, QObject *parent) :
     VnaTestClass(type, address, parent)
 {
 
 }
-VnaChannelTest::~VnaChannelTest()
+
+VnaTraceTest::~VnaTraceTest()
 {
 
 }
 
-void VnaChannelTest::initTestCase() {
+void VnaTraceTest::initTestCase() {
     QString path;
-    path = "%1/VnaChannelTest/%2/Logs";
+    path = "%1/VnaTraceTest/%2/Logs";
     path = path.arg(SOURCE_DIR);
     if (isZvaFamily())
         path = path.arg("ZVA");

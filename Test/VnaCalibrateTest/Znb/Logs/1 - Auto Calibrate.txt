@@ -1,7 +1,7 @@
  Version 0.0
 (C) 2016 Rohde & Schwarz North America
 
-Thu Dec 15 17:07:08 2016
+Sat Dec 17 18:24:37 2016
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -41,22 +41,6 @@ Read:     "1"
 Bytes: 2
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SYST:PASS '894129'"
-Bytes: 20
-Status: 0x0 Operation completed successfully.
-
-Write:    ":DIAG:SERV:SFUN '0.1.0.20.8'"
-Bytes: 29
-Status: 0x0 Operation completed successfully.
-
-Write:    "*OPC?"
-Bytes: 6
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
 Write:    ":SYST:COMM:RDEV:AKAL:ADDR:ALL?"
 Bytes: 31
 Status: 0x0 Operation completed successfully.
@@ -71,78 +55,6 @@ Status: 0x0 Operation completed successfully.
 
 Read:     "'SimulatedCalu'"
 Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SYST:COMM:RDEV:AKAL:ADDR:ALL?"
-Bytes: 31
-Status: 0x0 Operation completed successfully.
-
-Read:     "'SimulatedCalu'"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SYST:COMM:RDEV:AKAL:ADDR 'SimulatedCalu'"
-Bytes: 42
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SENS1:SWE:TYPE?"
-Bytes: 17
-Status: 0x0 Operation completed successfully.
-
-Read:     "LIN"
-Bytes: 4
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SENS1:SWE:TIME?"
-Bytes: 17
-Status: 0x0 Operation completed successfully.
-
-Read:     "0.0175875"
-Bytes: 10
-Status: 0x0 Operation completed successfully.
-
-Write:    "*IDN?"
-Bytes: 6
-Status: 0x0 Operation completed successfully.
-
-Read:     "Rohde-Schwarz,ZNB20-4Port,1311601064100104,2.70"
-Bytes: 48
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SYST:FREQ? MAX"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Read:     "20000000000"
-Bytes: 12
-Status: 0x0 Operation completed successfully.
-
-Write:    "SENS1:CORR:COLL:AUTO '', 1, 2, 3, 4"
-Bytes: 36
-Status: 0x0 Operation completed successfully.
-
-Write:    "*OPC?"
-Bytes: 6
-Status: 0x0 Operation completed successfully.
-
-Read:     "1"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SENS1:CORR:DATA:PAR:COUN?"
-Bytes: 27
-Status: 0x0 Operation completed successfully.
-
-Read:     "0"
-Bytes: 2
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SYST:ERR?"
-Bytes: 11
-Status: 0x0 Operation completed successfully.
-
-Read:     "-221,"Settings conflict;SENS1:CORR:COLL:AUTO '', 1, 2, 3, 4;Each test port to be calibrated requires..."
-Bytes: 137
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SYST:ERR?"
@@ -152,9 +64,6 @@ Status: 0x0 Operation completed successfully.
 Read:     "0,"No error""
 Bytes: 13
 Status: 0x0 Operation completed successfully.
-
-SCPI Errors:
--221: Settings conflict;SENS1:CORR:COLL:AUTO '', 1, 2, 3, 4;Each test port to be calibrated requires a uniquely assigned Cal Unit port.
 
 Write:    "*CLS"
 Bytes: 5

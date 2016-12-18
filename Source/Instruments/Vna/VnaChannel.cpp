@@ -375,33 +375,33 @@ uint VnaChannel::numberOfLogicalPorts() {
     return(ports);
 }
 bool VnaChannel::isSingleEndedPort(uint logicalPort) {
-    return(physicalPorts(logicalPort).size() == 1);
+    return(testPorts(logicalPort).size() == 1);
 }
-uint VnaChannel::physicalPort(uint logicalPort) {
-    QVector<uint> ports = physicalPorts(logicalPort);
+uint VnaChannel::testPort(uint logicalPort) {
+    QVector<uint> ports = testPorts(logicalPort);
     if (ports.size() == 1)
         return(ports.first());
     else
         return(0);
 }
 bool VnaChannel::isBalancedPort(uint logicalPort) {
-    return(physicalPorts(logicalPort).size() == 2);
+    return(testPorts(logicalPort).size() == 2);
 }
-QVector<uint> VnaChannel::physicalPorts(uint logicalPort) {
+QVector<uint> VnaChannel::testPorts(uint logicalPort) {
     QString scpi = ":SOUR%1:LPOR%2?\n";
     scpi = scpi.arg(_index);
     scpi = scpi.arg(logicalPort);
     return(parseUints(_vna->query(scpi).trimmed(), ","));
 }
-void VnaChannel::physicalPorts(uint logicalPort, uint &physicalPort1, uint &physicalPort2) {
-    QVector<uint> ports = physicalPorts(logicalPort);
+void VnaChannel::testPorts(uint logicalPort, uint &testPort1, uint &testPort2) {
+    QVector<uint> ports = testPorts(logicalPort);
     if (ports.size() == 2) {
-        physicalPort1 = ports.first();
-        physicalPort2 = ports.last();
+        testPort1 = ports.first();
+        testPort2 = ports.last();
     }
     else {
-        physicalPort1 = 0;
-        physicalPort2 = 0;
+        testPort1 = 0;
+        testPort2 = 0;
     }
 }
 void VnaChannel::createSingleEndedPort(uint logicalPort, uint physicalPort) {
@@ -411,12 +411,12 @@ void VnaChannel::createSingleEndedPort(uint logicalPort, uint physicalPort) {
     scpi = scpi.arg(physicalPort);
     _vna->write(scpi);
 }
-void VnaChannel::createBalancedPort(uint logicalPort, uint physicalPort1, uint physicalPort2) {
+void VnaChannel::createBalancedPort(uint logicalPort, uint testPort1, uint testPort2) {
     QString scpi = ":SOUR%1:LPOR%2 %3,%4\n";
     scpi = scpi.arg(_index);
     scpi = scpi.arg(logicalPort);
-    scpi = scpi.arg(physicalPort1);
-    scpi = scpi.arg(physicalPort2);
+    scpi = scpi.arg(testPort1);
+    scpi = scpi.arg(testPort2);
     _vna->write(scpi);
 }
 void VnaChannel::deleteBalancedPort(uint logicalPort) {
@@ -429,6 +429,29 @@ void VnaChannel::deleteBalancedPorts() {
     QString scpi = ":SOUR%1:LPOR:CLE ALL\n";
     scpi = scpi.arg(_index);
     _vna->write(scpi);
+}
+
+QMap<uint,uint> VnaChannel::testToLogicalPortMap() {
+    QMap<uint,uint> map;
+    const uint logicalPorts = numberOfLogicalPorts();
+    for (uint i = 1; i <= logicalPorts; i++) {
+        const QVector<uint> _testPorts = testPorts(i);
+        foreach (uint port, _testPorts) {
+            map[port] = i;
+        }
+    }
+    return map;
+}
+QVector<uint> VnaChannel::logicalPorts(QVector<uint> testPorts) {
+    QMap<uint,uint> map = testToLogicalPortMap();
+    QVector<uint> logicalPorts;
+    foreach (uint testPort, testPorts) {
+        const uint logicalPort = map[testPort];
+        if (!logicalPorts.contains(logicalPort))
+            logicalPorts << logicalPort;
+    }
+    qSort(logicalPorts);
+    return logicalPorts;
 }
 
 // User-defined ports

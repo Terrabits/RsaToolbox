@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
     //   Real,
     //   Imaginary,
     //   Delay
-    trc1.setFormat(TraceFormat::dB);
+    trc1.setFormat(TraceFormat::DecibelMagnitude);
 
     // Set Parameter
 

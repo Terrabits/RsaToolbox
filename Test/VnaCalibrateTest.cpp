@@ -46,30 +46,33 @@ void VnaCalibrateTest::initTestCase() {
 }
 
 void VnaCalibrateTest::autoCalibrate() {
-    bool isSimulatedCal = false;
     if (!_vna->isCalUnit()) {
-        if (_vna->properties().isZnbFamily()) {
-            isSimulatedCal = true;
-            _vna->settings().serviceFunction("0.1.0.20.8", "894129");
-            _vna->pause();
-        }
-        else {
-            qDebug() << "Need cal unit for test";
-            return;
-        }
+        qDebug() << "Need cal unit for test";
+        return;
+    }
+    QStringList calUnits = _vna->calUnits();
+    if (calUnits.size() == 1 && calUnits.first() == "SimulatedCalu") {
+        qDebug() << "Need real cal unit for test";
+        return;
     }
 
-    QString calId = _vna->calUnits().first();
+    // Cal unit
+    QString calId;
+    if (calUnits.first() != "SimulatedCalu")
+        calId = calUnits.first();
+    else
+        calId = calUnits.last();
 
+    // Ports
     QVector<uint> ports;
     ports << 1
           << 2;
-    QCOMPARE(_vna->calUnit(calId).connectedToPorts(), ports);
 
+    // Ports connected
+    QCOMPARE(_vna->calUnit(calId).connectedToPorts(),        ports);
+
+    // Calibrate
     _vna->channel().calibrate().autoCalibrate(ports);
     QVERIFY(_vna->channel().isCalibrated());
-
-    if (isSimulatedCal) {
-        _vna->settings().serviceFunction("0.1.0.20.0", "894129");
-    }
+    QVERIFY(!_vna->isError());
 }
