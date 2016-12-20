@@ -3,4 +3,6 @@ TEMPLATE = subdirs
 SUBDIRS += \
     Channels \
     Diagrams \
-    Traces
+    Traces \
+    TimeDomain \
+    Markers

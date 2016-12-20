@@ -2,14 +2,14 @@
 
 // RsaToolbox
 #include "Vna.h"
-#include "VnaDiagram.h"
 using namespace RsaToolbox;
 
 // Qt
 #include <QCoreApplication>
+#include <QDir>
 
 
-int main(int argc, char *argv[])
+void main()
 {
     Vna vna(ConnectionType::VisaTcpConnection, "127.0.0.1");
 
@@ -54,6 +54,4 @@ int main(int argc, char *argv[])
     // displayed in diagram 1
     d1.channels(); // => QVector<uint>
     d1.traces();   // => QStringList
-
-    return 0;
 }

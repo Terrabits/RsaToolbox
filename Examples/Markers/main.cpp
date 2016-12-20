@@ -1,8 +1,21 @@
+
+
+// RsaToolbox
+#include "Vna.h"
+using namespace RsaToolbox;
+
+// Qt
 #include <QCoreApplication>
+#include <QDir>
 
-int main(int argc, char *argv[])
+
+void main()
 {
-    QCoreApplication a(argc, argv);
+    Vna vna(ConnectionType::VisaTcpConnection, "127.0.0.1");
 
-    return a.exec();
+    // Start from instrument preset
+    vna.preset();
+    vna.pause();
+
+
 }

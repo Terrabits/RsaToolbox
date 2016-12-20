@@ -1078,7 +1078,7 @@ QString VnaScpi::toPortPair(uint outputPort, uint inputPort) {
 // Time Domain
 QString VnaScpi::toString(VnaTimeDomain::Window window) {
     switch(window) {
-    case VnaTimeDomain::Window::Regular:
+    case VnaTimeDomain::Window::Rectangle:
         return("RECT");
     case VnaTimeDomain::Window::Hamming:
         return("HAMM");
@@ -1095,7 +1095,7 @@ QString VnaScpi::toString(VnaTimeDomain::Window window) {
 VnaTimeDomain::Window VnaScpi::toTimeDomainWindow(QString scpi) {
     scpi = scpi.toUpper();
     if (scpi == "RECT")
-        return VnaTimeDomain::Window::Regular;
+        return VnaTimeDomain::Window::Rectangle;
     if (scpi == "HAMM")
         return VnaTimeDomain::Window::Hamming;
     if (scpi == "HANN")
@@ -1105,7 +1105,7 @@ VnaTimeDomain::Window VnaScpi::toTimeDomainWindow(QString scpi) {
     if (scpi == "DCH")
         return VnaTimeDomain::Window::DolphChebychev;
 
-    return VnaTimeDomain::Window::Regular;
+    return VnaTimeDomain::Window::Rectangle;
 }
 
 // Intermod

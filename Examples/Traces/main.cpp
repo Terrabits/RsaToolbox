@@ -2,14 +2,14 @@
 
 // RsaToolbox
 #include "Vna.h"
-#include "VnaTrace.h"
 using namespace RsaToolbox;
 
 // Qt
 #include <QCoreApplication>
+#include <QDir>
 
 
-int main(int argc, char *argv[])
+void main()
 {
     Vna vna(ConnectionType::VisaTcpConnection, "127.0.0.1");
 
@@ -77,6 +77,4 @@ int main(int argc, char *argv[])
     //   MagnitudeDegrees
     //   RealImaginary
     trc1.saveComplexCsvLocally(src.filePath("complex_data.csv"), ComplexFormat::DecibelDegrees);
-
-    return 0;
 }

@@ -129,10 +129,10 @@ public:
     void write(QRowVector frequencies_Hz, ComplexRowVector data);
 
     bool saveCsv(QString filename);
-    bool saveComplexCsv(QString filename, ComplexFormat format);
+    bool saveComplexCsv(QString filename, ComplexFormat format = ComplexFormat::RealImaginary);
 
     bool saveCsvLocally(QString filename);
-    bool saveComplexCsvLocally(QString filename, ComplexFormat format);
+    bool saveComplexCsvLocally(QString filename, ComplexFormat format = ComplexFormat::RealImaginary);
 
     // Marker
     bool isMarker(uint index);

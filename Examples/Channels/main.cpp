@@ -2,8 +2,6 @@
 
 // RsaToolbox
 #include "Vna.h"
-#include "VnaChannel.h"
-#include "VnaLinearSweep.h"
 using namespace RsaToolbox;
 
 // Qt

@@ -24,7 +24,7 @@ class VnaTimeDomain : public QObject
 public:
 
     enum /*class*/ Window {
-        Regular,
+        Rectangle,
         Hamming,
         Hann,
         Bohman,
