@@ -128,6 +128,12 @@ public:
     void write(ComplexRowVector data);
     void write(QRowVector frequencies_Hz, ComplexRowVector data);
 
+    bool saveCsv(QString filename);
+    bool saveComplexCsv(QString filename, ComplexFormat format);
+
+    bool saveCsvLocally(QString filename);
+    bool saveComplexCsvLocally(QString filename, ComplexFormat format);
+
     // Marker
     bool isMarker(uint index);
     bool isNotMarker(uint index);
@@ -166,10 +172,10 @@ private:
     bool isFullyInitialized() const;
 
     // Scpi
+    QString toString(ComplexFormat format);
+
     uint bufferSize();
     uint complexBufferSize();
-    void parseParameters(QString scpi);
-    void parseTwoPortIndices(QString scpi, uint &output, uint &input);
 };
 }
 

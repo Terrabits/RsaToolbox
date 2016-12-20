@@ -47,8 +47,8 @@ public:
     void setYAxisMaximum(double max);
     void setYAxis(double min, double max);
 
-    void saveScreenshot(QString filename, ImageFormat format = ImageFormat::Png);
-    void saveScreenshotLocally(QString filename, ImageFormat format = ImageFormat::Png);
+    bool saveScreenshot(QString filename, ImageFormat format = ImageFormat::Png);
+    bool saveScreenshotLocally(QString filename, ImageFormat format = ImageFormat::Png);
 
     void operator=(VnaDiagram const &other);
 

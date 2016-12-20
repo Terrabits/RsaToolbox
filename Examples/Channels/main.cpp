@@ -8,6 +8,7 @@ using namespace RsaToolbox;
 
 // Qt
 #include <QCoreApplication>
+#include <QDir>
 #include <QVector>
 
 
@@ -79,9 +80,10 @@ int main(int argc, char *argv[])
     //   DecibelDegrees
     //   MagnitudeDegrees
     //   RealImaginary
+    QDir src(SOURCE_DIR);
     QVector<uint> ports;
     ports << 1 << 2 << 3 << 4;
-    ch1Sweep.measureToSnpLocally("filename.s4p", ports, ComplexFormat::RealImaginary);
+    ch1Sweep.measureToSnpLocally(src.filePath("filename.s4p"), ports, ComplexFormat::RealImaginary);
 
     return 0;
 }

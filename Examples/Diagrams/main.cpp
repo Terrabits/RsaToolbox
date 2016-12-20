@@ -27,17 +27,20 @@ int main(int argc, char *argv[])
     d1.setYAxis(-40., 40.0);
 
     // Save screenshot on Vna
+    // Default location:
+    //   C:\Users\Public\Documents\Rohde-Schwarz\Vna
     // Formats:
     //   Bmp
     //   Jpg
     //   Png
     //   Pdf
     //   Svg
-    d1.saveScreenshot("screenshot_d1.png", ImageFormat::Png);
+//    d1.saveScreenshot("screenshot_d1.png", ImageFormat::Png);
 
     // Save screenshot locally
     // (save, transfer to PC)
-    d1.saveScreenshotLocally("local_screenshot_d1.jpg", ImageFormat::Jpg);
+    QDir src(SOURCE_DIR);
+    d1.saveScreenshotLocally(src.filePath("local_screenshot_d1.jpg"), ImageFormat::Jpg);
 
     // Create new diagram
     // with next index
@@ -51,7 +54,6 @@ int main(int argc, char *argv[])
     // displayed in diagram 1
     d1.channels(); // => QVector<uint>
     d1.traces();   // => QStringList
-
 
     return 0;
 }

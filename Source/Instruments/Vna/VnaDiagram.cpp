@@ -157,34 +157,31 @@ void VnaDiagram::setYAxis(double min, double max) {
         _vna->trace(trace).setYAxis(min, max);
 }
 
-void VnaDiagram::saveScreenshot(QString filename, ImageFormat format) {
-    _vna->settings().setImageFormat(format);
-
+bool VnaDiagram::saveScreenshot(QString filename, ImageFormat format) {
     QString extension = "." + toString(format);
     if (!filename.endsWith(extension, Qt::CaseInsensitive))
         filename += extension;
-    _vna->settings().setFileDestination(filename);
 
     select();
+    _vna->settings().setFileDestination(filename);
+    _vna->settings().setImageFormat(format);
     _vna->write(":HCOP:PAGE:WIND ACT\n");
     _vna->write(":HCOP\n");
     _vna->pause();
-    if (!_vna->fileSystem().isFile(filename))
-        _vna->pause();
-    if (!_vna->fileSystem().isFile(filename))
-        _vna->pause();
-    if (!_vna->fileSystem().isFile(filename))
-        _vna->pause();
+    return _vna->fileSystem().isFile(filename);
 }
-void VnaDiagram::saveScreenshotLocally(QString filename, ImageFormat format) {
+bool VnaDiagram::saveScreenshotLocally(QString filename, ImageFormat format) {
     QString extension = "." + toString(format);
     QString tempFilename = uniqueAlphanumericString() + extension;
     if (!filename.endsWith(extension, Qt::CaseInsensitive))
         filename += extension;
 
-    saveScreenshot(tempFilename);
-    _vna->fileSystem().downloadFile(tempFilename, filename);
-    _vna->fileSystem().deleteFile(tempFilename);
+    bool isFile = saveScreenshot(tempFilename, format);
+    if (isFile) {
+        _vna->fileSystem().downloadFile(tempFilename, filename);
+        _vna->fileSystem().deleteFile(tempFilename);
+    }
+    return isFile;
 }
 
 void VnaDiagram::operator=(VnaDiagram const &other) {

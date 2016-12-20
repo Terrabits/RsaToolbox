@@ -66,7 +66,9 @@ void VnaCalibrateTest::autoCalibrate() {
     // Ports
     QVector<uint> ports;
     ports << 1
-          << 2;
+          << 2
+          << 3
+          << 4;
 
     // Ports connected
     QCOMPARE(_vna->calUnit(calId).connectedToPorts(),        ports);

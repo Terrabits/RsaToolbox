@@ -16,3 +16,5 @@ TEMPLATE = app
 
 include(../../_install/rsatoolbox.pri)
 SOURCES += main.cpp
+
+DEFINES     += SOURCE_DIR=\\\"$$PWD\\\"

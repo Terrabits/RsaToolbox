@@ -526,6 +526,62 @@ void VnaTrace::write(QRowVector frequencies_Hz, ComplexRowVector data) {
     write(data);
 }
 
+bool VnaTrace::saveCsv(QString filename) {
+    QString extension = ".csv";
+    if (!filename.endsWith(extension, Qt::CaseInsensitive))
+        filename += extension;
+
+    QString scpi = ":MMEM:STOR:TRAC '%1', '%2', FORM, %3, POIN, COMM";
+    scpi = scpi.arg(name());
+    scpi = scpi.arg(filename);
+    scpi = scpi.arg(toString(ComplexFormat::RealImaginary));
+    _vna->write(scpi);
+    _vna->pause();
+    return _vna->fileSystem().isFile(filename);
+}
+bool VnaTrace::saveComplexCsv(QString filename, ComplexFormat format) {
+    QString extension = ".csv";
+    if (!filename.endsWith(extension, Qt::CaseInsensitive))
+        filename += extension;
+
+    QString scpi = ":MMEM:STOR:TRAC '%1', '%2', UNF, %3, POIN, COMM";
+    scpi = scpi.arg(name());
+    scpi = scpi.arg(filename);
+    scpi = scpi.arg(toString(format));
+    _vna->write(scpi);
+    _vna->pause();
+    return _vna->fileSystem().isFile(filename);
+}
+
+bool VnaTrace::saveCsvLocally(QString filename) {
+    QString extension = ".csv";
+    QString temp = uniqueAlphanumericString() + extension;
+    if (!filename.endsWith(extension, Qt::CaseInsensitive)) {
+        filename += extension;
+    }
+
+    bool isFile = saveCsv(temp);
+    if (isFile) {
+        _vna->fileSystem().downloadFile(temp, filename);
+        _vna->fileSystem().deleteFile(temp);
+    }
+    return isFile;
+}
+bool VnaTrace::saveComplexCsvLocally(QString filename, ComplexFormat format) {
+    QString extension = ".csv";
+    QString temp = uniqueAlphanumericString() + extension;
+    if (!filename.endsWith(extension, Qt::CaseInsensitive)) {
+        filename += extension;
+    }
+
+    bool isFile = saveComplexCsv(temp, format);
+    if (isFile) {
+        _vna->fileSystem().downloadFile(temp, filename);
+        _vna->fileSystem().deleteFile(temp);
+    }
+    return isFile;
+}
+
 // Marker
 bool VnaTrace::isMarker(uint index) {
     select();
@@ -685,6 +741,19 @@ bool VnaTrace::isFullyInitialized() const {
 
     //else
     return(true);
+}
+
+QString VnaTrace::toString(ComplexFormat format) {
+    switch(format) {
+    case ComplexFormat::RealImaginary:
+        return "COMP";
+    case ComplexFormat::DecibelDegrees:
+        return "LOGP";
+    case ComplexFormat::MagnitudeDegrees:
+        return "LINP";
+    default:
+        return "COMP";
+    }
 }
 
 uint VnaTrace::bufferSize() {
