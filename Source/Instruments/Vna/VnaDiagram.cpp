@@ -169,6 +169,12 @@ void VnaDiagram::saveScreenshot(QString filename, ImageFormat format) {
     _vna->write(":HCOP:PAGE:WIND ACT\n");
     _vna->write(":HCOP\n");
     _vna->pause();
+    if (!_vna->fileSystem().isFile(filename))
+        _vna->pause();
+    if (!_vna->fileSystem().isFile(filename))
+        _vna->pause();
+    if (!_vna->fileSystem().isFile(filename))
+        _vna->pause();
 }
 void VnaDiagram::saveScreenshotLocally(QString filename, ImageFormat format) {
     QString extension = "." + toString(format);

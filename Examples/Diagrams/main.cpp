@@ -33,11 +33,11 @@ int main(int argc, char *argv[])
     //   Png
     //   Pdf
     //   Svg
-    d1.saveScreenshot("screenshot.png", ImageFormat::Png);
+    d1.saveScreenshot("screenshot_d1.png", ImageFormat::Png);
 
     // Save screenshot locally
     // (save, transfer to PC)
-    d1.saveScreenshotLocally("local_screenshot.jpg", ImageFormat::Jpg);
+    d1.saveScreenshotLocally("local_screenshot_d1.jpg", ImageFormat::Jpg);
 
     // Create new diagram
     // with next index
