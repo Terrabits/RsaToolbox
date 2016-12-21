@@ -33,11 +33,12 @@
 
 
 // Qt
+#include <QMap>
+#include <QObject>
+#include <QScopedPointer>
 #include <QString>
 #include <QStringList>
 #include <QVector>
-#include <QObject>
-#include <QScopedPointer>
 
 
 namespace RsaToolbox {
@@ -135,24 +136,27 @@ public:
     // Balanced ports
     uint numberOfLogicalPorts();
     bool isSingleEndedPort(uint logicalPort);
-    uint physicalPort(uint logicalPort);
+    uint testPort(uint logicalPort);
     bool isBalancedPort(uint logicalPort);
-    void physicalPorts(uint logicalPort, uint &physicalPort1, uint &physicalPort2);
-    void createSingleEndedPort(uint logicalPort, uint physicalPort);
-    void createBalancedPort(uint logicalPort, uint physicalPort1, uint physicalPort2);
+    void testPorts(uint logicalPort, uint &testPort1, uint &testPort2);
+    void createSingleEndedPort(uint logicalPort, uint testPort);
+    void createBalancedPort(uint logicalPort, uint testPort1, uint testPort2);
     void deleteBalancedPort(uint logicalPort);
     void deleteBalancedPorts();
 
+    QMap<uint, uint> testToLogicalPortMap();
+    QVector<uint> logicalPorts(QVector<uint> testPorts);
+
     // User-defined ports
-    bool isUserDefinedPort(uint physicalPort);
-    bool isNotUserDefinedPort(uint physicalPort);
-    VnaUserDefinedPort userDefinedPort(uint physicalPort);
-    void setUserDefinedPort(uint physicalPort, VnaUserDefinedPort userDefinedPort);
-    void deleteUserDefinedPort(uint physicalPort);
+    bool isUserDefinedPort(uint testPort);
+    bool isNotUserDefinedPort(uint testPort);
+    VnaUserDefinedPort userDefinedPort(uint testPort);
+    void setUserDefinedPort(uint testPort, VnaUserDefinedPort userDefinedPort);
+    void deleteUserDefinedPort(uint testPort);
     void deleteUserDefinedPorts();
 
     // Port settings
-    VnaPortSettings& port(uint physicalPort);
+    VnaPortSettings& port(uint testPort);
 
     // Receiver Arbitrary Frequency
     // - Applies to all ports -
@@ -232,13 +236,13 @@ private:
     QStringList zvaTraces();
 
     // Balanced Ports
-    QVector<uint> physicalPorts(uint logicalPort);
+    QVector<uint> testPorts(uint logicalPort);
 
     // User-defined ports
-    bool isUserDefinedPortOn(uint physicalPort);
-    bool isUserDefinedPortOff(uint physicalPort);
-    void userDefinedPortOn(uint physicalPort);
-    void userDefinedPortOff(uint physicalPort);
+    bool isUserDefinedPortOn(uint testPort);
+    bool isUserDefinedPortOff(uint testPort);
+    void userDefinedPortOn(uint testPort);
+    void userDefinedPortOff(uint testPort);
 };
 } // RsaToolbox
 

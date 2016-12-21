@@ -63,8 +63,8 @@ void VnaPauseSweeps::removeNonExistentChannels() {
     while (i < _channels.size()) {
         const uint c = _channels[i];
         if (!currentChannels.contains(c)) {
-            _channels.remove(i);
-            _continuous.remove(i);
+            _channels.removeAt(i);
+            _continuous.removeAt(i);
         }
         else {
             i++;

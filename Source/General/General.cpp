@@ -7,6 +7,7 @@ using namespace RsaToolbox;
 
 // Qt
 #include <QUuid>
+#include <QStandardPaths>
 #include <QCoreApplication>
 
 // C++ std lib
@@ -257,6 +258,29 @@ SiPrefix RsaToolbox::getPrefix(double value) {
     return(prefixes[count-1]);
 }
 
+
+// File system
+// Only necessary since QStandardPaths
+// no longer returns C:\ProgramData
+// for some reason.
+QString RsaToolbox::GetAppDataPath(QString manufacturerFolder, QString applicationFolder) {
+    QDir dataDir;
+    QDir dir;
+#ifdef Q_OS_WIN32
+    dir = QDir::root();
+    if (dir.cd("ProgramData") || dir.cd("Documents and Settings/All Users/Application Data"))
+        dataDir = dir;
+    else
+        dataDir.setPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
+#else
+    dir.setPath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
+#endif
+    dataDir.mkpath(manufacturerFolder);
+    dataDir.cd(manufacturerFolder);
+    dataDir.mkpath(applicationFolder);
+    dataDir.cd(applicationFolder);
+    return dataDir.path();
+}
 
 // Formatting
 void RsaToolbox::chopTrailingZeros(QString &text) {

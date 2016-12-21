@@ -47,7 +47,6 @@ public:
     void searchRightForPeak();
     void searchLeftFor(double y);
     void searchLeftForPeak();
-    void setReferenceMarker();
 
     // Calculate:
     void measureBandpassFilter();
@@ -62,6 +61,9 @@ private:
     uint _index;
     
     bool isFullyInitialized() const;
+
+    void setSearchValue(double value);
+    void searchForScpi(QString type);
     
 };
 }

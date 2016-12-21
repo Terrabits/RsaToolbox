@@ -53,6 +53,8 @@ public:
     void networkParameter(NetworkParameter &parameter, BalancedPort &outputPort, BalancedPort &inputPort);
     void setNetworkParameter(NetworkParameter parameter, uint outputPort, uint inputPort);
     void setNetworkParameter(NetworkParameter parameter, BalancedPort outputPort, BalancedPort inputPort);
+    void setSParameter(uint outputPort, uint inputPort);
+    void setSParameter(BalancedPort outputPort, BalancedPort inputPort);
     void measure(NetworkTraceData &data);
 
     bool isWaveQuantity();
@@ -126,6 +128,12 @@ public:
     void write(ComplexRowVector data);
     void write(QRowVector frequencies_Hz, ComplexRowVector data);
 
+    bool saveCsv(QString filename);
+    bool saveComplexCsv(QString filename, ComplexFormat format = ComplexFormat::RealImaginary);
+
+    bool saveCsvLocally(QString filename);
+    bool saveComplexCsvLocally(QString filename, ComplexFormat format = ComplexFormat::RealImaginary);
+
     // Marker
     bool isMarker(uint index);
     bool isNotMarker(uint index);
@@ -164,10 +172,10 @@ private:
     bool isFullyInitialized() const;
 
     // Scpi
+    QString toString(ComplexFormat format);
+
     uint bufferSize();
     uint complexBufferSize();
-    void parseParameters(QString scpi);
-    void parseTwoPortIndices(QString scpi, uint &output, uint &input);
 };
 }
 

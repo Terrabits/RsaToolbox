@@ -7,6 +7,9 @@
 
 QT += core gui widgets
 
+include($$PWD/Dialogs/vnadialogs.pri)
+include($$PWD/Models/vnamodels.pri)
+include($$PWD/Views/vnaviews.pri)
 
 HEADERS += $$PWD/VnaSet.h \
            $$PWD/VnaUserDefinedPort.h \
@@ -48,7 +51,7 @@ HEADERS += $$PWD/VnaSet.h \
            $$PWD/VnaIntermod.h \
            $$PWD/VnaArbitraryFrequency.h \
            $$PWD/VnaPortSettings.h \
-           $$PWD/VnaGeneratorSettings.h
+    $$PWD/VnaGeneratorSettings.h
 INCLUDEPATH += $$PWD
 SOURCES += $$PWD/VnaSet.cpp \
            $$PWD/VnaUserDefinedPort.cpp \
@@ -90,4 +93,4 @@ SOURCES += $$PWD/VnaSet.cpp \
            $$PWD/VnaIntermod.cpp \
            $$PWD/VnaArbitraryFrequency.cpp \
            $$PWD/VnaPortSettings.cpp \
-           $$PWD/VnaGeneratorSettings.cpp
+    $$PWD/VnaGeneratorSettings.cpp

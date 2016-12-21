@@ -8,12 +8,18 @@ HEADERS += VnaIntermodTest.h \
            VnaPauseSweepsTest.h \
            VnaArbitraryFrequencyTest.h \
            VnaSweepTest.h \
-           UnitsTest.h
+           UnitsTest.h \
+           VnaCalibrateTest.h \
+    VnaChannelTest.h \
+    VnaTraceTest.h
 SOURCES += main.cpp \
            VnaIntermodTest.cpp \
            VnaPauseSweepsTest.cpp \
            VnaArbitraryFrequencyTest.cpp \
            VnaSweepTest.cpp \
-           UnitsTest.cpp
+           UnitsTest.cpp \
+           VnaCalibrateTest.cpp \
+    VnaChannelTest.cpp \
+    VnaTraceTest.cpp
 
 DEFINES += SOURCE_DIR=\\\"$$PWD/\\\"

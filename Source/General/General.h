@@ -47,6 +47,9 @@ SiPrefix toSiPrefix(char prefix);
 SiPrefix getPrefix(double value);
 
 
+// File system
+QString GetAppDataPath(QString manufacturerFolder, QString applicationFolder);
+
 // Formatting Functions
 void chopTrailingZeros(QString &text);
 QString toEngineeringNotation(double value, int decimalPlaces, SiPrefix prefix = SiPrefix::None);

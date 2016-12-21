@@ -71,8 +71,6 @@ public:
 
     NameLabel selectedKit(Connector type);
 
-
-
     void start(QString calibrationName, CalType type, QVector<uint> ports);
     void measureOpen(uint port);
     void measureShort(uint port);
@@ -84,6 +82,8 @@ public:
 
     void measureThru(uint port1, uint port2);
     void apply();
+
+    void autoCalibrate(QVector<uint> ports, QString calId="", QString characterization="");
 
     void operator=(const VnaCalibrate &other);
 

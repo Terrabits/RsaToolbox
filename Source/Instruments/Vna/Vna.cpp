@@ -1714,7 +1714,7 @@ void Vna::deleteDiagrams() {
     if (numberOfDiagrams <= 1)
         return;
 
-    diagramList.pop_back();
+    diagramList.removeLast();
     deleteDiagrams(diagramList);
 }
 
@@ -2124,6 +2124,10 @@ VnaSwitchMatrix *Vna::takeSwitchMatrix(uint index) {
  * (autocal units)
  * \sa VnaCalUnit
  * @{*/
+
+bool Vna::isCalUnit() {
+    return !calUnits().isEmpty();
+}
 
 /*!
  * \brief Queries the presense of

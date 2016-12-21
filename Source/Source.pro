@@ -14,8 +14,10 @@ include(core.pri)
 include(Bus/Tcp/tcp.pri)
 include(Bus/No/no.pri)
 include(Bus/Visa/visa.pri)
+include(Gui/gui.pri)
 include(Instruments/Vna/vna.pri)
 include(Test/test.pri)
+include(Server/server.pri)
 
 DEFINES     += SOURCE_DIR=\\\"$$PWD\\\"
 CONFIG(debug, debug|release) {

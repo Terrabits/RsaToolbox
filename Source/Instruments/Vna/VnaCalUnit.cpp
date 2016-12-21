@@ -54,7 +54,7 @@ QString VnaCalUnit::id() const {
     return _id;
 }
 
-double VnaCalUnit::minimunFrequency_Hz() {
+double VnaCalUnit::minimumFrequency_Hz() {
     select();
     QString scpi = ":SYST:COMM:RDEV:AKAL:FRAN? \'Factory\'\n";
     QStringList result = _vna->query(scpi).trimmed().split(",");
@@ -92,6 +92,20 @@ uint VnaCalUnit::ports() {
     }
 
     return uint(physicalConnectors().size());
+}
+QVector<uint> VnaCalUnit::connectedToPorts() {
+    select();
+
+    QString scpi = "SENS:CORR:COLL:AUTO:PORT:CONN?\n";
+    QStringList response = _vna->query(scpi).trimmed().split(",", QString::SkipEmptyParts);
+    QVector<uint> ports;
+    for (int i = 0; i+1 < response.size(); i+=2) {
+        const uint unitPort = response[i+1].toUInt();
+        const uint vnaPort  = response[i].toUInt();
+        if (unitPort)
+            ports << vnaPort;
+    }
+    return ports;
 }
 
 bool VnaCalUnit::hasConnector(Connector connector) {

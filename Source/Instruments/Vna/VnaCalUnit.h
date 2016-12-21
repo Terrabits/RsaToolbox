@@ -25,10 +25,12 @@ public:
     ~VnaCalUnit();
 
     QString id() const;
+    void select();
 
-    double minimunFrequency_Hz();
+    double minimumFrequency_Hz();
     double maximumFrequency_Hz();
     uint ports();
+    QVector<uint> connectedToPorts();
 
     bool hasConnector(Connector connector);
     bool hasConnector(QString calName, Connector connector);
@@ -66,8 +68,6 @@ private:
     QScopedPointer<Vna> placeholder;
     QString _id;
     bool isFullyInitialized() const;
-
-    void select();
     
 };
 }

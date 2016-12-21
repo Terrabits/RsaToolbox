@@ -415,6 +415,31 @@ void VnaCalibrate:: apply() {
     _vna->pause(6000);
 }
 
+void VnaCalibrate::autoCalibrate(QVector<uint> ports, QString calId, QString characterization) {
+    if (calId.isEmpty()) {
+        if (!_vna->calUnits().isEmpty()) {
+            calId = _vna->calUnits().first();
+        }
+        else {
+            _vna->printLine("Error: No cal unit present.\n");
+            return;
+        }
+    }
+
+    _vna->calUnit(calId).select();
+
+    const int numPorts = ports.size();
+    const int sweeps = 3 * numPorts + numPorts*(numPorts-1)/2;
+    const uint timeout_ms = _channel->sweepTime_ms() * sweeps + 5000;
+
+    QString scpi = "SENS%1:CORR:COLL:AUTO \'%2\', %3\n";
+    scpi = scpi.arg(_channelIndex);
+    scpi = scpi.arg(characterization);
+    scpi = scpi.arg(toString(ports, ", "));
+    _vna->write(scpi);
+    _vna->pause(timeout_ms);
+}
+
 void VnaCalibrate::operator=(const VnaCalibrate &other) {
     if (other.isFullyInitialized()) {
         _vna = other._vna;

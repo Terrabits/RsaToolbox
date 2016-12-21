@@ -44,6 +44,10 @@ public:
     double ifBandwidth_Hz();
     void setIfbandwidth(double bandwidth, SiPrefix prefix = SiPrefix::None);
 
+    // Harmonic grids for time domain traces
+    void createHarmonicGrid(double stopFrequency_Hz, double spacing_Hz);
+    void createHarmonicGrid(double stopFrequency_Hz, uint points);
+
     QVector<uint> sParameterGroup();
     void setSParameterGroup(QVector<uint> ports);
     void clearSParameterGroup();
@@ -62,11 +66,23 @@ public:
     NetworkData measure(uint port1, uint port2, uint port3, uint port4);
     NetworkData measure(QVector<uint> ports);
 
-    bool saveSnp(QString filePathName, uint port1, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool saveSnp(QString filePathName, uint port1, uint port2, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool saveSnp(QString filePathName, uint port1, uint port2, uint port3, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool saveSnp(QString filePathName, uint port1, uint port2, uint port3, uint port4, ComplexFormat format = ComplexFormat::RealImaginary);
-    bool saveSnp(QString filePathName, QVector<uint> ports, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool saveSnp(QString filePathName, uint testPort1, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool saveSnp(QString filePathName, uint testPort1, uint testPort2, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool saveSnp(QString filePathName, uint testPort1, uint testPort2, uint testPort3, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool saveSnp(QString filePathName, uint testPort1, uint testPort2, uint testPort3, uint testPort4, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool saveSnp(QString filePathName, QVector<uint> testPorts, ComplexFormat format = ComplexFormat::RealImaginary);
+
+    bool measureToSnp(QString filePathName, uint testPort1, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnp(QString filePathName, uint testPort1, uint testPort2, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnp(QString filePathName, uint testPort1, uint testPort2, uint testPort3, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnp(QString filePathName, uint testPort1, uint testPort2, uint testPort3, uint testPort4, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnp(QString filePathName, QVector<uint> testPorts, ComplexFormat format = ComplexFormat::RealImaginary);
+
+    bool measureToSnpLocally(QString filePathName, uint testPort1, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnpLocally(QString filePathName, uint testPort1, uint testPort2, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnpLocally(QString filePathName, uint testPort1, uint testPort2, uint testPort3, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnpLocally(QString filePathName, uint testPort1, uint testPort2, uint testPort3, uint testPort4, ComplexFormat format = ComplexFormat::RealImaginary);
+    bool measureToSnpLocally(QString filePathName, QVector<uint> testPorts, ComplexFormat format = ComplexFormat::RealImaginary);
 
     void operator=(VnaLinearSweep const &other);
 

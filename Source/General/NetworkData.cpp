@@ -3,6 +3,7 @@
 
 // RsaToolbox
 #include "General.h"
+#include "Touchstone.h"
 using namespace RsaToolbox;
 
 // Qt
@@ -280,3 +281,7 @@ QDataStream& operator>>(QDataStream &stream, NetworkData &data) {
     data.read(stream);
     return stream;
 }
+
+
+
+

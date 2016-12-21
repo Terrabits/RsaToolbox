@@ -23,7 +23,8 @@ public:
     };
 
     BalancedPort();
-    BalancedPort(uint port);
+    BalancedPort(uint logicalPort);
+    BalancedPort(uint logicalPort, Type type);
 
     bool isSingleEnded() const;
     bool isBalanced() const;
