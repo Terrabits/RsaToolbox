@@ -7,9 +7,6 @@
 
 QT += core gui widgets
 
-include($$PWD/Dialogs/vnadialogs.pri)
-include($$PWD/Models/vnamodels.pri)
-include($$PWD/Views/vnaviews.pri)
 
 HEADERS += $$PWD/VnaSet.h \
            $$PWD/VnaUserDefinedPort.h \
