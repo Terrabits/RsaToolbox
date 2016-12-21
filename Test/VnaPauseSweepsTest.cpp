@@ -9,6 +9,7 @@ using namespace RsaToolbox;
 #include "Test.h"
 
 // Qt
+#include <QDebug>
 #include <QScopedPointer>
 
 
