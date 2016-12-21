@@ -21,7 +21,7 @@ private slots:
     virtual void initTestCase();
 
     // Additional tests
-    // ...
+    void numberOfLogicalPorts();
 
 private:
 

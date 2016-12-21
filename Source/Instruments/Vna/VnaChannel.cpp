@@ -367,12 +367,23 @@ void VnaChannel::setReceiverAttenuations(double attenuation_dB) {
 
 // Balanced ports
 uint VnaChannel::numberOfLogicalPorts() {
-    uint ports = _vna->testPorts();
-    for (uint i = 1; i < ports; i++) {
+    const uint testPorts = _vna->testPorts();
+    uint countedTestPorts = 0;
+    uint i = 0;
+    do {
+        i++;
         if (isBalancedPort(i))
-            ports--;
-    }
-    return(ports);
+            countedTestPorts += 2;
+        else
+            countedTestPorts++;
+    } while (countedTestPorts < testPorts);
+
+    // Might error on unused ports...
+    if (_vna->isError())
+        _vna->clearStatus();
+
+
+    return i;
 }
 bool VnaChannel::isSingleEndedPort(uint logicalPort) {
     return(testPorts(logicalPort).size() == 1);
