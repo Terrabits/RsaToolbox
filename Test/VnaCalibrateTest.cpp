@@ -5,6 +5,9 @@
 #include "Test.h"
 using namespace RsaToolbox;
 
+// Qt
+#include <QDebug>
+
 
 VnaCalibrateTest::VnaCalibrateTest(QObject *parent) :
     VnaTestClass(parent)

@@ -10,6 +10,7 @@ using namespace RsaToolbox;
 // Qt
 #include <QDebug>
 #include <QByteArray>
+#include <QStringList>
 
 
 /*!
