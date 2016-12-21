@@ -10,7 +10,7 @@ using namespace RsaToolbox;
 #include <QVector>
 
 
-int main(int argc, char *argv[])
+void main()
 {
     Vna vna(ConnectionType::VisaTcpConnection, "127.0.0.1");
 
@@ -82,6 +82,4 @@ int main(int argc, char *argv[])
     QVector<uint> ports;
     ports << 1 << 2 << 3 << 4;
     ch1Sweep.measureToSnpLocally(src.filePath("filename.s4p"), ports, ComplexFormat::RealImaginary);
-
-    return 0;
 }

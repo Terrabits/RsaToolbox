@@ -144,38 +144,28 @@ void VnaMarker::setX(double x, SiPrefix prefix) {
 }
 
 void VnaMarker::searchForMax() {
-    _trace->select();
-
-    QString scpi = ":CALC%1:MARK%2:FUNC:EXEC MAX\n";
-    scpi = scpi.arg(_trace->channel());
-    scpi = scpi.arg(_index);
-    _vna->write(scpi);
+    searchForScpi("MAX");
 }
 void VnaMarker::searchForMin() {
-    _trace->select();
-
-    QString scpi = ":CALC%1:MARK%2:FUNC:EXEC MIN\n";
-    scpi = scpi.arg(_trace->channel());
-    scpi = scpi.arg(_index);
-    _vna->write(scpi);
+    searchForScpi("MIN");
 }
 void VnaMarker::searchFor(double y) {
-    Q_UNUSED(y);
+    setSearchValue(y);
+    searchForScpi("TARG");
 }
 void VnaMarker::searchRightFor(double y) {
-    Q_UNUSED(y);
+    setSearchValue(y);
+    searchForScpi("RTAR");
 }
 void VnaMarker::searchRightForPeak() {
-
+    searchForScpi("RPE");
 }
 void VnaMarker::searchLeftFor(double y) {
-    Q_UNUSED(y);
+    setSearchValue(y);
+    searchForScpi("LTAR");
 }
 void VnaMarker::searchLeftForPeak() {
-
-}
-void VnaMarker::setReferenceMarker() {
-
+    searchForScpi("LPE");
 }
 
 // Calculate:
@@ -209,4 +199,24 @@ bool VnaMarker::isFullyInitialized() const {
 
     //else
     return(true);
+}
+
+void VnaMarker::setSearchValue(double value) {
+    _trace->select();
+
+    QString scpi = "CALC%1:MARK%2:TARG %3\n";
+    scpi = scpi.arg(_trace->channel());
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(value);
+    _vna->write(scpi);
+}
+
+void VnaMarker::searchForScpi(QString type) {
+    _trace->select();
+
+    QString scpi = ":CALC%1:MARK%2:FUNC:EXEC %3\n";
+    scpi = scpi.arg(_trace->channel());
+    scpi = scpi.arg(_index);
+    scpi = scpi.arg(type);
+    _vna->write(scpi);
 }

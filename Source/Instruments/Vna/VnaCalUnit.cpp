@@ -54,7 +54,7 @@ QString VnaCalUnit::id() const {
     return _id;
 }
 
-double VnaCalUnit::minimunFrequency_Hz() {
+double VnaCalUnit::minimumFrequency_Hz() {
     select();
     QString scpi = ":SYST:COMM:RDEV:AKAL:FRAN? \'Factory\'\n";
     QStringList result = _vna->query(scpi).trimmed().split(",");

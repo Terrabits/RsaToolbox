@@ -34,7 +34,7 @@ void main()
     //   Spacing:    10 MHz
     //   Points:   2000
 
-    // Setup time domain trace
+    // Turn on time domain conversion
     VnaTrace trc1 = vna.trace("Trc1");
     trc1.timeDomain().on();
 

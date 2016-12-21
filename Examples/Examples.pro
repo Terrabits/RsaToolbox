@@ -5,4 +5,7 @@ SUBDIRS += \
     Diagrams \
     Traces \
     TimeDomain \
-    Markers
+    Markers \
+    General \
+    Limits \
+    Calibration

@@ -27,7 +27,7 @@ public:
     QString id() const;
     void select();
 
-    double minimunFrequency_Hz();
+    double minimumFrequency_Hz();
     double maximumFrequency_Hz();
     uint ports();
     QVector<uint> connectedToPorts();
