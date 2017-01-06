@@ -32,14 +32,14 @@ int main()
 #endif
 
     TestRunner testRunner;
-//    testRunner.addTest(new UnitsTest);
+    testRunner.addTest(new UnitsTest);
     testRunner.addTest(new VnaChannelTest           (type, address));
-//    testRunner.addTest(new VnaArbitraryFrequencyTest(type, address));
-//    testRunner.addTest(new VnaIntermodTest          (type, address));
-//    testRunner.addTest(new VnaSweepTest             (type, address));
-//    testRunner.addTest(new VnaCalibrateTest         (type, address));
-//    testRunner.addTest(new VnaPauseSweepsTest       (type, address));
-//    testRunner.addTest(new VnaTraceTest             (type, address));
+    testRunner.addTest(new VnaArbitraryFrequencyTest(type, address));
+    testRunner.addTest(new VnaIntermodTest          (type, address));
+    testRunner.addTest(new VnaSweepTest             (type, address));
+    testRunner.addTest(new VnaCalibrateTest         (type, address));
+    testRunner.addTest(new VnaPauseSweepsTest       (type, address));
+    testRunner.addTest(new VnaTraceTest             (type, address));
 
     qDebug() << "Global result: " << (testRunner.runTests() ? "PASS" : "FAIL");
     return 0;
