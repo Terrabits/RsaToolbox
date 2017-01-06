@@ -425,17 +425,33 @@ void VnaCalibrate::autoCalibrate(QVector<uint> ports, QString calId, QString cha
             return;
         }
     }
-
     _vna->calUnit(calId).select();
+
+    selectChannels();
 
     const int numPorts = ports.size();
     const int sweeps = 3 * numPorts + numPorts*(numPorts-1)/2;
-    const uint timeout_ms = _channel->sweepTime_ms() * sweeps + 5000;
+    uint timeout_ms;
+    if (_isChannelSpecific) {
+        timeout_ms = _channel->sweepTime_ms();
+    }
+    else {
+        timeout_ms = _vna->calibrationSweepTime_ms();
+    }
+    timeout_ms = timeout_ms * sweeps + 5000 * sweeps;
 
-    QString scpi = "SENS%1:CORR:COLL:AUTO \'%2\', %3\n";
-    scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(characterization);
-    scpi = scpi.arg(toString(ports, ", "));
+    QString scpi;
+    if (_isChannelSpecific) {
+        scpi = ":SENS%1:CORR:COLL:AUTO \'%2\', %3\n";
+        scpi = scpi.arg(_channelIndex);
+        scpi = scpi.arg(characterization);
+        scpi = scpi.arg(toString(ports, ", "));
+    }
+    else {
+        scpi = ":CORR:COLL:AUTO \'%2\', %3\n";
+        scpi = scpi.arg(characterization);
+        scpi = scpi.arg(toString(ports, ", "));
+    }
     _vna->write(scpi);
     _vna->pause(timeout_ms);
 }
