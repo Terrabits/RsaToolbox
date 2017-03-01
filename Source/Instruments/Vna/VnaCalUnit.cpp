@@ -96,6 +96,8 @@ uint VnaCalUnit::ports() {
 QVector<uint> VnaCalUnit::connectedToPorts() {
     select();
 
+    const uint buffer_B = 500;
+    const uint timeout_ms = 20000; // 20 seconds. Auto-detect is slow.
     QString scpi = "SENS:CORR:COLL:AUTO:PORT:CONN?\n";
     QStringList response = _vna->query(scpi).trimmed().split(",", QString::SkipEmptyParts);
     QVector<uint> ports;
