@@ -6,6 +6,8 @@
 
 // Qt
 #include <QObject>
+#include <QVariant>
+
 
 namespace RsaToolbox {
 
@@ -17,13 +19,17 @@ public:
             uint bufferSize_B = 500, uint timeout_ms = 1000,
             QObject *parent = 0);
 
-    void setConnectionType(ConnectionType type);
-    void setAddress(const QString &address);
+    bool isReadsLeft() const;
+    int  readsLeft() const;
+    void setReads(const QVariantList &reads);
+    QVariantList writes() const;
 
     virtual bool isOpen() const;
     virtual bool read(char *buffer, uint bufferSize_B);
+    QString read();
     virtual bool write(QString scpi);
     virtual bool binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead);
+    QByteArray binaryRead();
     virtual bool binaryWrite(QByteArray scpi);
     virtual QString status() const;
 
@@ -31,6 +37,11 @@ public:
     virtual bool unlock();
     virtual bool local();
     virtual bool remote();
+
+private:
+    bool _isOpen;
+    QVariantList _reads;
+    QVariantList _writes;
 };
 }
 
