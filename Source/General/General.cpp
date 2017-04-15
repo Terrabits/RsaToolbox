@@ -493,13 +493,12 @@ QVector<int> RsaToolbox::parseInts(QString values, QString separator, QString ig
     }
     return(vector);
 }
-QVector<double> RsaToolbox::parseDoubles(QString values, QString separator, QString ignore) {
-    if (ignore.isEmpty() == false)
+QRowVector RsaToolbox::parseDoubles(QString values, QString separator, QString ignore) {
+    if (!ignore.isEmpty())
         values.remove(ignore);
     QStringList list = values.split(separator, QString::SkipEmptyParts);
-    int numberOfValues = list.size();
-    QVector<double> vector(numberOfValues);
-    for (int i = 0; i < numberOfValues; i++) {
+    QRowVector vector(list.size());
+    for (int i = 0; i < list.size(); i++) {
         vector[i] = QVariant(list[i]).toDouble();
     }
     return(vector);

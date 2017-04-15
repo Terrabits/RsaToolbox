@@ -23,6 +23,7 @@ public:
     int  readsLeft() const;
     void setReads(const QVariantList &reads);
     QVariantList writes() const;
+    void clearWrites();
 
     virtual bool isOpen() const;
     virtual bool read(char *buffer, uint bufferSize_B);
@@ -42,6 +43,8 @@ private:
     bool _isOpen;
     QVariantList _reads;
     QVariantList _writes;
+
+    static void nullString(char *buffer, const uint size);
 };
 }
 

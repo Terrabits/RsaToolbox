@@ -32,16 +32,25 @@ void MockBus::setReads(const QVariantList &reads) {
 QVariantList MockBus::writes() const {
     return _writes;
 }
+void MockBus::clearWrites() {
+    _writes.clear();
+}
 
 bool MockBus::isOpen() const {
     return _isOpen;
 }
 bool MockBus::read(char *buffer, uint bufferSize_B) {
+    if (_reads.isEmpty())
+        return false;
+
     QByteArray bytes = _reads.takeFirst().toByteArray();
     strncpy(buffer, bytes.constData(), bufferSize_B);
     return true;
 }
 QString MockBus::read() {
+    if (_reads.isEmpty())
+        return QString();
+
     return _reads.takeFirst().toString();
 }
 
@@ -50,12 +59,18 @@ bool MockBus::write(QString scpi) {
     return true;
 }
 bool MockBus::binaryRead(char *buffer, uint bufferSize_B, uint &bytesRead) {
+    if (_reads.isEmpty())
+        return false;
+
     QByteArray bytes = _reads.takeFirst().toByteArray();
     strncpy(buffer, bytes.constData(), bufferSize_B);
     bytesRead = (bufferSize_B >= uint(bytes.size())? bufferSize_B : bytes.size());
     return true;
 }
 QByteArray MockBus::binaryRead() {
+    if (_reads.isEmpty())
+        return QByteArray();
+
     return _reads.takeFirst().toByteArray();
 }
 
@@ -78,4 +93,10 @@ bool MockBus::local() {
 }
 bool MockBus::remote() {
     return true;
+}
+
+void MockBus::nullString(char *buffer, const uint size) {
+    if (size) {
+        buffer[0] = '\0';
+    }
 }
