@@ -5,6 +5,7 @@ HEADERS     += $$PWD/About/About.h \
                $$PWD/ConnectButton/ConnectButton.h \
                $$PWD/ConnectionTypeComboBox/ConnectionTypeComboBox.h \
                $$PWD/DecibelEdit/DecibelEdit.h \
+               $$PWD/DoubleEdit/DoubleEdit.h \
                $$PWD/ErrorLabel/ErrorLabel.h \
                $$PWD/FrequencyEdit/FrequencyEdit.h \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.h \
@@ -26,6 +27,7 @@ INCLUDEPATH += $$PWD/ \
                $$PWD/ConnectButton \
                $$PWD/ConnectionTypeComboBox \
                $$PWD/DecibelEdit \
+               $$PWD/DoubleEdit \
                $$PWD/ErrorLabel \
                $$PWD/FrequencyEdit \
                $$PWD/getSaveFileNameWidget \
@@ -42,6 +44,7 @@ SOURCES     += $$PWD/About/About.cpp \
                $$PWD/ConnectButton/ConnectButton.cpp \
                $$PWD/ConnectionTypeComboBox/ConnectionTypeComboBox.cpp \
                $$PWD/DecibelEdit/DecibelEdit.cpp \
+               $$PWD/DoubleEdit/DoubleEdit.cpp \
                $$PWD/ErrorLabel/ErrorLabel.cpp \
                $$PWD/FrequencyEdit/FrequencyEdit.cpp \
                $$PWD/getSaveFileNameWidget/getSaveFileNameWidget.cpp \

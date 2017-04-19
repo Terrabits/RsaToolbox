@@ -56,46 +56,73 @@ void ListPanel::addNew() {
         int column = currentColumn();
         _model->insertRow(row+1, currentParent());
         _selection->setCurrentIndex(_model->index(row+1, column), QItemSelectionModel::ClearAndSelect);
+        _selection->select(_model->index(row+1, column), QItemSelectionModel::ClearAndSelect);
     }
     else {
         _model->insertRow(0);
         _selection->setCurrentIndex(_model->index(0,0), QItemSelectionModel::ClearAndSelect);
+        _selection->select(_model->index(0, 0), QItemSelectionModel::ClearAndSelect);
     }
 }
 void ListPanel::deleteCurrent() {
-    if (isModels() && currentIndex().isValid()) {
-        // Current row/col
-        int row = currentRow();
-        int column = currentColumn();
+    if (!isModels())
+        return;
+    if (!isCurrentIndex())
+        return;
 
-        // Remove row, request count
-        _model->removeRow(row, currentParent());
-        int count = rowCount();
+    // Current row/col
+    int row = currentRow();
+    int column = currentColumn();
 
-        // Select
-        if (_model->rowCount() > 0) {
-            if (row < count)
-                _selection->setCurrentIndex(_model->index(row, column), QItemSelectionModel::ClearAndSelect);
-            else
-                _selection->setCurrentIndex(_model->index(count-1, column), QItemSelectionModel::ClearAndSelect);
+    // Remove row, request count
+    _model->removeRow(row, currentParent());
+    int count = rowCount();
+
+    // Select
+    if (_model->rowCount() > 0) {
+        if (row < count) {
+            _selection->setCurrentIndex(_model->index(row, column), QItemSelectionModel::ClearAndSelect);
+            _selection->select(_model->index(row, column), QItemSelectionModel::ClearAndSelect);
+        }
+        else {
+            _selection->setCurrentIndex(_model->index(count-1, column), QItemSelectionModel::ClearAndSelect);
+            _selection->select(_model->index(count-1, column), QItemSelectionModel::ClearAndSelect);
         }
     }
 }
 void ListPanel::moveCurrentUp() {
     if (!isModels())
         return;
+    if (!isCurrentIndex())
+        return;
 
-    if (currentRow() > 0)
-        _model->moveRow(currentParent(), currentRow(), currentParent(), currentRow()-1);
+    // Can't move up
+    if (currentRow() <= 0)
+        return;
+
+    const int row = currentRow();
+    _model->moveRow(currentParent(), row, currentParent(), row-1);
+    _selection->setCurrentIndex(_model->index(row-1,0), QItemSelectionModel::ClearAndSelect);
+    _selection->select(_model->index(row-1, 0), QItemSelectionModel::ClearAndSelect);
 }
 void ListPanel::moveCurrentDown() {
     if (!isModels())
         return;
+    if (!isCurrentIndex())
+        return;
 
-    if (currentRow() < _model->rowCount(currentParent())-1)
-        _model->moveRow(currentParent(), currentRow(), currentParent(), currentRow()+2);
+    if (currentRow() >= _model->rowCount(currentParent()) - 1)
+        return;
+
+    const int row = currentRow();
+    _model->moveRow(currentParent(), row, currentParent(), row+1);
+    _selection->setCurrentIndex(_model->index(row+1,0), QItemSelectionModel::ClearAndSelect);
+    _selection->select(_model->index(row+1, 0), QItemSelectionModel::ClearAndSelect);
 }
 
+bool ListPanel::isCurrentIndex() {
+    return currentIndex().isValid();
+}
 QModelIndex ListPanel::currentIndex() {
     return _selection->currentIndex();
 }

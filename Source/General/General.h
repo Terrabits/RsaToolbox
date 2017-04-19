@@ -53,6 +53,7 @@ QString GetAppDataPath(QString manufacturerFolder, QString applicationFolder);
 // Formatting Functions
 void chopTrailingZeros(QString &text);
 QString toEngineeringNotation(double value, int decimalPlaces, SiPrefix prefix = SiPrefix::None);
+QString formatValue(double value, int decimalPlaces, const QString &unitAbbreviation, SiPrefix prefix = SiPrefix::None);
 QString formatValue(double value, int decimalPlaces, Units units, SiPrefix prefix = SiPrefix::None);
 QString formatDouble(double value, int decimalPlaces);
 template <class T>

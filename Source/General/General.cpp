@@ -351,6 +351,51 @@ QString RsaToolbox::toEngineeringNotation(double value, int decimalPlaces, SiPre
     stream.flush();
     return(result);
 }
+QString RsaToolbox::formatValue(double value, int decimalPlaces, const QString &unitAbbreviation, SiPrefix prefix) {
+    QString result;
+    QTextStream stream(&result);
+    stream.setRealNumberPrecision(decimalPlaces);
+    stream.setRealNumberNotation(QTextStream::FixedNotation);
+
+    const int count = 10;
+    SiPrefix prefixes[count] = { SiPrefix::Femto,
+                                 SiPrefix::Pico,
+                                 SiPrefix::Nano,
+                                 SiPrefix::Micro,
+                                 SiPrefix::Milli,
+                                 SiPrefix::None,
+                                 SiPrefix::Kilo,
+                                 SiPrefix::Mega,
+                                 SiPrefix::Giga,
+                                 SiPrefix::Tera };
+
+    double magnitude = std::abs(value * toDouble(prefix));
+    for (int i = 0; i < count; i++) {
+        double bound = (1.0 - 0.5 * pow(10.0, double(-3.0 - decimalPlaces))) * toDouble(prefixes[i + 1]);
+        if (magnitude < bound) {
+            stream << (value * toDouble(prefix) / toDouble(prefixes[i]));
+            stream.flush();
+            chopTrailingZeros(result);
+
+            if (result == "0")
+                stream << " " << unitAbbreviation;
+            else
+                stream << " " << prefixes[i] << unitAbbreviation;
+            stream.flush();
+            return result;
+        }
+    }
+
+    // else Tera or bigger
+    stream << (value * toDouble(prefix) / toDouble(prefixes[count-1]));
+    stream.flush();
+    chopTrailingZeros(result);
+
+    stream << " " << SiPrefix::Tera << unitAbbreviation;
+    stream.flush();
+    return result;
+}
+
 QString RsaToolbox::formatValue(double value, int decimalPlaces, Units units, SiPrefix prefix) {
     QString result;
     QTextStream stream(&result);

@@ -35,6 +35,7 @@ public slots:
 private:
     Ui::ListPanel *ui;
     QItemSelectionModel *_selection;
+    bool isCurrentIndex();
     QModelIndex currentIndex();
     int currentRow();
     int currentColumn();

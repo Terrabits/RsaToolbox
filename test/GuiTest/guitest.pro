@@ -2,5 +2,4 @@
 
 TEMPLATE  = subdirs
 CONFIG   += ordered
-SUBDIRS  += UnitTest \
-            GuiTest
+SUBDIRS  += DoubleEditTest
