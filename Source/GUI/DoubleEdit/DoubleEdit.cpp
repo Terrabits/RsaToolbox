@@ -23,8 +23,8 @@ DoubleEdit::DoubleEdit(QWidget *parent) :
     _value(DBL_NAN),
     _isMinimum(false),
     _isMaximum(false),
-    _minimumValue(0),
-    _maximumValue(1.0)
+    _minimumValue(DBL_NEG_INF),
+    _maximumValue(DBL_INF)
 {
     _setValidator();
     connect(this, SIGNAL(returnPressed()),
@@ -41,23 +41,41 @@ void DoubleEdit::setParameterName(const QString &name) {
     _parameterName = name;
 }
 
+void DoubleEdit::setDecimalPlaces(int places) {
+    _decimalPlaces = places;
+    processText();
+}
+void DoubleEdit::setUnits(Units units) {
+    setUnitAbbrev(toString(units));
+}
+void DoubleEdit::setUnitAbbrev(const QString &abbreviation) {
+    _unitAbbr = abbreviation;
+    updateText();
+}
+
+void DoubleEdit::interpretMKeyAsMilli(bool isMilli) {
+    _useMKeyAsMilli = isMilli;
+}
+void DoubleEdit::disableSiPrefixes(bool disable) {
+    _displayWithSiPrefix = !disable;
+    updateText();
+}
+
 double DoubleEdit::value() const {
     return _value;
 }
 
 void DoubleEdit::clearMinimum() {
     _isMinimum = false;
-    _minimumValue = 1;
+    _minimumValue = DBL_NEG_INF;
 }
 void DoubleEdit::clearMaximum() {
     _isMaximum = false;
-    _maximumValue = 1.0E12;
+    _maximumValue = DBL_INF;
 }
 void DoubleEdit::setMinimum(double value) {
     clearAcceptedValues();
 
-    if (value < 1)
-        value = 1;
     _isMinimum = true;
     _minimumValue = value;
 
@@ -71,8 +89,6 @@ void DoubleEdit::setMinimum(double value, SiPrefix prefix) {
 void DoubleEdit::setMaximum(double value) {
     clearAcceptedValues();
 
-    if (value < 1)
-        value = 1;
     _isMaximum = true;
     _maximumValue = value;
 
@@ -108,8 +124,6 @@ void DoubleEdit::clearLimits() {
 
 // Slots:
 void DoubleEdit::setValue(double value) {
-    if (value < 1)
-        value = 1;
     if (_isMinimum && value < _minimumValue)
         value = _minimumValue;
     if (_isMaximum && value > _maximumValue)
@@ -190,7 +204,8 @@ void DoubleEdit::keyPressEvent(QKeyEvent *event) {
     }
     QString text = this->text();
     text = chopNonDigits(text);
-    updateText(text.toDouble() * toDouble(prefix));
+    _value = text.toDouble() * toDouble(prefix);
+    updateText();
     processText();
     selectAll();
 }
@@ -266,6 +281,11 @@ QString DoubleEdit::chopNonDigits(QString text) {
     return text;
 }
 void DoubleEdit::updateText() {
+    if (isNaN()) {
+        this->clear();
+        return;
+    }
+
     updateText(_value);
 }
 void DoubleEdit::updateText(const double &value) {
@@ -286,7 +306,7 @@ void DoubleEdit::updateText(const double &value) {
 }
 void DoubleEdit::processText() {
     QString text = this->text();
-    if (text.isEmpty() && isNaN()) {
+    if (text.isEmpty()) {
         return;
     }
 
