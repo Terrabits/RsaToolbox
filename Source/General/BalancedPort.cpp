@@ -157,6 +157,18 @@ void BalancedPort::setPort(uint logicalPort) {
     _port = logicalPort;
 }
 
+bool operator!=(const BalancedPort &left, const BalancedPort &right) {
+    if (left.type() != right.type())
+        return false;
+    if (left.port() != right.port())
+        return false;
+
+    return true;
+}
+bool operator==(const BalancedPort &left, const BalancedPort &right) {
+    return !(left != right);
+}
+
 /*!
  * \brief Returns the logical port number
  * as an unsigned integer

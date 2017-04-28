@@ -47,6 +47,10 @@ private:
     uint _port;
 };
 }
+
+bool operator!=(const RsaToolbox::BalancedPort &left, const RsaToolbox::BalancedPort &right);
+bool operator==(const RsaToolbox::BalancedPort &left, const RsaToolbox::BalancedPort &right);
+
 Q_DECLARE_METATYPE(RsaToolbox::BalancedPort)
 Q_DECLARE_METATYPE(RsaToolbox::BalancedPort::Type)
 
