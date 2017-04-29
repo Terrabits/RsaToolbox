@@ -239,6 +239,27 @@ bool VnaTrace::isWaveQuantity() {
     default: return(false);
     }
 }
+void VnaTrace::waveQuantity(WaveQuantity &wave, uint &wavePort, uint &sourcePort) {
+    // "AnDmSAM"
+    QString param = parameter();
+    if (param.isEmpty()) {
+        return;
+    }
+    if (param.startsWith("a", Qt::CaseInsensitive)) {
+        wave = WaveQuantity::a;
+    }
+    else {
+        wave = WaveQuantity::b;
+    }
+    param.remove(0, 1);
+    QStringList parts = param.split("D", QString::KeepEmptyParts, Qt::CaseInsensitive);
+
+    wavePort = parts[0].toUInt();
+
+    parts[1].chop(3);
+    sourcePort = parts[1].toUInt();
+}
+
 void VnaTrace::setWaveQuantity(WaveQuantity wave, uint wavePort, uint sourcePort) {
     QString scpi = ":CALC%1:PAR:MEAS \'%2\',\'%3\'\n";
     scpi = scpi.arg(channel());

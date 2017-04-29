@@ -58,7 +58,7 @@ public:
     void measure(NetworkTraceData &data);
 
     bool isWaveQuantity();
-//    void waveQuantity(WaveQuantity &wave, uint &port);
+    void waveQuantity(WaveQuantity &wave, uint &wavePort, uint &sourcePort);
     void setWaveQuantity(WaveQuantity wave, uint wavePort, uint sourcePort);
     // void measure(WaveTraceData &data);
 
