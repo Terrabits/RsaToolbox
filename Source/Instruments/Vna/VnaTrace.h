@@ -100,6 +100,8 @@ public:
     void setIntermodRejection(uint order, Side side);
     void setIntermodIntercept(uint order, Side side);
 
+    bool isPae();
+    void setPae(uint outputPort, uint inputPort);
 
     bool isTimeDomain();
     bool isNotTimeDomain();

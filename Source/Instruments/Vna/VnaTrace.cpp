@@ -382,6 +382,22 @@ void VnaTrace::setIntermodIntercept(uint order, Side side) {
     setParameter(scpi);
 }
 
+bool VnaTrace::isPae() {
+    QString result = parameter();
+    if (result.size() < 5) {
+        return false;
+    }
+    result = result.mid(0, 3).toUpper();
+    return result == "PAE";
+
+}
+void VnaTrace::setPae(uint outputPort, uint inputPort) {
+    QString scpi  = "PAE%1";
+    QString ports = VnaScpi::toPortPair(outputPort, inputPort);
+    scpi          = scpi.arg(ports);
+    setParameter(scpi);
+}
+
 TraceFormat VnaTrace::format() {
     select();
     QString scpi = ":CALC%1:FORM?\n";
