@@ -40,7 +40,12 @@ LastPath::LastPath(const LastPath &other) {
 
 
 bool LastPath::isKey() const {
-    return ((_keys != NULL) && (!_key.isEmpty()));
+    if (!_keys)
+        return false;
+    if (_key.isEmpty())
+        return false;
+
+    return true;
 }
 QString LastPath::key() const {
     return _key;
@@ -50,10 +55,13 @@ Keys *LastPath::keys() const {
 }
 void LastPath::setKey(Keys *keys, QString key) {
     _keys = keys;
-    _key = key;
+    _key  = key;
 
-    if (isKey() && _keys->exists(_key))
-        _keys->get(_key, _path);
+    if (!isKey())
+        return;
+    if (!_keys->exists(_key))
+        return;
+    _keys->get(_key, _path);
 }
 
 bool LastPath::isEmpty() const {
@@ -91,6 +99,8 @@ void LastPath::setFromFilePath(const QFileInfo &filePath) {
 }
 
 void LastPath::operator=(const LastPath &other) {
+    _keys = other._keys;
+    _key  = other._key;
     _path = other._path;
 }
 void LastPath::operator=(const QString &path) {
