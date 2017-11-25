@@ -10,6 +10,8 @@ using namespace RsaToolbox;
 // Qt
 #include <QDebug>
 
+// std lib
+#include <algorithm>
 
 /*!
  * \class RsaToolbox::VnaCalUnit
@@ -116,15 +118,15 @@ bool VnaCalUnit::hasConnector(Connector connector) {
 bool VnaCalUnit::hasConnector(QString calName, Connector connector) {
     return !portsOfType(calName, connector).isEmpty();
 }
-QVector<Connector> VnaCalUnit::physicalConnectors() {
+QMap<uint, Connector> VnaCalUnit::physicalConnectors() {
     return connectorsFrom("Factory");
 }
-QVector<Connector> VnaCalUnit::connectorsFromLatestCal() {
+QMap<uint, Connector> VnaCalUnit::connectorsFromLatestCal() {
     return connectorsFrom("");
 }
-QVector<Connector> VnaCalUnit::connectorsFrom(QString calName) {
+QMap<uint, Connector> VnaCalUnit::connectorsFrom(QString calName) {
     if (_vna->properties().isZvaFamily())
-        return QVector<Connector>();
+        return QMap<uint, Connector>();
 
     select();
     QString scpi = ":SYST:COMM:RDEV:AKAL:PORT? \'%1\'\n";
@@ -132,17 +134,18 @@ QVector<Connector> VnaCalUnit::connectorsFrom(QString calName) {
     QStringList result = _vna->query(scpi).trimmed().remove("\'").split(",");
 
     if (result.isEmpty() || result.size() % 3 != 0)
-        return QVector<Connector>();
+        return QMap<uint, Connector>();
 
     // result[0]: Port (duh!)
     // result[1]: Connector type
     // result[2]: Connector gender
     const int ports = result.size()/3;
-    QVector<Connector> connectors(ports);
+    QMap<uint, Connector> connectors;
     for (int i = 0; i < ports; i++) {
-        Connector::Type type = VnaScpi::toConnectorType(result[3*i+1]);
+        uint currentPort         = result[3*i].toUInt();
+        Connector::Type type     = VnaScpi::toConnectorType(result[3*i+1]);
         Connector::Gender gender = VnaScpi::toConnectorGender(result[3*i+2]);
-        connectors[i] = Connector(type, gender);
+        connectors[currentPort]  = Connector(type, gender);
     }
     return connectors;
 }
@@ -155,10 +158,13 @@ QVector<uint> VnaCalUnit::portsOfTypeFromLatestCal(Connector connector) {
 
 QVector<uint> VnaCalUnit::portsOfType(QString calName, Connector connector) {
     QVector<uint> ports;
-    QVector<Connector> connectors = connectorsFrom(calName);
-    for (int i = 0; i < connectors.size(); i++)
-        if (connectors[i] == connector)
-            ports << uint(i+1);
+    QMap<uint, Connector> connectors = connectorsFrom(calName);
+    foreach (uint i, connectors.keys()) {
+        if (connectors[i] == connector) {
+            ports << i;
+        }
+    }
+    std::sort(ports.begin(), ports.end());
     return ports;
 }
 

@@ -7,8 +7,10 @@
 #include "Connector.h"
 
 // Qt
+#include <QMap>
 #include <QObject>
 #include <QScopedPointer>
+#include <QVector>
 
 
 namespace RsaToolbox {
@@ -34,9 +36,9 @@ public:
 
     bool hasConnector(Connector connector);
     bool hasConnector(QString calName, Connector connector);
-    QVector<Connector> physicalConnectors();
-    QVector<Connector> connectorsFromLatestCal();
-    QVector<Connector> connectorsFrom(QString calName);
+    QMap<uint, Connector> physicalConnectors();
+    QMap<uint, Connector> connectorsFromLatestCal();
+    QMap<uint, Connector> connectorsFrom(QString calName);
     QVector<uint> portsOfType(Connector connector);
     QVector<uint> portsOfTypeFromLatestCal(Connector connector);
     QVector<uint> portsOfType(QString calName, Connector connector);
