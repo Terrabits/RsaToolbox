@@ -54,9 +54,6 @@ public:
 //    static VnaSwitchMatrix::Driver toSwitchMatrixDriver(QString scpi);
 
     // Connector
-    static QString toString(Connector::Type type);
-    static QString toTypeString(Connector connector);
-    static Connector::Type toConnectorType(QString scpi);
     static QString toString(Connector::Gender gender);
     static QString toGenderString(Connector connector);
     static Connector::Gender toConnectorGender(QString scpi);

@@ -75,8 +75,9 @@ public:
     QVector<VnaCalStandard> standards();
     void addStandard(VnaCalStandard standard);
 
-    Connector connectorType();
-    void setConnectorType(const Connector &connector);
+    QString connectorType();
+    void setConnectorType(Connector connector);
+    void setConnectorType(QString connectorType);
 
     void copy(const NameLabel &newNameLabel);
 
@@ -91,7 +92,7 @@ private:
 
     QStringList standardsList();
     QVector<VnaCalStandard> standardsSummary();
-    void standardDetails(VnaCalStandard &standard, Connector type);
+    void standardDetails(VnaCalStandard &standard, QString connectorType);
     void parse(VnaCalStandard &standard, QString scpi);
 
     void addStandardByTouchstone(VnaCalStandard &standard);

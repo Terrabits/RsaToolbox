@@ -199,40 +199,6 @@ QString VnaScpi::toString(Connector::Gender gender) {
 QString VnaScpi::toGenderString(Connector connector) {
     return toString(connector.gender());
 }
-QString VnaScpi::toString(Connector::Type type) {
-    switch(type) {
-    case Connector::N_50_OHM_CONNECTOR:
-        return "N 50 Ohm";
-    case Connector::N_75_OHM_CONNECTOR:
-        return "N 75 Ohm";
-    case Connector::mm_7_CONNECTOR:
-        return "7 mm"; // PC 7
-    case Connector::mm_3_5_CONNECTOR:
-        return "3.5 mm"; // PC 3.5
-    case Connector::mm_2_92_CONNECTOR:
-        return "2.92 mm";
-    case Connector::mm_2_4_CONNECTOR:
-        return "2.4 mm";
-    case Connector::mm_1_85_CONNECTOR:
-        return "1.85 mm";
-    case Connector::in_7_16_CONNECTOR:
-        return "7-16";
-    case Connector::TYPE_F_75_OHM_CONNECTOR:
-        return "Type F (75)"; // !Zva
-    case Connector::BNC_50_OHM_CONNECTOR:
-        return "BNC 50 Ohm"; // !Zva
-    case Connector::BNC_75_OHM_CONNECTOR:
-        return "BNC 75 Ohm"; // !Zva
-    default:
-        return "UNKNOWN_CONNECTOR";
-    }
-}
-QString VnaScpi::toTypeString(Connector connector) {
-    if (connector.isCustomType())
-        return connector.customType();
-    else
-        return toString(connector.type());
-}
 Connector::Gender VnaScpi::toConnectorGender(QString scpi) {
     scpi = scpi.toUpper();
     if (scpi == "MALE")
@@ -241,34 +207,6 @@ Connector::Gender VnaScpi::toConnectorGender(QString scpi) {
         return Connector::Gender::Female;
     // else
         return Connector::Gender::Neutral;
-}
-Connector::Type VnaScpi::toConnectorType(QString scpi) {
-    if (scpi.contains("N 50 Ohm", Qt::CaseInsensitive))
-        return Connector::Type::N_50_OHM_CONNECTOR;
-    else if (scpi.contains("N 75 Ohm", Qt::CaseInsensitive))
-        return Connector::Type::N_75_OHM_CONNECTOR;
-    else if (scpi.contains("7 mm", Qt::CaseInsensitive))
-        return Connector::Type::mm_7_CONNECTOR;
-    else if (scpi.contains("3.5 mm", Qt::CaseInsensitive))
-        return Connector::Type::mm_3_5_CONNECTOR;
-    else if (scpi.contains("2.92 mm", Qt::CaseInsensitive))
-        return Connector::Type::mm_2_92_CONNECTOR;
-    else if (scpi.contains("2.4 mm", Qt::CaseInsensitive))
-        return Connector::Type::mm_2_4_CONNECTOR;
-    else if (scpi.contains("1.85 mm", Qt::CaseInsensitive))
-        return Connector::Type::mm_1_85_CONNECTOR;
-    else if (scpi.contains("7-16"))
-        return Connector::Type::in_7_16_CONNECTOR;
-    else if (scpi.contains("Type F (75)", Qt::CaseInsensitive))
-        return Connector::Type::TYPE_F_75_OHM_CONNECTOR;
-    else if (scpi.contains("BNC 50 Ohm", Qt::CaseInsensitive))
-        return Connector::Type::BNC_50_OHM_CONNECTOR;
-    else if (scpi.contains("BNC 75 Ohm", Qt::CaseInsensitive))
-        return Connector::Type::BNC_75_OHM_CONNECTOR;
-    else if (scpi.isEmpty() == false)
-        return Connector::Type::CUSTOM_CONNECTOR;
-    else
-        return Connector::Type::UNKNOWN_CONNECTOR;
 }
 QString VnaScpi::toString(Connector::Mode mode) {
     if (mode == Connector::Mode::Tem)

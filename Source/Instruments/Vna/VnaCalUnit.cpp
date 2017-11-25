@@ -142,10 +142,10 @@ QMap<uint, Connector> VnaCalUnit::connectorsFrom(QString calName) {
     const int ports = result.size()/3;
     QMap<uint, Connector> connectors;
     for (int i = 0; i < ports; i++) {
-        uint currentPort         = result[3*i].toUInt();
-        Connector::Type type     = VnaScpi::toConnectorType(result[3*i+1]);
+        uint port                = result[3*i].toUInt();
+        QString type             = result[3*i+1].trimmed();
         Connector::Gender gender = VnaScpi::toConnectorGender(result[3*i+2]);
-        connectors[currentPort]  = Connector(type, gender);
+        connectors[port]  = Connector(type, gender);
     }
     return connectors;
 }

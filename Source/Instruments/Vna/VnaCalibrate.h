@@ -100,8 +100,7 @@ private:
 
     void selectKit(NameLabel nameLabel, Connector type);
     void selectKit(QString name, QString label, Connector type);
-    void selectKit(QString name, QString label, QString customConnector);
-    void selectKit(QString name, QString label, Connector::Type type);
+    void selectKit(QString name, QString label, QString connectorType);
 
     void defineCalibration(QString calibrationName, CalType type, QVector<uint> ports);
     void selectChannels();

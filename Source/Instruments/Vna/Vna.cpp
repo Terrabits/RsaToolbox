@@ -713,11 +713,11 @@ VnaFileSystem *Vna::takeFileSystem() {
  * \brief Retrieve all valid connector types
  * \return QVector containing all connector types
  */
-void Vna::defineCustomConnector(const Connector &connector) {
+void Vna::addConnector(const Connector &connector) {
     QString scpi = ":CORR:CONN \'%1\',%2,%3,%4,%5\n";
-    scpi = scpi.arg(VnaScpi::toTypeString(connector));
+    scpi = scpi.arg(connector.type());
     scpi = scpi.arg(VnaScpi::toString(connector.mode()));
-    if (connector.isGenderSpecific())
+    if (connector.isGendered())
         scpi = scpi.arg("GEND");
     else
         scpi = scpi.arg("NGEN");
@@ -735,45 +735,44 @@ void Vna::deleteConnector(const QString &name) {
     write(scpi);
 }
 void Vna::deleteConnector(const Connector &connector) {
-    deleteConnector(VnaScpi::toTypeString(connector));
+    deleteConnector(connector.type());
 }
 
-QVector<Connector> Vna::connectorTypes() {
+Connector Vna::connectorInfo(QString type) {
+    QString scpi = ":CORR:CONN? \'%1\'\n";
+    scpi         = scpi.arg(type);
+    QStringList results = query(scpi).trimmed().split(",");
+    if (results.size() < 5){
+        return Connector();
+    }
+
+    Connector connector;
+    connector.setType(type);
+    // results[0] = connector type (why?)
+    // results[1] = mode (TEM | WGUide)
+    // results[2] = gender (GENDer | NGENder)
+    // results[3] = permittivity
+    // results[4] = impedance (Ohms) | cutoff freq (Hz)
+    connector.setType(results[0].trimmed());
+    VnaScpi::toConnectorMode(results[1]) == Connector::Mode::Tem ?
+                connector.setImpedance(results[4].toDouble())
+              : connector.setCutoffFrequency(results[4].toDouble());
+    results[2].startsWith("NGEN", Qt::CaseInsensitive) ?
+                connector.setGenderNeutral()
+              : connector.setMale();
+    connector.setPermittivity(results[3].toDouble());
+    return connector;
+}
+QStringList Vna::connectorTypeList() {
     QString scpi = ":CORR:CONN:CAT?\n";
-    QStringList typeList =
-            query(scpi).trimmed().remove('\'').split(',');
-    QVector<Connector> types;
-    foreach (QString type, typeList) {
-        Connector c;
-        c.setType(VnaScpi::toConnectorType(type));
-        if (c.isCustomType())
-            c.setCustomType(type);
-        types.append(c);
-    }
-
+    return query(scpi).trimmed().remove('\'').split(',');
+}
+QVector<Connector> Vna::connectorTypes() {
+    QStringList typeList = this->connectorTypeList();
+    QVector<Connector> types(typeList.size());
     for (int i = 0; i < types.size(); i++) {
-        scpi = ":CORR:CONN? \'%1\'\n";
-        scpi = scpi.arg(VnaScpi::toTypeString(types[i]));
-        QStringList results = query(scpi).trimmed().split(",");
-        if (results.size() < 5)
-            continue;
-
-        // results[0] = connector type (why?)
-        // results[1] = mode (TEM | WGUide)
-        // results[2] = gender (GENDer | NGENder)
-        // results[3] = permittivity
-        // results[4] = impedance | cutoff freq (Hz)
-        if (results[2].startsWith("NGEN", Qt::CaseInsensitive))
-            types[i].setGender(Connector::Gender::Neutral);
-        else
-            types[i].setGender(Connector::Gender::Male);
-        types[i].setPermittivity(results[3].toDouble());
-        if (VnaScpi::toConnectorMode(results[1]) == Connector::Mode::Waveguide)
-            types[i].setWaveguideMode(results[4].toDouble());
-        else
-            types[i].setTemMode(results[4].toDouble());
+        types[i] = connectorInfo(typeList[i]);
     }
-
     return types;
 }
 
@@ -784,13 +783,7 @@ QVector<Connector> Vna::connectorTypes() {
  * \c false otherwise
  */
 bool Vna::isConnectorType(const Connector &type) {
-    QVector<Connector> types = connectorTypes();
-    foreach (Connector _type, types) {
-        if (type.isType(_type))
-            return(true);
-    }
-    // else
-    return(false);
+    return isConnectorType(type.type());
 }
 
 /*!
@@ -800,30 +793,8 @@ bool Vna::isConnectorType(const Connector &type) {
  * \return \c true if \c userDefinedType exists;
  * \c false otherwise
  */
-bool Vna::isConnectorType(const QString &userDefinedType) {
-    Connector type;
-    type.setCustomType(userDefinedType);
-    return(isConnectorType(type));
-}
-
-/*!
- * \brief Query if connector of type \c type is gender neutral
- * \param type Connector type (other properties are ignored)
- * \return \c true if gender neutral connector; \c false otherwise
- */
-bool Vna::isConnectorGenderNeutral(Connector type) {
-    QString scpi = "CORR:CONN? \'%1\'\n";
-    scpi = scpi.arg(VnaScpi::toTypeString(type));
-    QStringList results = query(scpi).trimmed().split(",");
-    // results[0] = connector type (why?)
-    // results[1] = mode (TEM | WGUide)
-    // results[2] = gender (GENDer | NGENder)
-    // results[3] = permittivity
-    // results[4] = impedance | cutoff freq (Hz)
-    if (results.size() < 3)
-        return false;
-    else
-        return results[2].toUpper() == "NGEN";
+bool Vna::isConnectorType(const QString &type) {
+    return connectorTypeList().contains(type);
 }
 
 /*!
@@ -833,8 +804,7 @@ bool Vna::isConnectorGenderNeutral(Connector type) {
  * \c false otherwise
  */
 bool Vna::isCalKit(NameLabel nameLabel) {
-    QVector<NameLabel> kits = calKits();
-    return(kits.contains(nameLabel));
+    return calKits().contains(nameLabel);
 }
 
 /*!
@@ -845,7 +815,7 @@ bool Vna::isCalKit(NameLabel nameLabel) {
  * \c false otherwise
  */
 bool Vna::isCalKit(QString name, QString label) {
-    return(isCalKit(NameLabel(name, label)));
+    return isCalKit(NameLabel(name, label));
 }
 
 /*!
@@ -854,20 +824,6 @@ bool Vna::isCalKit(QString name, QString label) {
  * \return \c true if cal kit does not exist;
  * \c false otherwise
  */
-bool Vna::isNotCalKit(NameLabel nameLabel) {
-    return(!isCalKit(nameLabel));
-}
-
-/*!
- * \brief Test for the absence of a Calibration Kit
- * \param name
- * \param label
- * \return \c true if the cal kit exists;
- * \c false otherwise
- */
-bool Vna::isNotCalKit(QString name, QString label) {
-    return(!isCalKit(name, label));
-}
 
 /*!
  * \brief Returns a list of all available
@@ -893,25 +849,12 @@ QVector<NameLabel> Vna::calKits() {
  * \return Cal kits of connector \c type
  */
 QVector<NameLabel> Vna::calKits(Connector type) {
-    if (type.isCustomType())
-        return(calKits(type.customType()));
-    else
-        return(calKits(type.type()));
+    return calKits(type.type());
 }
 
-/*!
- * \brief Returns a list of all calibration kits
- * of a particular connector \c type
- * \param type Connector type
- * \return Cal kits of connector \c type
- */
-QVector<NameLabel> Vna::calKits(Connector::Type type) {
-    return(calKits(VnaScpi::toString(type)));
-}
-
-QVector<NameLabel> Vna::calKits(QString customType) {
+QVector<NameLabel> Vna::calKits(QString connectorType) {
     QString scpi = ":CORR:CKIT:LCAT? \'%1\'\n";
-    scpi = scpi.arg(customType);
+    scpi = scpi.arg(connectorType);
     QString result = query(scpi, 2000).trimmed();
     return NameLabel::parse(result, ",", "\'");
 }
@@ -1176,26 +1119,6 @@ bool Vna::isChannel(QString name) {
     QVector<IndexName> indexNames;
     indexNames = IndexName::parse(result, ",", "\'");
     return IndexName::names(indexNames).contains(name);
-}
-
-/*!
- * \brief Checks for the absense of
- * channel \c index.
- * \param index Channel number
- * \return \c true if channel \c index
- * does not exist; \c false otherwise
- */
-bool Vna::isNotChannel(uint index) {
-    return(!isChannel(index));
-}
-/*!
- * \brief Queries for existence of \c name
- * \param name Name of channel
- * \return \c true if channel \c name does not exist;
- * \c false otherwise.
- */
-bool Vna::isNotChannel(QString name) {
-    return(!isChannel(name));
 }
 
 /*!
@@ -1608,17 +1531,6 @@ VnaTrace *Vna::takeTraces() {
  */
 bool Vna::isDiagram(uint index) {
     return(diagrams().contains(index));
-}
-
-/*!
- * \brief Checks for the absence of
- * diagram \c index
- * \param index Index of the diagram to check for
- * \return \c true if diagram \c index does not exist;
- * \c false otherwise
- */
-bool Vna::isNotDiagram(uint index) {
-    return(!isDiagram(index));
 }
 
 /*!

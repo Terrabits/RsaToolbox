@@ -109,7 +109,7 @@ void VnaCalibrate::setConnector(uint port, Connector connector) {
         scpi = ":CORR:COLL:SCON%2 \'%3\',%4\n";
     }
     scpi = scpi.arg(port);
-    scpi = scpi.arg(VnaScpi::toTypeString(connector));
+    scpi = scpi.arg(connector.type());
     scpi = scpi.arg(VnaScpi::toGenderString(connector));
     _vna->write(scpi);
 }
@@ -138,15 +138,9 @@ Connector VnaCalibrate:: connector(uint port) {
 
     if (results.size() != 2)
         return Connector();
-    Connector::Type type
-            = VnaScpi::toConnectorType(results.first());
-    Connector::Gender gender
-            = VnaScpi::toConnectorGender(results.last());
 
-    if (type == Connector::CUSTOM_CONNECTOR)
-        return Connector(results.first(), gender);
-    else
-        return Connector(type, gender);
+    return Connector(results.first().trimmed(),
+                     VnaScpi::toConnectorGender(results.last()));
 }
 QVector<Connector> VnaCalibrate:: connectors() {
     QVector<Connector> result;
@@ -182,7 +176,7 @@ NameLabel VnaCalibrate:: selectedKit(Connector type) {
     else {
         scpi = ":CORR:CKIT:LSEL? \'%2\'\n";
     }
-    scpi = scpi.arg(VnaScpi::toTypeString(type));
+    scpi = scpi.arg(type.type());
 
     QString result = _vna->query(scpi).trimmed();
     QVector<NameLabel> results
@@ -497,12 +491,12 @@ bool VnaCalibrate::isMissingZvaCommand() {
 }
 
 void VnaCalibrate::selectKit(NameLabel nameLabel, Connector type) {
-    selectKit(nameLabel.name(), nameLabel.label(), VnaScpi::toTypeString(type));
+    selectKit(nameLabel.name(), nameLabel.label(), type.type());
 }
 void VnaCalibrate::selectKit(QString name, QString label, Connector type) {
-    selectKit(name, label, VnaScpi::toTypeString(type));
+    selectKit(name, label, type.type());
 }
-void VnaCalibrate::selectKit(QString name, QString label, QString customConnector) {
+void VnaCalibrate::selectKit(QString name, QString label, QString connectorType) {
     if (isMissingZvaCommand())
         return;
 
@@ -512,20 +506,15 @@ void VnaCalibrate::selectKit(QString name, QString label, QString customConnecto
     if (_isChannelSpecific) {
         scpi = ":SENS%1:CORR:CKIT:LSEL \'%2\',\'%3\',\'%4\'\n";
         scpi = scpi.arg(_channelIndex);
-        scpi = scpi.arg(customConnector);
-        scpi = scpi.arg(name);
-        scpi = scpi.arg(label);
     }
     else {
         scpi = ":CORR:CKIT:LSEL \'%2\',\'%3\',\'%4\'\n";
-        scpi = scpi.arg(customConnector);
-        scpi = scpi.arg(name);
-        scpi = scpi.arg(label);
+
     }
+    scpi = scpi.arg(connectorType);
+    scpi = scpi.arg(name);
+    scpi = scpi.arg(label);
     _vna->write(scpi);
-}
-void VnaCalibrate::selectKit(QString name, QString label, Connector::Type type) {
-    selectKit(name, label, VnaScpi::toString(type));
 }
 void VnaCalibrate::defineCalibration(QString calibrationName, CalType type, QVector<uint> ports) {
     if (isMissingZvaCommand())

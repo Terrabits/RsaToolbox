@@ -34,7 +34,6 @@ using namespace RsaToolbox;
  * \c RsaToolbox::NEUTRAL_GENDER.
  */
 Connector::Connector() :
-    _type(Type::UNKNOWN_CONNECTOR),
     _gender(Gender::Neutral),
     _mode(Mode::Tem),
     _permittivity(1.0),
@@ -55,36 +54,11 @@ Connector::Connector() :
  */
 Connector::Connector(const Connector &other) :
     _type(other._type),
-    _customType(other._customType),
     _gender(other._gender),
     _mode(other._mode),
     _permittivity(other._permittivity),
     _impedance_Ohms(other._impedance_Ohms),
     _cutoffFrequency_Hz(other._cutoffFrequency_Hz)
-{
-
-}
-
-/*!
- * \brief Constructor for a connector with properties
- * \c type and \c gender
- *
- * \note For a connector with a custom, user-defined type,
- * see the \c
- * Connector::Connector(QString customType, ConnectorGender gender)
- * constructor
- *
- *
- * \param type Connector type
- * \param gender Connector gender
- */
-Connector::Connector(Type type, Gender gender) :
-    _type(type),
-    _gender(gender),
-    _mode(Mode::Tem),
-    _permittivity(1.0),
-    _impedance_Ohms(50.0),
-    _cutoffFrequency_Hz(0.0)
 {
 
 }
@@ -101,9 +75,8 @@ Connector::Connector(Type type, Gender gender) :
  * \param customType User-defined connector type
  * \param gender Connector gender
  */
-Connector::Connector(QString customType, Gender gender) :
-    _type(Type::CUSTOM_CONNECTOR),
-    _customType(customType),
+Connector::Connector(QString type, Gender gender) :
+    _type(type),
     _gender(gender),
     _mode(Mode::Tem),
     _permittivity(1.0),
@@ -111,6 +84,10 @@ Connector::Connector(QString customType, Gender gender) :
     _cutoffFrequency_Hz(0.0)
 {
 
+}
+
+bool Connector::isUndefined() const {
+    return _type.isEmpty();
 }
 
 /*!
@@ -123,22 +100,12 @@ Connector::Connector(QString customType, Gender gender) :
  * \return User-friendly text representation
  */
 QString Connector::displayText() const {
-    return(displayType() + " " + displayGender());
-}
-
-/*!
- * \brief Returns the connector type as user-friendly text
- *
- * For user-defined connector types, the string representing
- * the user-defined type is returned verbatim.
- *
- * \return Connector type as user-friendly text
- */
-QString Connector::displayType() const {
-    if (isCustomType())
-        return(_customType);
-    else
-        return(displayType(_type));
+    if (isUndefined()) {
+        return "Undefined connector";
+    }
+    else {
+        return(_type + " " + displayGender());
+    }
 }
 
 /*!
@@ -155,10 +122,10 @@ QString Connector::displayType() const {
  */
 QString Connector::displayGender() const {
     switch(_gender) {
-    case Gender::Male: return("Male");
-    case Gender::Female: return("Female");
+    case Gender::   Male: return("Male");
+    case Gender:: Female: return("Female");
     case Gender::Neutral: return("Neutral");
-    default: return("Unknown Gender");
+                 default: return("Unknown Gender");
     }
 }
 
@@ -193,47 +160,7 @@ QString Connector::genderAbbreviation() const {
  * \sa isNotType()
  */
 bool Connector::isType(const Connector &other) const {
-    if (isNotCustomType())
-        return(type() == other.type());
-    else if (other.isNotCustomType())
-        return(false);
-    else
-        return(customType() == other.customType());
-}
-
-/*!
- * \brief Performs a connector type comparison with \c other
- *
- * Returns false if \c this and \c other are the same
- * connector type. For user-defined connector types, the
- * string representing the type are compared.
- *
- * \note User-defined types are case-sensitive.
- *
- * \param other Connector to compare
- * \return Result of connector type comparison for inequality
- * \sa isType()
- */
-bool Connector::isNotType(Connector &other) const {
-    return(!isType(other));
-}
-
-/*!
- * \brief Checks for user-defined (custom) connector type
- * \return true if user-defined connector type
- * \sa isNotCustomType()
- */
-bool Connector::isCustomType() const {
-    return(_type == CUSTOM_CONNECTOR);
-}
-
-/*!
- * \brief Checks if not user-defined (custom) connector type
- * \return \c true if not user-defined connector type
- * \sa isCustomType()
- */
-bool Connector::isNotCustomType() const {
-    return(!isCustomType());
+    return _type.toLower() == other._type.toLower();
 }
 
 /*!
@@ -242,7 +169,7 @@ bool Connector::isNotCustomType() const {
  * \return  Result of gender comparison
  */
 bool Connector::isGender(Gender gender) const {
-    return(_gender == gender);
+    return _gender == gender;
 }
 
 /*!
@@ -250,15 +177,7 @@ bool Connector::isGender(Gender gender) const {
  * \return \c true if connector is male.
  */
 bool Connector::isMale() const {
-    return(_gender == Gender::Male);
-}
-
-/*!
- * \brief Determines if connector is not male gender
- * \return \c true if connector is not male.
- */
-bool Connector::isNotMale() const {
-    return(!isMale());
+    return _gender == Gender::Male;
 }
 
 /*!
@@ -266,44 +185,15 @@ bool Connector::isNotMale() const {
  * \return \c true if connector is female.
  */
 bool Connector::isFemale() const {
-    return(_gender == Gender::Female);
-}
-
-/*!
- * \brief Determines if connector is not female gender
- * \return \c true if connector is not female.
- */
-bool Connector::isNotFemale() const {
-    return(!isFemale());
-}
-
-/*!
- * \brief Determines if connector type is gender-neutral
- * \return \c true if connector is gender-neutral.
- */
-bool Connector::isGenderNeutral() const {
-    return(_gender == Gender::Neutral);
+    return _gender == Gender::Female;
 }
 
 /*!
  * \brief Determines if connector type is gender-specifc
  * \return \c true if connector type has specific genders
  */
-bool Connector::isGenderSpecific() const {
-    return(!isGenderNeutral());
-}
-
-/*!
- * \brief Retrieves the connector type
- *
- * For user-defined connector types, use the \c customType()
- * method to retrieve type.
- *
- * \return System-defined connector type, or \c CUSTOM_CONNECTOR
- * \sa Connector::Type, customType()
- */
-Connector::Type Connector::type() const {
-    return(_type);
+bool Connector::isGendered() const {
+    return _gender != Gender::Neutral;
 }
 
 /*!
@@ -315,8 +205,8 @@ Connector::Type Connector::type() const {
  * \return User-defined connector type string, or "" for system-defined connector types.
  * \sa type()
  */
-QString Connector::customType() const {
-    return(_customType);
+QString Connector::type() const {
+    return(_type);
 }
 
 /*!
@@ -337,13 +227,16 @@ Connector::Gender Connector::gender() const {
  * \return Mate-able connector type
  */
 Connector Connector::getMatingConnector() const {
-    Connector mate(*this);
-    if (isGenderNeutral())
+    Connector mate = *this;
+    if (!isGendered()) {
         return mate;
-    if (isMale())
-        mate.setGender(Gender::Female);
-    else
-        mate.setGender(Gender::Male);
+    }
+    if (isMale()) {
+        mate.setFemale();
+    }
+    else {
+        mate.setMale();
+    }
     return mate;
 }
 
@@ -398,35 +291,17 @@ void Connector::setCutoffFrequency(double frequency_Hz) {
  */
 void Connector::setType(const Connector &type) {
     _type = type._type;
-    _customType = type._customType;
+    _type = type._type;
 }
 
 /*!
- * \brief Sets the connector type to system-defined \c type
- *
- * For user-defined connector types, use \c setCustomType()
+ * \brief Sets the connector type to \c type
  *
  * \param type System-defined connector type
- * \sa RsaToolbox::Connector::Type, setCustomType()
+ * \sa type()
  */
-void Connector::setType(Type type) {
+void Connector::setType(QString type) {
     _type = type;
-    if (_type != Type::CUSTOM_CONNECTOR)
-        _customType.clear();
-}
-
-/*!
- * \brief Sets the connector type to user-defined \c type
- *
- * For system-defined connector types, use
- * \c setType(Type type)
- *
- * \param type System-defined connector type
- * \sa RsaToolbox::Connector::Type, setType(Connector type), setCustomType()
- */
-void Connector::setCustomType(QString type) {
-    _type = Type::CUSTOM_CONNECTOR;
-    _customType = type;
 }
 
 /*!
@@ -437,10 +312,13 @@ void Connector::setGender(Gender gender) {
     _gender = gender;
 }
 void Connector::setGenderNeutral() {
-    _gender = Gender::Neutral;
+    setGender(Gender::Neutral);
 }
-void Connector::setGenderSpecific() {
-    _gender = Gender::Male;
+void Connector::setMale() {
+    setGender(Gender::Male);
+}
+void Connector::setFemale() {
+    setGender(Gender::Female);
 }
 
 /*!
@@ -453,48 +331,11 @@ void Connector::setGenderSpecific() {
  */
 void Connector::operator=(const Connector &other) {
     _type = other._type;
-    _customType = other._customType;
     _gender = other._gender;
     _permittivity = other._permittivity;
     _mode = other._mode;
     _impedance_Ohms = other._impedance_Ohms;
     _cutoffFrequency_Hz = other._cutoffFrequency_Hz;
-}
-
-/*!
- * \brief Converts \c type to user-friendly text
- * \param type Connector type to textualize
- * \return User-friendly text representation of \c type
- */
-QString Connector::displayType(Type type) {
-    switch(type) {
-    case N_50_OHM_CONNECTOR:
-        return("N 50 Ohm");
-    case N_75_OHM_CONNECTOR:
-        return("N 75 Ohm");
-    case mm_7_CONNECTOR:
-        return("7 mm");
-    case mm_3_5_CONNECTOR:
-        return("3.5 mm");
-    case mm_2_92_CONNECTOR:
-        return("2.92 mm");
-    case mm_2_4_CONNECTOR:
-        return("2.4 mm");
-    case mm_1_85_CONNECTOR:
-        return("1.85 mm");
-    case in_7_16_CONNECTOR:
-        return("7/16");
-    case TYPE_F_75_OHM_CONNECTOR:
-        return("Type F (75)");
-    case BNC_50_OHM_CONNECTOR:
-        return("BNC 50 Ohm");
-    case BNC_75_OHM_CONNECTOR:
-        return("BNC 75 Ohm");
-    case CUSTOM_CONNECTOR:
-        return("Custom Connector");
-    default:
-        return("Unknown Connector");
-    }
 }
 
 /*!
@@ -516,22 +357,22 @@ QString Connector::displayType(Type type) {
  * \param connectors
  * \return Homegeneity of the connector type of \c connectors
  */
-bool Connector::isSingleConnectorType(QVector<Connector> &connectors) {
+bool Connector::isSameType(QVector<Connector> &connectors) {
     int num_connectors = connectors.size();
 
     if (num_connectors == 0)
-        return(false);
+        return false;
 
     if (num_connectors == 1)
-        return(true);
+        return true;
 
     for (int i = 1; i < num_connectors; i++) {
-        if (connectors.first().isNotType(connectors[i]))
-            return(false);
+        if (!connectors.first().isType(connectors[i]))
+            return false;
     }
 
     // else
-    return(true);
+    return true;
 }
 
 /*!
@@ -553,7 +394,7 @@ bool Connector::isSingleConnectorType(QVector<Connector> &connectors) {
  * \return Number of male connectors in \c connectors
  * \sa numberOfFemaleConnectors()
  */
-int Connector::numberOfMaleConnectors(QVector<Connector> &connectors) {
+int Connector::maleCount(QVector<Connector> &connectors) {
     int males = 0;
     foreach(Connector c, connectors) {
         if (c.isMale())
@@ -581,7 +422,7 @@ int Connector::numberOfMaleConnectors(QVector<Connector> &connectors) {
  * \return Number of female connectors in \c connectors
  * \sa numberOfMaleConnectors()
  */
-int Connector::numberOfFemaleConnectors(QVector<Connector> &connectors) {
+int Connector::femaleCount(QVector<Connector> &connectors) {
     int females = 0;
     foreach(Connector c, connectors) {
         if (c.isFemale())
@@ -636,14 +477,12 @@ QStringList Connector::displayText(QVector<Connector> connectors) {
  */
 bool RsaToolbox::operator==(const Connector &right, const Connector &left) {
     if (right.type() != left.type())
-        return(false);
-    if (right.isCustomType() && right.customType() != left.customType())
-        return(false);
+        return false;
     if (right.gender() != left.gender())
-        return(false);
+        return false;
 
     // else
-    return(true);
+    return true;
 }
 
 /*!
@@ -669,17 +508,20 @@ bool RsaToolbox::operator==(const Connector &right, const Connector &left) {
  ** \sa operator==(const Connector &right, const Connector &left)
  */
 bool RsaToolbox::operator!=(const Connector &right, const Connector &left) {
-    return(!(right == left));
+    return !(right == left);
 }
 
 QDataStream& RsaToolbox::operator<<(QDataStream &stream, const Connector &connector) {
-    stream << qint32(connector.type());
-    stream << connector.customType();
+    stream << connector.type();
     stream << qint32(connector.gender());
     stream << connector.permittivity();
     stream << qint32(connector.mode());
-    stream << connector.impedance_Ohms();
-    stream << connector.cutoffFrequency_Hz();
+    if (connector.isTemMode()) {
+        stream << connector.impedance_Ohms();
+    }
+    else {
+        stream << connector.cutoffFrequency_Hz();
+    }
     return stream;
 }
 QDataStream& RsaToolbox::operator>>(QDataStream &stream, Connector &connector) {
@@ -687,12 +529,8 @@ QDataStream& RsaToolbox::operator>>(QDataStream &stream, Connector &connector) {
     double _double;
     QString _string;
 
-    stream >> _qint32;
-    connector.setType(Connector::Type(_qint32));
-
     stream >> _string;
-    if (connector.isCustomType())
-        connector.setCustomType(_string);
+    connector.setType(_string);
 
     stream >> _qint32;
     connector.setGender(Connector::Gender(_qint32));
@@ -702,13 +540,12 @@ QDataStream& RsaToolbox::operator>>(QDataStream &stream, Connector &connector) {
 
     stream >> _qint32;
     stream >> _double;
-    if (Connector::Mode(_qint32) == Connector::Mode::Tem)
+    if (Connector::Mode(_qint32) == Connector::Mode::Tem){
         connector.setTemMode(_double);
-
-    stream >> _double;
-    if (Connector::Mode(_qint32) == Connector::Mode::Waveguide)
+    }
+    else {
         connector.setWaveguideMode(_double);
-
+    }
     return stream;
 }
 

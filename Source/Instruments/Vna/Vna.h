@@ -77,22 +77,18 @@ public:
 
     // Connectors
     bool isConnectorType(const Connector &type);
-    bool isConnectorType(const QString &userDefinedType);
-    bool isConnectorGenderNeutral(Connector type);
+    bool isConnectorType(const QString &type);
     QVector<Connector> connectorTypes();
-    void defineCustomConnector(const Connector &connector); //
+    void addConnector(const Connector &connector);
     void deleteConnector(const QString &name);
     void deleteConnector(const Connector &connector);
 
     // Cal Kits
     bool isCalKit(NameLabel nameLabel);
     bool isCalKit(QString name, QString label);
-    bool isNotCalKit(NameLabel nameLabel);
-    bool isNotCalKit(QString name, QString label);
     QVector<NameLabel> calKits();
     QVector<NameLabel> calKits(Connector type);
-    QVector<NameLabel> calKits(Connector::Type type);
-    QVector<NameLabel> calKits(QString customType);
+    QVector<NameLabel> calKits(QString connectorType);
 //    void createCalKit(NameLabel nameLabel, Connector connector); // Create by adding first non-port-specific standard...
     void deleteCalKit(NameLabel calkit);
     void importCalKit(QString pathName);
@@ -117,8 +113,6 @@ public:
     // Channel
     bool isChannel(uint index);
     bool isChannel(QString name);
-    bool isNotChannel(uint index);
-    bool isNotChannel(QString name);
     uint numberOfChannels();
     QVector<uint> channels();
     uint channelId(QString name);
@@ -148,7 +142,6 @@ public:
 
     // Diagram
     bool isDiagram(uint index);
-    bool isNotDiagram(uint index);
     uint numberOfDiagrams();
     QVector<uint> diagrams();
     void createDiagram(uint index);
@@ -232,6 +225,9 @@ private:
     VnaDiagram _diagram;
     VnaSwitchMatrix _switchMatrix;
     VnaCalUnit _calUnit;
+
+    QStringList connectorTypeList();
+    Connector connectorInfo(QString type);
 };
 }
 

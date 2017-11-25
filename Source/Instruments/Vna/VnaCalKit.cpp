@@ -57,7 +57,7 @@ bool VnaCalKit::isConnectorType(Connector type) {
 }
 bool VnaCalKit::isAgilentModel() {
     QString scpi = ":CORR:CKIT:DMOD? \'%1\',\'%2\',\'%3\'\n";
-    scpi = scpi.arg(VnaScpi::toTypeString(connectorType()));
+    scpi = scpi.arg(connectorType());
     scpi = scpi.arg(_nameLabel.name());
     scpi = scpi.arg(_nameLabel.label());
     return _vna->query(scpi).trimmed() == "DEL";
@@ -359,31 +359,31 @@ bool VnaCalKit::hasThru(Connector::Gender gender1, Connector::Gender gender2) {
 
 void VnaCalKit::useAgilentModel() {
     QString scpi = ":CORR:CKIT:DMOD \'%1\',\'%2\',\'%3\',DEL\n";
-    scpi = scpi.arg(VnaScpi::toTypeString(connectorType()));
+    scpi = scpi.arg(connectorType());
     scpi = scpi.arg(_nameLabel.name());
     scpi = scpi.arg(_nameLabel.label());
     _vna->write(scpi);
 }
 void VnaCalKit::useRohdeModel() {
     QString scpi = ":CORR:CKIT:DMOD \'%1\',\'%2\',\'%3\',ELEN\n";
-    scpi = scpi.arg(VnaScpi::toTypeString(connectorType()));
+    scpi = scpi.arg(connectorType());
     scpi = scpi.arg(_nameLabel.name());
     scpi = scpi.arg(_nameLabel.label());
     _vna->write(scpi);
 }
 
-Connector VnaCalKit::connectorType() {
+QString VnaCalKit::connectorType() {
     QVector<Connector> connectors = _vna->connectorTypes();
     foreach (Connector connector, connectors) {
         QVector<NameLabel> calkits = _vna->calKits(connector);
         if (calkits.contains(_nameLabel))
-            return(connector);
+            return connector.type();
     }
 
     // Default:
-    return(Connector());
+    return("");
 }
-void VnaCalKit::setConnectorType(const Connector &connector) {
+void VnaCalKit::setConnectorType(Connector connector) {
     bool _isAgilentModel = isAgilentModel();
     QVector<VnaCalStandard> _standards = standards();
     for (int i = 0; i < _standards.size(); i++) {
@@ -423,7 +423,7 @@ void VnaCalKit::copy(const NameLabel &newNameLabel) {
 }
 
 QVector<VnaCalStandard> VnaCalKit::standards() {
-    Connector type = connectorType();
+    QString type = connectorType();
     QVector<VnaCalStandard> standards = standardsSummary();
 
     const int size = standards.size();
@@ -493,7 +493,7 @@ QVector<VnaCalStandard> VnaCalKit::standardsSummary() {
     }
     return standards;
 }
-void VnaCalKit::standardDetails(VnaCalStandard &standard, Connector type) {
+void VnaCalKit::standardDetails(VnaCalStandard &standard, QString connectorType) {
     // Firmware error handling
     // Isolation standards
     // (toString(standard) undefined)
@@ -506,7 +506,7 @@ void VnaCalKit::standardDetails(VnaCalStandard &standard, Connector type) {
 
     QString scpi = ":CORR:CKIT:%1:WLAB? \'%2\',\'%3\',\'%4\'";;
     scpi = scpi.arg(VnaScpi::toString(standard)); // Standard
-    scpi = scpi.arg(VnaScpi::toTypeString(type)); // Connector type
+    scpi = scpi.arg(connectorType); // Connector type
     scpi = scpi.arg(_nameLabel.name()); // name
     scpi = scpi.arg(_nameLabel.label()); // label
     if (standard.isPortSpecific()) {
@@ -552,7 +552,7 @@ void VnaCalKit::parse(VnaCalStandard &standard, QString scpi) {
 
 void VnaCalKit::addStandardByTouchstone(VnaCalStandard &standard) {
     QString scpi = ":MMEM:LOAD:CKIT:SDAT \'%1\',\'%2\',%3,\'%4\',\'%5\'";;
-    scpi = scpi.arg(VnaScpi::toTypeString(standard.connector()));
+    scpi = scpi.arg(standard.connector().type());
     scpi = scpi.arg(_nameLabel.name());
     scpi = scpi.arg(VnaScpi::toString(standard));
     scpi = scpi.arg(_nameLabel.label());
@@ -576,7 +576,7 @@ void VnaCalKit::addStandardByTouchstone(VnaCalStandard &standard) {
 void VnaCalKit::addStandardByModel(VnaCalStandard &standard) {
     QString scpi = ":CORR:CKIT:%1:WLAB \'%2\',\'%3\',\'%4\',\'%5\'";
     scpi = scpi.arg(VnaScpi::toString(standard));
-    scpi = scpi.arg(VnaScpi::toTypeString(standard.connector()));
+    scpi = scpi.arg(standard.connector().type());
     scpi = scpi.arg(_nameLabel.name());
     scpi = scpi.arg(_nameLabel.label());
     scpi = scpi.arg(standard.label());

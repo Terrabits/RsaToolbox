@@ -1064,12 +1064,12 @@ void VnaCalStandard::sort() {
  * \param connector2
  */
 void RsaToolbox::sort(Connector &connector1, Connector &connector2) {
-    if (connector2.isMale() && connector1.isNotMale()) {
+    if (connector2.isMale() && !connector1.isMale()) {
         Connector temp = connector1;
         connector1 = connector2;
         connector2 = temp;
     }
-    else if (connector1.isFemale() && connector2.isNotFemale()) {
+    else if (connector1.isFemale() && !connector2.isFemale()) {
         Connector temp = connector1;
         connector1 = connector2;
         connector2 = temp;
