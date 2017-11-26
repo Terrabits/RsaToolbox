@@ -15,6 +15,7 @@ class NameLabel
 {
 public:
     NameLabel();
+    NameLabel(const NameLabel &other);
     NameLabel(QString name, QString label = "");
 
     bool isEmpty() const;

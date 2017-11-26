@@ -753,7 +753,6 @@ Connector Vna::connectorInfo(QString type) {
     // results[2] = gender (GENDer | NGENder)
     // results[3] = permittivity
     // results[4] = impedance (Ohms) | cutoff freq (Hz)
-    connector.setType(results[0].trimmed());
     VnaScpi::toConnectorMode(results[1]) == Connector::Mode::Tem ?
                 connector.setImpedance(results[4].toDouble())
               : connector.setCutoffFrequency(results[4].toDouble());
@@ -804,6 +803,9 @@ bool Vna::isConnectorType(const QString &type) {
  * \c false otherwise
  */
 bool Vna::isCalKit(NameLabel nameLabel) {
+    if (nameLabel.isEmpty())
+        return false;
+
     return calKits().contains(nameLabel);
 }
 
@@ -831,10 +833,9 @@ bool Vna::isCalKit(QString name, QString label) {
  * \return All calibration kits
  */
 QVector<NameLabel> Vna::calKits() {
-    QVector<Connector> connectors = connectorTypes();
     QVector<NameLabel> kits;
-    foreach(Connector type, connectors) {
-        kits += calKits(type);
+    foreach(QString connector, connectorTypeList()) {
+        kits += calKits(connector);
     }
     return(kits);
 }
@@ -853,6 +854,10 @@ QVector<NameLabel> Vna::calKits(Connector type) {
 }
 
 QVector<NameLabel> Vna::calKits(QString connectorType) {
+    connectorType = connectorType.trimmed();
+    if (connectorType.isEmpty())
+        return QVector<NameLabel>();
+
     QString scpi = ":CORR:CKIT:LCAT? \'%1\'\n";
     scpi = scpi.arg(connectorType);
     QString result = query(scpi, 2000).trimmed();

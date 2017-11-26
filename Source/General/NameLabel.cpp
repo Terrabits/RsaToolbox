@@ -43,6 +43,11 @@ NameLabel::NameLabel()
 {
 }
 
+NameLabel::NameLabel(const NameLabel &other) {
+    _name  = other.name();
+    _label = other.label();
+}
+
 /*!
  * \brief the fully defined instance constructor
  *
@@ -121,7 +126,7 @@ NameLabel::operator QString() const {
  * \param other \c NameLabel object with desired properties
  */
 void NameLabel::operator=(const NameLabel &other) {
-    _name = other._name;
+    _name  = other._name;
     _label = other._label;
 }
 
@@ -241,8 +246,12 @@ QVector<NameLabel> NameLabel::parse(QString list, QString separator, QString ign
  * \sa RsaToolbox::operator!=(const NameLabel &right, const NameLabel &left)
  */
 bool RsaToolbox::operator==(const NameLabel &right, const NameLabel &left) {
-    return(right.name() == left.name()
-           && right.label() == left.label());
+    if (right.name() != left.name())
+        return false;
+    if (right.label() != left.label())
+        return false;
+
+    return true;
 }
 
 /*!
@@ -260,7 +269,7 @@ bool RsaToolbox::operator==(const NameLabel &right, const NameLabel &left) {
  * \sa RsaToolbox::operator==(const NameLabel &right, const NameLabel &left)
  */
 bool RsaToolbox::operator!=(const NameLabel &right, const NameLabel &left) {
-    return(!(right == left));
+    return !(right == left);
 }
 
 QDataStream& RsaToolbox::operator<<(QDataStream &stream, const NameLabel &nameLabel) {

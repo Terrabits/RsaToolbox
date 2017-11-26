@@ -160,7 +160,7 @@ QString Connector::genderAbbreviation() const {
  * \sa isNotType()
  */
 bool Connector::isType(const Connector &other) const {
-    return _type.toLower() == other._type.toLower();
+    return _type.trimmed().toLower() == other._type.trimmed().toLower();
 }
 
 /*!
@@ -301,7 +301,7 @@ void Connector::setType(const Connector &type) {
  * \sa type()
  */
 void Connector::setType(QString type) {
-    _type = type;
+    _type = type.trimmed();
 }
 
 /*!
