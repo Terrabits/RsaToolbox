@@ -26,6 +26,9 @@ public:
     SharedLastPath lastPath() const;
     void setLastPath(SharedLastPath lastPath);
 
+    void setPorts(uint ports);
+    void clearPorts();
+
     bool isFilePath() const;
     QString filePath() const;
     void setFilePath(QString filePath);
@@ -39,7 +42,13 @@ private slots:
 private:
     Ui::GetSnpFile *ui;
     QString _filePath;
+
     SharedLastPath _lastPath;
+
+    bool isAnyPorts() const;
+    uint    _ports;
+    QString fileFilter() const;
+
 
     QString fileName() const;
     QString path() const;

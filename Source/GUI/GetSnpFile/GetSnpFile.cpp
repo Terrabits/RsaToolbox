@@ -18,6 +18,7 @@ GetSnpFile::GetSnpFile(QWidget *parent) :
     ui->setupUi(this);
     setFocusProxy(ui->getButton);
     _lastPath = newLastPath(QDir::homePath());
+    clearPorts();
 }
 
 GetSnpFile::~GetSnpFile()
@@ -30,6 +31,13 @@ SharedLastPath GetSnpFile::lastPath() const {
 }
 void GetSnpFile::setLastPath(SharedLastPath lastPath) {
     _lastPath = lastPath;
+}
+
+void GetSnpFile::setPorts(uint ports) {
+    _ports = ports;
+}
+void GetSnpFile::clearPorts() {
+    _ports = 0;
 }
 
 bool GetSnpFile::isFilePath() const {
@@ -59,9 +67,22 @@ void GetSnpFile::on_getButton_clicked() {
             QFileDialog::getOpenFileName(this,
                                          "Choose touchstone file...",
                                          dir,
-                                         "Touchstone file (*.s*p)");
+                                         fileFilter());
     if (!result.isEmpty())
         setFilePath(result);
+}
+
+bool GetSnpFile::isAnyPorts() const {
+    return _ports == 0;
+}
+QString GetSnpFile::fileFilter() const {
+    const QString filter = "Touchstone file (*.s%1p)";
+    if (isAnyPorts()) {
+        return filter.arg("*");
+    }
+    else {
+        return filter.arg(_ports);
+    }
 }
 
 QString GetSnpFile::fileName() const {
