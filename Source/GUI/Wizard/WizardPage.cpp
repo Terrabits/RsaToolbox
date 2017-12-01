@@ -64,10 +64,6 @@ void WizardPage::backToThis() {
 void WizardPage::resetContents() {
 }
 
-void WizardPage::displayError(const QString &message) {
-    Q_UNUSED(message);
-}
-
 Wizard *WizardPage::wizard() const {
     return _wizard;
 }
@@ -87,4 +83,11 @@ void WizardPage::clearHistory() {
 
 BreadCrumbs *WizardPage::breadCrumbs() const {
     return wizard()->breadCrumbs();
+}
+
+ErrorLabel *WizardPage::errorLabel() const {
+    return _wizard->errorLabel();
+}
+TimedProgressBar *WizardPage::progressBar() const {
+    return _wizard->progressBar();
 }
