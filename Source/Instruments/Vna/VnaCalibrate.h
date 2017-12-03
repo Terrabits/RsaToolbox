@@ -93,6 +93,8 @@ private:
     bool _isChannelSpecific;
     QScopedPointer<VnaChannel> _channel;
     uint _channelIndex;
+
+    uint timeout_ms();
     static uint _timeout_ms;
     
     bool isFullyInitialized() const;

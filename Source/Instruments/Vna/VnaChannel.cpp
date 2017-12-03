@@ -191,8 +191,9 @@ uint VnaChannel::sweepTime_ms() {
     }
 }
 uint VnaChannel::totalSweepTime_ms() {
-    if (averaging().isOff())
+    if (averaging().isOff()) {
         return sweepTime_ms();
+    }
 
     return sweepTime_ms() * averaging().count();
 }

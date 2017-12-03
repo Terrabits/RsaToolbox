@@ -73,7 +73,6 @@ VnaCalibrate::VnaCalibrate(Vna *vna, uint channelIndex, QObject *parent) :
     _isChannelSpecific = true;
     _channel.reset(new VnaChannel(vna, channelIndex));
     _channelIndex = channelIndex;
-    _timeout_ms = 10 * 60 * 1000; // 10 mins
 }
 VnaCalibrate::~VnaCalibrate() {
 
@@ -206,10 +205,7 @@ void VnaCalibrate::start(QString calibrationName,
 
     // Note: Cannot ask for sweep type (and therefore sweep time)
     // during calibration!
-    if (_isChannelSpecific)
-        _timeout_ms = _channel->totalSweepTime_ms();
-    else
-        _timeout_ms = _vna->calibrationSweepTime_ms();
+    _timeout_ms = timeout_ms();
 
     selectChannels();
     defineCalibration(calibrationName, type, ports);
@@ -472,6 +468,22 @@ void VnaCalibrate::operator=(const VnaCalibrate &other) {
 
 
 // Private
+uint VnaCalibrate::timeout_ms() {
+    uint timeout_ms = 0;
+    if (_isChannelSpecific) {
+        const uint avg = _channel->averaging().count();
+        timeout_ms = 2 * avg * _channel->sweepTime_ms() + 5000;
+    }
+    else {
+        foreach (uint i, _vna->channels()) {
+            VnaChannel ch = _vna->channel(i);
+            const uint avg = ch.averaging().count();
+            timeout_ms += 2 * avg * ch.sweepTime_ms() + 5000;
+        }
+    }
+    return timeout_ms;
+}
+
 bool VnaCalibrate::isFullyInitialized() const {
     if (_vna == NULL)
         return(false);
