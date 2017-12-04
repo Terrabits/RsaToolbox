@@ -83,7 +83,7 @@ public:
     void measureThru(uint port1, uint port2);
     void apply();
 
-    void autoCalibrate(QVector<uint> ports, QString calId="", QString characterization="");
+    bool autoCalibrate(QVector<uint> ports, QString calId="", QString characterization="");
 
     void operator=(const VnaCalibrate &other);
 
