@@ -393,7 +393,7 @@ void VnaCalibrate:: measureThru(uint port1, uint port2) {
     // during calibration!
     _vna->pause(_timeout_ms * 2 + 5000 /*timeout_ms * 2 + 5000*/);
 }
-void VnaCalibrate:: apply() {
+void VnaCalibrate::apply() {
     if (isMissingZvaCommand())
         return;
 
