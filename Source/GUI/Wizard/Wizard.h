@@ -2,9 +2,11 @@
 #define WIZARD_H
 
 
-#include "WizardPage.h"
-#include "WizardButtons.h"
 #include "BreadCrumbs.h"
+#include "ErrorLabel.h"
+#include "TimedProgressBar.h"
+#include "WizardButtons.h"
+#include "WizardPage.h"
 
 #include <QWidget>
 #include <QLabel>
@@ -90,8 +92,10 @@ protected:
     void enterForward(int index);
     void enterBackward(int index);
 
-    WizardButtons *buttons() const;
-    BreadCrumbs *breadCrumbs() const;
+    BreadCrumbs      *breadCrumbs() const;
+    ErrorLabel       *errorLabel () const;
+    WizardButtons    *buttons()     const;
+    TimedProgressBar *progressBar() const;
 
     QStringList nameHistory() const;
     void clearHistory();

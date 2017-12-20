@@ -59,19 +59,19 @@
     <widget class="QWidget" name="body" native="true">
      <layout class="QVBoxLayout" name="verticalLayout">
       <property name="spacing">
-       <number>15</number>
+       <number>7</number>
       </property>
       <property name="leftMargin">
-       <number>15</number>
+       <number>11</number>
       </property>
       <property name="topMargin">
-       <number>15</number>
+       <number>11</number>
       </property>
       <property name="rightMargin">
-       <number>15</number>
+       <number>11</number>
       </property>
       <property name="bottomMargin">
-       <number>15</number>
+       <number>7</number>
       </property>
       <item>
        <widget class="QStackedWidget" name="stack">
@@ -79,6 +79,9 @@
          <number>-1</number>
         </property>
        </widget>
+      </item>
+      <item>
+       <widget class="ErrorLabel" name="error" native="true"/>
       </item>
       <item>
        <widget class="WizardButtons" name="buttons" native="true">
@@ -89,6 +92,9 @@
          </size>
         </property>
        </widget>
+      </item>
+      <item>
+       <widget class="RsaToolbox::TimedProgressBar" name="progress" native="true"/>
       </item>
      </layout>
     </widget>
@@ -106,6 +112,18 @@
    <class>WizardButtons</class>
    <extends>QWidget</extends>
    <header>WizardButtons.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>RsaToolbox::TimedProgressBar</class>
+   <extends>QWidget</extends>
+   <header>TimedProgressBar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ErrorLabel</class>
+   <extends>QWidget</extends>
+   <header>ErrorLabel.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

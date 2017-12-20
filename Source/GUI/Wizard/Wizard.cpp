@@ -373,6 +373,12 @@ WizardButtons *Wizard::buttons() const {
 BreadCrumbs *Wizard::breadCrumbs() const {
     return ui->breadCrumbs;
 }
+ErrorLabel *Wizard::errorLabel() const {
+    return ui->error;
+}
+TimedProgressBar *Wizard::progressBar() const {
+    return ui->progress;
+}
 
 void Wizard::updateHistory() {
     if (_history.isEmpty())

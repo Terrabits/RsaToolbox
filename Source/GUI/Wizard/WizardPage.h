@@ -57,16 +57,17 @@ signals:
     void enableNext(bool isEnabled);
     void enableBack(bool isEnabled);
 
-public slots:
-    virtual void displayError(const QString &message);
-
 protected:
     WizardPage *pageAt(int index);
     Wizard *wizard() const;
     virtual void setWizard(Wizard *wizard);
-    WizardButtons *buttons() const;
+
+    BreadCrumbs      *breadCrumbs() const;
+    WizardButtons    *buttons    () const;
+    ErrorLabel       *errorLabel () const;
+    TimedProgressBar *progressBar() const;
+
     void clearHistory();
-    BreadCrumbs *breadCrumbs() const;
 
 private:
     QString _name;

@@ -73,7 +73,6 @@ VnaCalibrate::VnaCalibrate(Vna *vna, uint channelIndex, QObject *parent) :
     _isChannelSpecific = true;
     _channel.reset(new VnaChannel(vna, channelIndex));
     _channelIndex = channelIndex;
-    _timeout_ms = 10 * 60 * 1000; // 10 mins
 }
 VnaCalibrate::~VnaCalibrate() {
 
@@ -206,10 +205,7 @@ void VnaCalibrate::start(QString calibrationName,
 
     // Note: Cannot ask for sweep type (and therefore sweep time)
     // during calibration!
-    if (_isChannelSpecific)
-        _timeout_ms = _channel->totalSweepTime_ms();
-    else
-        _timeout_ms = _vna->calibrationSweepTime_ms();
+    _timeout_ms = timeout_ms();
 
     selectChannels();
     defineCalibration(calibrationName, type, ports);
@@ -409,30 +405,16 @@ void VnaCalibrate::apply() {
     _vna->pause(6000);
 }
 
-void VnaCalibrate::autoCalibrate(QVector<uint> ports, QString calId, QString characterization) {
+bool VnaCalibrate::autoCalibrate(QVector<uint> ports, QString calId, QString characterization) {
     if (calId.isEmpty()) {
         if (!_vna->calUnits().isEmpty()) {
             calId = _vna->calUnits().first();
         }
         else {
             _vna->printLine("Error: No cal unit present.\n");
-            return;
+            return false;
         }
     }
-    _vna->calUnit(calId).select();
-
-    selectChannels();
-
-    const int numPorts = ports.size();
-    const int sweeps = 3 * numPorts + numPorts*(numPorts-1)/2;
-    uint timeout_ms;
-    if (_isChannelSpecific) {
-        timeout_ms = _channel->sweepTime_ms();
-    }
-    else {
-        timeout_ms = _vna->calibrationSweepTime_ms();
-    }
-    timeout_ms = timeout_ms * sweeps + 5000 * sweeps;
 
     QString scpi;
     if (_isChannelSpecific) {
@@ -446,8 +428,15 @@ void VnaCalibrate::autoCalibrate(QVector<uint> ports, QString calId, QString cha
         scpi = scpi.arg(characterization);
         scpi = scpi.arg(toString(ports, ", "));
     }
+
+    const int numPorts    = ports.size();
+    const int sweeps      = 3 * numPorts + numPorts*(numPorts-1)/2;
+    const uint timeout_ms = this->timeout_ms();
+
+    _vna->calUnit(calId).select();
+    selectChannels();
     _vna->write(scpi);
-    _vna->pause(timeout_ms);
+    return _vna->pause(sweeps * timeout_ms);
 }
 
 void VnaCalibrate::operator=(const VnaCalibrate &other) {
@@ -472,6 +461,22 @@ void VnaCalibrate::operator=(const VnaCalibrate &other) {
 
 
 // Private
+uint VnaCalibrate::timeout_ms() {
+    uint timeout_ms = 0;
+    if (_isChannelSpecific) {
+        const uint avg = _channel->averaging().count();
+        timeout_ms = 2 * avg * _channel->sweepTime_ms() + 5000;
+    }
+    else {
+        foreach (uint i, _vna->channels()) {
+            VnaChannel ch = _vna->channel(i);
+            const uint avg = ch.averaging().count();
+            timeout_ms += 2 * avg * ch.sweepTime_ms() + 5000;
+        }
+    }
+    return timeout_ms;
+}
+
 bool VnaCalibrate::isFullyInitialized() const {
     if (_vna == NULL)
         return(false);
