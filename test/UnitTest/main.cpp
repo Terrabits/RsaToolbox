@@ -10,6 +10,7 @@
 #include "VnaPauseSweepsTest.h"
 #include "VnaSweepTest.h"
 #include "VnaTraceTest.h"
+#include "VnaUndoTest.h"
 
 // RsaToolbox
 #include "GenericBus.h"
@@ -26,14 +27,18 @@ int main()
 {
     ConnectionType type;
     QString address = "127.0.0.1::5025";
-#ifdef Q_OS_WIN
-    type = ConnectionType::VisaTcpSocketConnection;
-#else
-    type = ConnectionType::TcpSocketConnection;
-#endif
+//#ifdef Q_OS_WIN
+//    type = ConnectionType::VisaTcpSocketConnection;
+//#else
+//    type = ConnectionType::TcpSocketConnection;
+//#endif
+
+    type    = ConnectionType::VisaGpibConnection;
+    address = "20";
 
     TestRunner testRunner;
     testRunner.addTest(new MockBusTest);
+    testRunner.addTest(new VnaUndoTest(type, address));
 //    testRunner.addTest(new UnitsTest);
 //    testRunner.addTest(new VnaChannelTest           (type, address));
 //    testRunner.addTest(new VnaArbitraryFrequencyTest(type, address));

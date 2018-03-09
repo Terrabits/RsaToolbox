@@ -12,7 +12,8 @@ HEADERS += VnaIntermodTest.h \
            VnaCalibrateTest.h \
            VnaChannelTest.h \
            VnaTraceTest.h \
-    MockBusTest.h
+    MockBusTest.h \
+    vnaundotest.h
 SOURCES += main.cpp \
            VnaIntermodTest.cpp \
            VnaPauseSweepsTest.cpp \
@@ -22,6 +23,7 @@ SOURCES += main.cpp \
            VnaCalibrateTest.cpp \
            VnaChannelTest.cpp \
            VnaTraceTest.cpp \
-    MockBusTest.cpp
+    MockBusTest.cpp \
+    vnaundotest.cpp
 
 DEFINES += SOURCE_DIR=\\\"$$PWD/\\\"
