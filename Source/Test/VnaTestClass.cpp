@@ -80,23 +80,28 @@ VnaProperties::Model VnaTestClass::model() {
 }
 
 void VnaTestClass::_initTestCase() {
-    if (_logDir == QDir())
-        return;
-
-    if (!_logDir.exists()) {
-        QDir dir(_logDir);
-        dir.cdUp();
-        dir.mkpath(_logDir.dirName());
-    }
-    else {
-        foreach (QString file, _logDir.entryList(QDir::Files)) {
-            _logDir.remove(file);
-        }
-    }
-
     _vna.reset(new Vna(_connectionType, _address));
     QVERIFY(_vna->isConnected());
     _vna.reset();
+
+    if (_logDir == QDir()) {
+        return;
+    }
+
+    if (_logDir.exists()) {
+        for (int i = 0; i < 100 && _logDir.exists(); i++) {
+            _logDir.removeRecursively();
+        }
+    }
+    QVERIFY(!_logDir.exists());
+
+    QDir parent = _logDir;
+    parent.cdUp();
+    parent.mkpath(_logDir.dirName());
+    for (int i = 0; i < 100 && !_logDir.exists(); i++) {
+        parent.mkpath(_logDir.dirName());
+    }
+    QVERIFY(_logDir.exists());
 }
 void VnaTestClass::_cleanupTestCase() {
     _vna.reset();

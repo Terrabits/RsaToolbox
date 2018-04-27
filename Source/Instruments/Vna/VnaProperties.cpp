@@ -356,6 +356,10 @@ uint VnaProperties::maximumPoints() {
     return(60001);
 }
 
+bool VnaProperties::isPulseGenerator() {
+    return isZvaFamily();
+}
+
 void VnaProperties::operator=(VnaProperties const &other) {
     this->_vna = other._vna;
 }

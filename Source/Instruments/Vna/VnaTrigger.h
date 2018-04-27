@@ -22,7 +22,7 @@ private: Q_OBJECT
 public:
 
     enum /*class*/ Source {
-        FreeRun,
+        FreeRun, // IMMediate
         External,
         Manual,
         Multiple

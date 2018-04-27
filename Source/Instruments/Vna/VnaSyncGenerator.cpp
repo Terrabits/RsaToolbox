@@ -2,7 +2,7 @@
 
 // RsaToolbox includes
 #include "General.h"
-#include "VnaPulseGenerator.h"
+#include "VnaSyncGenerator.h"
 #include "VnaChannel.h"
 #include "Vna.h"
 using namespace RsaToolbox;
@@ -11,7 +11,7 @@ using namespace RsaToolbox;
 #include <QString>
 
 
-VnaPulseGenerator::VnaPulseGenerator(QObject *parent) :
+VnaSyncGenerator::VnaSyncGenerator(QObject *parent) :
     QObject(parent)
 {
     placeholder.reset(new Vna());
@@ -20,7 +20,7 @@ VnaPulseGenerator::VnaPulseGenerator(QObject *parent) :
     _channelIndex = 0;
 }
 
-VnaPulseGenerator::VnaPulseGenerator(const VnaPulseGenerator &other)
+VnaSyncGenerator::VnaSyncGenerator(const VnaSyncGenerator &other)
 {
     if (other.isFullyInitialized()) {
         _vna          = other._vna;
@@ -34,7 +34,7 @@ VnaPulseGenerator::VnaPulseGenerator(const VnaPulseGenerator &other)
         _channelIndex = 0;
     }
 }
-VnaPulseGenerator::VnaPulseGenerator(Vna *vna, VnaChannel *channel, QObject *parent) :
+VnaSyncGenerator::VnaSyncGenerator(Vna *vna, VnaChannel *channel, QObject *parent) :
     QObject(parent)
 {
     _vna          = vna;
@@ -42,69 +42,53 @@ VnaPulseGenerator::VnaPulseGenerator(Vna *vna, VnaChannel *channel, QObject *par
     _channelIndex = channel->index();
 }
 
-VnaPulseGenerator::VnaPulseGenerator(Vna *vna, uint channelIndex, QObject *parent) :
+VnaSyncGenerator::VnaSyncGenerator(Vna *vna, uint channelIndex, QObject *parent) :
     QObject(parent)
 {
     _vna          = vna;
     _channel.reset(new VnaChannel(vna, channelIndex, this));
     _channelIndex = channelIndex;
 }
-VnaPulseGenerator::~VnaPulseGenerator() {
+VnaSyncGenerator::~VnaSyncGenerator() {
 
 }
 
-bool VnaPulseGenerator::isOn() {
+bool VnaSyncGenerator::isOn() {
     QString scpi = ":SENS%1:PULS:GEN?\n";
     scpi         = scpi.arg(_channelIndex);
     return _vna->query(scpi).trimmed() == "1";
 }
-void VnaPulseGenerator::on(bool isOn) {
+void VnaSyncGenerator::on(bool isOn) {
     QString scpi = ":SENS%1:PULS:GEN %2\n";
     scpi.arg(_channelIndex);
     scpi.arg(isOn? "1" : "0");
     scpi = scpi.arg(_channelIndex);
     _vna->write(scpi);
 }
-void VnaPulseGenerator::off(bool isOff) {
+void VnaSyncGenerator::off(bool isOff) {
     on(!isOff);
 }
 
-VnaPulseType VnaPulseGenerator::type() {
-    QString type = ":SENS%1:PULS:GEN1:TYPE?\n";
+VnaPulseType VnaSyncGenerator::type() {
+    QString type = ":SENS%1:PULS:GEN2:TYPE?\n";
             type = type.arg(_channelIndex);
             type = _vna->query(type).trimmed();
     return vnaPulseTypeFromScpi(type);
 }
-void VnaPulseGenerator::setType(VnaPulseType type) {
-    QString scpi = ":SENS%1:PULS:GEN1:TYPE %2\n";
+void VnaSyncGenerator::setType(VnaPulseType type) {
+    QString scpi = ":SENS%1:PULS:GEN2:TYPE %2\n";
     scpi         = scpi.arg(_channelIndex);
     scpi         = scpi.arg(toScpi(type));
     _vna->write(scpi);
 }
 
-double VnaPulseGenerator::delay_s() {
-    QString scpi = ":SENS%1:PULS:GEN1:DEL?\n";
-    scpi         = scpi.arg(_channelIndex);
-    return _vna->query(scpi).trimmed().toDouble();
-}
-void VnaPulseGenerator::setDelay(double value, SiPrefix prefix) {
-    QString scpi = ":SENS%1:PULS:GEN1:DEL %2\n";
-    scpi = scpi.arg(_channelIndex);
-    scpi = scpi.arg(value);
-    if (prefix != SiPrefix::None) {
-        const QString units = toString(prefix, Units::Seconds);
-        scpi = QString("%1 %2").arg(scpi).arg(units);
-    }
-    _vna->write(scpi);
-}
-
-double VnaPulseGenerator::pulseWidth_s() {
-    QString scpi = ":SENS%1:PULS:GEN1:WIDT?\n";
+double VnaSyncGenerator::pulseWidth_s() {
+    QString scpi = ":SENS%1:PULS:GEN2:WIDT?\n";
     scpi = scpi.arg(_channelIndex);
     return _vna->query(scpi).trimmed().toDouble();
 }
-void VnaPulseGenerator::setPulseWidth(double value, SiPrefix prefix) {
-    QString scpi = ":SENS%1:PULS:GEN1:WIDT %2\n";
+void VnaSyncGenerator::setPulseWidth(double value, SiPrefix prefix) {
+    QString scpi = ":SENS%1:PULS:GEN2:WIDT %2\n";
     scpi         = scpi.arg(_channelIndex);
     scpi         = scpi.arg(value);
     if (prefix != SiPrefix::None) {
@@ -114,13 +98,13 @@ void VnaPulseGenerator::setPulseWidth(double value, SiPrefix prefix) {
     _vna->write(scpi);
 }
 
-double VnaPulseGenerator::period_s() {
-    QString scpi = ":SENS%1:PULS:GEN1:PER?\n";
+double VnaSyncGenerator::period_s() {
+    QString scpi = ":SENS%1:PULS:GEN2:PER?\n";
     scpi = scpi.arg(_channelIndex);
     return _vna->query(scpi).trimmed().toDouble();
 }
-void VnaPulseGenerator::setPeriod(double value, SiPrefix prefix) {
-    QString scpi = ":SENS%1:PULS:GEN1:PER %2\n";
+void VnaSyncGenerator::setPeriod(double value, SiPrefix prefix) {
+    QString scpi = ":SENS%1:PULS:GEN2:PER %2\n";
     scpi         = scpi.arg(_channelIndex);
     scpi         = scpi.arg(value);
     if (prefix != SiPrefix::None) {
@@ -130,32 +114,32 @@ void VnaPulseGenerator::setPeriod(double value, SiPrefix prefix) {
     _vna->write(scpi);
 }
 
-bool VnaPulseGenerator::isInverted() {
-    QString scpi = ":SENS%1:PULS:GEN1:POL?\n";
+bool VnaSyncGenerator::isInverted() {
+    QString scpi = ":SENS%1:PULS:GEN2:POL?\n";
     scpi         = scpi.arg(_channelIndex);
     return _vna->query(scpi).trimmed() == "1";
 }
-void VnaPulseGenerator::setInverted(bool isInverted) {
-    QString scpi = ":SENS%1:PULS:GEN1:POL %2\n";
+void VnaSyncGenerator::setInverted(bool isInverted) {
+    QString scpi = ":SENS%1:PULS:GEN2:POL %2\n";
     scpi         = scpi.arg(_channelIndex);
     scpi         = scpi.arg(isInverted? "INV" : "NORM");
     _vna->write(scpi);
 }
 
-bool VnaPulseGenerator::isChannelSpecific() {
-    QString scpi = "SENS%1:PULS:GEN1:MODE?\n";
+bool VnaSyncGenerator::isChannelSpecific() {
+    QString scpi = "SENS%1:PULS:GEN2:MODE?\n";
     scpi         = scpi.arg(_channelIndex);
     const QString result = _vna->query(scpi).trimmed();
     return result.startsWith("CSP", Qt::CaseInsensitive);
 }
-void VnaPulseGenerator::setChannelSpecific(bool isSpecific) {
-    QString scpi = "SENS%1:PULS:GEN1:MODE %2\n";
+void VnaSyncGenerator::setChannelSpecific(bool isSpecific) {
+    QString scpi = "SENS%1:PULS:GEN2:MODE %2\n";
     scpi         = scpi.arg(_channelIndex);
     scpi         = scpi.arg(isSpecific? "CSP" : "CONT");
     _vna->write(scpi);
 }
 
-void VnaPulseGenerator::operator=(VnaPulseGenerator const &other) {
+void VnaSyncGenerator::operator=(VnaSyncGenerator const &other) {
     if (other.isFullyInitialized()) {
         _vna          = other._vna;
         _channel.reset(new VnaChannel(other._channel.data()));
@@ -170,7 +154,7 @@ void VnaPulseGenerator::operator=(VnaPulseGenerator const &other) {
 }
 
 // Private
-bool VnaPulseGenerator::isFullyInitialized() const {
+bool VnaSyncGenerator::isFullyInitialized() const {
     if (_vna == NULL)
         return(false);
     if (_vna == placeholder.data())

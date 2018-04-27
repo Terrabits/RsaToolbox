@@ -38,7 +38,7 @@ public:
     template <class T>
     Log& operator<<(T item) {
         _stream << item;
-        return(*this);
+        return *this;
     }
 
 signals:
@@ -49,6 +49,7 @@ signals:
 public slots:
     bool open();
     void close();
+    void flush();
     bool rename(QString pathName);
 
     bool printHeader();

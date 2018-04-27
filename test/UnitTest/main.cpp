@@ -8,6 +8,7 @@
 #include "VnaChannelTest.h"
 #include "VnaIntermodTest.h"
 #include "VnaPauseSweepsTest.h"
+#include "vnapulsegeneratortest.h"
 #include "VnaSweepTest.h"
 #include "VnaTraceTest.h"
 #include "VnaUndoTest.h"
@@ -33,12 +34,13 @@ int main()
 //    type = ConnectionType::TcpSocketConnection;
 //#endif
 
-    type    = ConnectionType::VisaGpibConnection;
-    address = "20";
+    type    = ConnectionType::VisaTcpSocketConnection;
+    address = "localhost::5025";
 
     TestRunner testRunner;
-    testRunner.addTest(new MockBusTest);
-    testRunner.addTest(new VnaUndoTest(type, address));
+//    testRunner.addTest(new MockBusTest);
+//    testRunner.addTest(new VnaUndoTest(type, address));
+    testRunner.addTest(new VnaPulseGeneratorTest(type, address));
 //    testRunner.addTest(new UnitsTest);
 //    testRunner.addTest(new VnaChannelTest           (type, address));
 //    testRunner.addTest(new VnaArbitraryFrequencyTest(type, address));

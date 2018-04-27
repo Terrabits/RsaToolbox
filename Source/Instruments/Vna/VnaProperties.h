@@ -74,6 +74,8 @@ public:
 
     uint maximumPoints();
 
+    bool isPulseGenerator();
+
 
     void operator=(VnaProperties const &other);
 

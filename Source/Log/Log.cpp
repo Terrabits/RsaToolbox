@@ -191,6 +191,14 @@ void Log::close() {
         emit closed();
 }
 
+void Log::flush() {
+    if (isClosed()) {
+        return;
+    }
+    _stream.flush();
+    _file.flush();
+}
+
 /*!
  * \brief Resets the log settings and (re)opens
  * a log file with the new settings.
