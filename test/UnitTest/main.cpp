@@ -10,6 +10,7 @@
 #include "VnaPauseSweepsTest.h"
 #include "vnapulsegeneratortest.h"
 #include "VnaSweepTest.h"
+#include "vnasyncgeneratortest.h"
 #include "VnaTraceTest.h"
 #include "vnatriggertest.h"
 #include "VnaUndoTest.h"
@@ -41,6 +42,7 @@ int main()
     testRunner.addTest(new MockBusTest);
     testRunner.addTest(new VnaUndoTest(type, address));
     testRunner.addTest(new VnaPulseGeneratorTest(type, address));
+    testRunner.addTest(new VnaSyncGeneratorTest(type, address));
     testRunner.addTest(new VnaTriggerTest(type, address));
     testRunner.addTest(new UnitsTest);
     testRunner.addTest(new VnaChannelTest           (type, address));
