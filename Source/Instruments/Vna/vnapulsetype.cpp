@@ -1,4 +1,7 @@
 #include "vnapulsetype.h"
+using namespace RsaToolbox;
+
+#include <cassert>
 
 QString toScpi(VnaPulseType type) {
     switch (type) {
@@ -11,7 +14,8 @@ QString toScpi(VnaPulseType type) {
     case VnaPulseType::ConstantLow:
         return "CLOW";
     default:
-        return QString();
+        assert(false);
+        return "SING";
     }
 }
 VnaPulseType vnaPulseTypeFromScpi(QString scpi) {
@@ -28,6 +32,7 @@ VnaPulseType vnaPulseTypeFromScpi(QString scpi) {
     if (scpi.startsWith("CLOW")) {
         return VnaPulseType::ConstantLow;
     }
-    // Default?
+    // Default
+    assert(false);
     return VnaPulseType::Single;
 }

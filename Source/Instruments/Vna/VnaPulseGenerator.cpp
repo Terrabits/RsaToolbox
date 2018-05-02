@@ -158,7 +158,7 @@ void VnaPulseGenerator::setChannelSpecific(bool isSpecific) {
 void VnaPulseGenerator::operator=(VnaPulseGenerator const &other) {
     if (other.isFullyInitialized()) {
         _vna          = other._vna;
-        _channel.reset(new VnaChannel(other._channel.data()));
+        _channel.reset(new VnaChannel(*other._channel.data()));
         _channelIndex = other._channelIndex;
     }
     else {

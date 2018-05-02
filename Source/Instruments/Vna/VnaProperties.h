@@ -74,7 +74,11 @@ public:
 
     uint maximumPoints();
 
-    bool isPulseGenerator();
+    // Options
+    bool isOption(const QString &option);
+    bool isInternalPulseGenerator();
+    bool isFrequencyConversion();
+    bool isIntermodulation();
 
 
     void operator=(VnaProperties const &other);

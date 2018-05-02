@@ -356,8 +356,18 @@ uint VnaProperties::maximumPoints() {
     return(60001);
 }
 
-bool VnaProperties::isPulseGenerator() {
-    return isZvaFamily();
+bool VnaProperties::isOption(const QString &option) {
+    return !optionsList().filter(option, Qt::CaseInsensitive).isEmpty();
+}
+
+bool VnaProperties::isInternalPulseGenerator() {
+    return isOption("B27");
+}
+bool VnaProperties::isFrequencyConversion() {
+    return isOption("K4");
+}
+bool VnaProperties::isIntermodulation() {
+    return isOption("K14");
 }
 
 void VnaProperties::operator=(VnaProperties const &other) {

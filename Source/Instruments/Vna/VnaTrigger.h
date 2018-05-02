@@ -4,9 +4,10 @@
 
 // RsaToolbox
 #include "Definitions.h"
-// Etc
+#include "vnatriggersource.h"
 
 // Qt
+#include <QMetaObject>
 #include <QObject>
 #include <QScopedPointer>
 
@@ -17,15 +18,14 @@ class VnaChannel;
 
 class VnaTrigger : QObject
 {
-private: Q_OBJECT
-
+    Q_OBJECT
 public:
 
-    enum /*class*/ Source {
-        FreeRun, // IMMediate
-        External,
-        Manual,
-        Multiple
+    enum /*class*/ Sequence {
+        Sweep,
+        Segment,
+        Point,
+        PartialPoint
     };
 
     explicit VnaTrigger(QObject *parent = 0);
@@ -34,13 +34,19 @@ public:
     VnaTrigger(Vna *vna, uint channelIndex, QObject *parent = 0);
     ~VnaTrigger();
 
-    Source source();
-    void setSource(Source source);
+    VnaTriggerSource source();
+    void setSource(VnaTriggerSource source);
 
-    void sendManualTrigger();
+    void manualTrigger();
+
+    bool isOnPositiveEdge();
+    void setOnPositiveEdge(bool positive = true);
+
+    Sequence sequence();
+    void setSequence(Sequence sequence);
 
     double delay_s();
-    void setDelay(double time_s);
+    void setDelay(double time, SiPrefix prefix=SiPrefix::None);
 
     void operator=(VnaTrigger const &other);
 
@@ -54,5 +60,7 @@ private:
     
 };
 }
+
+#include "vnatriggersequence.h"
 
 #endif // VnaTrigger_H

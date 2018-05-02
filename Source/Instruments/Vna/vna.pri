@@ -51,9 +51,13 @@ HEADERS += $$PWD/VnaSet.h \
            $$PWD/VnaIntermod.h \
            $$PWD/VnaArbitraryFrequency.h \
            $$PWD/VnaPortSettings.h \
-    $$PWD/VnaGeneratorSettings.h \
-    $$PWD/vnapulsetype.h \
-    $$PWD/VnaSyncGenerator.h
+           $$PWD/VnaGeneratorSettings.h \
+           $$PWD/vnapulsetype.h \
+           $$PWD/VnaSyncGenerator.h \
+           $$PWD/vnatriggersource.h \
+    $$PWD/vnausercontrol.h \
+    $$PWD/vnabusysignal.h \
+    $$PWD/vnatriggersequence.h
 INCLUDEPATH += $$PWD
 SOURCES += $$PWD/VnaSet.cpp \
            $$PWD/VnaUserDefinedPort.cpp \
@@ -95,6 +99,10 @@ SOURCES += $$PWD/VnaSet.cpp \
            $$PWD/VnaIntermod.cpp \
            $$PWD/VnaArbitraryFrequency.cpp \
            $$PWD/VnaPortSettings.cpp \
-    $$PWD/VnaGeneratorSettings.cpp \
-    $$PWD/vnapulsetype.cpp \
-    $$PWD/VnaSyncGenerator.cpp
+           $$PWD/VnaGeneratorSettings.cpp \
+           $$PWD/vnapulsetype.cpp \
+           $$PWD/VnaSyncGenerator.cpp \
+           $$PWD/vnatriggersource.cpp \
+           $$PWD/vnatriggersequence.cpp \
+    $$PWD/vnausercontrol.cpp \
+    $$PWD/vnabusysignal.cpp

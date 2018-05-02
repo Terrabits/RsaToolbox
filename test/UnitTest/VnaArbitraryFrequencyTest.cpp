@@ -50,6 +50,9 @@ void VnaArbitraryFrequencyTest::initTestCase() {
                   << "7 - Generator Perm On.txt";
 
     _initTestCase();
+    _vna.reset(new Vna(_connectionType, _address));
+    QVERIFY(_vna->properties().isFrequencyConversion());
+    _vna.reset();
 }
 
 void VnaArbitraryFrequencyTest::structTest() {
@@ -191,12 +194,12 @@ void VnaArbitraryFrequencyTest::generatorRfOff() {
     VnaChannel c1 = _vna->channel(1);
     VnaChannel c2 = _vna->channel(2);
 
-    c1.generator(1).rfOff(true);
-    QVERIFY( c1.generator(1).isRfOff());
-    QVERIFY(!c2.generator(1).isRfOff());
-    c1.generator(1).rfOff(false);
-    QVERIFY(!c1.generator(1).isRfOff());
-    QVERIFY(!c2.generator(1).isRfOff());
+    c1.externalGenerator(1).rfOff(true);
+    QVERIFY( c1.externalGenerator(1).isRfOff());
+    QVERIFY(!c2.externalGenerator(1).isRfOff());
+    c1.externalGenerator(1).rfOff(false);
+    QVERIFY(!c1.externalGenerator(1).isRfOff());
+    QVERIFY(!c2.externalGenerator(1).isRfOff());
 }
 void VnaArbitraryFrequencyTest::generatorPerm() {
     if (_vna->generators().isEmpty()) {
@@ -207,12 +210,12 @@ void VnaArbitraryFrequencyTest::generatorPerm() {
     create2ndChannel();
     VnaChannel c1 = _vna->channel(1);
     VnaChannel c2 = _vna->channel(2);
-    c1.generator(1).setPermanentlyOn();
-    QVERIFY( c1.generator(1).isPermanentlyOn());
-    QVERIFY(!c2.generator(1).isPermanentlyOn());
-    c1.generator(1).setPermanentlyOn(false);
-    QVERIFY(!c1.generator(1).isPermanentlyOn());
-    QVERIFY(!c2.generator(1).isPermanentlyOn());
+    c1.externalGenerator(1).setPermanentlyOn();
+    QVERIFY( c1.externalGenerator(1).isPermanentlyOn());
+    QVERIFY(!c2.externalGenerator(1).isPermanentlyOn());
+    c1.externalGenerator(1).setPermanentlyOn(false);
+    QVERIFY(!c1.externalGenerator(1).isPermanentlyOn());
+    QVERIFY(!c2.externalGenerator(1).isPermanentlyOn());
 }
 void VnaArbitraryFrequencyTest::create2ndChannel() {
     _vna->createChannel(2);

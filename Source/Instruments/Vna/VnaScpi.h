@@ -33,10 +33,6 @@ public:
     static QString toString(VnaTrace::Side side);
     static QString toString(VnaTrace::At at);
 
-    // Trigger
-    static QString toString(VnaTrigger::Source source);
-    static VnaTrigger::Source toTriggerSource(QString scpi);
-
     // Balanced Port
     static QString toString(BalancedPort::Type type);
     static BalancedPort::Type toBalancedPortType(QString scpi);

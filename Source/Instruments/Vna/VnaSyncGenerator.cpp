@@ -142,7 +142,7 @@ void VnaSyncGenerator::setChannelSpecific(bool isSpecific) {
 void VnaSyncGenerator::operator=(VnaSyncGenerator const &other) {
     if (other.isFullyInitialized()) {
         _vna          = other._vna;
-        _channel.reset(new VnaChannel(other._channel.data()));
+        _channel.reset(new VnaChannel(*other._channel.data()));
         _channelIndex = other._channelIndex;
     }
     else {

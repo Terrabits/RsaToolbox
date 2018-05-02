@@ -19,7 +19,7 @@ VnaPulseGeneratorTest::VnaPulseGeneratorTest(ConnectionType type, const QString 
 void VnaPulseGeneratorTest::initTestCase() {
     _initTestCase();
     _vna.reset(new Vna(_connectionType, _address));
-    QVERIFY(_vna->properties().isPulseGenerator());
+    QVERIFY(_vna->properties().isInternalPulseGenerator());
     _vna.reset();
 }
 void VnaPulseGeneratorTest::init() {

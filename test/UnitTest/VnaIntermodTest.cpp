@@ -51,6 +51,9 @@ void VnaIntermodTest::initTestCase() {
                   << "2 - Traces Test.txt";
 
     _initTestCase();
+    _vna.reset(new Vna(_connectionType, _address));
+    QVERIFY(_vna->properties().isIntermodulation());
+    _vna.reset();
 }
 
 void VnaIntermodTest::settings() {

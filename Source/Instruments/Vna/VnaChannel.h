@@ -21,7 +21,9 @@
 #include "VnaCalibrate.h"
 #include "VnaExtensionUnit.h"
 #include "VnaPulseGenerator.h"
+#include "VnaSyncGenerator.h"
 #include "VnaTrigger.h"
+#include "vnausercontrol.h"
 
 // This should probably be rolled into
 // VnaCorrections.h (a lot of the same
@@ -167,7 +169,7 @@ public:
     void arbitraryReceiverFrequencyOff();
 
     // External Generators
-     VnaGeneratorSettings& generator(uint i);
+     VnaGeneratorSettings& externalGenerator(uint i);
 
     // Averaging
     VnaAveraging &averaging();
@@ -201,13 +203,17 @@ public:
 //     VnaPowerCalibrate &powerCalibrate();
 
      // Pulse Modulator
-     VnaExtensionUnit &extensionUnit();
+     VnaExtensionUnit    &extensionUnit();
 
-     // Pulse Generator signal
-     VnaPulseGenerator &pulseGenerator();
+     // Pulse Generators
+     VnaPulseGenerator   &pulseGenerator();
+     VnaSyncGenerator    &syncGenerator();
 
      // Trigger
      VnaTrigger &trigger();
+
+     // User control
+     VnaUserControl &userControl();
 
     void operator=(const VnaChannel &other);
 
@@ -230,7 +236,9 @@ private:
     QScopedPointer<VnaCalibrate>        _calibrate;
     QScopedPointer<VnaExtensionUnit>    _extensionUnit;
     QScopedPointer<VnaPulseGenerator>   _pulseGenerator;
+    QScopedPointer<VnaSyncGenerator>    _syncGenerator;
     QScopedPointer<VnaTrigger>          _trigger;
+    QScopedPointer<VnaUserControl>      _userControl;
 
     bool isFullyInitialized() const;
     QStringList zvaTraces();

@@ -25,7 +25,8 @@ VnaChannel::VnaChannel(QObject *parent) :
     _vna = placeholder.data();
     _index = 0;
 }
-VnaChannel::VnaChannel(const VnaChannel &other) {
+VnaChannel::VnaChannel(const VnaChannel &other)
+{
     if (other.isFullyInitialized()) {
         _vna = other._vna;
         _index = other._index;
@@ -43,7 +44,6 @@ VnaChannel::VnaChannel(Vna *vna, uint index, QObject *parent) :
     _index = index;
 }
 VnaChannel::~VnaChannel() {
-
 }
 
 uint VnaChannel::index() {
@@ -692,7 +692,7 @@ VnaPortSettings& VnaChannel::port(uint physicalPort) {
 }
 
 // Generator settings
-VnaGeneratorSettings& VnaChannel::generator(uint i) {
+VnaGeneratorSettings& VnaChannel::externalGenerator(uint i) {
     _generatorSettings.reset(new VnaGeneratorSettings(_vna, _index, i));
     return *_generatorSettings;
 }
@@ -826,11 +826,21 @@ VnaPulseGenerator &VnaChannel::pulseGenerator() {
     _pulseGenerator.reset(new VnaPulseGenerator(_vna, this));
     return *_pulseGenerator;
 }
+VnaSyncGenerator &VnaChannel::syncGenerator() {
+    _syncGenerator.reset(new VnaSyncGenerator(_vna, this));
+    return *_syncGenerator;
+}
 
 // Trigger
 VnaTrigger &VnaChannel::trigger() {
     _trigger.reset(new VnaTrigger(_vna, this));
     return *_trigger;
+}
+
+// User control
+VnaUserControl &VnaChannel::userControl() {
+    _userControl.reset(new VnaUserControl(_vna, this));
+    return *_userControl;
 }
 
 void VnaChannel::operator=(const VnaChannel &other) {
