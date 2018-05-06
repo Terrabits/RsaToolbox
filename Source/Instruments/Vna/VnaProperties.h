@@ -76,6 +76,7 @@ public:
 
     // Options
     bool isOption(const QString &option);
+    bool isK0();
     bool isInternalPulseGenerator();
     bool isFrequencyConversion();
     bool isIntermodulation();

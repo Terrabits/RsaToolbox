@@ -46,33 +46,6 @@ void VnaPulseGeneratorTest::stateTest() {
     QVERIFY (!_vna->isError());
 }
 
-void VnaPulseGeneratorTest::delayTest_data() {
-    QTest::addColumn<double  >("value"  );
-    QTest::addColumn<SiPrefix>("prefix" );
-    QTest::addColumn<double  >("delay_s");
-
-    QTest::newRow("0.007") << 0.007 << SiPrefix::None  << 0.007;
-    QTest::newRow("7 ms" ) << 7.0   << SiPrefix::Milli << 0.007;
-    QTest::newRow("3 us" ) << 3.0   << SiPrefix::Micro << 3e-6;
-    QTest::newRow("4 ns" ) << 3.0   << SiPrefix::Nano  << 4e-9;
-
-    _logFilenames.clear();
-    _logFilenames << "delay 0.007 s.txt";
-    _logFilenames << "delay 7 ms.txt";
-    _logFilenames << "delay 3 us.txt";
-    _logFilenames << "delay 4 ns.txt";
-}
-void VnaPulseGeneratorTest::delayTest() {
-    QFETCH(double,   value  );
-    QFETCH(SiPrefix, prefix );
-    QFETCH(double,   delay_s);
-
-    _gen.setDelay(value, prefix);
-    QVERIFY (!_vna->isError());
-    QCOMPARE(_gen.delay_s(), delay_s);
-    QVERIFY (!_vna->isError());
-}
-
 void VnaPulseGeneratorTest::pulseWidthTest_data() {
     QTest::addColumn<double  >("value"  );
     QTest::addColumn<SiPrefix>("prefix" );
@@ -101,10 +74,10 @@ void VnaPulseGeneratorTest::pulseWidthTest() {
 void VnaPulseGeneratorTest::periodTest_data() {
     QTest::addColumn<double  >("value"  );
     QTest::addColumn<SiPrefix>("prefix" );
-    QTest::addColumn<double  >("pulseWidth_s");
+    QTest::addColumn<double  >("period_s");
 
-    QTest::newRow("0.700" ) << 0.700 << SiPrefix::None  << 0.700;
-    QTest::newRow("700 ms") << 700   << SiPrefix::Milli << 0.007;
+    QTest::newRow("0.700" ) << 0.700 << SiPrefix::None  << 0.7;
+    QTest::newRow("700 ms") << 700.0 << SiPrefix::Milli << 0.7;
     QTest::newRow("3 us"  ) << 3.0   << SiPrefix::Micro << 3e-6;
 
     _logFilenames.clear();

@@ -60,9 +60,8 @@ bool VnaSyncGenerator::isOn() {
 }
 void VnaSyncGenerator::on(bool isOn) {
     QString scpi = ":SENS%1:PULS:GEN %2\n";
-    scpi.arg(_channelIndex);
-    scpi.arg(isOn? "1" : "0");
-    scpi = scpi.arg(_channelIndex);
+    scpi         = scpi.arg(_channelIndex);
+    scpi         = scpi.arg(isOn? "1" : "0");
     _vna->write(scpi);
 }
 void VnaSyncGenerator::off(bool isOff) {
@@ -82,42 +81,36 @@ void VnaSyncGenerator::setType(VnaPulseType type) {
     _vna->write(scpi);
 }
 
+double VnaSyncGenerator::delay_s() {
+    QString scpi = ":SENS%1:PULS:GEN:DEL?\n";
+    scpi         = scpi.arg(_channelIndex);
+    return _vna->query(scpi).trimmed().toDouble();
+}
+void VnaSyncGenerator::setDelay(double value, SiPrefix prefix) {
+    QString scpi = ":SENS%1:PULS:GEN:DEL %2 %3\n";
+    scpi         = scpi.arg(_channelIndex);
+    scpi         = scpi.arg(value);
+    scpi         = scpi.arg(toString(prefix, Units::Seconds));
+    _vna->write(scpi);
+}
+
 double VnaSyncGenerator::pulseWidth_s() {
     QString scpi = ":SENS%1:PULS:GEN2:WIDT?\n";
     scpi = scpi.arg(_channelIndex);
     return _vna->query(scpi).trimmed().toDouble();
 }
 void VnaSyncGenerator::setPulseWidth(double value, SiPrefix prefix) {
-    QString scpi = ":SENS%1:PULS:GEN2:WIDT %2\n";
+    QString scpi = ":SENS%1:PULS:GEN2:WIDT %2 %3\n";
     scpi         = scpi.arg(_channelIndex);
     scpi         = scpi.arg(value);
-    if (prefix != SiPrefix::None) {
-        const QString units = toString(prefix, Units::Seconds);
-        scpi = QString("%1 %2").arg(scpi).arg(units);
-    }
-    _vna->write(scpi);
-}
-
-double VnaSyncGenerator::period_s() {
-    QString scpi = ":SENS%1:PULS:GEN2:PER?\n";
-    scpi = scpi.arg(_channelIndex);
-    return _vna->query(scpi).trimmed().toDouble();
-}
-void VnaSyncGenerator::setPeriod(double value, SiPrefix prefix) {
-    QString scpi = ":SENS%1:PULS:GEN2:PER %2\n";
-    scpi         = scpi.arg(_channelIndex);
-    scpi         = scpi.arg(value);
-    if (prefix != SiPrefix::None) {
-        const QString units = toString(prefix, Units::Seconds);
-        scpi = QString("%1 %2").arg(scpi).arg(units);
-    }
+    scpi         = scpi.arg(toString(prefix, Units::Seconds));
     _vna->write(scpi);
 }
 
 bool VnaSyncGenerator::isInverted() {
     QString scpi = ":SENS%1:PULS:GEN2:POL?\n";
     scpi         = scpi.arg(_channelIndex);
-    return _vna->query(scpi).trimmed() == "1";
+    return _vna->query(scpi).trimmed() == "INV";
 }
 void VnaSyncGenerator::setInverted(bool isInverted) {
     QString scpi = ":SENS%1:PULS:GEN2:POL %2\n";

@@ -22,11 +22,11 @@ private slots:
     void stateTest_data();
     void stateTest();
 
+    void delayTest_data();
+    void delayTest();
+
     void pulseWidthTest_data();
     void pulseWidthTest();
-
-    void periodTest_data();
-    void periodTest();
 
     void invertedTest_data();
     void invertedTest();

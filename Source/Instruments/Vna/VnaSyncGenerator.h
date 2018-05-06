@@ -34,11 +34,11 @@ public:
     VnaPulseType type();
     void setType(VnaPulseType type);
 
+    double delay_s();
+    void setDelay(double value, SiPrefix prefix = SiPrefix::None);
+
     double pulseWidth_s();
     void setPulseWidth(double value, SiPrefix prefix = SiPrefix::None);
-
-    double period_s();
-    void setPeriod(double value, SiPrefix prefix = SiPrefix::None);
 
     bool isInverted();
     void setInverted(bool isInverted = true);

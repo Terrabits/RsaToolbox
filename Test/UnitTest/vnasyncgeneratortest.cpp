@@ -46,6 +46,31 @@ void VnaSyncGeneratorTest::stateTest() {
     QVERIFY (!_vna->isError());
 }
 
+void VnaSyncGeneratorTest::delayTest_data() {
+    QTest::addColumn<double  >("value"  );
+    QTest::addColumn<SiPrefix>("prefix" );
+    QTest::addColumn<double  >("delay_s");
+
+    QTest::newRow("0.007") << 0.007 << SiPrefix::None  << 0.007;
+    QTest::newRow("7 ms" ) << 7.0   << SiPrefix::Milli << 0.007;
+    QTest::newRow("3 us" ) << 3.0   << SiPrefix::Micro << 3e-6;
+
+    _logFilenames.clear();
+    _logFilenames << "delay 0.007 s.txt";
+    _logFilenames << "delay 7 ms.txt";
+    _logFilenames << "delay 3 us.txt";
+}
+void VnaSyncGeneratorTest::delayTest() {
+    QFETCH(double,   value  );
+    QFETCH(SiPrefix, prefix );
+    QFETCH(double,   delay_s);
+
+    _gen.setDelay(value, prefix);
+    QVERIFY (!_vna->isError());
+    QCOMPARE(_gen.delay_s(), delay_s);
+    QVERIFY (!_vna->isError());
+}
+
 void VnaSyncGeneratorTest::pulseWidthTest_data() {
     QTest::addColumn<double  >("value"  );
     QTest::addColumn<SiPrefix>("prefix" );
@@ -68,31 +93,6 @@ void VnaSyncGeneratorTest::pulseWidthTest() {
     _gen.setPulseWidth(value, prefix);
     QVERIFY( !_vna->isError());
     QCOMPARE(_gen.pulseWidth_s(), pulseWidth_s);
-    QVERIFY( !_vna->isError());
-}
-
-void VnaSyncGeneratorTest::periodTest_data() {
-    QTest::addColumn<double  >("value"  );
-    QTest::addColumn<SiPrefix>("prefix" );
-    QTest::addColumn<double  >("pulseWidth_s");
-
-    QTest::newRow("0.700" ) << 0.700 << SiPrefix::None  << 0.700;
-    QTest::newRow("700 ms") << 700   << SiPrefix::Milli << 0.007;
-    QTest::newRow("3 us"  ) << 3.0   << SiPrefix::Micro << 3e-6;
-
-    _logFilenames.clear();
-    _logFilenames << "period 0.700 s.txt";
-    _logFilenames << "period 700 ms.txt";
-    _logFilenames << "period 3 us.txt";
-}
-void VnaSyncGeneratorTest::periodTest() {
-    QFETCH(double,   value );
-    QFETCH(SiPrefix, prefix);
-    QFETCH(double,   period_s);
-
-    _gen.setPeriod(value, prefix);
-    QVERIFY( !_vna->isError());
-    QCOMPARE(_gen.period_s(), period_s);
     QVERIFY( !_vna->isError());
 }
 
