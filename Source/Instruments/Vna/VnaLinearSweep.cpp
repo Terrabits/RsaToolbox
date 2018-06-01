@@ -1,4 +1,4 @@
-#include <QDebug>
+﻿#include <QDebug>
 
 // RsaToolbox includes
 #include "General.h"
@@ -206,18 +206,17 @@ void VnaLinearSweep::clearSParameterGroup() {
     _vna->write(scpi);
 }
 ComplexMatrix3D VnaLinearSweep::readSParameterGroup() {
+    const uint ports  = sParameterGroup().size();
+    const uint points = this->points();
+    if (ports == 0 || points == 0) {
+        return ComplexMatrix3D();
+    }
+
     QString scpi = ":CALC%1:DATA:SGR? SDAT\n";
-    scpi = scpi.arg(_channelIndex);
-
-    ComplexMatrix3D sParameters;
-    uint ports = sParameterGroup().size();
-    uint points = this->points();
-    if (ports <= 0)
-        return(sParameters);
-    uint bufferSize = dataBufferSize(ports, points);
-
+    scpi         = scpi.arg(_channelIndex);
+    const uint bufferSize = dataBufferSize(ports, points);
     ComplexRowVector data = _vna->queryComplexVector(scpi, bufferSize);
-    return(toComplexMatrix3D(data, points, ports, ports));
+    return toComplexMatrix3D(data, points, ports, ports);
 }
 
 bool VnaLinearSweep::isAutoSweepTimeOn() {
@@ -288,31 +287,40 @@ NetworkData VnaLinearSweep::measure(uint port1, uint port2, uint port3, uint por
 }
 NetworkData VnaLinearSweep::measure(QVector<uint> ports) {
     NetworkData network;
-
-    if (ports.size() <= 0)
-        return(network);
-    if (_channel->isCwSweep() || _channel->isTimeSweep())
-        return(network);
-
-    setSParameterGroup(ports);
-    network.setParameter(NetworkParameter::S);
-    network.setReferenceImpedance(50);
-    network.setXUnits(Units::Hertz);
+    if (ports.size() <= 0) {
+        return network;
+    }
+    if (_channel->isCwSweep() || _channel->isTimeSweep()) {
+        return network;
+    }
+    const QRowVector freq_Hz = frequencies_Hz();
+    if (freq_Hz.isEmpty()) {
+        return network;
+    }
 
     // Sweep
+    setSParameterGroup(ports);
     bool isContinuousSweep = _channel->isContinuousSweep();
-    if (isContinuousSweep)
+    if (isContinuousSweep) {
         _channel->manualSweepOn();
+    }
     const uint timeout_ms = sweepTime_ms() * _channel->sweepCount();
     _channel->startSweep();
     _vna->pause(timeout_ms);
 
-    // Get data
-    network.setData(frequencies_Hz(), readSParameterGroup());
+    // Get data, restore sweep mode
+    ComplexMatrix3D s = readSParameterGroup();
+    _channel->continuousSweepOn(isContinuousSweep);
+    if (s.empty()) {
+        _channel->continuousSweepOn(isContinuousSweep);
+        return network;
+    }
 
-    // Return
-    if (isContinuousSweep)
-        _channel->continuousSweepOn();
+    // return data
+    network.setParameter(NetworkParameter::S);
+    network.setReferenceImpedance(50);
+    network.setXUnits(Units::Hertz);
+    network.setData(freq_Hz, s);
     return(network);
 }
 

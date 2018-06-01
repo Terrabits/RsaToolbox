@@ -1,4 +1,4 @@
-#include "NetworkData.h"
+﻿#include "NetworkData.h"
 
 
 // RsaToolbox
@@ -37,6 +37,10 @@ NetworkData::NetworkData(const NetworkData &other) {
     _xPrefix = other._xPrefix;
 
     _y = other._y;
+}
+
+bool NetworkData::isEmpty() const {
+    return !points() || !ports();
 }
 
 bool NetworkData::isSParameter() const {

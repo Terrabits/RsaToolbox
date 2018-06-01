@@ -1,4 +1,4 @@
-#include <QDebug>
+﻿#include <QDebug>
 
 // RsaToolbox includes
 #include "General.h"
@@ -149,25 +149,26 @@ void VnaSegmentedSweep::clearSParameterGroup() {
     _channel->linearSweep().clearSParameterGroup();
 }
 ComplexMatrix3D VnaSegmentedSweep::readSParameterGroup() {
-    QString scpi = ":CALC%1:DATA:SGR? SDAT\n";
-    scpi = scpi.arg(_channelIndex);
+    // data size
+    const uint ports = sParameterGroup().size();
+    const uint points = this->points();
+    if (ports == 0 || points == 0) {
+        return ComplexMatrix3D();
+    }
 
-    ComplexMatrix3D sParameters;
-    uint ports = sParameterGroup().size();
-    uint points = this->points();
-    if (ports <= 0)
-        return sParameters;
-    uint bufferSize = dataBufferSize(ports, points);
-
+    // sweep
     bool isContinuousSweep = _channel->isContinuousSweep();
-    if (isContinuousSweep)
-        _channel->manualSweepOn();
+    _channel->manualSweepOn();
     const uint timeout_ms = sweepTime_ms() * _channel->sweepCount();
     _channel->startSweep();
     _vna->pause(timeout_ms);
+
+    // query, return data
+    QString scpi = ":CALC%1:DATA:SGR? SDAT\n";
+    scpi         = scpi.arg(_channelIndex);
+    const uint bufferSize = dataBufferSize(ports, points);
     ComplexRowVector data = _vna->queryComplexVector(scpi, bufferSize);
-    if (isContinuousSweep)
-        _channel->continuousSweepOn();
+    _channel->continuousSweepOn(isContinuousSweep);
     return toComplexMatrix3D(data, points, ports, ports);
 }
 
@@ -209,11 +210,21 @@ NetworkData VnaSegmentedSweep::measure(QVector<uint> ports) {
     if (_channel->isCwSweep() || _channel->isTimeSweep())
         return network;
 
+    const QRowVector freq_Hz = frequencies_Hz();
+    if (freq_Hz.isEmpty()) {
+        return network;
+    }
+
     setSParameterGroup(ports);
+    const ComplexMatrix3D s = readSParameterGroup(); // sweeps
+    if (s.empty()) {
+        return network;
+    }
+
     network.setParameter(NetworkParameter::S);
     network.setReferenceImpedance(50);
     network.setXUnits(Units::Hertz);
-    network.setData(frequencies_Hz(), readSParameterGroup());
+    network.setData(freq_Hz, s);
     return network;
 }
 

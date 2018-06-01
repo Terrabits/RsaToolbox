@@ -1,4 +1,4 @@
-#include <QDebug>
+﻿#include <QDebug>
 
 
 // RsaToolbox
@@ -1792,18 +1792,23 @@ ComplexMatrix2D RsaToolbox::toComplexMatrix2D(const ComplexRowVector &data, uint
 }
 ComplexMatrix3D RsaToolbox::toComplexMatrix3D(const ComplexRowVector &data, uint dimension1, uint dimension2, uint dimension3) {
     ComplexMatrix3D matrix;
-    if (dimension1 <= 0 || dimension2 <= 0 || dimension3 <= 0
-            || data.size() != dimension1*dimension2*dimension3)
-        return(matrix);
+    if (dimension1 <= 0 || dimension2 <= 0 || dimension3 <= 0) {
+        return matrix;
+    }
+    if (data.size() != dimension1*dimension2*dimension3) {
+        return matrix;
+    }
 
-    resize(matrix, dimension1, dimension2, dimension3);
     uint n = 0;
-
-    for (uint j = 0; j < dimension2; j++)
-        for (uint k = 0; k < dimension3; k++)
-            for (uint i = 0; i < dimension1; i++)
+    resize(matrix, dimension1, dimension2, dimension3);
+    for (uint j = 0; j < dimension2; j++) {
+        for (uint k = 0; k < dimension3; k++) {
+            for (uint i = 0; i < dimension1; i++) {
                 matrix[i][j][k] = data[n++];
-    return(matrix);
+            }
+        }
+    }
+    return matrix;
 }
 
 ComplexMatrix2D RsaToolbox::subsection(ComplexMatrix2D matrix, QVector<uint> rows, QVector<uint> columns) {

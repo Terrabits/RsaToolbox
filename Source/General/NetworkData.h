@@ -1,4 +1,4 @@
-#ifndef NETWORK_DATA_H
+﻿#ifndef NETWORK_DATA_H
 #define NETWORK_DATA_H
 
 
@@ -24,6 +24,8 @@ class NetworkData
 public:
     NetworkData();
     NetworkData(const NetworkData &other);
+
+    bool isEmpty() const;
 
     bool isSParameter() const;
     bool isYParameter() const;
