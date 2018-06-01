@@ -28,7 +28,7 @@ else {
     DEFINES += QT_NO_DEBUG_OUTPUT
 }
 win32 {
-    QMAKE_CXXFLAGS += /wd4482
+    QMAKE_CXXFLAGS += /wd4482 /wd4996
 }
 macx {
     # I have a feeling -std=c++11 is being overridden by a -std=gnu++11 flag...
