@@ -8,7 +8,7 @@ args = [arg.lower() for arg in sys.argv]
 
 # Paths
 clean_root   = os.path.dirname(os.path.abspath(__file__))
-build_path   = os.path.join(clean_root, '_build')   + os.path.sep
+build_path   = os.path.join(clean_root, 'build')    + os.path.sep
 install_path = os.path.join(clean_root, '_install') + os.path.sep
 
 # clean _install
