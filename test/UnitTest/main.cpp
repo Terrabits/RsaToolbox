@@ -1,8 +1,10 @@
-
+﻿
 
 // Tests
+#include "genericinstrumenttest.h"
 #include "MockBusTest.h"
 #include "UnitsTest.h"
+#include "visabustest.h"
 #include "VnaArbitraryFrequencyTest.h"
 #include "VnaCalibrateTest.h"
 #include "VnaChannelTest.h"
@@ -39,8 +41,10 @@ int main()
     QString address = "localhost::5025";
 
     TestRunner testRunner;
+    testRunner.addTest(new GenericInstrumentTest);
     testRunner.addTest(new MockBusTest);
     testRunner.addTest(new VnaUndoTest(type, address));
+    testRunner.addTest(new VisaBusTest);
     testRunner.addTest(new VnaPulseGeneratorTest(type, address));
     testRunner.addTest(new VnaSyncGeneratorTest(type, address));
     testRunner.addTest(new VnaTriggerTest(type, address));

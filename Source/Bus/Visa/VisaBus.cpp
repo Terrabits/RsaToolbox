@@ -1,4 +1,4 @@
-
+﻿
 
 // RsaToolbox includes
 #include "VisaBus.h"
@@ -10,6 +10,7 @@ using namespace RsaToolbox;
 // Qt
 #include <QDebug>
 #include <QByteArray>
+#include <QFile>
 #include <QStringList>
 
 
@@ -64,7 +65,7 @@ using namespace RsaToolbox;
 VisaBus::VisaBus(QObject *parent)
     :GenericBus(parent)
 {
-    setDisconnected();
+    clear();
 }
 
 /*!
@@ -87,20 +88,15 @@ VisaBus::VisaBus(ConnectionType connectionType, QString address,
                 bufferSize_B, timeout_ms,
                 parent)
 {
-    setDisconnected();
+    clear();
 
     QString resource = resourceString(connectionType, address);
-    if (resource.isEmpty())
+    if (resource.isEmpty()) {
         return;
+    }
 
-    if (!connectVisa(VISA32, resource))
-        connectVisa(RSVISA32, resource);
-    else if (query("*IDN?\n").isEmpty()) {
-        _viClose(_instrument);
-        _viClose(_resourceManager);
-        setDisconnected();
-        visa_library.unload();
-        connectVisa(RSVISA32, resource);
+    if (!open(VISA32, resource)) {
+        open(RSVISA32, resource);
     }
 }
 
@@ -110,11 +106,12 @@ VisaBus::VisaBus(ConnectionType connectionType, QString address,
  * The destructor will automatically close the connection to the instrument, if open.
  */
 VisaBus::~VisaBus() {
-    if (isOpen()) {
-        _viClose(_instrument);
-        _viClose(_resourceManager);
+    if (!isOpen()) {
+        return;
     }
-    visa_library.unload();
+
+    _viClose(_instrument);
+    _viClose(_resourceManager);
 }
 
 /*!
@@ -137,7 +134,7 @@ bool VisaBus::isVisaInstalled() {
  * \return Status of connection
  */
 bool VisaBus::isOpen() const {
-    return _instrument != VI_NULL;
+    return _isOpen;
 }
 
 /*!
@@ -360,44 +357,89 @@ bool VisaBus::remote() {
     return(isRemote);
 }
 
-void VisaBus::getFuncters() {
-    _viStatusDesc = (_statusDescFuncter)visa_library.resolve("viStatusDesc");
-    _viOpenDefaultRM = (_openDefaultRmFuncter)visa_library.resolve("viOpenDefaultRM");
-    _viOpen = (_openFuncter)visa_library.resolve("viOpen");
-    _viGetAttribute = (_getAttributeFuncter)visa_library.resolve("viGetAttribute");
-    _viSetAttribute = (_setAttributeFuncter)visa_library.resolve("viSetAttribute");
-    _viRead = (_readFuncter)visa_library.resolve("viRead");
-    _viWrite = (_writeFuncter)visa_library.resolve("viWrite");
-    _viClear = (_clearFuncter)visa_library.resolve("viClear");
-    _viLock = (_lockFuncter)visa_library.resolve("viLock");
-    _viUnlock = (_unlockFuncter)visa_library.resolve("viUnlock");
-    _viClose = (_closeFuncter)visa_library.resolve("viClose");
+void VisaBus::clearFuncters() {
+    _viStatusDesc    = VI_NULL;
+    _viOpenDefaultRM = VI_NULL;
+    _viOpen          = VI_NULL;
+    _viGetAttribute  = VI_NULL;
+    _viSetAttribute  = VI_NULL;
+    _viRead          = VI_NULL;
+    _viWrite         = VI_NULL;
+    _viClear         = VI_NULL;
+    _viLock          = VI_NULL;
+    _viUnlock        = VI_NULL;
+    _viClose         = VI_NULL;
+}
+bool VisaBus::getFuncters() {
+    _viStatusDesc = (StatusDescFuncter)visa_library.resolve("viStatusDesc");
+    if (!_viStatusDesc) {
+        return false;
+    }
+    _viOpenDefaultRM = (OpenDefaultRmFuncter)visa_library.resolve("viOpenDefaultRM");
+    if (!_viOpenDefaultRM) {
+        return false;
+    }
+    _viOpen = (OpenFuncter)visa_library.resolve("viOpen");
+    if (!_viOpen) {
+        return false;
+    }
+    _viGetAttribute = (GetAttributeFuncter)visa_library.resolve("viGetAttribute");
+    if (!_viGetAttribute) {
+        return false;
+    }
+    _viSetAttribute = (SetAttributeFuncter)visa_library.resolve("viSetAttribute");
+    if (!_viSetAttribute) {
+        return false;
+    }
+    _viRead = (ReadFuncter)visa_library.resolve("viRead");
+    if (!_viRead) {
+        return false;
+    }
+    _viWrite = (WriteFuncter)visa_library.resolve("viWrite");
+    if (!_viWrite) {
+        return false;
+    }
+    _viClear = (ClearFuncter)visa_library.resolve("viClear");
+    if (!_viClear) {
+        return false;
+    }
+    _viLock = (LockFuncter)visa_library.resolve("viLock");
+    if (!_viLock) {
+        return false;
+    }
+    _viUnlock = (UnlockFuncter)visa_library.resolve("viUnlock");
+    if (!_viUnlock) {
+        return false;
+    }
+    _viClose = (CloseFuncter)visa_library.resolve("viClose");
+    if (!_viClose) {
+        return false;
+    }
+
+    return true;
 }
 
 
 bool VisaBus::connectVisa(const QString &dll, const QString &resource) {
-    setDisconnected();
+    clear();
 
     visa_library.setFileName(dll);
-    if (!visa_library.load())
+    if (!visa_library.load() || !getFuncters()) {
+        clear();
         return false;
+    }
 
-    getFuncters();
-
-    char buffer[500];
     _status = _viOpenDefaultRM(&_resourceManager);
-    _viStatusDesc(_resourceManager, _status, buffer);
-    if (_status != VI_SUCCESS) {
-        setDisconnected();
+    if (isError()) {
+        clear();
         return false;
     }
 
     QByteArray c = resource.toUtf8();
     _status = _viOpen(_resourceManager, c.data(), (ViUInt32)VI_NULL, (ViUInt32)timeout_ms(), &_instrument);
-    _viStatusDesc(_instrument, _status, buffer);
-    if (_status != VI_SUCCESS) {
+    if (isError()) {
         _viClose(_resourceManager);
-        setDisconnected();
+        clear();
         return false;
     }
 
@@ -434,60 +476,31 @@ QString VisaBus::resourceString(ConnectionType type, QString address) {
     }
     return string;
 }
-bool VisaBus::parseResourceString(QString resourceString) {
-    resourceString = resourceString.toUpper();
-    QStringList parts = resourceString.split("::");
-    if (resourceString.isEmpty() || parts.size() <= 1) {
-        return false;
-    }
-
-    if (resourceString.contains("HISLIP")) {
-        setConnectionType(ConnectionType::VisaHiSlipConnection);
-        setAddress(parts[1]);
-        return true;
-    }
-    else if (resourceString.contains("SOCKET")) {
-        setConnectionType(ConnectionType::VisaTcpConnection);
-        QString address = "%1::%2";
-        address = address.arg(parts[1]);
-        address = address.arg(parts[2]);
-        setAddress(address);
-        return true;
-    }
-    else if (resourceString.contains("TCPIP")) {
-        setConnectionType(ConnectionType::VisaTcpConnection);
-        setAddress(parts[1]);
-        return true;
-    }
-    else if (resourceString.contains("GPIB")) {
-        setConnectionType(ConnectionType::VisaGpibConnection);
-        setAddress(parts[1]);
-        return true;
-    }
-    else if (resourceString.contains("USB")) {
-        if (parts.size() < 4)
-            return false;
-        setConnectionType(ConnectionType::VisaUsbConnection);
-        QString address = "%1::%2::%3";
-        address = address.arg(parts[1]);
-        address = address.arg(parts[2]);
-        address = address.arg(parts[3]);
-        setAddress(address);
-        return true;
-    }
-    else {
-        setConnectionType(ConnectionType::VisaTcpConnection);
-        setAddress(parts[1]);
-        return true;
-    }
-}
 
 bool VisaBus::isError() {
     return(_status < VI_SUCCESS);
 }
-void VisaBus::setDisconnected() {
+bool VisaBus::open(const QString &filename, const QString &resource) {
+    if (!connectVisa(filename, resource)) {
+        clear();
+        return false;
+    }
+    if (query("*IDN?\n").trimmed().isEmpty()) {
+        _viClose(_instrument);
+        _viClose(_resourceManager);
+        clear();
+        return false;
+    }
+
+    _isOpen = true;
+    return    true;
+}
+void VisaBus::clear() {
+    _isOpen         = false;
     _resourceManager = VI_NULL;
-    _instrument = VI_NULL;
+    _instrument      = VI_NULL;
+    _status          = VI_NULL;
+    clearFuncters();
 }
 
 
