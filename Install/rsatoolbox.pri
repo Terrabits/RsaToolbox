@@ -2,8 +2,9 @@
 # Requires Qt 5
 QT += core gui widgets network printsupport
 
-INCLUDEPATH += $$PWD/Include
-DEPENDSPATH  += $$PWD/Library # For RsVisa?
+INCLUDEPATH +=   $$PWD/Include
+DEPENDPATH  +=   $$PWD/Library
+LIBS        += -L$$PWD/Library
 
 win32 {
     QMAKE_CXXFLAGS += /wd4482 # C++11 enum class warnings:
@@ -25,5 +26,3 @@ macx {
         LIBS += $$PWD/Library/libRsaToolbox.a
     }
 }
-
-LIBS += -L$$PWD/Library # For RsVisa?
