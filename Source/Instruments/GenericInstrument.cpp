@@ -40,14 +40,13 @@ using namespace RsaToolbox;
 GenericInstrument::GenericInstrument(QObject *parent) :
     QObject(parent)
 {
-    _log = new Log  (this);
-    _bus = new NoBus(this);
+    init();
 }
 
 GenericInstrument::GenericInstrument(ConnectionType type, QString address, QObject *parent) :
     QObject(parent)
 {
-    _log = new Log(this);
+    init();
     open(type, address);
 }
 
@@ -107,14 +106,18 @@ void GenericInstrument::stopLog() {
 }
 
 void GenericInstrument::print(QString text) {
-    delayPrint(text);
+    _log->print(text);
+}
+void GenericInstrument::init() {
+    _log = new Log  (this);
+    _bus = new NoBus(this);
 }
 void GenericInstrument::printInfo() {
     if (!isLogging()) {
         return;
     }
     const bool blocked = _bus->blockSignals(true);
-    delayPrint(info());
+    print(info());
     _bus->blockSignals(blocked);
 }
 QString GenericInstrument::info() {
@@ -591,10 +594,4 @@ bool GenericInstrument::isOperationComplete() {
  */
 void GenericInstrument::clearStatus() {
     _bus->write("*CLS\n");
-}
-
-void GenericInstrument::delayPrint(QString text) {
-    QMetaObject::invokeMethod(_log, SLOT(print(QString)),
-                              Qt::ConnectionType::QueuedConnection,
-                              Q_ARG(QString, text));
 }

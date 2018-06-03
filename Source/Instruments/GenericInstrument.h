@@ -21,7 +21,6 @@ class GenericInstrument : public QObject
 public:
     explicit GenericInstrument(QObject *parent = 0);
     GenericInstrument(ConnectionType type, QString address, QObject *parent = 0);
-    ~GenericInstrument();
 
     ConnectionType connectionType() const;
     QString address       () const;
@@ -35,8 +34,6 @@ public:
     bool isLogging() const;
     bool startLog (QString filename, QString application = QString(), QString version = QString());
     void stopLog  ();
-    void print(QString text);
-    void printInfo();
 
     bool open(ConnectionType type, const QString &address);
     void close(); // todo: rename close()
@@ -73,11 +70,13 @@ public slots:
     bool remote();
     void preset();
     void clearStatus();
+    void print(QString text);
 
 private:
     GenericBus *_bus;
     Log        *_log;
-    void delayPrint(QString text);
+    void init     ();
+    void printInfo();
 };
 }
 
