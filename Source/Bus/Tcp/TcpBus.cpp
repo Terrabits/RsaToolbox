@@ -1,4 +1,4 @@
-
+﻿
 
 
 // RsaToolbox
@@ -224,7 +224,7 @@ bool TcpBus::read(char *buffer, uint bufferSize_B) {
         if (!_tcp.waitForReadyRead(timeout_ms())) {
             printRead(buffer, 0);
             emit print("QTcpSocket::waitForReadyRead returned false\n\n");
-            emit error();
+            emit error("QTcpSocket::waitForReadyRead returned false\n\n");
             return false;
         }
     }
@@ -233,7 +233,7 @@ bool TcpBus::read(char *buffer, uint bufferSize_B) {
         nullTerminate(buffer, bufferSize_B, 0);
         printRead(buffer, 0);
         emit print("QTcpSocket::read returned -1\n\n");
-        emit error();
+        emit error("QTcpSocket::read returned -1\n\n");
         return false;
     }
 
@@ -291,12 +291,12 @@ bool TcpBus::binaryWrite(QByteArray data) {
 
     if (_blockSize == -1) {
         emit print("QTcpSocket::write returned -1\n\n");
-        emit error();
+        emit error("QTcpSocket::write returned -1\n\n");
         return false;
     }
     else if (!isWritten) {
         emit print("QTcpSocket::waitForBytesWritten returned false\n\n");
-        emit error();
+        emit error("QTcpSocket::waitForBytesWritten returned false\n\n");
         return false;
     }
     else {

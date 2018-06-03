@@ -1,4 +1,4 @@
-#ifndef GENERIC_BUS_H
+﻿#ifndef GENERIC_BUS_H
 #define GENERIC_BUS_H
 
 
@@ -48,6 +48,13 @@ public:
     uint bufferSize_B() const;
     void setBufferSize(uint size_B);
 
+    // Todo: Make pure virtual,
+    // force subclass to handle so
+    // actual timeout is read and
+    // not assumed.
+    // Could return int where -1 is
+    // bus does not support timeout,
+    // and 0 (or DBL_INF?) means forever.
     uint timeout_ms() const;
     virtual void setTimeout(uint time_ms);
 
@@ -61,18 +68,24 @@ public:
     virtual bool binaryWrite(QByteArray scpi) = 0;
     QByteArray binaryQuery(QByteArray scpi);
 
+    // Todo: define error class/type with
+    //   - Action: {Read, Write, Lock, Unlock, Local, Remote}
+    //   - buffer  (QString)
+    //   - message (QString)
+    // bool isError() const;
+    // QStringList errors() const;
+    // void clearErrors() const;
     virtual QString status() const = 0;
 
 public slots:
-    // Reimplement:
-    virtual bool lock() = 0;
+    virtual bool lock  () = 0;
     virtual bool unlock() = 0;
-    virtual bool local() = 0;
-    virtual bool remote()  = 0;
+    virtual bool local () = 0;
+    virtual bool remote() = 0;
 
 signals:
-    void error() const;
-    void print(QString text) const;
+    void error(QString text = QString()) const;
+    void print(QString text            ) const;
 
 protected:
     static const int MAX_PRINT = 100;

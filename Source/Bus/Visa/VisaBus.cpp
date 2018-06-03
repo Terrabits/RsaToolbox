@@ -168,13 +168,13 @@ bool VisaBus::read(char *buffer, uint bufferSize) {
     if (!isError()) {
         nullTerminate(buffer, bufferSize, _byteCount);
         printRead(buffer, _byteCount);
-        return(true);
+        return true;
     }
     else {
         nullTerminate(buffer, bufferSize, 0);
         printRead(buffer, 0);
-        emit error();
-        return(false);
+        emit   error(status());
+        return false;
     }
 }
 
@@ -209,15 +209,16 @@ bool VisaBus::binaryRead(char *buffer, uint bufferSize,
  */
 bool VisaBus::binaryWrite(QByteArray scpi) {
     _status = _viWrite(_instrument, (ViBuf)scpi.data(), (ViUInt32)scpi.size(), (ViPUInt32)&_byteCount);
-    if (scpi.size() > MAX_PRINT)
+    if (scpi.size() > MAX_PRINT) {
         scpi = QByteArray(scpi.data(), MAX_PRINT+1);
+    }
     printWrite(scpi);
     if (isError()) {
-        emit error();
-        return(false);
+        emit   error(status());
+        return false;
     }
     else {
-        return(true);
+        return true;
     }
 }
 
