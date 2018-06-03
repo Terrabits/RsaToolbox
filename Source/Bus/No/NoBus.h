@@ -1,4 +1,4 @@
-#ifndef NO_BUS_H
+﻿#ifndef NO_BUS_H
 #define NO_BUS_H
 
 
@@ -30,7 +30,7 @@ public:
     bool binaryRead(char *buffer, uint bufferSize_B,
                              uint &bytesRead);
     bool binaryWrite(QByteArray data);
-    QString status() const;
+    virtual QString status() const;
 
 public slots:
     bool lock();

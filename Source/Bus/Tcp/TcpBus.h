@@ -1,4 +1,4 @@
-#ifndef TCP_BUS_H
+﻿#ifndef TCP_BUS_H
 #define TCP_BUS_H
 
 
@@ -33,7 +33,7 @@ public:
     bool binaryRead(char *buffer, uint bufferSize_B,
                              uint &bytesRead);
     bool binaryWrite(QByteArray data);
-    QString status() const;
+    virtual QString status() const;
 
 
 public slots:
