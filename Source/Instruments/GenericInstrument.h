@@ -1,4 +1,4 @@
-#ifndef GENERICINSTRUMENT_H
+﻿#ifndef GENERICINSTRUMENT_H
 #define GENERICINSTRUMENT_H
 
 
@@ -20,37 +20,30 @@ class GenericInstrument : public QObject
 
 public:
     explicit GenericInstrument(QObject *parent = 0);
-    GenericInstrument(GenericBus *bus, QObject *parent = 0);
     GenericInstrument(ConnectionType type, QString address, QObject *parent = 0);
+    ~GenericInstrument();
 
     ConnectionType connectionType() const;
-    QString address() const;
+    QString address       () const;
+    bool    isOpen        () const;
+    bool    isResponding  ();
+    QString idString      ();
+    QString optionsString ();
+    bool    isRohdeSchwarz();
+    virtual QString info  ();
 
-    bool isConnected() const;
-    bool isDisconnected() const;
-
-    bool isLogOpen() const;
-    bool isLogConnected() const;
-    bool isLogDisconnected() const;
-
-    bool isRohdeSchwarz();
-    QString idString();
-    QString optionsString();
-
-    Log* log();
-    void useLog(Log *log);
-    void disconnectLog();
-
+    bool isLogging() const;
+    bool startLog (QString filename, QString application = QString(), QString version = QString());
+    void stopLog  ();
     void print(QString text);
-    void printLine(QString text = "");
     void printInfo();
-    virtual void printInfo(QString &info);
 
-    GenericBus* takeBus();
-    void resetBus();
-    void resetBus(GenericBus* bus);
-    void resetBus(ConnectionType type, QString address);
+    bool open(ConnectionType type, const QString &address);
+    void close(); // todo: rename close()
+    void setBus(GenericBus* bus);
 
+    // Todo: clean up all these
+    // read and write methods!
     bool read(char *buffer, uint bufferSize_B, uint timeout_ms = 1000);
     QString read(uint bufferSize_B = 500, uint timeout_ms = 1000);
     void write(QString scpiCommand);
@@ -62,32 +55,29 @@ public:
     QByteArray binaryQuery(QByteArray scpiCommand,
                            uint bufferSize_B = 500, uint timeout_ms = 1000);
 
-    void wait();
+    void wait ();
     bool pause();
     bool pause(uint timeout_ms);
-    void initializePolling();
-    bool isOperationComplete();
+    void initializePolling   ();
+    bool isOperationComplete ();
 
 signals:
-    void busError() const;
-    void connected() const;
-    void disconnected() const;
+    void busError    (QString text = QString());
+    void connected   ();
+    void disconnected();
 
 public slots:
-    bool lock();
+    bool lock  ();
     bool unlock();
-    bool local();
+    bool local ();
     bool remote();
-
     void preset();
     void clearStatus();
 
 private:
-    QScopedPointer<GenericBus> _bus;
-    Log *_log;
-    Log _tempLog;
-
-    void connectLog();
+    GenericBus *_bus;
+    Log        *_log;
+    void delayPrint(QString text);
 };
 }
 

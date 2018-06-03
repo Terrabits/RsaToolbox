@@ -1,4 +1,4 @@
-
+﻿
 
 // RsaToolbox
 #include "Definitions.h"
@@ -113,8 +113,9 @@ Log::Log(QString filename,
          QObject *parent) :
     QObject(parent)
 {
+     open(filename, appName, version);
     _stream.setDevice(&_file);
-    reset(filename, appName, version);
+    printHeader();
 }
 
 /*!
@@ -125,6 +126,7 @@ Log::Log(QString filename,
  *
  */
 Log::~Log() {
+    flush();
     close();
 }
 
@@ -138,14 +140,6 @@ bool Log::isOpen() const {
 }
 
 /*!
- * \brief Returns closed status of the log file
- * \return \c true if log is not open
- */
-bool Log::isClosed() const {
-    return !isOpen();
-}
-
-/*!
  * \brief Returns the filename of the log file
  * \return Filename, including the path to log file.
  */
@@ -153,74 +147,42 @@ QString Log::filename() const {
     return _filename;
 }
 
-/*!
- * \brief Opens the log file.
- *
- * The parameters for the log file
- * (\c directory, \c filename, \c applicationName,
- * \c applicationVersion) must be previously set.
- * A log file with these settings is opened, if
- * possible.
- *
- * \return \c true if successful
- */
 bool Log::open() {
-    if (_file.open(QFile::WriteOnly)) {
-        emit opened();
-        return true;
-    }
-    else {
+    if (!_file.open(QFile::WriteOnly)) {
         return false;
     }
+
+    emit opened();
+    return true;
 }
+bool Log::open(QString filename, QString application, QString version) {
+    close();
 
-/*!
- * \brief Closes the log file.
- *
- * If a log file is not open, this
- * method does nothing.
- */
+    _filename     = filename;
+    _application  = application;
+    _version      = version;
+    _file.setFileName(_filename);
+    return _file.open(QFile::WriteOnly);
+}
 void Log::close() {
-    if (isClosed())
+    if (!isOpen()) {
         return;
+    }
 
-    _stream.flush();
-    _file.flush();
+    flush();
     _file.close();
-    if (isClosed())
-        emit closed();
+    emit closed();
 }
 
 void Log::flush() {
-    if (isClosed()) {
+    if (!isOpen()) {
         return;
     }
     _stream.flush();
-    _file.flush();
+    _file  .flush();
 }
 
-/*!
- * \brief Resets the log settings and (re)opens
- * a log file with the new settings.
- *
- * If a log is currently open, this method will close
- * it before proceeding. The effect of this method is
- * similar to the standard constructor.
- *
- * \param filename Log filename (optional: including path).
- * \param appName The name of the current application
- * \param version The version of the current application
- */
-bool Log::reset(QString filename, QString appName, QString version) {
-    if (isOpen())
-        close();
 
-    _filename = filename;
-    _appName = appName;
-    _version = version;
-    _file.setFileName(_filename);
-    return open();
-}
 
 /*!
  * \brief Renames and reopens the log file.
@@ -232,19 +194,18 @@ bool Log::reset(QString filename, QString appName, QString version) {
  * \param pathName New path and filename for the log file.
  * \return \c true if successful
  */
-bool Log::rename(QString pathName) {
-    if (isClosed())
+bool Log::rename(QString filename) {
+    if (!isOpen()) {
         return false;
+    }
 
-    _stream.flush();
-    _file.flush();
-    if (_file.rename(pathName)) {
-        emit renamed(pathName);
-        return true;
-    }
-    else {
+    flush();
+    if (!_file.rename(filename)) {
         return false;
     }
+
+    emit renamed(filename);
+    return true;
 }
 
 /*!
@@ -260,13 +221,13 @@ Fri Dec 6 20:20:55 2013
  * \return \c true if successful
  */
 bool Log::printHeader() {
-    if (isClosed())
+    if (!isOpen())
         return false;
 
     QString date(__DATE__);
     date.remove(0, date.size()-4);
 
-    _stream << _appName << " Version " << _version << endl;
+    _stream << _application << " Version " << _version << endl;
     _stream << "(C) " + date + " Rohde & Schwarz North America" << endl << endl;
     _stream << QDateTime::currentDateTime().toString() << endl << endl;
     return true;
@@ -283,18 +244,11 @@ bool Log::printHeader() {
  * \return \c true if successful
  */
 bool Log::print(QString text) {
-    if (isClosed())
+    if (!isOpen()) {
         return false;
+    }
 
     _stream << text;
+    flush();
     return true;
-}
-
-/*!
- * \brief Prints \c text to the log, followed by \c endl;
- * \param text Text to print
- * \return \c true if successful
- */
-bool Log::printLine(QString text) {
-    return print(text + "\n");
 }

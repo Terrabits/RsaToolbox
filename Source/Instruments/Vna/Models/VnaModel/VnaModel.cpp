@@ -1,4 +1,4 @@
-#include "VnaModel.h"
+﻿#include "VnaModel.h"
 
 // RsaToolbox
 #include "General.h"
@@ -11,7 +11,7 @@ using namespace RsaToolbox;
 VnaModel::VnaModel(QObject *parent) :
     QAbstractTableModel(parent)
 {
-    _vna = NULL;
+    _vna = nullptr;
     _connectionType = ConnectionType::VisaTcpConnection;
     _address.clear();
 }
@@ -23,7 +23,7 @@ void VnaModel::setVna(RsaToolbox::Vna *vna) {
 
     beginResetModel();
     _vna = vna;
-    if (_vna != NULL && _vna->isConnected()) {
+    if (_vna && _vna->isOpen()) {
         _connectionType = _vna->connectionType();
         _address = _vna->address();
     }
@@ -51,32 +51,37 @@ int VnaModel::columnCount(const QModelIndex &parent) const {
 }
 
 QVariant VnaModel::data(const QModelIndex &index, int role) const {
-    if (_vna == NULL)
+    if (!_vna) {
         return QVariant();
-    if (!index.isValid())
+    }
+    if (!index.isValid()) {
         return QVariant();
-    if (index.parent().isValid())
+    }
+    if (index.parent().isValid()) {
         return QVariant();
-    if (role != Qt::DisplayRole && role != Qt::EditRole)
+    }
+    if (role != Qt::DisplayRole && role != Qt::EditRole) {
         return QVariant();
-    if (!hasIndex(index.row(), index.column()))
+    }
+    if (!hasIndex(index.row(), index.column())) {
         return QVariant();
+    }
 
     switch (index.column()) {
     case CONNECTION_TYPE_COLUMN: return _connectionType;
-    case ADDRESS_COLUMN: return _address;
-    case CONNECTED_COLUMN: return _vna->isConnected();
-    case MAKE_COLUMN: return make();
-    case MODEL_COLUMN: return model();
-    case SERIAL_COLUMN: return serial();
-    case FIRMWARE_COLUMN: return firmware();
-    case FREQ_DISPLAY_COLUMN: return displayFrequency();
-    case POWER_DISPLAY_COLUMN: return displayPower();
-    default: return QVariant();
+    case ADDRESS_COLUMN:         return _address;
+    case CONNECTED_COLUMN:       return _vna->isOpen();
+    case MAKE_COLUMN:            return make();
+    case MODEL_COLUMN:           return model();
+    case SERIAL_COLUMN:          return serial();
+    case FIRMWARE_COLUMN:        return firmware();
+    case FREQ_DISPLAY_COLUMN:    return displayFrequency();
+    case POWER_DISPLAY_COLUMN:   return displayPower();
+    default:                     return QVariant();
     }
 }
 bool VnaModel::setData(const QModelIndex &index, const QVariant &value, int role) {
-    if (_vna == NULL)
+    if (!_vna)
         return false;
     if (!index.isValid())
         return false;
@@ -89,7 +94,7 @@ bool VnaModel::setData(const QModelIndex &index, const QVariant &value, int role
     
     switch (index.column()) {
     case CONNECTION_TYPE_COLUMN:
-        if (_vna->isConnected()) {
+        if (_vna->isOpen()) {
             return false;
         }
         if (_connectionType == value.value<int>()) {
@@ -100,7 +105,7 @@ bool VnaModel::setData(const QModelIndex &index, const QVariant &value, int role
         return true;
 
     case ADDRESS_COLUMN:
-        if (_vna->isConnected()) {
+        if (_vna->isOpen()) {
             return false;
         }
         if (_address == value.toString()) {
@@ -111,24 +116,32 @@ bool VnaModel::setData(const QModelIndex &index, const QVariant &value, int role
         return true;
 
     case CONNECTED_COLUMN:
-        if (value.toBool() == _vna->isConnected())
-            return false;
-        if (!toggleConnection())
-            return false;
-        emit dataChanged(index, this->index(0, COLUMNS-1));
-        return true;
-
+        if (value.toBool() && !_vna->isOpen()) {
+            if (!_vna->open(_connectionType, _address)) {
+                return false;
+            }
+            emit dataChanged(index, this->index(0, COLUMNS-1));
+            return true;
+        }
+        if (!value.toBool() && _vna->isOpen()) {
+            _vna->close();
+            emit dataChanged(index, this->index(0, COLUMNS-1));
+            return true;
+        }
+        // nothing to set
+        return false;
     case MAKE_COLUMN:
     case MODEL_COLUMN:
     case SERIAL_COLUMN:
     case FIRMWARE_COLUMN:
     case FREQ_DISPLAY_COLUMN:
     case POWER_DISPLAY_COLUMN:
-    default: return false;
+    default:
+        return false;
     }
 }
 Qt::ItemFlags VnaModel::flags(const QModelIndex &index) const {
-    if (_vna == NULL)
+    if (!_vna)
         return Qt::NoItemFlags;
     if (!index.isValid())
         return Qt::NoItemFlags;
@@ -156,14 +169,15 @@ Qt::ItemFlags VnaModel::flags(const QModelIndex &index) const {
 }
 
 void VnaModel::reset() {
-    setVna(NULL);
+    setVna(nullptr);
 }
 
 bool VnaModel::toggleConnection() {
-    if (_vna == NULL)
+    if (!_vna) {
         return false;
-    if (_vna->isConnected()) {
-        _vna->resetBus();
+    }
+    if (_vna->isOpen()) {
+        _vna->close();
         return true;
     }
 
@@ -178,18 +192,19 @@ bool VnaModel::toggleConnection() {
         return false;
     }
 
-    _vna->resetBus(_connectionType, _address);
-    bool isConnected = _vna->isConnected();
-    if (!isConnected) {
+    if (!_vna->open(_connectionType, _address)) {
         emit error("*Could not connect to instrument.");
+        return false;
     }
-    else if (_vna->properties().isUnknownModel()) {
+    if (_vna->properties().isUnknownModel()) {
         emit error(QString("*Unknown instrument:  ") + _vna->idString());
+        return false;
     }
-    return isConnected;
+
+    return true;
 }
 QString VnaModel::make() const {
-    if (_vna->isDisconnected())
+    if (!_vna->isOpen())
         return "";
     if (_vna->isRohdeSchwarz())
         return "Rohde & Schwarz";
@@ -197,7 +212,7 @@ QString VnaModel::make() const {
     return "Unknown";
 }
 QString VnaModel::model() const {
-    if (_vna->isDisconnected())
+    if (!_vna->isOpen())
         return "";
     VnaProperties::Model model = _vna->properties().model();
     if (model == VnaProperties::Model::Unknown)
@@ -206,7 +221,7 @@ QString VnaModel::model() const {
     return toString(model);
 }
 QString VnaModel::serial() const {
-    if (_vna->isDisconnected())
+    if (!_vna->isOpen())
         return "";
     if (_vna->properties().isUnknownModel())
         return "";
@@ -214,7 +229,7 @@ QString VnaModel::serial() const {
     return _vna->properties().serialNumber();
 }
 QString VnaModel::firmware() const {
-    if (_vna->isDisconnected())
+    if (!_vna->isOpen())
         return "";
     if (_vna->properties().isUnknownModel())
         return "";
@@ -222,7 +237,7 @@ QString VnaModel::firmware() const {
     return _vna->properties().firmwareVersion();
 }
 QString VnaModel::displayFrequency() const {
-    if (_vna->isDisconnected())
+    if (!_vna->isOpen())
         return "";
     VnaProperties::Model model = _vna->properties().model();
     if (model == VnaProperties::Model::Unknown)
@@ -242,7 +257,7 @@ QString VnaModel::displayFrequency() const {
     return text;
 }
 QString VnaModel::displayPower() const {
-    if (_vna->isDisconnected())
+    if (!_vna->isOpen())
         return "";
     VnaProperties::Model model = _vna->properties().model();
     if (model == VnaProperties::Model::Unknown)

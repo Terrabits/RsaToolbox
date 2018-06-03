@@ -1,4 +1,4 @@
-#include "VnaTestClass.h"
+﻿#include "VnaTestClass.h"
 
 
 // RsaToolbox
@@ -25,7 +25,6 @@ VnaTestClass::VnaTestClass(ConnectionType type, const QString &address, QObject 
 }
 VnaTestClass::~VnaTestClass() {
     _vna.reset();
-    _log.reset();
 }
 
 void VnaTestClass::setConnectionType(ConnectionType type) {
@@ -42,7 +41,7 @@ bool VnaTestClass::isZnbFamily() {
     }
 
     bool isZnx = false;
-    if (_vna->isConnected())
+    if (_vna->isOpen())
         isZnx = _vna->properties().isZnbFamily();
 
     if (isNullPointer)
@@ -56,7 +55,7 @@ bool VnaTestClass::isZvaFamily() {
     }
 
     bool isZvx = false;
-    if (_vna->isConnected())
+    if (_vna->isOpen())
         isZvx = _vna->properties().isZvaFamily();
 
     if (isNull)
@@ -71,7 +70,7 @@ VnaProperties::Model VnaTestClass::model() {
     }
 
     VnaProperties::Model model = VnaProperties::Model::Unknown;
-    if (_vna->isConnected())
+    if (_vna->isOpen())
         model = _vna->properties().model();
 
     if (isNull)
@@ -81,7 +80,7 @@ VnaProperties::Model VnaTestClass::model() {
 
 void VnaTestClass::_initTestCase() {
     _vna.reset(new Vna(_connectionType, _address));
-    QVERIFY(_vna->isConnected());
+    QVERIFY(_vna->isOpen());
     _vna.reset();
 
     if (_logDir == QDir()) {
@@ -104,11 +103,8 @@ void VnaTestClass::_initTestCase() {
     QVERIFY(_logDir.exists());
 }
 void VnaTestClass::_cleanupTestCase() {
-    _vna.reset();
-    _log.reset();
-
     _vna.reset(new Vna(_connectionType, _address));
-    if (_vna->isConnected()) {
+    if (_vna->isOpen()) {
         _vna->preset();
         _vna->pause();
         _vna->local();
@@ -117,15 +113,12 @@ void VnaTestClass::_cleanupTestCase() {
 }
 
 void VnaTestClass::_init() {
+    const QString logFile
+            = _logDir.filePath(_logFilenames.takeFirst());
     _vna.reset(new Vna(_connectionType, _address));
-    const QString logFilename = _logDir.filePath(_logFilenames.takeFirst());
-    _log.reset(new Log(logFilename, "", "0.0"));
+    _vna->startLog(logFile, "", "0.0");
 
-    _log->printHeader();
-    _vna->useLog(_log.data());
-    _vna->printInfo();
-
-    QVERIFY(_vna->isConnected());
+    QVERIFY(_vna->isOpen());
 
     _vna->clearStatus();
     _vna->preset();
@@ -135,9 +128,6 @@ void VnaTestClass::_cleanup() {
     _vna->isError();
     _vna->clearStatus();
     _vna.reset();
-
-    _log->close();
-    _log.reset();
 }
 
 void VnaTestClass::initTestCase() {

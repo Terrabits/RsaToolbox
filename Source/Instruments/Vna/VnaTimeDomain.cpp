@@ -1,4 +1,4 @@
-#include "VnaTimeDomain.h"
+﻿#include "VnaTimeDomain.h"
 
 
 // RsaToolbox includes
@@ -228,7 +228,7 @@ void VnaTimeDomain::resolutionEnhancementOff() {
 }
 void VnaTimeDomain::setResolutionEnhancement(double factor) {
     if (factor < 1 || factor > 10)
-        _vna->printLine("Warning: Resolution Enhancement Factor must be 1-10, inclusive.");
+        _vna->print("Warning: Resolution Enhancement Factor must be 1-10, inclusive.\n");
 
     _trace->select();
 

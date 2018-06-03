@@ -1,4 +1,4 @@
-
+﻿
 
 #include "VnaFileSystem.h"
 #include "Vna.h"
@@ -395,34 +395,43 @@ void VnaFileSystem::dir(quint64 &totalFileSize_B, quint64 &freeSpace_B,
     if (list.size() < 2)
         return;
 
-    files.clear();
+    files      .clear();
     fileSizes_B.clear();
     directories.clear();
-
     totalFileSize_B = list.takeFirst().trimmed().toULongLong();
-    freeSpace_B = list.takeFirst().trimmed().toULongLong();
-    int listSize = list.size();
+    freeSpace_B     = list.takeFirst().trimmed().toULongLong();
 
-    bool isError = false;
-
-    for (int i = 0; i+2 < listSize; i += 3) {
+    bool error = false;
+    for (int i = 0; i+2 < list.size(); i += 3) {
         if (list[i+1].contains("<Dir>", Qt::CaseInsensitive)) {
+            // directory
             directories << list[i].trimmed();
+            continue;
         }
-        else if (list[i+1] == " ") {
+        if (list[i+1] == " ") {
+            // file
             files << list[i].trimmed();
-            fileSizes_B << list[i+2].trimmed().toUInt();
+            bool ok = true;
+            fileSizes_B << list[i+2].trimmed().toUInt(&ok);
+            if (!ok) {
+                error = true;
+                break;
+            }
+            continue;
         }
-        else {
-            // possible mis-read;
-            isError = true;
-        }
+        // cannot parse
+        error = true;
+        break;
     }
 
-    if (isError && _vna->isLogConnected()) {
-        _vna->log()->print(QString()
-                           + "This MMEM:DIR? call may have failed because one of the files\n"
-                           + "in the directory contains a \',\' in the file name. This is a\n"
-                           + "limitation of the SCPI command, which happens to use comma separators.\n\n");
+    if (error) {
+        files      .clear();
+        fileSizes_B.clear();
+        directories.clear();
+        totalFileSize_B = 0;
+        freeSpace_B     = 0;
+        _vna->print("This MMEM:DIR? call may have failed because one of the files\n" );
+        _vna->print("in the directory contains a \',\' in the file name. This is a\n");
+        _vna->print("limitation of the SCPI command, which happens to use comma separators.\n\n");
     }
 }

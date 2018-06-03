@@ -1,4 +1,4 @@
-
+﻿
 
 // RsaToolbox includes
 #include "General.h"
@@ -94,8 +94,7 @@ void VnaChannel::startSweep() {
 }
 bool VnaChannel::isSweepOn() {
     if (_vna->properties().isZvaFamily()) {
-        if (_vna->isLogConnected())
-            *_vna->log() << "WARNING: isSweepOn() not available on ZVA-family instrument.\n\n";
+        _vna->print("WARNING: isSweepOn() not available on ZVA-family instrument.\n\n");
         return(true);
     }
 
@@ -108,8 +107,7 @@ bool VnaChannel::isSweepOff() {
 }
 void VnaChannel::sweepOn(bool isOn) {
     if (_vna->properties().isZvaFamily()) {
-        if (_vna->isLogConnected())
-            *_vna->log() << "WARNING: sweepOn() not available on ZVA-family instrument.\n\n";
+        _vna->print("WARNING: sweepOn() not available on ZVA-family instrument.\n\n");
         return;
     }
 
@@ -126,10 +124,10 @@ void VnaChannel::sweepOff(bool isOff) {
 }
 bool VnaChannel::isContinuousSweep() {
     if (_vna->properties().isZvaFamily()) {
-        if (_vna->isLogConnected()) {
-            *_vna->log() << "WARNING:\n"
-                            "  ZVA cannot put individual channels\n"
-                            "  into manual/continuous sweep mode!\n";
+        if (_vna->isLogging()) {
+            _vna->print("WARNING:\n");
+            _vna->print("  ZVA cannot put individual channels\n");
+            _vna->print("  into manual/continuous sweep mode!\n");
         }
     }
     QString scpi = ":INIT%1:CONT?\n";
@@ -141,10 +139,10 @@ bool VnaChannel::isManualSweep() {
 }
 void VnaChannel::continuousSweepOn(bool isOn) {
     if (_vna->properties().isZvaFamily()) {
-        if (_vna->isLogConnected()) {
-            *_vna->log() << "WARNING:\n"
-                            "  ZVA cannot put individual channels\n"
-                            "  into manual/continuous sweep mode!\n";
+        if (_vna->isLogging()) {
+            _vna->print("WARNING:\n");
+            _vna->print("  ZVA cannot put individual channels\n");
+            _vna->print("  into manual/continuous sweep mode!\n");
         }
     }
 
@@ -623,9 +621,9 @@ void VnaChannel::deleteUserDefinedPorts() {
 //// (ZVA only)
 bool VnaChannel::isArbitraryReceiverFrequencyOn() {
     if (!_vna->properties().isZvaFamily()) {
-        _vna->printLine("*************************************************");
-        _vna->printLine("WARNING: NO RECEIVER ARBITRARY FREQUENCY COMMAND!");
-        _vna->printLine("*************************************************\n");
+        _vna->print("*************************************************\n"  );
+        _vna->print("WARNING: NO RECEIVER ARBITRARY FREQUENCY COMMAND!\n"  );
+        _vna->print("*************************************************\n\n");
         return false;
     }
 
@@ -634,9 +632,9 @@ bool VnaChannel::isArbitraryReceiverFrequencyOn() {
 VnaArbitraryFrequency VnaChannel::arbitraryReceiverFrequency() {
     VnaArbitraryFrequency af;
     if (!_vna->properties().isZvaFamily()) {
-        _vna->printLine("*************************************************");
-        _vna->printLine("WARNING: NO RECEIVER ARBITRARY FREQUENCY COMMAND!");
-        _vna->printLine("*************************************************\n");
+        _vna->print("*************************************************\n"  );
+        _vna->print("WARNING: NO RECEIVER ARBITRARY FREQUENCY COMMAND!\n"  );
+        _vna->print("*************************************************\n\n");
         return af;
     }
 
@@ -656,9 +654,9 @@ VnaArbitraryFrequency VnaChannel::arbitraryReceiverFrequency() {
 }
 void VnaChannel::setArbitraryReceiverFrequency(const VnaArbitraryFrequency &af) {
     if (!_vna->properties().isZvaFamily()) {
-        _vna->printLine("*************************************************");
-        _vna->printLine("WARNING: NO RECEIVER ARBITRARY FREQUENCY COMMAND!");
-        _vna->printLine("*************************************************\n");
+        _vna->print("*************************************************\n"  );
+        _vna->print("WARNING: NO RECEIVER ARBITRARY FREQUENCY COMMAND!\n"  );
+        _vna->print("*************************************************\n\n");
         return;
     }
 
@@ -672,9 +670,9 @@ void VnaChannel::setArbitraryReceiverFrequency(const VnaArbitraryFrequency &af) 
 }
 void VnaChannel::arbitraryReceiverFrequencyOff() {
     if (!_vna->properties().isZvaFamily()) {
-        _vna->printLine("*************************************************");
-        _vna->printLine("WARNING: NO RECEIVER ARBITRARY FREQUENCY COMMAND!");
-        _vna->printLine("*************************************************\n");
+        _vna->print("*************************************************\n"  );
+        _vna->print("WARNING: NO RECEIVER ARBITRARY FREQUENCY COMMAND!\n"  );
+        _vna->print("*************************************************\n\n");
         return;
     }
 

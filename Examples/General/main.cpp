@@ -1,4 +1,4 @@
-
+﻿
 
 // RsaToolbox
 #include "Log.h"
@@ -13,17 +13,12 @@ using namespace RsaToolbox;
 
 void main()
 {
-    Vna vna(ConnectionType::VisaTcpConnection, "127.0.0.1");
 
-    // Create log file.
-    // Log is useful in case of an
-    // error
     QDir src(SOURCE_DIR);
-    Log log(src.filePath("filename.txt"),
-                    "My Application",
-                    "1.0");
-    log.printHeader();
-    vna.useLog(&log);
+    const QString logFile = src.filePath("log.txt");
+
+    Vna vna(ConnectionType::VisaTcpConnection, "127.0.0.1");
+    vna.startLog(logFile, "Application", "1.0");
     vna.printInfo();
 
     // Get VNA info

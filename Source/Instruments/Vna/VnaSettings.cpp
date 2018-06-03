@@ -1,4 +1,4 @@
-#include <QDebug>
+﻿#include <QDebug>
 
 // RsaToolbox includes
 #include "General.h"
@@ -37,21 +37,16 @@ VnaSettings::~VnaSettings() {
 
 void VnaSettings::setIdString(QString idString) {
     if (_vna->properties().isZvaFamily()) {
-        if (_vna->isLogConnected())
-            *_vna->log()
-                << "WARNING: setIdString() not available on ZVA-family instrument.\n\n";
+        _vna->print("WARNING: setIdString() not available on ZVA-family instrument.\n\n");
         return;
     }
 
-    QString scpi =
-            QString(":SYST:IDEN \'%1\'\n").arg(idString);
-    _vna->write(scpi);
+    const QString scpi = ":SYST:IDEN \'%1\'\n";
+    _vna->write(scpi.arg(idString));
 }
 void VnaSettings::resetIdString() {
     if (_vna->properties().isZvaFamily()) {
-        if (_vna->isLogConnected())
-            *_vna->log()
-                << "WARNING: resetIdString() not available on ZVA-family instrument.\n\n";
+        _vna->print("WARNING: resetIdString() not available on ZVA-family instrument.\n\n");
         return;
     }
 
@@ -59,21 +54,16 @@ void VnaSettings::resetIdString() {
 }
 void VnaSettings::setOptionsString(QString options) {
     if (_vna->properties().isZvaFamily()) {
-        if (_vna->isLogConnected())
-            *_vna->log()
-                << "WARNING: setOptionsString() not available on ZVA-family instrument.\n\n";
+        _vna->print("WARNING: setOptionsString() not available on ZVA-family instrument.\n\n");
         return;
     }
 
-    QString scpi =
-            QString(":SYST:OPT \'%1\'\n").arg(options);
-    _vna->write(scpi);
+    const QString scpi = ":SYST:OPT \'%1\'\n";
+    _vna->write(scpi.arg(options));
 }
 void VnaSettings::resetOptionsString() {
     if (_vna->properties().isZvaFamily()) {
-        if (_vna->isLogConnected())
-            *_vna->log()
-                << "WARNING: resetOptionsString() not available on ZVA-family instrument.\n\n";
+        _vna->print("WARNING: resetOptionsString() not available on ZVA-family instrument.\n\n");
         return;
     }
 
@@ -109,7 +99,7 @@ bool VnaSettings::isRead32BitBinaryFormat() {
         return(bit == uint(32));
     }
     // else
-    return(false);
+    return false;
 }
 void VnaSettings::setRead32BitBinaryFormat() {
     _vna->write(":FORM REAL,32\n");
@@ -122,7 +112,7 @@ bool VnaSettings::isRead64BitBinaryFormat() {
         return(bit == uint(64));
     }
     // else
-    return(false);
+    return false;
 }
 void VnaSettings::setRead64BitBinaryFormat() {
     _vna->write(":FORM REAL,64\n");
@@ -283,9 +273,8 @@ void VnaSettings::mapUserPresetToRst(bool isMapped) {
 
 bool VnaSettings::isCalibrationPresetOn() {
     if (_vna->properties().isZvaFamily()) {
-        *_vna->log()
-                << "WARNING: setCalibrationPreset() not available on ZVA-family instrument.\n\n";
-        return(false);
+        _vna->print("WARNING: setCalibrationPreset() not available on ZVA-family instrument.\n\n");
+        return false;
     }
 
     return(calibrationPreset().isEmpty() == false);
@@ -298,22 +287,23 @@ void VnaSettings::calibrationPresetOff() {
 }
 QString VnaSettings::calibrationPreset() {
     if (_vna->properties().isZvaFamily()) {
-        *_vna->log()
-                << "WARNING: setCalibrationPreset() not available on ZVA-family instrument.\n\n";
-        return(QString());
+        _vna->print("WARNING: setCalibrationPreset() not available on ZVA-family instrument.\n\n");
+        return QString();
     }
 
-    return(_vna->query(":SYST:PRES:USER:CAL?\n").trimmed().remove("\'"));
+    const QString scpi = ":SYST:PRES:USER:CAL?\n";
+    QString response   = _vna->query(scpi);
+            response   = response.trimmed().remove("\'");
+    return response;
 }
 void VnaSettings::setCalibrationPreset(QString calibrationFilePath) {
     if (_vna->properties().isZvaFamily()) {
-        *_vna->log()
-                << "WARNING: setCalibrationPreset() not available on ZVA-family instrument.\n\n";
+        _vna->print("WARNING: setCalibrationPreset() not available on ZVA-family instrument.\n\n");
         return;
     }
 
     QString scpi = ":SYST:PRES:USER:CAL \'%1\'\n";
-    scpi = scpi.arg(calibrationFilePath);
+    scpi         = scpi.arg(calibrationFilePath);
     _vna->write(scpi);
 }
 
@@ -327,10 +317,10 @@ bool VnaSettings::isPortPowerLimitOn() {
             = range(uint(1), _vna->properties().physicalPorts());
     foreach (uint port, ports) {
         if (_vna->settings().isPortPowerLimitOn(port))
-            return(true);
+            return true;
     }
     // else
-    return(false);
+    return false;
 }
 bool VnaSettings::isPortPowerLimitOff() {
     return(!isPortPowerLimitOn());
@@ -420,26 +410,25 @@ void VnaSettings::rfOutputPowerOff(bool isOff) {
 
 bool VnaSettings::isDynamicIfBandwidthOn() {
     if (_vna->properties().isZnbFamily()) {
-        *_vna->log()
-                << "WARNING: isDynamicIfBandwidthOn() not available on ZNB-family instrument.\n\n";
-        return(false);
+        _vna->print("WARNING: isDynamicIfBandwidthOn() not available on ZNB-family instrument.\n\n");
+        return false;
     }
 
-    return(_vna->query(":BAND:DRED?\n").trimmed() == "1");
+    const QString scpi     = ":BAND:DRED?\n";
+    const QString response = _vna->query(scpi).trimmed();
+    return response == "1";
 }
 bool VnaSettings::isDynamicIfBandwidthOff() {
     return(!isDynamicIfBandwidthOn());
 }
 void VnaSettings::dynamicIfBandwidthOn(bool isOn) {
     if (_vna->properties().isZnbFamily()) {
-        *_vna->log() << "WARNING: dynamicIfBandwidthOn() not available on ZNB-family instrument.\n\n";
+        _vna->print("WARNING: dynamicIfBandwidthOn() not available on ZNB-family instrument.\n\n");
         return;
     }
 
-    if (isOn)
-        _vna->write(":BAND:DRED 1\n");
-    else
-        _vna->write(":BAND:DRED 0\n");
+    const QString scpi = ":BAND:DRED %1\n";
+    _vna->write(scpi.arg(isOn ? "1" : "0"));
 }
 void VnaSettings::dynamicIfBandwidthOff(bool isOff) {
     dynamicIfBandwidthOn(!isOff);

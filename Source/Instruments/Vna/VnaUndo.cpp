@@ -69,7 +69,7 @@ QString VnaUndo::generateUniqueName() {
 bool VnaUndo::isVna() {
     if (!_vna)
         return false;
-    if (!_vna->isConnected())
+    if (!_vna->isOpen())
         return false;
     return !_vna->idString().isEmpty();
 }

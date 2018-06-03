@@ -1,4 +1,4 @@
-#ifndef LOG_H
+﻿#ifndef LOG_H
 #define LOG_H
 
 // Qt Library:
@@ -14,11 +14,14 @@
 #include <QObject>
 #include <QTextStream>
 
+// std lib
+#include <cassert>
+
 
 namespace RsaToolbox {
 
 class Log : public QObject {
-private: Q_OBJECT
+Q_OBJECT
 
 public:
     // Constructor / Destructor
@@ -28,11 +31,8 @@ public:
         QObject *parent = 0);
     ~Log();
 
-    // Status
-    bool isOpen(void) const;
-    bool isClosed(void) const;
+    bool    isOpen  (void) const;
     QString filename() const;
-    bool reset(QString filename, QString appName, QString version);
 
     // Operators
     template <class T>
@@ -44,25 +44,24 @@ public:
 signals:
     void closed();
     void opened();
-    void renamed(QString pathName);
+    void renamed(QString filename);
 
 public slots:
-    bool open();
-    void close();
-    void flush();
-    bool rename(QString pathName);
-
+    bool open  ();
+    void close ();
+    void flush ();
+    bool rename(QString filename);
     bool printHeader();
-    bool print(QString text);
-    bool printLine(QString text);
+    bool print (QString text);
 
 private:
-    QString _appName;
+    QString _application;
     QString _version;
 
-    QString _filename;
-    QFile _file;
+    QString     _filename;
+    QFile       _file;
     QTextStream _stream;
+    bool open(QString filename, QString application, QString version);
 };
 }
 

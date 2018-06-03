@@ -22,5 +22,5 @@ void GenericInstrumentTest::cannotConnect() {
     QFETCH(QString,        address);
 
     GenericInstrument instr(connection, address);
-    QVERIFY(!instr.isConnected());
+    QVERIFY(!instr.isOpen());
 }

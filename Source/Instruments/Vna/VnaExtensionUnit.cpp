@@ -1,4 +1,4 @@
-
+﻿
 
 // RsaToolbox includes
 #include "General.h"
@@ -14,8 +14,8 @@ using namespace RsaToolbox;
 VnaExtensionUnit::VnaExtensionUnit(QObject *parent) :
     QObject(parent)
 {
-    placeholder.reset(new Vna());
-    _vna = placeholder.data();
+    _placeholder.reset(new Vna());
+    _vna = _placeholder.data();
     _channel.reset(new VnaChannel());
     _channelIndex = 0;
 }
@@ -28,8 +28,8 @@ VnaExtensionUnit::VnaExtensionUnit(const VnaExtensionUnit &other)
         _channelIndex = other._channelIndex;
     }
     else {
-        placeholder.reset(new Vna());
-        _vna = placeholder.data();
+        _placeholder.reset(new Vna());
+        _vna = _placeholder.data();
         _channel.reset(new VnaChannel());
         _channelIndex = 0;
     }
@@ -42,12 +42,12 @@ VnaExtensionUnit::VnaExtensionUnit(Vna *vna, VnaChannel *channel, QObject *paren
     _channelIndex = channel->index();
 }
 
-VnaExtensionUnit::VnaExtensionUnit(Vna *vna, uint channelIndex, QObject *parent) :
+VnaExtensionUnit::VnaExtensionUnit(Vna *vna, uint channel, QObject *parent) :
     QObject(parent)
 {
     _vna = vna;
-    _channel.reset(new VnaChannel(vna, channelIndex, this));
-    _channelIndex = channelIndex;
+    _channel.reset(new VnaChannel(vna, channel, this));
+    _channelIndex = channel;
 }
 VnaExtensionUnit::~VnaExtensionUnit() {
 
@@ -89,8 +89,8 @@ void VnaExtensionUnit::operator=(VnaExtensionUnit const &other) {
         _channelIndex = other._channelIndex;
     }
     else {
-        placeholder.reset(new Vna());
-        _vna = placeholder.data();
+        _placeholder.reset(new Vna());
+        _vna = _placeholder.data();
         _channel.reset(new VnaChannel());
         _channelIndex = 0;
     }
@@ -98,11 +98,12 @@ void VnaExtensionUnit::operator=(VnaExtensionUnit const &other) {
 
 // Private
 bool VnaExtensionUnit::isFullyInitialized() const {
-    if (_vna == NULL)
-        return(false);
-    if (_vna == placeholder.data())
-        return(false);
+    if (!_vna) {
+        return false;
+    }
+    if (_vna == _placeholder.data()) {
+        return false;
+    }
 
-    //else
-    return(true);
+    return true;
 }

@@ -1,4 +1,4 @@
-#include "VnaCalibrate.h"
+﻿#include "VnaCalibrate.h"
 
 
 // RsaToolbox includes
@@ -411,7 +411,7 @@ bool VnaCalibrate::autoCalibrate(QVector<uint> ports, QString calId, QString cha
             calId = _vna->calUnits().first();
         }
         else {
-            _vna->printLine("Error: No cal unit present.\n");
+            _vna->print("Error: No cal unit present.\n\ns");
             return false;
         }
     }

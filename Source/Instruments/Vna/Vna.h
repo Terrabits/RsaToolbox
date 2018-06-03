@@ -1,4 +1,4 @@
-#ifndef VNA_H
+﻿#ifndef VNA_H
 #define VNA_H
 
 
@@ -35,8 +35,7 @@ public:
     Vna(GenericBus *bus, QObject *parent = 0);
     Vna(ConnectionType type, QString address, QObject *parent = 0);
 
-    using GenericInstrument::printInfo;
-    virtual void printInfo(QString &info);
+    virtual QString info();
 
     QRowVector readVector(uint bufferSize_B = 5000, uint timeout_ms = 1000);
     ComplexRowVector readComplexVector(uint bufferSize_B = 5000, uint timeout_ms = 1000);

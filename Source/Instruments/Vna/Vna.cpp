@@ -1,4 +1,4 @@
-#include "Vna.h"
+﻿#include "Vna.h"
 
 
 #include "General.h"
@@ -114,37 +114,6 @@ Vna::Vna(QObject *parent)
 
 /*!
  * \brief Constructor connects to the instrument
- * specified in \c bus
- *
- * Before controlling the instrument, it is
- * good practice to call Vna::isConnected()
- * to make sure that the instrument connection
- * is valid.
- *
- * \param bus An instrument connection
- * \param parent Optional parent QObject
- * \sa GenericBus
- */
-Vna::Vna(GenericBus *bus, QObject *parent)
-    : GenericInstrument(bus, parent),
-      _properties(this),
-      _settings(this),
-      _fileSystem(this),
-      _set(this, ""),
-      _calKit(this, NameLabel()),
-      _calibrate(this),
-//      _calGroup(),
-      _channel(this, 0),
-      _trace(this, ""),
-      _diagram(this, 0),
-      _switchMatrix(this, 0),
-      _calUnit(this, "")
-{
-    //
-}
-
-/*!
- * \brief Constructor connects to the instrument
  * at \c address
  *
  * Before controlling the instrument, it is
@@ -205,10 +174,11 @@ Options:          ZNB-K2
                   ZN-B12</tt>
  * \sa Vna::useLog()
  */
-void Vna::printInfo(QString &info) {
+QString Vna::info() {
+    QString info;
     QTextStream stream(&info);
     stream << "VNA INSTRUMENT INFO" << endl;
-    if (isConnected()) {
+    if (isOpen()) {
         if (_properties.isKnownModel()) {
             stream << "Connection:       " << toString(connectionType()) << endl;
             stream << "Address:          " << address() << endl;
@@ -237,6 +207,7 @@ void Vna::printInfo(QString &info) {
     }
     stream << endl << endl;
     stream.flush();
+    return info;
 }
 
 /*!
@@ -382,7 +353,7 @@ bool Vna::isError() {
             text += format.arg(codes[i]).arg(messages[i]);
         }
         text += "\n";
-        emit print(text);
+        print(text);
         return true;
     }
     else {
@@ -970,9 +941,9 @@ VnaCalKit &Vna::calKit(NameLabel nameLabel) {
 void Vna::multiChannelCalibrationOn(bool isOn) {
     if (properties().isZvaFamily()) {
         if (isOn)
-            emit print("Note:\nMulti-channel calibration enabled by default on ZVA.\n\n");
+            print("Note:\nMulti-channel calibration enabled by default on ZVA.\n\n");
         else
-            emit print("Note:\nCannot disable multi-channel calibration on ZVA.\n\n");
+            print("Note:\nCannot disable multi-channel calibration on ZVA.\n\n");
 
         return;
     }
