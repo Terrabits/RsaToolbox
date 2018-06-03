@@ -89,7 +89,7 @@ signals:
 
 protected:
     static const int MAX_PRINT = 100;
-    void printRead(char *buffer, uint bytesRead) const;
+    void printRead (char *buffer, uint bytesRead) const;
     void printWrite(QString scpi) const;
 
     void setConnectionType(ConnectionType type);
