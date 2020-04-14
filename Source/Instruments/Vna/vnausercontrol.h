@@ -17,6 +17,7 @@ class VnaUserControl : public QObject
 public:
     explicit VnaUserControl(QObject *parent=0);
     VnaUserControl(Vna *vna, VnaChannel *channel, QObject *parent=0);
+    ~VnaUserControl();
 
     VnaBusySignal busySignal();
     void setBusySignal(VnaBusySignal signal);

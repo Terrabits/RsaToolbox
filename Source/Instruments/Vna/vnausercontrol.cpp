@@ -25,6 +25,10 @@ VnaUserControl::VnaUserControl(Vna *vna, VnaChannel *channel, QObject *parent) :
     //
 }
 
+VnaUserControl::~VnaUserControl() {
+    //
+}
+
 // Busy signal
 VnaBusySignal VnaUserControl::busySignal() {
     QString scpi = ":OUTP%1:UPOR:BUSY:LINK?\n";
