@@ -15,7 +15,7 @@
 #include "vnasyncgeneratortest.h"
 #include "VnaTraceTest.h"
 #include "vnatriggertest.h"
-#include "VnaUndoTest.h"
+#include "vnaundotest.h"
 
 // RsaToolbox
 #include "GenericBus.h"
