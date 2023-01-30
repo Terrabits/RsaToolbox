@@ -7,7 +7,6 @@ DEPENDPATH  +=   $$PWD/Library
 LIBS        += -L$$PWD/Library
 
 win32 {
-    QMAKE_CXXFLAGS += /wd4482 # C++11 enum class warnings:
     CONFIG(debug, release|debug) {
         LIBS += -l$$PWD/Library/RsaToolboxd
     }
