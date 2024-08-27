@@ -3,8 +3,12 @@
 using namespace RsaToolbox;
 
 
-//RsaToolbox
+// RsaToolbox
 #include "General.h"
+
+
+// std lib
+#include <algorithm>
 
 
 ///
@@ -109,7 +113,7 @@ void getChannelDialog::clearSelection() {
     _selectedChannel = 0;
 }
 void getChannelDialog::_displayChannels() {
-    qSort(_channels);
+    std::sort(_channels.begin(), _channels.end());
     ui->channelList->clear();
     ui->channelList->addItems(channelLabels(_channels));
 }

@@ -195,16 +195,16 @@ bool TcpBus::remote() {
 QString TcpBus::status() const {
     QString text;
     QTextStream stream(&text);
-    stream << "Bytes:    " << _blockSize << endl;
-    stream << "State:    " << _tcp.state() << " " << stateString() << endl;
+    stream << "Bytes:    " << _blockSize << Qt::endl;
+    stream << "State:    " << _tcp.state() << " " << stateString() << Qt::endl;
 
 
     QAbstractSocket::SocketError error = _tcp.error();
     QString errorString = _tcp.errorString();
     if (error == -1 && errorString == "Unknown error")
-        stream << "Status:   Ok" << endl;
+        stream << "Status:   Ok" << Qt::endl;
     else
-        stream << "Status:   " << _tcp.error() << " " << _tcp.errorString() << endl;
+        stream << "Status:   " << _tcp.error() << " " << _tcp.errorString() << Qt::endl;
     stream.flush();
     return text;
 }

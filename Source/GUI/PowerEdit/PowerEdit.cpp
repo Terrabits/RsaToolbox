@@ -8,8 +8,8 @@
 using namespace RsaToolbox;
 
 // Qt
-#include <QRegExp>
-#include <QRegExpValidator>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 #include <QKeyEvent>
 #include <QDebug>
 
@@ -26,8 +26,8 @@ PowerEdit::PowerEdit(QWidget *parent) :
     _minimum_dBm(-150.0),
     _maximum_dBm(150.0)
 {
-    QRegExp regex("-?(([0-9]+\\.?[0-9]*)|(\\.0*[1-9]+0*))(\\s?dBm)?", Qt::CaseInsensitive);
-    QRegExpValidator * validator = new QRegExpValidator(regex, this);
+    QRegularExpression regex("-?(([0-9]+\\.?[0-9]*)|(\\.0*[1-9]+0*))(\\s?dBm)?", QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionValidator *validator = new QRegularExpressionValidator(regex);
     setValidator(validator);
 
     connect(this, SIGNAL(returnPressed()),

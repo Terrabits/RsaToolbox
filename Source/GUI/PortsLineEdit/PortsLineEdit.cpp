@@ -2,17 +2,19 @@
 using namespace RsaToolbox;
 
 // Qt
-#include <QRegExp>
-#include <QRegExpValidator>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 
-// RsaToolbox
-#include "General.h"
+
+// std lib
+#include <algorithm>
+
 
 PortsLineEdit::PortsLineEdit(QWidget *parent) :
     QLineEdit(parent)
 {
-    QRegExp ports("^\\s*(\\d+\\s*(-\\s*\\d+)?\\s*,\\s*)*(\\s*\\d+\\s*(-\\s*\\d+)?\\s*)$");
-    setValidator(new QRegExpValidator(ports));
+    QRegularExpression ports("^\\s*(\\d+\\s*(-\\s*\\d+)?\\s*,\\s*)*(\\s*\\d+\\s*(-\\s*\\d+)?\\s*)$");
+    setValidator(new QRegularExpressionValidator(ports));
 }
 
 QVector<uint> PortsLineEdit::ports() {
@@ -22,14 +24,15 @@ QVector<uint> PortsLineEdit::ports() {
 
     QString text = this->text().simplified().remove(" ");
     QStringList words = text.split(",");
-    foreach(QString word, words)
+    foreach(QString word, words) {
         parsePortEntry(word);
+    }
     //qSort(_ports); // Why'd I remove this?
     return(_ports);
 }
 QVector<uint> PortsLineEdit::sortedPorts() {
     QVector<uint> ports = this->ports();
-    qSort(ports);
+    std::sort(ports.begin(), ports.end());
     return(ports);
 }
 

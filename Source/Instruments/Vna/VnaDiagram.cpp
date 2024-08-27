@@ -10,6 +10,10 @@ using namespace RsaToolbox;
 // Qt
 #include <QDebug>
 
+// std lib
+#include <algorithm>
+
+
 /*!
  * \class RsaToolbox::VnaDiagram
  * \ingroup VnaGroup
@@ -69,7 +73,7 @@ QVector<uint> VnaDiagram::channels() {
         if (!chans.contains(c))
             chans << c;
     }
-    qSort(chans);
+    std::sort(chans.begin(), chans.end());
     return chans;
 }
 

@@ -252,7 +252,7 @@ void VnaTrace::waveQuantity(WaveQuantity &wave, uint &wavePort, uint &sourcePort
         wave = WaveQuantity::b;
     }
     param.remove(0, 1);
-    QStringList parts = param.split("D", QString::KeepEmptyParts, Qt::CaseInsensitive);
+    QStringList parts = param.split("D", Qt::KeepEmptyParts, Qt::CaseInsensitive);
 
     wavePort = parts[0].toUInt();
 

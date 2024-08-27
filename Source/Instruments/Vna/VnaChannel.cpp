@@ -11,6 +11,10 @@ using namespace RsaToolbox;
 // Qt includes
 #include <QDebug>
 
+// std lib
+#include <algorithm>
+
+
 /*!
  * \class RsaToolbox::VnaChannel
  * \ingroup VnaGroup
@@ -460,7 +464,7 @@ QVector<uint> VnaChannel::logicalPorts(QVector<uint> testPorts) {
         if (!logicalPorts.contains(logicalPort))
             logicalPorts << logicalPort;
     }
-    qSort(logicalPorts);
+    std::sort(logicalPorts.begin(), logicalPorts.end());
     return logicalPorts;
 }
 

@@ -131,7 +131,7 @@ QDir About::licenseDir() {
     return dir;
 }
 QString About::rsLicensePath() {
-    QRegExp regexp("^.*R&S.*(\\.txt)$", Qt::CaseInsensitive);
+    static QRegularExpression regexp("^.*R&S.*(\\.txt)$", QRegularExpression::CaseInsensitiveOption);
     QDir dir = licenseDir();
     QStringList files = dir.entryList(QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
     foreach (QString file, files) {
@@ -142,7 +142,7 @@ QString About::rsLicensePath() {
     return "";
 }
 QString About::qtLicensePath() {
-    QRegExp regexp("^.*Qt.*(\\.txt)$", Qt::CaseInsensitive);
+    static QRegularExpression regexp("^.*Qt.*(\\.txt)$", QRegularExpression::CaseInsensitiveOption);
     QDir dir = licenseDir();
     QStringList files = dir.entryList(QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
     foreach (QString file, files) {
@@ -153,7 +153,7 @@ QString About::qtLicensePath() {
     return "";
 }
 QString About::msvcLicensePath() {
-    QRegExp regexp("^.*Microsoft.*(\\.txt)$", Qt::CaseInsensitive);
+    static QRegularExpression regexp("^.*Microsoft.*(\\.txt)$", QRegularExpression::CaseInsensitiveOption);
     QDir dir = licenseDir();
     QStringList files = dir.entryList(QDir::Files | QDir::NoDotAndDotDot, QDir::Name | QDir::IgnoreCase);
     foreach (QString file, files) {
@@ -164,7 +164,7 @@ QString About::msvcLicensePath() {
     return "";
 }
 QString About::quaZipLicensePath() {
-    QRegExp regexp("^.*QuaZip.*(\\.txt)$", Qt::CaseInsensitive);
+    static QRegularExpression regexp("^.*QuaZip.*(\\.txt)$", QRegularExpression::CaseInsensitiveOption);
     QDir dir = licenseDir();
     QStringList files = dir.entryList(QDir::Files | QDir::NoDotAndDotDot, QDir::Name | QDir::IgnoreCase);
     foreach (QString file, files) {
@@ -175,7 +175,7 @@ QString About::quaZipLicensePath() {
     return "";
 }
 QString About::zLibLicensePath() {
-    QRegExp regexp("^.*ZLib.*(\\.txt)$", Qt::CaseInsensitive);
+    static QRegularExpression regexp("^.*ZLib.*(\\.txt)$", QRegularExpression::CaseInsensitiveOption);
     QDir dir = licenseDir();
     QStringList files = dir.entryList(QDir::Files | QDir::NoDotAndDotDot, QDir::Name | QDir::IgnoreCase);
     foreach (QString file, files) {
@@ -186,7 +186,7 @@ QString About::zLibLicensePath() {
     return "";
 }
 QString About::qCustomPlotLicensePath() {
-    QRegExp regexp("^.*QCustomPlot.*(\\.txt)$", Qt::CaseInsensitive);
+    static QRegularExpression regexp("^.*QCustomPlot.*(\\.txt)$", QRegularExpression::CaseInsensitiveOption);
     QDir dir = licenseDir();
     QStringList files = dir.entryList(QDir::Files | QDir::NoDotAndDotDot, QDir::Name | QDir::IgnoreCase);
     foreach (QString file, files) {

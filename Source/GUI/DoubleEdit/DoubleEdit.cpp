@@ -8,9 +8,8 @@ using namespace RsaToolbox;
 // Qt
 #include <QDebug>
 #include <QKeyEvent>
-#include <QRegExp>
-#include <QRegExpValidator>
-#include <QScopedPointer>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 
 
 DoubleEdit::DoubleEdit(QWidget *parent) :
@@ -238,9 +237,9 @@ void DoubleEdit::_setValidator() {
     }
     regexStr = regexStr.arg(_unitAbbr);
 
-    QRegExp regex(regexStr, Qt::CaseInsensitive);
-    QScopedPointer<QRegExpValidator> validator(new QRegExpValidator(regex, this));
-    setValidator(validator.take());
+    QRegularExpression regex(regexStr, QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionValidator *validator = new QRegularExpressionValidator(regex, this);
+    setValidator(validator);
 }
 
 bool DoubleEdit::isNaN() const {

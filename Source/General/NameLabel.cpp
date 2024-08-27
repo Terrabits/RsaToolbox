@@ -197,7 +197,7 @@ QStringList NameLabel::displayText(QVector<NameLabel> name_labels) {
  * \return %NameLabels in \c list
  */
 QVector<NameLabel> NameLabel::parse(QString list, QString separator) {
-    QStringList splitList = list.split(separator, QString::KeepEmptyParts);
+    QStringList splitList = list.split(separator, Qt::KeepEmptyParts);
     int splitListSize = splitList.size();
     QVector<NameLabel> nameLabels;
     for (int i = 0; i < splitListSize - 1; i += 2) {

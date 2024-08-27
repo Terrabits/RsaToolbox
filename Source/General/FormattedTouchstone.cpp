@@ -11,7 +11,6 @@ using namespace RsaToolbox;
 #include <QDebug>
 
 // C++ std lib
-#include <iterator>
 #include <cmath>
 
 
@@ -120,7 +119,7 @@ bool FormattedTouchstone::ReadLine(QTextStream &snpFile, QStringList &words) {
     QString line;
     line = snpFile.readLine();
     RemoveComment(line);
-    words = line.split(QRegularExpression("\\s+"), QString::SkipEmptyParts);
+    words = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
     if (words.size() > 0)
         return(true);
     else
@@ -302,12 +301,12 @@ void FormattedTouchstone::CreateFile(QFile &file, QString filename, FormattedNet
     file.open(QFile::WriteOnly);
 }
 void FormattedTouchstone::WriteComments(FormattedNetworkData &network, QTextStream &snpFile) {
-    snpFile << "! RsaToolbox (C) 2014 Rohde & Schwarz America" << endl;
-    snpFile << "! " << endl;
-    snpFile << "! Number of points: " << network.points() << endl;
-    snpFile << "! Number of ports: " << network.numberOfPorts() << endl;
-    snpFile << "! Balanced ports?: " << "No" << endl;
-    snpFile << "! " << endl << "! " << endl;
+    snpFile << "! RsaToolbox (C) 2014 Rohde & Schwarz America" << Qt::endl;
+    snpFile << "! " << Qt::endl;
+    snpFile << "! Number of points: " << network.points() << Qt::endl;
+    snpFile << "! Number of ports: " << network.numberOfPorts() << Qt::endl;
+    snpFile << "! Balanced ports?: " << "No" << Qt::endl;
+    snpFile << "! " << Qt::endl << "! " << Qt::endl;
 }
 
 // Write Options + helpers
@@ -318,7 +317,7 @@ void FormattedTouchstone::WriteOptions(FormattedNetworkData &network, QTextStrea
     snpFile << WriteDataType(network) << " ";
     snpFile << WriteFormat(network) << " ";
     // snpFile << "R " << network.impedance << endl;
-    snpFile << "R " << 50 << endl;
+    snpFile << "R " << 50 << Qt::endl;
 }
 QString FormattedTouchstone::WriteUnits(FormattedNetworkData &network) {
     return(toString(network.xPrefix(), network.xUnits()));
@@ -360,12 +359,12 @@ void FormattedTouchstone::WriteRow(FormattedNetworkData &network, QTextStream &s
         // add delimiter
         if (columnsWritten == network.numberOfPorts()) {
             snpFile.setFieldWidth(0);
-            snpFile << endl;
+            snpFile << Qt::endl;
             snpFile.setFieldWidth(COLUMNWIDTH);
         }
         else if (columnsWritten % COLUMNSPERLINE == 0) {
             snpFile.setFieldWidth(0);
-            snpFile << endl;
+            snpFile << Qt::endl;
             snpFile.setFieldAlignment(QTextStream::AlignLeft);
             snpFile.setFieldWidth(COLUMNWIDTH);
             snpFile << " ";

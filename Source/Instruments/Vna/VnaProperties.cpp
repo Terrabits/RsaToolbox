@@ -84,7 +84,7 @@ QString VnaProperties::firmwareVersion() {
         return(idList[3].trimmed());
 }
 QStringList VnaProperties::optionsList() {
-    return(_vna->optionsString().split(',', QString::SkipEmptyParts));
+    return(_vna->optionsString().split(',', Qt::SkipEmptyParts));
 }
 
 bool VnaProperties::isZvaFamily() {

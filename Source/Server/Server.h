@@ -6,7 +6,6 @@
 #include "Parser.h"
 
 // Qt
-#include <QNetworkSession>
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QHostAddress>
@@ -23,14 +22,17 @@ public:
     Server(QObject *parent = 0);
     ~Server();
 
+    // status
     bool isRunning() const;
     bool isConnected() const;
     uint connections() const;
 
+    // address, port
     QHostAddress address() const;
     quint16 port() const;
     void setAddress(const QHostAddress &address = QHostAddress::Any, const quint16 &port = 0);
 
+    // start, stop
     void run();
     void run(const QHostAddress &address, const quint16 &port);
     void stop();
@@ -38,6 +40,7 @@ public:
     // All active IPv4 addresses on host machine:
     static QList<QHostAddress> allAddresses();
 
+    // parser
     bool isParser() const;
     Parser *parser() const;
     void setParser(Parser *parser);
@@ -48,7 +51,6 @@ signals:
     void stopped();
 
 private slots:
-    void sessionOpened();
 
     // Client
     void connectionPending();
@@ -57,25 +59,25 @@ private slots:
     void disconnected();
 
 private:
+
+    // server
     QHostAddress _address;
     quint16 _port;
-
-    QNetworkSession *_session;
     QTcpServer *_server;
 
+    // clients
     bool isCurrentClient() const;
     QTcpSocket *_currentClient;
     QList<QTcpSocket*> _clients;
 
-    bool isSessionOpen() const;
-
-    void openSession();
+    // start
     bool startServer();
 
+    // stop
     void disconnectFromClients();
-    void closeSession();
     void stopServer();
 
+    // parser
     Parser *_parser;
     void removeParser();
 };

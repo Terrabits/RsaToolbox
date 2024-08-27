@@ -132,5 +132,5 @@ QStringList VnaSwitchMatrix::defineQuery() {
     // result[1]: Driver (usually switch matrix model)
     // result[2]: Interface (LAN, USB)
     // result[3]: Address (eg "127.0.0.1");
-    return _vna->query(scpi).trimmed().remove("\'").split(",",QString::KeepEmptyParts);
+    return _vna->query(scpi).trimmed().remove("\'").split(",",Qt::KeepEmptyParts);
 }

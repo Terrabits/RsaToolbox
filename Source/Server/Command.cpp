@@ -28,7 +28,7 @@ QString Command::toString() const {
     QString str;
     QTextStream stream(&str);
 
-    stream << "Menus:" << endl;
+    stream << "Menus:" << Qt::endl;
     foreach (Menu m, menus) {
         QString s;
         if (m.isIndex) {
@@ -40,18 +40,18 @@ QString Command::toString() const {
             s = "  %1";
             s = s.arg(m.name);
         }
-        stream << s << endl;
+        stream << s << Qt::endl;
     }
     if (isQuery)
-        stream << "Query" << endl;
+        stream << "Query" << Qt::endl;
 
-    stream << "Parameters:" << endl;
+    stream << "Parameters:" << Qt::endl;
     foreach (QVariant v, parameters) {
-        stream << "  " << v.typeName() << " " << v.toString() << endl;
+        stream << "  " << v.typeName() << " " << v.toString() << Qt::endl;
     }
 
     if (!data.isEmpty()) {
-        stream << "Binary data: " << data.size() << " bytes" << endl;
+        stream << "Binary data: " << data.size() << " bytes" << Qt::endl;
     }
 
     stream.flush();

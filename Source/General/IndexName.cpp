@@ -105,7 +105,7 @@ void IndexName::operator=(const IndexName &other) {
  */
 QVector<IndexName> IndexName::parse(QString list, QString separator) {
     QVector<IndexName> result;
-    QStringList parsedList = list.split(separator, QString::KeepEmptyParts);
+    QStringList parsedList = list.split(separator, Qt::KeepEmptyParts);
     int items = parsedList.count();
     if (items < 2)
         return(result);

@@ -3,7 +3,7 @@ TEMPLATE = app
 TARGET   = UnitTest
 CONFIG  += testcase
 
-include(../../_install/rsatoolbox.pri)
+include(../../Install/rsatoolbox.pri)
 HEADERS += VnaIntermodTest.h \
            VnaPauseSweepsTest.h \
            VnaArbitraryFrequencyTest.h \

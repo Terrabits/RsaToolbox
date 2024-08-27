@@ -8,8 +8,8 @@
 using namespace RsaToolbox;
 
 // Qt
-#include <QRegExp>
-#include <QRegExpValidator>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 #include <QKeyEvent>
 #include <QDebug>
 
@@ -24,8 +24,8 @@ FrequencyEdit::FrequencyEdit(QWidget *parent) :
     _minimum_Hz(1),
     _maximum_Hz(1.0E12)
 {
-    QRegExp regex("(([0-9]+\\.?[0-9]*)|(\\.0*[1-9]+0*))(\\s?[TGMK]?Hz)?", Qt::CaseInsensitive);
-    QRegExpValidator * validator = new QRegExpValidator(regex, this);
+    QRegularExpression regex("(([0-9]+\\.?[0-9]*)|(\\.0*[1-9]+0*))(\\s?[TGMK]?Hz)?", QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionValidator *validator = new QRegularExpressionValidator(regex, this);
     setValidator(validator);
 
     connect(this, SIGNAL(returnPressed()),

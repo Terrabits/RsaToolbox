@@ -11,7 +11,6 @@ using namespace RsaToolbox;
 #include <QDebug>
 
 // C++ std lib
-#include <iterator>
 #include <cmath>
 
 
@@ -122,7 +121,7 @@ bool Touchstone::readLine(QTextStream &stream, QStringList &words) {
     QString line;
     line = stream.readLine();
     removeComment(line);
-    words = line.split(QRegularExpression("\\s+"), QString::SkipEmptyParts);
+    words = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
     if (words.size() > 0)
         return true;
     else
@@ -303,12 +302,12 @@ void Touchstone::createFile(QFile &file, QString filename, NetworkData &network)
     file.open(QFile::WriteOnly);
 }
 void Touchstone::writeComments(NetworkData &network, QTextStream &stream) {
-    stream << "! RsaToolbox (C) 2015 Rohde & Schwarz America" << endl;
-    stream << "! " << endl;
-    stream << "! Number of points: " << network.points() << endl;
-    stream << "! Number of ports: " << network.ports() << endl;
-    stream << "! Balanced ports?: " << "No" << endl;
-    stream << "! " << endl << "! " << endl;
+    stream << "! RsaToolbox (C) 2015 Rohde & Schwarz America" << Qt::endl;
+    stream << "! " << Qt::endl;
+    stream << "! Number of points: " << network.points() << Qt::endl;
+    stream << "! Number of ports: " << network.ports() << Qt::endl;
+    stream << "! Balanced ports?: " << "No" << Qt::endl;
+    stream << "! " << Qt::endl << "! " << Qt::endl;
 }
 
 // Write Options + helpers
@@ -319,7 +318,7 @@ void Touchstone::writeOptions(NetworkData &network, QTextStream &stream) {
     stream << writeDataType(network) << " ";
     stream << writeFormat(network) << " ";
     // stream << "R " << network.impedance << endl;
-    stream << "R " << 50 << endl;
+    stream << "R " << 50 << Qt::endl;
 }
 QString Touchstone::writeUnits(NetworkData &network) {
     return toString(network.xPrefix(), network.xUnits());
@@ -379,7 +378,7 @@ void Touchstone::writeRow(QTextStream &stream, ComplexRowVector &row) {
                 && column_iter != row.end()-1)
         {
             stream.setFieldWidth(0);
-            stream << endl;
+            stream << Qt::endl;
             stream.setFieldAlignment(QTextStream::AlignLeft);
             stream.setFieldWidth(COLUMNWIDTH);
             stream << " ";
@@ -389,7 +388,7 @@ void Touchstone::writeRow(QTextStream &stream, ComplexRowVector &row) {
 
     // Newline to separate frequency points:
     stream.setFieldWidth(0);
-    stream << endl;
+    stream << Qt::endl;
     stream.setFieldAlignment(QTextStream::AlignLeft);
     stream.setFieldWidth(COLUMNWIDTH);
 }

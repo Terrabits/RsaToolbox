@@ -8,6 +8,7 @@ using namespace RsaToolbox;
 
 // Qt
 #include <QFileInfo>
+#include <QRegularExpression>
 
 
 //SnpStreamWriter::SnpStreamWriter() {
@@ -45,27 +46,27 @@ bool SnpStreamWriter::setFileName(QString filePathName) {
     }
 }
 bool SnpStreamWriter::setFileName(QString filePathName, uint ports) {
-    if (ports == 0 || filePathName.size() == 0)
+    if (ports == 0 || filePathName.size() == 0) {
         return(false);
+    }
 
-    QString fileName = QFileInfo(filePathName).fileName();
-    QRegExp snp("\\.s\\d+p", Qt::CaseInsensitive);
-    int i = snp.lastIndexIn(fileName);
-    if (i != -1)
-        filePathName.chop(fileName.size() - i);
-    filePathName += QString(".s%1p").arg(ports);
+    const QString suffix = QString(".s%1p").arg(ports);
+    QFileInfo fileInfo(filePathName);
+    if (fileInfo.suffix() != suffix) {
+        filePathName += suffix;
+    }
     return(setFileName(filePathName));
 }
 bool SnpStreamWriter::rename(QString fileName) {
-    if (isClosed() || fileName.size() == 0)
+    if (isClosed() || fileName.size() == 0) {
         return(false);
+    }
 
-    fileName = QFileInfo(fileName).fileName();
-    QRegExp snp("\\.s\\d+p", Qt::CaseInsensitive);
-    int i = snp.lastIndexIn(fileName);
-    if (i != -1)
-        fileName.chop(fileName.size() - i);
-    fileName += QString(".s%1p").arg(_ports);
+    const QString suffix = QString(".s%1p").arg(_ports);
+    QFileInfo fileInfo(fileName);
+    if (fileInfo.suffix() != suffix) {
+        fileName += suffix;
+    }
     return(_file.rename(fileName));
 }
 bool SnpStreamWriter::isValidFilename() {
@@ -97,7 +98,7 @@ void SnpStreamWriter::close() {
 
 void SnpStreamWriter::writeCommentLine(QString comment) {
     _stream.reset();
-    _stream << "!" << comment << endl;
+    _stream << "!" << comment << Qt::endl;
     _setDataFormat();
 }
 bool SnpStreamWriter::writeOptions(NetworkParameter parameter, SiPrefix frequencyPrefix, ComplexFormat format, double impedance_Ohms) {
@@ -146,9 +147,9 @@ bool SnpStreamWriter::writePoint(const double &frequency, const ComplexMatrix2D 
 }
 
 void SnpStreamWriter::_setDataFormat() {
-    _stream << left
+    _stream << Qt::left
             << qSetFieldWidth(23)
-            << scientific
+            << Qt::scientific
             << qSetRealNumberPrecision(15);
 }
 void SnpStreamWriter::_writeFrequency(double frequency) {
@@ -205,7 +206,7 @@ void SnpStreamWriter::_writeLine(uint begin, uint end) {
         (this->*_writeValue)(_serialize(i));
     }
     _stream.reset();
-    _stream << endl;
+    _stream << Qt::endl;
     _setDataFormat();
 }
 void SnpStreamWriter::_writeRealImaginary(const ComplexDouble &value) {
@@ -251,24 +252,23 @@ bool SnpStreamWriter::_isNotPorts() {
 }
 
 bool SnpStreamWriter::_parsePorts(QString filePathName) {
-    QString fileName = QFileInfo(filePathName).fileName();
-    QRegExp snp("\\.s\\d+p", Qt::CaseInsensitive);
-    int i = snp.lastIndexIn(fileName);
-    if (i == -1) {
+    static QRegularExpression snp("\\.s\\d+p$", QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch match = snp.match(filePathName);
+    if (!match.hasMatch()) {
         return(false);
     }
-    else {
-        int size = fileName.size() - 1 - (i+2);
-        _ports = fileName.mid(i+2, size).toUInt();
-        _numberOfValues = pow(double(_ports), 2.0);
-        if (_ports > 0) {
-            _setFlip();
-            return(true);
-        }
-        else {
-            return(false);
-        }
+
+    // has valid suffix; parse ports
+    const QString suffix = match.captured(0);
+    _ports = suffix.mid(1).chopped(1).toUInt();
+    _numberOfValues = pow(double(_ports), 2.0);
+    if (!_ports) {
+        return false;
     }
+
+    // success
+    _setFlip();
+    return(true);
 }
 void SnpStreamWriter::_writeColumnHeaders() {
 

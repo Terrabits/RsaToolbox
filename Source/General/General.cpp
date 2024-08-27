@@ -11,6 +11,7 @@ using namespace RsaToolbox;
 #include <QCoreApplication>
 
 // C++ std lib
+#include <algorithm>
 #include <cmath>
 
 
@@ -452,10 +453,10 @@ QString RsaToolbox::formatDouble(double value, int decimalPlaces) {
     return(string);
 }
 QString RsaToolbox::toString(QStringList list, QString separator) {
-    return(toString(list.toVector(), separator));
+    return list.join(separator);
 }
 QString RsaToolbox::toString(ComplexRowVector vector, QString separator, QString format) {
-    int size = vector.size();
+    std::size_t size = vector.size();
     if (size == 0)
         return("");
 
@@ -465,7 +466,7 @@ QString RsaToolbox::toString(ComplexRowVector vector, QString separator, QString
     item = item.arg(vector[0].real());
     item = item.arg(vector[0].imag());
     list += item;
-    for (int i = 1; i < size; i++) {
+    for (std::size_t i = 1; i < size; i++) {
         list.append(separator);
         item = format;
         item = item.arg(vector[i].real());
@@ -483,7 +484,7 @@ QStringList RsaToolbox::portLabels(QVector<uint> ports) {
     return(labels);
 }
 QString RsaToolbox::portString(QVector<uint> ports) {
-    qSort(ports);
+    std::sort(ports.begin(), ports.end());
     int numberOfPorts = ports.size();
     QString result;
 
@@ -519,7 +520,7 @@ QStringList RsaToolbox::channelLabels(QVector<uint> channels) {
 QVector<uint> RsaToolbox::parseUints(QString values, QString separator, QString ignore) {
     if (ignore.isEmpty() == false)
         values.remove(ignore);
-    QStringList list = values.split(separator, QString::SkipEmptyParts);
+    QStringList list = values.split(separator, Qt::SkipEmptyParts);
     int numberOfValues = list.size();
     QVector<uint> vector(numberOfValues);
     for (int i = 0; i < numberOfValues; i++) {
@@ -530,7 +531,7 @@ QVector<uint> RsaToolbox::parseUints(QString values, QString separator, QString 
 QVector<int> RsaToolbox::parseInts(QString values, QString separator, QString ignore) {
     if (ignore.isEmpty() == false)
         values.remove(ignore);
-    QStringList list = values.split(separator, QString::SkipEmptyParts);
+    QStringList list = values.split(separator, Qt::SkipEmptyParts);
     int numberOfValues = list.size();
     QVector<int> vector(numberOfValues);
     for (int i = 0; i < numberOfValues; i++) {
@@ -541,7 +542,7 @@ QVector<int> RsaToolbox::parseInts(QString values, QString separator, QString ig
 QRowVector RsaToolbox::parseDoubles(QString values, QString separator, QString ignore) {
     if (!ignore.isEmpty())
         values.remove(ignore);
-    QStringList list = values.split(separator, QString::SkipEmptyParts);
+    QStringList list = values.split(separator, Qt::SkipEmptyParts);
     QRowVector vector(list.size());
     for (int i = 0; i < list.size(); i++) {
         vector[i] = QVariant(list[i]).toDouble();
@@ -580,9 +581,9 @@ QRowVector RsaToolbox::parseQRowVector(QString buffer) {
     return(data);
 }
 QRowVector RsaToolbox::parseQRowVector(ComplexRowVector values) {
-    int size = values.size();
+    std::size_t size = values.size();
     QRowVector result(size * 2);
-    for (int i = 0; i < size; i++) {
+    for (std::size_t i = 0; i < size; i++) {
         result[2*i] = values[i].real();
         result[2*i+1] = values[i].imag();
     }
@@ -820,7 +821,7 @@ QRowVector RsaToolbox::linearSpacing(double start, double stop, int points) {
 void RsaToolbox::linearSpacing(QRowVector &result, double start, double stop, int points) {
     RowVector std_result;
     linearSpacing(std_result, start, stop, points);
-    result = QRowVector::fromStdVector(std_result);
+    result = QRowVector(std_result.begin(), std_result.end());
 }
 void RsaToolbox::linearSpacing(RowVector &result, double start, double stop, int points) {
     result.clear();
@@ -1178,8 +1179,8 @@ ComplexRowVector RsaToolbox::linearInterpolateMagPhase(QRowVector x, ComplexRowV
 }
 
 ComplexRowVector RsaToolbox::exp(ComplexRowVector x) {
-    uint size = x.size();
-    for (uint i = 0; i < size; i++)
+    std::size_t size = x.size();
+    for (std::size_t i = 0; i < size; i++)
         x[i] = exp(x[i]);
     return(x);
 }
@@ -1212,9 +1213,9 @@ QRowVector RsaToolbox::cumulativeSum(QRowVector x) {
 }
 
 QRowVector RsaToolbox::arg(ComplexRowVector x) {
-    uint size = x.size();
+    std::size_t size = x.size();
     QRowVector result(size);
-    for (uint i = 0; i < size; i++)
+    for (std::size_t i = 0; i < size; i++)
         result[i] = arg(x[i]);
     return(result);
 }
@@ -1259,9 +1260,9 @@ QRowVector RsaToolbox::subtractPropagate(QRowVector x, int startIndex, double va
 }
 
 ComplexRowVector RsaToolbox::sqrt(ComplexRowVector x) {
-    uint size = x.size();
+    std::size_t size = x.size();
     ComplexRowVector result(size);
-    for (uint i = 0; i < size; i++)
+    for (std::size_t i = 0; i < size; i++)
         result[i] = std::sqrt(x[i]);
     return(result);
 }
@@ -1331,11 +1332,11 @@ ComplexRowVector RsaToolbox::fixPhaseAtDc(QRowVector x, ComplexRowVector y) {
     return(y);
 }
 ComplexRowVector RsaToolbox::smoothSqrt(ComplexRowVector x) {
-    uint size = x.size();
+    std::size_t size = x.size();
     ComplexRowVector result = sqrt(x);
 
     // Smooth
-    for (uint i = 1; i < size; i++) {
+    for (std::size_t i = 1; i < size; i++) {
         ComplexDouble current = result[i];
         ComplexDouble previous = result[i-1];
         double difference = arg(current*conj(previous));
@@ -1345,8 +1346,8 @@ ComplexRowVector RsaToolbox::smoothSqrt(ComplexRowVector x) {
     return(result);
 }
 ComplexRowVector RsaToolbox::smoothPhase(ComplexRowVector x) {
-    uint size = x.size();
-    for (uint i = 1; i < size; i++) {
+    std::size_t size = x.size();
+    for (std::size_t i = 1; i < size; i++) {
         ComplexDouble current = x[i];
         ComplexDouble previous = x[i-1];
         double difference = arg(current*conj(previous));
@@ -1357,29 +1358,29 @@ ComplexRowVector RsaToolbox::smoothPhase(ComplexRowVector x) {
 }
 
 ComplexRowVector RsaToolbox::conjugate(ComplexRowVector x) {
-    uint size = x.size();
+    std::size_t size = x.size();
     ComplexRowVector result(size);
-    for (uint i = 0; i < size; i++)
+    for (std::size_t i = 0; i < size; i++)
         result[i] = std::conj(x[i]);
     return(result);
 }
 
 ComplexRowVector RsaToolbox::multiply(ComplexRowVector vector, double scalar) {
-    uint size = vector.size();
+    std::size_t size = vector.size();
     ComplexRowVector result(size);
-    for (uint i = 0; i < size; i++)
+    for (std::size_t i = 0; i < size; i++)
         result[i] = vector[i] * scalar;
     return(result);
 }
 ComplexMatrix2D RsaToolbox::multiply(ComplexMatrix2D matrix, double scalar) {
-    int size = matrix.size();
-    for (int i = 0; i < size; i++)
+    std::size_t size = matrix.size();
+    for (std::size_t i = 0; i < size; i++)
         matrix[i] = multiply(matrix[i], scalar);
     return(matrix);
 }
 ComplexMatrix3D RsaToolbox::multiply(ComplexMatrix3D matrix, double scalar) {
-    int size = matrix.size();
-    for (int i = 0; i < size; i++)
+    std::size_t size = matrix.size();
+    for (std::size_t i = 0; i < size; i++)
         matrix[i] = multiply(matrix[i], scalar);
     return(matrix);
 }
@@ -1392,27 +1393,27 @@ ComplexRowVector RsaToolbox::multiply(QRowVector vector, ComplexDouble scalar) {
     return(multiply(x, scalar));
 }
 ComplexRowVector RsaToolbox::multiply(ComplexRowVector vector, ComplexDouble scalar) {
-    uint size = vector.size();
-    for (uint i = 0; i < size; i++)
+    std::size_t size = vector.size();
+    for (std::size_t i = 0; i < size; i++)
         vector[i] = vector[i] * scalar;
     return(vector);
 }
 
 RowVector RsaToolbox::multiply(RowVector vector, double scalar) {
-    const int size = vector.size();
-    for (int i = 0; i < size; i++)
+    const std::size_t size = vector.size();
+    for (std::size_t i = 0; i < size; i++)
         vector[i] = vector[i] * scalar;
     return(vector);
 }
 Matrix2D RsaToolbox::multiply(Matrix2D matrix, double scalar) {
-    const int size = matrix.size();
-    for (int i = 0; i < size; i++)
+    const std::size_t size = matrix.size();
+    for (std::size_t i = 0; i < size; i++)
         multiply(matrix[i], scalar);
     return(matrix);
 }
 Matrix3D RsaToolbox::multiply(Matrix3D matrix, double scalar) {
-    const int size = matrix.size();
-    for (int i = 0; i < size; i++)
+    const std::size_t size = matrix.size();
+    for (std::size_t i = 0; i < size; i++)
         multiply(matrix[i], scalar);
     return(matrix);
 }
@@ -1710,19 +1711,19 @@ QMatrix3D RsaToolbox::subtract(QMatrix3D matrix1, QMatrix3D matrix2) {
     return(result);
 }
 ComplexMatrix2D RsaToolbox::transpose(ComplexMatrix2D matrix) {
-    uint rows = matrix.size();
+    std::size_t rows = matrix.size();
     if (rows == 0)
         return(ComplexMatrix2D());
 
-    uint columns = matrix[0].size();
+    std::size_t columns = matrix[0].size();
     if (columns == 0)
         return(ComplexMatrix2D());
 
     ComplexMatrix2D result = matrix;
-    for (uint i = 0; i < rows; i++) {
+    for (std::size_t i = 0; i < rows; i++) {
         if (matrix[i].size() != columns)
             return(ComplexMatrix2D());
-        for (uint j = 0; j < columns; j++) {
+        for (std::size_t j = 0; j < columns; j++) {
             result[i][j] = matrix[j][i];
             result[j][i] = matrix[i][j];
         }
@@ -1768,11 +1769,11 @@ void RsaToolbox::resize(ComplexMatrix3D &matrix, uint dimension1, uint dimension
 
 ComplexRowVector RsaToolbox::serialize(const ComplexMatrix2D &matrix) {
     ComplexRowVector result;
-    uint rows = matrix.size();
-    uint columns;
-    for (uint i = 0; i < rows; i++) {
+    std::size_t rows = matrix.size();
+    std::size_t columns;
+    for (std::size_t i = 0; i < rows; i++) {
         columns = matrix[i].size();
-        for (uint j = 0; j < columns; j++) {
+        for (std::size_t j = 0; j < columns; j++) {
             result.push_back(matrix[i][j]);
         }
     }

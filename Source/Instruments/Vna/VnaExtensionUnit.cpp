@@ -1,7 +1,6 @@
 ﻿
 
 // RsaToolbox includes
-#include "General.h"
 #include "VnaExtensionUnit.h"
 #include "VnaChannel.h"
 #include "Vna.h"
@@ -59,7 +58,7 @@ QString VnaExtensionUnit::idString() {
 }
 QStringList VnaExtensionUnit::options() {
     QString scpi = ":SYST:COMM:RDEV:TEUN:OPT?\n";
-    return _vna->query(scpi).trimmed().split(",", QString::SkipEmptyParts);
+    return _vna->query(scpi).trimmed().split(",", Qt::SkipEmptyParts);
 }
 
 bool VnaExtensionUnit::isPulseModulatorOn(uint path) {

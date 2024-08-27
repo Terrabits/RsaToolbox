@@ -229,9 +229,9 @@ QString VisaBus::status() const {
 
     QString text;
     QTextStream stream(&text);
-    stream << "Bytes: " << _byteCount << endl;
-    stream << "Status: 0x" << hex << _status << dec;
-    stream << " " << QString(buffer).trimmed() << endl;
+    stream << "Bytes: " << _byteCount << Qt::endl;
+    stream << "Status: 0x" << Qt::hex << _status << Qt::dec;
+    stream << " " << QString(buffer).trimmed() << Qt::endl;
     stream.flush();
     return text;
 }

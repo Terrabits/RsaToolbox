@@ -3,8 +3,12 @@
 using namespace RsaToolbox;
 
 
-//RsaToolbox
+// RsaToolbox
 #include "General.h"
+
+
+// std lib
+#include <algorithm>
 
 
 getPortsDialog::getPortsDialog(QWidget *parent) :
@@ -69,7 +73,7 @@ void getPortsDialog::selectPort(uint port) {
                 && _ports.contains(port))
         {
             _selectedPorts.append(port);
-            qSort(_selectedPorts);
+            std::sort(_selectedPorts.begin(), _selectedPorts.end());
         }
     }
     else if (_ports.contains(port)) {
@@ -94,7 +98,7 @@ void getPortsDialog::selectPorts(QVector<uint> ports) {
     if (selectedPorts.isEmpty())
         return;
 
-    qSort(selectedPorts);
+    std::sort(selectedPorts.begin(), selectedPorts.end());
     _isPortsSelected = true;
     _selectedPorts = selectedPorts;
 }
@@ -144,7 +148,7 @@ void getPortsDialog::clearSelection() {
 void getPortsDialog::_displayPorts() {
     ui->selectAllCheckbox->setChecked(false);
 
-    qSort(_ports);
+    std::sort(_ports.begin(), _ports.end());
     ui->portsList->clear();
     ui->portsList->addItems(portLabels(_ports));
 }
@@ -196,7 +200,7 @@ void getPortsDialog::_validateSelection() {
     }
     else {
         _isPortsSelected = true;
-        qSort(_selectedPorts);
+        std::sort(_selectedPorts.begin(), _selectedPorts.end());
     }
 }
 

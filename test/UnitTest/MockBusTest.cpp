@@ -18,9 +18,9 @@ void MockBusTest::read_data() {
     QTest::addColumn<QVariantList>("reads");
 
     QVariantList reads;
-    reads << "one";
-    reads << "two";
-    reads << "three";
+    reads << QByteArray("one");
+    reads << QByteArray("two");
+    reads << QByteArray("three");
     QTest::newRow("three strings") << reads;
 }
 void MockBusTest::read() {
@@ -29,8 +29,9 @@ void MockBusTest::read() {
     bus.setReads(reads);
 
     QVariantList result;
-    for (int i = 0; i < reads.size(); i++)
+    for (int i = 0; i < reads.size(); i++) {
         result << QVariant(bus.binaryRead());
+    }
 
     QCOMPARE(result, reads);
 }
@@ -39,9 +40,9 @@ void MockBusTest::write_data() {
     QTest::addColumn<QVariantList>("writes");
 
     QVariantList writes;
-    writes << "one";
-    writes << "two";
-    writes << "three";
+    writes << QByteArray("one");
+    writes << QByteArray("two");
+    writes << QByteArray("three");
     QTest::newRow("three strings") << writes;
 }
 void MockBusTest::write() {

@@ -54,7 +54,7 @@ bool NoBus::remote() {
 QString NoBus::status() const {
     QString text;
     QTextStream stream(&text);
-    stream << "Status:   Not connected!" << endl;
+    stream << "Status:   Not connected!" << Qt::endl;
     stream.flush();
     return text;
 }

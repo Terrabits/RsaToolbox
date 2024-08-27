@@ -11,7 +11,7 @@ using namespace RsaToolbox;
 #include <QVector>
 
 
-void main()
+int main()
 {
 
     QDir src(SOURCE_DIR);
@@ -19,7 +19,7 @@ void main()
 
     Vna vna(ConnectionType::VisaTcpConnection, "127.0.0.1");
     vna.startLog(logFile, "Application", "1.0");
-    vna.printInfo();
+    // vna.printInfo();
 
     // Get VNA info
     vna.isRohdeSchwarz();
@@ -58,4 +58,5 @@ void main()
     // and clear them.
     vna.isError();
     vna.clearStatus();
+    return 0;
 }

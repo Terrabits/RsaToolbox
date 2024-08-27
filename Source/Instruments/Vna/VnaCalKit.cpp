@@ -473,7 +473,7 @@ QStringList VnaCalKit::standardsList() {
     QString scpi = ":CORR:CKIT:STAN:LCAT? \'%1\',\'%2\'\n";
     scpi = scpi.arg(_nameLabel.name());
     scpi = scpi.arg(_nameLabel.label());
-    return _vna->query(scpi, 2000).trimmed().remove("\'").split(",", QString::SkipEmptyParts);
+    return _vna->query(scpi, 2000).trimmed().remove("\'").split(",", Qt::SkipEmptyParts);
 }
 QVector<VnaCalStandard> VnaCalKit::standardsSummary() {
     Connector type = connectorType();

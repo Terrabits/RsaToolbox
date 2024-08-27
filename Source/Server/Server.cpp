@@ -1,60 +1,29 @@
 #include "Server.h"
-
-
-// RsaToolbox
 using namespace RsaToolbox;
 
 // Qt
 #include <QtWidgets>
 #include <QtNetwork>
 
-// C++ Std Lib
-//#include <stdlib.h>
-
 
 Server::Server(QObject *parent) :
     QObject(parent),
-    _session(0),
     _server(0),
     _currentClient(0),
     _parser(0)
 { }
+
+
 Server::~Server() {
     stop();
 }
+
 
 bool Server::isCurrentClient() const {
     return _currentClient != NULL;
 }
 
-bool Server::isSessionOpen() const {
-    return _session != NULL && _session->isOpen();
-}
-void Server::openSession() {
-    qDebug() << "Opening session";
-    QNetworkConfigurationManager manager;
-    if (manager.capabilities() & QNetworkConfigurationManager::NetworkSessionRequired) {
-        QNetworkConfiguration config = manager.defaultConfiguration();
-        if (!config.isValid()) {
-            qDebug() << "Could not get network configuration";
-            return;
-        }
 
-        _session = new QNetworkSession(config, this);
-        connect(_session, SIGNAL(opened()), this, SLOT(sessionOpened()));
-        _session->open();
-    }
-    else {
-        sessionOpened();
-    }
-}
-
-void Server::sessionOpened()
-{
-    if (isSessionOpen())
-        disconnect(_session, SIGNAL(opened()), this, SLOT(sessionOpened()));
-    startServer();
-}
 bool Server::startServer() {
     qDebug() << "Starting server";
     _server = new QTcpServer(this);
@@ -89,14 +58,8 @@ void Server::disconnectFromClients() {
         client->deleteLater();
     }
 }
-void Server::closeSession() {
-    if (isSessionOpen()) {
-        qDebug() << "Closing session";
-        _session->close();
-        _session->deleteLater();
-        _session = NULL;
-    }
-}
+
+
 void Server::stopServer() {
     if (isRunning()) {
         qDebug() << "Stopping server";
@@ -106,6 +69,7 @@ void Server::stopServer() {
         emit stopped();
     }
 }
+
 
 void Server::removeParser() {
     if (!isParser())
@@ -117,6 +81,7 @@ void Server::removeParser() {
     _parser = NULL;
 }
 
+
 QHostAddress Server::address() const {
     if (isRunning())
         return _server->serverAddress();
@@ -124,12 +89,15 @@ QHostAddress Server::address() const {
         return _address;
 }
 
+
 quint16 Server::port() const {
     if (isRunning())
         return _server->serverPort();
     else
         return _port;
 }
+
+
 void Server::setAddress(const QHostAddress &address, const quint16 &port) {
     if (isRunning())
         return;
@@ -138,6 +106,7 @@ void Server::setAddress(const QHostAddress &address, const quint16 &port) {
     _address = address;
     _port = port;
 }
+
 
 QList<QHostAddress> Server::allAddresses() {
     QList<QHostAddress> iPv4;
@@ -153,45 +122,59 @@ QList<QHostAddress> Server::allAddresses() {
     return iPv4;
 }
 
+
 bool Server::isRunning() const {
     return _server != NULL && _server->isListening();
 }
+
+
 bool Server::isConnected() const {
     return !_clients.isEmpty();
 }
+
+
 uint Server::connections() const {
     return _clients.size();
 }
 
-void Server::run() {
-    if (isRunning())
-        return;
 
-    openSession();
-}
-void Server::run(const QHostAddress &address, const quint16 &port) {
-    if (isRunning())
+void Server::run() {
+    if (isRunning()) {
         return;
+    }
+
+    startServer();
+}
+
+
+void Server::run(const QHostAddress &address, const quint16 &port) {
+    if (isRunning()) {
+        return;
+    }
 
     setAddress(address, port);
-    openSession();
+    startServer();
 }
 void Server::stop() {
-    if (isRunning()) {
-        disconnectFromClients();
-
-        stopServer();
-        closeSession();
-        emit stopped();
+    if (!isRunning()) {
+      return;
     }
+
+    disconnectFromClients();
+    stopServer();
+    emit stopped();
 }
 
 bool Server::isParser() const {
     return _parser != NULL;
 }
+
+
 Parser *Server::parser() const {
     return _parser;
 }
+
+
 void Server::setParser(Parser *parser) {
     if (isParser()) {
         removeParser();
@@ -224,6 +207,8 @@ void Server::connectionPending() {
         emit connected();
     }
 }
+
+
 void Server::read() {
     QTcpSocket *client = qobject_cast<QTcpSocket*>(QObject::sender());
     if (client == NULL)
@@ -235,12 +220,16 @@ void Server::read() {
     if (isParser())
         _parser->read(data);
 }
+
+
 void Server::write(QByteArray data) {
     if (isCurrentClient()) {
         qDebug() << "Writing to " << _currentClient->peerAddress().toString() << _currentClient->peerPort();
         _currentClient->write(data);
     }
 }
+
+
 
 void Server::disconnected() {
     QTcpSocket *client = qobject_cast<QTcpSocket*>(QObject::sender());

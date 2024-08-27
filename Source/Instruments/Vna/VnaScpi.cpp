@@ -975,10 +975,10 @@ QString VnaScpi::toPortPair(uint outputPort, uint inputPort) {
 
     int diff = out.size() - in.size();
     if (diff > 0) {
-        in.prepend(QString('0', diff));
+        in.prepend(QString(diff, QChar('0')));
     }
     else if (diff < 0) {
-        out.prepend(QString('0', -diff));
+        out.prepend(QString(-diff, QChar('0')));
     }
     return out + in;
 }

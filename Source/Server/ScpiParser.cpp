@@ -6,7 +6,7 @@
 using namespace RsaToolbox;
 
 // Qt
-#include <QRegExpValidator>
+#include <QRegularExpressionValidator>
 
 
 /*!
@@ -117,8 +117,8 @@ void ScpiParser::parse() {
     // partially valid
     int pos = 0;
     QString bufferStr(_buffer);
-    QRegExp regex("^(:?(?:[:*]?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*)\\??)(?:[ \\t]*)(?:(?:[ \\t]+)(?:(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*))(?:(?:,)(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)))*))?(?:[\\n;]+)", Qt::CaseInsensitive);
-    QRegExpValidator validator(regex);
+     QRegularExpression regex("^(:?(?:[:*]?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*)\\??)(?:[ \\t]*)(?:(?:[ \\t]+)(?:(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*))(?:(?:,)(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)))*))?(?:[\\n;]+)", QRegularExpression::CaseInsensitiveOption);
+     QRegularExpressionValidator validator(regex);
     if (validator.validate(bufferStr, pos) == QValidator::Invalid) {
         pos = 0;
         int start = 1;
@@ -137,7 +137,7 @@ void ScpiParser::parse() {
 }
 
 bool ScpiParser::isInitiatingBinaryDataTransfer() const {
-    QRegExp regex("^(?:(?::?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*))(?:[ \\t]+)(?:(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)),)*(?:[ \\t]*#)", Qt::CaseInsensitive);
+     QRegularExpression regex("^(?:(?::?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*))(?:[ \\t]+)(?:(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)),)*(?:[ \\t]*#)", QRegularExpression::CaseInsensitiveOption);
     if (QString(_buffer).contains(regex))
         return true;
     else
@@ -150,16 +150,17 @@ void ScpiParser::startBinaryDataTransfer() {
 
     // Take everything, up to
     // and including the '#'
-    QRegExp regex("^(?:(?::?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*))(?:[ \\t]+)(?:(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)),)*(?:[ \\t]*#)", Qt::CaseInsensitive);
-    regex.indexIn(QString(_buffer));
-    QString str = regex.cap();
+    static QRegularExpression regex("^(?:(?::?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*))(?:[ \\t]+)(?:(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)),)*(?:[ \\t]*#)", QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch match = regex.match(QString(_buffer));
+    QString str = match.captured(0);
     _buffer.remove(0, str.size());
 
     // Remove '#', trailing ','
     str.chop(1);
     str = str.trimmed();
-    if (str.endsWith(','))
+    if (str.endsWith(',')) {
         str.chop(1);
+    }
 
     _command = getCommand(str);
 }
@@ -228,20 +229,23 @@ void ScpiParser::endBinaryDataTransfer() {
 }
 
 bool ScpiParser::isScpiCommand() const {
-    QRegExp regex("^(:?(?:[:*]?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*)\\??)(?:[ \\t]*)(?:(?:[ \\t]+)(?:(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*))(?:(?:,)(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)))*))?(?:[\\n;]+)", Qt::CaseInsensitive);
-    if (QString(_buffer).contains(regex))
+    static QRegularExpression regex("^(:?(?:[:*]?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*)\\??)(?:[ \\t]*)(?:(?:[ \\t]+)(?:(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*))(?:(?:,)(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)))*))?(?:[\\n;]+)", QRegularExpression::CaseInsensitiveOption);
+    if (QString(_buffer).contains(regex)) {
         return true;
-    else
+    }
+    else {
         return false;
+    }
 }
 void ScpiParser::parseScpiCommand() {
-    QRegExp regex("^(:?(?:[:*]?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*)\\??)(?:[ \\t]*)(?:(?:[ \\t]+)(?:(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*))(?:(?:,)(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)))*))?(?:[\\n;]+)", Qt::CaseInsensitive);
-    regex.indexIn(_buffer);
-    QString str = regex.cap();
+    static QRegularExpression regex("^(:?(?:[:*]?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*)\\??)(?:[ \\t]*)(?:(?:[ \\t]+)(?:(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*))(?:(?:,)(?:(?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)))*))?(?:[\\n;]+)", QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch match = regex.match(QString(_buffer));
+    QString str = match.captured(0);
     _buffer.remove(0, str.size());
 
-    while (str.endsWith('\n') || str.endsWith(';'))
+    while (str.endsWith('\n') || str.endsWith(';')) {
         str.chop(1);
+    }
 
     _command = getCommand(str);
     emit receivedCommand(_command);
@@ -254,23 +258,24 @@ Command ScpiParser::getCommand(QString str) {
     return cmd;
 }
 void ScpiParser::getMenus(QString &str, Command &cmd) {
-    QRegExp menuRegex("^(?:[:*]?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*)\\??", Qt::CaseInsensitive);
-    menuRegex.indexIn(str);
-    QString capture = menuRegex.cap();
+    static QRegularExpression menuRegex("^(?:[:*]?)(?:[a-z]+\\d*(?::[a-z]+\\d*)*)\\??", QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch match = menuRegex.match(str);
+    QString capture = match.captured(0);
     str.remove(0, capture.size());
 
-    if (capture.contains('?'))
+    if (capture.contains('?')) {
         cmd.isQuery = true;
+    }
 
     Menus menus;
-    QStringList list = capture.split(':', QString::SkipEmptyParts);
+    QStringList list = capture.split(':', Qt::SkipEmptyParts);
     foreach (QString m, list) {
         Menu menu;
-        QRegExp menuPartsRegex("([a-z]+)(\\d*)(\\??)", Qt::CaseInsensitive);
-        menuPartsRegex.indexIn(m);
-        menu.name = menuPartsRegex.cap(1);
-        if (!menuPartsRegex.cap(2).isEmpty()) {
-            menu.setIndex(menuPartsRegex.cap(2).toUInt());
+        static QRegularExpression menuPartsRegex("([a-z]+)(\\d*)(\\??)", QRegularExpression::CaseInsensitiveOption);
+        match = menuPartsRegex.match(m);
+        menu.name = match.captured(1);
+        if (!match.captured(2).isEmpty()) {
+            menu.setIndex(match.captured(2).toUInt());
         }
         menus << menu;
     }
@@ -284,24 +289,25 @@ void ScpiParser::getParameters(QString &str, Command &cmd) {
 }
 
 bool ScpiParser::isParameter(const QString &str) {
-    QRegExp nextParameter("^(((?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)))(?:,?)", Qt::CaseInsensitive);
-    return nextParameter.indexIn(str) != -1;
+    static QRegularExpression nextParameter("^(((?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)))(?:,?)", QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch match = nextParameter.match(str);
+    return match.hasMatch();
 }
 QVariant ScpiParser::getParameter(QString &str) {
-    QRegExp nextParameter("^(((?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)))(?:,?)", Qt::CaseInsensitive);
-    nextParameter.indexIn(str);
-    QString param = nextParameter.cap(1).trimmed();
-    str.remove(0, nextParameter.cap(0).size());
+    static QRegularExpression nextParameter("^(((?:[ \\t]*)(?:(?:\"[^\"\\0]*\")|(?:\'[^\'\\0]*\')|(?:(?:-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:[fpumkMGT](?:Hz|s|dB|deg|rad)?)))?)|(?:[^#\\s,\"\'\\0]+))(?:[ \\t]*)))(?:,?)", QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch match = nextParameter.match(str);
+    QString param = match.captured(1).trimmed();
+    str.remove(0, match.captured(0).size());
 
-    QRegExp doubleQuotes("^\"[^\"\\0]*\"$", Qt::CaseInsensitive);
-    QRegExp singleQuotes("^\'[^\'\\0]*\'$", Qt::CaseInsensitive);
-    QRegExp unsignedInt("^\\d+$", Qt::CaseInsensitive);
-    QRegExp integer("^-?\\d+$", Qt::CaseInsensitive);
-    QRegExp floatR("^-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?$", Qt::CaseInsensitive);
-    QRegExp floatWithUnits("^(-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:(([fpumkMGT]))(?:Hz|s|dB|deg|rad)?)))?$", Qt::CaseInsensitive);
+    static QRegularExpression doubleQuotes("^\"[^\"\\0]*\"$", QRegularExpression::CaseInsensitiveOption);
+    static QRegularExpression singleQuotes("^\'[^\'\\0]*\'$", QRegularExpression::CaseInsensitiveOption);
+    static QRegularExpression unsignedInt("^\\d+$", QRegularExpression::CaseInsensitiveOption);
+    static QRegularExpression integer("^-?\\d+$", QRegularExpression::CaseInsensitiveOption);
+    static QRegularExpression floatR("^-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?$", QRegularExpression::CaseInsensitiveOption);
+    static QRegularExpression floatWithUnits("^(-?\\d+(?:\\.\\d*)?(?:E-?\\d+)?)(?:(?:[ \\t]*)(?:(?:(([fpumkMGT]))(?:Hz|s|dB|deg|rad)?)))?$", QRegularExpression::CaseInsensitiveOption);
 
     // Word is the default?
-//    QRegExp word("^$", Qt::CaseInsensitive); // default?
+//     QRegularExpression word("^$", QRegularExpression::CaseInsensitiveOption); // default?
 
     if (param.contains(doubleQuotes))
         return param.remove('\"');
@@ -314,9 +320,9 @@ QVariant ScpiParser::getParameter(QString &str) {
     if (param.contains(floatR))
         return param.toDouble();
     if (param.contains(floatWithUnits)) {
-        floatWithUnits.indexIn(param);
-        double f = floatWithUnits.cap(1).toDouble();
-        char prefix = floatWithUnits.cap(2).at(0).toLatin1();
+        match = floatWithUnits.match(param);
+        double f    = match.captured(1).toDouble();
+        char prefix = match.captured(2).at(0).toLatin1();
         return f * toDouble(toSiPrefix(prefix));
     }
 

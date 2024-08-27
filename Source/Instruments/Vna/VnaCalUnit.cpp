@@ -101,7 +101,7 @@ QVector<uint> VnaCalUnit::connectedToPorts() {
     const uint buffer_B = 500;
     const uint timeout_ms = 20000; // 20 seconds. Auto-detect is slow.
     QString scpi = "SENS:CORR:COLL:AUTO:PORT:CONN?\n";
-    QStringList response = _vna->query(scpi, buffer_B, timeout_ms).trimmed().split(",", QString::SkipEmptyParts);
+    QStringList response = _vna->query(scpi, buffer_B, timeout_ms).trimmed().split(",", Qt::SkipEmptyParts);
     QVector<uint> ports;
     for (int i = 0; i+1 < response.size(); i+=2) {
         const uint unitPort = response[i+1].toUInt();
@@ -171,7 +171,7 @@ QVector<uint> VnaCalUnit::portsOfType(QString calName, Connector connector) {
 QStringList VnaCalUnit::calibrations() {
     select();
     QString scpi = ":SYST:COMM:RDEV:AKAL:CKIT:CAT?\n";
-    return _vna->query(scpi).trimmed().remove('\'').split(",", QString::SkipEmptyParts);
+    return _vna->query(scpi).trimmed().remove('\'').split(",", Qt::SkipEmptyParts);
 }
 void VnaCalUnit::frequencyRange(QString calName, double &min_Hz, double &max_Hz) {
     QString scpi = ":SYST:COMM:RDEV:AKAL:FRAN? \'%1\'\n";

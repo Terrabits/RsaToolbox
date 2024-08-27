@@ -177,35 +177,35 @@ Options:          ZNB-K2
 QString Vna::info() {
     QString info;
     QTextStream stream(&info);
-    stream << "VNA INSTRUMENT INFO" << endl;
+    stream << "VNA INSTRUMENT INFO" << Qt::endl;
     if (isOpen()) {
         if (_properties.isKnownModel()) {
-            stream << "Connection:       " << toString(connectionType()) << endl;
-            stream << "Address:          " << address() << endl;
-            stream << "Make:             Rohde & Schwarz" << endl;
-            stream << "Model:            " << toString(_properties.model()) << endl;
-            stream << "Serial No:        " << _properties.serialNumber() << endl;
-            stream << "Firmware Version: " << _properties.firmwareVersion() << endl;
-            stream << "Min Frequency:    " << formatValue(_properties.minimumFrequency_Hz(), 1, Units::Hertz) << endl;
-            stream << "Max Frequency:    " << formatValue(_properties.maximumFrequency_Hz(), 1, Units::Hertz) << endl;
-            stream << "Number of Ports:  " << _properties.physicalPorts() << endl;
+            stream << "Connection:       " << toString(connectionType()) << Qt::endl;
+            stream << "Address:          " << address() << Qt::endl;
+            stream << "Make:             Rohde & Schwarz" << Qt::endl;
+            stream << "Model:            " << toString(_properties.model()) << Qt::endl;
+            stream << "Serial No:        " << _properties.serialNumber() << Qt::endl;
+            stream << "Firmware Version: " << _properties.firmwareVersion() << Qt::endl;
+            stream << "Min Frequency:    " << formatValue(_properties.minimumFrequency_Hz(), 1, Units::Hertz) << Qt::endl;
+            stream << "Max Frequency:    " << formatValue(_properties.maximumFrequency_Hz(), 1, Units::Hertz) << Qt::endl;
+            stream << "Number of Ports:  " << _properties.physicalPorts() << Qt::endl;
             if (!optionsString().isEmpty()) {
                 stream << "Options:          ";
                 stream << toString(_properties.optionsList(), "\n                  ");
-                stream << endl;
+                stream << Qt::endl;
             }
         }
         else {
-            stream << "Make: Unknown" << endl;
-            stream << "*IDN?\n  " << idString() << endl << endl << endl;
+            stream << "Make: Unknown" << Qt::endl;
+            stream << "*IDN?\n  " << idString() << Qt::endl << Qt::endl << Qt::endl;
         }
     }
     else {
-        stream << "Instrument not found" << endl;
-        stream << "Connection:       " << toString(connectionType()) << endl;
-        stream << "Address:          " << address() << endl << endl << endl;
+        stream << "Instrument not found" << Qt::endl;
+        stream << "Connection:       " << toString(connectionType()) << Qt::endl;
+        stream << "Address:          " << address() << Qt::endl << Qt::endl << Qt::endl;
     }
-    stream << endl << endl;
+    stream << Qt::endl << Qt::endl;
     stream.flush();
     return info;
 }
@@ -407,7 +407,7 @@ bool Vna::errors(QStringList &messages) {
 
 QStringList Vna::sets() {
     QString scpi = ":MEM:CAT?\n";
-    return query(":MEM:CAT?\n").trimmed().remove('\'').split(',', QString::SkipEmptyParts);
+    return query(":MEM:CAT?\n").trimmed().remove('\'').split(',', Qt::SkipEmptyParts);
 }
 QString Vna::activeSet() {
     QStringList setList = sets();
@@ -2033,7 +2033,7 @@ bool Vna::isCalUnit(QString id) {
  */
 QStringList Vna::calUnits() {
     QString scpi = ":SYST:COMM:RDEV:AKAL:ADDR:ALL?\n";
-    return query(scpi).trimmed().remove("\'").split(",", QString::SkipEmptyParts);
+    return query(scpi).trimmed().remove("\'").split(",", Qt::SkipEmptyParts);
 }
 
 /*!

@@ -8,7 +8,11 @@
 using namespace RsaToolbox;
 
 // Qt includes
-// #include <Qt>
+#include <Qt>
+
+// std lib
+#include <algorithm>
+
 
 /*!
  * \class RsaToolbox::VnaLinearSweep
@@ -193,7 +197,7 @@ void VnaLinearSweep::setSParameterGroup(QVector<uint> ports) {
 
     clearSParameterGroup();
 
-    qSort(ports);
+    std::sort(ports.begin(), ports.end());
     QString group = toString(ports, ",");
     QString scpi = ":CALC%1:PAR:DEF:SGR %2\n";
     scpi = scpi.arg(_channelIndex);

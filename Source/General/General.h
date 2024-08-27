@@ -101,7 +101,7 @@ ComplexRowVector parseComplex(QRowVector values);
 QRowVector parseQRowVector(QString buffer);
 QRowVector parseQRowVector(ComplexRowVector values);
 template <class T1, class T2>
-QMap<T1, T2> parseMap(QString values, QString separator, QString ignore = "", QString::SplitBehavior splitBehavior = QString::KeepEmptyParts) {
+QMap<T1, T2> parseMap(QString values, QString separator, QString ignore = "", Qt::SplitBehavior splitBehavior = Qt::KeepEmptyParts) {
     QMap<T1, T2> map;
     if (!ignore.isEmpty())
         values = values.remove(ignore);

@@ -7,7 +7,7 @@ using namespace RsaToolbox;
 
 //Qt
 #include <QFileInfo>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QDebug>
 
 
@@ -172,7 +172,7 @@ QStringList SnpStreamReader::_readLine() {
     QString line = _stream.readLine();
     line = _removeComment(line);
     line = line.simplified();
-    result = line.split(" ", QString::SkipEmptyParts);
+    result = line.split(" ", Qt::SkipEmptyParts);
     if (result.isEmpty())
         return(_readLine());
     else
@@ -191,7 +191,7 @@ void SnpStreamReader::_parsePorts() {
         return;
 
     QString filename = _file.fileName();
-    QRegExp snpFileRegex("^.*\\.s0*[1-9][0-9]*p$", Qt::CaseInsensitive);
+    QRegularExpression snpFileRegex("^.*\\.s0*[1-9][0-9]*p$", QRegularExpression::CaseInsensitiveOption);
     if (filename.contains(snpFileRegex)) {
         // Read number of ports
         int dot = filename.lastIndexOf(".");

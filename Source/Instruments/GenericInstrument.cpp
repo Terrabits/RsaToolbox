@@ -123,20 +123,20 @@ void GenericInstrument::printInfo() {
 QString GenericInstrument::info() {
     QString info;
     QTextStream stream(&info);
-    stream << "INSTRUMENT INFO" << endl;
-    stream << "Connection: " << toString(_bus->connectionType()) << endl;
-    stream << "Address:    " << _bus->address() << endl;
+    stream << "INSTRUMENT INFO" << Qt::endl;
+    stream << "Connection: " << toString(_bus->connectionType()) << Qt::endl;
+    stream << "Address:    " << _bus->address() << Qt::endl;
     if (isOpen()) {
         if (isRohdeSchwarz())
-            stream << "Make:       Rohde & Schwarz" << endl;
+            stream << "Make:       Rohde & Schwarz" << Qt::endl;
         else
-            stream << "Make:       Unknown" << endl;
-        stream << "Id string:  " << idString() << endl;
+            stream << "Make:       Unknown" << Qt::endl;
+        stream << "Id string:  " << idString() << Qt::endl;
     }
     else {
-        stream << "Error:      Instrument not found!" << endl;
+        stream << "Error:      Instrument not found!" << Qt::endl;
     }
-    stream << endl << endl;
+    stream << Qt::endl << Qt::endl;
     stream.flush();
     return info;
 }

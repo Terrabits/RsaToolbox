@@ -61,7 +61,7 @@ void UnitsTest::prefix() {
 
     QCOMPARE(toDouble(prefix),   value);
     QCOMPARE(toString(prefix),   string);
-    QCOMPARE(toSiPrefix(string), prefix);
+    QCOMPARE(int(toSiPrefix(string)), int(prefix));
 }
 
 void UnitsTest::formatValue_data() {
